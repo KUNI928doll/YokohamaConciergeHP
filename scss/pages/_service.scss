@@ -1,0 +1,406 @@
+@charset "UTF-8";
+@use "../abstracts" as *;
+
+// service
+.service {
+  position: relative;
+  padding: 57px;
+  background: #fff;
+  z-index: 1;
+  overflow: hidden;
+  width: 100%;
+
+  @include mq($until: sp-large) {
+    padding: 40px 0;
+  }
+
+  &__inner {
+    position: relative;
+    max-width: 1080px;
+    margin-inline: auto;
+    padding-inline: 25px;
+  }
+
+  &__heading {
+    text-align: left;
+    margin-bottom: clamp(30px, 5vw, 60px);
+
+    @include mq($until: sp-large) {
+      margin-bottom: 0px;
+    }
+  }
+
+  &__lead {
+    text-align: left;
+    font-size: clamp(14px, 1.4vw, 18px);
+    line-height: 2;
+    margin-bottom: 33px;
+    margin-top: 48px;
+    color: var(--color-main);
+
+  }
+
+  &__area {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 43px;
+    padding: 16px 0;
+    border-top: 1px solid #0D3D90;
+    border-bottom: 1px solid #0D3D90;
+    position: relative;
+
+    @include mq($until: sp-large) {
+      flex-direction: column; // 横並び→縦並び
+      align-items: center;
+      gap: 16px;
+      padding: 20px 0;
+    }
+
+    &-head {
+      flex-shrink: 0;
+    }
+
+    &-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      background: #EFF3F4;
+      border-radius: 50%;
+      color: #0D3D90;
+      font-weight: 700;
+      font-size: 1.4rem; // 14px (1rem=10px基準)
+      line-height: 1.4;
+      text-align: center;
+
+      @include mq($until: sp-large) {
+        width: 64px;
+        height: 64px;
+        font-size: 1.2rem; // 12px (1rem=10px基準)
+      }
+    }
+
+    &-list {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px 60px;
+      color: #0D3D90;
+      font-size: clamp(14px, 1.4vw, 16px);
+      line-height: 1.6;
+
+      @include mq($until: sp-large) {
+        justify-content: center;
+        text-align: center;
+        gap: 8px 20px;
+      }
+
+      li {
+        position: relative;
+        padding-left: 1em;
+
+        @include mq($until: sp-large) {
+          padding-left: 0;
+        }
+
+        &::before {
+          content: "●";
+          position: absolute;
+          left: 0;
+          top: 0;
+          color: #0D3D90;
+          font-size: 0.8em;
+
+          @include mq($until: sp-large) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ===========================================
+   サービス紹介ページ専用 吹き出し位置調整
+   =========================================== */
+.section--service {
+  position: relative; // 念のため親要素に基準を
+  z-index: 2;
+
+  .speech-wrapper {
+    position: absolute;
+    left: 80%; // ← 左右位置
+    top: -9%;
+    transform: none; // ← 中央寄せが入ってたら打ち消す
+    z-index: 2;
+
+    @include mq($until: sp-large) {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: none;
+      margin: 0 auto;
+      width: 90%;
+    }
+  }
+
+  .character {
+    position: absolute;
+    right: 5%;
+    width: clamp(180px, 22vw, 275px);
+    transition: all 0.4s ease; // 
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    @include mq($until: mid-pc) {
+      right: 35%;
+      width: clamp(160px, 26vw, 230px);
+    }
+
+    @include mq($until: sp-large) {
+      position: relative; // ← 絶対配置解除（スマホでは下に来る）
+      right: auto;
+      margin-left: auto; // ← 右寄せの代わり
+      margin-right: 5%; // ← 少し右端に寄せる
+      width: clamp(140px, 50vw, 180px); // ← スマホでさらに小さく
+    }
+  }
+
+  .speech-bubble-imgwrap--service {
+    position: relative;
+    width: 260px;
+    left: -45%;
+
+    @include mq($until: sp-large) {
+      left: 0;
+      width: 100%;
+      max-width: 260px;
+      margin: 0 auto;
+    }
+  }
+
+  .speech-bubble-text--service {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 65%;
+
+    @include mq($until: sp-large) {
+      width: 55%;
+      font-size: 1.2rem; // 12px (1rem=10px基準)
+      line-height: 1.6;
+      left: 39%;
+    }
+  }
+}
+
+// service-detail
+.service-detail {
+  background: #fff;
+
+  &__inner {
+    width: min(95%, 1080px);
+    margin: 0 auto;
+    padding-inline: 20px;
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: clamp(20px, 4vw, 40px);
+    align-items: stretch;
+  }
+
+  &__card {
+    display: flex; // ← 中身を縦方向に並べる
+    flex-direction: column; // ← タイトル〜ボタンを縦並びに
+    justify-content: space-between; // ← ボタンが下に固定される
+    height: 100%;
+    position: relative;
+    background: #EFF3F4;
+    border-radius: 16px 16px 60px 16px; // ✅右下だけ大きく丸める
+    padding: 31px 43px 43px 36px;
+
+    text-align: center;
+    transition: 0.3s;
+
+    &:hover {
+      transform: translateY(-4px);
+    }
+
+    // 💡 右下の「くり抜き風」の疑似要素
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 60px; // くり抜きの直径
+      height: 60px;
+      background: #fff; // 背景色で“くり抜き”に見せる
+      border-top-left-radius: 60px; // 丸くくり抜く
+      z-index: 1;
+    }
+  }
+
+  &__corner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    background: #4096CC;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+    border-top-left-radius: 12px;
+    /* ←角を丸く */
+  }
+
+  &__icon img {
+    width: 120px;
+    margin: 24px auto 16px;
+  }
+
+  &__title {
+    font-size: clamp(18px, 2vw, 21px);
+    font-weight: 500;
+    color: var(--color-main, #0D3D90);
+    margin-bottom: 16px;
+  }
+
+  &__text {
+    font-size: clamp(14px, 1.8vw, 16px);
+    line-height: 1.8;
+    color: var(--color-main);
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0 0 0 16px;
+    margin: 0;
+    font-size: clamp(14px, 1.8vw, 16px);
+    color: #333;
+    text-align: left;
+    border-left: 2px solid var(--color-main, #0D3D90);
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translate(20%, 20%); // 少し外にはみ出す位置
+    z-index: 2;
+  }
+
+  &__arrow-btn {
+    width: 48px;
+    height: 48px;
+    background: #4096CC;
+    border-radius: 50%;
+    position: relative;
+    display: inline-block;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 27%;
+      width: 20px; // ← 横棒の長さ
+      height: 2px;
+      background: #fff;
+      transform: translateY(-50%);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 49%;
+      left: 57%;
+      width: 10px; // ← 矢印の横幅を長く
+      height: 10px; // ← 縦幅を広くしてバランス調整
+      border-right: 2px solid #fff; // ← 太めにして見やすく
+      border-bottom: 2px solid #fff;
+      transform: translate(-40%, -40%) rotate(-45deg); // ← 少し角度を調整
+
+      &:hover {
+        background: #092e6a;
+      }
+    }
+  }
+}
+
+.section--service {
+  position: relative;
+}
+
+.speech-wrap--service {
+  @include mq($until: sp-large) {
+    position: absolute;
+    top: -119px;
+    right: 0;
+  }
+}
+
+/* 吹き出し背景 */
+.speech-bubble-imgwrap--service {
+  position: relative;
+  right: -40%;
+  margin-left: auto;
+  transition: all 0.3s ease;
+
+  @include mq($until: mid-pc) {
+    width: clamp(160px, 26vw, 220px);
+  }
+
+  @include mq($until: sp-large) {
+    width: clamp(140px, 50vw, 180px);
+    position: relative;
+    margin-left: auto; // ← 左側に余白を取る
+    margin-right: 5%;
+    right: 0;
+    margin: 0 auto;
+  }
+
+}
+
+/* キャラクター */
+.character {
+  position: absolute;
+  width: clamp(180px, 22vw, 275px);
+  z-index: 1;
+  transition: all 0.4s ease;
+
+  @include mq($until: mid-pc) {
+    width: clamp(160px, 26vw, 230px);
+  }
+
+  @include mq($until: sp-large) {
+    position: relative;
+    right: auto;
+    margin-left: auto;
+    margin-right: 5%;
+    width: clamp(140px, 50vw, 180px);
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}

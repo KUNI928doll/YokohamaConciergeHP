@@ -1,0 +1,551 @@
+@charset "UTF-8";
+@use "../abstracts" as *;
+
+.hero {
+  position: relative;
+  width: 100%; // ← 100vwだと横スクロール出やすい
+  height: clamp(420px, calc(265.0704px + 41.3146 * 1vw), 690px);
+  z-index: 5;
+
+  @include mq($until: sp-large) {
+    margin-bottom: 0px;
+  }
+
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  &__fx {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 11;
+  }
+
+  &__fx-item {
+    position: absolute;
+    width: clamp(120px, 22vw, 280px);
+    height: auto;
+    opacity: .9;
+    filter: drop-shadow(0 8px 18px rgba(0, 0, 0, .25));
+    animation: floatY 6s ease-in-out infinite;
+
+    &--l1 {
+      left: -3%;
+      bottom: clamp(10%, calc(27% - (100vw - 375px) * 0.02), 0%);
+      animation-delay: 0s;
+      width: clamp(100px, calc(56.6857px + 11.5505 * 1vw), 211px);
+
+    }
+
+    &--l2 {
+      bottom: 44%;
+      width: clamp(100px, 18vw, 220px);
+      animation-delay: 1.2s;
+      width: 300px;
+    }
+
+    &--l3 {
+      bottom: -64%;
+      left: 5%;
+      width: clamp(100px, 18vw, 220px);
+      animation-delay: 1.2s;
+
+      @include mq($until: mid-pc) {
+        bottom: -57%;
+      }
+    }
+
+    &--r1 {
+      right: calc(7% - ((100vw - 1336px) * ((6 - (-8)) / (1336 - 375))));
+      bottom: calc(48% - ((100vw - 375px) * ((70 - 37) / (1336 - 375))));
+      animation-delay: .6s;
+      width: clamp(200px, calc(159.4173px + 10.8221 * 1vw), 304px);
+
+      @include mq($until: sp-large) {
+        right: -5%;
+        bottom: 37%;
+      }
+    }
+
+    &--r2 {
+      right: clamp(-32px, calc(-12px - 2vw), -8px);
+      bottom: -4%;
+      animation-delay: .6s;
+      width: clamp(200px, calc(159.4173px + 10.8221 * 1vw), 304px);
+      z-index: 10;
+
+      @include mq($until: sp-large) {
+        right: -4%;
+        bottom: -12%;
+      }
+    }
+
+    &--r3 {
+      right: -21px;
+      bottom: -50%;
+      animation-delay: .6s;
+      width: clamp(200px, calc(159.4173px + 10.8221 * 1vw), 304px);
+      z-index: 10;
+
+      @include mq($until: mid-pc) {
+        bottom: -60%;
+      }
+
+      @include mq($until: sp-large) {
+        right: -6%;
+        bottom: -67%;
+      }
+    }
+  }
+
+  &__content {
+    position: absolute;
+    display: grid;
+    z-index: 4;
+    color: #fff;
+    padding: 0 20px;
+    text-align: left;
+    left: clamp(16px, 5vw, 64px); //
+    top: 31%;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, .35);
+
+    @include mq($until: sp-large) {
+      top: 18%;
+      bottom: 63%;
+    }
+  }
+
+  &__catch {
+    font-size: clamp(14px, calc(11.6587px + 0.6243 * 1vw), 20px);
+    margin-top: -10px;
+
+  }
+
+  &__title {
+    font-size: clamp(24px, calc(12.2934px + 3.1217 * 1vw), 54px);
+    font-family: var(--font-sub);
+    font-weight: normal;
+    margin-top: 17px;
+    letter-spacing: -3px;
+  }
+
+  &__subtitle {
+    font-size: clamp(20px, calc(20px + (36 - 20) * ((100vw - 375px) / (1336 - 375))), 36px);
+    font-family: var(--font-sub);
+    font-weight: normal;
+    margin-top: 6px;
+
+    @include mq($until: sp-small) {
+      font-size: 1.6rem; // 16px (1rem=10px基準)
+    }
+  }
+
+  &__alert {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: clamp(285px, calc(-74.1549px + 95.7746 * 1vw), 1305px);
+    top: clamp(67%, 50%, 60%);
+    /* ← これで帯が横幅いっぱい */
+    z-index: 2;
+    display: block;
+    line-height: 0;
+    /* 画像下の余白対策 */
+    pointer-events: auto;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0 -40%;
+      background: linear-gradient(70deg,
+          transparent 0%,
+          rgba(255, 255, 255, .0) 35%,
+          rgba(255, 255, 255, .35) 48%,
+          rgba(255, 255, 255, .0) 62%,
+          transparent 100%);
+      transform: translateX(-120%);
+      animation: shine 2.6s ease-in-out infinite;
+      pointer-events: none;
+      mix-blend-mode: screen;
+      /* 白地でも控えめに */
+    }
+
+    @include mq($until: sp-large) {
+      width: clamp(100%, calc(89.89% + 0.28vw), 92%);
+      top: clamp(62%, calc(14.12% + 2.34vw), 68%);
+      z-index: 10;
+    }
+  }
+
+  &__alert-bg {
+    display: block;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+
+    @include mq($until: sp-large) {
+      position: absolute;
+      top: clamp(-93px, calc(-30.01px - 5.85vw), -50px);
+      right: 25%;
+      width: clamp(44%, calc(62.01% - 2.34vw), 49%);
+    }
+
+    @include mq($until: sp-small) {
+      right: 28%;
+    }
+  }
+
+  &__alert-img {
+    position: absolute;
+    right: clamp(11%, calc(6.5vw + 5.02%), 16%);
+    top: clamp(50%, 54vh, 53%);
+    transform: translateY(-50%);
+    width: clamp(300px, calc(88.7324px + 56.338 * 1vw), 900px);
+    height: auto;
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, .25));
+    pointer-events: none;
+  }
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-120%);
+  }
+
+  55% {
+    transform: translateX(120%);
+  }
+
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+/* 低速端末＆ユーザー設定に配慮 */
+@media (prefers-reduced-motion: reduce) {
+  .hero__alert::after {
+    animation: none;
+    opacity: .25;
+  }
+}
+
+/* 既存 .hero__fx-item に追記でOK */
+/* 登場アニメをゆっくり＆柔らかく */
+.hero__fx-item {
+  /* 先頭=fw-pop-in を 1.4s に、floatY は 7.5s に */
+  animation-name: fw-pop-in, floatY;
+  animation-duration: 1.4s, 7.5s;
+  animation-timing-function:
+    cubic-bezier(.22, .85, .2, 1),
+    /* ゆったり入って最後なめらか */
+    ease-in-out;
+  animation-fill-mode: both, none;
+}
+
+/* 時間差も少しだけ伸ばすと自然 */
+.hero__fx-item--l1 {
+  animation-delay: 0s, 0s;
+}
+
+.hero__fx-item--l2 {
+  animation-delay: .20s, 1.2s;
+}
+
+.hero__fx-item--r1 {
+  animation-delay: .28s, .6s;
+}
+
+.hero__fx-item--r2 {
+  animation-delay: .36s, 1.0s;
+}
+
+.hero__fx-shine {
+  position: absolute;
+  inset: -20% -40%;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  background: linear-gradient(70deg, transparent 0%, rgba(255, 255, 255, 0) 42%, rgba(255, 255, 255, .45) 50%, rgba(255, 255, 255, 0) 58%, transparent 100%);
+  transform: translateX(-120%);
+  opacity: 0;
+  animation: fw-shine 2.2s ease-in-out infinite;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__fx-item {
+    animation: none !important;
+    opacity: 1;
+    filter: none;
+  }
+}
+
+.hero__alert::after {
+  content: none !important;
+  display: none !important;
+  animation: none !important;
+  opacity: 0 !important;
+}
+
+@include mq($until: sp-large) {
+  header {
+    &__content {
+      padding: 0px;
+    }
+  }
+}
+
+/* キャラ＋吹き出し（共通コンポーネント） */
+.speech-wrapper {
+  position: absolute;
+  left: 20px;
+  /* ← 波の左横に出す */
+  top: -144%;
+  /* ← ナビの高さ中央に合わせる */
+  transform: translateY(-85%);
+  width: 300px;
+  pointer-events: none;
+  z-index: 5;
+
+
+  @include mq($until: sp-large) {
+    margin-top: -53px;
+    left: 0;
+    z-index: 11;
+  }
+}
+
+.speech-wrap--hero {
+  width: 200px;
+
+  @include mq($until: sp-large) {
+    width: 170px;
+  }
+
+}
+
+.character {
+  display: block;
+  transform-origin: 50% 90%;
+  will-change: transform;
+  margin-top: -60px;
+
+  /* これを追加 👇 */
+  --x: 20px;
+  --y: 20px;
+
+  @include mq($until: mid-pc) {
+    margin-top: -112px;
+
+  }
+  @include mq($until: sp-large) {
+    margin-top: -68px;
+
+  }
+
+}
+
+img {
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+}
+
+
+// .speech-bubble-imgwrap {
+//   position: relative;
+//   pointer-events: auto;
+//   z-index: 11;
+//   width: clamp(250px, 40vw, 373px);
+
+//   @include mq($until: sp-large) {
+//     z-index: 12;
+
+//   }
+// }
+
+.speech-bubble-imgwrap--hero {
+  position: relative;
+  pointer-events: auto;
+  z-index: 11;
+  width: clamp(240px, 38vw, 340px);
+  margin-top: clamp(16px, 4vw, 40px);
+  margin-left: auto;
+  margin-right: clamp(16px, 5vw, 80px);
+
+  @include mq($until: sp-large) {
+    margin-right: auto;
+    margin-inline: auto;
+  }
+}
+
+.speech-bubble-img {
+  width: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.speech-bubble-text--hero {
+  position: absolute;
+  top: 46%; // 吹き出しの縦中央
+  left: 50%; // 吹き出しの横中央
+  transform: translate(-50%, -50%); // 中央基準に補正
+  width: clamp(46%, 52vw, 65%); // 吹き出し内での余白確保
+  text-align: center;
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
+  line-height: 1.6;
+  color: var(--color-main);
+  word-break: keep-all; // 日本語の改行崩れ防止
+
+  @include mq($until: sp-large) {
+    width: 72%; // スマホは少し広げる
+    font-size: clamp(1.2rem, 3vw, 1.4rem);
+  }
+}
+
+
+.character.-float {
+  animation: gull-bob 3.6s ease-in-out infinite;
+}
+
+/* ホバー中は少し元気に（任意） */
+.character.-float:hover {
+  animation-duration: 2.8s;
+}
+
+@keyframes gull-bob {
+
+  0%,
+  100% {
+    /* 基準位置 + ゆれ（0） */
+    transform: translate(var(--x), var(--y)) rotate(-1deg) translateY(0);
+  }
+
+  50% {
+    /* 少し上に＆逆向きへ */
+    transform: translate(var(--x), var(--y)) rotate(1.2deg) translateY(-8px);
+  }
+}
+
+
+// ホバーで“キラーン”が走る（PCだけ映える）
+/* 1回だけ再生する登場アニメ */
+@keyframes fw-pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(.85) translateY(6px);
+    filter: blur(2px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+.search-area {
+  display: flex;
+  flex-direction: row; // ← 横並びに変更
+  align-items: center; // 垂直中央揃え
+  justify-content: center;
+  gap: 18px;
+  padding: 50px 0 0;
+  background: #fff;
+  flex-wrap: nowrap;
+  position: relative;
+
+  @include mq($until: sp-large) {
+    flex-direction: column;
+    gap: 16px;
+    padding: 25px 0 0;
+  }
+
+  .search-area__form {
+    position: relative;
+    width: 350px;
+  }
+
+  .search-area__input {
+    width: 100%;
+    height: 46px;
+    border: 1.5px solid #0d3d90;
+    border-radius: 30px;
+    padding: 0 48px 0 16px;
+    font-size: 1.5rem; // 15px (1rem=10px基準)
+    color: #333;
+    background: #fff;
+    text-align: center;
+
+
+
+    &::placeholder {
+      color: #999;
+    }
+  }
+
+  .search-area__btn {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -20%;
+      /* ボタン左端 */
+      top: 50%;
+      transform: translateY(-50%);
+      height: 60%;
+      border-left: 1px dashed #0D3D90;
+      /* ← 点線の縦線 */
+      opacity: 0.8;
+      /* ← 少し柔らかく */
+    }
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .search-area__links {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .search-area__link {
+    display: inline-block;
+    padding: 8px 18px;
+    border: 1.5px solid #0d3d90;
+    border-radius: 30px;
+    color: #0d3d90;
+    font-size: 1.4rem; // 14px (1rem=10px基準)
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+
+    &:hover {
+      background: #0d3d90;
+      color: #fff;
+    }
+
+    &--map {
+      width: 139px;
+      text-align: center;
+    }
+
+  }
+}

@@ -1,0 +1,49 @@
+@charset "UTF-8";
+@use "./abstracts" as *;
+@use "./base";
+@use "./components";
+@use "./layout";
+@use "./pages";
+
+
+
+
+// =====================
+// PC / SP 表示切替
+// =====================
+.u-visible-pc {
+  @include mq($until: sp-large) {
+    display: none !important;
+  }
+}
+
+.u-visible-sp {
+  display: none;
+  @include mq($until: sp-large) {
+    display: block;
+  }
+}
+
+.u-pc {
+  display: inline;
+  @include mq($until: 1200px) {
+    display: none;
+  }
+}
+
+.u-sp {
+  display: none;
+  @include mq($until: 1200px) {
+    display: inline;
+  }
+}
+
+// =====================
+// ハンバーガー専用表示制御
+// =====================
+.header__toggle {
+  display: none; // ← PCでは非表示
+  @include mq($until: sp-large) {
+    display: flex !important; // ← SP時のみ強制表示
+  }
+}

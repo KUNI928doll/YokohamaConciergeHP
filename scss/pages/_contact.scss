@@ -1,0 +1,95 @@
+@charset "UTF-8";
+@use "../abstracts" as *;
+
+// contact
+.contact {
+  position: relative;
+  text-align: center;
+  background: url("../images/contact/contact-bg.png") no-repeat center/cover;
+  background-position: center 0px;
+  margin-top: -75px;
+
+
+  .contact__inner {
+    position: relative;
+    padding: 120px 0 180px;
+  }
+
+  .contact__box {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .contact__item {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #333;
+
+    img {
+      width: 18px;
+    }
+
+    .contact__item--tel span {
+      color: #0D3D90;
+      font-weight: 700;
+    }
+
+    .contact__item--mobile span {
+      color: #E39A1D;
+      font-weight: 700;
+    }
+  }
+
+  .btn {
+    display: flex;
+    margin: 20px auto;
+    border-radius: 30px;
+    text-align: center;
+    padding: 12px 32px;
+    font-weight: 700;
+
+    .btn--blue {
+      background: #0D3D90;
+      color: #fff;
+      width: 369px;
+    }
+
+    .btn--orange {
+      background: #E39A1D;
+      color: #fff;
+      width: 294px;
+    }
+  }
+
+  &__bird {
+    position: absolute;
+    bottom: -60px;
+    right: 15%;
+    text-align: center;
+
+    img {
+      width: 120px;
+    }
+
+    .contact__speech {
+      position: absolute;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fff;
+      border-radius: 50px;
+      padding: 12px 20px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+      font-size: 1.4rem; // 14px (1rem=10px基準)
+      line-height: 1.6;
+      width: 200px;
+    }
+  }
+}

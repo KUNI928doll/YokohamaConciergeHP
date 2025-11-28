@@ -1,0 +1,131 @@
+@charset "UTF-8";
+@use "../abstracts" as *;
+
+// support
+.support {
+  position: relative;
+  text-align: center;
+  padding: 63px 0;
+  z-index: 1;
+  padding-inline: 20px;
+  overflow: hidden;
+  width: 100%;
+
+  @include mq($until: sp-large) {
+    padding: 30px 20px;
+  }
+
+  .support__title {
+    margin-bottom: 2rem;
+
+    img {
+      width: clamp(220px, 40vw, 320px);
+      height: auto;
+    }
+  }
+
+  /* 背景つき部分 */
+  .support__box {
+    position: relative;
+    background-color: #f4f7f8;
+    /* ← 背景色はここだけに！ */
+    border-radius: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    /* 中央寄せ */
+    padding-top: 41px;
+    padding-bottom: 40px;
+    margin-bottom: 81px;
+    overflow: visible;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+
+    @include mq($until: sp-large) {
+      flex-direction: column;
+      text-align: center;
+      padding: 8.5rem;
+      gap: 25px;
+    }
+  }
+
+  .support__icon img {
+    width: 80px;
+    height: auto;
+    background-color: #fff;
+    /* 白丸背景 */
+    border-radius: 50%;
+    padding: 1.2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    /* ふんわり影（任意） */
+  }
+
+  .support__body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; // ← ボタンを右端へ
+    gap: 16px; // テキストとの余白
+
+    @include mq($until: sp-large) {
+      align-items: center;
+    }
+  }
+
+  .support__subtitle {
+    color: #0D3D90;
+    font-weight: 500;
+    font-size: 2.1rem; // 21px (1rem=10px基準)
+    margin-bottom: 0.5rem;
+    margin-top: 18px;
+  }
+
+  .support__text {
+    color: var(--color-main);
+    line-height: 1.9;
+    font-size: clamp(14px, 1.6vw, 16px);
+    letter-spacing: 0.02em;
+    text-align: left;
+    margin-bottom: 10px;
+
+    @include mq($until: sp-large) {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.btn--support {
+  background-color: #0D3D90;
+  color: #fff;
+  border: 2px solid #fff;
+  font-weight: 600;
+  border-radius: 50px;
+  padding: 12px 36px 12px 28px; // ← 右側を少し広く
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px; // ← 文字と矢印の間隔
+  transition: 0.3s ease;
+  width: 232px;
+  right: -7%; // ← 右端から16px内側に配置
+  bottom: -50px; // ← 下端から16px内側に配置
+
+  @include mq($until: sp-large) {
+    right: 50px;
+    transform: translateX(50%);
+  }
+
+  &:hover {
+    background-color: #fff;
+    color: #0D3D90;
+    border: 2px solid #0D3D90;
+
+    &::after {
+      border-color: #0D3D90; // ← hover時に矢印も白に
+
+    }
+  }
+}

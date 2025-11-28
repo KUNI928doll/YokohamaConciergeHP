@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>YOKOHAMA Concierge | 外国人向け体験サービス</title>
+  <meta name="description" content="横浜で特別な体験を提供するYOKOHAMA Concierge。観光・文化・グルメなど、多彩なプランをお届けします。">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0D3D90">
+
+  <!-- OGP -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="YOKOHAMA Concierge | 外国人向け体験サービス">
+  <meta property="og:description" content="横浜で特別な体験を提供するYOKOHAMA Concierge。観光・文化・グルメなど、多彩なプランをお届けします。">
+  <meta property="og:url" content="https://yokohama-concierge.jp/">
+  <meta property="og:image" content="https://yokohama-concierge.jp/images/ogp.jpg">
+  <meta property="og:site_name" content="YOKOHAMA Concierge">
+  <meta property="og:locale" content="ja_JP">
+  <!-- 推奨（SNSプレビュー安定用） -->
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="YOKOHAMA Concierge | 外国人向け体験サービス">
+  <meta name="twitter:description" content="横浜で特別な体験を提供するYOKOHAMA Concierge。">
+  <meta name="twitter:image" content="https://yokohama-concierge.jp/images/ogp.jpg">
+
+
+  <!-- Favicon（images配下に統一） -->
+  <link rel="icon" href="./images/favicon.ico">
+  <link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Noto Sans JP -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+  <!-- Zen Maru Gothic -->
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./css/reset.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="./css/style.css">
+
+  <!-- JSON-LD（LocalBusiness） -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"YOKOHAMA Concierge",
+    "url": "https://yokohama-concierge.jp/",
+    "image": "https://yokohama-concierge.jp/images/ogp.jpg"
+    "telephone":"+81-45-681-2737",
+    "address":{
+      "@type":"PostalAddress",
+      "postalCode":"231-0023",
+      "addressRegion":"神奈川県",
+      "addressLocality":"横浜市中区山下町",
+      "streetAddress":"76−4−1301"
+    },
+    "openingHoursSpecification":[{
+      "@type":"OpeningHoursSpecification",
+      "dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens":"10:00",
+      "closes":"18:00"
+    }]
+  }
+  </script>
+
+  <!-- クリティカル最小パッチ（shine無効化など、必要ならCSS側へ移設OK） -->
+  <style>
+    .hero__fx-shine {
+      display: none !important;
+    }
+
+    /* キラーン無効 */
+    .character.--hide,
+    .hero__fx-item.--hide {
+      display: none !important;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero__fx-item {
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header__inner">
+       <!-- ▼ 上部：ロゴ・言語・連絡先・見積もりボタン -->
+         <div class="header__top">
+      <div class="header__logo">
+        <a href="index.html">
+          <img src="./images/header_logo.png" alt="YOKOHAMA Concierge">
+        </a>
+      </div>
+
+       <nav class="header__utility u-visible-pc" aria-label="ユーティリティナビゲーション">
+        <ul class="header__nav-list">
+          <li class="header__nav-item header__nav-item--wide">
+            <a href="#" class="header__nav-link is-column">
+              <img src="./images/header_globeicon.png" alt="地球アイコン" class="header__icon header__icon--globe">
+              Language
+            </a>
+          </li>
+          <li class="header__nav-item header__nav-item--xwide">
+            <a href="#" class="header__nav-link is-column is-gap-large">
+              <img src="./images/header_mailicon.png" alt="メールアイコン" class="header__icon header__icon--mail">
+              メール
+            </a>
+          </li>
+          <li class="header__tel-group">
+            <ul class="header__tel-list">
+              <li class="header__nav-item">
+                <a href="tel:+81456812737" class="header__nav-link tel-blue">
+                  <img src="./images/header_phoneicon.png" alt="電話アイコン" class="header__icon header__icon--phone">
+                  045-681-2737
+                </a>
+              </li>
+              <li class="header__nav-item">
+                <a href="tel:+817015263845" class="header__nav-link tel-orange">
+                  <img src="./images/header_mobileicon.png" alt="携帯アイコン" class="header__icon header__icon--mobile">
+                  070-1526-3845
+                </a>
+              </li>
+              <li class="header__time">対応時間 10:00〜18:00</li>
+            </ul>
+          </li>
+          <li class="header__nav-item">
+            <a href="#" class="header__btn">見積りする</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- ハンバーガー -->
+      <button class="header__toggle u-visible-sp" aria-controls="global-nav" aria-expanded="false" aria-label="メニューを開く">
+        <span class="header__toggle-line"></span>
+        <span class="header__toggle-line"></span>
+        <span class="header__toggle-line"></span>
+        <span class="header__toggle-text">MENU</span>
+      </button>
+      </div>
+
+      <nav id="global-nav" class="header__nav header__nav--sp u-visible-sp">
+        <div class="spmenu">
+          <div class="spmenu__top">
+            <a href="index.html" class="spmenu__home">
+              <img src="./images/icon-home.png" alt="ホームアイコン">
+              <span>ホームへ戻る</span>
+            </a>
+            <img src="./images/wave-line.png" alt="波ライン下部" class="spmenu__wave" aria-hidden="true">
+          </div>
+
+          <div class="spmenu__alert">
+            <img src="./images/mobile-obi.png" alt="お知らせ帯">
+            <img src="./images/wave-line.png" alt="波ライン下部">
+          </div>
+
+          <div class="spmenu__bottom">
+            <div class="spmenu__sns">
+              <a href="https://www.instagram.com/yokohama_concierge/" target="_blank">
+                <img src="./images/footer_insta.png" alt="Instagramアイコン">
+              </a>
+              <a href="mailto:info@hamanavi-s.jp">
+                <img src="./images/header_mailicon.png" alt="メールアイコン">
+              </a>
+            </div>
+
+            <div class="spmenu__tel">
+              <a href="tel:+81456812737" class="tel-blue">045-681-2737</a>
+              <a href="tel:+817015263845" class="tel-orange">070-1526-3845</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- 花火セクション -->
+  <main>
+    <section class="hero">
+      <img src="images/fireworks.gif" alt="夜空に咲く花火のアニメーション" class="hero__bg">
+      <div class="hero__fx" aria-hidden="true">
+        <img src="./images/fireworks1.png" class="hero__fx-item hero__fx-item--l1" alt="左上で打ち上がる花火のイラスト">
+        <i class="hero__fx-shine hero__fx-shine--l1" aria-hidden="true"></i>
+        <img src="./images/fireworks2.png" class="hero__fx-item hero__fx-item--l2 u-visible-pc" alt="左側に輝く花火のイラスト">
+        <i class="hero__fx-shine hero__fx-shine--l1" aria-hidden="true"></i>
+        <img src="./images/fireworks3.png" class="hero__fx-item hero__fx-item--r1" alt="右側に咲く花火のイラスト">
+        <i class="hero__fx-shine hero__fx-shine--l1" aria-hidden="true"></i>
+        <img src="./images/fireworks5.png" class="hero__fx-item hero__fx-item--r2" alt="右下で打ち上がる花火のイラスト">>
+        <i class="hero__fx-shine hero__fx-shine--l1" aria-hidden="true"></i>
+      </div>
+      <div class="hero__content">
+        <p class="hero__catch">外国人旅行者向けコンシェルジュ</p>
+        <h1 class="hero__title">横浜での特別な体験を</h1>
+        <p class="hero__subtitle">あなたに代わってご用意いたします</p>
+      </div>
+      <!-- ▼ 緊急告知（画像バッジ） -->
+      <a href="#" class="hero__alert" aria-label="緊急告知: クリックで詳細ページへ">
+        <!-- 背景帯（obi） -->
+        <picture>
+          <source srcset="./images/obi-1-sp.png" media="(max-width: 767px)">
+          <img src="./images/obi-1.png" alt="緊急告知の帯デザイン" class="hero__alert-bg">
+        </picture>
+
+        <!-- 告知テキスト画像（alert） -->
+        <picture>
+          <source srcset="./images/alert-sp.png" media="(max-width: 767px)">
+          <img src="./images/alert.png" alt="緊急告知の文字画像" class="hero__alert-img">
+        </picture>
+      </a>
+
+    </section>
+
+
+    <!-- キャラと吹き出し -->
+    <div class="speech-wrapper -pos-br">
+      <div class="speech-wrap speech-wrap--hero">
+        <div class="speech-bubble-imgwrap speech-bubble-imgwrap--hero">
+          <img src="./images/bubble.png" class="speech-bubble-img" aria-hidden="true">
+          <img src="./images/speech-bubble__text.png" class="speech-bubble-text speech-bubble-text--hero">
+        </div>
+        <figure class="character -float">
+          <img src="./images/mascot.png" alt="横浜案内をするマスコットキャラクター">
+        </figure>
+      </div>
+    </div>
+    <section class="footer-scene">
+      <div class="footer__fx" aria-hidden="true">
+        <img src="./images/fireworks4.png" alt="左下の花火のイラスト" class="footer__fx-item footer__fx-item--l1">
+        <img src="./images/fireworks5.png" alt="左上の花火のイラスト" class="footer__fx-item footer__fx-item--l2">
+        <img src="./images/fireworks6.png" alt="中央の花火のイラスト" class="footer__fx-item footer__fx-item--c">
+        <img src="./images/fireworks7.png" alt="右上の花火のイラスト" class="footer__fx-item footer__fx-item--r1">
+        <img src="./images/fireworks8.png" alt="右下の花火のイラスト" class="footer__fx-item footer__fx-item--r2">
+      </div>
+    </section>
+  </main>
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__logo">
+        <img src="./images/footer_logo.png" alt="YOKOHAMA Concierge ロゴ">
+      </div>
+      <div class="footer__info">
+        <p class="footer__address">〒231-0023 神奈川県横浜市中区山下町76-4-1301</p>
+        <div class="footer__links">
+          <a href="mailto:info@hamanavi-s.jp" class="footer__link footer__link--mail">
+            <img src="./images/header_mailicon.png" alt="メールアイコン">
+            info@hamanavi-s.jp
+          </a>
+          <a href="https://www.instagram.com/yokohama_concierge?igsh=dmIzeWM4eW43Nmpn&utm_source=qr" target="_blank"
+            class="footer__link footer__link--insta">
+            <img src="./images/footer_insta.png" alt="Instagramアイコン">
+            Instagram
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="./js/header.js"></script>
+</body>
+
+</html>

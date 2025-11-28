@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>横浜について | YOKOHAMA Concierge | 外国人向け体験サービス・横浜観光・通訳サポート</title>
+    <meta name="description" content="YOKOHAMA Conciergeのツアーガイドサービス。横浜の観光スポットをプロのガイドがご案内。多言語対応で安心の観光体験をお届けします。">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- OGP -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="横浜について | YOKOHAMA Concierge">
+    <meta property="og:description" content="YOKOHAMA Conciergeのツアーガイドサービス。横浜の観光スポットをプロのガイドがご案内。多言語対応で安心の観光体験をお届けします。">
+    <meta property="og:url" content="https://yokohama-concierge.jp/service-tour-guide.html">
+    <meta property="og:image" content="https://yokohama-concierge.jp/images/ogp.jpg">
+    <meta property="og:site_name" content="YOKOHAMA Concierge">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="横浜について | YOKOHAMA Concierge">
+    <meta name="twitter:description" content="YOKOHAMA Conciergeのツアーガイドサービス。横浜の観光スポットをプロのガイドがご案内。多言語対応で安心の観光体験をお届けします。">
+    <meta name="twitter:image" content="https://yokohama-concierge.jp/images/ogp.jpg">
+
+    <!-- Favicon（推奨：絶対パスで指定） -->
+    <link rel="icon" href="https://yokohama-concierge.jp/images/favicon.ico">
+    <link rel="apple-touch-icon" href="https://yokohama-concierge.jp/images/apple-touch-icon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./css/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- Slick -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+
+
+    <!-- GSAP（ScrollTrigger付き） -->
+    <!-- <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script> -->
+
+
+    <!-- JSON-LD（構文修正済み） -->
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "YOKOHAMA Concierge",
+    "url": "https://yokohama-concierge.jp/service-tour-guide.html",
+    "image": "https://yokohama-concierge.jp/images/ogp.jpg",
+    "telephone": "+81-45-681-2737",
+    "address": {
+      "@type": "PostalAddress",
+      "postalCode": "231-0023",
+      "addressRegion": "神奈川県",
+      "addressLocality": "横浜市中区山下町",
+      "streetAddress": "76−4−1301"
+    },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "10:00",
+      "closes": "18:00"
+    }]
+  }
+  </script>
+
+    <!-- Inline Style（クリティカル最小パッチ） -->
+    <style>
+        /* ヒーローアニメーション最適化 */
+        .hero__fx-shine {
+            display: none !important;
+        }
+
+        .character.--hide,
+        .hero__fx-item.--hide {
+            display: none !important;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero__fx-item {
+                animation: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo">
+                <!-- PC用ロゴ -->
+                <div class="u-visible-pc">
+                    <a href="index.html">
+                        <img src="./images/header_logo-pc.png" alt="YOKOHAMA Concierge ロゴ（PC）">
+                    </a>
+                </div>
+
+                <!-- SP用ロゴ -->
+                <div class="u-visible-sp">
+                    <a href="index.html">
+                        <img src="./images/header_logo-sp.png" alt="YOKOHAMA Concierge ロゴ（SP）">
+                    </a>
+                </div>
+            </div>
+
+            <nav class="header__nav u-visible-pc" aria-label="グローバルナビゲーション">
+                <div class="header__utility">
+                    <!-- 左：Language / メール -->
+                    <ul class="header__utility-list">
+                        <li class="header__utility-item header__utility-item--wide">
+                            <a href="#" class="header__utility-link is-column">
+                                <img src="./images/header_globeicon.png" alt="地球アイコン"
+                                    class="header__icon header__icon--globe">Language
+                            </a>
+                        </li>
+                        <li class="header__utility-item header__utility-item--xwide">
+                            <a href="#" class="header__utility-link is-column is-gap-large">
+                                <img src="./images/header_mailicon.png" alt="メールアイコン"
+                                    class="header__icon header__icon--mail">
+                                メール
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- 中央：電話番号 -->
+                    <div class="header__contact">
+                        <div class="header__contact-group">
+                            <ul class="header__tel-list">
+                                <li class="header__nav-item">
+                                    <a href="tel:+81456812737" class="header__nav-link tel-blue">
+                                        <img src="./images/header_phoneicon.png" alt="電話アイコン"
+                                            class="header__icon header__icon--phone">
+                                        045-681-2737
+                                    </a>
+                                </li>
+                                <li class="header__nav-item">
+                                    <a href="tel:+817015263845" class="header__nav-link tel-orange">
+                                        <img src="./images/header_mobileicon.png" alt="携帯アイコン"
+                                            class="header__icon header__icon--mobile">
+                                        070-1526-3845
+                                    </a>
+                                </li>
+                            </ul>
+                            <p class="header__time">
+                                対応時間 10:00〜18:00<span class="u-pc">/不定休</span><span class="u-sp"> <br>/不定休</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- ハンバーガー -->
+            <button class="header__toggle u-visible-sp" aria-controls="global-nav" aria-expanded="false"
+                aria-label="メニューを開く">
+                <span class="header__toggle-line"></span>
+                <span class="header__toggle-line"></span>
+                <span class="header__toggle-line"></span>
+                <span class="header__toggle-text">MENU</span>
+            </button>
+
+            <!-- オーバーレイ -->
+            <div class="spmenu__overlay"></div>
+
+            <nav id="global-nav" class="header__nav header__nav--sp u-visible-sp">
+                <div class="spmenu">
+                    <div class="spmenu__top">
+                        <a href="index.html" class="spmenu__home">
+                            <img src="./images/icon-home.png" alt="ホームアイコン">
+                            <span>ホームへ戻る</span>
+                        </a>
+                    </div>
+                    <ul class="spmenu__list">
+                        <li class="spmenu__item spmenu__item--has-sub">
+                            <button type="button" class="spmenu__trigger js-spmenu-dropdown" aria-expanded="false">
+                                <img src="./images/icon-service.png" alt="" class="spmenu__icon">
+                                サービス紹介
+                                <span class="spmenu__caret" aria-hidden="true"></span>
+                            </button>
+                            <ul class="spmenu__sub" aria-label="サービス紹介のメニュー">
+                                <li><a href="#service-reserve">予約代行</a></li>
+                                <li><a href="service-storage.html">トランクお預かり</a></li>
+                                <li><a href="service-tour-guide.html">横浜観光ガイドサービス</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="yokohama.html"><img src="./images/icon-yokohama.png" alt=""
+                                    class="spmenu__icon">横浜について</a>
+                        </li>
+                        <li><a href="#faq"><img src="./images/icon-faq.png" alt="" class="spmenu__icon">よくある質問</a></li>
+                        <li><a href="#news"><img src="./images/icon-news.png" alt="" class="spmenu__icon">お知らせ・イベント</a>
+                        </li>
+                        <li><a href="contact.html"><img src="./images/icon-mail.png" alt=""
+                                    class="spmenu__icon">お問い合わせ</a></li>
+                    </ul>
+
+
+                    <div class="spmenu__bottom">
+                        <div class="spmenu__sns">
+                            <a href="https://www.instagram.com/yokohama_concierge/" target="_blank"
+                                rel="noopener noreferrer">
+                                <img src="./images/footer_insta.png" alt="Instagramアイコン">
+                            </a>
+                            <a href="mailto:info@hamanavi-s.jp">
+                                <img src="./images/header_mailicon.png" alt="メールアイコン">
+                            </a>
+                        </div>
+
+                        <div class="spmenu__tel">
+                            <a href="tel:+81456812737" class="tel-blue">045-681-2737</a>
+                            <a href="tel:+817015263845" class="tel-orange">070-1526-3845</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <a href="#" class="header__btn u-visible-pc">予約する</a>
+    </header>
+
+    <main>
+        <div class="nav-inner-wrapper u-visible-pc">
+            <nav class="inner-nav">
+                <ul class="inner-nav__list">
+                    <li class="inner-nav__item">
+                        <a href="index.html">
+                            <img src="./images/icon-home.png" alt="ホームアイコン">ホーム</a>
+                    </li>
+                    <li class="inner-nav__item inner-nav__item--has-sub">
+                        <button type="button" class="inner-nav__trigger js-inner-dropdown" aria-expanded="false">
+                            <img src="./images/icon-service.png" alt="">
+                            <span>サービス紹介</span>
+                            <span class="inner-nav__caret" aria-hidden="true"></span>
+                        </button>
+                        <ul class="inner-nav__sub" aria-label="サービス紹介のメニュー">
+                            <li><a href="#service-reserve">予約代行</a></li>
+                            <li><a href="service-storage.html">トランクお預かり</a></li>
+                            <li><a href="service-tour-guide.html">横浜観光ガイドサービス</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="inner-nav__item">
+                        <a href="about-yokohama.html">
+                            <img src="./images/icon-yokohama.png" alt="">
+                            <span>横浜について</span>
+                        </a>
+                    </li>
+
+                    <li class="inner-nav__item">
+                        <a href="faq.html">
+                            <img src="./images/icon-faq.png" alt="">
+                            <span>よくある質問</span>
+                        </a>
+                    </li>
+
+                    <li class="inner-nav__item">
+                        <a href="news.html">
+                            <img src="./images/icon-news.png" alt="">
+                            <span>お知らせ<br>イベント</span>
+                        </a>
+                    </li>
+
+                    <li class="inner-nav__item">
+                        <a href="contact.html">
+                            <img src="./images/icon-mail.png" alt="">
+                            <span>お問い合わせ</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="search-area search-area--service">
+            <form action="search.html" method="get" class="search-area__form">
+                <input type="text" name="q" class="search-area__input" placeholder="サイト内検索">
+                <button type="submit" class="search-area__btn" aria-label="検索">
+                    <img src="./images/icon-search.png" alt="検索アイコン">
+                </button>
+            </form>
+
+            <div class="search-area__links">
+                <a href="#" class="search-area__link search-area__link--map">MAPで探す</a>
+            </div>
+        </div>
+
+        <div class="sub-hero">
+            <div class="sub-hero__decoration">
+                <img src="./images/sub-hero__decoration.png" alt="" aria-hidden="true">
+            </div>
+            <div class="sub-hero__img">
+                <img src="./images/service-tour-guide/service-hero.png" alt="横浜の夜景">
+            </div>
+            <h1 class="sub-hero__title">横浜について</h1>
+        </div>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <ul class="breadcrumb__list">
+                <li class="breadcrumb__item">
+                    <a href="index.html">ホーム</a>
+                </li>
+                <li class="breadcrumb__item">横浜について</li>
+            </ul>
+        </nav>
+        <section class="guide-overview">
+            <div class="guide-overview__inner">
+
+                <!-- タイトル -->
+                <div class="guide-overview__title-block">
+                    <h2 class="guide-overview__title">横浜について</h2>
+                    <img src="./images/service-tour-guide/guide-wave.svg" alt="" class="guide-overview__title-wave"
+                        aria-hidden="true">
+                </div>
+            </div>
+        </section>
+
+        <!-- 横浜の地図 -->
+        <section class="yokohama-area" id="yokohama-area">
+            <div class="guide-spots__inner">
+                <div class="guide-spots__nav" role="group" aria-label="観光エリア">
+                    <button class="guide-spots__nav-btn is-active" type="button" data-target="map-motomachi">
+                        <img src="./images/about-yokohama/icon-motomachi.png" alt="" aria-hidden="true">
+                        元町・山手エリア
+                    </button>
+                    <button class="guide-spots__nav-btn" type="button" data-target="map-chinatown">
+                        <img src="./images/about-yokohama/icon-chukagai.png" alt="" aria-hidden="true">
+                        中華街・山下公園エリア
+                    </button>
+                    <button class="guide-spots__nav-btn" type="button" data-target="map-nihondori">
+                        <img src="./images/about-yokohama/icon-nihondori.png" alt="" aria-hidden="true">
+                        日本大通りエリア
+                    </button>
+                    <button class="guide-spots__nav-btn" type="button" data-target="map-kannai">
+                        <img src="./images/about-yokohama/icon-kannai.png" alt="" aria-hidden="true">
+                        関内エリア
+                    </button>
+                    <button class="guide-spots__nav-btn" type="button" data-target="map-bashamichi">
+                        <img src="./images/about-yokohama/icon-bashamichi.png" alt="" aria-hidden="true">
+                        馬車道エリア
+                    </button>
+                    <button class="guide-spots__nav-btn" type="button" data-target="map-sakuragicho">
+                        <img src="./images/about-yokohama/icon-sakuragicho.png" alt="" aria-hidden="true">
+                        桜木町エリア
+                    </button>
+                    <button class="guide-spots__nav-btn" type="button" data-target="map-minatomirai">
+                        <img src="./images/about-yokohama/icon-minatomirai.png" alt="" aria-hidden="true">
+                        みなとみらいエリア
+                    </button>
+                </div>
+
+                <div class="yokohama-area__maps">
+                    <div class="yokohama-area__map is-active" id="map-motomachi">
+                        <img src="./images/yokohama/motomati-map@2x.jpg" alt="元町・山手エリアの地図">
+                    </div>
+                    <div class="yokohama-area__map" id="map-chinatown">
+                        <img src="./images/yokohama/tyukamati-map@2x.jpg" alt="中華街・山下公園エリアの地図">
+                    </div>
+                    <div class="yokohama-area__map" id="map-nihondori">
+                        <img src="./images/yokohama/nihondori-map.jpg" alt="日本大通りエリアの地図">
+                    </div>
+                    <div class="yokohama-area__map" id="map-kannai">
+                        <img src="./images/yokohama/kannai-map@2x.jpg" alt="関内エリアの地図">
+                    </div>
+                    <div class="yokohama-area__map" id="map-bashamichi">
+                        <img src="./images/yokohama/bashamichi-map.jpg" alt="馬車道エリアの地図">
+                    </div>
+                    <div class="yokohama-area__map" id="map-sakuragicho">
+                        <img src="./images/yokohama/sakuragi-map.jpg" alt="桜木町エリアの地図">
+                    </div>
+                    <div class="yokohama-area__map" id="map-minatomirai">
+                        <img src="./images/yokohama/minatomirai-map@2x.jpg" alt="みなとみらいエリアの地図">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="yokohama">
+            <div class="yokohama-tab__inner">
+                <div class="tabs">
+                    <ul class="tab-list">
+                        <li class="tab-item active" tabindex="0">元町・山手エリア</li>
+                        <li class="tab-item" tabindex="0">中華街・山下公園エリア</li>
+                        <li class="tab-item" tabindex="0">日本大通りエリア</li>
+                        <li class="tab-item" tabindex="0">関内エリア</li>
+                        <li class="tab-item" tabindex="0">馬車道エリア</li>
+                        <li class="tab-item" tabindex="0">桜木町エリア</li>
+                        <li class="tab-item" tabindex="0">みなとみらい<br>エリア</li>
+                    </ul>
+                    <div class="tab-content">
+                        <!-- 元町・山手 -->
+                        <div class="tab-panel active">
+                            <div class="tab-wrapper">
+                                <h2 class="guide-spots__panel-title">
+                                    <img src="./images/about-yokohama/icon-chukagai.png" alt="" aria-hidden="true">
+                                    元町・山手エリア
+                                </h2>
+                                <div class="tab-img">
+                                    <img src="./images/yokohama/motomati-tab01@2x.png" alt="" loading="lazy"
+                                        decoding="async">
+                                </div>
+                            </div>
+                            <p class="tab-text">
+                                洗練されたブティックやカフェが並ぶ「元町ショッピングストリート」と、洋館が立ち並ぶ山手の丘エリアは、横浜の異国情緒をもっとも感じられる場所。石畳の道や西洋建築など、まるでヨーロッパを歩いているような雰囲気を味わえます。<br>ゆったり散策や、ティータイムにぴったりのエリアです。
+                            </p>
+                            <h3 class="tab-sub-title">見どころスポット</h3>
+                            <p class="tab-text">アメリカ山公園　　屋上庭園のような公園。港や街並みを見下ろす美しい景色が楽しめます。</p>
+                            <div class="tab-img2">
+                                <img src="./images/yokohama/motomati-tab02@2x.png" alt="" loading="lazy"
+                                    decoding="async">
+                            </div>
+                            <div class="tab__map-button">
+                                <a href="#yokohama-area" class="guide-spots__map-link" data-target="map-motomachi">
+                                    <span aria-hidden="true">↑</span>
+                                    <span>MAPへ</span>
+                                </a>
+                            </div>
+
+                        </div>
+                        <!-- 中華街 -->
+                        <div class="tab-panel">
+                            <h2 class="guide-spots__panel-title">
+                                <img src="./images/about-yokohama/icon-chukagai.png" alt="" aria-hidden="true">
+                                中華街・山下公園エリア
+                            </h2>
+                            <div class="tab-panel-wrap">
+                                <p class="tab-text">
+                                    世界最大級の規模を誇る横浜中華街では、カラフルな牌楼（門）と活気ある屋台が旅行者を出迎えます。本格中華料理や点心の食べ歩きはもちろんのこと、伝統的な寺院や雑貨屋巡りも人気。すぐ近くの山下公園は海風を感じながら散歩でき、氷川丸やベイブリッジを眺めることができる絶景スポットです。
+                                </p>
+                                <div class="tab-img2">
+                                    <img src="./images/yokohama/tyukamati-tab01@2x.png" alt="" loading="lazy"
+                                        decoding="async">
+                                </div>
+                            </div>
+                            <div class="tab-spot">
+                                <h3 class="tab-sub-title">見どころスポット</h3>
+                                <p class="tab-text">横浜大世界　　中国文化をテーマにした複合施設。雑貨、アート、フードが楽しめます。</p>
+                                <div class="tab-img3">
+                                    <img src="./images/yokohama/tyukamati-tab02@2x.png" alt="" loading="lazy"
+                                        decoding="async">
+                                </div>
+                                <div class="tab__map-button tab__map-button--position">
+                                    <a href="#yokohama-area" class="guide-spots__map-link" data-target="map-chinatown">
+                                        <span aria-hidden="true">↑</span>
+                                        <span>MAPへ</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 日本大通り -->
+                        <div class="tab-panel">
+                            <h2 class="guide-spots__panel-title">
+                                <img src="./images/about-yokohama/icon-nihondori.png" alt="" aria-hidden="true">
+                                日本大通りエリア
+                            </h2>
+                            <p class="tab-text">
+                                銀杏並木が美しい日本大通りは、横浜開港当時から歴史を刻むクラシカルな街並み。歴史的建造物が立ち並び、重厚な雰囲気を楽しめます。秋には黄金色に染まる並木道を散策でき、歴史と自然が調和した落ち着きあるエリアです。
+                            </p>
+
+                            <h3 class="tab-sub-title">見どころスポット</h3>
+                            <div class="tab-wrapper2">
+                                <ul class="tab-text">
+                                    <li>• 象の鼻パーク　開港当時の防波堤が復元されている、海沿いの散策・休憩スポット。開放感抜群です。
+
+                                    </li>
+                                    <li>• 大さん橋（メリケン波止場）　クルーズ船発着であり、夜景スポットへも近い、日本で最も古い桟橋です。</li>
+                                    <li> • 横浜スタジアム　野球観戦やイベントで盛り上がる拠点です。</li>
+                                </ul>
+                                <div class="tab-img4">
+                                    <img src="./images/yokohama/nihonodori-tab01@2x.png" alt="" loading="lazy"
+                                        decoding="async">
+                                </div>
+                            </div>
+                            <div class="tab__map-button">
+                                <a href="#yokohama-area" class="guide-spots__map-link" data-target="map-nihondori">
+                                    <span aria-hidden="true">↑</span>
+                                    <span>MAPへ</span>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- 関内 -->
+                        <div class="tab-panel">
+                            <h2 class="guide-spots__panel-title">
+                                <img src="./images/about-yokohama/icon-kannai.png" alt="" aria-hidden="true">
+                                関内エリア
+                            </h2>
+                            <div class="tab-wrapper2">
+                                <div class="tab-head">
+                                    <p class="tab-text">
+                                        文明開化の時代に外国人居留地として栄えた馬車道は、ガス灯とレンガ造りの建物が並ぶ、レトロな雰囲気漂うエリア。アイスクリームやガス灯発祥の地としても知られ、昔ながらの洋食店やアートスポットが点在しています。レトロとモダンが調和した散策におすすめの場所です。
+                                    </p>
+                                    <h3 class="tab-sub-title">見どころスポット</h3>
+                                    <p class="tab-text">
+                                        吉田町　　小さなバーやギャラリーが集まるアートとナイトスポットのエリアです。
+                                    </p>
+                                </div>
+                                <div class="tab-img6">
+                                    <img src="./images/yokohama/kannai-tab01@2x.png" alt="" loading="lazy"
+                                        decoding="async">
+                                </div>
+                            </div>
+                            <div class="tab__map-button">
+                                <a href="#yokohama-area" class="guide-spots__map-link" data-target="map-kannai">
+                                    <span aria-hidden="true">↑</span>
+                                    <span>MAPへ</span>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- 馬車道 -->
+                        <div class="tab-panel">
+                            <div class="tab-img5">
+                                <img src="./images/yokohama/kannai-tab01@2x.png" alt="" loading="lazy" decoding="async">
+                            </div>
+                            <h2 class="guide-spots__panel-title">
+                                <img src="./images/about-yokohama/icon-bashamichi.png" alt="" aria-hidden="true">馬車道エリア
+                            </h2>
+                            <p class="tab-text">
+                                文明開化の時代に外国人居留地として栄えた馬車道は、ガス灯とレンガ造りの建物が並ぶ、レトロな雰囲気漂うエリア。アイスクリームやガス灯発祥の地としても知られ、昔ながらの洋食店やアートスポットが点在しています。レトロとモダンが調和した散策におすすめの場所です。
+                            </p>
+                            <h3 class="tab-sub-title">見どころスポット</h3>
+                            <div class="tab-wrapper2">
+                                <ul class="tab-text">
+                                    <li> • 神奈川県立歴史博物館　 重厚な石造りの建物。日本や神奈川、横浜の歴史を学べます。
+                                    </li>
+                                    <li>• 横浜アイス発祥の碑（太陽の母子）　アイスクリーム誕生地を感じられる小さな史跡。</li>
+                                    <li> • 横浜スタジアム　野球観戦やイベントで盛り上がる拠点です。</li>
+                                    <li> • ガス灯通り　文明開化の象徴、ガス灯が今も街を照らすレトロな通り。</li>
+                                    <li> • 馬車道十番館 　喫茶店とバーが併設されたクラシックな洋館のフレンチレストラン。お食事も楽しめます。</li>
+                                    <li> • 旧横浜銀行本店　重厚な石造りの建物。昭和初期の建築美が残されています
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tab__map-button">
+                                <a href="#yokohama-area" class="guide-spots__map-link" data-target="map-bashamichi">
+                                    <span aria-hidden="true">↑</span>
+                                    <span>MAPへ</span>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- 桜木町エリア -->
+                        <div class="tab-panel">
+                            <div class="tab-img5">
+                                <img src="./images/yokohama/sakuragimachi-tab01@2x.png" alt="" loading="lazy"
+                                    decoding="async">
+                            </div>
+                            <h2 class="guide-spots__panel-title">
+                                <img src="./images/about-yokohama/icon-sakuragicho.png" alt="" aria-hidden="true">桜木町エリア
+                            </h2>
+                            <p class="tab-text">
+                                横浜観光の玄関口である桜木町駅周辺は、海と高層ビルの風景が広がり、夜景の美しさでも有名です。駅前には、桜木町と新港地区を結ぶロープウェイ「YOKOHAMA AIR
+                                CABIN」の乗降場も。アクセスの良さに加え動物園もあり、家族連れに人気のエリアです。
+                            </p>
+                            <h3 class="tab-sub-title">見どころスポット</h3>
+                            <div class="tab-wrapper2">
+                                <ul class="tab-text">
+                                    <li> • 汽車道　みなとみらいへ続く、廃線跡を利用した遊歩道。海とビル群の絶景を楽しみながら散策できる。
+                                    </li>
+                                    <li> • 桜木町駅前広場　横浜観光の起点となる場所。待ち合わせの定番でもある</li>
+                                    <li> • 野毛山動物園　入園無料の動物園。ライオンやキリンなどを気軽に見ることができます。</li>
+                                </ul>
+                            </div>
+                            <div class="tab__map-button">
+                                <a href="#yokohama-area" class="guide-spots__map-link" data-target="map-sakuragicho">
+                                    <span aria-hidden="true">↑</span>
+                                    <span>MAPへ</span>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- みなとみらいエリア -->
+                        <div class="tab-panel">
+                            <h2 class="guide-spots__panel-title">
+                                <img src="./images/about-yokohama/icon-minatomirai.png" alt="" aria-hidden="true">
+                                みなとみらいエリア
+                            </h2>
+                            <div class="tab-panel-wrap">
+                                <p class="tab-text">
+                                    横浜のシンボルともいえるみなとみらいは、近未来的な高層ビル群。と海辺の景色が融合する大人気エリア。ショッピングモールやアミューズメント施設、美術観光などが楽しめます。
+                                </p>
+                                <div class="tab-img2">
+                                    <img src="./images/yokohama/minatomirai-tab01@2x.png" alt="" loading="lazy"
+                                        decoding="async">
+                                </div>
+                            </div>
+                            <div class="tab-spot">
+                                <h3 class="tab-sub-title">見どころスポット</h3>
+                                <ul class="tab-text">
+                                    <li> • クイーンズスクエア横浜　大型ショッピングモール。買い物や食事に便利。
+                                    </li>
+                                    <li>• 横浜美術館　国内外の近現代美術を鑑賞できる文化スポット</li>
+                                </ul>
+                                <div class="tab-img3">
+                                    <img src="./images/yokohama/minatomitai-tab02@2x.png" alt="" loading="lazy"
+                                        decoding="async">
+                                </div>
+                                <div class="tab__map-button tab__map-button--position">
+                                    <a href="#yokohama-area" class="guide-spots__map-link"
+                                        data-target="map-minatomirai">
+                                        <span aria-hidden="true">↑</span>
+                                        <span>MAPへ</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div> <!-- tab-content -->
+                    </div> <!-- tab-content -->
+                </div> <!-- tabs -->
+            </div> <!-- inner -->
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="contact__inner">
+                <h2 class="section-title section-title--sm">
+                    <img src="./images/contact/contact-title.png" alt="お問い合わせ">
+                </h2>
+
+                <div class="contact__box">
+                    <ul class="contact__list">
+                        <li class="contact__item contact__item--tel">
+                            <img src="./images/header_phoneicon.png" alt="">
+                            <span>045-681-2737</span>
+                        </li>
+                        <li class="contact__item contact__item--mobile">
+                            <img src="./images/header_mobileicon.png" alt="">
+                            <span>070-1526-3845</span>
+                        </li>
+                        <li class="contact__item contact__item--time">対応時間：10:00〜18:00／不定休</li>
+                        <li class="contact__item contact__item--mail">
+                            <img src="./images/header_mailicon.png" alt="">
+                            <span>info@hamanavi-s.jp</span>
+                        </li>
+                    </ul>
+
+                    <div class="contact__btns">
+                        <a href="contact.html" class="btn btn--blue btn--md">お問い合わせ・ご相談窓口</a>
+                        <a href="estimate.html" class="btn btn--orange btn--md">予約をする
+                            <img src="./images/service/icon-link.png" alt="" class="btn__icon" aria-hidden="true"></a>
+                    </div>
+                </div>
+
+                <div class="contact__bird">
+                    <img src="../images/contact/bird.png" alt="ハマナビくん">
+                    <p class="contact__speech">ハマナビサービスで<br>横浜を楽しんでいってね！</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="transport-links">
+            <div class="transport-links__inner">
+                <!-- 上のバナー画像 -->
+                <div class="transport-links__banner">
+                    <img src="./images/yokohama/bunner@2x.png" alt="マイクロインフルエンサー募集バナー">
+                </div>
+
+                <!-- リンクボックス一覧 -->
+                <div class="transport-links__grid">
+                    <!-- 1 -->
+                    <a href="#" class="transport-links__item" target="_blank">
+                        <div class="transport-links__box">
+                            <p class="transport-links__desc">有名スポットに1本で移動できる連接バス</p>
+                            <p class="transport-links__title">BAYSIDE BLUE</p>
+                        </div>
+                        <div class="transport-links__link-wrap">
+                            <span class="transport-links__link">横浜観光情報公式サイト</span>
+                        </div>
+                    </a>
+                    <!-- 2 -->
+                    <a href="#" class="transport-links__item" target="_blank">
+                        <div class="transport-links__box">
+                            <p class="transport-links__desc">横濱ハンマーヘッドや赤レンガ倉庫など、<br>横浜人気観光スポットを巡る</p>
+                            <p class="transport-links__title">周遊バス「あかいくつ」</p>
+                        </div>
+                        <div class="transport-links__link-wrap">
+                            <span class="transport-links__link">横浜市交通局公式サイト</span>
+                        </div>
+                    </a>
+
+                    <!-- 3 -->
+                    <a href="#" class="transport-links__item" target="_blank">
+                        <div class="transport-links__box">
+                            <p class="transport-links__desc">横浜駅周辺及び元町中華街・関内周辺の</p>
+                            <p class="transport-links__title">電動キックボード</p>
+                        </div>
+                        <div class="transport-links__link-wrap">
+                            <span class="transport-links__link">LUUP公式サイト</span>
+                        </div>
+                    </a>
+
+                    <!-- 4 -->
+                    <a href="#" class="transport-links__item" target="_blank">
+                        <div class="transport-links__box">
+                            <p class="transport-links__desc">日本初！世界最先端の都市型循環式ロープウェイ</p>
+                            <p class="transport-links__title">YOKOHAMA AIR CABIN</p>
+                        </div>
+                        <div class="transport-links__link-wrap">
+                            <span class="transport-links__link">YOKOHAMA AIR CABIN公式サイト</span>
+                        </div>
+                    </a>
+
+                    <!-- 5 -->
+                    <a href="#" class="transport-links__item" target="_blank">
+                        <div class="transport-links__box">
+                            <p class="transport-links__desc">インバウンド顧客対応</p>
+                            <p class="transport-links__title">タクシーアプリ</p>
+                        </div>
+                        <div class="transport-links__link-wrap">
+                            <span class="transport-links__link">GO株式会社</span>
+                        </div>
+                    </a>
+
+                    <!-- 6 -->
+                    <a href="#" class="transport-links__item" target="_blank">
+                        <div class="transport-links__box">
+                            <p class="transport-links__desc">横浜のコミュニティサイクル</p>
+                            <p class="transport-links__title">バイクシェアサービス</p>
+                        </div>
+                        <div class="transport-links__link-wrap">
+                            <span class="transport-links__link">baybike公式サイト</span>
+                        </div>
+                    </a>
+                </div>
+                <p class="note">
+                    本ホームページ上のイラスト画像はあくまでもイメージ画像で、実際とは多少異なる箇所もございますので、ご了承くださいませ。
+                </p>
+
+            </div>
+        </section>
+        <section class="footer-scene">
+            <div class="footer__fx" aria-hidden="true">
+                <img src="./images/fireworks4.png" alt="左下の花火のイラスト" class="footer__fx-item footer__fx-item--l1">
+                <img src="./images/fireworks2.png" alt="左上の花火のイラスト" class="footer__fx-item footer__fx-item--l2">
+                <img src="./images/fireworks8.png" alt="右下の花火のイラスト" class="footer__fx-item footer__fx-item--r2">
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__inner">
+            <!-- ロゴ -->
+            <div class="footer__logo">
+                <img src="./images/footer_logo.png" alt="YOKOHAMA Concierge ロゴ">
+            </div>
+            <!-- 住所・連絡先 -->
+            <div class="footer__info">
+                <p class="footer__address">〒231-0023 神奈川県横浜市中区山下町76-4-1301</p>
+                <div class="footer__links">
+                    <a href="mailto:info@hamanavi-s.jp" class="footer__link footer__link--mail">
+                        <img src="./images/header_mailicon.png" alt="メールアイコン">
+                        info@hamanavi-s.jp
+                    </a>
+                    <a href="https://www.instagram.com/yokohama_concierge?igsh=dmIzeWM4eW43Nmpn&utm_source=qr"
+                        target="_blank" rel="noopener noreferrer" class="footer__link footer__link--insta">
+                        <img src="./images/footer_insta.png" alt="Instagramアイコン">
+                        Instagram
+                    </a>
+                </div>
+            </div>
+        </div>
+        <nav class="footer__nav">
+            <ul class="footer__menu">
+                <li><a href="index.html">ホーム</a></li>
+                <li class="footer__item footer__item--has-sub">
+                    <button type="button" class="footer__trigger js-footer-dropdown" aria-expanded="false">
+                        サービス紹介
+                        <span class="footer__caret" aria-hidden="true"></span>
+                    </button>
+                    <ul class="footer__sub" aria-label="サービス紹介のメニュー">
+                        <li><a href="#service-reserve">予約代行</a></li>
+                        <li><a href="#service-storage">トランクお預かり</a></li>
+                        <li><a href="#service-guide">横浜観光ガイドサービス</a></li>
+                    </ul>
+                </li>
+                <li><a href="yokohama.html">横浜について</a></li>
+                <li><a href="#faq">よくある質問</a></li>
+                <li><a href="news.html">お知らせ・イベント</a></li>
+                <li><a href="contact.html">お問い合わせ</a></li>
+            </ul>
+            <ul class="footer__policy">
+                <li><a href="#">プライバシーポリシー</a></li>
+                <li><a href="#">個人情報保護方針</a></li>
+                <li><a href="#">利用規約</a></li>
+            </ul>
+        </nav>
+
+        <p class="footer__copy">
+            © 2025 YOKOHAMA Concierge. All Rights Reserved.
+        </p>
+    </footer>
+    <a href="#" class="pagetop" aria-label="ページの先頭へ">
+        <img src="./images/icon-pagetop.png" alt="ページトップへ">
+    </a>
+    <!-- jQuery（必ず一番上） -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <!-- Slick本体 -->
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <!-- あなたのスクリプト（Slick設定含む） -->
+    <script src="./js/script.js"></script>
+
+    <!-- その他のJS（header.js など） -->
+    <script src="./js/header.js"></script>
+    <script src="./js/about.js"></script>
+    <script src="./js/accordion.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="./js/service-tour-guide.js"></script>
+    <script src="./js/yokohama.js"></script>
+
+</body>
+
+</html>

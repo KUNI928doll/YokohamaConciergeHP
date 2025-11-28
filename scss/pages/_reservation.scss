@@ -1,0 +1,230 @@
+@charset "UTF-8";
+@use "../abstracts" as *;
+
+.sub-hero--reservation {
+  background: linear-gradient(135deg, rgba(29, 67, 117, 0.95), rgba(29, 80, 162, 0.85));
+  color: var(--color-bg);
+  text-align: center;
+  padding: clamp(60px, 12vw, 140px) 0;
+  position: relative;
+
+  .sub-hero__inner {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .sub-hero__title,
+  .sub-hero__lead {
+    color: var(--color-bg);
+  }
+
+
+  .sub-hero__title {
+    position: static;
+    transform: none;
+    text-shadow: none;
+    letter-spacing: 0.05em;
+  }
+
+  .sub-hero__lead {
+    max-width: 820px;
+    margin: 0 auto;
+    line-height: 1.9;
+  }
+}
+
+.reservation {
+  padding: clamp(48px, 10vw, 100px) 0 120px;
+  background: linear-gradient(180deg, rgba(29, 67, 117, 0.04), rgba(255, 255, 255, 0));
+
+
+  .reservation__inner {
+    width: min(1100px, 90%);
+    margin: 0 auto;
+  }
+
+  &__head {
+    margin-bottom: clamp(32px, 6vw, 48px);
+  }
+
+  &__text {
+    font-size: 1.6rem;
+    line-height: 1.9;
+    color: var(--color-text);
+    margin-bottom: 16px;
+  }
+
+  &__list {
+    list-style: disc;
+    padding-left: 20px;
+    color: var(--color-main);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 1.4rem;
+  }
+}
+
+.reservation-form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  &__section {
+    border: 1px solid rgba(29, 67, 117, 0.15);
+    border-radius: 24px;
+    padding: clamp(24px, 5vw, 40px);
+    background: var(--color-bg);
+    box-shadow: 0 24px 45px rgba(16, 38, 69, 0.06);
+  }
+
+  &__legend {
+    font-size: clamp(2rem, 3vw, 2.4rem);
+    font-weight: 700;
+    color: var(--color-main);
+    margin-bottom: 8px;
+  }
+
+  &__description {
+    font-size: 1.4rem;
+    line-height: 1.8;
+    color: #405071;
+    margin-bottom: 24px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &--full {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__label {
+    font-weight: 600;
+    color: var(--color-main);
+    font-size: 1.4rem;
+  }
+
+  &__required {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-bg);
+    background: var(--color-accent);
+    border-radius: 999px;
+    padding: 2px 10px;
+    margin-left: 8px;
+
+    &--inline {
+      margin-left: 0;
+    }
+  }
+
+  &__input,
+  &__select,
+  &__textarea {
+    width: 100%;
+    border: 1px solid rgba(29, 67, 117, 0.2);
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 1.5rem;
+    font-family: inherit;
+    line-height: 1.5;
+    background: #fdfefe;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &:focus {
+      border-color: var(--color-main);
+      box-shadow: 0 0 0 3px rgba(29, 67, 117, 0.15);
+      outline: none;
+    }
+  }
+
+  &__select {
+    appearance: none;
+  }
+
+  &__textarea {
+    min-height: 140px;
+    resize: vertical;
+  }
+
+  &__note {
+    font-size: 1.2rem;
+    color: #7a869f;
+  }
+
+  &__inline-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+  }
+
+  &__inline-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px 14px;
+    border: 1px dashed rgba(29, 67, 117, 0.3);
+    border-radius: 16px;
+    background: rgba(29, 67, 117, 0.02);
+
+    span {
+      font-size: 1.3rem;
+      color: var(--color-main);
+      font-weight: 600;
+    }
+
+    .reservation-form__input {
+      background: var(--color-bg);
+    }
+  }
+
+  &__proposal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+    padding-top: 8px;
+  }
+
+  .btn--blue {
+    min-width: 260px;
+  }
+}
+
+@include mq($until: sp-large) {
+  .reservation-form {
+    gap: 24px;
+
+    &__section {
+      padding: 24px 20px;
+    }
+
+    &__select {
+      background-image: none;
+    }
+  }
+
+  .reservation__list {
+    padding-left: 16px;
+  }
+}

@@ -1,0 +1,91 @@
+@use "sass:map";
+
+// ブレークポイント定義
+$breakpoints: (
+  sp-small: 376px,
+  sp-large: 768px,
+  tab: 1024px,
+  mid-pc: 1200px,
+  laptop: 1440px
+);
+
+// // ユーティリティ関数
+// @function bp($key-or-value) {
+//   @return if(map.has-key($breakpoints, $key-or-value),
+//     map.get($breakpoints, $key-or-value),
+//     $key-or-value // 直接px渡しでもOK
+//   );
+// }
+
+// // 共通メディアクエリ Mixin
+// @mixin mq($from: null, $until: null) {
+//   $min: null;
+//   $max: null;
+
+//   @if $from {
+//     $min: bp($from);
+//   }
+
+//   @if $until {
+//     $max: bp($until);
+
+//     @if $max !=null {
+//       $max: $max - 1px;
+//     }
+//   }
+
+//   @if $min and $max {
+//     @media (min-width: #{$min}) and (max-width: #{$max}) {
+//       @content;
+//     }
+//   }
+
+//   @else if $min {
+//     @media (min-width: #{$min}) {
+//       @content;
+//     }
+//   }
+
+//   @else if $max {
+//     @media (max-width: #{$max}) {
+//       @content;
+//     }
+//   }
+
+//   @else {
+//     @warn "⚠️ No valid breakpoint passed to mq(). Check your arguments.";
+//   }
+// }
+
+// // 呼び出しを簡単にするためのシンタックスシュガー
+// @mixin mq-up($from) {
+//   @include mq($from: $from) {
+//     @content;
+//   }
+// }
+
+// @mixin mq-down($until) {
+//   @include mq($until: $until) {
+//     @content;
+//   }
+// }
+
+// @mixin mq-between($from, $until) {
+//   @include mq($from: $from, $until: $until) {
+//     @content;
+//   }
+// }
+
+// max-width（下方向）
+@mixin mq($key) {
+  @media (max-width: map.get($breakpoints, $key)) {
+    @content;
+  }
+}
+
+// min-width（上方向）※必要なら使う
+@mixin mq-up($key) {
+  @media (min-width: map.get($breakpoints, $key)) {
+    @content;
+  }
+}

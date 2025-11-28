@@ -1,0 +1,424 @@
+@charset "UTF-8";
+@use "../abstracts" as *;
+
+.yokohama {
+  padding-block: 142px 286px;
+
+  @include mq($until: tab) {
+    padding-block: 70px 140px;
+  }
+
+}
+
+.yokohama-tab__inner {
+  width: min(1134px, 92%);
+  margin: 0 auto;
+  position: relative;
+}
+
+
+// 横浜について
+
+.yokohama-area {
+  .guide-spots__nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 58px;
+  }
+}
+
+@include mq($until: sp-large) {
+  .yokohama-area {
+    .guide-spots__nav {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+  }
+}
+
+.yokohama-area__map {
+  display: none;
+  text-align: center;
+
+  &.is-active {
+    display: block;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.tabs {
+  display: flex;
+  margin: 10% auto;
+  width: 100%;
+
+  @include mq($until: sp-large) {
+    flex-direction: column-reverse; // スマホでは縦並び（上にタブ）
+  }
+}
+
+.tab-list {
+  display: flex;
+  order: 2;
+  flex-direction: column;
+  row-gap: 54px;
+  padding-top: 78px;
+
+  @include mq($until: sp-large) {
+    flex-direction: row;
+    overflow-x: auto; // 横スクロールを許可
+    white-space: nowrap; // 折り返し防止
+  }
+
+}
+
+.tab-item {
+  background-color: #fff;
+  border: solid 1px #2e65ba;
+  border-left: none;
+  padding: 1.16em 1.5em;
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--color-main);
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-weight: 700;
+  text-align: center;
+  width: 200px;
+
+  @include mq($until: sp-large) {
+    font-size: 16px;
+  }
+}
+
+@include mq($until: sp-large) {
+  .tab-item:first-child {
+    border-left: 1px solid #2e65ba;
+  }
+}
+
+.tab-wrapper {
+  display: flex;
+  gap: clamp(3.625rem, -16.261rem + 41.43vw, 9.063rem);
+  align-items: flex-start;
+
+  @include mq($until: tab) {
+    flex-direction: column;
+    gap: 58px;
+  }
+}
+
+.tab-wrapper h2 {
+  white-space: nowrap;
+}
+
+
+
+.tab-img {
+  img {
+    width: 360px;
+    flex-shrink: 0;
+  }
+
+  @include mq($until: sp-large) {
+    width: auto;
+  }
+
+}
+
+.tab-text {
+  padding-top: 35px;
+  color: #2e65ba;
+  line-height: 1.5;
+}
+
+.tab-sub-title {
+  position: relative;
+  margin-top: 88px;
+  font-size: 20px;
+  color: #2e65ba;
+
+  @include mq($until: tab) {
+    margin-top: 40px;
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    width: 181px;
+    height: 5px;
+    left: 180px;
+    top: 50%;
+    transform: translateY(50%);
+    background: url(/images/yokohama/yokohama-line@2x.png) center center /contain no-repeat;
+
+    @include mq($until: sp-large) {
+      display: none;
+    }
+  }
+}
+
+// yokohamaタブ1の写真2つめ
+.tab-img--margin {
+  margin-top: 58px;
+}
+
+.tab-panel {
+  display: none;
+}
+
+.tab-item.active {
+  background-color: #D1D3D3;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  max-width: 245px;
+}
+
+.tab-panel.active {
+  background: url(../../images/yokohama/bg@2x.png) left top / cover no-repeat;
+  padding: 91px 100px 91px 92px;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  display: block;
+  font-weight: 500;
+  max-width: 978px;
+  height: 1064px;
+
+  @include mq($until: sp-large) {
+    padding: 30px;
+    height: auto;
+  }
+}
+
+// ボタンはみ出るため、height調整（元町、中華街、みなと
+
+.tab-content .tab-panel:nth-of-type(1).active,
+.tab-content .tab-panel:nth-of-type(2).active,
+.tab-content .tab-panel:nth-of-type(7).active {
+  @include mq($until: tab) {
+    height: 1180px;
+  }
+}
+
+.tab-panel.active h2 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+.tab-wrapper--gap {
+  gap: 47px;
+}
+
+// 中華街１番目の画像
+.tab-img2 {
+  padding-top: 35px;
+  width: 317px;
+  height: auto;
+  flex-shrink: 0;
+
+  @include mq($until: sp-large) {
+    width: auto;
+  }
+}
+
+.tab-panel-wrap {
+  display: flex;
+  justify-content: space-between;
+  gap: 47px;
+
+  @include mq($until: tab) {
+    flex-direction: column;
+  }
+
+}
+
+.tab-spot {
+  position: relative;
+}
+
+// 中華街２番目の画像,みなとみらい2番目の画像
+.tab-img3 {
+  position: absolute;
+  top: 155px;
+  left: 325px;
+  padding-top: 30px;
+  width: 323px;
+
+  @include mq($until: tab) {
+    left: 0;
+    top: 160px;
+  }
+
+  @include mq($until: sp-large) {
+    width: 250px;
+  }
+}
+
+.tab-wrapper2 {
+  display: flex;
+  gap: 47px;
+
+  @include mq($until: tab) {
+    flex-direction: column;
+  }
+
+  img {
+    margin-top: 50px;
+    width: 356px;
+
+    @include mq($until: tab) {
+      margin-top: 30px;
+    }
+  }
+}
+
+@include mq($until: tab) {
+  .tab-img4 {
+    text-align: center;
+  }
+}
+
+.tab-head {
+  width: 70%;
+
+  @include mq($until: tab) {
+    width: 100%;
+  }
+}
+
+// 馬車道エリア
+.tab-img5 {
+  width: 316px;
+  margin-left: auto;
+}
+
+// mapボタン
+.tab__map-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+// 中華街とみなとみらいのマップボタン(positionで指定しているため
+
+.tab__map-button--position {
+  position: absolute;
+  bottom: -408px;
+  right: 0;
+
+  @include mq($until: tab) {
+    bottom: -361px;
+  }
+
+  @include mq($until: sp-large) {
+    bottom: -342px;
+  }
+}
+
+/* ===============================================
+# リンクボタン
+=============================================== */
+
+.transport-links {
+  padding-block: 86px 28px;
+
+  @include mq($until: sp-large) {
+    padding-block: 86px 50px;
+  }
+
+
+  &__inner {
+    width: min(1082px, 92%);
+    margin: 0 auto;
+  }
+
+  &__banner {
+    text-align: center;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  &__grid {
+    padding-block: 128px 125px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(298px, 1fr)); // ←ここを調整
+    gap: 47px 87px;
+    max-width: 1082px;
+    margin: 0 auto;
+
+    @include mq($until: sp-large) {
+      padding-top: 47px;
+    }
+  }
+
+  &__box {
+    border: 1px solid #ccc;
+    padding: 12px 13px;
+    background-color: #fff;
+    text-align: center;
+  }
+
+  &__desc {
+    font-size: 12px;
+    color: var(--color-main);
+  }
+
+  &__title {
+    font-size: 27px;
+    font-weight: 500;
+    margin-top: 8px;
+    color: #EA6F00; // オレンジ
+  }
+
+  &__link {
+    font-size: 14px;
+    color: #2e65ba;
+  }
+}
+
+.transport-links__link-wrap {
+  position: relative;
+  display: inline-block;
+  /* 必須：幅をテキストに合わせる */
+  padding-right: 25px;
+  /* アイコン分の余白を作る */
+}
+
+.transport-links__link {
+  &::before {
+    position: absolute;
+    content: '';
+    width: 18px;
+    height: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    /* 右横に配置 */
+    background: url(../../images/yokohama/link-icon@2x.png) center center /contain no-repeat;
+  }
+}
+
+// ４つ目のタイトル（YOKOHAMA AIRCABAINCABAIN
+.transport-links__item:nth-of-type(2),
+.transport-links__item:nth-of-type(4) {
+  .transport-links__title {
+    font-size: 24px;
+  }
+}
+
+
+.transport-links__item:nth-of-type(2) {
+  .transport-links__box {
+    padding: 4px;
+  }
+}
+
+.note {
+  text-align: end;
+  font-size: 14px;
+}

@@ -1,0 +1,97 @@
+@charset "UTF-8";
+@use "../abstracts" as *;
+
+.features {
+  position: relative;
+  // background-color: #f6fafa;
+  // padding: clamp(80px, 8vw, 140px) 0;
+  padding-block: calc((38 / 1387) * 100vw);
+  text-align: center;
+  overflow: hidden;
+  width: 100%;
+  // background: url("../images/features/features_bg.png") no-repeat center top;
+  // background-size: cover; // ← 波の高さが固定されている場合は contain でもOK
+  z-index: 10;
+  
+
+&::before {
+    content: "";
+    width: 100%;
+    aspect-ratio: 1387 / 38;
+    background: url("../images/features/features_before.png") repeat-x center top;
+    background-size: auto 100%;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    right: 0;
+  }
+
+  /* 下の波 */
+  &::after {
+    content: "";
+    width: 100%;
+    aspect-ratio: 1387 / 38;
+    background: url("../images/features/features_after.png") repeat-x center bottom;
+    background-size: auto 100%;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+  }
+}
+
+  /* カモメ */
+  .features__seagull {
+    position: absolute;
+    bottom: -33%;
+    left: 12%;
+    width: 58px;
+    animation: seagull-fly 8s ease-in-out infinite alternate;
+    z-index: 15;
+    @include mq($until: sp-large) {
+      display: none;
+    }
+  }
+
+  .features__wrap{
+    background-color: #F2F6F6;
+    padding-block: 100px;
+  }
+
+  .features__inner {
+    position: relative;
+    width: min(1080px, 90%);
+    margin-inline: auto;
+    z-index: 2;
+  }
+
+  .features__image {
+    img {
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      margin-inline: auto;
+      display: block;
+    }
+  }
+
+  .features__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .features__line {
+    position: absolute;
+    left: -15px;
+    bottom: -110px;
+    width: 95px;
+    z-index: 15;
+    @include mq($until: sp-large) {
+      display: none;
+    }
+  }
+

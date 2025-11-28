@@ -1,0 +1,196 @@
+@charset "UTF-8";
+@use "../abstracts" as *;
+
+/* --- 基本スタイル --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 700;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  line-height: 1.4;
+  font-family: var(--font-heading, "Noto Sans JP", sans-serif);
+  flex-grow: 0; // flexコンテナ内で拡大しない
+  flex-shrink: 0; // flexコンテナ内で縮小されないようにする
+
+  /* アイコン */
+  .btn__icon {
+    width: 1.1em;
+    height: auto;
+  }
+
+  .btn__iconarrow {
+    font-size: 1.2em;
+    line-height: 1;
+  }
+
+  /* ================================
+     カラーバリエーション
+  ================================= */
+  &--blue {
+    background: #0D3D90;
+    color: #fff;
+
+    &:hover {
+      background: #1153bf;
+      transform: translateY(-2px);
+    }
+  }
+
+  &--orange {
+    background: #E39A1D;
+    color: #fff;
+
+    &:hover {
+      background: #E28C1C;
+      transform: translateY(-2px);
+    }
+  }
+
+  &--white {
+    background: #fff;
+    color: #0D3D90;
+    border: 1px solid #0D3D90;
+
+    &:hover {
+      background: #0D3D90;
+      color: #fff;
+    }
+  }
+
+  &--gray {
+    background: #f4f7f8;
+    color: #333;
+
+    &:hover {
+      background: #e8ecee;
+    }
+  }
+
+  /* ================================
+     サイズバリエーション
+  ================================= */
+  &--lg {
+    font-size: clamp(1.6rem, 1.8vw, 1.8rem); // 16px-18px (1rem=10px基準)
+    padding: 1em 3em; // フォントサイズに比例
+    border-radius: 9999px;
+  }
+
+  &--md {
+    font-size: clamp(1.4rem, 1.6vw, 1.6rem); // 14px-16px (1rem=10px基準)
+    padding: 0.75em 2em; // フォントサイズに比例
+    border-radius: 9999px;
+    width: 317px;
+  }
+
+  &--sm {
+    font-size: 1.4rem; // 14px (1rem=10px基準)
+    padding: 0.571em 1.714em; // フォントサイズに比例（8px 24px ÷ 14px）
+    border-radius: 9999px;
+  }
+
+  /* ================================
+     形状バリエーション
+  ================================= */
+  &--circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    justify-content: center;
+    padding: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+
+    &.btn--blue {
+      background: #0D3D90;
+      color: #fff;
+    }
+
+    .btn__icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &--outline {
+    background: transparent;
+    border: 2px solid currentColor;
+    color: #0D3D90;
+
+    &:hover {
+      background: #0D3D90;
+      color: #fff;
+    }
+  }
+
+  /* ================================
+     アイコン付きボタン（例：見積り用）
+  ================================= */
+  &--with-icon {
+    gap: 10px;
+
+    img {
+      width: 20px;
+      height: auto;
+    }
+  }
+
+  /* ================================
+     矢印付きボタン（テキスト中央、矢印右端）
+  ================================= */
+  &--with-arrow {
+    position: relative;
+    justify-content: center;
+
+    >span:first-child {
+      flex: 1;
+      text-align: center;
+    }
+
+    .btn__arrow {
+      position: absolute;
+      right: 2em; // padding-rightと同じ値（フォントサイズに比例）
+    }
+  }
+}
+
+/* =========================================================
+  セクション別の配置用ヘルパー（デザインは変更しない）
+========================================================= */
+
+/* FAQ下CTA */
+.faq-bottom__btn {
+  @extend .btn;
+}
+
+/* Supportセクション */
+.support__btn {
+  @extend .btn;
+  margin-top: 1rem;
+}
+
+/* Contactページ */
+.contact .btn {
+  @extend .btn;
+}
+
+/* About Yokohama（地図ボタン） */
+.about-yokohama__map-btn {
+  @extend .btn;
+  font-size: clamp(1.5rem, 1.6vw, 1.7rem); // 15px-17px (1rem=10px基準)
+  padding: 0.875em 2.5em; // フォントサイズに比例（14px 40px ÷ 16px基準）
+}
+
+/* Newsセクション */
+.news__btn {
+  @extend .btn;
+  margin-top: 40px;
+}

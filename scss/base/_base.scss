@@ -1,0 +1,75 @@
+@charset "UTF-8";
+@use "../abstracts" as *;
+
+@supports (-webkit-font-smoothing: antialiased) {
+  html {
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+
+/* 使う */
+.speech-bubble__text {
+  font-family: var(--font-sub-alt);
+}
+
+
+html {
+  font-size: 62.5%;
+
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: var(--font-heading);
+  background: var(--color-bg);
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+li {
+  list-style: none;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity .3s;
+
+
+  &:hover {
+    opacity: .5;
+  }
+}
+
+
+/* --- フェード初期 --- */
+.js-fade,
+.js-fade-up,
+.js-stamp {
+  opacity: 0;
+}
+
+.js-fade-up {
+  transform: translateY(30px);
+}
+
+.js-stamp {
+  transform: scale(0.5);
+}
+
+
