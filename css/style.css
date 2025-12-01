@@ -6134,31 +6134,19 @@ img {
   }
 }
 
+/* ===============================================
+# 様々なご予約に
+=============================================== */
+.reservation {
+  font-family: Zen Maru Gothic;
+}
+
 .reservation__inner {
   width: min(1199px, 92%);
   margin: 0 auto;
 }
-
-.reservation {
-  font-family: Zen Maru Gothic;
-  height: 2000px;
-}
-@media (max-width: 1024px) {
-  .reservation {
-    height: 3000px;
-  }
-}
-@media (max-width: 768px) {
-  .reservation {
-    height: 3500px;
-  }
-}
-.reservation h2 {
+.reservation__inner h2 {
   text-align: center;
-}
-
-.category__wrap {
-  position: relative;
 }
 
 .category--stay {
@@ -6172,6 +6160,7 @@ img {
 }
 
 .category__circle {
+  position: relative;
   display: block;
   padding: 25px 57px 86px 57px;
   text-align: center;
@@ -6179,16 +6168,13 @@ img {
   border-radius: 50%;
   width: 263px;
   margin-left: 70px;
-  z-index: 1;
 }
 
 .category__shape {
-  position: absolute;
   content: "";
   width: 172px;
   height: 294px;
   background: url(/images/service-reserve/resercation-circle-blue@2x.png) center center/contain no-repeat;
-  z-index: -3;
   top: 47px;
 }
 @media (max-width: 1024px) {
@@ -6205,41 +6191,18 @@ img {
 }
 
 .category__image {
-  width: 314px;
   position: absolute;
   top: 194px;
-  left: 123px;
-  z-index: -2;
+  left: 142px;
+  width: 314px;
+  z-index: -1;
 }
-@media (max-width: 768px) {
-  .category__image {
-    position: static;
-    top: 0;
-    margin-top: 20px;
-    width: 100%;
-    height: auto;
-  }
-}
-
 .category__image2 {
-  width: 275px;
   position: absolute;
-  left: -103px;
-  top: 290px;
-  z-index: -3;
 }
 .category__image2 img {
   border-radius: 16px;
 }
-@media (max-width: 768px) {
-  .category__image2 {
-    position: static;
-    margin-top: 20px;
-    width: 100%;
-    height: auto;
-  }
-}
-
 .category--eat {
   position: absolute;
   top: 372px;
@@ -6585,9 +6548,8 @@ button {
   background: url(../../images/yokohama/link-icon@2x.png) center center/contain no-repeat;
 }
 
-.support__inner {
-  width: min(861px, 92%);
-  margin: 0 auto;
+.reserve-guide-fee {
+  margin-top: 200px;
 }
 
 .support__catchphrase {
@@ -6616,45 +6578,52 @@ button {
   background: url(../../images/service-reserve/nijyuhukidashi-right@2x.png) center center/contain no-repeat;
 }
 
-.support__content {
-  margin-top: 27px;
-  padding: 42px 56px;
-  background-color: #F2F6F6;
+.price {
+  display: grid;
+  grid-template-columns: 12em 1fr;
+  margin-bottom: 1em;
+  width: 60%;
 }
 
-.support__icon {
-  text-align: center;
+.price__term {
+  font-weight: bold;
+  white-space: nowrap;
 }
 
-.support__text {
-  display: flex;
+.price__term--additional {
+  margin-left: 16px;
+}
+
+.price__subheading {
+  color: #1D50A2;
+}
+
+.price__value {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
   align-items: center;
-  gap: 50px;
+  gap: 0.5em;
 }
 
-.support__item-title {
-  border-bottom: 5px solid rgba(234, 111, 0, 0.4);
+.price__dot {
+  border-bottom: 1px dotted #000;
+  height: 1px;
+  width: 100%;
 }
 
-.support__description {
-  width: 70%;
+.price__desc {
+  font-weight: bold;
+  white-space: nowrap;
 }
 
-.support__list {
-  padding: 18px 52px;
-  background-color: #ffffff;
-  border-radius: 20px;
+.price__note {
+  font-size: 12px;
+  color: #555;
+  white-space: nowrap;
 }
 
-.support__item {
-  list-style-type: decimal; /* 数字を表示する */
-  list-style-position: outside; /* 数字を外側に配置（デフォルト） */
-  text-align: start;
-  color: #0D3063;
-  line-height: 1.75;
-}
-.support__item:not(:first-child) {
-  margin-top: 21px;
+.guide-fee__not-included-list {
+  font-weight: 600;
 }
 
 @media (max-width: 768px) {
