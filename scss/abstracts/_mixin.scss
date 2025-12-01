@@ -77,15 +77,15 @@ $breakpoints: (
 // }
 
 // max-width（下方向）
-@mixin mq($key) {
-  @media (max-width: map.get($breakpoints, $key)) {
+@mixin mq($until) {
+  @media (max-width: map.get($breakpoints, $until)) {
     @content;
   }
 }
 
 // min-width（上方向）※必要なら使う
-@mixin mq-up($key) {
-  @media (min-width: map.get($breakpoints, $key)) {
+@mixin mq-up($until) {
+  @media (min-width: map.get($breakpoints, $until)) {
     @content;
   }
 }
