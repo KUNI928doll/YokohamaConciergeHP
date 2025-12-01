@@ -4,7 +4,6 @@ $(function () {
     dots: false,
     arrows: true,
     slidesToShow: 2.5,
-    slidesToShow: 2,
     slidesToScroll: 1, 
     prevArrow: '<button class="slide-arrow prev-arrow"></button>',
     nextArrow: '<button class="slide-arrow next-arrow"></button>',
@@ -12,7 +11,7 @@ $(function () {
       {
         breakpoint: 1000, // 768px以下（タブレット）
         settings: {
-          slidesToShow: 1.5, // 1.5枚見せ
+          slidesToShow: 1, // 1枚見せ
           dots: true         // ドットを表示
         }
       }

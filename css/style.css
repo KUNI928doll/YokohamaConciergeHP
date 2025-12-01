@@ -6149,6 +6149,16 @@ img {
   text-align: center;
 }
 
+.reservation__container {
+  position: relative;
+  height: 1900px;
+}
+@media (max-width: 768px) {
+  .reservation__container {
+    height: 3300px;
+  }
+}
+
 .category--stay {
   position: relative;
   margin-left: 103px;
@@ -6156,11 +6166,11 @@ img {
 @media (max-width: 768px) {
   .category--stay {
     margin-left: 16px;
+    position: static;
   }
 }
 
 .category__circle {
-  position: relative;
   display: block;
   padding: 25px 57px 86px 57px;
   text-align: center;
@@ -6175,12 +6185,6 @@ img {
   width: 172px;
   height: 294px;
   background: url(/images/service-reserve/resercation-circle-blue@2x.png) center center/contain no-repeat;
-  top: 47px;
-}
-@media (max-width: 1024px) {
-  .category__shape {
-    position: static;
-  }
 }
 
 .category__text {
@@ -6197,12 +6201,32 @@ img {
   width: 314px;
   z-index: -1;
 }
+@media (max-width: 768px) {
+  .category__image {
+    position: static;
+    width: 100%;
+    left: 0;
+  }
+}
+
 .category__image2 {
   position: absolute;
+  width: 275px;
+  left: -103px;
+  z-index: -2;
 }
 .category__image2 img {
   border-radius: 16px;
 }
+@media (max-width: 768px) {
+  .category__image2 {
+    position: static;
+    width: 100%;
+    left: 0;
+    margin-top: 10px;
+  }
+}
+
 .category--eat {
   position: absolute;
   top: 372px;
@@ -6210,12 +6234,16 @@ img {
 }
 @media (max-width: 1024px) {
   .category--eat {
-    top: 800px;
+    position: static;
+    display: flex;
+    justify-content: center;
+    margin-left: 30px;
+    margin-top: 400px;
   }
 }
 @media (max-width: 768px) {
   .category--eat {
-    left: 50px;
+    margin-top: 80px;
   }
 }
 .category--eat .category__circle {
@@ -6224,6 +6252,12 @@ img {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+@media (max-width: 768px) {
+  .category--eat .category__circle {
+    width: 250px;
+    height: 250px;
+  }
 }
 .category--eat .category__shape {
   position: relative;
@@ -6382,6 +6416,7 @@ img {
   height: 500px;
   position: absolute;
   top: 840px;
+  font-family: Zen Maru Gothic;
 }
 @media (max-width: 1024px) {
   .category--play {
@@ -6390,7 +6425,7 @@ img {
 }
 @media (max-width: 768px) {
   .category--play {
-    top: 2000px;
+    top: 2300px;
   }
 }
 .category--play .category__shape {
@@ -6451,6 +6486,11 @@ img {
 .slider {
   margin: 30px auto 0;
   max-width: 1100px;
+}
+@media (max-width: 1024px) {
+  .slider {
+    max-width: 768px;
+  }
 }
 
 .slick-img img {
@@ -6546,6 +6586,21 @@ button {
   right: 0;
   transform: translateY(50%);
   background: url(../../images/yokohama/link-icon@2x.png) center center/contain no-repeat;
+}
+
+.play-note {
+  position: absolute;
+  bottom: -120px;
+  line-height: 1.75;
+  font-weight: 600;
+  max-width: 769px;
+  margin-left: 160px;
+}
+@media (max-width: 768px) {
+  .play-note {
+    margin-left: 0;
+    width: 100%;
+  }
 }
 
 .reserve-guide-fee {

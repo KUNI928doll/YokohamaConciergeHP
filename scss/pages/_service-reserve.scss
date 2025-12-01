@@ -42,6 +42,7 @@
 =============================================== */
 .reservation {
   font-family: Zen Maru Gothic;
+  
 }
 
 .reservation__inner {
@@ -53,19 +54,26 @@
   }
 }
 
+.reservation__container {
+  position: relative;
+  height: 1900px;
+  @include mq($until: sp-large) {
+    height: 3300px;
+  }
 
+}
 .category--stay {
   position: relative;
   margin-left: 103px;
 
   @include mq($until: sp-large) {
     margin-left: 16px;
+    position: static;
   }
 }
 
 // 泊まる
 .category__circle {
-  position: relative;
   display: block;
   padding: 25px 57px 86px 57px;
   text-align: center;
@@ -73,6 +81,7 @@
   border-radius: 50%;
   width: 263px;
   margin-left: 70px;
+  
 }
 
 .category__shape {
@@ -80,12 +89,6 @@
   width: 172px;
   height: 294px;
   background: url(/images/service-reserve/resercation-circle-blue@2x.png) center center /contain no-repeat;
-  top: 47px;
-
-  @include mq($until: tab) {
-    position: static;
-  }
-
 }
 
 .category__text {
@@ -103,18 +106,26 @@
   z-index: -1;
 
   @include mq($until: sp-large) {
-   
+    position: static;
+   width: 100%;
+   left: 0;
   }
 }
 
 .category__image2 {
   position: absolute;
+  width: 275px;
+  left: -103px;
+  z-index: -2;
   img {
     border-radius: 16px;
   }
 
   @include mq($until: sp-large) {
-   
+    position: static;
+    width: 100%;
+   left: 0;
+   margin-top: 10px;
   }
 }
 
@@ -126,12 +137,15 @@
   right: 0;
 
   @include mq($until: tab) {
-    top: 800px;
+    position: static;
+    display: flex;
+    justify-content: center;
+    margin-left: 30px;
+    margin-top: 400px;
   }
-  
 
   @include mq($until: sp-large) {
-    left: 50px;
+   margin-top: 80px;
   }
 
   .category__circle {
@@ -140,6 +154,11 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+    @include mq($until: sp-large) {
+      width: 250px;
+      height: 250px;
+    }
   }
 
   .category__shape {
@@ -154,6 +173,7 @@
       width: 350px;
       height: 350px;
       left: -50px;
+    
     }
   }
 
@@ -331,13 +351,14 @@
   height: 500px;
   position: absolute;
   top: 840px;
+  font-family: Zen Maru Gothic;
 
   @include mq($until: tab) {
   top: 1500px;
   }
 
   @include mq($until: sp-large) {
-    top:2000px
+    top:2300px
   }
 
   .category__shape {
@@ -400,6 +421,11 @@
 .slider {
   margin: 30px auto 0;
   max-width: 1100px;
+
+  @include mq($until: tab) {
+    max-width: 768px;
+   }
+  
 }
 
 .slick-img {
@@ -501,6 +527,20 @@ button {
   }
 }
 
+// 注意書き
+.play-note {
+ position: absolute;
+ bottom:-120px;
+ line-height: 1.75;
+ font-weight: 600;
+ max-width: 769px;
+ margin-left: 160px;
+
+ @include mq($until: sp-large) {
+  margin-left: 0;
+  width: 100%;
+ }
+}
 
 .reserve-guide-fee {
   margin-top: 200px;
@@ -584,5 +624,6 @@ button {
 .guide-fee__not-included-list {
   font-weight: 600;
 }
+
 
 
