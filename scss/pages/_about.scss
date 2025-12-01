@@ -98,7 +98,7 @@
     }
 
     /* 💻 PC以上：ズラして配置 */
-    @include mq($from: mid-pc) {
+    @include mq(mid-pc) {
       &--1 img {
         transform: translate(120px, 30px);
       }

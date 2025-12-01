@@ -852,7 +852,7 @@
         gap: 24px;
         margin-bottom: 40px;
 
-        @include mq($from: mid-pc) {
+        @include mq(mid-pc) {
             flex-direction: row;
             gap: 32px;
         }
