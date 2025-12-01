@@ -132,6 +132,7 @@
                                 メール
                             </a>
                         </li>
+                        <!-- プライバシーポリシー（ヘッダーリンクは不要のため削除） -->
                     </ul>
                     <!-- 中央：電話番号 -->
                     <div class="header__contact">
@@ -187,6 +188,7 @@
                         <li><a href="#faq"><img src="./images/icon-faq.png" alt="" class="spmenu__icon">よくある質問</a></li>
                         <li><a href="#"><img src="./images/icon-news.png" alt="" class="spmenu__icon">お知らせ・イベント</a></li>
                         <li><a href="#"><img src="./images/icon-mail.png" alt="" class="spmenu__icon">お問い合わせ</a></li>
+                            <!-- プライバシーポリシー（ヘッダーメニューから削除） -->
                     </ul>
 
 
@@ -948,14 +950,25 @@
         <nav class="footer__nav">
             <ul class="footer__menu">
                 <li><a href="index.html">ホーム</a></li>
-                <li><a href="service.html">サービス紹介</a></li>
-                <li><a href="about-yokohama.html">横浜について</a></li>
+                <li class="footer__item footer__item--has-sub">
+                    <button type="button" class="footer__trigger js-footer-dropdown" aria-expanded="false">
+                        サービス紹介
+                        <span class="footer__caret" aria-hidden="true"></span>
+                    </button>
+                    <ul class="footer__sub" aria-label="サービス紹介のメニュー">
+                        <li><a href="#service-reserve">予約代行</a></li>
+                        <li><a href="#service-storage">トランクお預かり</a></li>
+                        <li><a href="#service-guide">横浜観光ガイドサービス</a></li>
+                    </ul>
+                </li>
+                <li><a href="yokohama.html">横浜について</a></li>
                 <li><a href="#faq">よくある質問</a></li>
                 <li><a href="news.html">お知らせ・イベント</a></li>
                 <li><a href="contact.html">お問い合わせ</a></li>
             </ul>
             <ul class="footer__policy">
-                <li><a href="#">プライバシーポリシー</a></li>
+                <li><a href="privacy.html">プライバシーポリシー</a></li>
+                <li><a href="disclaimer.html">免責事項</a></li>
                 <li><a href="#">個人情報保護方針</a></li>
                 <li><a href="#">利用規約</a></li>
             </ul>
