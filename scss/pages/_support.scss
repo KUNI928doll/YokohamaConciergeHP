@@ -5,10 +5,10 @@
 .support {
   position: relative;
   text-align: center;
-  padding: 63px 0;
+  padding: 54px 0 100px;
   z-index: 1;
   padding-inline: 20px;
-  overflow: hidden;
+  overflow: visible;
   width: 100%;
 
   @include mq($until: sp-large) {
@@ -16,11 +16,19 @@
   }
 
   .support__title {
-    margin-bottom: 2rem;
+    margin-bottom: 1.6rem;
+    font-family: var(--font-sub);
+    color: var(--color-main);
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
 
-    img {
-      width: clamp(220px, 40vw, 320px);
+    img.support__title-decoration {
+      width: 12px;
       height: auto;
+      object-fit: contain;
     }
   }
 
@@ -35,7 +43,7 @@
     /* 中央寄せ */
     padding-top: 41px;
     padding-bottom: 40px;
-    margin-bottom: 81px;
+    margin-bottom: 80px;
     overflow: visible;
 
     display: flex;

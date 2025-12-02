@@ -7,11 +7,11 @@
   // padding: clamp(80px, 8vw, 140px) 0;
   padding-block: calc((38 / 1387) * 100vw);
   text-align: center;
-  overflow: hidden;
+  overflow: visible;
   width: 100%;
   // background: url("../images/features/features_bg.png") no-repeat center top;
   // background-size: cover; // ← 波の高さが固定されている場合は contain でもOK
-  z-index: 10;
+  z-index: 2;
   
 
 &::before {
@@ -40,11 +40,11 @@
   }
 }
 
-  /* カモメ */
+  /* カモメ（serviceセクションに重なる） */
   .features__seagull {
     position: absolute;
-    bottom: -33%;
-    left: 12%;
+    bottom: -200px;
+    left: 9%;
     width: 58px;
     animation: seagull-fly 8s ease-in-out infinite alternate;
     z-index: 15;
@@ -87,7 +87,7 @@
   .features__line {
     position: absolute;
     left: -15px;
-    bottom: -110px;
+    bottom: -168px;
     width: 95px;
     z-index: 15;
     @include mq($until: sp-large) {
@@ -118,7 +118,7 @@
 
 .features__circle {
   aspect-ratio: 1 / 1;
-  background: linear-gradient(135deg, #5d87c4 0%, #0d3d90 100%);
+  background: #fff;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -134,12 +134,13 @@
 }
 
 .features__circle-text {
-  color: #fff;
-  font-size: clamp(0.85rem, 1.8vw, 1.1rem);
+  color: var(--color-main);
+  font-size: 1.6rem;
   font-weight: 700;
   text-align: center;
   line-height: 1.5;
   letter-spacing: 0.05em;
+  font-family: var(--font-sub);
 
   @include mq($until: sp-large) {
     font-size: clamp(0.8rem, 3.5vw, 1rem);

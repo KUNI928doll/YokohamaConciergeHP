@@ -13,6 +13,31 @@
   z-index: 0;
   overflow: visible;
 
+  // FAQタイトル（白色）
+  .section-title--faq {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    .section-title__text {
+      color: #fff;
+      font-family: var(--font-sub);
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .section-title__icon--wave {
+      width: 97px;
+      margin-inline: auto;
+    }
+
+    .section-title__icon--wave {
+      filter: brightness(0) invert(1); 
+      margin-left: 17px;
+    }
+  }
+
   &.is-open .faq__bg {
     height: 1150px;
 
@@ -261,7 +286,7 @@
 
 .faq-decorations {
   position: relative;
-  height: 300px;
+  height: 330px;
   width: 100%;
 }
 

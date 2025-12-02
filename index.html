@@ -282,7 +282,7 @@
                         <li class="header-pyoko__item header-pyoko__item--has-sub">
                             <button type="button" class="header-pyoko__trigger js-pyoko-dropdown" aria-expanded="false">
                                 <img src="./images/icon-service.png" alt="" class="header-pyoko__icon">
-                                サービス紹介
+                                サービス<br>紹介
                                 <span class="header-pyoko__caret" aria-hidden="true"></span>
                             </button>
                             <ul class="header-pyoko__sub" aria-label="サービス紹介のメニュー">
@@ -356,7 +356,7 @@
                     宿泊施設・飲食店・体験アクティビティサービスの<br class="u-visible-sp">予約代行から、緊急時の即日予約対応や<br class="u-visible-pc">トランク<br
                         class="u-visible-sp">預かりサービスなど、外国人観光客様が旅行を<br class="u-visible-sp">楽しむお手伝いや、お困り事・ご解<br
                         class="u-visible-pc">決をサポート<br class="u-visible-sp">する地元民コンシェルジュならではの、きめ細かな<br
-                        class="u-visible-sp">サービスを提供いたします。<br class="u-visible-pc">来日直前・当日など短納期でも柔軟にご対応いたします。
+                        class="u-visible-sp">サービスを提供いたします。<br class="u-visible-pc"><span class="text-wave-underline">来日直前・当日など短納期でも柔軟にご対応</span>いたします。
                 </p>
 
                 <!-- 画像エリア -->
@@ -416,20 +416,22 @@
                         </div>
                     </div>
 
-                    <!-- 装飾 -->
-                    <img src="./images/features/features_line-left.png" alt="" class="features__line js-fade-up"
-                        aria-hidden="true">
-                    <img src="./images/features/features_seagull.png" alt="" class="features__seagull js-fade-up"
-                        aria-hidden="true">
                 </div>
             </div>
         </section>
         <section id="service" class="service section--service">
+            <!-- 装飾（featuresから継続） -->
+            <img src="./images/features/features_line-left.png" alt="" class="service__deco-line js-fade-up"
+                aria-hidden="true">
+            <img src="./images/features/features_seagull.png" alt="" class="service__deco-seagull js-fade-up"
+                aria-hidden="true">
             <div class="service__inner inner">
                 <div class="service__heading">
-                    <h2 class="section-title section-title--sm js-fade-up">
-                        <img src="./images/service/service_title.png" alt="ハマナビサービスについて">
-                    </h2>
+                    <div class="section-title section-title--sm section-title--service js-fade-up">
+                        <h2 class="section-title__text">サービス紹介</h2>
+                        <img src="./images/about/about_title-wave.svg" alt="" aria-hidden="true"
+                            class="section-title__icon section-title__icon--wave">
+                    </div>
                 </div>
                 <!-- キャラクター吹き出し -->
                 <div class="speech-wrapper -pos-tr js-fade-up">
@@ -447,9 +449,11 @@
                 </div>
                 <!-- リード文 -->
                 <p class="service__lead js-fade-up">
-                    横浜での滞在を、もっと安心で快適に。<br>
-                    私たちは訪日外国人や在住外国人の皆さまに向けて、<br class="u-visible-pc">
+                    横浜での滞在を、もっと安心で快適に。私たちは訪日外国人や在住外国人の皆さま<br>に向けて、
                     予約代行や観光ガイドサービスなど幅広いサービスを提供しています。
+                </p>
+                <p class="service__note js-fade-up">
+                    <span class="text-wave-underline--blue">各店舗での利用料金/交通費は現地にて事業者へ直接お支払いをお願いいたします</span>
                 </p>
                 <div class="service__area js-fade-up">
                     <div class="service__area-head">
@@ -457,14 +461,14 @@
                     </div>
 
                     <ul class="service__area-list">
-                        <li><a href="/area/motomachi">元町・山手エリア</a></li>
-                        <li><a href="/area/chinatown">中華街・山下公園エリア</a></li>
-                        <li><a href="/area/nihonodori">日本大通りエリア</a></li>
-                        <li><a href="/area/kannai">関内エリア</a></li>
-                        <li><a href="/area/bashamichi">馬車道エリア</a></li>
-                        <li><a href="/area/sakuragicho">桜木町エリア</a></li>
-                        <li><a href="/area/minatomirai">みなとみらいエリア</a></li>
-                        <li><a href="/area/yokohama-station">横浜駅エリア（宿泊施設予約のみ）</a></li>
+                        <li class="service__area-item">元町・山手エリア</li>
+                        <li class="service__area-item service__area-item--nowrap">中華街・山下公園エリア</li>
+                        <li class="service__area-item">日本大通りエリア</li>
+                        <li class="service__area-item">関内エリア</li>
+                        <li class="service__area-item">馬車道エリア</li>
+                        <li class="service__area-item">桜木町エリア</li>
+                        <li class="service__area-item">みなとみらいエリア</li>
+                        <li class="service__area-item service__area-item--nowrap">横浜駅エリア（宿泊施設予約のみ）</li>
                     </ul>
                 </div>
         </section>
@@ -486,7 +490,7 @@
                             </p>
                         </div>
                         <div class="service-detail__arrow">
-                            <a href="#" class="service-detail__arrow-btn" aria-label="詳細を見る"></a>
+                            <a href="service-reserve.html" class="service-detail__arrow-btn" aria-label="詳細を見る"></a>
                         </div>
                     </div>
 
@@ -503,7 +507,7 @@
                             </p>
                         </div>
                         <div class="service-detail__arrow">
-                            <a href="#" class="service-detail__arrow-btn" aria-label="詳細を見る"></a>
+                            <a href="service-storage.html" class="service-detail__arrow-btn" aria-label="詳細を見る"></a>
                         </div>
                     </div>
 
@@ -529,7 +533,11 @@
         <section class="support js-fade-up">
             <div class="support__inner">
                 <h2 class="support__title">
-                    <img src="./images/service/support_title.png" alt="さらに安心のサポート付き！">
+                    <img src="./images/service-tour-guide/support-title-line_left.svg" alt="" aria-hidden="true"
+                        class="support__title-decoration support__title-decoration--left">
+                    <span class="support__title-text">さらに安心のサポート付き！</span>
+                    <img src="./images/service-tour-guide/support-title-line_right.svg" alt="" aria-hidden="true"
+                        class="support__title-decoration support__title-decoration--right">
                 </h2>
 
                 <div class="support__box js-fade-up">
@@ -561,9 +569,11 @@
             <div class="faq__bg">
             </div>
             <div class="faq__inner inner js-fade-up">
-                <h2 class="section-title section-title--sm">
-                    <img src="./images/faq/title-faq.png" alt="よくある質問">
-                </h2>
+                <div class="section-title section-title--sm section-title--faq js-fade-up">
+                    <h2 class="section-title__text">よくある質問</h2>
+                    <img src="./images/about/about_title-wave.svg" alt="" aria-hidden="true"
+                        class="section-title__icon section-title__icon--wave">
+                </div>
                 <!-- 装飾 -->
                 <img src="./images/faq/faq_line-right.png" alt="" class="faq__line js-fade-up" aria-hidden="true">
                 <img src="./images/faq/faq_seagull.png" alt="" class="faq__seagull js-fade-up" aria-hidden="true">
