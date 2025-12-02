@@ -173,7 +173,7 @@
             <nav id="global-nav" class="header__nav header__nav--sp u-visible-sp">
                 <div class="spmenu">
                     <div class="spmenu__top">
-                        <a href="contact.html" class="btn btn--orange btn--sm spmenu__reserve">予約をする</a>
+                        <a href="reservation.html" class="btn btn--orange btn--sm spmenu__reserve">予約をする</a>
                         <a href="index.html" class="spmenu__home">
                             <img src="./images/icon-home.png" alt="ホームアイコン">
                             <span>ホームへ戻る</span>
@@ -187,7 +187,7 @@
                                 <span class="spmenu__caret" aria-hidden="true"></span>
                             </button>
                             <ul class="spmenu__sub" aria-label="サービス紹介のメニュー">
-                                <li><a href="#service-reserve">予約代行</a></li>
+                                <li><a href="service-reserve.html">予約代行</a></li>
                                 <li><a href="service-storage.html">トランクお預かり</a></li>
                                 <li><a href="service-tour-guide.html">横浜観光ガイドサービス</a></li>
                             </ul>
@@ -287,7 +287,7 @@
                             </button>
                             <ul class="header-pyoko__sub" aria-label="サービス紹介のメニュー">
                                 <li>
-                                    <a href="#service-reserve">予約代行</a>
+                                    <a href="service-reserve.html">予約代行</a>
                                 </li>
                                 <li>
                                     <a href="service-storage.html">トランクお預かり</a>
@@ -334,7 +334,7 @@
             </form>
 
             <div class="search-area__links">
-                <a href="#" class="search-area__link search-area__link--map">MAPで探す</a>
+                <a href="yokohama.html" class="search-area__link search-area__link--map">MAPで探す</a>
             </div>
 
         </div>
@@ -383,14 +383,37 @@
         <section id="features" class="features js-fade-up">
             <div class="features__wrap">
                 <div class="features__inner">
-                    <!-- タイトル -->
-                    <h2 class="section-title section-title--lg js-fade-up">
-                        <img src="./images/features/features_title.png" alt="ハマナビサービスの特徴">
-                    </h2>
+                  <!-- タイトル -->
+                    <div class="section-title section-title--lg section-title--features js-fade-up">
+                        <svg class="section-title__curve" viewBox="0 0 400 140" aria-hidden="true">
+                            <defs>
+                                <path id="curveTextPath" d="M 40 110 Q 200 20 360 110" />
+                            </defs>
+                            <text fill="#1d4375" font-size="22" font-weight="600" font-family="Noto Sans JP, sans-serif">
+                                <textPath href="#curveTextPath" startOffset="50%" text-anchor="middle">
+                                    地元だからこれだけできる！
+                                </textPath>
+                            </text>
+                        </svg>
+                        <h2 class="section-title__text">ハマナビサービスの特徴</h2>
+                        <img src="./images/about/about_title-wave.svg" alt="" aria-hidden="true"
+                            class="section-title__icon section-title__icon--wave">
+                    </div>
 
-                    <!-- 特徴画像（4つの丸いアイテムをまとめた1枚） -->
-                    <div class="features__image js-fade-up">
-                        <img src="./images/features/features_circle-bg.png" alt="ネットで簡単一括手配／当日対応可など4つの特徴">
+                    <!-- 4つの特徴 -->
+                    <div class="features__circles js-fade-up">
+                        <div class="features__circle">
+                            <span class="features__circle-text">ネットで簡単<br>一括手配</span>
+                        </div>
+                        <div class="features__circle">
+                            <span class="features__circle-text">当日や緊急時も<br>対応可能</span>
+                        </div>
+                        <div class="features__circle">
+                            <span class="features__circle-text">文化や色の<br>希望に対応</span>
+                        </div>
+                        <div class="features__circle">
+                            <span class="features__circle-text">お得でシンプルな<br>料金体系</span>
+                        </div>
                     </div>
 
                     <!-- 装飾 -->
@@ -527,7 +550,7 @@
                 </div>
             </div>
             <div class="cta">
-                <a href="contact.html" class="btn btn--orange btn--lg btn--with-icon">
+                <a href="reservation.html" class="btn btn--orange btn--lg btn--with-icon">
                     予約する
                     <img src="./images/service/icon-link.png" alt="" class="btn__icon" aria-hidden="true">
                 </a>
@@ -654,7 +677,7 @@
                     <span class="btn__arrow">→</span>
                 </a>
 
-                <a href="contact.html" class="btn btn--orange btn--lg">
+                <a href="reservation.html" class="btn btn--orange btn--lg">
                     予約をする
                     <img src="./images/service/icon-link.png" alt="" class="btn__icon" aria-hidden="true">
                 </a>
@@ -703,7 +726,7 @@
                             <img src="./images/icon-search.png" alt="検索アイコン">
                         </button>
                         <div class="about-yokohama__filters">
-                            <button type="button" class="about-yokohama__filter">MAPで探す</button>
+                            <a href="yokohama.html" class="about-yokohama__filter">MAPで探す</a>
                         </div>
                     </form>
                 </div>
@@ -740,7 +763,7 @@
                     </ul>
                     <!-- MAPボタン -->
                     <div class="about-yokohama__map js-fade-up">
-                        <a href="#" class="btn btn--blue btn--md btn--with-arrow">
+                        <a href="yokohama.html" class="btn btn--blue btn--md btn--with-arrow">
                             <span>MAPで見る</span>
                             <span class="btn__arrow">→</span>
                         </a>
@@ -836,7 +859,7 @@
 
                     <div class="contact__btns">
                         <a href="contact.html" class="btn btn--blue btn--md">お問い合わせ・ご相談窓口</a>
-                        <a href="estimate.html" class="btn btn--orange btn--md">予約をする
+                        <a href="reservation.html" class="btn btn--orange btn--md">予約をする
                             <img src="./images/service/icon-link.png" alt="" class="btn__icon" aria-hidden="true"></a>
                     </div>
                 </div>
@@ -949,7 +972,7 @@
                         <span class="footer__caret" aria-hidden="true"></span>
                     </button>
                     <ul class="footer__sub" aria-label="サービス紹介のメニュー">
-                        <li><a href="#service-reserve">予約代行</a></li>
+                        <li><a href="service-reserve.html">予約代行</a></li>
                         <li><a href="#service-storage">トランクお預かり</a></li>
                         <li><a href="#service-guide">横浜観光ガイドサービス</a></li>
                     </ul>
@@ -962,7 +985,6 @@
             <ul class="footer__policy">
                 <li><a href="privacy.html">プライバシーポリシー</a></li>
                 <li><a href="disclaimer.html">免責事項</a></li>
-                <li><a href="#">個人情報保護方針</a></li>
                 <li><a href="#">利用規約</a></li>
             </ul>
         </nav>

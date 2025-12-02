@@ -91,7 +91,7 @@
                                 <span class="spmenu__caret" aria-hidden="true"></span>
                             </button>
                             <ul class="spmenu__sub" aria-label="サービス紹介のメニュー">
-                                <li><a href="#service-reserve">予約代行</a></li>
+                                <li><a href="service-reserve.html">予約代行</a></li>
                                 <li><a href="service-storage.html">トランクお預かり</a></li>
                                 <li><a href="service-tour-guide.html">横浜観光ガイドサービス</a></li>
                             </ul>
@@ -125,10 +125,74 @@
                 </div>
             </nav>
         </div>
-        <a href="estimate.html" class="header__btn u-visible-pc">予約する</a>
+        <a href="reservation.html" class="header__btn u-visible-pc">予約する</a>
     </header>
 
-  <main class="disclaimer-page">
+  <main>
+    <div class="nav-inner-wrapper">
+        <nav class="inner-nav">
+            <ul class="inner-nav__list">
+                <li class="inner-nav__item">
+                    <a href="index.html">
+                        <img src="./images/icon-home.png" alt="ホームアイコン">ホーム</a>
+                </li>
+                <li class="inner-nav__item inner-nav__item--has-sub">
+                    <button type="button" class="inner-nav__trigger js-inner-dropdown" aria-expanded="false">
+                        <img src="./images/icon-service.png" alt="">
+                        <span>サービス紹介</span>
+                        <span class="inner-nav__caret" aria-hidden="true"></span>
+                    </button>
+                    <ul class="inner-nav__sub" aria-label="サービス紹介のメニュー">
+                        <li><a href="service-reserve.html">予約代行</a></li>
+                        <li><a href="#service-storage">トランクお預かり</a></li>
+                        <li><a href="#service-guide">横浜観光ガイドサービス</a></li>
+                    </ul>
+                </li>
+
+                <li class="inner-nav__item">
+                    <a href="about-yokohama.html">
+                        <img src="./images/icon-yokohama.png" alt="">
+                        <span>横浜について</span>
+                    </a>
+                </li>
+
+                <li class="inner-nav__item">
+                    <a href="faq.html">
+                        <img src="./images/icon-faq.png" alt="">
+                        <span>よくある質問</span>
+                    </a>
+                </li>
+
+                <li class="inner-nav__item">
+                    <a href="news.html">
+                        <img src="./images/icon-news.png" alt="">
+                        <span>お知らせ<br>イベント</span>
+                    </a>
+                </li>
+
+                <li class="inner-nav__item">
+                    <a href="contact.html">
+                        <img src="./images/icon-mail.png" alt="">
+                        <span>お問い合わせ</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="search-area">
+        <form action="#" class="search-area__form">
+            <input type="text" class="search-area__input" placeholder="サイト内検索">
+            <button type="submit" class="search-area__btn" aria-label="検索">
+                <img src="./images/icon-search.png" alt="検索アイコン">
+            </button>
+        </form>
+
+        <div class="search-area__links">
+            <a href="#" class="search-area__link search-area__link--map">MAPで探す</a>
+        </div>
+    </div>
+    <div class="disclaimer-page">
     <div class="disclaimer-page__inner">
       <h1 class="disclaimer-page__title">免責事項（Disclaimer）</h1>
 
@@ -162,6 +226,7 @@
 
       <p class="disclaimer-page__updated">最終更新日: 2025年12月1日</p>
     </div>
+</div>
   </main>
     <section class="footer-scene">
     <div class="footer__fx" aria-hidden="true">
@@ -200,7 +265,7 @@
                         <span class="footer__caret" aria-hidden="true"></span>
                     </button>
                     <ul class="footer__sub" aria-label="サービス紹介のメニュー">
-                        <li><a href="#service-reserve">予約代行</a></li>
+                        <li><a href="service-reserve.html">予約代行</a></li>
                         <li><a href="#service-storage">トランクお預かり</a></li>
                         <li><a href="#service-guide">横浜観光ガイドサービス</a></li>
                     </ul>
@@ -213,7 +278,6 @@
             <ul class="footer__policy">
                 <li><a href="privacy.html">プライバシーポリシー</a></li>
                 <li><a href="disclaimer.html">免責事項</a></li>
-                <li><a href="#">個人情報保護方針</a></li>
                 <li><a href="#">利用規約</a></li>
             </ul>
         </nav>

@@ -94,4 +94,54 @@
       display: none;
     }
   }
+.features .section-title__icon--wave {
+  width: 100px;
+  margin-inline: auto;
+  margin-top: clamp(4px, 1vw, 10px);
+}
 
+// 4つの特徴（丸）
+.features__circles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(15px, 3vw, 40px);
+  max-width: 900px;
+  margin: 40px auto 0;
+  padding-inline: 20px;
+
+  @include mq($until: sp-large) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 400px;
+  }
+}
+
+.features__circle {
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(135deg, #5d87c4 0%, #0d3d90 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  box-shadow: 0 4px 15px rgba(13, 61, 144, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(13, 61, 144, 0.4);
+  }
+}
+
+.features__circle-text {
+  color: #fff;
+  font-size: clamp(0.85rem, 1.8vw, 1.1rem);
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+
+  @include mq($until: sp-large) {
+    font-size: clamp(0.8rem, 3.5vw, 1rem);
+  }
+}

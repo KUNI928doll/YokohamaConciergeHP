@@ -26,14 +26,14 @@
 
 .u-pc {
   display: inline;
-  @include mq($until: 1200px) {
+  @include mq($until: mid-pc) {
     display: none;
   }
 }
 
 .u-sp {
   display: none;
-  @include mq($until: 1200px) {
+  @include mq($until: mid-pc) {
     display: inline;
   }
 }
