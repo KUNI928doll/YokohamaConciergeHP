@@ -4,6 +4,37 @@ document.addEventListener('DOMContentLoaded', () => {
   const mapLinks = document.querySelectorAll('.guide-spots__map-link');
   const areaSection = document.getElementById('yokohama-area');
 
+  // URLハッシュに基づいてタブを切り替える関数
+  const activateTabFromHash = () => {
+    const hash = window.location.hash.substring(1); // #を除去
+    if (hash && hash.startsWith('map-')) {
+      const targetMap = document.getElementById(hash);
+      if (targetMap) {
+        // 地図表示切り替え
+        maps.forEach(map => map.classList.remove('is-active'));
+        targetMap.classList.add('is-active');
+
+        // ボタンのアクティブ切り替え
+        buttons.forEach(btn => {
+          btn.classList.toggle('is-active', btn.dataset.target === hash);
+        });
+
+        // スクロール
+        if (areaSection) {
+          setTimeout(() => {
+            areaSection.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
+        }
+      }
+    }
+  };
+
+  // ページ読み込み時にハッシュをチェック
+  activateTabFromHash();
+
+  // ハッシュ変更時にも対応
+  window.addEventListener('hashchange', activateTabFromHash);
+
   // ① 地図ボタンの切り替え
   buttons.forEach(button => {
     button.addEventListener('click', () => {

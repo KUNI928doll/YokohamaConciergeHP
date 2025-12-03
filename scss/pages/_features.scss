@@ -109,6 +109,12 @@
   margin: 40px auto 0;
   padding-inline: 20px;
 
+  @include mq($until: mid-pc) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 400px;
+  }
+
   @include mq($until: sp-large) {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
@@ -143,6 +149,6 @@
   font-family: var(--font-sub);
 
   @include mq($until: sp-large) {
-    font-size: clamp(0.8rem, 3.5vw, 1rem);
+    font-size: clamp(1.2rem, 3.5vw, 1.6rem);
   }
 }

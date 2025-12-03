@@ -288,6 +288,10 @@
   position: relative;
   height: 330px;
   width: 100%;
+  
+  @include mq($until: sp-large) {
+    height: 250px;
+  }
 }
 
 .faq__character {
@@ -355,7 +359,10 @@
 .faq-bottom {
   position: relative;
   background: #fff;
-  margin-bottom: 160px;
+  margin-bottom: 200px;
+  @include mq($until: sp-large) {
+    margin-bottom: 100px;
+  }
 
 
   .faq-bottom__inner {

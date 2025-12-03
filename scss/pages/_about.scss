@@ -31,6 +31,10 @@
     color: #ca7f13;
     margin-bottom: 24px;
     font-family: var(--font-sub);
+
+    @include mq($until: sp-large) {
+      margin-top: 20px;
+    }
   }
 
   .about__text {
@@ -45,6 +49,14 @@
 
     @include mq($until: mid-pc) {
       text-align: center;
+      max-width: 500px;
+      padding: 0 20px;
+    }
+
+    @include mq($until: sp-large) {
+      max-width: 100%;
+      padding: 0 30px;
+      font-size: 1.4rem;
     }
   }
 
@@ -156,7 +168,8 @@
     z-index: 2;
 
     @include mq($until: mid-pc) {
-      top: 52%;
+      top: 56%;
+      right: -6%;
     }
 
     @include mq($until: sp-large) {
@@ -187,7 +200,9 @@
     transform: rotate(-8deg);
     z-index: 3;
 
-    @include mq($until: mid-pc) {}
+    @include mq($until: mid-pc) {
+      top:60%;
+    }
 
     @include mq($until: sp-large) {
       display: none;

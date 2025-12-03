@@ -178,6 +178,10 @@
                             <img src="./images/icon-home.png" alt="ホームアイコン">
                             <span>ホームへ戻る</span>
                         </a>
+                        <button type="button" class="spmenu__close js-spmenu-close" aria-label="メニューを閉じる">
+                            <span class="spmenu__close-icon"></span>
+                            <span class="spmenu__close-text">CLOSE</span>
+                        </button>
                     </div>
                     <ul class="spmenu__list">
                         <li class="spmenu__item spmenu__item--has-sub">
@@ -279,22 +283,16 @@
                                 ホーム
                             </a>
                         </li>
-                        <li class="header-pyoko__item header-pyoko__item--has-sub">
-                            <button type="button" class="header-pyoko__trigger js-pyoko-dropdown" aria-expanded="false">
+                        <li class="inner-nav__item inner-nav__item--has-sub">
+                            <button type="button" class="inner-nav__trigger js-inner-dropdown" aria-expanded="false">
                                 <img src="./images/icon-service.png" alt="" class="header-pyoko__icon">
-                                サービス<br>紹介
-                                <span class="header-pyoko__caret" aria-hidden="true"></span>
+                                <span>サービス紹介</span>
+                                <span class="inner-nav__caret" aria-hidden="true"></span>
                             </button>
-                            <ul class="header-pyoko__sub" aria-label="サービス紹介のメニュー">
-                                <li>
-                                    <a href="service-reserve.html">予約代行</a>
-                                </li>
-                                <li>
-                                    <a href="service-storage.html">トランクお預かり</a>
-                                </li>
-                                <li>
-                                    <a href="service-tour-guide.html#guide-spots">横浜観光サービス</a>
-                                </li>
+                            <ul class="inner-nav__sub" aria-label="サービス紹介のメニュー">
+                                <li><a href="service-reserve.html">予約代行</a></li>
+                                <li><a href="service-storage.html">トランクお預かり</a></li>
+                                <li><a href="service-tour-guide.html#guide-spots">横浜観光サービス</a></li>
                             </ul>
                         </li>
                         <li>
@@ -353,10 +351,7 @@
                     当日でもご利用可能！<br class="u-visible-sp">横浜の旅を楽しむお手伝いを<br class="u-visible-sp">いたします
                 </p>
                 <p class="about__text js-fade">
-                    宿泊施設・飲食店・体験アクティビティサービスの<br class="u-visible-sp">予約代行から、緊急時の即日予約対応や<br class="u-visible-pc">トランク<br
-                        class="u-visible-sp">預かりサービスなど、外国人観光客様が旅行を<br class="u-visible-sp">楽しむお手伝いや、お困り事・ご解<br
-                        class="u-visible-pc">決をサポート<br class="u-visible-sp">する地元民コンシェルジュならではの、きめ細かな<br
-                        class="u-visible-sp">サービスを提供いたします。<br class="u-visible-pc"><span class="text-wave-underline">来日直前・当日など短納期でも柔軟にご対応</span>いたします。
+                    宿泊施設・飲食店・体験アクティビティサービスの予約代行から、緊急時の即日予約対応やトランク預かりサービスなど、外国人観光客様が旅行を楽しむお手伝いや、お困り事・ご解決をサポートする地元民コンシェルジュならではの、きめ細かなサービスを提供いたします。<span class="text-wave-underline">来日直前・当日など短納期でも柔軟にご対応</span>いたします。
                 </p>
 
                 <!-- 画像エリア -->
@@ -449,8 +444,7 @@
                 </div>
                 <!-- リード文 -->
                 <p class="service__lead js-fade-up">
-                    横浜での滞在を、もっと安心で快適に。私たちは訪日外国人や在住外国人の皆さま<br>に向けて、
-                    予約代行や観光ガイドサービスなど幅広いサービスを提供しています。
+                    横浜での滞在を、もっと安心で快適に。私たちは訪日外国人や在住外国人の皆さまに向けて、<br>予約代行や観光ガイドサービスなど幅広いサービスを提供しています。
                 </p>
                 <p class="service__note js-fade-up">
                     <span class="text-wave-underline--blue">各店舗での利用料金/交通費は現地にて事業者へ直接お支払いをお願いいたします</span>
@@ -715,23 +709,25 @@
                     <img src="./images/about-yokohama/icon-camera.png" alt="カメラアイコン" class="photo__camera">
                 </div>
                 <div class="about-yokohama__content js-fade-up">
-                    <h2 class="section-title section-title--sm">
-                        <img src="./images/about-yokohama/title-yokohama.png" alt="横浜について">
-                    </h2>
+                    <div class="section-title section-title--sm js-fade-up">
+                        <h2 class="section-title__text">横浜について</h2>
+                        <img src="./images/about/about_title-wave.svg" alt="" aria-hidden="true"
+                            class="section-title__icon section-title__icon--wave">
+                    </div>
                     <div class="about-yokohama__lead js-fade-up">
                         <h3 class="about-yokohama__heading">
                             歴史ある港町 横浜には <br>
                             たくさんの見どころがあります
                         </h3>
                         <p class="about-yokohama__text">
-                            横浜は、開港の歴史とモダンな街並みが調和する港町。<br>
+                            横浜は、開港の歴史とモダンな街並みが調和する港町。<br class="u-visible-pc">
                             年齢問わず楽しむことができるので、家族旅行やクルーズ観光にもぴったりです。
                         </p>
                     </div>
 
                     <!-- 検索フォーム -->
-                    <form action="#" class="about-yokohama__search js-fade-up">
-                        <input type="text" class="about-yokohama__input" placeholder="サイト内検索">
+                    <form action="search.html" method="get" class="about-yokohama__search js-fade-up">
+                        <input type="text" name="q" class="about-yokohama__input" placeholder="サイト内検索">
                         <button type="submit" class="about-yokohama__search-btn">
                             <img src="./images/icon-search.png" alt="検索アイコン">
                         </button>
@@ -756,19 +752,19 @@
                 <!-- 右カラム：エリア一覧 -->
                 <div class="about-yokohama__column about-yokohama__areas-wrapper js-fade-up">
                     <ul class="about-yokohama__areas js-fade-up">
-                        <li><a href="#"><img src="./images/about-yokohama/icon-motomachi.png" alt="元町"
+                        <li><a href="yokohama.html#map-motomachi"><img src="./images/about-yokohama/icon-motomachi.png" alt="元町"
                                     class="about-yokohama__area-icon">元町・山手エリア</a></li>
-                        <li><a href="#"><img src="./images/about-yokohama/icon-chukagai.png" alt="中華街"
+                        <li><a href="yokohama.html#map-chinatown"><img src="./images/about-yokohama/icon-chukagai.png" alt="中華街"
                                     class="about-yokohama__area-icon">中華街・山下公園エリア</a></li>
-                        <li><a href="#"><img src="./images/about-yokohama/icon-nihondori.png" alt="日本大通り"
+                        <li><a href="yokohama.html#map-nihondori"><img src="./images/about-yokohama/icon-nihondori.png" alt="日本大通り"
                                     class="about-yokohama__area-icon">日本大通りエリア</a></li>
-                        <li><a href="#"><img src="./images/about-yokohama/icon-bashamichi.png" alt="馬車道"
+                        <li><a href="yokohama.html#map-bashamichi"><img src="./images/about-yokohama/icon-bashamichi.png" alt="馬車道"
                                     class="about-yokohama__area-icon">馬車道エリア</a></li>
-                        <li><a href="#"><img src="./images/about-yokohama/icon-sakuragicho.png" alt="桜木町"
+                        <li><a href="yokohama.html#map-sakuragicho"><img src="./images/about-yokohama/icon-sakuragicho.png" alt="桜木町"
                                     class="about-yokohama__area-icon">桜木町エリア</a></li>
-                        <li><a href="#"><img src="./images/about-yokohama/icon-kannai.png" alt="関内"
+                        <li><a href="yokohama.html#map-kannai"><img src="./images/about-yokohama/icon-kannai.png" alt="関内"
                                     class="about-yokohama__area-icon">関内エリア</a></li>
-                        <li><a href="#"><img src="./images/about-yokohama/icon-minatomirai.png" alt="みなとみらい"
+                        <li><a href="yokohama.html#map-minatomirai"><img src="./images/about-yokohama/icon-minatomirai.png" alt="みなとみらい"
                                     class="about-yokohama__area-icon">みなとみらいエリア</a></li>
                     </ul>
                     <!-- MAPボタン -->
@@ -787,12 +783,6 @@
             </div>
         </section>
         <section class="news" id="news">
-            <!-- グレーの波 -->
-            <div class="news__wave-top">
-                <img src="images/news/wave-top.png" alt="波の装飾">
-            </div>
-
-            <!-- 青の背景（波模様） -->
             <div class="news__bg">
                 <div class="news__inner inner">
                     <h2 class="section-title section-title--sm">

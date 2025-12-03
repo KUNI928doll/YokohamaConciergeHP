@@ -271,11 +271,11 @@
     width: 100%;
     max-width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     background-color: #EFF3F4;
     height: 90px;
-    padding-inline: 16px;
+    padding-inline: 20px;
     overflow: hidden;
     gap: 16px;
 
@@ -290,14 +290,59 @@
       align-items: center;
       text-decoration: none;
       color: var(--color-main);
-      font-size: 1.2rem; // 12px (1rem=10px基準)
+      font-size: 1.2rem;
       gap: 4px;
       flex-shrink: 0;
-      margin-right: 85px;
 
       img {
         width: 24px;
         height: auto;
+      }
+    }
+
+    .spmenu__close {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      color: var(--color-main);
+      font-size: 1.2rem;
+
+      .spmenu__close-icon {
+        display: block;
+        position: relative;
+        width: 24px;
+        height: 24px;
+
+        &::before,
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 24px;
+          height: 3px;
+          background-color: #0D3D90;
+          border-radius: 2px;
+        }
+
+        &::before {
+          transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        &::after {
+          transform: translate(-50%, -50%) rotate(-45deg);
+        }
+      }
+
+      .spmenu__close-text {
+        font-size: 1rem;
+        font-weight: 600;
       }
     }
   }
@@ -434,8 +479,12 @@
     pointer-events: none;
   }
 
+  .header-pyoko__nav li.inner-nav__item {
+    border-right: none;
+  }
+
   .header-pyoko__item--has-sub::after {
-    right: 0px;
+    display: none !important;
   }
 
   .header-pyoko__nav li {
@@ -456,7 +505,7 @@
     color: #0d3d90;
     text-decoration: none;
     transition: 0.3s;
-    min-height: 75px;
+    min-height: 20px;
     text-align: center;
 
     &:hover {
@@ -533,6 +582,7 @@
     pointer-events: none;
     transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
     z-index: 1000;
+    list-style: none;
   }
 
   .header-pyoko__item--has-sub.is-open .header-pyoko__sub {
@@ -547,6 +597,10 @@
     padding: 0;
     margin: 0;
     line-height: 1.4;
+
+    &::after {
+      display: none !important;
+    }
   }
 
   .header-pyoko__sub a {
@@ -733,23 +787,8 @@
   transition: 0.3s ease;
 }
 
-.header__toggle.is-active {
-
-  .header__toggle-line:nth-child(1) {
-    transform: translateY(17px) rotate(45deg);
-    background-color: #0D3D90;
-  }
-
-  .header__toggle-line:nth-child(2) {
-    opacity: 0;
-  }
-
-  .header__toggle-line:nth-child(3) {
-    transform: translateY(0px) rotate(-45deg);
-    background-color: #0D3D90;
-  }
-
-  .header__toggle-text {
-    color: #0D3D90;
-  }
+// メニューが開いているときにハンバーガーボタンを非表示
+.header__toggle.is-active,
+body.spmenu-open .header__toggle {
+  display: none !important;
 }

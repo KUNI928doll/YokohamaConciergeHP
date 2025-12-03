@@ -54,7 +54,7 @@
     @include mq($until: sp-large) {
       flex-direction: column;
       text-align: center;
-      padding: 8.5rem;
+      padding: 2.5rem;
       gap: 25px;
     }
   }
@@ -122,8 +122,11 @@
   bottom: -50px; // ← 下端から16px内側に配置
 
   @include mq($until: sp-large) {
-    right: 50px;
-    transform: translateX(50%);
+    position: relative;
+    right: auto;
+    bottom: auto;
+    margin: 20px auto 0;
+    display: flex;
   }
 
   &:hover {

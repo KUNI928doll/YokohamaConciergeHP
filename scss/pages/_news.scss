@@ -6,7 +6,6 @@
   position: relative;
   background: url("../images/news/wave-bg.png") repeat center top;
   background-size: cover;
-  overflow: hidden;
   width: 100%;
   margin-top: -80px; // 上に移動
 }
@@ -15,7 +14,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 200%;
+  width: 100%;
   animation: waveMove 14s linear infinite;
 
   img {
@@ -27,20 +26,6 @@
 
 .news__bg {
   position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 100%;
-    background: url("../images/news/wave-bg.png") repeat-x;
-    background-size: 50% auto;
-    z-index: 0;
-    opacity: 0.9;
-  }
 }
 
 .news__inner {
