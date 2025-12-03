@@ -521,10 +521,10 @@
     background: #fff;
     border-radius: 16px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    padding: 8px 20px;
+    padding: 12px 20px;
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 4px;
     width: auto;
     min-width: auto;
     white-space: nowrap;
@@ -532,20 +532,21 @@
     visibility: hidden;
     pointer-events: none;
     transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
-    z-index: 15;
+    z-index: 1000;
   }
 
   .header-pyoko__item--has-sub.is-open .header-pyoko__sub {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: translate(-50%, 0);
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translate(-50%, 0) !important;
+    display: flex !important;
   }
 
   .header-pyoko__sub li {
     padding: 0;
     margin: 0;
-    line-height: 1;
+    line-height: 1.4;
   }
 
   .header-pyoko__sub a {
@@ -553,8 +554,7 @@
     text-decoration: none;
     text-align: left;
     display: block;
-    padding: 2px 0;
-    line-height: 1.2;
+    padding: 4px 0;
 
     &:hover {
       color: #1658a0;
