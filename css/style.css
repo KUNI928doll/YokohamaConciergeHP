@@ -1857,6 +1857,9 @@ body.spmenu-open .header__toggle {
   overflow: visible;
   isolation: isolate;
   z-index: 1;
+  width: 100%;
+  max-width: 100vw;
+  height: 0;
   /* ← 子の z-index を 0/1/2 で安定させる */
 }
 
@@ -1867,6 +1870,8 @@ body.spmenu-open .header__toggle {
   /* フッターの外（上）まで描画範囲を広げる */
   pointer-events: none;
   z-index: 1;
+  width: 100%;
+  height: 100%;
 }
 @media (max-width: 768px) {
   .footer__fx {
@@ -1893,18 +1898,65 @@ body.spmenu-open .header__toggle {
           animation-timing-function: cubic-bezier(0.22, 0.85, 0.2, 1), ease-in-out;
   -webkit-animation-fill-mode: both, none;
           animation-fill-mode: both, none;
+  -webkit-animation-iteration-count: 1, infinite;
+          animation-iteration-count: 1, infinite;
 }
 
+/* アニメーション定義 */
+@-webkit-keyframes fw-pop-in {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    opacity: 0.9;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes fw-pop-in {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    opacity: 0.9;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@-webkit-keyframes floatY {
+  0%, 100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+}
+@keyframes floatY {
+  0%, 100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+}
 /* 位置（例） */
 .footer__fx-item--l1 {
-  left: 0%;
+  left: 5%;
   top: clamp(20%, 20% + (100vw - 375px) * 0.05, 37%);
 }
 
 .footer__fx-item--l2 {
-  left: 0%;
+  left: 10%;
   top: clamp(80%, 80% + (100vw - 375px) * 0.1, 250%);
-  width: clamp(125px, 125px + (100vw - 375px) * 0.1, 250px);
+  width: clamp(100px, 100px + (100vw - 375px) * 0.08, 200px);
 }
 
 .footer__fx-item--c {
@@ -1921,9 +1973,9 @@ body.spmenu-open .header__toggle {
 }
 
 .footer__fx-item--r2 {
-  right: 0%;
+  right: 10%;
   top: clamp(-250%, -250% + (100vw - 375px) * 0.07, -236%);
-  width: clamp(150px, 150px + (100vw - 375px) * 0.1, 250px);
+  width: clamp(100px, 100px + (100vw - 375px) * 0.08, 200px);
 }
 
 .pagetop {
@@ -2606,22 +2658,6 @@ img {
   }
 }
 /* 1回だけ再生する登場アニメ */
-@-webkit-keyframes fw-pop-in {
-  0% {
-    opacity: 0;
-    -webkit-transform: scale(0.85) translateY(6px);
-            transform: scale(0.85) translateY(6px);
-    -webkit-filter: blur(2px);
-            filter: blur(2px);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: scale(1) translateY(0);
-            transform: scale(1) translateY(0);
-    -webkit-filter: blur(0);
-            filter: blur(0);
-  }
-}
 @keyframes fw-pop-in {
   0% {
     opacity: 0;
@@ -3176,7 +3212,7 @@ img {
 }
 .service .service__deco-seagull {
   position: absolute;
-  left: clamp(5%, 10vw, 13%);
+  left: clamp(5%, 13vw, 13%);
   top: clamp(10px, 2vw, 22px);
   width: clamp(40px, 5vw, 58px);
   -webkit-animation: seagull-fly 8s ease-in-out infinite alternate;
@@ -3362,8 +3398,8 @@ img {
 }
 .section--service .speech-wrapper {
   position: absolute;
-  left: 80%;
-  top: -180px;
+  left: 66%;
+  top: -99px;
   -webkit-transform: none;
           transform: none;
   z-index: 20;
@@ -3388,6 +3424,7 @@ img {
   .section--service .character {
     right: 24%;
     width: clamp(160px, 26vw, 230px);
+    top: 145%;
   }
 }
 @media (max-width: 768px) {
@@ -4228,7 +4265,7 @@ img {
   font-family: var(--font-sub);
   font-size: clamp(1.6rem, 2vw, 2rem);
   margin-bottom: 8px;
-  margin-top: 108px;
+  margin-top: clamp(40px, 12vw, 108px);
 }
 .news .section-title--news .section-title__icon--wave {
   width: 80px;
@@ -4268,43 +4305,43 @@ img {
 }
 @media (max-width: 1024px) {
   .news__decoration--top-right {
-    width: 150px;
-    top: 230px;
+    width: 180px;
+    top: 170px;
     right: 20px;
   }
 }
 @media (max-width: 768px) {
   .news__decoration--top-right {
-    width: 80px;
-    top: 176px;
-    right: 10px;
+    width: 100px;
+    top: 130px;
+    right: 60px;
   }
 }
 .news__decoration--bottom-left {
-  bottom: 60px;
+  bottom: 37px;
   left: 40px;
-  width: 100px;
+  width: 140px;
   height: auto;
   opacity: 0.8;
 }
 @media (max-width: 1024px) {
   .news__decoration--bottom-left {
-    width: 70px;
+    width: 120px;
     bottom: 40px;
-    left: 20px;
+    left: 80px;
   }
 }
-@media (max-width: ) {
+@media (max-width: 768px) {
   .news__decoration--bottom-left {
-    width: 50px;
+    width: 100px;
     bottom: 30px;
-    left: 10px;
+    left: 50px;
   }
 }
 
 .news__inner {
   position: relative;
-  padding: 160px 91px 100px;
+  padding: 117px 161px 100px;
   color: #fff;
   z-index: 3;
 }
@@ -4315,7 +4352,7 @@ img {
 }
 @media (max-width: 768px) {
   .news__inner {
-    padding: 80px 20px 60px;
+    padding: 80px 40px 60px;
   }
 }
 
@@ -4326,11 +4363,16 @@ img {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  gap: 20px;
+  gap: 68px;
   margin-bottom: 50px;
 }
+@media (max-width: 768px) {
+  .news__filter {
+    gap: 40px;
+  }
+}
 .news__filter label {
-  font-size: 1.4rem;
+  font-size: clamp(1.2rem, 1.5vw, 1.8rem);
   cursor: pointer;
 }
 .news__filter input {
@@ -4340,9 +4382,14 @@ img {
 .news__empty-message {
   text-align: center;
   color: #fff;
-  font-size: 1.6rem;
+  font-size: clamp(1.4rem, 2.5vw, 3.2rem);
   padding: 60px 20px;
   margin: 0;
+}
+@media (max-width: 768px) {
+  .news__empty-message {
+    padding: 76px 13px;
+  }
 }
 
 .news__slider {

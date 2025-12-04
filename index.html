@@ -37,7 +37,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="./css/reset.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="./css/style.css?v=20241204002">
+    <link rel="stylesheet" href="./css/style.css?v=20241204007">
     <!-- Slick -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
@@ -102,6 +102,15 @@
         .news__slider .slick-track {
             display: flex !important;
             align-items: stretch !important;
+        }
+        
+        /* 横スクロール防止の強化 */
+        * {
+            max-width: 100%;
+        }
+        html, body {
+            overflow-x: hidden !important;
+            width: 100%;
         }
     </style>
 </head>
@@ -927,7 +936,7 @@
 
 
     </main>
-                        <section class="footer-scene">
+        <section class="footer-scene">
             <div class="footer__fx" aria-hidden="true">
                 <img src="./images/fireworks4.png" alt="左下の花火のイラスト" class="footer__fx-item footer__fx-item--l1">
                 <img src="./images/fireworks2.png" alt="左上の花火のイラスト" class="footer__fx-item footer__fx-item--l2">
@@ -994,9 +1003,6 @@
 
     <!-- Slick本体 -->
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
-    <!-- あなたのスクリプト（Slick設定含む） -->
-    <script src="./js/script.js"></script>
 
     <!-- その他のJS（header.js など） -->
     <script src="./js/header.js"></script>

@@ -29,7 +29,7 @@
 
   .service__deco-seagull {
     position: absolute;
-    left: clamp(5%, 10vw, 13%);
+    left: clamp(5%, 13vw, 13%);
     top: clamp(10px, 2vw, 22px);
     width: clamp(40px, 5vw, 58px);
     animation: seagull-fly 8s ease-in-out infinite alternate;
@@ -204,8 +204,8 @@
 
   .speech-wrapper {
     position: absolute;
-    left: 80%; // ← 左右位置
-    top: -180px; // featuresセクションに重なる
+    left: 66%; // ← 左右位置
+    top: -99px; // featuresセクションに重なる
     transform: none; // ← 中央寄せが入ってたら打ち消す
     z-index: 20;
 
@@ -228,6 +228,7 @@
     @include mq($until: mid-pc) {
       right: 24%;
       width: clamp(160px, 26vw, 230px);
+      top: 145%;
     }
 
     @include mq($until: sp-large) {

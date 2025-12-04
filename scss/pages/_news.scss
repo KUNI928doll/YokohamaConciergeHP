@@ -16,7 +16,7 @@
       font-family: var(--font-sub);
       font-size: clamp(1.6rem, 2vw, 2rem);
       margin-bottom: 8px;
-      margin-top: 108px;
+      margin-top: clamp(40px, 12vw, 108px);
     }
 
     .section-title__icon--wave {
@@ -59,44 +59,39 @@
     opacity: 0.9;
 
     @include mq(tab) {
-      width: 150px;
-      top: 230px;
+      width: 180px;
+      top: 170px;
       right: 20px;
     }
-
-    // sp 以下
     @include mq(sp-large) {
-      width: 80px;
-      top: 176px;
-      right: 10px;
+      width: 100px;
+      top: 130px;
+      right: 60px;
     }
   }
   // 左下の装飾（吹き出し）
   &--bottom-left {
-    bottom: 60px;
+    bottom: 37px;
     left: 40px;
-    width: 100px;
+    width: 140px;
     height: auto;
     opacity: 0.8;
 
     @include mq(tab) {
-      width: 70px;
+      width: 120px;
       bottom: 40px;
-      left: 20px;
-  }
-  @include mq(sp) {
-    width: 50px;
+      left: 80px;
+    }
+    @include mq(sp-large) {
+    width: 100px;
     bottom: 30px;
-    left: 10px;
+    left: 50px;
+    }
   }
-
-  }
- 
-  
   }
 .news__inner {
   position: relative;
-  padding: 160px 91px 100px;
+  padding: 117px 161px 100px;
   color: #fff;
   z-index: 3;
 
@@ -105,18 +100,21 @@
   }
 
   @include mq(sp-large) {
-    padding: 80px 20px 60px;
+    padding: 80px 40px 60px;
   }
 }
 
 .news__filter {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 68px;
   margin-bottom: 50px;
+  @include mq(sp-large) {
+    gap: 40px;
+  }
 
   label {
-    font-size: 1.4rem; // 14px (1rem=10px基準)
+    font-size: clamp(1.2rem, 1.5vw, 1.8rem);
     cursor: pointer;
   }
 
@@ -128,9 +126,13 @@
 .news__empty-message {
   text-align: center;
   color: #fff;
-  font-size: 1.6rem;
+  font-size: clamp(1.4rem, 2.5vw, 3.2rem);
   padding: 60px 20px;
   margin: 0;
+
+  @include mq(sp-large) {
+    padding: 76px 13px;
+  }
 }
 
 .news__slider {
