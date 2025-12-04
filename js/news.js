@@ -43,7 +43,16 @@ $(document).ready(function () {
             });
         });
 
-        $('.js-news-slider').slick(slickOptions);
+        // 記事がある場合のみスライダーを初期化
+        if (allCards.length > 0) {
+            $('.js-news-slider').slick(slickOptions);
+        } else {
+            // 記事がない場合は非表示にしてメッセージを表示
+            $('.js-news-slider').hide();
+            $('.news__dots-wrapper').hide();
+            $('.news__btn-wrapper').hide();
+            $('.news__filter').after('<p class="news__empty-message">現在、お知らせ・イベントはありません。</p>');
+        }
     }
 
     $('input[name="news-filter"]').on('change', function () {
@@ -71,10 +80,25 @@ $(document).ready(function () {
             // カード数が3枚以下の場合はinfiniteをfalseに
             if (displayCount <= 3) {
                 adjustedOptions.infinite = false;
-                adjustedOptions.slidesToShow = displayCount;
             }
             
             $slider.slick(adjustedOptions);
+            
+            // スライダーとボタンを表示
+            $slider.show();
+            $('.news__dots-wrapper').show();
+            $('.news__btn-wrapper').show();
+            $('.news__empty-message').remove();
+        } else {
+            // 投稿がない場合はスライダーとボタンを非表示
+            $slider.hide();
+            $('.news__dots-wrapper').hide();
+            $('.news__btn-wrapper').hide();
+            
+            // 空のメッセージを表示（まだ存在しない場合のみ）
+            if (!$('.news__empty-message').length) {
+                $('.news__filter').after('<p class="news__empty-message">該当する投稿がありません。</p>');
+            }
         }
     });
 });

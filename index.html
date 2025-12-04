@@ -37,7 +37,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="./css/reset.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="./css/style.css?v=7">
+    <link rel="stylesheet" href="./css/style.css?v=20241204002">
     <!-- Slick -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
@@ -89,6 +89,19 @@
             .hero__fx-item {
                 animation: none !important;
             }
+        }
+
+        /* ニューススライダー修正 */
+        .news__slider .slick-slide {
+            margin: 0 24px !important;
+        }
+        .news__slider .slick-list {
+            overflow: hidden !important;
+            margin: 0 -24px !important;
+        }
+        .news__slider .slick-track {
+            display: flex !important;
+            align-items: stretch !important;
         }
     </style>
 </head>
@@ -784,6 +797,11 @@
         </section>
         <section class="news" id="news">
             <div class="news__bg">
+                <!-- 装飾画像：右上 -->
+                <img src="./images/news/news_flag.png" alt="" aria-hidden="true" class="news__decoration news__decoration--top-right">
+                <!-- 装飾画像：左下 -->
+                <img src="./images/news/news_signboard.png" alt="" aria-hidden="true" class="news__decoration news__decoration--bottom-left">
+                
                 <div class="news__inner inner">
                     <div class="section-title section-title--sm section-title--news js-fade-up">
                         <h2 class="section-title__text">お知らせ・イベント</h2>
@@ -798,34 +816,7 @@
 
                     <!-- スライダー -->
                     <div class="news__slider js-news-slider">
-                        <article class="news__card" data-category="event">
-                            <img src="https://placehold.jp/400x250.png?text=Event1" alt="秋のヨコハマフェス">
-                            <div class="news__card-body">
-                                <p class="news__card-date">2025.10.27</p>
-                                <h3 class="news__card-title">秋のヨコハマフェス開催！</h3>
-                            </div>
-                        </article>
-                        <article class="news__card" data-category="notice">
-                            <img src="https://placehold.jp/400x250.png?text=Notice1" alt="通訳ガイド募集">
-                            <div class="news__card-body">
-                                <p class="news__card-date">2025.10.15</p>
-                                <h3 class="news__card-title">通訳ガイド募集のお知らせ</h3>
-                            </div>
-                        </article>
-                        <article class="news__card" data-category="event">
-                            <img src="https://placehold.jp/400x250.png?text=Event2" alt="秋の特別観光プラン">
-                            <div class="news__card-body">
-                                <p class="news__card-date">2025.09.30</p>
-                                <h3 class="news__card-title">秋の特別観光プラン登場！</h3>
-                            </div>
-                        </article>
-                        <article class="news__card" data-category="notice">
-                            <img src="https://placehold.jp/400x250.png?text=Notice2" alt="臨時休業">
-                            <div class="news__card-body">
-                                <p class="news__card-date">2025.09.20</p>
-                                <h3 class="news__card-title">臨時休業のお知らせ</h3>
-                            </div>
-                        </article>
+                        <!-- 記事がない場合は空 -->
                     </div>
 
                     <!-- ドットと矢印を横並びにするコンテナ -->
@@ -1012,7 +1003,7 @@
     <script src="./js/about.js"></script>
     <script src="./js/accordion.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <script src="./js/news.js?v=6"></script>
+    <script src="./js/news.js?v=9"></script>
     <script src="./js/pagetop.js"></script>
 
 </body>

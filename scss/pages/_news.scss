@@ -14,7 +14,7 @@
     .section-title__text {
       color: #fff;
       font-family: var(--font-sub);
-      font-size: 2rem;
+      font-size: clamp(1.6rem, 2vw, 2rem);
       margin-bottom: 8px;
       margin-top: 108px;
     }
@@ -45,11 +45,68 @@
   position: relative;
 }
 
+// 装飾画像
+.news__decoration {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none; // クリック無効化
+
+  // 右上の装飾（かもめ）
+  &--top-right {
+    top: 190px;
+    right: 40px;
+    width: 276px;
+    opacity: 0.9;
+
+    @include mq(tab) {
+      width: 150px;
+      top: 230px;
+      right: 20px;
+    }
+
+    // sp 以下
+    @include mq(sp-large) {
+      width: 80px;
+      top: 176px;
+      right: 10px;
+    }
+  }
+  // 左下の装飾（吹き出し）
+  &--bottom-left {
+    bottom: 60px;
+    left: 40px;
+    width: 100px;
+    height: auto;
+    opacity: 0.8;
+
+    @include mq(tab) {
+      width: 70px;
+      bottom: 40px;
+      left: 20px;
+  }
+  @include mq(sp) {
+    width: 50px;
+    bottom: 30px;
+    left: 10px;
+  }
+
+  }
+ 
+  
+  }
 .news__inner {
   position: relative;
   padding: 160px 91px 100px;
   color: #fff;
   z-index: 3;
+
+  @include mq(tab) {
+    padding: 120px 60px 80px;
+  }
+
+  @include mq(sp-large) {
+    padding: 80px 20px 60px;
+  }
 }
 
 .news__filter {
@@ -68,6 +125,14 @@
   }
 }
 
+.news__empty-message {
+  text-align: center;
+  color: #fff;
+  font-size: 1.6rem;
+  padding: 60px 20px;
+  margin: 0;
+}
+
 .news__slider {
   margin: 0 auto 48px; // スライダーとボタンの間の余白を48pxに
   max-width: 1200px;
@@ -75,11 +140,7 @@
 
   // スライダーのカード間の余白を48pxに設定
   .slick-slide {
-    margin-right: 48px; // カード間の余白
-    
-    &:last-child {
-      margin-right: 0; // 最後のカードは余白なし
-    }
+    margin: 0 24px; // 左右に24pxずつ（合計48px）
   }
 
   // スライダーのトラック全体
@@ -91,6 +152,7 @@
   // スライダーのリスト
   .slick-list {
     overflow: hidden;
+    margin: 0 -24px; // カードのマージンを相殺して左右の端を揃える
   }
 
   .news__card {
