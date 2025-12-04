@@ -43,7 +43,7 @@
   }
 
   &--orange {
-    background: #E39A1D;
+    background:var(--color-accent);
     color: #fff;
 
     &:hover {

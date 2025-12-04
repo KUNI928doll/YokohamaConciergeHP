@@ -28,7 +28,7 @@
   .about__lead {
     font-size: clamp(20px, 2.4vw, 32px);
     font-weight: 700;
-    color: #ca7f13;
+    color:var(--color-accent);
     margin-bottom: 24px;
     font-family: var(--font-sub);
 

@@ -5,22 +5,47 @@
 .contact {
   position: relative;
   text-align: center;
-  background: url("../images/contact/contact-bg.png") no-repeat center/cover;
-  background-position: center 0px;
+  background: url("../images/contact/contact-bg.png") no-repeat center top;
+  background-size: cover;
   margin-top: -75px;
+  min-height: 1133px;
 
+  @include mq(sp-large) {
+    background-position: center top;
+    min-height: 900px;
+  }
+
+  .section-title--contact {
+    display: flex;
+    flex-direction: column; // 縦並びに
+    align-items: center;
+    gap: 8px;
+
+    .section-title__text {
+      color: #fff;
+      font-family: var(--font-sub);
+      font-size: 2rem;
+    }
+
+    .section-title__icon--wave {
+      width: 80px;
+      height: auto;
+      filter: brightness(0) invert(1);
+    }
+  }
+}
 
   .contact__inner {
     position: relative;
-    padding: 120px 0 180px;
+    padding: 150px 20px 200px; // 下部のpaddingを増やして画像が切れないように
   }
 
   .contact__box {
     background: rgba(255, 255, 255, 0.85);
     border-radius: 20px;
-    max-width: 500px;
+    max-width: 524px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 47px 20px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
@@ -30,45 +55,58 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    color: #333;
+    
 
     img {
       width: 18px;
     }
-
-    .contact__item--tel span {
-      color: #0D3D90;
-      font-weight: 700;
-    }
-
-    .contact__item--mobile span {
-      color: #E39A1D;
-      font-weight: 700;
-    }
+  }
+  .contact__item--tel,
+  .contact__item--mobile,
+  .contact__item--mail{
+    background-color: #fff;
+    width: 321px;
+    margin: 0 auto;
+    border-radius: 20px;
+    border: 1px solid var(--color-main);
+    margin-bottom: 18px;
   }
 
-  .btn {
-    display: flex;
-    margin: 20px auto;
-    border-radius: 30px;
-    text-align: center;
-    padding: 12px 32px;
-    font-weight: 700;
+  .contact__item--tel span {
+    color: var(--color-main);
+    font-weight: 500;
+    font-size: 3rem;
+  }
 
+  .contact__item--mobile span {
+    color:var(--color-accent);
+    font-weight: 500;
+    font-size: 3rem;
+  }
+  .contact__item--time{
+    color: var(--color-main);
+  }
+  .contact__item--mail span{
+    color: var(--color-main);
+    font-size: 2rem;
+  }
+
+  .contact__btns {
     .btn--blue {
       background: #0D3D90;
       color: #fff;
       width: 369px;
+      margin-bottom: 20px;
     }
 
     .btn--orange {
-      background: #E39A1D;
+      background:var(--color-accent);
       color: #fff;
       width: 294px;
     }
   }
 
-  &__bird {
+.contact__bird {
     position: absolute;
     bottom: -60px;
     right: 15%;
@@ -92,4 +130,3 @@
       width: 200px;
     }
   }
-}
