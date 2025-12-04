@@ -55,11 +55,18 @@
     height: 848px; // 初期状態
     background-image: url("../images/faq/wave_icon.png");
     background-repeat: no-repeat;
-    background-size: cover;
+    min-width: 1440px;  
+    background-size: 100% 100%;
     background-position: center top;
     z-index: -1;
     pointer-events: none;
     transition: height 0.4s ease;
+
+    @include mq(mid-pc) {
+      min-width: auto;
+      width: 100%;
+      background-size: cover; // ← SPならOK
+    }
   }
 
   .faq__inner {

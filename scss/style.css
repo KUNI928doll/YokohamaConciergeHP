@@ -3161,7 +3161,8 @@ img {
   height: 848px;
   background-image: url("../images/faq/wave_icon.png");
   background-repeat: no-repeat;
-  background-size: cover;
+  min-width: 1440px;
+  background-size: 100% 100%;
   background-position: center top;
   z-index: -1;
   pointer-events: none;
