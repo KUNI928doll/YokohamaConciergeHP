@@ -77,6 +77,11 @@
       transform: translateY(-6px);
     }
 
+    // フィルタリングで非表示にされた要素
+    &.filtered-out {
+      display: none !important;
+    }
+
     img {
       width: 100%;
       height: 141px; // 221px - パディング(16px*2) - テキスト部分(約48px) = 141px

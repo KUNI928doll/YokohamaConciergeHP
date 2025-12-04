@@ -785,41 +785,42 @@
         <section class="news" id="news">
             <div class="news__bg">
                 <div class="news__inner inner">
-                    <h2 class="section-title section-title--sm">
-                        <img src="./images/news/title-news.png" alt="お知らせ・イベント" class="news__title-img">
-                    </h2>
-
+                    <div class="section-title section-title--sm section-title--faq js-fade-up">
+                        <h2 class="section-title__text">お問い合わせ</h2>
+                        <img src="./images/about/about_title-wave.svg" alt="" aria-hidden="true"
+                            class="section-title__icon section-title__icon--wave">
+                    </div>
                     <div class="news__filter">
-                        <label><input type="checkbox" checked> 全て</label>
-                        <label><input type="checkbox"> お知らせ</label>
-                        <label><input type="checkbox"> イベント</label>
+                        <label><input type="radio" name="news-filter" value="all" checked> 全て</label>
+                        <label><input type="radio" name="news-filter" value="notice"> お知らせ</label>
+                        <label><input type="radio" name="news-filter" value="event"> イベント</label>
                     </div>
 
                     <!-- スライダー -->
                     <div class="news__slider js-news-slider">
-                        <article class="news__card">
-                            <img src="images/news/sample1.jpg" alt="">
+                        <article class="news__card" data-category="event">
+                            <img src="https://placehold.jp/400x250.png?text=Event1" alt="秋のヨコハマフェス">
                             <div class="news__card-body">
                                 <p class="news__card-date">2025.10.27</p>
                                 <h3 class="news__card-title">秋のヨコハマフェス開催！</h3>
                             </div>
                         </article>
-                        <article class="news__card">
-                            <img src="images/news/sample2.jpg" alt="">
+                        <article class="news__card" data-category="notice">
+                            <img src="https://placehold.jp/400x250.png?text=Notice1" alt="通訳ガイド募集">
                             <div class="news__card-body">
                                 <p class="news__card-date">2025.10.15</p>
                                 <h3 class="news__card-title">通訳ガイド募集のお知らせ</h3>
                             </div>
                         </article>
-                        <article class="news__card">
-                            <img src="images/news/sample3.jpg" alt="">
+                        <article class="news__card" data-category="event">
+                            <img src="https://placehold.jp/400x250.png?text=Event2" alt="秋の特別観光プラン">
                             <div class="news__card-body">
                                 <p class="news__card-date">2025.09.30</p>
                                 <h3 class="news__card-title">秋の特別観光プラン登場！</h3>
                             </div>
                         </article>
-                        <article class="news__card">
-                            <img src="images/news/sample4.jpg" alt="">
+                        <article class="news__card" data-category="notice">
+                            <img src="https://placehold.jp/400x250.png?text=Notice2" alt="臨時休業">
                             <div class="news__card-body">
                                 <p class="news__card-date">2025.09.20</p>
                                 <h3 class="news__card-title">臨時休業のお知らせ</h3>
