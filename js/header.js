@@ -2,15 +2,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.querySelector('.header__toggle');
   const nav = document.querySelector('.header__nav--sp');
   const overlay = document.querySelector('.spmenu__overlay');
-  const text = document.querySelector('.header__toggle-text');
 
   if (toggle && nav && overlay) {
     const toggleMenu = (open) => {
       toggle.classList.toggle('is-active', open);
       nav.classList.toggle('is-open', open);
       overlay.classList.toggle('is-active', open);
+      document.body.classList.toggle('spmenu-open', open);
       document.body.style.overflow = open ? 'hidden' : '';
-      if (text) text.textContent = open ? 'CLOSE' : 'MENU';
     };
 
     toggle.addEventListener('click', () => {
@@ -21,6 +20,14 @@ document.addEventListener('DOMContentLoaded', () => {
     overlay.addEventListener('click', () => {
       toggleMenu(false);
     });
+
+    // SPメニュー内のCLOSEボタン
+    const closeBtn = document.querySelector('.js-spmenu-close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        toggleMenu(false);
+      });
+    }
   }
 
   const initDropdown = (buttonSelector, itemSelector) => {

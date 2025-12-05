@@ -13,6 +13,27 @@
   z-index: 0;
   overflow: visible;
 
+  // FAQタイトル（白色）
+  .section-title--faq {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    .section-title__text {
+      color: #fff;
+      font-family: var(--font-sub);
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .section-title__icon--wave {
+      width: 97px;
+      filter: brightness(0) invert(1); 
+      margin-left: 17px;
+    }
+  }
+
   &.is-open .faq__bg {
     height: 1150px;
 
@@ -30,11 +51,18 @@
     height: 848px; // 初期状態
     background-image: url("../images/faq/wave_icon.png");
     background-repeat: no-repeat;
-    background-size: cover;
+    min-width: 1440px;  
+    background-size: 100% 100%;
     background-position: center top;
     z-index: -1;
     pointer-events: none;
     transition: height 0.4s ease;
+
+    @include mq(mid-pc) {
+      min-width: auto;
+      width: 100%;
+      background-size: cover; // ← SPならOK
+    }
   }
 
   .faq__inner {
@@ -261,8 +289,12 @@
 
 .faq-decorations {
   position: relative;
-  height: 300px;
+  height: 330px;
   width: 100%;
+  
+  @include mq($until: sp-large) {
+    height: 250px;
+  }
 }
 
 .faq__character {
@@ -330,7 +362,10 @@
 .faq-bottom {
   position: relative;
   background: #fff;
-  margin-bottom: 160px;
+  margin-bottom: 200px;
+  @include mq($until: sp-large) {
+    margin-bottom: 100px;
+  }
 
 
   .faq-bottom__inner {

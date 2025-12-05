@@ -3,26 +3,18 @@
 
 <head>
     <meta charset="utf-8">
-    <title>お問い合わせ | YOKOHAMA Concierge | 外国人向け体験サービス・横浜観光・通訳サポート</title>
-    <meta name="description" content="YOKOHAMA Conciergeへの各種お問い合わせはこちらから。サービス内容のご質問や予約、ご相談など、お気軽にご連絡ください。">
+    <title>お知らせ・イベント | YOKOHAMA Concierge</title>
+    <meta name="description" content="YOKOHAMA Conciergeのお知らせ・イベント情報をご覧いただけます。">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- OGP -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="お問い合わせ | YOKOHAMA Concierge">
-    <meta property="og:description" content="YOKOHAMA Conciergeへの各種お問い合わせはこちらから。サービス内容のご質問や予約、ご相談など、お気軽にご連絡ください。">
-    <meta property="og:url" content="https://yokohama-concierge.jp/contact.html">
+    <meta property="og:title" content="お知らせ・イベント | YOKOHAMA Concierge">
+    <meta property="og:description" content="YOKOHAMA Conciergeのお知らせ・イベント情報をご覧いただけます。">
+    <meta property="og:url" content="https://yokohama-concierge.jp/news.html">
     <meta property="og:image" content="https://yokohama-concierge.jp/images/ogp.jpg">
     <meta property="og:site_name" content="YOKOHAMA Concierge">
     <meta property="og:locale" content="ja_JP">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="お問い合わせ | YOKOHAMA Concierge">
-    <meta name="twitter:description" content="YOKOHAMA Conciergeへの各種お問い合わせはこちらから。サービス内容のご質問や予約、ご相談など、お気軽にご連絡ください。">
-    <meta name="twitter:image" content="https://yokohama-concierge.jp/images/ogp.jpg">
 
     <!-- Favicon -->
     <link rel="icon" href="https://yokohama-concierge.jp/images/favicon.ico">
@@ -39,9 +31,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="./css/style.css">
 
-    <!-- Slick -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+    <!-- GSAP -->
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
 </head>
 
 <body>
@@ -49,11 +41,14 @@
     <header class="header">
         <div class="header__inner">
             <div class="header__logo">
+                <!-- PC用ロゴ -->
                 <div class="u-visible-pc">
                     <a href="index.html">
                         <img src="./images/header_logo-pc.png" alt="YOKOHAMA Concierge ロゴ（PC）">
                     </a>
                 </div>
+
+                <!-- SP用ロゴ -->
                 <div class="u-visible-sp">
                     <a href="index.html">
                         <img src="./images/header_logo-sp.png" alt="YOKOHAMA Concierge ロゴ（SP）">
@@ -63,6 +58,7 @@
 
             <nav class="header__nav u-visible-pc" aria-label="グローバルナビゲーション">
                 <div class="header__utility">
+                    <!-- 左：Language / メール -->
                     <ul class="header__utility-list">
                         <li class="header__utility-item header__utility-item--wide">
                             <a href="#" class="header__utility-link is-column">
@@ -78,6 +74,7 @@
                             </a>
                         </li>
                     </ul>
+                    <!-- 中央：電話番号 -->
                     <div class="header__contact">
                         <div class="header__contact-group">
                             <ul class="header__tel-list">
@@ -97,13 +94,13 @@
                                 </li>
                             </ul>
                             <p class="header__time">
-                                対応時間 10:00〜18:00<span class="u-pc">/不定休</span><span class="u-sp"><br>不定休</span>
+                                対応時間 10:00〜18:00<span class="u-pc">/不定休</span><span class="u-sp"> <br>/不定休</span>
                             </p>
                         </div>
                     </div>
                 </div>
             </nav>
-
+            <!-- ハンバーガー -->
             <button class="header__toggle u-visible-sp" aria-controls="global-nav" aria-expanded="false"
                 aria-label="メニューを開く">
                 <span class="header__toggle-line"></span>
@@ -112,6 +109,7 @@
                 <span class="header__toggle-text">MENU</span>
             </button>
 
+            <!-- オーバーレイ -->
             <div class="spmenu__overlay"></div>
 
             <nav id="global-nav" class="header__nav header__nav--sp u-visible-sp">
@@ -119,7 +117,7 @@
                     <div class="spmenu__top">
                         <a href="reservation.html" class="btn btn--orange btn--sm spmenu__reserve">予約をする</a>
                         <a href="index.html" class="spmenu__home">
-                            <img src="./images/icon-home.png" alt="">
+                            <img src="./images/icon-home.png" alt="ホームアイコン">
                             <span>ホームへ戻る</span>
                         </a>
                         <button type="button" class="spmenu__close js-spmenu-close" aria-label="メニューを閉じる">
@@ -143,12 +141,11 @@
                         <li><a href="yokohama.html"><img src="./images/icon-yokohama.png" alt=""
                                     class="spmenu__icon">横浜について</a>
                         </li>
-                        <li><a href="#faq"><img src="./images/icon-faq.png" alt="" class="spmenu__icon">よくある質問</a></li>
-                        <li><a href="#news"><img src="./images/icon-news.png" alt="" class="spmenu__icon">お知らせ・イベント</a>
+                        <li><a href="index.html#faq"><img src="./images/icon-faq.png" alt="" class="spmenu__icon">よくある質問</a></li>
+                        <li><a href="news.html"><img src="./images/icon-news.png" alt="" class="spmenu__icon">お知らせ・イベント</a>
                         </li>
                         <li><a href="contact.html"><img src="./images/icon-mail.png" alt=""
                                     class="spmenu__icon">お問い合わせ</a></li>
-                        <li><a href="privacy.html">プライバシーポリシー</a></li>
                     </ul>
                     <div class="spmenu__bottom">
                         <div class="spmenu__sns">
@@ -160,6 +157,7 @@
                                 <img src="./images/header_mailicon.png" alt="メールアイコン">
                             </a>
                         </div>
+
                         <div class="spmenu__tel">
                             <a href="tel:+81456812737" class="tel-blue">045-681-2737</a>
                             <a href="tel:+817015263845" class="tel-orange">070-1526-3845</a>
@@ -187,30 +185,34 @@
                         </button>
                         <ul class="inner-nav__sub" aria-label="サービス紹介のメニュー">
                             <li><a href="service-reserve.html">予約代行</a></li>
-                            <li><a href="service-storage.html">トランクお預かり</a></li>
-                            <li><a href="service-tour-guide.html#guide-spots">横浜観光サービス</a></li>
+                            <li><a href="#service-storage">トランクお預かり</a></li>
+                            <li><a href="#service-guide">観光ガイドサービス</a></li>
                         </ul>
                     </li>
+
                     <li class="inner-nav__item">
-                        <a href="yokohama.html">
+                        <a href="about-yokohama.html">
                             <img src="./images/icon-yokohama.png" alt="">
                             <span>横浜について</span>
                         </a>
                     </li>
+
                     <li class="inner-nav__item">
                         <a href="faq.html">
                             <img src="./images/icon-faq.png" alt="">
                             <span>よくある質問</span>
                         </a>
                     </li>
+
                     <li class="inner-nav__item">
                         <a href="news.html">
                             <img src="./images/icon-news.png" alt="">
                             <span>お知らせ<br>イベント</span>
                         </a>
                     </li>
+
                     <li class="inner-nav__item">
-                        <a href="contact.html" class="is-active">
+                        <a href="contact.html">
                             <img src="./images/icon-mail.png" alt="">
                             <span>お問い合わせ</span>
                         </a>
@@ -219,103 +221,155 @@
             </nav>
         </div>
 
+        <div class="search-area search-area--service">
+            <form action="search.html" method="get" class="search-area__form">
+                <input type="text" name="q" class="search-area__input" placeholder="サイト内検索">
+                <button type="submit" class="search-area__btn" aria-label="検索">
+                    <img src="./images/icon-search.png" alt="検索アイコン">
+                </button>
+            </form>
+
+            <div class="search-area__links">
+                <a href="#" class="search-area__link search-area__link--map">MAPで探す</a>
+            </div>
+        </div>
+
+        <div class="sub-hero">
+            <div class="sub-hero__decoration">
+                <img src="./images/sub-hero__decoration.png" alt="" aria-hidden="true">
+            </div>
+            <div class="sub-hero__img">
+                <img src="./images/service-tour-guide/service-hero.png" alt="横浜の夜景">
+            </div>
+            <h1 class="sub-hero__title">お知らせ・イベント</h1>
+        </div>
         <nav class="breadcrumb" aria-label="Breadcrumb">
             <ul class="breadcrumb__list">
                 <li class="breadcrumb__item">
                     <a href="index.html">ホーム</a>
                 </li>
-                <li class="breadcrumb__item">お問い合わせ</li>
+                <li class="breadcrumb__item">お知らせ・イベント</li>
             </ul>
         </nav>
 
-        <section class="contact contact--page inquiry">
-            <div class="contact__inner">
-                <h2 class="inquiry__title">お問い合わせフォーム</h2>
-                <div class="contact__box">
-
-                    <p class="inquiry__lead">サービス内容やご予約、見積もりについてなど、お気軽にご相談ください。<br class="u-visible-pc">
-                        必須項目をご入力のうえ、送信してください。</p>
-
-                    <form class="inquiry__form" action="#" method="post">
-                        <div class="inquiry__grid">
-                            <div class="inquiry__field">
-                                <label for="contact-name" class="inquiry__label">お名前<span
-                                        class="inquiry__required">必須</span></label>
-                                <input type="text" id="contact-name" name="name" class="inquiry__input"
-                                    placeholder="例）横浜 太郎" required>
-                                <p class="inquiry__note">フルネームをご入力ください</p>
-                            </div>
-                            <div class="inquiry__field">
-                                <label for="contact-kana" class="inquiry__label">ふりがな<span
-                                        class="inquiry__required">必須</span></label>
-                                <input type="text" id="contact-kana" name="kana" class="inquiry__input"
-                                    placeholder="例）よこはま たろう" required>
-                                <p class="inquiry__note">読み間違い防止のため、ひらがなでご入力ください</p>
-                            </div>
-                            <div class="inquiry__field">
-                                <label for="contact-email" class="inquiry__label">メールアドレス<span
-                                        class="inquiry__required">必須</span></label>
-                                <input type="email" id="contact-email" name="email" class="inquiry__input"
-                                    placeholder="info@example.com" required>
-                                <p class="inquiry__note">ご返信先のメールアドレスをご入力ください</p>
-                            </div>
-                            <div class="inquiry__field">
-                                <label for="contact-tel" class="inquiry__label">電話番号<span
-                                        class="inquiry__optional">任意</span></label>
-                                <input type="tel" id="contact-tel" name="tel" class="inquiry__input"
-                                    placeholder="090-1234-5678">
-                                <p class="inquiry__note">お急ぎの場合や予約希望の際はご入力ください</p>
-                            </div>
-                        </div>
-
-                        <div class="inquiry__field inquiry__field--full">
-                            <p class="inquiry__label">お問い合わせ種別<span class="inquiry__required">必須</span></p>
-                            <div class="inquiry__checkboxes">
-                                <label class="inquiry__checkbox">
-                                    <input type="checkbox" name="type[]" value="reservation" required>
-                                    <span>予約について</span>
-                                </label>
-                                <label class="inquiry__checkbox">
-                                    <input type="checkbox" name="type[]" value="service">
-                                    <span>サービス内容について</span>
-                                </label>
-                                <label class="inquiry__checkbox">
-                                    <input type="checkbox" name="type[]" value="estimate">
-                                    <span>見積もり依頼</span>
-                                </label>
-                                <label class="inquiry__checkbox">
-                                    <input type="checkbox" name="type[]" value="other">
-                                    <span>不明点・その他</span>
-                                </label>
-                            </div>
-                            <p class="inquiry__note">複数選択可能です</p>
-                        </div>
-
-                        <div class="inquiry__field inquiry__field--full">
-                            <label for="contact-message" class="inquiry__label">お問い合わせ内容<span
-                                    class="inquiry__required">必須</span></label>
-                            <textarea id="contact-message" name="message" class="inquiry__textarea" rows="6"
-                                placeholder="ご希望サービスや具体的な内容をご入力ください" required></textarea>
-                        </div>
-
-                        <div class="inquiry__actions">
-                            <button type="submit" class="btn btn--blue btn--md">内容を送信する</button>
-                        </div>
-                    </form>
+        <!-- お知らせ・イベント一覧 -->
+        <section class="news-list">
+            <div class="news-list__inner inner">
+                <!-- フィルター -->
+                <div class="news-list__filter">
+                    <label class="news-list__filter-item">
+                        <input type="radio" name="news-list-filter" value="all" checked>
+                        <span>全て</span>
+                    </label>
+                    <label class="news-list__filter-item">
+                        <input type="radio" name="news-list-filter" value="notice">
+                        <span>お知らせ</span>
+                    </label>
+                    <label class="news-list__filter-item">
+                        <input type="radio" name="news-list-filter" value="event">
+                        <span>イベント</span>
+                    </label>
                 </div>
-            </div>
-        </section>
-        <section class="footer-scene">
-            <div class="footer__fx" aria-hidden="true">
-                <img src="./images/fireworks4.png" alt="左下の花火のイラスト" class="footer__fx-item footer__fx-item--l1">
-                <img src="./images/fireworks2.png" alt="左上の花火のイラスト" class="footer__fx-item footer__fx-item--l2">
-                <img src="./images/fireworks8.png" alt="右下の花火のイラスト" class="footer__fx-item footer__fx-item--r2">
+
+                <!-- 記事一覧 -->
+                <div class="news-list__grid">
+                    <!-- イベント -->
+                    <article class="news-list__card" data-category="event">
+                        <a href="#" class="news-list__card-link">
+                            <div class="news-list__card-img">
+                                <img src="https://placehold.jp/400x250.png?text=Event" alt="秋のヨコハマフェス">
+                                <span class="news-list__card-label news-list__card-label--event">イベント</span>
+                            </div>
+                            <div class="news-list__card-body">
+                                <p class="news-list__card-date">2025.10.27</p>
+                                <h3 class="news-list__card-title">秋のヨコハマフェス開催！</h3>
+                                <p class="news-list__card-text">横浜の秋を満喫できる特別イベントを開催します。グルメや音楽、アートなど盛りだくさんの内容でお届けします。</p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- お知らせ -->
+                    <article class="news-list__card" data-category="notice">
+                        <a href="#" class="news-list__card-link">
+                            <div class="news-list__card-img">
+                                <img src="https://placehold.jp/400x250.png?text=Notice" alt="通訳ガイド募集">
+                                <span class="news-list__card-label news-list__card-label--notice">お知らせ</span>
+                            </div>
+                            <div class="news-list__card-body">
+                                <p class="news-list__card-date">2025.10.15</p>
+                                <h3 class="news-list__card-title">通訳ガイド募集のお知らせ</h3>
+                                <p class="news-list__card-text">外国人観光客向けの通訳ガイドを募集しています。英語、中国語、韓国語などの語学力を活かせます。</p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- イベント -->
+                    <article class="news-list__card" data-category="event">
+                        <a href="#" class="news-list__card-link">
+                            <div class="news-list__card-img">
+                                <img src="https://placehold.jp/400x250.png?text=Event" alt="秋の特別観光プラン">
+                                <span class="news-list__card-label news-list__card-label--event">イベント</span>
+                            </div>
+                            <div class="news-list__card-body">
+                                <p class="news-list__card-date">2025.09.30</p>
+                                <h3 class="news-list__card-title">秋の特別観光プラン登場！</h3>
+                                <p class="news-list__card-text">紅葉シーズンに合わせた特別観光プランをご用意しました。横浜の美しい秋をお楽しみください。</p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- お知らせ -->
+                    <article class="news-list__card" data-category="notice">
+                        <a href="#" class="news-list__card-link">
+                            <div class="news-list__card-img">
+                                <img src="https://placehold.jp/400x250.png?text=Notice" alt="臨時休業">
+                                <span class="news-list__card-label news-list__card-label--notice">お知らせ</span>
+                            </div>
+                            <div class="news-list__card-body">
+                                <p class="news-list__card-date">2025.09.20</p>
+                                <h3 class="news-list__card-title">臨時休業のお知らせ</h3>
+                                <p class="news-list__card-text">9月25日（水）は社内研修のため臨時休業とさせていただきます。ご不便をおかけしますがよろしくお願いいたします。</p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- イベント -->
+                    <article class="news-list__card" data-category="event">
+                        <a href="#" class="news-list__card-link">
+                            <div class="news-list__card-img">
+                                <img src="https://placehold.jp/400x250.png?text=Event" alt="横浜グルメツアー">
+                                <span class="news-list__card-label news-list__card-label--event">イベント</span>
+                            </div>
+                            <div class="news-list__card-body">
+                                <p class="news-list__card-date">2025.09.10</p>
+                                <h3 class="news-list__card-title">横浜グルメツアー開催</h3>
+                                <p class="news-list__card-text">中華街や元町を巡る特別グルメツアーを開催します。地元ガイドが厳選したお店をご案内します。</p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- お知らせ -->
+                    <article class="news-list__card" data-category="notice">
+                        <a href="#" class="news-list__card-link">
+                            <div class="news-list__card-img">
+                                <img src="https://placehold.jp/400x250.png?text=Notice" alt="新サービス開始">
+                                <span class="news-list__card-label news-list__card-label--notice">お知らせ</span>
+                            </div>
+                            <div class="news-list__card-body">
+                                <p class="news-list__card-date">2025.08.28</p>
+                                <h3 class="news-list__card-title">新サービス「トランクお預かり」開始</h3>
+                                <p class="news-list__card-text">手ぶらで横浜観光を楽しめる新サービスを開始しました。駅近くで便利にご利用いただけます。</p>
+                            </div>
+                        </a>
+                    </article>
+                </div>
             </div>
         </section>
     </main>
 
+    <!-- フッター -->
     <footer class="footer">
-        <div class="footer__inner">
+        <div class="footer__head">
             <div class="footer__logo">
                 <img src="./images/footer_logo.png" alt="YOKOHAMA Concierge ロゴ">
             </div>
@@ -344,12 +398,12 @@
                     </button>
                     <ul class="footer__sub" aria-label="サービス紹介のメニュー">
                         <li><a href="service-reserve.html">予約代行</a></li>
-                        <li><a href="#service-storage">トランクお預かり</a></li>
-                        <li><a href="#service-guide">観光ガイドサービス</a></li>
+                        <li><a href="service-storage.html">トランクお預かり</a></li>
+                        <li><a href="service-tour-guide.html">観光ガイドサービス</a></li>
                     </ul>
                 </li>
                 <li><a href="yokohama.html">横浜について</a></li>
-                <li><a href="#faq">よくある質問</a></li>
+                <li><a href="index.html#faq">よくある質問</a></li>
                 <li><a href="news.html">お知らせ・イベント</a></li>
                 <li><a href="contact.html">お問い合わせ</a></li>
             </ul>
@@ -358,18 +412,42 @@
                 <li><a href="terms.html">利用規約</a></li>
             </ul>
         </nav>
-        <p class="footer__copy">© 2025 YOKOHAMA Concierge. All Rights Reserved.</p>
-    </footer>
 
+        <p class="footer__copy">
+            © 2025 YOKOHAMA Concierge. All Rights Reserved.
+        </p>
+    </footer>
     <a href="#" class="pagetop" aria-label="ページの先頭へ">
         <img src="./images/icon-pagetop.png" alt="ページトップへ">
     </a>
 
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="./js/header.js"></script>
-    <script src="./js/accordion.js"></script>
     <script src="./js/pagetop.js"></script>
+    
+    <!-- お知らせ一覧用フィルター -->
+    <script>
+        $(document).ready(function () {
+            $('input[name="news-list-filter"]').on('change', function () {
+                const filterValue = $(this).val();
+                
+                if (filterValue === 'all') {
+                    $('.news-list__card').fadeIn(300);
+                } else {
+                    $('.news-list__card').each(function () {
+                        const category = $(this).attr('data-category');
+                        if (category === filterValue) {
+                            $(this).fadeIn(300);
+                        } else {
+                            $(this).fadeOut(300);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
+

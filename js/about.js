@@ -1,12 +1,34 @@
 gsap.registerPlugin(ScrollTrigger);
 
+// スマホ・タブレット判定（1200px以下）
+const isTabletOrMobile = window.matchMedia("(max-width: 1200px)").matches;
+
+// about-yokohama関連の要素はGSAPアニメーションから除外
+const excludedClasses = [
+  "about-yokohama__photos",
+  "about-yokohama__character",
+  "about-yokohama__character-img",
+  "about-yokohama__areas-wrapper"
+];
+
+// 除外対象かどうか判定
+const isExcluded = (el) => excludedClasses.some(cls => el.classList.contains(cls));
+
 // 共通フェードアップ
 gsap.utils.toArray(".js-fade-up").forEach((el) => {
-  // .about-yokohama__photos、.about-yokohama__character、.about-yokohama__character-img、.about-yokohama__areas-wrapper は transform を上書きせず、opacity のみアニメーション
-  if (el.classList.contains("about-yokohama__photos") ||
-    el.classList.contains("about-yokohama__character") ||
-    el.classList.contains("about-yokohama__character-img") ||
-    el.classList.contains("about-yokohama__areas-wrapper")) {
+  // 除外対象の要素
+  if (isExcluded(el)) {
+    // タブレット・スマホでは完全にスキップ（インラインスタイルを設定しない）
+    if (isTabletOrMobile) {
+      el.style.opacity = "1";
+      el.style.transform = "";
+      el.style.translate = "";
+      el.style.rotate = "";
+      el.style.scale = "";
+      return;
+    }
+    
+    // PCではopacityのみアニメーション
     gsap.fromTo(
       el,
       { opacity: 0 },
@@ -22,6 +44,8 @@ gsap.utils.toArray(".js-fade-up").forEach((el) => {
     );
     return;
   }
+  
+  // 通常の要素
   gsap.fromTo(
     el,
     { y: 40, opacity: 0 },

@@ -6,16 +6,32 @@
   position: relative;
   background: url("../images/news/wave-bg.png") repeat center top;
   background-size: cover;
-  overflow: hidden;
   width: 100%;
   margin-top: -80px; // 上に移動
+
+  .section-title--news {
+ 
+    .section-title__text {
+      color: #fff;
+      font-family: var(--font-sub);
+      font-size: clamp(1.6rem, 2vw, 2rem);
+      margin-bottom: 8px;
+      margin-top: clamp(40px, 12vw, 108px);
+    }
+
+    .section-title__icon--wave {
+      width: 80px;
+      height: auto;
+      filter: brightness(0) invert(1); 
+    }
+  }
 }
 
 .news__wave-top {
   position: absolute;
   top: 0;
   left: 0;
-  width: 200%;
+  width: 100%;
   animation: waveMove 14s linear infinite;
 
   img {
@@ -27,37 +43,78 @@
 
 .news__bg {
   position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 100%;
-    background: url("../images/news/wave-bg.png") repeat-x;
-    background-size: 50% auto;
-    z-index: 0;
-    opacity: 0.9;
-  }
 }
 
+// 装飾画像
+.news__decoration {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none; // クリック無効化
+
+  // 右上の装飾（かもめ）
+  &--top-right {
+    top: 190px;
+    right: 40px;
+    width: 276px;
+    opacity: 0.9;
+
+    @include mq(tab) {
+      width: 180px;
+      top: 170px;
+      right: 20px;
+    }
+    @include mq(sp-large) {
+      width: 100px;
+      top: 130px;
+      right: 60px;
+    }
+  }
+  // 左下の装飾（吹き出し）
+  &--bottom-left {
+    bottom: 37px;
+    left: 40px;
+    width: 140px;
+    height: auto;
+    opacity: 0.8;
+
+    @include mq(tab) {
+      width: 120px;
+      bottom: 40px;
+      left: 80px;
+    }
+    @include mq(sp-large) {
+    width: 100px;
+    bottom: 30px;
+    left: 50px;
+    }
+  }
+  }
 .news__inner {
   position: relative;
-  padding: 160px 91px 100px;
+  padding: 117px 161px 100px;
   color: #fff;
   z-index: 3;
+
+  @include mq(tab) {
+    padding: 120px 60px 80px;
+  }
+
+  @include mq(sp-large) {
+    padding: 80px 40px 60px;
+  }
 }
 
 .news__filter {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 68px;
   margin-bottom: 50px;
+  @include mq(sp-large) {
+    gap: 40px;
+  }
 
   label {
-    font-size: 1.4rem; // 14px (1rem=10px基準)
+    font-size: clamp(1.2rem, 1.5vw, 1.8rem);
     cursor: pointer;
   }
 
@@ -66,14 +123,38 @@
   }
 }
 
+.news__empty-message {
+  text-align: center;
+  color: #fff;
+  font-size: clamp(1.4rem, 2.5vw, 3.2rem);
+  padding: 60px 20px;
+  margin: 0;
+
+  @include mq(sp-large) {
+    padding: 76px 13px;
+  }
+}
+
 .news__slider {
   margin: 0 auto 48px; // スライダーとボタンの間の余白を48pxに
-  width: 90%;
+  max-width: 1200px;
+  width: 100%;
 
   // スライダーのカード間の余白を48pxに設定
   .slick-slide {
-    margin: 0 24px; // 左右24pxずつで合計48pxの余白
-    width: 269px !important; // 221px + 左右のマージン(24px*2) = 269px
+    margin: 0 24px; // 左右に24pxずつ（合計48px）
+  }
+
+  // スライダーのトラック全体
+  .slick-track {
+    display: flex !important;
+    align-items: stretch;
+  }
+
+  // スライダーのリスト
+  .slick-list {
+    overflow: hidden;
+    margin: 0 -24px; // カードのマージンを相殺して左右の端を揃える
   }
 
   .news__card {
@@ -83,8 +164,8 @@
     overflow: hidden;
     text-align: left;
     transition: transform 0.3s ease;
-    width: 221px !important; // 正方形の幅（Slickのインラインスタイルを上書き）
-    height: 221px !important; // 正方形の高さ
+    width: 234px !important; // カードの横幅を234pxに固定
+    height: 300px !important; // 高さを調整
     display: flex !important; // Slickのdisplay: blockを上書き
     flex-direction: column;
 
@@ -92,9 +173,14 @@
       transform: translateY(-6px);
     }
 
+    // フィルタリングで非表示にされた要素
+    &.filtered-out {
+      display: none !important;
+    }
+
     img {
       width: 100%;
-      height: 141px; // 221px - パディング(16px*2) - テキスト部分(約48px) = 141px
+      height: 200px; // 画像の高さを調整
       object-fit: cover;
       flex-shrink: 0;
     }
@@ -225,8 +311,10 @@
 
 .news__btn {
   display: inline-block;
+  text-align: center;
   background: #fff;
-  color: #0077cc;
+  color: var(--color-main);
+  font-family: var(--font-sub);
   padding: 10px 26px;
   border-radius: 24px;
   font-weight: 600;
@@ -240,16 +328,4 @@
 
 .news__btn-wrapper {
   text-align: center;
-}
-
-.js-news-slider .slick-slide {
-  width: 300px;
-  /* カード幅：調整してOK */
-  margin-right: 24px;
-  /* ← ★右だけ余白 → チラ見せ量の調整 */
-}
-
-.js-news-slider .slick-list {
-  overflow: hidden;
-  /* ← 前を隠すのに重要 */
 }

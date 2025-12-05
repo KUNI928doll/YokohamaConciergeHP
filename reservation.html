@@ -74,9 +74,6 @@
                                 メール
                             </a>
                         </li>
-                        <li class="header__utility-item">
-                            <a href="privacy.html" class="header__utility-link">プライバシーポリシー</a>
-                        </li>
                     </ul>
                     <div class="header__contact">
                         <div class="header__contact-group">
@@ -117,10 +114,15 @@
             <nav id="global-nav" class="header__nav header__nav--sp u-visible-sp">
                 <div class="spmenu">
                     <div class="spmenu__top">
+                        <a href="reservation.html" class="btn btn--orange btn--sm spmenu__reserve">予約をする</a>
                         <a href="index.html" class="spmenu__home">
                             <img src="./images/icon-home.png" alt="">
                             <span>ホームへ戻る</span>
                         </a>
+                        <button type="button" class="spmenu__close js-spmenu-close" aria-label="メニューを閉じる">
+                            <span class="spmenu__close-icon"></span>
+                            <span class="spmenu__close-text">CLOSE</span>
+                        </button>
                     </div>
                     <ul class="spmenu__list">
                         <li class="spmenu__item spmenu__item--has-sub">
@@ -130,9 +132,9 @@
                                 <span class="spmenu__caret" aria-hidden="true"></span>
                             </button>
                             <ul class="spmenu__sub" aria-label="サービス紹介のメニュー">
-                                <li><a href="index.html#service-reserve">予約代行</a></li>
+                                <li><a href="service-reserve.html">予約代行</a></li>
                                 <li><a href="service-storage.html">トランクお預かり</a></li>
-                                <li><a href="service-tour-guide.html">横浜観光ガイドサービス</a></li>
+                                <li><a href="service-tour-guide.html">観光ガイドサービス</a></li>
                             </ul>
                         </li>
                         <li><a href="yokohama.html"><img src="./images/icon-yokohama.png" alt=""
@@ -143,7 +145,6 @@
                                     class="spmenu__icon">お知らせ・イベント</a></li>
                         <li><a href="contact.html"><img src="./images/icon-mail.png" alt=""
                                     class="spmenu__icon">お問い合わせ</a></li>
-                        <li><a href="privacy.html">プライバシーポリシー</a></li>
                     </ul>
                     <div class="spmenu__bottom">
                         <div class="spmenu__sns">
@@ -165,6 +166,53 @@
         </div>
         <a href="reservation.html" class="header__btn u-visible-pc">予約する</a>
     </header>
+
+        <div class="nav-inner-wrapper u-visible-pc">
+            <nav class="inner-nav">
+                <ul class="inner-nav__list">
+                    <li class="inner-nav__item">
+                        <a href="index.html">
+                            <img src="./images/icon-home.png" alt="ホームアイコン">ホーム</a>
+                    </li>
+                    <li class="inner-nav__item inner-nav__item--has-sub">
+                        <button type="button" class="inner-nav__trigger js-inner-dropdown" aria-expanded="false">
+                            <img src="./images/icon-service.png" alt="">
+                            <span>サービス紹介</span>
+                            <span class="inner-nav__caret" aria-hidden="true"></span>
+                        </button>
+                        <ul class="inner-nav__sub" aria-label="サービス紹介のメニュー">
+                            <li><a href="service-reserve.html">予約代行</a></li>
+                            <li><a href="service-storage.html">トランクお預かり</a></li>
+                            <li><a href="service-tour-guide.html#guide-spots">横浜観光サービス</a></li>
+                        </ul>
+                    </li>
+                    <li class="inner-nav__item">
+                        <a href="yokohama.html">
+                            <img src="./images/icon-yokohama.png" alt="">
+                            <span>横浜について</span>
+                        </a>
+                    </li>
+                    <li class="inner-nav__item">
+                        <a href="faq.html">
+                            <img src="./images/icon-faq.png" alt="">
+                            <span>よくある質問</span>
+                        </a>
+                    </li>
+                    <li class="inner-nav__item">
+                        <a href="news.html">
+                            <img src="./images/icon-news.png" alt="">
+                            <span>お知らせ<br>イベント</span>
+                        </a>
+                    </li>
+                    <li class="inner-nav__item">
+                        <a href="contact.html">
+                            <img src="./images/icon-mail.png" alt="">
+                            <span>お問い合わせ</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
 
     <main>
         <section class="sub-hero sub-hero--reservation">
@@ -614,9 +662,9 @@
                         <span class="footer__caret" aria-hidden="true"></span>
                     </button>
                     <ul class="footer__sub" aria-label="サービス紹介のメニュー">
-                        <li><a href="#service-reserve">予約代行</a></li>
+                        <li><a href="service-reserve.html">予約代行</a></li>
                         <li><a href="#service-storage">トランクお預かり</a></li>
-                        <li><a href="#service-guide">横浜観光ガイドサービス</a></li>
+                        <li><a href="#service-guide">観光ガイドサービス</a></li>
                     </ul>
                 </li>
                 <li><a href="yokohama.html">横浜について</a></li>
@@ -626,9 +674,7 @@
             </ul>
             <ul class="footer__policy">
                 <li><a href="privacy.html">プライバシーポリシー</a></li>
-                <li><a href="disclaimer.html">免責事項</a></li>
-                <li><a href="#">個人情報保護方針</a></li>
-                <li><a href="#">利用規約</a></li>
+                <li><a href="terms.html">利用規約</a></li>
             </ul>
         </nav>
         <p class="footer__copy">© 2025 YOKOHAMA Concierge. All Rights Reserved.</p>

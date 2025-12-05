@@ -4,49 +4,109 @@
 // service
 .service {
   position: relative;
-  padding: 57px;
+  padding: clamp(60px, 8vw, 100px) clamp(20px, 12vw, 182px) clamp(40px, 5vw, 56px);
   background: #fff;
   z-index: 1;
-  overflow: hidden;
+  overflow: visible;
   width: 100%;
 
   @include mq($until: sp-large) {
-    padding: 40px 0;
+    padding: 40px 20px;
   }
 
-  &__inner {
+  // 装飾（featuresから継続）
+  .service__deco-line {
+    position: absolute;
+    left: 94px;
+    top: -168px;
+    width: 95px;
+    z-index: 5;
+
+    @include mq($until: sp-large) {
+      display: none;
+    }
+  }
+
+  .service__deco-seagull {
+    position: absolute;
+    left: clamp(5%, 13vw, 13%);
+    top: clamp(10px, 2vw, 22px);
+    width: clamp(40px, 5vw, 58px);
+    animation: seagull-fly 8s ease-in-out infinite alternate;
+    z-index: 5;
+
+    @include mq($until: mid-pc) {
+      left: 28%;
+      top: 10px;
+      width: 40px;
+    }
+
+    @include mq($until: sp-large) {
+      display: none;
+    }
+  }
+
+  .service__inner {
     position: relative;
     max-width: 1080px;
     margin-inline: auto;
     padding-inline: 25px;
   }
 
-  &__heading {
+  .service__heading {
     text-align: left;
-    margin-bottom: clamp(30px, 5vw, 60px);
 
     @include mq($until: sp-large) {
       margin-bottom: 0px;
     }
+
+    .section-title__text {
+      font-size: 2rem;
+      font-family: var(--font-sub);
+      margin-bottom: 16px;
+    }
   }
 
-  &__lead {
+  .service__lead {
     text-align: left;
     font-size: clamp(14px, 1.4vw, 18px);
     line-height: 2;
-    margin-bottom: 33px;
-    margin-top: 48px;
+    margin-bottom: 16px;
     color: var(--color-main);
-
+    font-weight: 600;
+    font-family: var(--font-sub);
   }
 
-  &__area {
+  .service__note {
+    font-size: clamp(12px, 1.2vw, 14px);
+    color: #666;
+    margin-bottom: 45px;
+    text-align: left;
+    color: var(--color-main);
+    font-family: var(--font-sub);
+
+    @include mq($until: sp-large) {
+      
+    }
+  }
+  // 青波下線
+.text-wave-underline--blue {
+  position: relative;
+  display: inline;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath d='M0 3 Q5 0 10 3 T20 3' stroke='%231d4375' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: bottom;
+  background-size: 12px 4px;
+  padding-bottom: 4px;
+}
+
+  .service__area {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     flex-wrap: nowrap;
     gap: 43px;
-    padding: 16px 0;
+    padding: 8px 0;
     border-top: 1px solid #0D3D90;
     border-bottom: 1px solid #0D3D90;
     position: relative;
@@ -58,11 +118,11 @@
       padding: 20px 0;
     }
 
-    &-head {
+    .service-head {
       flex-shrink: 0;
     }
 
-    &-label {
+    .service__area-label {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -83,19 +143,27 @@
       }
     }
 
-    &-list {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 12px 60px;
+    .service__area-list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px 15px;
       color: #0D3D90;
       font-size: clamp(14px, 1.4vw, 16px);
       line-height: 1.6;
+      font-family: var(--font-sub);
+
+      @include mq($until: mid-pc) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px 20px;
+        white-space: nowrap;
+        font-size: 1.4rem;
+      }
 
       @include mq($until: sp-large) {
-        justify-content: center;
+        grid-template-columns: repeat(2, 1fr);
         text-align: center;
         gap: 8px 20px;
+        white-space: nowrap;
       }
 
       li {
@@ -120,6 +188,10 @@
         }
       }
     }
+
+    .service__area-item--nowrap {
+      white-space: nowrap;
+    }
   }
 }
 
@@ -128,22 +200,17 @@
    =========================================== */
 .section--service {
   position: relative; // 念のため親要素に基準を
-  z-index: 2;
+  z-index: 3;
 
   .speech-wrapper {
     position: absolute;
-    left: 80%; // ← 左右位置
-    top: -9%;
+    left: 66%; // ← 左右位置
+    top: -99px; // featuresセクションに重なる
     transform: none; // ← 中央寄せが入ってたら打ち消す
-    z-index: 2;
+    z-index: 20;
 
     @include mq($until: sp-large) {
-      position: relative;
-      top: 0;
-      left: 0;
-      transform: none;
-      margin: 0 auto;
-      width: 90%;
+      display: none;
     }
   }
 
@@ -159,8 +226,9 @@
     }
 
     @include mq($until: mid-pc) {
-      right: 35%;
+      right: 24%;
       width: clamp(160px, 26vw, 230px);
+      top: 145%;
     }
 
     @include mq($until: sp-large) {
@@ -174,13 +242,17 @@
 
   .speech-bubble-imgwrap--service {
     position: relative;
-    width: 260px;
-    left: -45%;
+    width: clamp(180px, 20vw, 260px);
+    left: clamp(-30%, -35vw, -45%);
+
+    @include mq($until: mid-pc) {
+      width: clamp(150px, 18vw, 200px);
+      left: -20%;
+    }
 
     @include mq($until: sp-large) {
       left: 0;
       width: 100%;
-      max-width: 260px;
       margin: 0 auto;
     }
   }
@@ -205,28 +277,27 @@
 .service-detail {
   background: #fff;
 
-  &__inner {
+  .service-detail__inner {
     width: min(95%, 1080px);
     margin: 0 auto;
     padding-inline: 20px;
   }
 
-  &__cards {
+  .service-detail__cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: clamp(20px, 4vw, 40px);
     align-items: stretch;
   }
 
-  &__card {
+  .service-detail__card {
     display: flex; // ← 中身を縦方向に並べる
     flex-direction: column; // ← タイトル〜ボタンを縦並びに
-    justify-content: space-between; // ← ボタンが下に固定される
     height: 100%;
     position: relative;
     background: #EFF3F4;
     border-radius: 16px 16px 60px 16px; // ✅右下だけ大きく丸める
-    padding: 31px 43px 43px 36px;
+    padding: 31px 35px 43px 35px;
 
     text-align: center;
     transition: 0.3s;
@@ -249,7 +320,7 @@
     }
   }
 
-  &__corner {
+  .service-detail__corner {
     position: absolute;
     top: 0;
     left: 0;
@@ -261,27 +332,32 @@
     /* ←角を丸く */
   }
 
-  &__icon img {
+  .service-detail__icon img {
     width: 120px;
     margin: 24px auto 16px;
   }
 
-  &__title {
+  .service-detail__title {
     font-size: clamp(18px, 2vw, 21px);
-    font-weight: 500;
+    font-weight: 600;
     color: var(--color-main, #0D3D90);
     margin-bottom: 16px;
+    font-family: var(--font-sub);
   }
 
-  &__text {
+  .service-detail__text {
     font-size: clamp(14px, 1.8vw, 16px);
     line-height: 1.8;
     color: var(--color-main);
     margin-bottom: 24px;
-    text-align: center;
+    text-align: left;
+
+    @include mq($until: mid-pc) {
+      text-align: center;
+    }
   }
 
-  &__list {
+  .service-detail__list {
     list-style: none;
     padding: 0 0 0 16px;
     margin: 0;
@@ -298,7 +374,7 @@
     }
   }
 
-  &__arrow {
+  .service-detail__arrow {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -306,7 +382,7 @@
     z-index: 2;
   }
 
-  &__arrow-btn {
+  .service-detail__arrow-btn {
     width: 48px;
     height: 48px;
     background: #4096CC;
