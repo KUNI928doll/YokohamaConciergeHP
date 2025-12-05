@@ -186,9 +186,13 @@
   max-width: 978px;
   height: 1064px;
 
+  @include mq($until: tab) {
+    height: atuo;
+  }
+
   @include mq($until: sp-large) {
     padding: 30px;
-    height: auto;
+    height: 1130px;
   }
 }
 

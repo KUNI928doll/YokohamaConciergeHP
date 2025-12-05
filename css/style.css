@@ -5434,12 +5434,19 @@ img {
   background: url("../images/contact/contact-bg.png") no-repeat center top;
   background-size: cover;
   margin-top: -75px;
+  margin-bottom: -200px;
   min-height: 1133px;
+}
+@media (max-width: 1024px) {
+  .contact {
+    margin-bottom: -210px;
+  }
 }
 @media (max-width: 768px) {
   .contact {
     background-position: center top;
     min-height: 900px;
+    margin-bottom: -200px;
   }
 }
 .contact .section-title--contact {
@@ -5548,6 +5555,12 @@ img {
   bottom: -60px;
   right: 15%;
   text-align: center;
+}
+@media (max-width: 768px) {
+  .contact__bird {
+    top: 100px;
+    z-index: 1;
+  }
 }
 .contact__bird img {
   width: 120px;
@@ -7891,10 +7904,15 @@ img {
   max-width: 978px;
   height: 1064px;
 }
+@media (max-width: 1024px) {
+  .tab-panel.active {
+    height: atuo;
+  }
+}
 @media (max-width: 768px) {
   .tab-panel.active {
     padding: 30px;
-    height: auto;
+    height: 1130px;
   }
 }
 
