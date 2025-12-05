@@ -9,6 +9,7 @@
   animation: waveMove 4s ease-in-out infinite;
   position: relative;
   z-index: 0;
+  background-color: #f3f6f9;;
   // margin-top: -75px;
 
   @include mq($until: sp-large) {
@@ -256,7 +257,7 @@
 
 .pagetop {
   position: fixed;
-  right: clamp(16px, 3vw, 40px);
+  right: clamp(16px, 5vw, 47px);
   bottom: clamp(16px, 3vw, 40px);
   width: 96px;
   height: 96px;
@@ -285,7 +286,7 @@
   @include mq($until: sp-large) {
     width: 72px;
     height: 72px;
-    right: 16px;
+    right: 36px;
     bottom: 16px;
   }
 }

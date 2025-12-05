@@ -7,9 +7,11 @@
   text-align: center;
   background: url("../images/contact/contact-bg.png") no-repeat center top;
   background-size: cover;
-  margin-top: -75px;
+  margin-top: 0;
   margin-bottom: -200px;
-  min-height: 1133px;
+  min-height: 1260px;
+  background-color: #f3f6f9;;
+  z-index: 1; // newsセクションの下に表示
   @include mq(tab) {
  margin-bottom: -210px;
   }
@@ -124,32 +126,73 @@
     }
   }
 
-.contact__bird {
-    position: absolute;
-    bottom: -60px;
-    right: 15%;
-    text-align: center;
+// 吹き出しとキャラクター
+.speech-wrapper--contact {
+  position: absolute;
+  bottom: -60px;
+  right: 15%;
+  z-index: 10;
+  pointer-events: none;
 
-    @include mq(sp-large) {
-      top:100px;
-      z-index: 1;
-    }
-
-    img {
-      width: 120px;
-    }
-
-    .contact__speech {
-      position: absolute;
-      top: -100px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #fff;
-      border-radius: 50px;
-      padding: 12px 20px;
-      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-      font-size: 1.4rem; // 14px (1rem=10px基準)
-      line-height: 1.6;
-      width: 200px;
-    }
+  @include mq(sp-large) {
+    top: 100px;
+    right: 5%;
+    bottom: auto;
   }
+}
+
+.speech-wrap--contact {
+  position: relative;
+  width: clamp(200px, 25vw, 300px);
+
+  @include mq(sp-large) {
+    width: clamp(150px, 40vw, 200px);
+  }
+}
+
+.speech-bubble-imgwrap--contact {
+  position: relative;
+  width: 100%;
+  margin-bottom: -40px;
+  z-index: 2;
+
+  @include mq(sp-large) {
+    margin-bottom: -30px;
+  }
+}
+
+.speech-bubble-text--contact {
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 65%;
+  text-align: center;
+  font-size: clamp(1.2rem, 1.5vw, 1.6rem);
+  line-height: 1.6;
+  color: var(--color-main);
+  word-break: keep-all;
+
+  @include mq(sp-large) {
+    width: 70%;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+  }
+}
+
+.character--contact {
+  position: relative;
+  width: clamp(100px, 15vw, 150px);
+  margin: 0 auto;
+  z-index: 1;
+  animation: gull-bob 3.6s ease-in-out infinite;
+
+  @include mq(sp-large) {
+    width: clamp(80px, 30vw, 120px);
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}

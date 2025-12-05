@@ -51,7 +51,6 @@
     height: 848px; // 初期状態
     background-image: url("../images/faq/wave_icon.png");
     background-repeat: no-repeat;
-    min-width: 1440px;  
     background-size: 100% 100%;
     background-position: center top;
     z-index: -1;
@@ -350,7 +349,7 @@
 
   @include mq($until: sp-large) {
     bottom: 69%;
-    right: -28%;
+    right: 0%;
     width: clamp(150px, 80vw, 360px);
     opacity: 0.8;
   }

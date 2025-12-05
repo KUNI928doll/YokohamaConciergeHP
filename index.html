@@ -103,15 +103,7 @@
             display: flex !important;
             align-items: stretch !important;
         }
-        
-        /* 横スクロール防止の強化 */
-        * {
-            max-width: 100%;
-        }
-        html, body {
-            overflow-x: hidden !important;
-            width: 100%;
-        }
+
     </style>
 </head>
 
@@ -869,9 +861,18 @@
                     </div>
                 </div>
 
-                <div class="contact__bird">
-                    <img src="./images/contact/bird.png" alt="ハマナビくん">
-                    <p class="contact__speech">ハマナビサービスで<br>横浜を楽しんでいってね！</p>
+                <div class="speech-wrapper speech-wrapper--contact">
+                    <div class="speech-wrap speech-wrap--contact">
+                        <div class="speech-bubble-imgwrap speech-bubble-imgwrap--contact">
+                            <img src="./images/bubble.png" class="speech-bubble-img" aria-hidden="true">
+                            <p class="speech-bubble-text speech-bubble-text--contact">
+                                ハマナビサービスで<br>横浜を楽しんでいってね！
+                            </p>
+                        </div>
+                        <figure class="character character--contact">
+                            <img src="./images/contact/bird.png" alt="ハマナビくん">
+                        </figure>
+                    </div>
                 </div>
             </div>
         </section>

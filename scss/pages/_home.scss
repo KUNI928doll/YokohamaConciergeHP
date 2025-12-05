@@ -69,26 +69,26 @@
       width: clamp(200px, calc(159.4173px + 10.8221 * 1vw), 304px);
 
       @include mq($until: sp-large) {
-        right: -5%;
+        right: 0%;
         bottom: 37%;
       }
     }
 
     &--r2 {
-      right: clamp(-32px, calc(-12px - 2vw), -8px);
+      right: clamp(13px, calc(-12px - 2vw), -8px);
       bottom: -4%;
       animation-delay: .6s;
       width: clamp(200px, calc(159.4173px + 10.8221 * 1vw), 304px);
       z-index: 10;
 
       @include mq($until: sp-large) {
-        right: -4%;
+        right: 0%;
         bottom: -12%;
       }
     }
 
     &--r3 {
-      right: -21px;
+      right: 2px;
       bottom: -50%;
       animation-delay: .6s;
       width: clamp(200px, calc(159.4173px + 10.8221 * 1vw), 304px);
@@ -96,10 +96,11 @@
 
       @include mq($until: mid-pc) {
         bottom: -60%;
+        right: 2px;
       }
 
       @include mq($until: sp-large) {
-        right: -6%;
+        right: 0%;
         bottom: -67%;
       }
     }

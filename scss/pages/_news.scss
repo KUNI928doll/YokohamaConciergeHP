@@ -8,6 +8,7 @@
   background-size: cover;
   width: 100%;
   margin-top: -80px; // 上に移動
+  z-index: 2; // contactセクションの上に表示
 
   .section-title--news {
  

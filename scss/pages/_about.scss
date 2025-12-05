@@ -169,7 +169,7 @@
 
     @include mq($until: mid-pc) {
       top: 56%;
-      right: -6%;
+      right: -2%;
     }
 
     @include mq($until: sp-large) {
