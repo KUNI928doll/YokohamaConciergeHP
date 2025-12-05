@@ -41,6 +41,10 @@
   }
 }
 
+.contact--bottom {
+  margin-bottom: 0;
+}
+
   .contact__inner {
     position: relative;
     padding: 150px 20px 200px; // 下部のpaddingを増やして画像が切れないように
@@ -82,12 +86,20 @@
     color: var(--color-main);
     font-weight: 500;
     font-size: 3rem;
+
+    @include mq (sp-large) {
+      font-size:  2rem;
+    }
   }
 
   .contact__item--mobile span {
     color:var(--color-accent);
     font-weight: 500;
     font-size: 3rem;
+
+    @include mq (sp-large) {
+      font-size:  2rem;
+    }
   }
   .contact__item--time{
     color: var(--color-main);

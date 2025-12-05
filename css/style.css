@@ -5474,6 +5474,10 @@ img {
           filter: brightness(0) invert(1);
 }
 
+.contact--bottom {
+  margin-bottom: 0;
+}
+
 .contact__inner {
   position: relative;
   padding: 150px 20px 200px;
@@ -5522,11 +5526,21 @@ img {
   font-weight: 500;
   font-size: 3rem;
 }
+@media (max-width: 768px) {
+  .contact__item--tel span {
+    font-size: 2rem;
+  }
+}
 
 .contact__item--mobile span {
   color: var(--color-accent);
   font-weight: 500;
   font-size: 3rem;
+}
+@media (max-width: 768px) {
+  .contact__item--mobile span {
+    font-size: 2rem;
+  }
 }
 
 .contact__item--time {
