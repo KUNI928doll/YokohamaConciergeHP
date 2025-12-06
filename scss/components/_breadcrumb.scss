@@ -1,0 +1,74 @@
+@charset "UTF-8";
+@use "../abstracts" as *;
+
+/* ================================================
+   breadcrumb（パンくず）
+================================================ */
+
+.breadcrumb {
+    background-color: #fff;
+    padding: 44px 20px;
+
+    @include mq($until: sp-large) {
+        padding: 28px 16px;
+    }
+}
+
+.breadcrumb__list {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.6rem;
+    color: var(--color-main);
+    font-family: var(--font-sub);
+    flex-wrap: wrap;
+
+    @include mq($until: sp-large) {
+        font-size: 1.4rem;
+        gap: 8px;
+    }
+}
+
+.breadcrumb__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: #003366;
+    white-space: nowrap;
+
+    @include mq($until: sp-large) {
+        white-space: normal;  // 長い文字が折り返される
+        line-height: 1.4;
+    }
+}
+
+.breadcrumb__item a {
+    text-decoration: none;
+    color: #003366;
+    transition: 0.2s;
+
+    @include mq($until: sp-large) {
+        font-size: 1.4rem;
+    }
+
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+.breadcrumb__item::after {
+    content: "＞";
+    margin-left: 12px;
+    color: #003366;
+
+    @include mq($until: sp-large) {
+        margin-left: 6px;
+    }
+}
+
+.breadcrumb__item:last-child::after {
+    content: "";
+    margin: 0;
+}

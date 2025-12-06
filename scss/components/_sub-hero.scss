@@ -1,0 +1,56 @@
+@charset "UTF-8";
+@use "../abstracts" as *;
+
+// サブページ共通：ヒーローセクション
+.sub-hero {
+    position: relative;
+    width: 100%;
+    overflow: visible;
+    z-index: 2;
+}
+
+.sub-hero__decoration {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    z-index: 1;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        width: 70%;
+        height: auto;
+        display: block;
+    }
+}
+
+.sub-hero__img {
+    width: 100%;
+    height: clamp(200px, 40vw, 373px);
+    overflow: hidden;
+}
+
+.sub-hero__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.sub-hero__title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: clamp(24px, 4vw, 40px);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
+}
+

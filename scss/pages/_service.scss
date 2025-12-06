@@ -151,19 +151,20 @@
       font-size: clamp(14px, 1.4vw, 16px);
       line-height: 1.6;
       font-family: var(--font-sub);
+      width: 100%;
 
       @include mq($until: mid-pc) {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px 20px;
-        white-space: nowrap;
         font-size: 1.4rem;
       }
 
       @include mq($until: sp-large) {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         text-align: center;
-        gap: 8px 20px;
-        white-space: nowrap;
+        gap: 12px;
+        width: 100%;
+        max-width: 100%;
       }
 
       li {
@@ -190,7 +191,9 @@
     }
 
     .service__area-item--nowrap {
-      white-space: nowrap;
+      @include mq-up(sp-large) {
+        white-space: nowrap;
+      }
     }
   }
 }
