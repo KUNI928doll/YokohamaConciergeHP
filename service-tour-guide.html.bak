@@ -497,18 +497,17 @@
                                     </li>
                                 </ul>
 
-                                <div class="guide-spots__right">
-                                    <div class="guide-spots__gallery">
+                                <div class="guide-spots__gallery">
                                     <img src="./images/service-tour-guide/service-tour-guide_photo5.png" alt="中華街の門">
                                     <img src="./images/service-tour-guide/service-tour-guide_photo6.png" alt="横浜人形の家">
                                 </div>
-                                    <div class="guide-spots__footer">
+                            </div>
+
+                            <div class="guide-spots__footer">
                                 <a href="yokohama.html#map-chinatown" class="guide-spots__map-link">
                                     
                                     <span>MAPへ</span>
                                 </a>
-                            </div>
-                                </div>
                             </div>
                         </div>
 
@@ -524,42 +523,43 @@
                                     </p>
                                 </div>
                                 <div class="guide-spots__panel-map">
-                                    <img src="./images/service-tour-guide/service-tour-guide_photo7.png" alt="日本新聞博物館ニュースパーク（日本大通り">
+                                    <img src="./images/about-yokohama/about-yokohama_photo3.png" alt="日本大通りの景色">
                                 </div>
                             </div>
 
                             <div class="guide-spots__panel-body">
                                 <ul class="guide-spots__list">
                                     <li>
-                                        <a href="https://www.welcome.city.yokohama.jp/spot/details.php?bbid=187" class="guide-spots__spot-name">横浜三塔キング・クイーン・ジャック（馬車道・日本大通り/徒歩2～5分）</a>
+                                        <a href="#" class="guide-spots__spot-name">神奈川県庁本庁舎（キングの塔） (日本大通り/徒歩3分)</a>
                                         
                                     </li>
                                     <li>
-                                        <a href="http://www.eurasia.city.yokohama.jp/" class="guide-spots__spot-name">横浜ユーラシア文化館（日本大通り/徒歩1分）</a>
+                                        <a href="#" class="guide-spots__spot-name">横浜開港資料館 (日本大通り/徒歩5分)</a>
                                         
                                     </li>
                                     <li>
-                                        <a href="https://newspark.jp/" class="guide-spots__spot-name">日本新聞博物館ニュースパーク（日本大通り/徒歩2分）</a>
+                                        <a href="#" class="guide-spots__spot-name">象の鼻パーク (日本大通り/徒歩6分)</a>
                                         
                                     </li>
                                     <li>
-                                        <a href="https://www.welcome.city.yokohama.jp/spot/details.php?bbid=827" class="guide-spots__spot-name">横浜公園（関内・日本大通り/徒歩2分）</a>
+                                        <a href="#" class="guide-spots__spot-name">赤レンガ倉庫 (日本大通り/徒歩10分)</a>
                                         
                                     </li>
                                 </ul>
 
-                                <div class="guide-spots__right">
-                                    <div class="guide-spots__gallery">
-                                    <img src="./images/service-tour-guide/service-tour-guide_photo8.png" alt="横浜市開港記念会館(ジャックの塔)">
+                                <div class="guide-spots__gallery">
+                                    <img src="./images/about-yokohama/about-yokohama_photo3.png" alt="赤レンガ倉庫">
+                                    <img src="./images/about-yokohama/about-yokohama_photo1.png" alt="象の鼻パーク">
+                                    <img src="./images/about-yokohama/about-yokohama_photo2.png" alt="塔のある建物">
                                 </div>
-                                    <div class="guide-spots__footer">
+                            </div>
+
+                            <div class="guide-spots__footer">
 
                                 <a href="yokohama.html#map-nihondori" class="guide-spots__map-link">
                                     
                                     <span>MAPへ</span>
                                 </a>
-                            </div>
-                                </div>
                             </div>
                         </div>
 
@@ -575,26 +575,35 @@
                                     </p>
                                 </div>
                                 <div class="guide-spots__panel-map">
-                                    <img src="./images/service-tour-guide/service-tour-guide_photo9.png" alt="伊勢佐木町商店街">
+                                    <img src="./images/about-yokohama/about-yokohama_photo1.png" alt="関内の景色">
                                 </div>
                             </div>
 
                             <div class="guide-spots__panel-body">
                                 <ul class="guide-spots__list">
                                     <li>
-                                        <a href="https://www.isezaki.jp/" class="guide-spots__spot-name">伊勢佐木町商店街</a>
+                                        <a href="#" class="guide-spots__spot-name">関内ホール (関内/徒歩2分)</a>
+                                        
+                                    </li>
+                                    <li>
+                                        <a href="#" class="guide-spots__spot-name">横浜スタジアム (関内/徒歩5分)</a>
+                                        
                                     </li>
                                 </ul>
 
-                                <div class="guide-spots__right">
-                                    <div class="guide-spots__gallery">
-                                    </div>
-                                    <div class="guide-spots__footer">
-                                        <a href="yokohama.html#map-kannai" class="guide-spots__map-link">
-                                            <span>MAPへ</span>
-                                        </a>
-                                    </div>
+                                <div class="guide-spots__gallery">
+                                    <img src="./images/about-yokohama/about-yokohama_photo1.png" alt="関内エリア">
+                                    <img src="./images/about-yokohama/about-yokohama_photo2.png" alt="スタジアム">
+                                    <img src="./images/about-yokohama/about-yokohama_photo3.png" alt="関内の街並み">
                                 </div>
+                            </div>
+
+                            <div class="guide-spots__footer">
+
+                                <a href="yokohama.html#map-kannai" class="guide-spots__map-link">
+                                    
+                                    <span>MAPへ</span>
+                                </a>
                             </div>
                         </div>
 
@@ -611,26 +620,34 @@
                                     </p>
                                 </div>
                                 <div class="guide-spots__panel-map">
-                                    <img src="./images/service-tour-guide/service-tour-guide_photo10.png" alt="赤煉瓦倉庫">
+                                    <img src="./images/about-yokohama/about-yokohama_photo2.png" alt="馬車道の景色">
                                 </div>
                             </div>
 
                             <div class="guide-spots__panel-body">
                                 <ul class="guide-spots__list">
                                     <li>
-                                        <a href="#" class="guide-spots__spot-name">赤レンガ倉庫（馬車道・日本大通り/徒歩6分）</a>  
+                                        <a href="#" class="guide-spots__spot-name">馬車道通り (馬車道/徒歩0分)</a>
+                                        
+                                    </li>
+                                    <li>
+                                        <a href="#" class="guide-spots__spot-name">横浜市開港記念会館 (馬車道/徒歩3分)</a>
+                                        
                                     </li>
                                 </ul>
 
-                                <div class="guide-spots__right">
-                                    <div class="guide-spots__gallery">
-                                    </div>
-                                    <div class="guide-spots__footer">
-                                        <a href="yokohama.html#map-bashamichi" class="guide-spots__map-link">
-                                            <span>MAPへ</span>
-                                        </a>
-                                    </div>
+                                <div class="guide-spots__gallery">
+                                    <img src="./images/about-yokohama/about-yokohama_photo2.png" alt="馬車道通り">
+                                    <img src="./images/about-yokohama/about-yokohama_photo1.png" alt="開港記念会館">
+                                    <img src="./images/about-yokohama/about-yokohama_photo3.png" alt="馬車道の街並み">
                                 </div>
+                            </div>
+
+                            <div class="guide-spots__footer">
+                                <a href="yokohama.html#map-bashamichi" class="guide-spots__map-link">
+                                    
+                                    <span>MAPへ</span>
+                                </a>
                             </div>
                         </div>
 
@@ -647,35 +664,35 @@
                                     </p>
                                 </div>
                                 <div class="guide-spots__panel-map">
-                                    <img src="./images/service-tour-guide/service-tour-guide_photo11.png" alt="野毛商店街">
+                                    <img src="./images/about-yokohama/about-yokohama_photo3.png" alt="桜木町の景色">
                                 </div>
                             </div>
 
                             <div class="guide-spots__panel-body">
                                 <ul class="guide-spots__list">
                                     <li>
-                                        <a href="https://noge-town.net" class="guide-spots__spot-name">野毛地区街つくり会</a>
+                                        <a href="#" class="guide-spots__spot-name">横浜ランドマークタワー (桜木町/徒歩5分)</a>
                                         
                                     </li>
                                     <li>
-                                        <a href="https://www.noge-miyakobashi.com/" class="guide-spots__spot-name">野毛都橋商店街</a>
-                                        
-                                    </li>
-                                    <li>
-                                        <a href="https://nogehondoorikai.com/index.html" class="guide-spots__spot-name">野毛本通商店街</a>
+                                        <a href="#" class="guide-spots__spot-name">横浜みなとみらいホール (桜木町/徒歩7分)</a>
                                         
                                     </li>
                                 </ul>
 
-                                <div class="guide-spots__right">
-                                    <div class="guide-spots__gallery">
-                                    </div>
-                                    <div class="guide-spots__footer">
-                                        <a href="yokohama.html#map-sakuragicho" class="guide-spots__map-link">
-                                            <span>MAPへ</span>
-                                        </a>
-                                    </div>
+                                <div class="guide-spots__gallery">
+                                    <img src="./images/about-yokohama/about-yokohama_photo3.png" alt="ランドマークタワー">
+                                    <img src="./images/about-yokohama/about-yokohama_photo1.png" alt="みなとみらいホール">
+                                    <img src="./images/about-yokohama/about-yokohama_photo2.png" alt="桜木町の街並み">
                                 </div>
+                            </div>
+
+                            <div class="guide-spots__footer">
+
+                                <a href="yokohama.html#map-sakuragicho" class="guide-spots__map-link">
+                                    
+                                    <span>MAPへ</span>
+                                </a>
                             </div>
                         </div>
 
@@ -692,46 +709,39 @@
                                     </p>
                                 </div>
                                 <div class="guide-spots__panel-map">
-                                    <img src="./images/service-tour-guide/service-tour-guide_photo12.png" alt="ランドマークタワー">
+                                    <img src="./images/about-yokohama/about-yokohama_photo1.png" alt="みなとみらいの景色">
                                 </div>
                             </div>
 
                             <div class="guide-spots__panel-body">
                                 <ul class="guide-spots__list">
                                     <li>
-                                        <a href="https://www.yokohama-landmark.jp/skygarden/access/" class="guide-spots__spot-name">横浜ランドマークタワー（みなとみらい/徒歩2分）</a>
+                                        <a href="#" class="guide-spots__spot-name">横浜コスモワールド (みなとみらい/徒歩3分)</a>
                                         
                                     </li>
                                     <li>
-                                        <a href="https://cosmoworld.jp/" class="guide-spots__spot-name">横浜コスモワールド（みなとみらい/徒歩3分）</a>
+                                        <a href="#" class="guide-spots__spot-name">横浜美術館 (みなとみらい/徒歩5分)</a>
                                         
                                     </li>
                                     <li>
-                                        <a href="https://www.yokohama-anpanman.jp/" class="guide-spots__spot-name">横浜アンパンマンこどもミュージアム（新高島/徒歩3分）</a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.hara-mrm.com/" class="guide-spots__spot-name">原鉄道模型博物館（新高島/徒歩3分）</a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.cupnoodles-museum.jp/ja/yokohama/" class="guide-spots__spot-name">カップヌードルミュージアム（みなとみらい・馬車道/8分）</a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.welcome.city.yokohama.jp/spot/details.php?bbid=143" class="guide-spots__spot-name">TOY MUSEUM（旧 横浜ブリキのおもちゃ博物館）
-                                            （新高島/徒歩7分）</a>
+                                        <a href="#" class="guide-spots__spot-name">パシフィコ横浜 (みなとみらい/徒歩7分)</a>
+                                        
                                     </li>
                                 </ul>
 
-                                <div class="guide-spots__right">
-                                    <div class="guide-spots__gallery">
-                                        <img src="./images/service-tour-guide/service-tour-guide_photo13.png" alt="コスモワールド">
-                                        <img src="./images/service-tour-guide/service-tour-guide_photo14.png" alt="美術館">
-                                    </div>
-                                    <div class="guide-spots__footer">
-                                        <a href="yokohama.html#map-minatomirai" class="guide-spots__map-link">
-                                            <span>MAPへ</span>
-                                        </a>
-                                    </div>
+                                <div class="guide-spots__gallery">
+                                    <img src="./images/about-yokohama/about-yokohama_photo1.png" alt="コスモワールド">
+                                    <img src="./images/about-yokohama/about-yokohama_photo2.png" alt="美術館">
+                                    <img src="./images/about-yokohama/about-yokohama_photo3.png" alt="パシフィコ横浜">
                                 </div>
+                            </div>
+
+                            <div class="guide-spots__footer">
+
+                                <a href="yokohama.html#map-minatomirai" class="guide-spots__map-link">
+                                    
+                                    <span>MAPへ</span>
+                                </a>
                             </div>
                         </div>
                     </div>

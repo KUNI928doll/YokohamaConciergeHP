@@ -454,7 +454,7 @@
 .guide-spots__body {
     display: grid;
     grid-template-columns: 240px 1fr;
-    gap: 24px;
+    gap: 19px;
 }
 
 .guide-spots__nav {
@@ -466,27 +466,56 @@
 .guide-spots__nav-btn {
     display: flex;
     align-items: center;
-    gap: 12px;
-    border-radius: 20px;
-    border: 1.5px solid #c8d7e6;
+    gap: 8px;
+    border-radius: 12px;
+    border: 2px solid #c8d7e6;
     background: #fff;
     padding: 14px 16px;
     font-size: 1.5rem;
-    color: #003366;
-    font-weight: 600;
+    color: #000;
     text-align: left;
     cursor: pointer;
     transition: border-color 0.2s, background 0.2s;
+    font-family: var(--font-sub);
 }
 
 .guide-spots__nav-btn img {
-    width: 20px;
+    width: 28px;
     height: auto;
 }
 
 .guide-spots__nav-btn.is-active {
     border-color: #2e65ba;
     background: #F2F6F6;
+}
+
+// エリアごとのボーダー色
+.guide-spots__nav-btn[data-area="motomachi"].is-active {
+    border-color: #AAC98D; 
+}
+
+.guide-spots__nav-btn[data-area="chinatown"].is-active {
+    border-color:#F2A0A8; 
+}
+
+.guide-spots__nav-btn[data-area="nihondori"].is-active {
+    border-color: #F7C28D;
+}
+
+.guide-spots__nav-btn[data-area="kannai"].is-active {
+    border-color:#DDC0FA; 
+}
+
+.guide-spots__nav-btn[data-area="bashamichi"].is-active {
+    border-color:#DD8A73; 
+}
+
+.guide-spots__nav-btn[data-area="sakuragicho"].is-active {
+    border-color:#FFD4FA; 
+}
+
+.guide-spots__nav-btn[data-area="minatomirai"].is-active {
+    border-color:#6FA1D8; 
 }
 
 .guide-spots__content {
@@ -496,7 +525,7 @@
 .guide-spots__panel {
     background: #F2F6F6;
     border-radius: 28px;
-    padding: 32px;
+    padding: 28px 35px 10px;
     box-shadow: inset 0 0 0 1px rgba(13, 61, 144, 0.08);
     display: none;
     flex-direction: column;
@@ -522,6 +551,14 @@
     align-items: center;
 }
 
+.guide-spots__panel-title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 51px;
+    margin-top: -50px;
+}
+
 .guide-spots__panel-index {
     margin: 0;
     font-size: 1.6rem;
@@ -532,15 +569,16 @@
 .guide-spots__panel-title {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
     font-size: 2rem;
-    font-weight: 700;
-    color: #003366;
+    font-weight: 600;
+    color: #000;
+    font-family: var(--font-sub);
     margin: 0;
 }
 
 .guide-spots__panel-title img {
-    width: 28px;
+    width: 31px;
     height: auto;
 }
 
@@ -548,29 +586,37 @@
     width: 100%;
     height: 160px;
     border-radius: 16px;
-    overflow: hidden;
 }
 
 .guide-spots__panel-map img {
-    width: 100%;
-    height: 100%;
+    width: 220px;
+    height: 130px;
     object-fit: cover;
+    border-radius: 10px;
 }
 
 .guide-spots__panel-body {
     display: grid;
-    grid-template-columns: 1fr 200px;
+    grid-template-columns: 1fr auto;
     gap: 24px;
     align-items: start;
 }
 
+.guide-spots__right {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
 .guide-spots__list {
     list-style: none;
-    margin: 0;
+    margin: -83px 0 0 0;
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 27px;
+    width: 512px;
 }
 
 .guide-spots__list li {
@@ -581,12 +627,36 @@
     background: #f9fbff;
     border-radius: 16px;
     padding: 14px 18px;
-    font-size: 1.6rem;
-    color: #003366;
+    font-size: 1.8rem;
+    color: #000;
+    font-family: var(--font-sub);
 }
 
 .guide-spots__spot-name {
     flex: 1;
+    color: #1D50A2;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    transition: color 0.2s;
+
+    &::after {
+        content: "→";
+        margin-left: 8px;
+        opacity: 0;
+        transition: opacity 0.2s, transform 0.2s;
+        display: inline-block;
+        transform: translateX(-5px);
+    }
+
+    &:hover {
+        color: #2e65ba;
+        
+        &::after {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
 }
 
 .guide-spots__spot-icon {
@@ -598,15 +668,17 @@
 .guide-spots__gallery {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 50px;
+    align-items: flex-start;
 }
 
 .guide-spots__gallery img {
-    width: 100%;
+    max-width: 220px;
+    max-height: 300px;
     height: auto;
-    border-radius: 12px;
-    object-fit: cover;
-    aspect-ratio: 1;
+    width: auto;
+    border-radius: 10px;
+    object-fit: contain;
 }
 
 
@@ -641,35 +713,46 @@
     width: 90px;
     height: 90px;
     border-radius: 50%;
-    border: 2px solid #2e65ba;
+    border: 2px solid #1D50A2;
     text-decoration: none;
-    color: #2e65ba;
+    color: #1D50A2;
     font-weight: 600;
     font-size: 1.4rem;
+    font-family: var(--font-sub);
     transition: background 0.2s, color 0.2s;
+
+    &::before {
+        content: "";
+        width: 20px;
+        height: 20px;
+        display: block;
+        margin-bottom: 4px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231D50A2' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='18 15 12 9 6 15'%3E%3C/polyline%3E%3C/svg%3E");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
 }
 
 .guide-spots__map-link:hover {
     background: #2e65ba;
     color: #fff;
-}
 
-.guide-spots__map-link span:first-child {
-    font-size: 2rem;
-    line-height: 1;
+    &::before {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='18 15 12 9 6 15'%3E%3C/polyline%3E%3C/svg%3E");
+    }
 }
 
 .guide-spots__footer {
     display: flex;
-    // ボタンを右に寄せる
-    justify-content: flex-end;
+    justify-content: center;
+    width: 100%;
 }
 
 .guide-spots__area-btn {
     display: flex;
     justify-content: center;
-    margin-top: 24px;
-    padding: 1.3em 0;
+    margin-top: 97px;
 }
 
 @include mq($until: mid-pc) {
@@ -701,7 +784,10 @@
     }
 
     .guide-spots__gallery img {
-        width: 200px;
+        max-width: 220px;
+        max-height: 300px;
+        height: auto;
+        width: auto;
         flex-shrink: 0;
     }
 
