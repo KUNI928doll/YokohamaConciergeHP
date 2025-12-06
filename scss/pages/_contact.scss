@@ -129,13 +129,12 @@
 // 吹き出しとキャラクター
 .speech-wrapper--contact {
   position: absolute;
-  bottom: -60px;
+  bottom: -144px;
   right: 15%;
   z-index: 10;
   pointer-events: none;
 
   @include mq(sp-large) {
-    top: 100px;
     right: 5%;
     bottom: auto;
   }
@@ -143,10 +142,10 @@
 
 .speech-wrap--contact {
   position: relative;
-  width: clamp(200px, 25vw, 300px);
+  width: clamp(200px, 33vw, 300px);
 
   @include mq(sp-large) {
-    width: clamp(150px, 40vw, 200px);
+    width: clamp(150px, 56vw, 200px);
   }
 }
 
@@ -168,7 +167,7 @@
   transform: translate(-50%, -50%);
   width: 65%;
   text-align: center;
-  font-size: clamp(1.2rem, 1.5vw, 1.6rem);
+  font-size: clamp(1.2rem, 0.5vw, 1.6rem);
   line-height: 1.6;
   color: var(--color-main);
   word-break: keep-all;
@@ -181,13 +180,13 @@
 
 .character--contact {
   position: relative;
-  width: clamp(100px, 15vw, 150px);
+  width: clamp(200px, 15vw, 275px);
   margin: 0 auto;
   z-index: 1;
   animation: gull-bob 3.6s ease-in-out infinite;
 
   @include mq(sp-large) {
-    width: clamp(80px, 30vw, 120px);
+    width: clamp(100px, 30vw, 150px);
   }
 
   img {

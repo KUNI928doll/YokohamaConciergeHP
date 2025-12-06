@@ -8,7 +8,7 @@
   padding: 120px 30px 32px;
   animation: waveMove 4s ease-in-out infinite;
   position: relative;
-  z-index: 0;
+  z-index: 2;
   background-color: #f3f6f9;;
   // margin-top: -75px;
 
@@ -225,12 +225,12 @@
 
 /* 位置（例） */
 .footer__fx-item--l1 {
-  left: 5%; // 左端から少し内側に配置
+  left: -2%; // 左端から少し内側に配置
   top: clamp(20%, calc(20% + (100vw - 375px) * 0.05), 37%);
 }
 
 .footer__fx-item--l2 {
-  left: 10%; // 左端から十分に内側に配置
+  left: -2%; // 左端から十分に内側に配置
   top: clamp(80%, calc(80% + (100vw - 375px) * 0.1), 250%);
   width: clamp(100px, calc(100px + (100vw - 375px) * 0.08), 200px); // 幅を小さく調整
 }
@@ -249,7 +249,7 @@
 }
 
 .footer__fx-item--r2 {
-  right: 10%; // 右端から十分に内側に配置
+  right: 0%; // 右端から十分に内側に配置
   top: clamp(-250%, calc(-250% + (100vw - 375px) * 0.07), -236%);
   width: clamp(100px, calc(100px + (100vw - 375px) * 0.08), 200px); // 幅を小さく調整
 }

@@ -186,17 +186,27 @@
                         </button>
                     </div>
                     <ul class="spmenu__list">
-                        <li><a href="#service"><img src="./images/icon-service.png" alt=""
-                                    class="spmenu__icon">サービス紹介</a></li>
-                        <li><a href="#"><img src="./images/icon-yokohama.png" alt="" class="spmenu__icon">横浜について</a>
+                        <li class="spmenu__item spmenu__item--has-sub">
+                            <button type="button" class="spmenu__trigger js-spmenu-dropdown" aria-expanded="false">
+                                <img src="./images/icon-service.png" alt="" class="spmenu__icon">
+                                サービス紹介
+                                <span class="spmenu__caret" aria-hidden="true"></span>
+                            </button>
+                            <ul class="spmenu__sub" aria-label="サービス紹介のメニュー">
+                                <li><a href="service-reserve.html">予約代行</a></li>
+                                <li><a href="service-storage.html">トランクお預かり</a></li>
+                                <li><a href="service-tour-guide.html">観光ガイドサービス</a></li>
+                            </ul>
                         </li>
-                        <li><a href="#faq"><img src="./images/icon-faq.png" alt="" class="spmenu__icon">よくある質問</a></li>
-                        <li><a href="#"><img src="./images/icon-news.png" alt="" class="spmenu__icon">お知らせ・イベント</a></li>
-                        <li><a href="#"><img src="./images/icon-mail.png" alt="" class="spmenu__icon">お問い合わせ</a></li>
-                            <!-- プライバシーポリシー（ヘッダーメニューから削除） -->
+                        <li><a href="yokohama.html"><img src="./images/icon-yokohama.png" alt=""
+                                    class="spmenu__icon">横浜について</a>
+                        </li>
+                        <li><a href="index.html#faq"><img src="./images/icon-faq.png" alt="" class="spmenu__icon">よくある質問</a></li>
+                        <li><a href="news.html"><img src="./images/icon-news.png" alt="" class="spmenu__icon">お知らせ・イベント</a>
+                        </li>
+                        <li><a href="contact.html"><img src="./images/icon-mail.png" alt=""
+                                    class="spmenu__icon">お問い合わせ</a></li>
                     </ul>
-
-
                     <div class="spmenu__bottom">
                         <div class="spmenu__sns">
                             <a href="https://www.instagram.com/yokohama_concierge/" target="_blank"
@@ -220,7 +230,7 @@
     </header>
 
     <main>
-        <div class="nav-inner-wrapper">
+        <div class="nav-inner-wrapper u-visible-pc">
             <nav class="inner-nav">
                 <ul class="inner-nav__list">
                     <li class="inner-nav__item">
@@ -235,8 +245,8 @@
                         </button>
                         <ul class="inner-nav__sub" aria-label="サービス紹介のメニュー">
                             <li><a href="service-reserve.html">予約代行</a></li>
-                            <li><a href="#service-storage">トランクお預かり</a></li>
-                            <li><a href="#service-guide">観光ガイドサービス</a></li>
+                            <li><a href="service-storage.html">トランクお預かり</a></li>
+                            <li><a href="service-tour-guide.html">観光ガイドサービス</a></li>
                         </ul>
                     </li>
 
@@ -270,10 +280,9 @@
                 </ul>
             </nav>
         </div>
-
-        <div class="search-area">
-            <form action="#" class="search-area__form">
-                <input type="text" class="search-area__input" placeholder="サイト内検索">
+        <div class="search-area search-area--service">
+            <form action="search.html" method="get" class="search-area__form">
+                <input type="text" name="q" class="search-area__input" placeholder="サイト内検索">
                 <button type="submit" class="search-area__btn" aria-label="検索">
                     <img src="./images/icon-search.png" alt="検索アイコン">
                 </button>
@@ -285,6 +294,9 @@
         </div>
 
         <div class="sub-hero">
+            <div class="sub-hero__decoration">
+                <img src="./images/sub-hero__decoration.png" alt="" aria-hidden="true">
+            </div>
             <div class="sub-hero__img">
                 <img src="./images/service-tour-guide/service-hero.png" alt="横浜の夜景">
             </div>
@@ -698,6 +710,9 @@
                 </div>
             </div>
         </section>
+    </main>
+
+    <footer class="footer">
         <section class="footer-scene">
             <div class="footer__fx" aria-hidden="true">
                 <img src="./images/fireworks4.png" alt="左下の花火のイラスト" class="footer__fx-item footer__fx-item--l1">
@@ -705,9 +720,6 @@
                 <img src="./images/fireworks8.png" alt="右下の花火のイラスト" class="footer__fx-item footer__fx-item--r2">
             </div>
         </section>
-    </main>
-
-    <footer class="footer">
         <div class="footer__inner">
             <!-- ロゴ -->
             <div class="footer__logo">
@@ -739,8 +751,8 @@
                     </button>
                     <ul class="footer__sub" aria-label="サービス紹介のメニュー">
                         <li><a href="service-reserve.html">予約代行</a></li>
-                        <li><a href="#service-storage">トランクお預かり</a></li>
-                        <li><a href="#service-guide">観光ガイドサービス</a></li>
+                        <li><a href="service-storage.html">トランクお預かり</a></li>
+                        <li><a href="service-tour-guide.html">観光ガイドサービス</a></li>
                     </ul>
                 </li>
                 <li><a href="yokohama.html">横浜について</a></li>
