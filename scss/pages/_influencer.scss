@@ -7,12 +7,12 @@
   padding: 80px 0 100px;
   text-align: center;
 
-  &__inner {
+  .influencer__inner {
     width: min(1100px, 90%);
     margin: 0 auto;
   }
 
-  &__header {
+  .influencer__header {
     display: flex;
     justify-content: space-between;
     align-items: stretch;
@@ -21,16 +21,16 @@
     border: 4px solid #b1c3e0;
     border-radius: 8px;
     padding: 32px;
-    margin-bottom: 64px;
+    margin-bottom: 128px;
 
-    @media (max-width: 768px) {
+    @include mq($until: sp-large)  {
       flex-direction: column;
       text-align: center;
       padding: 24px;
     }
   }
 
-  &__title-box {
+  .influencer__title-box {
     flex: 1;
     background: linear-gradient(135deg, #ffe6f3 0%, #e4c3ff 100%);
     border-radius: 8px;
@@ -40,30 +40,30 @@
     padding: 20px;
   }
 
-  &__title {
+  .influencer__title {
     font-size: clamp(1.4rem, 2vw, 1.8rem);
     font-weight: 700;
     color: #0d3d90;
   }
 
-  &__text-box {
+  .influencer__text-box {
     flex: 2;
     text-align: left;
     position: relative;
 
-    @media (max-width: 768px) {
+    @include mq($until: sp-large) {
       text-align: center;
     }
   }
 
-  &__text {
+  .influencer__text {
     font-size: 0.95rem;
     line-height: 1.8;
     color: #333;
     margin-bottom: 12px;
   }
 
-  &__link {
+  .influencer__link {
     display: inline-flex;
     align-items: center;
     font-weight: 700;
@@ -81,11 +81,17 @@
     }
   }
 
-  &__cards {
+  .influencer__cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 32px;
     margin-bottom: 40px;
+  }
+
+  .influencer-card-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
 
   .influencer-card {
@@ -94,34 +100,39 @@
     border-radius: 6px;
     padding: 24px 16px;
     transition: transform 0.3s, box-shadow 0.3s;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 
     &:hover {
       transform: translateY(-4px);
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     }
 
-    &__desc {
+    .influencer-card__desc {
       font-size: 1.4rem; // 14px (1rem=10px基準)
       color: #0D3063;
       margin-bottom: 8px;
     }
 
-    &__title {
+    .influencer-card__title {
       font-size: 2.4rem; // 24px (1rem=10px基準)
       color: #ce6c2b;
       font-weight: 700;
-      margin-bottom: 10px;
+      margin-bottom: 0;
+      font-family: var(--font-sub);
     }
 
     &__link {
       display: inline-block;
-      font-size: 0.9rem;
+      font-size: 2rem;
       color: #0d3d90;
-      font-weight: 600;
       text-decoration: none;
       border-bottom: 1px solid transparent;
       transition: border-color 0.3s;
-
+      font-family: var(--font-sub);
+      margin-top: 12px;
+      text-align: left;
       &:hover {
         border-color: #0d3d90;
       }
@@ -131,7 +142,7 @@
   &__note {
     font-size: 1.4rem; // 14px (1rem=10px基準)
     color: #555;
-    margin-top: 140px;
+    margin-top: 135px;
     text-align: right;
     font-family: 'Inter', 'Noto Sans JP', sans-serif;
   }

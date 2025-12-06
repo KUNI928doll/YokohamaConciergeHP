@@ -5892,11 +5892,11 @@ img {
   padding: 80px 0 100px;
   text-align: center;
 }
-.influencer__inner {
+.influencer .influencer__inner {
   width: min(1100px, 90%);
   margin: 0 auto;
 }
-.influencer__header {
+.influencer .influencer__header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5911,10 +5911,10 @@ img {
   border: 4px solid #b1c3e0;
   border-radius: 8px;
   padding: 32px;
-  margin-bottom: 64px;
+  margin-bottom: 128px;
 }
 @media (max-width: 768px) {
-  .influencer__header {
+  .influencer .influencer__header {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -5923,7 +5923,7 @@ img {
     padding: 24px;
   }
 }
-.influencer__title-box {
+.influencer .influencer__title-box {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -5940,12 +5940,12 @@ img {
           align-items: center;
   padding: 20px;
 }
-.influencer__title {
+.influencer .influencer__title {
   font-size: clamp(1.4rem, 2vw, 1.8rem);
   font-weight: 700;
   color: #0d3d90;
 }
-.influencer__text-box {
+.influencer .influencer__text-box {
   -webkit-box-flex: 2;
       -ms-flex: 2;
           flex: 2;
@@ -5953,17 +5953,17 @@ img {
   position: relative;
 }
 @media (max-width: 768px) {
-  .influencer__text-box {
+  .influencer .influencer__text-box {
     text-align: center;
   }
 }
-.influencer__text {
+.influencer .influencer__text {
   font-size: 0.95rem;
   line-height: 1.8;
   color: #333;
   margin-bottom: 12px;
 }
-.influencer__link {
+.influencer .influencer__link {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -5976,18 +5976,28 @@ img {
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
 }
-.influencer__link:hover {
+.influencer .influencer__link:hover {
   opacity: 0.8;
 }
-.influencer__link .influencer__icon {
+.influencer .influencer__link .influencer__icon {
   width: 24px;
   margin-right: 8px;
 }
-.influencer__cards {
+.influencer .influencer__cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 32px;
   margin-bottom: 40px;
+}
+.influencer .influencer-card-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
 }
 .influencer .influencer-card {
   background: #fff;
@@ -5998,6 +6008,16 @@ img {
   transition: -webkit-transform 0.3s, -webkit-box-shadow 0.3s;
   transition: transform 0.3s, box-shadow 0.3s;
   transition: transform 0.3s, box-shadow 0.3s, -webkit-transform 0.3s, -webkit-box-shadow 0.3s;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 .influencer .influencer-card:hover {
   -webkit-transform: translateY(-4px);
@@ -6005,26 +6025,29 @@ img {
   -webkit-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
-.influencer .influencer-card__desc {
+.influencer .influencer-card .influencer-card__desc {
   font-size: 1.4rem;
   color: #0D3063;
   margin-bottom: 8px;
 }
-.influencer .influencer-card__title {
+.influencer .influencer-card .influencer-card__title {
   font-size: 2.4rem;
   color: #ce6c2b;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 0;
+  font-family: var(--font-sub);
 }
 .influencer .influencer-card__link {
   display: inline-block;
-  font-size: 0.9rem;
+  font-size: 2rem;
   color: #0d3d90;
-  font-weight: 600;
   text-decoration: none;
   border-bottom: 1px solid transparent;
   -webkit-transition: border-color 0.3s;
   transition: border-color 0.3s;
+  font-family: var(--font-sub);
+  margin-top: 12px;
+  text-align: left;
 }
 .influencer .influencer-card__link:hover {
   border-color: #0d3d90;
@@ -6032,7 +6055,7 @@ img {
 .influencer__note {
   font-size: 1.4rem;
   color: #555;
-  margin-top: 140px;
+  margin-top: 135px;
   text-align: right;
   font-family: "Inter", "Noto Sans JP", sans-serif;
 }
