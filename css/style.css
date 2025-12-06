@@ -6336,7 +6336,7 @@ img {
 
 .breadcrumb {
   background-color: #fff;
-  padding: 16px 20px;
+  padding: 44px 20px;
 }
 
 .breadcrumb__list {
@@ -6349,8 +6349,9 @@ img {
       -ms-flex-align: center;
           align-items: center;
   gap: 12px;
-  font-size: 1.4rem;
-  color: #003366;
+  font-size: 1.6rem;
+  color: var(--color-main);
+  font-family: var(--font-sub);
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
@@ -6419,8 +6420,9 @@ img {
 }
 
 .guide-overview {
-  padding: 60px 0;
-  color: #003366;
+  padding: 52px 0;
+  color: var(--color-main);
+  font-family: var(--font-sub);
 }
 
 .guide-overview__inner {
@@ -6430,7 +6432,7 @@ img {
 
 .guide-overview__title-block {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 49px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6477,7 +6479,8 @@ img {
 
 .guide-overview__note {
   font-size: 1.4rem;
-  color: #666;
+  color: var(--color-main);
+  font-family: var(--font-sub);
 }
 
 .guide-overview__divider {
@@ -6526,6 +6529,7 @@ img {
       flex-shrink: 0;
   -webkit-box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.05);
           box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.05);
+  text-align: center;
 }
 
 .guide-overview__area-list {
@@ -6588,7 +6592,7 @@ img {
 }
 
 .guide-spots {
-  padding: 80px 0;
+  padding: 52px 0;
   background: #fff;
 }
 
@@ -6609,13 +6613,14 @@ img {
       -ms-flex-align: center;
           align-items: center;
   gap: 16px;
-  margin-bottom: 32px;
+  margin-bottom: 48px;
 }
 
 .guide-spots__eyebrow {
   font-size: 2rem;
   font-weight: 600;
-  color: #003366;
+  color: var(--color-main);
+  font-family: var(--font-sub);
   margin: 0;
 }
 
@@ -6633,7 +6638,7 @@ img {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 12px;
+  gap: 24px;
 }
 
 .guide-spots__nav-btn {
@@ -6664,7 +6669,7 @@ img {
 
 .guide-spots__nav-btn.is-active {
   border-color: #2e65ba;
-  background: #eef5ff;
+  background: #F2F6F6;
 }
 
 .guide-spots__content {
