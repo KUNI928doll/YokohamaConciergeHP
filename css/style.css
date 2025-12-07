@@ -23,7 +23,6 @@
 
 html {
   font-size: 62.5%;
-  overflow-x: hidden;
 }
 
 body {
@@ -33,7 +32,6 @@ body {
   margin: 0;
   padding: 0;
   max-width: 100%;
-  overflow-x: hidden;
 }
 
 img {
@@ -7393,7 +7391,7 @@ img {
   background: #fff;
 }
 .guide-fee__inner {
-  max-width: 900px;
+  max-width: 688px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -7606,7 +7604,6 @@ img {
 .support--tour-guide .support__inner {
   max-width: 900px;
   margin: 0 auto;
-  padding: 0 20px;
 }
 .support--tour-guide .support__title--tour-guide {
   display: -webkit-box;
@@ -7618,7 +7615,7 @@ img {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-bottom: 40px;
+  margin-bottom: 27px;
   text-align: center;
 }
 @media (max-width: 768px) {
@@ -7634,7 +7631,7 @@ img {
   padding: 8px 24px;
   font-size: 2rem;
   font-weight: 700;
-  color: #003366;
+  color: #1D50A2;
   white-space: nowrap;
 }
 @media (max-width: 768px) {
@@ -7663,7 +7660,7 @@ img {
 .support--tour-guide .support__box {
   background: #F2F6F6;
   border-radius: 20px;
-  padding: 63px;
+  padding: 42px 63px 33px 50px;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7743,7 +7740,8 @@ img {
 }
 .support--tour-guide .support__subtitle {
   font-size: 2.1rem;
-  color: #003366;
+  color: var(--color-main);
+  font-family: var(--font-sub);
   margin: 0;
 }
 @media (max-width: 768px) {
@@ -7752,8 +7750,9 @@ img {
   }
 }
 .support--tour-guide .support__text {
-  font-size: 1.5rem;
-  color: #003366;
+  font-size: 1.6rem;
+  color: #0E3063;
+  font-family: var(--font-sub);
   line-height: 1.8;
   margin: 0;
   -webkit-box-flex: 1;
@@ -7771,9 +7770,10 @@ img {
           flex-direction: column;
   gap: 24px;
   background-color: #fff;
-  padding: 18px 18px 18px 0;
+  padding: 18px 60px 18px 0;
   width: 100%;
   text-align: left;
+  border-radius: 20px;
 }
 .support--tour-guide .support__list {
   list-style: none;
@@ -7786,9 +7786,9 @@ img {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 16px;
+  gap: 24px;
   width: calc(100% + 18px);
-  padding-left: 26px;
+  padding-left: 55px;
 }
 .support--tour-guide .support__list-item {
   font-size: 1.5rem;
@@ -7813,12 +7813,12 @@ img {
   padding-bottom: 2px;
 }
 .support--tour-guide .btn--support {
-  background-color: #0D3D90;
+  background-color: var(--color-main);
   color: #fff;
   border: none;
   font-weight: 600;
   border-radius: 50px;
-  padding: 12px 36px 12px 28px;
+  padding: 6px 16px 8px 53px;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -7828,7 +7828,7 @@ img {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  gap: 15px;
+  gap: 27px;
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
   width: auto;
@@ -7837,6 +7837,7 @@ img {
   -ms-flex-item-align: start;
       align-self: flex-start;
   margin: 0 auto;
+  font-family: var(--font-sub);
 }
 @media (max-width: 768px) {
   .support--tour-guide .btn--support {
@@ -7859,17 +7860,27 @@ img {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  padding: 80px 0;
+  padding: 150px 0;
   position: relative;
-  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .guide-flow {
+    padding: 80px 0;
+    background-size: cover;
+    background-position: center top;
+  }
 }
 
 .guide-flow__inner {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 0 20px;
   position: relative;
   z-index: 2;
+}
+@media (max-width: 1200px) {
+  .guide-flow__inner {
+    padding: 0 20px;
+  }
 }
 
 .guide-flow__title {
@@ -7877,13 +7888,12 @@ img {
   font-size: 2.5rem;
   font-weight: 700;
   color: #fff;
-  margin-top: 100px;
   margin-bottom: 78px;
 }
 @media (max-width: 768px) {
   .guide-flow__title {
-    font-size: 2.4rem;
-    margin-bottom: 40px;
+    font-size: 2rem;
+    margin-bottom: 32px;
   }
 }
 
@@ -7897,16 +7907,29 @@ img {
           flex-direction: column;
   gap: 32px;
 }
+@media (max-width: 768px) {
+  .guide-flow__steps {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 12px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
 
 .guide-flow__step {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
   gap: 24px;
   position: relative;
+  width: 100%;
 }
 @media (max-width: 768px) {
   .guide-flow__step {
@@ -7921,7 +7944,7 @@ img {
   height: 80px;
   border-radius: 50%;
   background: #fff;
-  color: #003366;
+  color: var(--color-main);
   font-size: 3.6rem;
   font-weight: 700;
   display: -webkit-box;
@@ -7935,6 +7958,7 @@ img {
           justify-content: center;
   position: relative;
   z-index: 2;
+  font-family: var(--font-sub);
 }
 @media (max-width: 768px) {
   .guide-flow__step-number {
@@ -7950,13 +7974,28 @@ img {
           flex: 1;
   background: #fff;
   border-radius: 16px;
-  padding: 32px;
+  padding: 16px 51px 20px;
+  padding-right: 240px;
   -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
           box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+@media (max-width: 1200px) {
+  .guide-flow__step-card {
+    padding-right: 51px;
+  }
 }
 @media (max-width: 768px) {
   .guide-flow__step-card {
     padding: 24px 20px;
+    border-radius: 14px;
   }
 }
 .guide-flow__step-card--highlight {
@@ -7966,7 +8005,8 @@ img {
 .guide-flow__step-title {
   font-size: 2.2rem;
   font-weight: 700;
-  color: #003366;
+  color: var(--color-main);
+  font-family: var(--font-sub);
   margin-bottom: 16px;
 }
 @media (max-width: 768px) {
@@ -7978,9 +8018,9 @@ img {
 
 .guide-flow__step-description {
   font-size: 1.5rem;
-  color: #003366;
+  color: var(--color-main);
   line-height: 1.8;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 @media (max-width: 768px) {
   .guide-flow__step-description {
@@ -7994,8 +8034,10 @@ img {
   color: #003366;
   line-height: 1.8;
   margin-bottom: 8px;
-  padding-left: 1.2em;
+  padding-left: 1em;
+  text-indent: 1em;
   position: relative;
+  font-family: var(--font-sub);
 }
 @media (max-width: 768px) {
   .guide-flow__step-detail {
@@ -8013,22 +8055,41 @@ img {
 }
 
 .guide-flow__btn {
-  margin-top: 20px;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   gap: 8px;
+  font-size: 1.6rem;
+  font-family: var(--font-sub);
+  padding: 12px 20px;
+  min-width: 200px;
+}
+@media (max-width: 1200px) {
+  .guide-flow__btn {
+    position: static;
+    -webkit-transform: none;
+            transform: none;
+    margin-top: 20px;
+    width: auto;
+  }
 }
 @media (max-width: 768px) {
   .guide-flow__btn {
     margin-top: 16px;
     width: 100%;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    padding: 10px;
+    font-size: 1.5rem;
   }
 }
 
