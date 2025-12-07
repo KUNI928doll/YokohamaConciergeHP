@@ -182,6 +182,12 @@
     display: grid;
     grid-template-columns: 240px 1fr;
     gap: 19px;
+
+    @include mq($until: mid-pc) {
+        .guide-spots__body {
+            grid-template-columns: 1fr;
+        }
+}
 }
 
 .guide-spots__nav {
@@ -499,7 +505,6 @@
     }
 
     .guide-spots__nav-btn {
-        flex: 1;
         min-width: calc(50% - 6px);
         font-size: 1.4rem;
         padding: 12px 14px;
@@ -516,7 +521,7 @@
 
     .guide-spots__panel-title-wrapper {
         margin-bottom: 20px;
-        margin-top: -20px;
+        margin-top: 10px;
     }
 
     .guide-spots__panel-map {
@@ -1333,106 +1338,154 @@
         justify-content: center;
     }
 }
-
-
 /* ===========================================
    サービスカードセクション
    =========================================== */
 .guide-services {
     background: #fff;
-    padding: 80px 0;
-
-    &__inner {
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 0 20px;
+    padding: 140px 0;
+    @include mq($until: sp-large) {
+        padding: 80px 0;
     }
 
-    &__cards {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 32px;
-        margin-bottom: 60px;
-
+    .guide-services__inner {
+        max-width: 970px;
+        margin: 0 auto;
         @include mq($until: sp-large) {
-            grid-template-columns: 1fr;
-            gap: 24px;
-            margin-bottom: 40px;
+            padding: 0 20px;
         }
     }
 
-    &__card {
+    .guide-services__cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 95px;
+        margin-bottom: 138px;
+
+        @include mq($until: mid-pc) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 48px;
+            margin-bottom: 80px;
+            margin-inline: 20px;
+        }
+
+        @include mq($until: sp-large) {
+            grid-template-columns: 1fr; // 1列
+            gap: 28px;
+            margin-bottom: 48px;
+        }
+    }
+
+    .guide-services__card {
         position: relative;
         background: #EFF3F4;
         border-radius: 16px;
-        padding: 40px 24px;
+        padding: 19px 38px;
         text-align: center;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         transition: transform 0.3s ease;
+
+        @include mq($until: mid-pc) {
+            padding: 24px 32px;
+        }
+        @include mq($until: sp-large) {
+            padding: 24px 20px;
+            border-radius: 14px;
+        }
 
         &:hover {
             transform: translateY(-4px);
         }
     }
 
-    &__corner {
+    .guide-services__corner {
         position: absolute;
         top: 0;
         left: 0;
-        width: 60px;
-        height: 60px;
+        width: 56px;
+        height: 56px;
         background: #4096CC;
         clip-path: polygon(0 0, 100% 0, 0 100%);
         border-top-left-radius: 16px;
-    }
-
-    &__icon {
-        margin-bottom: 20px;
-
-        img {
-            width: 120px;
-            height: 120px;
-            background: #fff;
-            border: 3px solid #4096CC;
-            border-radius: 50%;
-            padding: 20px;
-            display: block;
-            margin: 0 auto;
+        @include mq($until: sp-large) {
+            width: 42px;
+        height: 42px;
         }
     }
 
-    &__title {
+    .guide-services__icon {
+        margin-bottom: 12px;
+
+        img {
+            width: 56px;
+            height: 56px;
+            background: #fff;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto;
+
+            @include mq($until: mid-pc) {
+                width: 72px;
+                height: 72px;
+            }
+
+            @include mq($until: sp-large) {
+                width: 64px;
+        height: 64px;
+            }
+        }
+    }
+
+    .guide-services__title {
         font-size: 1.8rem;
-        font-weight: 700;
-        color: #003366;
+        font-weight: 500;
+        color:var(--color-main);
+        font-family: var(--font-sub);
         margin: 0;
+
+        @include mq($until: mid-pc) {
+            font-size: 1.7rem;
+        }
 
         @include mq($until: sp-large) {
             font-size: 1.6rem;
         }
     }
 
-    &__home {
+    .guide-services__home {
         text-align: center;
     }
 
-    &__home-btn {
+    .guide-services__home-btn {
         display: inline-flex;
         align-items: center;
-        gap: 12px;
-        padding: 12px 32px;
+        gap: 36px;
+        padding: 7px 98px 8px 38px;
         background: #fff;
-        border: 2px solid #4096CC;
+        border: 2px solid var(--color-main);
         border-radius: 50px;
         color: #003366;
         font-size: 1.6rem;
         font-weight: 600;
         text-decoration: none;
         transition: all 0.3s ease;
+        font-family: var(--font-sub);
+
+        @include mq($until: sp-large) {
+            width: 100%;
+        justify-content: center;
+        padding: 10px 20px;
+        gap: 16px;
+            
+        }
 
         img {
-            width: 24px;
-            height: 24px;
+            width: 35px;
+            height: 35px;
+            @include mq($until: sp-large) {
+                width: 28px;
+            height: 28px;
+            }
         }
 
         &:hover {
