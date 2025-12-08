@@ -451,6 +451,7 @@
   text-align: left;
   margin-top: 37px;
   margin-left: 80px;
+  margin-bottom: 61px;
 
   @include mq($until: sp-large) {
     margin-left: 0;

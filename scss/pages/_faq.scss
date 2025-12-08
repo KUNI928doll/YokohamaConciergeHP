@@ -13,10 +13,40 @@
   color: #fff;
   z-index: 0;
   overflow: visible;
-  background-image: url("../images/faq/wave_icon.png");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-position: center top;
+  // background-image: url("../images/faq/wave_icon.png");
+  //   background-repeat: no-repeat;
+  //   background-size: 100% 100%;
+  //   background-position: center top;
+  background-image: url(../images/faq/faq-bg-pattern.png);
+  background-repeat: repeat;
+  background-size: 41px 45px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 36px;
+    background: url(../images/faq/faq-bg-wave.png) repeat-x center center;
+    background-size: 275px 36px;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 36px;
+    background: url(../images/faq/faq-bg-wave.png) repeat-x center center;
+    background-size: 275px 36px;
+    transform: scaleY(-1); // 下側は上下反転
+    z-index: 1;
+    pointer-events: none;
+  }
 
   // FAQタイトル（白色）
   .section-title--faq {
@@ -315,18 +345,20 @@
   right: 0;
   bottom: 0;
   @include mq($until: mid-pc) {
-    width: 100%;
+    right: 0;
   }
   @include mq($until: sp-large) {
-   
+    width: 100%;
+    right: 0;
+    bottom: -3%;
   }
 }
 
 .faq__character {
   position: absolute;
   aspect-ratio: 275 /255;
-  bottom: 0;
-  right: 0;
+  top: 0;
+  left: 0;
   width: 51.98487713%;
   /* ←ここを固定 */
   z-index: 3;
@@ -334,8 +366,16 @@
   transform-origin: center center;
 
   @include mq($until: mid-pc) {
-    top: -10%;
-    left: 27.5%;
+    width: clamp(200px, 35vw, 260px);
+    top: 27%;
+    left: -100%;
+  }
+  @include mq($until: sp-large) {
+    top: 41%;
+    left: 134px;
+    transform: translateX(-50%);
+    width: clamp(160px, 50vw, 220px);
+    animation: none;
   }
 
   img {
@@ -344,20 +384,12 @@
     height: auto;
     display: block;
   }
-
-  @include mq($until: sp-large) {
-    top: -19%;
-    left: 0;
-    margin: 0 auto;
-    width: clamp(160px, 50vw, 220px);
-    animation: none;
-  }
 }
 
 /* ===== 雲（右下ふわふわ） ===== */
 .faq__cloud {
   aspect-ratio: 387 /269;
-  width:73.15689981%
+  width:min(387px,28vw);
   position: absolute;
   bottom:0;
   right: 0;
@@ -365,20 +397,20 @@
   animation: cloudFloat 6s ease-in-out infinite;
   max-width: 100%;
 
-  @include mq($until: mid-pc) {}
+  @include mq($until: mid-pc) {
+    right:80px;
+  }
+  @include mq($until: sp-large) {
+    width: clamp(150px, 80vw, 250px);
+    right: 0;
+    opacity: 0.8;
+    animation: none;
+  }
 
   img {
-    width: clamp(150px, calc(100vw - 600px), 360px);
     max-width: 100%;
     height: auto;
     display: block;
-  }
-
-  @include mq($until: sp-large) {
-    bottom: 69%;
-    right: 0%;
-    width: clamp(150px, 80vw, 360px);
-    opacity: 0.8;
   }
 }
 
@@ -400,6 +432,7 @@
     align-items: center;
     gap: 60px;
     flex-wrap: wrap;
+    margin-top: 129px;
   }
 
   .faq-bottom__arrow,

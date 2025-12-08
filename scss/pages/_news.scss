@@ -330,3 +330,41 @@
 .news__btn-wrapper {
   text-align: center;
 }
+
+/* ===== 背景装飾 ===== */
+.news__decos{
+  width:min(249px,18vw );
+  position: absolute;
+  top: max(-20px,-1.46092038vw);
+  left: 56.02629657%;
+  aspect-ratio: 249 / 206; 
+}
+
+.news__line {
+  width: 66.26506024%;
+  aspect-ratio: 165/ 181;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 20;
+  @include mq($until: sp-large) {
+    display: none;
+  }
+}
+
+.news__seagull {
+  width: 16.15598886%;
+  aspect-ratio: 58/ 38;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 20;
+  transform-origin: center center;
+  animation: seagull-fly 8s ease-in-out infinite alternate;
+
+  @include mq($until: sp-large) {
+    top: 10%;
+    right: 10%;
+    width: clamp(40px, 15vw, 60px);
+  }
+}
