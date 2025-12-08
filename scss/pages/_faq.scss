@@ -65,7 +65,7 @@
   //   }
   // }
 
-  .faq__inner {
+  .faq__container {
     max-width: 1080px;
     margin: 0 auto;
     z-index: 2;
@@ -81,6 +81,16 @@
     }
   }
 
+  .faq__inner {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+
+    @include mq($until: mid-pc) {
+      flex-direction: column;
+    }
+  }
+
   .section-title {
     position: relative;
     text-align: left;
@@ -91,11 +101,15 @@
   .faq__list {
     display: grid;
     gap: 21px;
+    flex: 1;
     max-width: 650px;
-    padding-right: 20px;
+
+    @include mq($until: mid-pc) {
+      max-width: 100%;
+    }
 
     @include mq($until: sp-large) {
-      max-width: 500px;
+      max-width: 100%;
     }
   }
 
@@ -257,30 +271,31 @@
 
 /* ===== 背景装飾 ===== */
 .faq__decos{
-position: absolute;
-aspect-ratio: 359px / 286px; 
-z-index: 1;
+  width:min(359px,26vw );
+  position: absolute;
+  top: max(-67px,-4.89408327vw);
+  left: 55.84988962%;
+  aspect-ratio: 359 / 286; 
 }
 
-
 .faq__line {
-  position: absolute;
   width: 64.3454039%;
-  aspect-ratio: 231px/ 245px;
+  aspect-ratio: 231/ 245;
+  position: absolute;
   right: 0;
   top: 0;
   z-index: 20;
-
   @include mq($until: sp-large) {
     display: none;
   }
 }
 
 .faq__seagull {
+  width: 16.15598886%;
+  aspect-ratio: 58/ 38;
   position: absolute;
-  top: 0;
-  right: 36%;
-  width: 58px;
+  bottom: 0;
+  left: 0;
   z-index: 20;
   transform-origin: center center;
   animation: seagull-fly 8s ease-in-out infinite alternate;
@@ -293,20 +308,26 @@ z-index: 1;
 }
 
 .faq-decorations {
-  position: relative;
-  height: 330px;
-  width: 100%;
-  
+  position: absolute;
+  flex-shrink: 0;
+  aspect-ratio: 529 /451;
+  width: min(529px,38.64134405vw);
+  right: 0;
+  bottom: 0;
+  @include mq($until: mid-pc) {
+    width: 100%;
+  }
   @include mq($until: sp-large) {
-    height: 250px;
+   
   }
 }
 
 .faq__character {
   position: absolute;
-  top: -77%;
-  left: 62.5%;
-  width: clamp(275px, 30vw, 275px);
+  aspect-ratio: 275 /255;
+  bottom: 0;
+  right: 0;
+  width: 51.98487713%;
   /* ←ここを固定 */
   z-index: 3;
   animation: character-float 4s ease-in-out infinite;
@@ -335,11 +356,11 @@ z-index: 1;
 
 /* ===== 雲（右下ふわふわ） ===== */
 .faq__cloud {
+  aspect-ratio: 387 /269;
+  width:73.15689981%
   position: absolute;
-  bottom: 40%;
-  /* 波に少しかぶせる感じ */
+  bottom:0;
   right: 0;
-  /* 雲のサイズ */
   z-index: 2;
   animation: cloudFloat 6s ease-in-out infinite;
   max-width: 100%;
