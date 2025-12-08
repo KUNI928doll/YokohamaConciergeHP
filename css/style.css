@@ -4238,9 +4238,14 @@ img {
   position: relative;
   width: 100%;
   padding-top: 145px;
+  padding-bottom: 234px;
   color: #fff;
   z-index: 0;
   overflow: visible;
+  background-image: url("../images/faq/wave_icon.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center top;
   /* ==== 質問ボタン ==== */
   /* ==== 答え部分（アコーディオン本体） ==== */
   /* ==== 開いた状態 ==== */
@@ -4269,38 +4274,6 @@ img {
   -webkit-filter: brightness(0) invert(1);
           filter: brightness(0) invert(1);
   margin-left: 17px;
-}
-.faq.is-open .faq__bg {
-  height: 1150px;
-}
-@media (max-width: 768px) {
-  .faq.is-open .faq__bg {
-    height: 1300px;
-  }
-}
-.faq .faq__bg {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  width: 100%;
-  height: 848px;
-  background-image: url("../images/faq/wave_icon.png");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-position: center top;
-  z-index: -1;
-  pointer-events: none;
-  -webkit-transition: height 0.4s ease;
-  transition: height 0.4s ease;
-}
-@media (max-width: 1200px) {
-  .faq .faq__bg {
-    min-width: auto;
-    width: 100%;
-    background-size: cover;
-  }
 }
 .faq .faq__inner {
   max-width: 1080px;
@@ -4478,7 +4451,6 @@ img {
 }
 .is-active .faq__answer {
   max-height: 600px;
-  /* 十分な高さを設定 */
   opacity: 1;
   padding: 1.5em;
 }
@@ -4491,11 +4463,18 @@ img {
 }
 
 /* ===== 背景装飾 ===== */
+.faq__decos {
+  position: absolute;
+  aspect-ratio: 359px/286px;
+  z-index: 1;
+}
+
 .faq__line {
   position: absolute;
-  right: 6%;
-  top: -46%;
-  width: 230px;
+  width: 64.3454039%;
+  aspect-ratio: 231px/245px;
+  right: 0;
+  top: 0;
   z-index: 20;
 }
 @media (max-width: 768px) {

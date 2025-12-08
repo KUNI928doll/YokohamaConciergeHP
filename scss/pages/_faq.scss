@@ -9,9 +9,14 @@
   position: relative;
   width: 100%;
   padding-top: 145px;
+  padding-bottom: 234px;
   color: #fff;
   z-index: 0;
   overflow: visible;
+  background-image: url("../images/faq/wave_icon.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center top;
 
   // FAQタイトル（白色）
   .section-title--faq {
@@ -35,34 +40,30 @@
   }
 
   &.is-open .faq__bg {
-    height: 1150px;
+    // height: 1150px;
 
     @include mq($until: sp-large) {
-      height: 1300px;
+      // height: 1300px;
     }
   }
 
-  .faq__bg {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    height: 848px; // 初期状態
-    background-image: url("../images/faq/wave_icon.png");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-position: center top;
-    z-index: -1;
-    pointer-events: none;
-    transition: height 0.4s ease;
+  // .faq__bg {
+  //   position: absolute;
+  //   top: 0;
+  //   left: 50%;
+  //   transform: translateX(-50%);
+  //   width: 100%;
+  //   height: 100%;
+  //   z-index: -1;
+  //   pointer-events: none;
+  //   transition: height 0.4s ease;
 
-    @include mq(mid-pc) {
-      min-width: auto;
-      width: 100%;
-      background-size: cover; // ← SPならOK
-    }
-  }
+  //   @include mq(mid-pc) {
+  //     min-width: auto;
+  //     width: 100%;
+  //     background-size: cover; // ← SPならOK
+  //   }
+  // }
 
   .faq__inner {
     max-width: 1080px;
@@ -178,14 +179,14 @@
 
   .faq__icon {
     color: var(--color-text);
-    font-size: 3rem; // 30px (1rem=10px基準)
+    font-size: 3rem; 
     font-family: var(--font-sub);
     font-weight: bold
   }
 
   .faq__text {
     color: var(--color-main);
-    font-size: 1.6rem; // 16px (1rem=10px基準)
+    font-size: 1.6rem; 
     font-family: var(--font-sub);
     font-weight: bold;
     left: 3.2em;
@@ -194,7 +195,7 @@
   .faq__plus {
     position: absolute;
     color: var(--color-text);
-    font-size: 3rem; // 30px (1rem=10px基準)
+    font-size: 3rem; 
     transition: transform 0.3s ease;
     right: 0.6667em;
   }
@@ -222,7 +223,7 @@
 
   .faq__amark {
     color: var(--color-accent);
-    font-size: 3rem; // 30px (1rem=10px基準)
+    font-size: 3rem; 
     font-family: var(--font-sub);
     line-height: 1;
     flex-shrink: 0;
@@ -240,7 +241,6 @@
   /* ==== 開いた状態 ==== */
   .is-active &__answer {
     max-height: 600px;
-    /* 十分な高さを設定 */
     opacity: 1;
     padding: 1.5em;
   }
@@ -255,14 +255,20 @@
   }
 }
 
-
-
 /* ===== 背景装飾 ===== */
+.faq__decos{
+position: absolute;
+aspect-ratio: 359px / 286px; 
+z-index: 1;
+}
+
+
 .faq__line {
   position: absolute;
-  right: 6%;
-  top: -46%;
-  width: 230px;
+  width: 64.3454039%;
+  aspect-ratio: 231px/ 245px;
+  right: 0;
+  top: 0;
   z-index: 20;
 
   @include mq($until: sp-large) {
