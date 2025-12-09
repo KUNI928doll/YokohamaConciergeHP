@@ -1013,6 +1013,11 @@ a:hover {
       -ms-flex-align: center;
           align-items: center;
 }
+@media (max-width: 768px) {
+  .sub-hero__decoration {
+    top: 0;
+  }
+}
 .sub-hero__decoration img {
   width: 70%;
   height: auto;
@@ -1045,6 +1050,7 @@ a:hover {
   letter-spacing: 0.05em;
   text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
   white-space: nowrap;
+  font-family: var(--font-sub);
 }
 
 /* _titles.scss */
@@ -7377,6 +7383,11 @@ img {
   /* 見出し */
   /* サブテキスト */
 }
+@media (max-width: 768px) {
+  .guide-points {
+    padding: 30px 0;
+  }
+}
 .guide-points .guide-points__title {
   font-size: clamp(18px, 1vw, 26px);
   font-weight: 600;
@@ -7392,6 +7403,11 @@ img {
       -ms-flex-align: center;
           align-items: center;
   font-family: var(--font-sub);
+}
+@media (max-width: 768px) {
+  .guide-points .guide-points__title {
+    margin-bottom: 30px;
+  }
 }
 .guide-points .guide-points__curve {
   width: 100%;
@@ -7705,19 +7721,18 @@ img {
   font-size: 1.5rem;
   color: var(--color-main);
   line-height: 1.6;
-  padding-left: 20px;
+  padding-left: 0;
   display: grid;
   grid-template-columns: 1fr 150px auto;
   -webkit-box-align: baseline;
       -ms-flex-align: baseline;
           align-items: baseline;
-  position: relative;
 }
-.guide-fee .guide-fee__additional-list li::before {
-  content: "・";
-  position: absolute;
-  left: 0;
-  color: var(--color-main);
+@media (max-width: 768px) {
+  .guide-fee .guide-fee__additional-list li {
+    display: block;
+    padding-left: 0;
+  }
 }
 .guide-fee .guide-fee__not-included-list li {
   font-size: 1.5rem;
@@ -7766,6 +7781,11 @@ img {
 .support--tour-guide {
   background: #fff;
   padding: 80px 0;
+}
+@media (max-width: 768px) {
+  .support--tour-guide {
+    padding: 30px 0;
+  }
 }
 .support--tour-guide .support__inner {
   max-width: 900px;
@@ -7861,6 +7881,9 @@ img {
             flex-direction: column;
     gap: 24px;
     margin-bottom: 24px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 }
 .support--tour-guide .support__header {
@@ -7942,6 +7965,11 @@ img {
   text-align: left;
   border-radius: 20px;
 }
+@media (max-width: 768px) {
+  .support--tour-guide .support__body {
+    padding: 18px 18px 18px 0;
+  }
+}
 .support--tour-guide .support__list {
   list-style: none;
   margin: 0;
@@ -7956,6 +7984,11 @@ img {
   gap: 24px;
   width: calc(100% + 18px);
   padding-left: 55px;
+}
+@media (max-width: 768px) {
+  .support--tour-guide .support__list {
+    padding-left: 26px;
+  }
 }
 .support--tour-guide .support__list-item {
   font-size: 1.5rem;

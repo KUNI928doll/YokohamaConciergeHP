@@ -694,6 +694,10 @@
 .guide-points {
     padding: 99px 0;
     text-align: center;
+    @include mq($until: sp-large){
+        padding: 30px 0;
+    }
+    
 
     .guide-points__title {
         font-size: clamp(18px, 1vw, 26px);
@@ -704,6 +708,10 @@
         justify-content: center;
         align-items: center;
         font-family: var(--font-sub);
+         @include mq($until: sp-large){
+            margin-bottom: 30px;
+         }
+        
     }
 
     .guide-points__curve {
@@ -987,17 +995,14 @@
         font-size: 1.5rem;
         color: var(--color-main);
         line-height: 1.6;
-        padding-left: 20px;
+        padding-left: 0;
         display: grid;
         grid-template-columns: 1fr 150px auto;
         align-items: baseline;
-        position: relative;
 
-        &::before {
-            content: "・";
-            position: absolute;
-            left: 0;
-            color: var(--color-main);
+        @include mq($until: sp-large) {
+            display: block;
+            padding-left: 0;
         }
     }
 
@@ -1050,6 +1055,9 @@
 .support--tour-guide {
     background: #fff;
     padding: 80px 0;
+    @include mq($until: sp-large) {
+        padding: 30px 0;
+    }
 
     .support__inner {
         max-width: 900px;
@@ -1125,6 +1133,7 @@
             flex-direction: column;
             gap: 24px;
             margin-bottom: 24px;
+            align-items: center;
         }
     }
 
@@ -1187,6 +1196,9 @@
         width: 100%;
         text-align: left;
         border-radius: 20px;
+        @include mq($until: sp-large) {
+            padding: 18px 18px 18px 0;
+        }
     }
 
     .support__list {
@@ -1198,6 +1210,9 @@
         gap: 24px;
         width: calc(100% + 18px);
         padding-left: 55px;
+        @include mq($until: sp-large) {
+            padding-left: 26px;
+        }
     }
 
     .support__list-item {

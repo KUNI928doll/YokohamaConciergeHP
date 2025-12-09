@@ -20,7 +20,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
+    @include mq($until: sp-large) {
+        top: 0;
+    }
     img {
         width: 70%;
         height: auto;
@@ -52,5 +54,6 @@
     letter-spacing: 0.05em;
     text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
     white-space: nowrap;
+    font-family: var(--font-sub);
 }
 
