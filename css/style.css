@@ -996,7 +996,7 @@ a:hover {
 
 .sub-hero__decoration {
   position: absolute;
-  top: 0;
+  top: -2px;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
@@ -3066,8 +3066,7 @@ img {
       -ms-flex-pack: center;
           justify-content: center;
   gap: 18px;
-  padding: 32px 0 0;
-  background: #fff;
+  padding: 32px 0 5px;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   position: relative;
@@ -5242,25 +5241,22 @@ img {
 .about-yokohama {
   position: relative;
   padding-top: 60px;
-  background: url("../images/about-yokohama/about-yokohama_bg-pattern.png") repeat;
-  background-size: 126% 136%;
-  background-position: center -360px;
+  background: url(../images/about-yokohama/about-yokohama_bg-pattern-s.png);
+  background-repeat: repeat;
+  background-size: 30px 30px;
+  background-position: top left;
   min-height: 600px;
   width: 100%;
 }
 @media (max-width: 1200px) {
   .about-yokohama {
-    background-size: 180% 10%;
-    background-position: center -100px;
-    margin-bottom: 100px;
+    padding-bottom: 100px;
   }
 }
 @media (max-width: 768px) {
   .about-yokohama {
     padding-top: 40px;
     min-height: auto;
-    background-size: 200% auto;
-    background-position: center -490px;
     margin-bottom: 0px;
   }
 }
@@ -6761,7 +6757,6 @@ img {
 }
 
 .guide-spots {
-  padding: 52px 0;
   background: #fff;
 }
 
@@ -7374,7 +7369,7 @@ img {
   }
 }
 .guide-points {
-  padding: 80px 0;
+  padding: 99px 0;
   text-align: center;
   /* ▼ SPは縦、PCは横3つ */
   /* ▼ 各ポイントブロック */
@@ -7383,10 +7378,35 @@ img {
   /* サブテキスト */
 }
 .guide-points .guide-points__title {
-  font-size: clamp(18px, 2vw, 26px);
+  font-size: clamp(18px, 1vw, 26px);
   font-weight: 600;
-  margin-bottom: 60px;
+  margin-bottom: 54px;
   color: #0D3063;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: var(--font-sub);
+}
+.guide-points .guide-points__curve {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .guide-points .guide-points__curve {
+    max-width: 90%;
+  }
+}
+.guide-points .guide-points__curve text {
+  font-size: clamp(20px, 2.5vw, 26px);
 }
 .guide-points .guide-points__inner {
   max-width: 1100px;
@@ -7445,7 +7465,7 @@ img {
 .guide-points .guide-points__icon {
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  width: 100%;
+  width: 76.8%;
   max-width: 280px;
   margin-bottom: 20px;
   position: relative;
@@ -7456,27 +7476,33 @@ img {
   display: block;
 }
 .guide-points .guide-points__head {
-  font-size: 1.8rem;
-  font-weight: 600;
-  margin-bottom: 8px;
-  line-height: 1.6;
-  color: #0D3063;
-  font-family: var(--font-sub);
   position: absolute;
   top: 50%;
-  -webkit-transform: translate(0%, -50%);
-          transform: translate(0%, -50%);
+  left: 50%;
+  -webkit-transform: translate(-50%, -175%);
+          transform: translate(-50%, -175%);
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--color-main);
+  font-family: var(--font-sub);
+  width: 100%;
+  text-align: center;
+  margin: 0;
 }
 .guide-points .guide-points__text {
-  font-size: 16px;
-  line-height: 1.6;
-  min-width: 0;
-  color: #0D3063;
-  font-family: var(--font-sub);
   position: absolute;
+  top: 50%;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  -webkit-transform: translate(-50%, -20%);
+          transform: translate(-50%, -20%);
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--color-main);
+  font-family: var(--font-sub);
+  width: 100%;
+  text-align: center;
+  margin: 0;
 }
 
 /* ===========================================
@@ -7485,10 +7511,15 @@ img {
 .guide-fee {
   background: #fff;
 }
-.guide-fee__inner {
+.guide-fee .guide-fee__inner {
   max-width: 688px;
   margin: 0 auto;
   padding: 0 20px;
+}
+@media (max-width: 768px) {
+  .guide-fee .guide-fee__inner {
+    padding: 0 16px;
+  }
 }
 .guide-fee .guide-fee__info {
   display: -webkit-box;
@@ -7498,12 +7529,9 @@ img {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 24px;
-  margin-bottom: 40px;
 }
 .guide-fee .guide-fee__info-item {
   background: #fff;
-  padding: 20px 24px;
   border-radius: 12px;
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -7511,7 +7539,7 @@ img {
 }
 .guide-fee .guide-fee__info-title {
   font-size: 1.6rem;
-  color: #003366;
+  color: var(--color-main);
   margin-bottom: 8px;
 }
 .guide-fee .guide-fee__info-item .guide-fee__info-title {
@@ -7520,11 +7548,14 @@ img {
   border-radius: 6px;
   display: block;
   width: 100%;
+  font-family: var(--font-sub);
 }
 .guide-fee .guide-fee__info-text {
   font-size: 1.5rem;
-  color: #003366;
+  color: var(--color-main);
   line-height: 1.6;
+  font-family: var(--font-sub);
+  padding: 15px 0 27px 21px;
 }
 .guide-fee .guide-fee__courses {
   display: -webkit-box;
@@ -7535,28 +7566,41 @@ img {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 24px;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
+  width: 100%;
 }
-@media (max-width: 1200px) {
+@media (min-width: 769px) {
   .guide-fee .guide-fee__courses {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    gap: 32px;
+    gap: 20px;
   }
 }
 .guide-fee .guide-fee__course {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  border: 1px solid var(--color-main);
+  border-radius: 20px;
+  padding: 15px;
+  margin-top: 18px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  min-width: 0;
+}
+@media (max-width: 768px) {
+  .guide-fee .guide-fee__course {
+    width: 100%;
+  }
 }
 .guide-fee .guide-fee__course-title {
   font-size: 1.8rem;
-  font-weight: 700;
-  color: #003366;
-  margin-bottom: 16px;
+  color: var(--color-main);
+  margin-bottom: 17px;
   text-align: center;
+  font-family: var(--font-sub);
 }
 .guide-fee .guide-fee__options {
   display: -webkit-box;
@@ -7566,7 +7610,8 @@ img {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  gap: 20px;
+  gap: 12px;
+  width: 100%;
 }
 @media (max-width: 768px) {
   .guide-fee .guide-fee__options {
@@ -7584,55 +7629,62 @@ img {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 8px;
   background: #F2F6F6;
   border-radius: 12px;
-  padding: 16px 20px;
+  padding: 12px 16px;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  font-family: var(--font-sub);
+  text-align: center;
+  min-width: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 .guide-fee .guide-fee__option--highlight .guide-fee__option-label {
-  color: #E39A1D;
+  color: var(--color-accent);
 }
 .guide-fee .guide-fee__option--highlight .guide-fee__option-price {
-  color: #E39A1D;
+  color: var(--color-accent);
 }
 .guide-fee .guide-fee__option-label {
-  font-size: 1.5rem;
-  color: #003366;
+  font-size: 1.4rem;
+  color: var(--color-main);
   font-weight: 500;
 }
 .guide-fee .guide-fee__option-price {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #003366;
-  padding: 8px 16px;
+  font-size: 2.4rem;
+  color: var(--color-main);
   border-radius: 8px;
   min-width: 120px;
   text-align: center;
 }
 .guide-fee .guide-fee__additional,
-.guide-fee .guide-fee__not-included {
-  padding: 24px;
+.guide-fee .guide-fee__not-included,
+.guide-fee .guide-fee__times {
   border-radius: 12px;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
+  font-family: var(--font-sub);
+  width: 100%;
 }
 .guide-fee .guide-fee__additional-title {
   font-size: 1.6rem;
-  color: #003366;
+  color: var(--color-main);
   margin-bottom: 16px;
+  margin-left: 20px;
 }
 .guide-fee .guide-fee__not-included-title {
   font-size: 1.6rem;
-  color: #003366;
+  color: var(--color-main);
   margin-bottom: 16px;
   background: #F2F6F6;
+  font-family: var(--font-sub);
 }
 .guide-fee .guide-fee__additional-list,
 .guide-fee .guide-fee__not-included-list {
@@ -7647,20 +7699,39 @@ img {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 12px;
+  padding-left: 20px;
 }
-.guide-fee .guide-fee__additional-list li,
+.guide-fee .guide-fee__additional-list li {
+  font-size: 1.5rem;
+  color: var(--color-main);
+  line-height: 1.6;
+  padding-left: 20px;
+  display: grid;
+  grid-template-columns: 1fr 150px auto;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  position: relative;
+}
+.guide-fee .guide-fee__additional-list li::before {
+  content: "・";
+  position: absolute;
+  left: 0;
+  color: var(--color-main);
+}
 .guide-fee .guide-fee__not-included-list li {
   font-size: 1.5rem;
-  color: #003366;
+  color: var(--color-main);
   line-height: 1.6;
+  padding-left: 0;
 }
 .guide-fee .guide-fee__additional-price {
-  font-weight: 700;
-  color: #E39A1D;
+  color: var(--color-main);
+  white-space: nowrap;
+  text-align: left;
 }
 .guide-fee .guide-fee__times {
-  padding: 24px;
-  border-radius: 12px;
+  padding: 0;
 }
 .guide-fee .guide-fee__times-title {
   font-size: 1.6rem;
@@ -7765,6 +7836,7 @@ img {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 33px;
+  margin-inline: 20px;
 }
 @media (max-width: 768px) {
   .support--tour-guide .support__box {
@@ -9589,10 +9661,6 @@ button {
   font-size: 12px;
   color: #555;
   white-space: nowrap;
-}
-
-.guide-fee__not-included-list {
-  font-weight: 600;
 }
 
 .privacy-page {

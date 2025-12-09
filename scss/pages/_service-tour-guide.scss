@@ -144,7 +144,6 @@
 }
 
 .guide-spots {
-    padding: 52px 0;
     background: #fff;
 }
 
@@ -693,14 +692,34 @@
 }
 
 .guide-points {
-    padding: 80px 0;
+    padding: 99px 0;
     text-align: center;
 
     .guide-points__title {
-        font-size: clamp(18px, 2vw, 26px);
+        font-size: clamp(18px, 1vw, 26px);
         font-weight: 600;
-        margin-bottom: 60px;
+        margin-bottom: 54px;
         color: #0D3063;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: var(--font-sub);
+    }
+
+    .guide-points__curve {
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+
+        @include mq($until: sp-large) {
+            max-width: 90%;
+        }
+
+        text {
+            font-size: clamp(20px, 2.5vw, 26px);
+        }
     }
 
     .guide-points__inner {
@@ -745,7 +764,7 @@
     /* ▼ まる画像（ここが大事） */
     .guide-points__icon {
         flex-shrink: 0; // ← 画像が潰れるのを完全に防ぐ
-        width: 100%;
+        width: 76.8%;
         max-width: 280px; // ← 画像と同じ大きさ
         margin-bottom: 20px;
         position: relative;
@@ -759,27 +778,33 @@
 
     /* 見出し */
     .guide-points__head {
-        font-size: 1.8rem;
-        font-weight: 600;
-        margin-bottom: 8px;
-        line-height: 1.6;
-        color: #0D3063;
-        font-family: var(--font-sub);
         position: absolute;
         top: 50%;
-        transform: translate(0%, -50%);
+        left: 50%;
+        transform: translate(-50%, -175%);
+        font-size: 1.8rem;
+        font-weight: 500;
+        line-height: 1.4;
+        color:var(--color-main);
+        font-family: var(--font-sub);
+        width: 100%;
+        text-align: center;
+        margin: 0;
     }
 
     /* サブテキスト */
     .guide-points__text {
-        font-size: 16px;
-        line-height: 1.6;
-        min-width: 0; // ← 多言語対応で必須
-        color: #0D3063;
-        font-family: var(--font-sub);
         position: absolute;
+        top: 50%;
         left: 50%;
-        transform: translateX(-50%); // ← 中央にする
+        transform: translate(-50%, -20%);
+        font-size: 16px;
+        line-height: 1.4;
+        color: var(--color-main);
+        font-family: var(--font-sub);
+        width: 100%;
+        text-align: center;
+        margin: 0;
     }
 }
 
@@ -789,29 +814,31 @@
 .guide-fee {
     background: #fff;
 
-    &__inner {
+    .guide-fee__inner {
         max-width: 688px;
         margin: 0 auto;
         padding: 0 20px;
+
+
+        @include mq($until: sp-large) {
+            padding: 0 16px;
+        }
     }
 
     .guide-fee__info {
         display: flex;
         flex-direction: column;
-        gap: 24px;
-        margin-bottom: 40px;
     }
 
     .guide-fee__info-item {
         background: #fff;
-        padding: 20px 24px;
         border-radius: 12px;
         flex: 1;
     }
 
     .guide-fee__info-title {
         font-size: 1.6rem;
-        color: #003366;
+        color: var(--color-main);
         margin-bottom: 8px;
     }
 
@@ -821,42 +848,58 @@
         border-radius: 6px;
         display: block;
         width: 100%;
+        font-family: var(--font-sub);
     }
 
     .guide-fee__info-text {
         font-size: 1.5rem;
-        color: #003366;
+        color: var(--color-main);
         line-height: 1.6;
+        font-family: var(--font-sub);
+        padding: 15px 0 27px 21px;
     }
 
     .guide-fee__courses {
         display: flex;
         flex-direction: column;
         gap: 24px;
-        margin-bottom: 40px;
+        margin-bottom: 10px;
+        width: 100%;
 
-        @include mq(mid-pc) {
+        @media (min-width: 769px) {
             flex-direction: row;
-            gap: 32px;
+            gap: 20px;
         }
     }
 
     .guide-fee__course {
         flex: 1;
+        border: 1px solid var(--color-main);
+        border-radius: 20px;
+        padding: 15px;
+        margin-top: 18px;
+        box-sizing: border-box;
+        min-width: 0; // flexアイテムがはみ出さないようにする
+
+        @media (max-width: 768px) {
+            width: 100%;
+        }
     }
 
     .guide-fee__course-title {
         font-size: 1.8rem;
-        font-weight: 700;
-        color: #003366;
-        margin-bottom: 16px;
+    
+        color: var(--color-main);
+        margin-bottom: 17px;
         text-align: center;
+        font-family: var(--font-sub);
     }
 
     .guide-fee__options {
         display: flex;
         flex-direction: row;
-        gap: 20px;
+        gap: 12px;
+        width: 100%;
 
         @include mq($until: sp-large) {
             flex-direction: column;
@@ -866,60 +909,67 @@
     .guide-fee__option {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         gap: 8px;
         background: #F2F6F6;
         border-radius: 12px;
-        padding: 16px 20px;
+        padding: 12px 16px;
         transition: all 0.3s ease;
         flex: 1;
+        font-family: var(--font-sub);
+        text-align: center;
+        min-width: 0;
+        box-sizing: border-box;
 
         &--highlight {
             .guide-fee__option-label {
-                color: #E39A1D;
+                color: var(--color-accent);
+               
             }
 
             .guide-fee__option-price {
-                color: #E39A1D;
+                color: var(--color-accent);
             }
         }
     }
 
     .guide-fee__option-label {
-        font-size: 1.5rem;
-        color: #003366;
+        font-size: 1.4rem;
+        color: var(--color-main);
         font-weight: 500;
     }
 
     .guide-fee__option-price {
-        font-size: 1.8rem;
-        font-weight: 700;
-        color: #003366;
-        padding: 8px 16px;
+        font-size: 2.4rem;
+        color: var(--color-main);
         border-radius: 8px;
         min-width: 120px;
         text-align: center;
     }
 
     .guide-fee__additional,
-    .guide-fee__not-included {
-        padding: 24px;
+    .guide-fee__not-included,
+    .guide-fee__times {
         border-radius: 12px;
-        margin-bottom: 32px;
+        margin-bottom: 24px;
+        font-family: var(--font-sub);
+        width: 100%;
     }
 
 
     .guide-fee__additional-title {
         font-size: 1.6rem;
-        color: #003366;
+        color: var(--color-main);
         margin-bottom: 16px;
+        margin-left: 20px;
     }
 
     .guide-fee__not-included-title {
         font-size: 1.6rem;
-        color: #003366;
+        color: var(--color-main);
         margin-bottom: 16px;
         background: #F2F6F6;
+        font-family: var(--font-sub);
     }
 
     .guide-fee__additional-list,
@@ -930,23 +980,42 @@
         display: flex;
         flex-direction: column;
         gap: 12px;
+        padding-left: 20px;
     }
 
-    .guide-fee__additional-list li,
+    .guide-fee__additional-list li {
+        font-size: 1.5rem;
+        color: var(--color-main);
+        line-height: 1.6;
+        padding-left: 20px;
+        display: grid;
+        grid-template-columns: 1fr 150px auto;
+        align-items: baseline;
+        position: relative;
+
+        &::before {
+            content: "・";
+            position: absolute;
+            left: 0;
+            color: var(--color-main);
+        }
+    }
+
     .guide-fee__not-included-list li {
         font-size: 1.5rem;
-        color: #003366;
+        color: var(--color-main);
         line-height: 1.6;
+        padding-left: 0;
     }
 
     .guide-fee__additional-price {
-        font-weight: 700;
-        color: #E39A1D;
+        color: var(--color-main);
+        white-space: nowrap;
+        text-align: left;
     }
 
     .guide-fee__times {
-        padding: 24px;
-        border-radius: 12px;
+        padding: 0;
     }
 
     .guide-fee__times-title {
@@ -1039,6 +1108,7 @@
         display: flex;
         flex-direction: column;
         gap: 33px;
+        margin-inline:20px ;
 
         @include mq($until: sp-large) {
             padding: 30px 20px;
