@@ -8,6 +8,7 @@
   background-size: cover;
   width: 100%;
   margin-top: -80px; // 上に移動
+  padding-bottom: 110px;
   z-index: 2; // contactセクションの上に表示
 
   .section-title--news {
@@ -144,6 +145,10 @@
   // スライダーのカード間の余白を48pxに設定
   .slick-slide {
     margin: 0 24px; // 左右に24pxずつ（合計48px）
+    
+    @include mq($until: sp-large) {
+      margin: 0 12px;
+    }
   }
 
   // スライダーのトラック全体
@@ -156,6 +161,10 @@
   .slick-list {
     overflow: hidden;
     margin: 0 -24px; // カードのマージンを相殺して左右の端を揃える
+    
+    @include mq($until: sp-large) {
+      margin: 0;
+    }
   }
 
   .news__card {

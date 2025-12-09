@@ -127,7 +127,7 @@
       &--3 {
         width: 231px;
         top: 51%;
-        right: -7%;
+        right: 0;
         z-index: 2;
       }
     }
@@ -169,7 +169,7 @@
 
     @include mq($until: mid-pc) {
       top: 56%;
-      right: -2%;
+      right: 0;
     }
 
     @include mq($until: sp-large) {

@@ -5,6 +5,7 @@
 .influencer {
   background: #f3f6f9;
   padding: 80px 0 100px;
+  margin-top: -86px;
   text-align: center;
   @include mq($until: sp-large)  {
     padding: 40px 0 50px;

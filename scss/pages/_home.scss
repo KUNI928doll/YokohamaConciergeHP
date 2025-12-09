@@ -75,14 +75,14 @@
     }
 
     &--r2 {
-      right: clamp(13px, calc(-12px - 2vw), -8px);
+      right: clamp(10px, calc(-12px - 2vw), 13px);
       bottom: -4%;
       animation-delay: .6s;
       width: clamp(200px, calc(159.4173px + 10.8221 * 1vw), 304px);
       z-index: 10;
 
       @include mq($until: sp-large) {
-        right: 0%;
+        right: 0;
         bottom: -12%;
       }
     }
@@ -276,6 +276,10 @@
   transform: translateX(-120%);
   opacity: 0;
   animation: fw-shine 2.2s ease-in-out infinite;
+  
+  @include mq($until: sp-large) {
+    inset: -20% 0;
+  }
 }
 
 

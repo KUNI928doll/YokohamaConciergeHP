@@ -118,7 +118,7 @@
   gap: 15px; // ← 文字と矢印の間隔
   transition: 0.3s ease;
   width: 232px;
-  right: -7%; // ← 右端から16px内側に配置
+  right: 0;
   bottom: -50px; // ← 下端から16px内側に配置
 
   @include mq($until: sp-large) {

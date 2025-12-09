@@ -1208,7 +1208,7 @@
         display: flex;
         flex-direction: column;
         gap: 24px;
-        width: calc(100% + 18px);
+        width: 100%;
         padding-left: 55px;
         @include mq($until: sp-large) {
             padding-left: 26px;

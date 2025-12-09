@@ -159,11 +159,10 @@
 /* ラッパー：スタックを独立させて順序を固定 */
 .footer-scene {
   position: relative;
-  overflow: visible; // 花火を表示するためにvisibleに変更
   isolation: isolate;
   z-index: 1;
   width: 100%; // 幅を100%に制限
-  max-width: 100vw; // ビューポート幅を超えない
+  max-width: 100%; // ビューポート幅を超えない
   height: 0; // 高さは0だが子要素は表示される
   /* ← 子の z-index を 0/1/2 で安定させる */
 }

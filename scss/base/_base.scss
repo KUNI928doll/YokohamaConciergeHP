@@ -12,13 +12,15 @@
   font-family: var(--font-sub-alt);
 }
 
-// * {
-//   outline: 2px solid red !important;
-// }
-
 
 html {
   font-size: 62.5%;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  outline: 2px solid red;
 }
 
 body {
@@ -28,6 +30,7 @@ body {
   margin: 0;
   padding: 0;
   max-width: 100%;
+  width: 100%;
 }
 
 img {
@@ -56,6 +59,7 @@ a {
     opacity: .5;
   }
 }
+
 
 
 /* --- フェード初期 --- */
