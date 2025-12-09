@@ -188,35 +188,63 @@
                         <ul class="inner-nav__sub" aria-label="サービス紹介のメニュー">
                             <li><a href="service-reserve.html">予約代行</a></li>
                             <li><a href="service-storage.html">トランクお預かり</a></li>
-                            <li><a href="service-tour-guide.html#guide-spots">横浜観光ガイドサービス</a></li>
+                            <li><a href="service-tour-guide.html">観光ガイドサービス</a></li>
                         </ul>
                     </li>
+
                     <li class="inner-nav__item">
                         <a href="yokohama.html">
                             <img src="./images/icon-yokohama.png" alt="">
                             <span>横浜について</span>
                         </a>
                     </li>
+
                     <li class="inner-nav__item">
                         <a href="index.html#faq">
                             <img src="./images/icon-faq.png" alt="">
                             <span>よくある質問</span>
                         </a>
                     </li>
+
                     <li class="inner-nav__item">
                         <a href="news.html">
                             <img src="./images/icon-news.png" alt="">
                             <span>お知らせ<br>イベント</span>
                         </a>
                     </li>
+
                     <li class="inner-nav__item">
-                        <a href="contact.html" class="is-active">
+                        <a href="contact.html">
                             <img src="./images/icon-mail.png" alt="">
                             <span>お問い合わせ</span>
                         </a>
                     </li>
                 </ul>
             </nav>
+        </div>
+
+        <div class="search-area search-area--service">
+            <form action="search.html" method="get" class="search-area__form">
+                <input type="text" name="q" class="search-area__input" placeholder="サイト内検索">
+                <button type="submit" class="search-area__btn" aria-label="検索">
+                    <img src="./images/icon-search.png" alt="検索アイコン">
+                </button>
+            </form>
+
+            <div class="search-area__links">
+                <a href="yokohama.html" class="search-area__link search-area__link--map">MAPで探す</a>
+            </div>
+        </div>
+
+        <div class="sub-hero">
+            <div class="sub-hero__decoration">
+                <img src="./images/sub-hero__decoration.png" alt="" aria-hidden="true">
+            </div>
+            <div class="sub-hero__img">
+                <img src="./images/contact/contact-hero.png" alt="ベイブリッチ">
+            </div>
+            <h1 class="sub-hero__title">お問い合わせ</h1>
+            <p class="sub-hero__text">サービス内容やご予約、見積もりについてなど、お気軽にご相談ください。必須の項目は必ずご入力ください。</p>
         </div>
 
         <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -229,87 +257,129 @@
         </nav>
 
         <section class="contact contact--page inquiry">
-            <div class="contact__inner">
-                <h2 class="inquiry__title">お問い合わせフォーム</h2>
-                <div class="contact__box">
+            <div class="inquiry__inner inner">
 
-                    <p class="inquiry__lead">サービス内容やご予約、見積もりについてなど、お気軽にご相談ください。<br class="u-visible-pc">
-                        必須項目をご入力のうえ、送信してください。</p>
-
-                    <form class="inquiry__form" action="#" method="post">
-                        <div class="inquiry__grid">
-                            <div class="inquiry__field">
-                                <label for="contact-name" class="inquiry__label">お名前<span
-                                        class="inquiry__required">必須</span></label>
-                                <input type="text" id="contact-name" name="name" class="inquiry__input"
-                                    placeholder="例）横浜 太郎" required>
-                                <p class="inquiry__note">フルネームをご入力ください</p>
+                <form class="inquiry-form" action="#" method="post">
+                    <div class="inquiry-form__section">
+                        <h3 class="inquiry-form__legend">基本情報</h3>
+                        <p class="inquiry-form__description">お名前とご連絡先をご入力ください。ご入力内容をもとに、担当者がお電話またはメールでご連絡いたします。</p>
+                        <div class="inquiry-form__grid">
+                            <div class="inquiry-form__field">
+                                <label for="contact-name" class="inquiry-form__label">お名前<span class="inquiry-form__required">必須</span></label>
+                                <input type="text" id="contact-name" name="name" class="inquiry-form__input" placeholder="例）横浜 太郎" required>
                             </div>
-                            <div class="inquiry__field">
-                                <label for="contact-kana" class="inquiry__label">ふりがな<span
-                                        class="inquiry__required">必須</span></label>
-                                <input type="text" id="contact-kana" name="kana" class="inquiry__input"
-                                    placeholder="例）よこはま たろう" required>
-                                <p class="inquiry__note">読み間違い防止のため、ひらがなでご入力ください</p>
+                            <div class="inquiry-form__field">
+                                <label for="contact-kana" class="inquiry-form__label">ふりがな<span class="inquiry-form__required">必須</span></label>
+                                <input type="text" id="contact-kana" name="kana" class="inquiry-form__input" placeholder="例）よこはま たろう" required>
                             </div>
-                            <div class="inquiry__field">
-                                <label for="contact-email" class="inquiry__label">メールアドレス<span
-                                        class="inquiry__required">必須</span></label>
-                                <input type="email" id="contact-email" name="email" class="inquiry__input"
-                                    placeholder="info@example.com" required>
-                                <p class="inquiry__note">ご返信先のメールアドレスをご入力ください</p>
+                            <div class="inquiry-form__field">
+                                <label for="contact-email" class="inquiry-form__label">メールアドレス<span class="inquiry-form__required">必須</span></label>
+                                <input type="email" id="contact-email" name="email" class="inquiry-form__input" placeholder="info@example.com" required>
                             </div>
-                            <div class="inquiry__field">
-                                <label for="contact-tel" class="inquiry__label">電話番号<span
-                                        class="inquiry__optional">任意</span></label>
-                                <input type="tel" id="contact-tel" name="tel" class="inquiry__input"
-                                    placeholder="090-1234-5678">
-                                <p class="inquiry__note">お急ぎの場合や予約希望の際はご入力ください</p>
+                            <div class="inquiry-form__field">
+                                <label for="contact-tel" class="inquiry-form__label">電話番号</label>
+                                <input type="tel" id="contact-tel" name="tel" class="inquiry-form__input" placeholder="090-1234-5678">
+                                <p class="inquiry-form__note">お急ぎの場合や予約希望の際はご入力ください</p>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="inquiry__field inquiry__field--full">
-                            <p class="inquiry__label">お問い合わせ種別<span class="inquiry__required">必須</span></p>
-                            <div class="inquiry__checkboxes">
-                                <label class="inquiry__checkbox">
+                    <div class="inquiry-form__section">
+                        <h3 class="inquiry-form__legend">お問い合わせ内容</h3>
+                        <p class="inquiry-form__description">お問い合わせの種別と具体的な内容をご入力ください。</p>
+                        
+                        <div class="inquiry-form__field inquiry-form__field--full">
+                            <p class="inquiry-form__label">お問い合わせ種別<span class="inquiry-form__required">必須</span></p>
+                            <div class="inquiry-form__checkboxes">
+                                <label class="inquiry-form__checkbox">
                                     <input type="checkbox" name="type[]" value="reservation" required>
                                     <span>予約について</span>
                                 </label>
-                                <label class="inquiry__checkbox">
+                                <label class="inquiry-form__checkbox">
                                     <input type="checkbox" name="type[]" value="service">
                                     <span>サービス内容について</span>
                                 </label>
-                                <label class="inquiry__checkbox">
+                                <label class="inquiry-form__checkbox">
                                     <input type="checkbox" name="type[]" value="estimate">
                                     <span>見積もり依頼</span>
                                 </label>
-                                <label class="inquiry__checkbox">
+                                <label class="inquiry-form__checkbox">
                                     <input type="checkbox" name="type[]" value="other">
                                     <span>不明点・その他</span>
                                 </label>
                             </div>
-                            <p class="inquiry__note">複数選択可能です</p>
+                            <p class="inquiry-form__note">複数選択可能です</p>
                         </div>
 
-                        <div class="inquiry__field inquiry__field--full">
-                            <label for="contact-message" class="inquiry__label">お問い合わせ内容<span
-                                    class="inquiry__required">必須</span></label>
-                            <textarea id="contact-message" name="message" class="inquiry__textarea" rows="6"
-                                placeholder="ご希望サービスや具体的な内容をご入力ください" required></textarea>
+                        <div class="inquiry-form__field inquiry-form__field--full">
+                            <label for="contact-message" class="inquiry-form__label">お問い合わせ内容<span class="inquiry-form__required">必須</span></label>
+                            <textarea id="contact-message" name="message" class="inquiry-form__textarea" rows="6" placeholder="ご希望サービスや具体的な内容をご入力ください" required></textarea>
                         </div>
+                    </div>
 
-                        <div class="inquiry__actions">
-                            <button type="submit" class="btn btn--blue btn--md">内容を送信する</button>
-                        </div>
-                    </form>
-                </div>
+                    <div class="inquiry-form__section inquiry-form__section--privacy">
+                        <p class="inquiry-form__privacy-text">個人情報のお取り扱いについては「<a href="privacy.html" class="inquiry-form__privacy-link" target="_blank">プライバシーポリシー</a>」をご確認ください。</p>
+                        
+                        <label class="inquiry-form__privacy-checkbox">
+                            <input type="checkbox" name="privacy" id="privacy-agree" required>
+                            <span>プライバシーポリシーに同意する<span class="inquiry-form__required">必須</span></span>
+                        </label>
+                    </div>
+
+                    <div class="inquiry-form__actions">
+                        <button type="button" class="btn btn--blue btn--lg" id="confirm-button">入力内容の確認 →</button>
+                    </div>
+                </form>
             </div>
         </section>
-        <section class="footer-scene">
-            <div class="footer__fx" aria-hidden="true">
-                <img src="./images/fireworks4.png" alt="左下の花火のイラスト" class="footer__fx-item footer__fx-item--l1">
-                <img src="./images/fireworks2.png" alt="左上の花火のイラスト" class="footer__fx-item footer__fx-item--l2">
-                <img src="./images/fireworks8.png" alt="右下の花火のイラスト" class="footer__fx-item footer__fx-item--r2">
+
+        <!-- 確認画面モーダル -->
+        <div class="inquiry-confirm-modal" id="confirm-modal">
+            <div class="inquiry-confirm-modal__overlay"></div>
+            <div class="inquiry-confirm-modal__content">
+                <div class="inquiry-confirm-modal__header">
+                    <h3 class="inquiry-confirm-modal__title">入力内容の確認</h3>
+                    <button type="button" class="inquiry-confirm-modal__close" id="modal-close">×</button>
+                </div>
+                <div class="inquiry-confirm-modal__body" id="confirm-content">
+                    <!-- 確認内容がJavaScriptで挿入されます -->
+                </div>
+                <div class="inquiry-confirm-modal__actions">
+                    <button type="button" class="btn btn--white btn--md" id="back-button">← 戻って修正する</button>
+                    <button type="button" class="btn btn--blue btn--lg" id="submit-button">送信する</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 送信完了モーダル -->
+        <div class="inquiry-thanks-modal" id="thanks-modal">
+            <div class="inquiry-thanks-modal__overlay"></div>
+            <div class="inquiry-thanks-modal__content">
+                <div class="inquiry-thanks-modal__icon">
+                    <svg viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="26" cy="26" r="25" fill="#4CAF50"/>
+                        <path fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" d="M14 27l8 8 16-16"/>
+                    </svg>
+                </div>
+                <h3 class="inquiry-thanks-modal__title">送信完了</h3>
+                <p class="inquiry-thanks-modal__message">
+                    お問い合わせを受け付けました。<br>
+                    ご入力いただいたメールアドレス宛に<br class="u-visible-sp">受付確認メールをお送りしました。
+                </p>
+                <div class="inquiry-thanks-modal__info">
+                    <p class="inquiry-thanks-modal__info-text">
+                        担当者が内容を確認し、<br class="u-visible-sp">2営業日以内にご連絡いたします。<br>
+                        今しばらくお待ちください。
+                    </p>
+                    <p class="inquiry-thanks-modal__note">
+                        ※メールが届かない場合は、迷惑メールフォルダをご確認いただくか、<br class="u-visible-sp">お電話にてお問い合わせください。
+                    </p>
+                </div>
+                <div class="inquiry-thanks-modal__actions">
+                    <a href="index.html" class="btn btn--blue btn--lg">トップページへ戻る</a>
+                </div>
+            </div>
+        </div>
             </div>
         </section>
     </main>
@@ -382,6 +452,7 @@
     <script src="./js/header.js"></script>
     <script src="./js/accordion.js"></script>
     <script src="./js/pagetop.js"></script>
+    <script src="./js/inquiry.js"></script>
 </body>
 
 </html>

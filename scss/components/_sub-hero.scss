@@ -57,3 +57,23 @@
     font-family: var(--font-sub);
 }
 
+.sub-hero__text {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    color: #fff;
+    font-size: clamp(14px, 1.8vw, 18px);
+    font-weight: 500;
+    line-height: 1.8;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    max-width: 90%;
+    
+    @include mq($until: sp-large) {
+        font-size: clamp(12px, 3.5vw, 14px);
+        line-height: 1.6;
+        top: 65%;
+    }
+}
+

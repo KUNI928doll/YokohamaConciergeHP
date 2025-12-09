@@ -9,11 +9,11 @@
   animation: waveMove 4s ease-in-out infinite;
   position: relative;
   z-index: 2;
-  background-color: #f3f6f9;;
-  // margin-top: -75px;
+  margin-top: -75px;
 
   @include mq($until: sp-large) {
-    padding: 70px 30px 60px;
+    padding: 120px 30px 60px;
+    margin-top: 0;
   }
 }
 
