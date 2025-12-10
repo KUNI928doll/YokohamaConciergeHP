@@ -57,43 +57,44 @@
   &--top-right {
     top: 190px;
     right: 40px;
-    width: 276px;
+    aspect-ratio: 270 /150;
+    width: min(276px,20.24944974%);
     opacity: 0.9;
 
     @include mq(tab) {
-      width: 180px;
       top: 170px;
       right: 20px;
     }
     @include mq(sp-large) {
-      width: 100px;
       top: 130px;
       right: 60px;
     }
   }
   // 左下の装飾（吹き出し）
   &--bottom-left {
-    bottom: 37px;
-    left: 40px;
-    width: 140px;
+    bottom: 0;
+    left: 6.67644901%;
+    aspect-ratio: 140 / 114;
+    width: min(140px, 10.27146001%);
     height: auto;
     opacity: 0.8;
 
-    @include mq(tab) {
-      width: 120px;
-      bottom: 40px;
-      left: 80px;
+    @include mq($until: mid-pc) {
+      width: clamp(100px, 12vw, 120px);
+      bottom: 0;
+      left: clamp(40px, 8vw, 80px);
     }
-    @include mq(sp-large) {
-    width: 100px;
-    bottom: 30px;
-    left: 50px;
+
+    @include mq($until: sp-large) {
+      width: clamp(80px, 20vw, 100px);
+      bottom: 0;
+      left: clamp(20px, 5vw, 40px);
     }
   }
   }
 .news__inner {
   position: relative;
-  padding: 117px 161px 100px;
+  padding: 117px 161px 135px;
   color: #fff;
   z-index: 3;
 

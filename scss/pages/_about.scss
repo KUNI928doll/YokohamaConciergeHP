@@ -92,7 +92,7 @@
       opacity: 0.9;
 
       @include mq($until: mid-pc) {
-        background: none;
+        content: none;
       }
     }
   }

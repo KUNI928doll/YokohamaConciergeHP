@@ -331,7 +331,8 @@
 
 .about-yokohama__column {
   flex: 1;
-  min-width: 280px;
+  // min-width: 280px;
+  max-width: 100%;
 }
 
 .about-yokohama__character {
@@ -460,6 +461,11 @@
   margin-top: 37px;
   margin-left: 80px;
   margin-bottom: 61px;
+
+  @include mq($until: mid-pc) {
+    margin-left: 0;
+    text-align: center;
+  }
 
   @include mq($until: sp-large) {
     margin-left: 0;

@@ -27,6 +27,10 @@ html {
   padding: 0;
 }
 
+* {
+  outline: 2px solid red;
+}
+
 body {
   font-size: 1.6rem;
   font-family: var(--font-heading);
@@ -1083,6 +1087,8 @@ a:hover {
   display: inline-block;
   margin-bottom: clamp(24px, 5vw, 54px);
   text-align: center;
+  -webkit-transform: none !important;
+          transform: none !important;
 }
 .section-title img {
   width: clamp(200px, 40vw, 340px);
@@ -2677,8 +2683,7 @@ body.spmenu-open .header__toggle {
 }
 @media (max-width: 768px) {
   .hero__fx-item--r1 {
-    right: 0%;
-    bottom: 37%;
+    display: none;
   }
 }
 .hero__fx-item--r2 {
@@ -2711,7 +2716,7 @@ body.spmenu-open .header__toggle {
 }
 @media (max-width: 768px) {
   .hero__fx-item--r3 {
-    right: 0%;
+    right: 0;
     bottom: -67%;
   }
 }
@@ -3120,6 +3125,7 @@ img {
 .search-area .search-area__form {
   position: relative;
   width: 350px;
+  max-width: 100%;
 }
 .search-area .search-area__input {
   width: 100%;
@@ -3305,7 +3311,7 @@ img {
 }
 @media (max-width: 1200px) {
   .about .about__images::before {
-    background: none;
+    content: none;
   }
 }
 .about .about__image {
@@ -3896,7 +3902,6 @@ img {
 }
 .service-detail .service-detail__cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: clamp(20px, 4vw, 40px);
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
@@ -3948,6 +3953,7 @@ img {
 }
 .service-detail .service-detail__icon img {
   width: 120px;
+  max-width: 100%;
   margin: 24px auto 16px;
 }
 .service-detail .service-detail__title {
@@ -3994,8 +4000,6 @@ img {
   position: absolute;
   bottom: 0;
   right: 0;
-  -webkit-transform: translate(20%, 20%);
-          transform: translate(20%, 20%);
   z-index: 2;
 }
 .service-detail .service-detail__arrow-btn {
@@ -4010,12 +4014,18 @@ img {
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
 }
+@media (max-width: 768px) {
+  .service-detail .service-detail__arrow-btn {
+    width: 32px;
+    height: 32px;
+  }
+}
 .service-detail .service-detail__arrow-btn::before {
   content: "";
   position: absolute;
   top: 50%;
   left: 27%;
-  width: 20px;
+  width: 16px;
   height: 2px;
   background: #fff;
   -webkit-transform: translateY(-50%);
@@ -4276,7 +4286,7 @@ img {
   padding-bottom: 234px;
   color: #fff;
   z-index: 0;
-  overflow: visible;
+  overflow: hidden;
   background-image: url(../images/faq/faq-bg-pattern.png);
   background-repeat: repeat;
   background-size: 41px 45px;
@@ -4682,19 +4692,22 @@ img {
 }
 
 /* =======================================
-   FAQ下 CTAセクション（faq-bottom）
+   FAQ下 CTAセクション（faq__actions）
 ======================================= */
-.faq-bottom {
+.faq__actions {
   position: relative;
   background: #fff;
+  margin-top: 129px;
   margin-bottom: 200px;
+  width: 100%;
 }
 @media (max-width: 768px) {
-  .faq-bottom {
-    margin-bottom: 100px;
+  .faq__actions {
+    margin-top: 80px;
   }
 }
-.faq-bottom .faq-bottom__inner {
+
+.faq__actions-inner {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4707,15 +4720,6 @@ img {
   gap: 60px;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  margin-top: 129px;
-}
-.faq-bottom .faq-bottom__arrow,
-.faq-bottom .faq-bottom__icon {
-  font-size: 1.8rem;
-  line-height: 1;
-}
-.faq-bottom .faq-bottom__icon {
-  width: 1.1em;
 }
 
 .news {
@@ -4767,48 +4771,48 @@ img {
 .news__decoration--top-right {
   top: 190px;
   right: 40px;
-  width: 276px;
+  aspect-ratio: 270/150;
+  width: min(276px, 20.24944974%);
   opacity: 0.9;
 }
 @media (max-width: 1024px) {
   .news__decoration--top-right {
-    width: 180px;
     top: 170px;
     right: 20px;
   }
 }
 @media (max-width: 768px) {
   .news__decoration--top-right {
-    width: 100px;
     top: 130px;
     right: 60px;
   }
 }
 .news__decoration--bottom-left {
-  bottom: 37px;
-  left: 40px;
-  width: 140px;
+  bottom: 0;
+  left: 6.67644901%;
+  aspect-ratio: 140/114;
+  width: min(140px, 10.27146001%);
   height: auto;
   opacity: 0.8;
 }
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .news__decoration--bottom-left {
-    width: 120px;
-    bottom: 40px;
-    left: 80px;
+    width: clamp(100px, 12vw, 120px);
+    bottom: 0;
+    left: clamp(40px, 8vw, 80px);
   }
 }
 @media (max-width: 768px) {
   .news__decoration--bottom-left {
-    width: 100px;
-    bottom: 30px;
-    left: 50px;
+    width: clamp(80px, 20vw, 100px);
+    bottom: 0;
+    left: clamp(20px, 5vw, 40px);
   }
 }
 
 .news__inner {
   position: relative;
-  padding: 117px 161px 100px;
+  padding: 117px 161px 135px;
   color: #fff;
   z-index: 3;
 }
@@ -5691,7 +5695,7 @@ img {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  min-width: 280px;
+  max-width: 100%;
 }
 
 .about-yokohama__character {
@@ -5860,6 +5864,12 @@ img {
   margin-left: 80px;
   margin-bottom: 61px;
 }
+@media (max-width: 1200px) {
+  .about-yokohama__map {
+    margin-left: 0;
+    text-align: center;
+  }
+}
 @media (max-width: 768px) {
   .about-yokohama__map {
     margin-left: 0;
@@ -5959,7 +5969,7 @@ img {
   text-align: center;
   background: url("../images/contact/contact-bg.png") no-repeat center top;
   background-size: cover;
-  margin-top: -12.10576222vw;
+  margin-top: -9.10576222vw;
   margin-bottom: -200px;
   z-index: 99;
   -webkit-mask-image: url(../images/contact/contact-mask.png);
@@ -5971,10 +5981,12 @@ img {
   -webkit-mask-position: center;
           mask-position: center;
   min-height: 1044px;
+  overflow: hidden;
 }
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .contact {
     margin-bottom: -210px;
+    margin-top: -17.10576222vw;
   }
 }
 @media (max-width: 768px) {
@@ -5982,7 +5994,7 @@ img {
     background-position: center top;
     min-height: 900px;
     margin-bottom: -200px;
-    margin-top: -25.10576222vw;
+    margin-top: -50.10576222vw;
   }
 }
 .contact .contact__decos {
@@ -6025,6 +6037,11 @@ img {
   width: 100%;
   margin-bottom: 10px;
   z-index: 2;
+}
+@media (max-width: 1200px) {
+  .contact .speech-bubble-imgwrap--contact {
+    margin-bottom: 40px;
+  }
 }
 @media (max-width: 768px) {
   .contact .speech-bubble-imgwrap--contact {

@@ -12,7 +12,7 @@
   padding-bottom: 234px;
   color: #fff;
   z-index: 0;
-  overflow: visible;
+  overflow: hidden;
   // background-image: url("../images/faq/wave_icon.png");
   //   background-repeat: no-repeat;
   //   background-size: 100% 100%;
@@ -415,33 +415,24 @@
 }
 
 /* =======================================
-   FAQ下 CTAセクション（faq-bottom）
+   FAQ下 CTAセクション（faq__actions）
 ======================================= */
-.faq-bottom {
+.faq__actions {
   position: relative;
   background: #fff;
+  margin-top: 129px;
   margin-bottom: 200px;
+  width: 100%;
+  
   @include mq($until: sp-large) {
-    margin-bottom: 100px;
+    margin-top: 80px;
   }
+}
 
-
-  .faq-bottom__inner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 60px;
-    flex-wrap: wrap;
-    margin-top: 129px;
-  }
-
-  .faq-bottom__arrow,
-  .faq-bottom__icon {
-    font-size: 1.8rem; // 18px (1rem=10px基準)
-    line-height: 1;
-  }
-
-  .faq-bottom__icon {
-    width: 1.1em;
-  }
+.faq__actions-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
 }

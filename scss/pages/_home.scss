@@ -69,8 +69,7 @@
       width: clamp(200px, calc(159.4173px + 10.8221 * 1vw), 304px);
 
       @include mq($until: sp-large) {
-        right: 0%;
-        bottom: 37%;
+        display: none;
       }
     }
 
@@ -100,7 +99,7 @@
       }
 
       @include mq($until: sp-large) {
-        right: 0%;
+        right: 0;
         bottom: -67%;
       }
     }
@@ -474,6 +473,7 @@ img {
   .search-area__form {
     position: relative;
     width: 350px;
+    max-width: 100%;
   }
 
   .search-area__input {
