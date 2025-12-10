@@ -619,11 +619,49 @@
                     </div>
 
                     <div class="reservation-form__actions">
-                        <button type="submit" class="btn btn--blue btn--md">内容を送信する</button>
+                        <button type="button" id="confirmBtn" class="btn btn--blue btn--md">入力内容を確認する</button>
                     </div>
                 </form>
             </div>
         </section>
+
+        <!-- 確認画面モーダル -->
+        <div id="confirmModal" class="reservation-confirm" style="display: none;">
+            <div class="reservation-confirm__overlay"></div>
+            <div class="reservation-confirm__content">
+                <h2 class="reservation-confirm__title">入力内容の確認</h2>
+                <p class="reservation-confirm__lead">以下の内容でよろしければ「送信する」ボタンを押してください。</p>
+                
+                <div id="confirmContent" class="reservation-confirm__body">
+                    <!-- JavaScriptで動的に生成 -->
+                </div>
+
+                <div class="reservation-confirm__actions">
+                    <button type="button" class="btn btn--outline btn--md reservation-confirm__back">戻る</button>
+                    <button type="button" class="btn btn--blue btn--md reservation-confirm__submit">送信する</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 送信完了モーダル -->
+        <div id="reservationModal" class="reservation-modal" style="display: none;">
+            <div class="reservation-modal__overlay"></div>
+            <div class="reservation-modal__content">
+                <div class="reservation-modal__icon">
+                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="40" cy="40" r="38" stroke="#4CAF50" stroke-width="4" fill="none"/>
+                        <path d="M25 40L35 50L55 30" stroke="#4CAF50" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h2 class="reservation-modal__title">ご予約を承りました</h2>
+                <p class="reservation-modal__message">
+                    この度はYOKOHAMA Conciergeをご利用いただき、誠にありがとうございます。<br>
+                    ご入力いただいた内容を確認し、担当者より2営業日以内にご連絡させていただきます。<br><br>
+                    ご登録のメールアドレス宛に受付完了メールをお送りしておりますので、ご確認ください。
+                </p>
+                <button type="button" class="btn btn--blue btn--md reservation-modal__close">閉じる</button>
+            </div>
+        </div>
     </main>
 
     <footer class="footer">
@@ -694,6 +732,7 @@
     <script src="./js/header.js"></script>
     <script src="./js/accordion.js"></script>
     <script src="./js/pagetop.js"></script>
+    <script src="./js/reservation.js"></script>
 </body>
 
 </html>

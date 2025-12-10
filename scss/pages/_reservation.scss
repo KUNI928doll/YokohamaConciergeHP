@@ -228,3 +228,260 @@
     padding-left: 16px;
   }
 }
+
+// 送信完了モーダル
+.reservation-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  &.is-active {
+    opacity: 1;
+
+    .reservation-modal__content {
+      transform: translateY(0);
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+  }
+
+  &__content {
+    position: relative;
+    background: #fff;
+    border-radius: 16px;
+    padding: clamp(32px, 5vw, 48px);
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+    z-index: 1;
+
+    @include mq($until: sp-large) {
+      padding: 32px 24px;
+      max-width: 90%;
+    }
+  }
+
+  &__icon {
+    margin: 0 auto 24px;
+    animation: scaleIn 0.5s ease 0.2s both;
+
+    svg {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  &__title {
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 700;
+    color: var(--color-main, #0D3D90);
+    margin-bottom: 24px;
+    font-family: var(--font-sub);
+  }
+
+  &__message {
+    font-size: clamp(14px, 2vw, 16px);
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 32px;
+    text-align: left;
+
+    @include mq($until: sp-large) {
+      text-align: center;
+    }
+  }
+
+  &__close {
+    min-width: 200px;
+
+    @include mq($until: sp-large) {
+      min-width: 160px;
+    }
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+// 確認画面モーダル
+.reservation-confirm {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  &.is-active {
+    opacity: 1;
+
+    .reservation-confirm__content {
+      transform: translateY(0);
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+  }
+
+  &__content {
+    position: relative;
+    background: #fff;
+    border-radius: 16px;
+    padding: clamp(24px, 4vw, 40px);
+    max-width: 800px;
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+    z-index: 1;
+
+    @include mq($until: sp-large) {
+      padding: 24px 20px;
+      max-width: 95%;
+      max-height: 90vh;
+    }
+  }
+
+  &__title {
+    font-size: clamp(20px, 3vw, 26px);
+    font-weight: 700;
+    color: var(--color-main, #0D3D90);
+    margin-bottom: 12px;
+    font-family: var(--font-sub);
+    text-align: center;
+  }
+
+  &__lead {
+    font-size: clamp(13px, 2vw, 15px);
+    color: #666;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  &__body {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: clamp(20px, 3vw, 32px);
+    margin-bottom: 24px;
+  }
+
+  &__section {
+    margin-bottom: 24px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__section-title {
+    font-size: clamp(16px, 2.5vw, 18px);
+    font-weight: 700;
+    color: var(--color-main, #0D3D90);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--color-main, #0D3D90);
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+
+    @include mq($until: sp-large) {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+
+    @include mq($until: sp-large) {
+      font-size: 13px;
+    }
+  }
+
+  &__value {
+    font-size: 14px;
+    color: #333;
+    word-break: break-word;
+
+    @include mq($until: sp-large) {
+      font-size: 13px;
+    }
+
+    &--empty {
+      color: #999;
+      font-style: italic;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+
+    @include mq($until: sp-large) {
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+
+  &__back,
+  &__submit {
+    min-width: 180px;
+
+    @include mq($until: sp-large) {
+      min-width: 100%;
+    }
+  }
+}

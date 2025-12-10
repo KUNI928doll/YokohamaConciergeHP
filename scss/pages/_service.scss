@@ -288,8 +288,17 @@
 
   .service-detail__cards {
     display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: clamp(20px, 4vw, 40px);
     align-items: stretch;
+
+    @include mq($until: tab) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mq($until: sp-large) {
+      grid-template-columns: 1fr;
+    }
   }
 
   .service-detail__card {
