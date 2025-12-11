@@ -172,6 +172,16 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 12px;
+
+    &--simple {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 500px;
+
+      @include mq($until: sp-large) {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+      }
+    }
   }
 
   &__inline-field {
@@ -881,6 +891,147 @@
 
     @include mq($until: sp-large) {
       font-size: 1.2rem;
+    }
+  }
+}
+
+// 店舗カードのスタイル
+.shop-card {
+  background: #fff;
+  border: 1px solid rgba(29, 67, 117, 0.15);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 4px 16px rgba(29, 67, 117, 0.1);
+    transform: translateY(-2px);
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    gap: 12px;
+
+    @include mq($until: sp-large) {
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+
+  &__name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-main);
+    margin: 0;
+
+    @include mq($until: sp-large) {
+      font-size: 1.6rem;
+    }
+  }
+
+  &__price {
+    font-size: 1.4rem;
+    color: var(--color-accent);
+    font-weight: 600;
+    white-space: nowrap;
+
+    @include mq($until: sp-large) {
+      font-size: 1.3rem;
+    }
+  }
+
+  &__meta {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+
+  &__category,
+  &__area {
+    font-size: 1.3rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    i {
+      color: var(--color-main);
+    }
+  }
+
+  &__description {
+    font-size: 1.4rem;
+    color: var(--color-text);
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+
+  &__hours {
+    font-size: 1.3rem;
+    color: #666;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    i {
+      color: var(--color-main);
+    }
+  }
+
+  &__website {
+    margin-bottom: 12px;
+
+    a {
+      font-size: 1.3rem;
+      color: var(--color-main);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: var(--color-accent);
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  &__feature {
+    display: inline-block;
+    padding: 4px 12px;
+    background: rgba(29, 67, 117, 0.08);
+    color: var(--color-main);
+    font-size: 1.2rem;
+    border-radius: 16px;
+    font-weight: 500;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(29, 67, 117, 0.1);
+
+    @include mq($until: sp-large) {
+      flex-direction: column;
+    }
+
+    .btn {
+      flex: 1;
     }
   }
 }

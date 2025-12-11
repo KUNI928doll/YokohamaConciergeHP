@@ -6841,6 +6841,16 @@ img {
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 12px;
 }
+.reservation-form__inline-grid--simple {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 500px;
+}
+@media (max-width: 768px) {
+  .reservation-form__inline-grid--simple {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+}
 .reservation-form__inline-field {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7637,6 +7647,170 @@ img {
   .reservation-estimate__footer {
     font-size: 1.2rem;
   }
+}
+
+.shop-card {
+  background: #fff;
+  border: 1px solid rgba(29, 67, 117, 0.15);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.shop-card:hover {
+  -webkit-box-shadow: 0 4px 16px rgba(29, 67, 117, 0.1);
+          box-shadow: 0 4px 16px rgba(29, 67, 117, 0.1);
+  -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
+}
+.shop-card__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-bottom: 12px;
+  gap: 12px;
+}
+@media (max-width: 768px) {
+  .shop-card__header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 8px;
+  }
+}
+.shop-card__name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-main);
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .shop-card__name {
+    font-size: 1.6rem;
+  }
+}
+.shop-card__price {
+  font-size: 1.4rem;
+  color: var(--color-accent);
+  font-weight: 600;
+  white-space: nowrap;
+}
+@media (max-width: 768px) {
+  .shop-card__price {
+    font-size: 1.3rem;
+  }
+}
+.shop-card__meta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 16px;
+  margin-bottom: 12px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.shop-card__category, .shop-card__area {
+  font-size: 1.3rem;
+  color: #666;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 6px;
+}
+.shop-card__category i, .shop-card__area i {
+  color: var(--color-main);
+}
+.shop-card__description {
+  font-size: 1.4rem;
+  color: var(--color-text);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+.shop-card__hours {
+  font-size: 1.3rem;
+  color: #666;
+  margin-bottom: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 6px;
+}
+.shop-card__hours i {
+  color: var(--color-main);
+}
+.shop-card__website {
+  margin-bottom: 12px;
+}
+.shop-card__website a {
+  font-size: 1.3rem;
+  color: var(--color-main);
+  text-decoration: none;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 6px;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+.shop-card__website a:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+.shop-card__features {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.shop-card__feature {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(29, 67, 117, 0.08);
+  color: var(--color-main);
+  font-size: 1.2rem;
+  border-radius: 16px;
+  font-weight: 500;
+}
+.shop-card__actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(29, 67, 117, 0.1);
+}
+@media (max-width: 768px) {
+  .shop-card__actions {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+.shop-card__actions .btn {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 .inquiry {

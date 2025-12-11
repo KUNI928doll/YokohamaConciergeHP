@@ -59,25 +59,26 @@ document.addEventListener('DOMContentLoaded', function() {
     'guideArea': 'ご希望エリア',
     'guideSpots': 'ご希望スポット場所',
     'guideNotes': 'その他ご要望事項',
-    'hotelDatetime': '予約日時',
+    'hotelDate': '予約日',
     'hotelArea': 'エリア選択',
     'hotelBudget': 'ご希望金額',
-    'hotelAdultMale': '大人（男性）',
-    'hotelAdultFemale': '大人（女性）',
-    'hotelChildMale': '子供（男性）',
-    'hotelChildFemale': '子供（女性）',
+    'hotelAdults': '大人',
+    'hotelChildren': '子供',
     'hotelRequest': 'その他ご希望事項',
     'hotelProposal1': 'ハマナビからの提案1',
     'hotelProposal2': 'ハマナビからの提案2',
-    'diningDatetime': '予約日時',
-    'diningPeople': '人数',
+    'diningDate': '予約日',
+    'diningAdults': '大人',
+    'diningChildren': '子供',
     'diningBudget': 'ご予算',
     'diningGenre': 'ジャンル',
     'diningRequest': 'その他ご希望事項',
     'activityDatetime': '予約希望日時',
+    'activityAdults': '大人',
+    'activityChildren': '子供',
     'activityType': '体験アクティビティ',
     'activityRequest': 'その他ご希望事項',
-    'luggageDatetime': '予約日時',
+    'luggageDate': '予約日',
     'luggageCount': '予約個数',
     'luggageNotes': 'その他ご希望事項'
   };
@@ -86,10 +87,10 @@ document.addEventListener('DOMContentLoaded', function() {
   const sections = {
     '基本入力項目': ['name', 'gender', 'nationality', 'address', 'passport', 'stay', 'phone', 'email', 'card', 'cardType', 'cvv', 'companion'],
     '観光ガイドサービス': ['guideCourse', 'guideArea', 'guideSpots', 'guideNotes'],
-    'ホテル予約代行サービス': ['hotelDatetime', 'hotelArea', 'hotelBudget', 'hotelAdultMale', 'hotelAdultFemale', 'hotelChildMale', 'hotelChildFemale', 'hotelRequest', 'hotelProposal1', 'hotelProposal2'],
-    '飲食店予約代行サービス': ['diningDatetime', 'diningPeople', 'diningBudget', 'diningGenre', 'diningRequest'],
-    '体験アクティビティ代行サービス': ['activityDatetime', 'activityType', 'activityRequest'],
-    'トランク預かりサービス': ['luggageDatetime', 'luggageCount', 'luggageNotes']
+    'ホテル予約代行サービス': ['hotelDate', 'hotelArea', 'hotelBudget', 'hotelAdults', 'hotelChildren', 'hotelRequest', 'hotelProposal1', 'hotelProposal2'],
+    '飲食店予約代行サービス': ['diningDate', 'diningAdults', 'diningChildren', 'diningBudget', 'diningGenre', 'diningRequest'],
+    '体験アクティビティ代行サービス': ['activityDatetime', 'activityAdults', 'activityChildren', 'activityType', 'activityRequest'],
+    'トランク預かりサービス': ['luggageDate', 'luggageCount', 'luggageNotes']
   };
 
   // 確認ボタンのクリック
@@ -154,15 +155,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ホテル予約代行
-    const hotelDatetime = form.elements['hotelDatetime']?.value;
-    if (hotelDatetime) {
+    const hotelDate = form.elements['hotelDate']?.value;
+    if (hotelDate) {
       breakdown.push({ name: 'ホテル予約代行', price: pricingTable.reservation.basic });
       total += pricingTable.reservation.basic;
     }
 
     // 飲食店予約代行
-    const diningDatetime = form.elements['diningDatetime']?.value;
-    if (diningDatetime) {
+    const diningDate = form.elements['diningDate']?.value;
+    if (diningDate) {
       breakdown.push({ name: '飲食店予約代行', price: pricingTable.reservation.basic });
       total += pricingTable.reservation.basic;
     }
@@ -190,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let urgentCount = 0;
     
     // 各サービスの日時をチェック
-    const datetimeFields = ['hotelDatetime', 'diningDatetime', 'activityDatetime', 'luggageDatetime'];
+    const datetimeFields = ['hotelDate', 'diningDate', 'activityDatetime', 'luggageDate'];
     datetimeFields.forEach(fieldName => {
       const datetime = form.elements[fieldName]?.value;
       if (datetime) {

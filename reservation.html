@@ -388,8 +388,8 @@
                         <p class="reservation-form__description">ご希望の宿泊条件を入力ください。空室状況を確認のうえ、手配可否をご連絡します。</p>
                         <div class="reservation-form__grid">
                             <div class="reservation-form__field">
-                                <label for="hotel-datetime" class="reservation-form__label">予約日時</label>
-                                <input type="datetime-local" id="hotel-datetime" name="hotelDatetime"
+                                <label for="hotel-date" class="reservation-form__label">予約日</label>
+                                <input type="date" id="hotel-date" name="hotelDate"
                                     class="reservation-form__input">
                             </div>
                             <div class="reservation-form__field">
@@ -419,26 +419,16 @@
                             </div>
                         </div>
                         <div class="reservation-form__field reservation-form__field--full">
-                            <p class="reservation-form__label">人数（大人 / 子供）</p>
-                            <div class="reservation-form__inline-grid">
-                                <label for="hotel-adult-male" class="reservation-form__inline-field">
-                                    <span>大人 男性</span>
-                                    <input type="number" id="hotel-adult-male" name="hotelAdultMale"
+                            <p class="reservation-form__label">人数</p>
+                            <div class="reservation-form__inline-grid reservation-form__inline-grid--simple">
+                                <label for="hotel-adults" class="reservation-form__inline-field">
+                                    <span>大人</span>
+                                    <input type="number" id="hotel-adults" name="hotelAdults"
                                         class="reservation-form__input" min="0" value="0">
                                 </label>
-                                <label for="hotel-adult-female" class="reservation-form__inline-field">
-                                    <span>大人 女性</span>
-                                    <input type="number" id="hotel-adult-female" name="hotelAdultFemale"
-                                        class="reservation-form__input" min="0" value="0">
-                                </label>
-                                <label for="hotel-child-male" class="reservation-form__inline-field">
-                                    <span>子供 男子</span>
-                                    <input type="number" id="hotel-child-male" name="hotelChildMale"
-                                        class="reservation-form__input" min="0" value="0">
-                                </label>
-                                <label for="hotel-child-female" class="reservation-form__inline-field">
-                                    <span>子供 女子</span>
-                                    <input type="number" id="hotel-child-female" name="hotelChildFemale"
+                                <label for="hotel-children" class="reservation-form__inline-field">
+                                    <span>子供</span>
+                                    <input type="number" id="hotel-children" name="hotelChildren"
                                         class="reservation-form__input" min="0" value="0">
                                 </label>
                             </div>
@@ -487,8 +477,8 @@
                         <p class="reservation-form__description">ご希望の日時・人数・ご予算をお知らせください。条件に合う店舗をご提案します。</p>
                         <div class="reservation-form__grid">
                             <div class="reservation-form__field">
-                                <label for="dining-datetime" class="reservation-form__label">予約日時</label>
-                                <input type="datetime-local" id="dining-datetime" name="diningDatetime"
+                                <label for="dining-date" class="reservation-form__label">予約日</label>
+                                <input type="date" id="dining-date" name="diningDate"
                                     class="reservation-form__input">
                             </div>
                             <div class="reservation-form__field">
@@ -536,26 +526,16 @@
                             </div>
                         </div>
                         <div class="reservation-form__field reservation-form__field--full">
-                            <p class="reservation-form__label">人数（大人 / 子供）</p>
-                            <div class="reservation-form__inline-grid">
-                                <label for="dining-adult-male" class="reservation-form__inline-field">
-                                    <span>大人 男性</span>
-                                    <input type="number" id="dining-adult-male" name="diningAdultMale"
+                            <p class="reservation-form__label">人数</p>
+                            <div class="reservation-form__inline-grid reservation-form__inline-grid--simple">
+                                <label for="dining-adults" class="reservation-form__inline-field">
+                                    <span>大人</span>
+                                    <input type="number" id="dining-adults" name="diningAdults"
                                         class="reservation-form__input" min="0" value="0">
                                 </label>
-                                <label for="dining-adult-female" class="reservation-form__inline-field">
-                                    <span>大人 女性</span>
-                                    <input type="number" id="dining-adult-female" name="diningAdultFemale"
-                                        class="reservation-form__input" min="0" value="0">
-                                </label>
-                                <label for="dining-child-male" class="reservation-form__inline-field">
-                                    <span>子供 男子</span>
-                                    <input type="number" id="dining-child-male" name="diningChildMale"
-                                        class="reservation-form__input" min="0" value="0">
-                                </label>
-                                <label for="dining-child-female" class="reservation-form__inline-field">
-                                    <span>子供 女子</span>
-                                    <input type="number" id="dining-child-female" name="diningChildFemale"
+                                <label for="dining-children" class="reservation-form__inline-field">
+                                    <span>子供</span>
+                                    <input type="number" id="dining-children" name="diningChildren"
                                         class="reservation-form__input" min="0" value="0">
                                 </label>
                             </div>
@@ -622,26 +602,16 @@
                             </div>
                         </div>
                         <div class="reservation-form__field reservation-form__field--full">
-                            <p class="reservation-form__label">人数（大人 / 子供）</p>
-                            <div class="reservation-form__inline-grid">
-                                <label for="activity-adult-male" class="reservation-form__inline-field">
-                                    <span>大人 男性</span>
-                                    <input type="number" id="activity-adult-male" name="activityAdultMale"
+                            <p class="reservation-form__label">人数</p>
+                            <div class="reservation-form__inline-grid reservation-form__inline-grid--simple">
+                                <label for="activity-adults" class="reservation-form__inline-field">
+                                    <span>大人</span>
+                                    <input type="number" id="activity-adults" name="activityAdults"
                                         class="reservation-form__input" min="0" value="0">
                                 </label>
-                                <label for="activity-adult-female" class="reservation-form__inline-field">
-                                    <span>大人 女性</span>
-                                    <input type="number" id="activity-adult-female" name="activityAdultFemale"
-                                        class="reservation-form__input" min="0" value="0">
-                                </label>
-                                <label for="activity-child-male" class="reservation-form__inline-field">
-                                    <span>子供 男子</span>
-                                    <input type="number" id="activity-child-male" name="activityChildMale"
-                                        class="reservation-form__input" min="0" value="0">
-                                </label>
-                                <label for="activity-child-female" class="reservation-form__inline-field">
-                                    <span>子供 女子</span>
-                                    <input type="number" id="activity-child-female" name="activityChildFemale"
+                                <label for="activity-children" class="reservation-form__inline-field">
+                                    <span>子供</span>
+                                    <input type="number" id="activity-children" name="activityChildren"
                                         class="reservation-form__input" min="0" value="0">
                                 </label>
                             </div>
@@ -663,8 +633,8 @@
                         <p class="reservation-form__description">大きなお荷物も安心してお預けください。お預かり数や日時をご入力ください。</p>
                         <div class="reservation-form__grid">
                             <div class="reservation-form__field">
-                                <label for="luggage-datetime" class="reservation-form__label">予約日時</label>
-                                <input type="datetime-local" id="luggage-datetime" name="luggageDatetime"
+                                <label for="luggage-date" class="reservation-form__label">予約日</label>
+                                <input type="date" id="luggage-date" name="luggageDate"
                                     class="reservation-form__input">
                             </div>
                             <div class="reservation-form__field">
@@ -718,7 +688,7 @@
                 <h2 class="reservation-modal__title">ご予約を承りました</h2>
                 <p class="reservation-modal__message">
                     この度はYOKOHAMA Conciergeをご利用いただき、誠にありがとうございます。<br>
-                    ご入力いただいた内容を確認し、担当者より2営業日以内にご連絡させていただきます。<br><br>
+                    ご入力いただいた内容を確認後、すぐに担当者からご連絡させていただきます。<br><br>
                     ご登録のメールアドレス宛に受付完了メールをお送りしておりますので、ご確認ください。
                 </p>
                 <button type="button" class="btn btn--blue btn--md reservation-modal__close">閉じる</button>
