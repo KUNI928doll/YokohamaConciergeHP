@@ -214,9 +214,25 @@
                 </ul>
             </nav>
         </div>
+        <div class="search-area search-area--service">
+            <form action="search.html" method="get" class="search-area__form">
+                <input type="text" name="q" class="search-area__input" placeholder="サイト内検索">
+                <button type="submit" class="search-area__btn" aria-label="検索">
+                    <img src="./images/icon-search.png" alt="検索アイコン">
+                </button>
+            </form>
+
+            <div class="search-area__links">
+                <a href="#" class="search-area__link search-area__link--map">MAPで探す</a>
+            </div>
+        </div>
+
 
     <main>
         <section class="sub-hero sub-hero--reservation">
+            <div class="sub-hero__decoration">
+                <img src="./images/sub-hero__decoration.png" alt="" aria-hidden="true">
+            </div>
             <div class="sub-hero__inner inner">
                 <h1 class="sub-hero__title">ご予約フォーム</h1>
                 <p class="sub-hero__lead">観光ガイドから各種予約代行、体験アクティビティ、トランクお預かりまで、必要な項目をご入力ください。担当者が内容を確認のうえ、折り返しご連絡いたします。
@@ -432,13 +448,36 @@
                             <textarea id="hotel-request" name="hotelRequest" class="reservation-form__textarea" rows="4"
                                 placeholder="部屋タイプ、ベッド数、送迎希望など"></textarea>
                         </div>
-                        <div class="reservation-form__field reservation-form__field--full">
+                                                <div class="reservation-form__field reservation-form__field--full">
                             <p class="reservation-form__label">ハマナビからの提案</p>
+                            <div class="reservation-form__shop-selector">
+                                <button type="button" class="btn btn--outline btn--sm" id="selectHotelBtn">
+                                    <i class="fas fa-hotel"></i> ホテルから選ぶ
+                                </button>
+                            </div>
                             <div class="reservation-form__proposal-grid">
-                                <textarea id="hotel-proposal-1" name="hotelProposal1" class="reservation-form__textarea"
-                                    rows="3" placeholder="提案内容（1）"></textarea>
-                                <textarea id="hotel-proposal-2" name="hotelProposal2" class="reservation-form__textarea"
-                                    rows="3" placeholder="提案内容（2）"></textarea>
+                                <div class="reservation-form__proposal-item">
+                                    <label for="hotel-proposal-1" class="reservation-form__proposal-label">
+                                        提案（1）
+                                        <button type="button" class="reservation-form__clear-btn" data-target="hotel-proposal-1" title="クリア">
+                                            <i class="fas fa-times-circle"></i>
+                                        </button>
+                                    </label>
+                                    <textarea id="hotel-proposal-1" name="hotelProposal1" class="reservation-form__textarea"
+                                        rows="4" placeholder="ホテルを選択するか、直接入力してください" readonly></textarea>
+                                    <input type="hidden" id="hotel-proposal-1-id" name="hotelProposal1Id">
+                                </div>
+                                <div class="reservation-form__proposal-item">
+                                    <label for="hotel-proposal-2" class="reservation-form__proposal-label">
+                                        提案（2）
+                                        <button type="button" class="reservation-form__clear-btn" data-target="hotel-proposal-2" title="クリア">
+                                            <i class="fas fa-times-circle"></i>
+                                        </button>
+                                    </label>
+                                    <textarea id="hotel-proposal-2" name="hotelProposal2" class="reservation-form__textarea"
+                                        rows="4" placeholder="ホテルを選択するか、直接入力してください" readonly></textarea>
+                                    <input type="hidden" id="hotel-proposal-2-id" name="hotelProposal2Id">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -528,11 +567,34 @@
                         </div>
                         <div class="reservation-form__field reservation-form__field--full">
                             <p class="reservation-form__label">ハマナビからの提案</p>
+                            <div class="reservation-form__shop-selector">
+                                <button type="button" class="btn btn--outline btn--sm" id="selectRestaurantBtn">
+                                    <i class="fas fa-utensils"></i> レストランから選ぶ
+                                </button>
+                            </div>
                             <div class="reservation-form__proposal-grid">
-                                <textarea id="dining-proposal-1" name="diningProposal1"
-                                    class="reservation-form__textarea" rows="3" placeholder="提案内容（1）"></textarea>
-                                <textarea id="dining-proposal-2" name="diningProposal2"
-                                    class="reservation-form__textarea" rows="3" placeholder="提案内容（2）"></textarea>
+                                <div class="reservation-form__proposal-item">
+                                    <label for="dining-proposal-1" class="reservation-form__proposal-label">
+                                        提案（1）
+                                        <button type="button" class="reservation-form__clear-btn" data-target="dining-proposal-1" title="クリア">
+                                            <i class="fas fa-times-circle"></i>
+                                        </button>
+                                    </label>
+                                    <textarea id="dining-proposal-1" name="diningProposal1"
+                                        class="reservation-form__textarea" rows="4" placeholder="レストランを選択するか、直接入力してください" readonly></textarea>
+                                    <input type="hidden" id="dining-proposal-1-id" name="diningProposal1Id">
+                                </div>
+                                <div class="reservation-form__proposal-item">
+                                    <label for="dining-proposal-2" class="reservation-form__proposal-label">
+                                        提案（2）
+                                        <button type="button" class="reservation-form__clear-btn" data-target="dining-proposal-2" title="クリア">
+                                            <i class="fas fa-times-circle"></i>
+                                        </button>
+                                    </label>
+                                    <textarea id="dining-proposal-2" name="diningProposal2"
+                                        class="reservation-form__textarea" rows="4" placeholder="レストランを選択するか、直接入力してください" readonly></textarea>
+                                    <input type="hidden" id="dining-proposal-2-id" name="diningProposal2Id">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -662,6 +724,25 @@
                 <button type="button" class="btn btn--blue btn--md reservation-modal__close">閉じる</button>
             </div>
         </div>
+
+        <!-- お店選択モーダル -->
+        <div id="shopSelectModal" class="shop-select-modal" style="display: none;">
+            <div class="shop-select-modal__overlay"></div>
+            <div class="shop-select-modal__content">
+                <div class="shop-select-modal__header">
+                    <h3 class="shop-select-modal__title" id="shopModalTitle">お店を選択</h3>
+                    <button type="button" class="shop-select-modal__close-btn" aria-label="閉じる">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="shop-select-modal__search">
+                    <input type="text" id="shopSearch" class="shop-select-modal__search-input" placeholder="お店を検索...">
+                </div>
+                <div class="shop-select-modal__body" id="shopList">
+                    <!-- JavaScriptで動的に生成 -->
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="footer">
@@ -732,6 +813,7 @@
     <script src="./js/header.js"></script>
     <script src="./js/accordion.js"></script>
     <script src="./js/pagetop.js"></script>
+    <script src="./js/shop-selector.js"></script>
     <script src="./js/reservation.js"></script>
 </body>
 

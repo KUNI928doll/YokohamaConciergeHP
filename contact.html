@@ -277,7 +277,7 @@
                                 <input type="email" id="contact-email" name="email" class="inquiry-form__input" placeholder="info@example.com" required>
                             </div>
                             <div class="inquiry-form__field">
-                                <label for="contact-tel" class="inquiry-form__label">電話番号</label>
+                                <label for="contact-tel" class="inquiry-form__label">電話番号<span class="inquiry-form__required">必須</span></label>
                                 <input type="tel" id="contact-tel" name="tel" class="inquiry-form__input" placeholder="090-1234-5678">
                                 <p class="inquiry-form__note">お急ぎの場合や予約希望の際はご入力ください</p>
                             </div>
@@ -292,7 +292,7 @@
                             <p class="inquiry-form__label">お問い合わせ種別<span class="inquiry-form__required">必須</span></p>
                             <div class="inquiry-form__checkboxes">
                                 <label class="inquiry-form__checkbox">
-                                    <input type="checkbox" name="type[]" value="reservation" required>
+                                    <input type="checkbox" name="type[]" value="reservation">
                                     <span>予約について</span>
                                 </label>
                                 <label class="inquiry-form__checkbox">
@@ -452,6 +452,7 @@
     <script src="./js/header.js"></script>
     <script src="./js/accordion.js"></script>
     <script src="./js/pagetop.js"></script>
+    <script src="./js/contact.js"></script>
     <script src="./js/inquiry.js"></script>
 </body>
 
