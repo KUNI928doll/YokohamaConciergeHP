@@ -14,6 +14,33 @@ document.addEventListener('DOMContentLoaded', function() {
 
   if (!form || !confirmModal || !completeModal) return;
 
+  // 料金テーブル
+  const pricingTable = {
+    // 観光ガイドサービス
+    guide: {
+      half: {
+        audioOnly: 12000,
+        withTranslation: 20000
+      },
+      full: {
+        audioOnly: 22000,
+        withTranslation: 30000
+      },
+      urgentFee: 1000, // 前日・当日予約
+      additionalPerson: 1000 // 3人目以降 1人あたり
+    },
+    // 予約代行サービス
+    reservation: {
+      basic: 2200, // 基本料金
+      urgentFee: 1000 // 前日・当日予約
+    },
+    // トランク預かりサービス
+    luggage: {
+      perDay: 1800, // 1日1個あたり
+      urgentFee: 1000 // 前日・当日予約
+    }
+  };
+
   // フィールドラベルのマッピング
   const fieldLabels = {
     'name': 'お名前',
@@ -98,6 +125,91 @@ document.addEventListener('DOMContentLoaded', function() {
     showConfirmModal();
   });
 
+  // 見積もり計算関数
+  function calculateEstimate() {
+    let total = 0;
+    let breakdown = [];
+
+    // 観光ガイドサービス
+    const guideCourse = form.elements['guideCourse']?.value;
+    if (guideCourse) {
+      const guideNotes = form.elements['guideNotes']?.value || '';
+      const hasTranslation = guideNotes.toLowerCase().includes('通訳') || guideNotes.includes('翻訳');
+      
+      let guidePrice = 0;
+      let guideName = '';
+      
+      if (guideCourse === 'half') {
+        guidePrice = hasTranslation ? pricingTable.guide.half.withTranslation : pricingTable.guide.half.audioOnly;
+        guideName = `観光ガイド 半日コース（${hasTranslation ? '通訳付き' : '音声ガイド'}）`;
+      } else if (guideCourse === 'full') {
+        guidePrice = hasTranslation ? pricingTable.guide.full.withTranslation : pricingTable.guide.full.audioOnly;
+        guideName = `観光ガイド 1日コース（${hasTranslation ? '通訳付き' : '音声ガイド'}）`;
+      }
+      
+      if (guidePrice > 0) {
+        breakdown.push({ name: guideName, price: guidePrice });
+        total += guidePrice;
+      }
+    }
+
+    // ホテル予約代行
+    const hotelDatetime = form.elements['hotelDatetime']?.value;
+    if (hotelDatetime) {
+      breakdown.push({ name: 'ホテル予約代行', price: pricingTable.reservation.basic });
+      total += pricingTable.reservation.basic;
+    }
+
+    // 飲食店予約代行
+    const diningDatetime = form.elements['diningDatetime']?.value;
+    if (diningDatetime) {
+      breakdown.push({ name: '飲食店予約代行', price: pricingTable.reservation.basic });
+      total += pricingTable.reservation.basic;
+    }
+
+    // 体験アクティビティ予約代行
+    const activityDatetime = form.elements['activityDatetime']?.value;
+    if (activityDatetime) {
+      breakdown.push({ name: '体験アクティビティ予約代行', price: pricingTable.reservation.basic });
+      total += pricingTable.reservation.basic;
+    }
+
+    // トランク預かり
+    const luggageCount = parseInt(form.elements['luggageCount']?.value) || 0;
+    if (luggageCount > 0) {
+      const luggagePrice = pricingTable.luggage.perDay * luggageCount;
+      breakdown.push({ name: `トランク預かり（${luggageCount}個 × 1日）`, price: luggagePrice });
+      total += luggagePrice;
+    }
+
+    // 緊急予約料金のチェック（前日・当日予約）
+    const now = new Date();
+    const tomorrow = new Date(now);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    
+    let urgentCount = 0;
+    
+    // 各サービスの日時をチェック
+    const datetimeFields = ['hotelDatetime', 'diningDatetime', 'activityDatetime', 'luggageDatetime'];
+    datetimeFields.forEach(fieldName => {
+      const datetime = form.elements[fieldName]?.value;
+      if (datetime) {
+        const reservationDate = new Date(datetime);
+        if (reservationDate <= tomorrow) {
+          urgentCount++;
+        }
+      }
+    });
+
+    if (urgentCount > 0) {
+      const urgentFee = 1000 * urgentCount;
+      breakdown.push({ name: `前日・当日予約料金（${urgentCount}件）`, price: urgentFee });
+      total += urgentFee;
+    }
+
+    return { total, breakdown };
+  }
+
   // 確認画面の内容を生成
   function generateConfirmContent() {
     let html = '';
@@ -151,6 +263,44 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
       }
     });
+
+    // 見積もりセクションを追加
+    const estimate = calculateEstimate();
+    if (estimate.breakdown.length > 0) {
+      let estimateHtml = `
+        <div class="reservation-confirm__section reservation-confirm__section--estimate">
+          <h3 class="reservation-confirm__section-title">概算見積もり</h3>
+          <div class="reservation-estimate">
+            <div class="reservation-estimate__note">
+              ※こちらは当サービスの手数料のみの概算です。実際の宿泊料金・飲食代・体験料金・交通費などは含まれておりません。
+            </div>
+            <div class="reservation-estimate__breakdown">
+      `;
+
+      estimate.breakdown.forEach(item => {
+        estimateHtml += `
+          <div class="reservation-estimate__item">
+            <span class="reservation-estimate__name">${item.name}</span>
+            <span class="reservation-estimate__price">¥${item.price.toLocaleString()}</span>
+          </div>
+        `;
+      });
+
+      estimateHtml += `
+            </div>
+            <div class="reservation-estimate__total">
+              <span class="reservation-estimate__total-label">合計（税込）</span>
+              <span class="reservation-estimate__total-price">¥${estimate.total.toLocaleString()}</span>
+            </div>
+            <div class="reservation-estimate__footer">
+              ※最終的な料金は、ご予約内容確定後に改めてご案内いたします。
+            </div>
+          </div>
+        </div>
+      `;
+
+      html += estimateHtml;
+    }
 
     confirmContent.innerHTML = html;
   }

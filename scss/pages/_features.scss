@@ -248,9 +248,9 @@
   position: relative;
   background: #fff;
   border-radius: 30px;
-  max-width: 500px;
+  max-width: 342px;
   width: 90%;
-  padding: 50px 30px 80px;
+  padding: 29px 32px 63px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
   transform: scale(0.9);
   transition: transform 0.3s ease;
@@ -258,8 +258,8 @@
   border: 3px solid var(--color-main);
 
   @include mq($until: sp-large) {
-    padding: 50px 25px 70px;
-    max-width: 85%;
+    padding: 40px 25px;
+    max-width: 60%;
     border-radius: 25px;
   }
 
@@ -274,8 +274,8 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   background: #fff;
   border: 2px solid var(--color-main);
   border-radius: 50%;
@@ -288,6 +288,7 @@
   font-size: 2rem;
   color: var(--color-main);
   font-weight: bold;
+  margin-inline: -20px;
 
   @include mq($until: sp-large) {
     width: 40px;
@@ -344,16 +345,56 @@
   }
 }
 
+.features-modal__label-wrapper {
+  position: absolute;
+  top: 65px;
+  left: 58%;
+  transform: translateX(-50%);
+  z-index: 1002;
+
+  @include mq($until: sp-large) {
+    top: -60px;
+  }
+}
+
+.features-modal__label-bg {
+  aspect-ratio: 276 /203;
+  width: 50%;
+  height: auto;
+  display: block;
+  margin-left: 20px;
+
+  @include mq($until: sp-large) {
+    width: 50%;
+  }
+}
+
+.features-modal__label-text {
+  position: absolute;
+  top:50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  color: var(--color-main);
+  font-size: 1.6rem;
+  font-weight: 700;
+  white-space: nowrap;
+  font-family: var(--font-sub);
+
+  @include mq($until: sp-large) {
+    font-size: 1.4rem;
+  }
+}
+
 .features-modal__close {
   position: absolute;
-  bottom: -60px;
+  bottom: -100px;
   left: 50%;
   transform: translateX(-50%);
-  background: transparent;
-  color: #fff;
-  border: 2px solid #fff;
+  background: #fff;
+  color: var(--color-main);
+  border: 2px solid var(--color-main);
   border-radius: 30px;
-  padding: 8px 24px;
+  padding: 17px 34px;
   font-size: 1.4rem;
   font-weight: 600;
   cursor: pointer;
@@ -397,6 +438,19 @@
   margin: 0 auto 20px;
 
   @include mq($until: sp-large) {
+    margin-bottom: 15px;
+  }
+}
+
+.features-modal__image {
+  width: 100%;
+  max-width: 65px;
+  height: auto;
+  margin: 0 auto 20px;
+  display: block;
+
+  @include mq($until: sp-large) {
+    max-width: 150px;
     margin-bottom: 15px;
   }
 }
