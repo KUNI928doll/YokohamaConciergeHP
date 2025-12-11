@@ -107,7 +107,7 @@
     }
 
     @include mq($until: sp-large) {
-      padding-bottom: 70px;
+   
     }
   }
 
@@ -331,7 +331,7 @@
   animation: seagull-fly 8s ease-in-out infinite alternate;
 
   @include mq($until: sp-large) {
-    top: 10%;
+    top: 60%;
     right: 10%;
     width: clamp(40px, 15vw, 60px);
   }
@@ -372,7 +372,7 @@
   }
   @include mq($until: sp-large) {
     top: 41%;
-    left: 134px;
+    left: 85px;
     transform: translateX(-50%);
     width: clamp(160px, 50vw, 220px);
     animation: none;

@@ -298,6 +298,23 @@
 
     @include mq($until: sp-large) {
       grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+
+  .service-detail__item {
+    display: block;
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-4px);
+      
+      .service-detail__arrow-btn {
+        background: #2c7db3;
+      }
     }
   }
 
@@ -313,8 +330,9 @@
     text-align: center;
     transition: 0.3s;
 
-    &:hover {
-      transform: translateY(-4px);
+    @include mq($until: sp-large) {
+      padding: 24px 20px 36px 20px;
+      border-radius: 12px 12px 48px 12px;
     }
 
     // 💡 右下の「くり抜き風」の疑似要素
@@ -325,9 +343,15 @@
       right: 0;
       width: 60px; // くり抜きの直径
       height: 60px;
-      background: #fff; // 背景色で“くり抜き”に見せる
+      background: #fff; // 背景色で"くり抜き"に見せる
       border-top-left-radius: 60px; // 丸くくり抜く
       z-index: 1;
+
+      @include mq($until: sp-large) {
+        width: 48px;
+        height: 48px;
+        border-top-left-radius: 48px;
+      }
     }
   }
 
@@ -347,6 +371,11 @@
     width: 120px;
     max-width: 100%;
     margin: 24px auto 16px;
+
+    @include mq($until: sp-large) {
+      width: 80px;
+      margin: 16px auto 12px;
+    }
   }
 
   .service-detail__title {
@@ -355,6 +384,11 @@
     color: var(--color-main, #0D3D90);
     margin-bottom: 16px;
     font-family: var(--font-sub);
+
+    @include mq($until: sp-large) {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
   }
 
   .service-detail__text {
@@ -366,6 +400,12 @@
 
     @include mq($until: mid-pc) {
       text-align: center;
+    }
+
+    @include mq($until: sp-large) {
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 20px;
     }
   }
 
@@ -394,8 +434,8 @@
   }
 
   .service-detail__arrow-btn {
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
     background: #4096CC;
     border-radius: 50%;
     position: relative;

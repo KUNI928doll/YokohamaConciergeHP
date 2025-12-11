@@ -409,20 +409,44 @@
 
                     <!-- 4つの特徴 -->
                     <div class="features__circles js-fade-up">
-                        <div class="features__circle">
+                        <div class="features__circle" data-feature="1">
                             <span class="features__circle-text">ネットで簡単<br>一括手配</span>
                         </div>
-                        <div class="features__circle">
+                        <div class="features__circle" data-feature="2">
                             <span class="features__circle-text">当日や緊急時も<br>対応可能</span>
                         </div>
-                        <div class="features__circle">
+                        <div class="features__circle" data-feature="3">
                             <span class="features__circle-text">文化や色の<br>希望に対応</span>
                         </div>
-                        <div class="features__circle">
+                        <div class="features__circle" data-feature="4">
                             <span class="features__circle-text">お得でシンプルな<br>料金体系</span>
                         </div>
                     </div>
+                </div>
+            </div>
 
+            <!-- ポップアップモーダル -->
+            <div class="features-modal" id="featuresModal">
+                <div class="features-modal__overlay"></div>
+                <div class="features-modal__content">
+                    <!-- 前へボタン -->
+                    <button class="features-modal__prev" aria-label="前へ">
+                        <span>&lt;</span>
+                    </button>
+                    
+                    <!-- 次へボタン -->
+                    <button class="features-modal__next" aria-label="次へ">
+                        <span>&gt;</span>
+                    </button>
+                    
+                    <div class="features-modal__body">
+                        <div class="features-modal__label">ラクラク！</div>
+                        <h3 class="features-modal__title"></h3>
+                        <div class="features-modal__divider"></div>
+                        <p class="features-modal__text"></p>
+                    </div>
+                    
+                    <button class="features-modal__close" aria-label="閉じる">× CLOSE</button>
                 </div>
             </div>
         </section>
@@ -483,7 +507,7 @@
                 <div class="service-detail__cards">
 
                     <!-- カード① -->
-                    <div id="service-reserve" class="service-detail__item js-fade-up">
+                    <a href="service-reserve.html" id="service-reserve" class="service-detail__item js-fade-up">
                         <div class="service-detail__card">
                             <div class="service-detail__corner"></div>
                             <div class="service-detail__icon">
@@ -496,12 +520,12 @@
                             </p>
                         </div>
                         <div class="service-detail__arrow">
-                            <a href="service-reserve.html" class="service-detail__arrow-btn" aria-label="詳細を見る"></a>
+                            <span class="service-detail__arrow-btn" aria-label="詳細を見る"></span>
                         </div>
-                    </div>
+                    </a>
 
                     <!-- カード② -->
-                    <div id="service-storage" class="service-detail__item js-fade-up">
+                    <a href="service-storage.html" id="service-storage" class="service-detail__item js-fade-up">
                         <div class="service-detail__card">
                             <div class="service-detail__corner"></div>
                             <div class="service-detail__icon">
@@ -513,12 +537,12 @@
                             </p>
                         </div>
                         <div class="service-detail__arrow">
-                            <a href="service-storage.html" class="service-detail__arrow-btn" aria-label="詳細を見る"></a>
+                            <span class="service-detail__arrow-btn" aria-label="詳細を見る"></span>
                         </div>
-                    </div>
+                    </a>
 
                     <!-- カード③ -->
-                    <div id="service-guide" class="service-detail__item js-fade-up">
+                    <a href="service-tour-guide.html" id="service-guide" class="service-detail__item js-fade-up">
                         <div class="service-detail__card">
                             <div class="service-detail__corner"></div>
                             <div class="service-detail__icon">
@@ -530,9 +554,9 @@
                             </p>
                         </div>
                         <div class="service-detail__arrow js-fade-up">
-                            <a href="service-tour-guide.html" class="service-detail__arrow-btn" aria-label="詳細を見る"></a>
+                            <span class="service-detail__arrow-btn" aria-label="詳細を見る"></span>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -1028,6 +1052,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="./js/news.js?v=9"></script>
     <script src="./js/pagetop.js"></script>
+    <script src="./js/features-modal.js"></script>
 
 </body>
 

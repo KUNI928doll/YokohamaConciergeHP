@@ -54,7 +54,8 @@
   }
 
   .features__wrap{
-    background-color: #F2F6F6;
+    background-color: rgba(242, 246, 246, 0.85);
+    backdrop-filter: blur(5px);
     padding-block: 100px;
   }
 
@@ -132,10 +133,15 @@
   padding: 15px;
   box-shadow: 0 4px 15px rgba(13, 61, 144, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(13, 61, 144, 0.4);
+  }
+
+  &:active {
+    transform: translateY(-3px);
   }
 }
 
@@ -150,5 +156,260 @@
 
   @include mq($until: sp-large) {
     font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+  }
+}
+
+// 吹き出し
+.features__speech {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 60px;
+  
+  @include mq($until: sp-large) {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 40px;
+  }
+}
+
+.features__speech-bubble {
+  position: relative;
+  width: clamp(200px, 25vw, 300px);
+  
+  @include mq($until: sp-large) {
+    width: clamp(180px, 60vw, 250px);
+  }
+}
+
+.features__speech-bg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.features__speech-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--color-main);
+  font-size: clamp(1.2rem, 1.5vw, 1.6rem);
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.6;
+  width: 80%;
+  font-family: var(--font-sub);
+}
+
+.features__speech-character {
+  width: clamp(100px, 12vw, 150px);
+  height: auto;
+  animation: character-float 4s ease-in-out infinite;
+  
+  @include mq($until: sp-large) {
+    width: clamp(80px, 25vw, 120px);
+  }
+}
+
+// モーダル
+.features-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  &.is-active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+  }
+}
+
+.features-modal__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+}
+
+.features-modal__content {
+  position: relative;
+  background: #fff;
+  border-radius: 30px;
+  max-width: 500px;
+  width: 90%;
+  padding: 50px 30px 80px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+  z-index: 1001;
+  border: 3px solid var(--color-main);
+
+  @include mq($until: sp-large) {
+    padding: 50px 25px 70px;
+    max-width: 85%;
+    border-radius: 25px;
+  }
+
+  .features-modal.is-active & {
+    transform: scale(1);
+  }
+}
+
+// 前へ・次へボタン
+.features-modal__prev,
+.features-modal__next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: #fff;
+  border: 2px solid var(--color-main);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  font-size: 2rem;
+  color: var(--color-main);
+  font-weight: bold;
+
+  @include mq($until: sp-large) {
+    width: 40px;
+    height: 40px;
+    font-size: 1.6rem;
+  }
+
+  &:hover {
+    background: var(--color-main);
+    color: #fff;
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  span {
+    line-height: 1;
+  }
+}
+
+.features-modal__prev {
+  left: -70px;
+
+  @include mq($until: sp-large) {
+    left: -50px;
+  }
+}
+
+.features-modal__next {
+  right: -70px;
+
+  @include mq($until: sp-large) {
+    right: -50px;
+  }
+}
+
+.features-modal__body {
+  text-align: center;
+}
+
+.features-modal__label {
+  display: inline-block;
+  background: var(--color-main);
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 700;
+  padding: 8px 24px;
+  border-radius: 25px;
+  margin-bottom: 20px;
+  font-family: var(--font-sub);
+
+  @include mq($until: sp-large) {
+    font-size: 1.4rem;
+    padding: 6px 20px;
+    margin-bottom: 15px;
+  }
+}
+
+.features-modal__close {
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 30px;
+  padding: 8px 24px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  transition: all 0.3s ease;
+  font-family: var(--font-sub);
+
+  &:hover {
+    background: #fff;
+    color: var(--color-main);
+  }
+
+  @include mq($until: sp-large) {
+    bottom: -50px;
+    font-size: 1.3rem;
+    padding: 6px 20px;
+  }
+}
+
+.features-modal__title {
+  color: var(--color-main);
+  font-size: clamp(1.8rem, 3vw, 2.2rem);
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: var(--font-sub);
+  line-height: 1.4;
+
+  @include mq($until: sp-large) {
+    margin-bottom: 15px;
+  }
+}
+
+.features-modal__divider {
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--color-main), transparent);
+  margin: 0 auto 20px;
+
+  @include mq($until: sp-large) {
+    margin-bottom: 15px;
+  }
+}
+
+.features-modal__text {
+  color: #333;
+  font-size: clamp(1.3rem, 2vw, 1.5rem);
+  line-height: 1.9;
+  text-align: left;
+  font-family: var(--font-sub);
+  padding: 0 10px;
+
+  @include mq($until: sp-large) {
+    padding: 0 5px;
   }
 }
