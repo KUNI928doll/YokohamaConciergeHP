@@ -313,29 +313,6 @@
                                 <input type="email" id="reservation-email" name="email" class="reservation-form__input"
                                     placeholder="info@example.com" required>
                             </div>
-                            <div class="reservation-form__field">
-                                <label for="reservation-card" class="reservation-form__label">クレジットカード番号</label>
-                                <input type="text" id="reservation-card" name="cardNumber"
-                                    class="reservation-form__input" inputmode="numeric"
-                                    placeholder="例）1234 5678 9012 3456">
-                                <p class="reservation-form__note">決済が必要な手配時のみ使用します。</p>
-                            </div>
-                            <div class="reservation-form__field">
-                                <label for="reservation-card-type" class="reservation-form__label">カード会社</label>
-                                <select id="reservation-card-type" name="cardType" class="reservation-form__select">
-                                    <option value="" disabled selected>選択してください</option>
-                                    <option value="visa">VISA</option>
-                                    <option value="mastercard">Mastercard</option>
-                                    <option value="amex">American Express</option>
-                                    <option value="jcb">JCB</option>
-                                    <option value="diners">Diners Club</option>
-                                </select>
-                            </div>
-                            <div class="reservation-form__field">
-                                <label for="reservation-cvv" class="reservation-form__label">セキュリティコード</label>
-                                <input type="password" id="reservation-cvv" name="cvv" class="reservation-form__input"
-                                    maxlength="4" inputmode="numeric" placeholder="例）123">
-                            </div>
                         </div>
                         <div class="reservation-form__field reservation-form__field--full">
                             <label for="reservation-companion" class="reservation-form__label">同伴者情報</label>
@@ -576,55 +553,6 @@
                                     <input type="hidden" id="dining-proposal-2-id" name="diningProposal2Id">
                                 </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="reservation-form__section">
-                        <h3 class="reservation-form__legend">体験アクティビティ代行サービス</h3>
-                        <p class="reservation-form__description">横浜ならではの体験をご希望に合わせて手配します。公式サイトで見つけたコースもお気軽にご相談ください。</p>
-                        <div class="reservation-form__grid">
-                            <div class="reservation-form__field">
-                                <label for="activity-datetime" class="reservation-form__label">予約希望日時</label>
-                                <input type="datetime-local" id="activity-datetime" name="activityDatetime"
-                                    class="reservation-form__input">
-                            </div>
-                            <div class="reservation-form__field">
-                                <label for="activity-type" class="reservation-form__label">体験アクティビティ</label>
-                                <select id="activity-type" name="activityType" class="reservation-form__select">
-                                    <option value="" disabled selected>選択してください</option>
-                                    <option value="kimono">着物着付</option>
-                                    <option value="pottery">陶芸教室</option>
-                                    <option value="jinrikisha">人力車</option>
-                                    <option value="sup">SUP体験</option>
-                                    <option value="sky-duck">SKY DUCK</option>
-                                    <option value="marine-rouge">マリーンルージュ</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="reservation-form__field reservation-form__field--full">
-                            <p class="reservation-form__label">人数</p>
-                            <div class="reservation-form__inline-grid reservation-form__inline-grid--simple">
-                                <label for="activity-adults" class="reservation-form__inline-field">
-                                    <span>大人</span>
-                                    <input type="number" id="activity-adults" name="activityAdults"
-                                        class="reservation-form__input" min="0" value="0">
-                                </label>
-                                <label for="activity-children" class="reservation-form__inline-field">
-                                    <span>子供</span>
-                                    <input type="number" id="activity-children" name="activityChildren"
-                                        class="reservation-form__input" min="0" value="0">
-                                </label>
-                            </div>
-                        </div>
-                        <div class="reservation-form__field reservation-form__field--full">
-                            <label for="activity-course" class="reservation-form__label">ホームページで確認したコース</label>
-                            <textarea id="activity-course" name="activityCourse" class="reservation-form__textarea"
-                                rows="3" placeholder="公式サイトで見つけたコース名やURLがあればご入力ください"></textarea>
-                        </div>
-                        <div class="reservation-form__field reservation-form__field--full">
-                            <label for="activity-notes" class="reservation-form__label">その他ご要望事項</label>
-                            <textarea id="activity-notes" name="activityNotes" class="reservation-form__textarea"
-                                rows="4" placeholder="集合場所、送迎の有無、特記事項など"></textarea>
                         </div>
                     </div>
 
