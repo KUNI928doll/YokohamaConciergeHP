@@ -358,7 +358,10 @@
   }
 
   @include mq($until: sp-large) {
-    top:2300px
+    top: 2300px;
+    width: 100%;
+    padding-inline: 16px;
+    height: auto;
   }
 
   .category__shape {
@@ -367,17 +370,37 @@
     height: 556px;
     top: 0;
     left: 0;
+
+    @include mq($until: sp-large) {
+      width: 100%;
+      max-width: 350px;
+      height: auto;
+      aspect-ratio: 651 / 556;
+      left: 0;
+    }
   }
 
   .category__circle {
     padding: 14px 33px 48px 33px;
     width: 290px;
     height: 298px;
+
+    @include mq($until: sp-large) {
+      width: 100%;
+      max-width: 250px;
+      height: auto;
+      padding: 20px 20px 40px 20px;
+    }
   }
 
   .category__text {
     text-align: start;
     width: 224px;
+
+    @include mq($until: sp-large) {
+      width: 100%;
+      font-size: 1.4rem;
+    }
   }
 }
 
@@ -389,15 +412,31 @@
   left: 127px;
   border-radius: 130px 0 0 130px;
   padding-block: 19px 51px;
+  width: auto;
+  max-width: calc(100% - 127px);
 
   @include mq($until: tab) {
     left: 0;
-   }
+    border-radius: 30px;
+    max-width: 100%;
+  }
+
+  @include mq($until: sp-large) {
+    left: 0;
+    border-radius: 30px;
+    max-width: 100%;
+    width: 100%;
+    padding-inline: 16px;
+  }
 }
 
 .container {
   padding: 59px 31px 100px 31px;
   overflow-x: hidden;
+
+  @include mq($until: sp-large) {
+    padding: 30px 16px 60px 16px;
+  }
 
   &::before {
     position: absolute;
@@ -416,6 +455,12 @@
 .flow__title {
   margin-left: 224px;
   color: #0D3063;
+
+  @include mq($until: sp-large) {
+    margin-left: 0;
+    text-align: center;
+    font-size: 1.6rem;
+  }
 }
 
 .slider {
@@ -448,22 +493,40 @@
   background: transparent;
   border: none;
   cursor: pointer;
+
+  @include mq($until: sp-large) {
+    bottom: -50px;
+  }
 }
 
 .prev-arrow {
-  left: 20%;
+  left: 50%;
   transform: translateX(-60px); // 中央から左へずらす
   border-top: 25px solid transparent;
   border-bottom: 25px solid transparent;
   border-right: 25px solid #1D50A2; // 三角
+
+  @include mq($until: sp-large) {
+    transform: translateX(-45px);
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-right: 20px solid #1D50A2;
+  }
 }
 
 .next-arrow {
-  right: 79%;
-  transform: translateX(60px); // 中央から右へずらす
+  left: 50%;
+  transform: translateX(35px); // 中央から右へずらす
   border-top: 25px solid transparent;
   border-bottom: 25px solid transparent;
   border-left: 25px solid #1D50A2; // 三角
+
+  @include mq($until: sp-large) {
+    transform: translateX(25px);
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid #1D50A2;
+  }
 }
 
 button {
@@ -486,6 +549,13 @@ button {
   line-height: calc(28px /16px);
   margin-inline: auto;
 
+  @include mq($until: sp-large) {
+    width: 100%;
+    max-width: 320px;
+    min-height: 250px;
+    background-size: contain;
+  }
+
   p {
     position: absolute;
     top: 90px;
@@ -493,6 +563,13 @@ button {
     left: 55%;
     transform: translateX(-50%);
     text-align: start;
+
+    @include mq($until: sp-large) {
+      width: 70%;
+      top: 70px;
+      font-size: 1.3rem;
+      line-height: 1.6;
+    }
   }
 }
 .play-slider__bubble--width {
