@@ -184,9 +184,12 @@
     width: 58px;
     animation: seagull-fly 8s ease-in-out infinite alternate;
     z-index: 3;
+    @include mq($until:mid-pc){
+      bottom: -7%;
+    }
 
     @include mq($until: sp-large) {
-      bottom: -10%;
+      bottom: -4%;
       right: 20%;
       width: 40px;
     }

@@ -24,13 +24,60 @@
     border: 4px solid #b1c3e0;
     border-radius: 8px;
     padding: 32px;
-    margin-bottom: 128px;
+    margin-bottom: 40px;
 
     @include mq($until: sp-large)  {
       flex-direction: column;
       text-align: center;
       padding: 10px;
-      margin-bottom: 60px;
+      margin-bottom: 30px;
+    }
+  }
+
+  // 動画セクション
+  .influencer__video {
+    margin-bottom: 80px;
+
+    @include mq($until: sp-large) {
+      margin-bottom: 50px;
+    }
+  }
+
+  // YouTube埋め込み用のレスポンシブコンテナ
+  .video-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-bottom: 56.25%; // 16:9のアスペクト比
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+    }
+  }
+
+  // 直接動画ファイルを使用する場合
+  .influencer__video-player {
+    width: 100%;
+    max-width: 600px;
+    height: 40vh;
+    margin: 0 auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+    @include mq($until: sp-large) {
+      max-width: 100%;
+      border-radius: 4px;
     }
   }
 

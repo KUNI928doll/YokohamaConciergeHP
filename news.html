@@ -271,8 +271,17 @@
                     </label>
                 </div>
 
-                <!-- 記事一覧 -->
-                <div class="news-list__grid">
+                <!-- 投稿がない場合の表示 -->
+                <div class="news-list__empty">
+                    <div class="news-list__empty-icon">
+                        <i class="fas fa-inbox"></i>
+                    </div>
+                    <p class="news-list__empty-text">現在、お知らせ・イベント情報はありません。</p>
+                    <p class="news-list__empty-subtext">新しい情報が入り次第、こちらでお知らせいたします。</p>
+                </div>
+
+                <!-- 記事一覧（投稿がある場合はこちらを使用） -->
+                <div class="news-list__grid" style="display: none;">
                     <!-- イベント -->
                     <article class="news-list__card" data-category="event">
                         <a href="#" class="news-list__card-link">

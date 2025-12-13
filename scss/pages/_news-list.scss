@@ -157,3 +157,48 @@
   }
 }
 
+// 投稿がない場合の表示
+.news-list__empty {
+  text-align: center;
+  padding: 80px 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+  @include mq($until: sp-large) {
+    padding: 60px 20px;
+  }
+}
+
+.news-list__empty-icon {
+  font-size: 6rem;
+  color: #ddd;
+  margin-bottom: 24px;
+
+  @include mq($until: sp-large) {
+    font-size: 5rem;
+    margin-bottom: 20px;
+  }
+}
+
+.news-list__empty-text {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 12px;
+  font-family: var(--font-sub);
+
+  @include mq($until: sp-large) {
+    font-size: 1.6rem;
+  }
+}
+
+.news-list__empty-subtext {
+  font-size: 1.4rem;
+  color: #999;
+  font-family: var(--font-sub);
+
+  @include mq($until: sp-large) {
+    font-size: 1.3rem;
+  }
+}

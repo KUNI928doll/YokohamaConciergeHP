@@ -57,6 +57,10 @@
     background-color: rgba(242, 246, 246, 0.85);
     backdrop-filter: blur(5px);
     padding-block: 100px;
+
+    @include mq($until: sp-large) {
+      padding-block: 50px;
+    }
   }
 
   .features__inner {
@@ -354,7 +358,8 @@
   z-index: 10000;
 
   @include mq($until: sp-large) {
-    top: 190px;
+    top: 0;
+    left: 44%;
   }
 }
 
@@ -366,7 +371,7 @@
   margin-left: 20px;
 
   @include mq($until: sp-large) {
-    width: 60%;
+    width: 100%;
   }
 }
 
@@ -383,7 +388,7 @@
 
   @include mq($until: sp-large) {
     font-size: 1.4rem;
-    left: 40%;
+    left: 60%;
   }
 }
 

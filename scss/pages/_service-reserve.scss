@@ -51,6 +51,9 @@
 
   h2 {
     text-align: center;
+    color: var(--color-accent);
+    font-family: var(--font-sub);
+    margin-bottom: 130px;
   }
 }
 
@@ -58,7 +61,7 @@
   position: relative;
   height: 1900px;
   @include mq($until: sp-large) {
-    height: 3300px;
+    height: auto;
   }
 
 }
@@ -67,7 +70,8 @@
   margin-left: 103px;
 
   @include mq($until: sp-large) {
-    margin-left: 16px;
+    margin-left: 0;
+    margin-bottom: 60px;
     position: static;
   }
 }
@@ -82,6 +86,13 @@
   width: 263px;
   margin-left: 70px;
   
+  @include mq($until: sp-large) {
+    width: 100%;
+    max-width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+  }
 }
 
 .category__shape {
@@ -89,13 +100,35 @@
   width: 172px;
   height: 294px;
   background: url(/images/service-reserve/resercation-circle-blue@2x.png) center center /contain no-repeat;
+
+  @include mq($until: sp-large) {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    aspect-ratio: 172 / 294;
+    margin: 0 auto;
+  }
 }
 
+.category__title{
+  font-family: var(--font-sub);
+  
+  @include mq($until: sp-large) {
+    font-size: 1.8rem;
+  }
+}
 .category__text {
   color: #0D3063;
   line-height: 1.5;
   padding-top: 25px;
   width: 158px;
+  font-family: var(--font-sub);
+
+  @include mq($until: sp-large) {
+    width: 100%;
+    font-size: 1.4rem;
+    padding-top: 15px;
+  }
 }
 
 .category__image {
@@ -145,7 +178,9 @@
   }
 
   @include mq($until: sp-large) {
-   margin-top: 80px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    margin-left: 0;
   }
 
   .category__circle {
@@ -170,15 +205,21 @@
     left: 0;
 
     @include mq($until: sp-large) {
-      width: 350px;
-      height: 350px;
-      left: -50px;
-    
+      width: 100%;
+      max-width: 350px;
+      height: auto;
+      aspect-ratio: 578 / 558;
+      left: 0;
+      margin: 0 auto;
     }
   }
 
   .category__text {
     width: 169px;
+
+    @include mq($until: sp-large) {
+      width: 100%;
+    }
   }
 }
 
@@ -322,9 +363,11 @@
   .circle-eat {
     display: grid;
     grid-template-columns: repeat(2, 1fr); // 2列
-    padding-top: 400px;
-    gap: 10px;
+    padding-top: 30px;
+    gap: 20px;
     justify-items: center;
+    max-width: 350px;
+    margin: 0 auto;
   }
 
   .circle-eat-img01,
@@ -338,9 +381,13 @@
   .circle-eat-img09,
   .circle-eat-img10 {
     position: static;
-    width: auto; // ← ここがポイント！幅を自動に
-    max-width: 120px;
+    width: 100%;
+    max-width: 140px;
 
+    p {
+      font-size: 1.3rem;
+      margin-top: 8px;
+    }
   }
 }
 
@@ -358,10 +405,12 @@
   }
 
   @include mq($until: sp-large) {
-    top: 2300px;
+    position: static;
     width: 100%;
     padding-inline: 16px;
     height: auto;
+    margin-top: 60px;
+    margin-bottom: 60px;
   }
 
   .category__shape {
@@ -409,22 +458,21 @@
   background-color: #F2F6F6;
   position: absolute;
   top: 269px;
-  left: 127px;
+  left: 150px;
   border-radius: 130px 0 0 130px;
   padding-block: 19px 51px;
-  width: auto;
-  max-width: calc(100% - 127px);
+  width: 200%;
+  padding-inline: 20px;
 
   @include mq($until: tab) {
     left: 0;
     border-radius: 30px;
-    max-width: 100%;
+    width: 100%;
   }
 
   @include mq($until: sp-large) {
     left: 0;
     border-radius: 30px;
-    max-width: 100%;
     width: 100%;
     padding-inline: 16px;
   }
@@ -614,13 +662,22 @@ button {
  margin-left: 160px;
 
  @include mq($until: sp-large) {
+  position: static;
   margin-left: 0;
+  margin-top: 40px;
   width: 100%;
+  padding: 0 16px;
+  font-size: 1.4rem;
+  text-align: center;
  }
 }
 
 .reserve-guide-fee {
   margin-top: 200px;
+
+  @include mq($until: sp-large) {
+    margin-top: 80px;
+  }
 }
 
 // サポート内容
