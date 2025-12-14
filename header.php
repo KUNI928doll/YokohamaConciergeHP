@@ -3,30 +3,11 @@
 
 <head>
     <meta charset="utf-8">
-    <title>YOKOHAMA Concierge | 外国人向け体験サービス・横浜観光・通訳サポート</title>
-    <meta name="description" content="横浜で特別な体験を提供するYOKOHAMA Concierge。観光・文化・グルメ・通訳・撮影サポートなど、多彩なプランをお届けします。">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- OGP -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="YOKOHAMA Concierge | 外国人向け体験サービス">
-    <meta property="og:description" content="横浜で特別な体験を提供するYOKOHAMA Concierge。観光・文化・グルメ・通訳・撮影サポートなど、多彩なプランをお届けします。">
-    <meta property="og:url" content="https://yokohama-concierge.jp/">
-    <meta property="og:image" content="https://yokohama-concierge.jp/images/ogp.jpg">
-    <meta property="og:site_name" content="YOKOHAMA Concierge">
-    <meta property="og:locale" content="ja_JP">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="YOKOHAMA Concierge | 外国人向け体験サービス">
-    <meta name="twitter:description" content="横浜で特別な体験を提供するYOKOHAMA Concierge。観光・文化・グルメ・通訳・撮影サポートなど、多彩なプランをお届けします。">
-    <meta name="twitter:image" content="https://yokohama-concierge.jp/images/ogp.jpg">
-
-    <!-- Favicon（推奨：絶対パスで指定） -->
-    <link rel="icon" href="https://yokohama-concierge.jp/images/favicon.ico">
-    <link rel="apple-touch-icon" href="https://yokohama-concierge.jp/images/apple-touch-icon.png">
+    <!-- Favicon -->
+    <link rel="icon" href="<?php echo esc_url(get_template_directory_uri()); ?>/images/favicon.ico">
+    <link rel="apple-touch-icon" href="<?php echo esc_url(get_template_directory_uri()); ?>/images/apple-touch-icon.png">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
