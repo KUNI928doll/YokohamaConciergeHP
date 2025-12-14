@@ -35,71 +35,7 @@ function yokohama_concierge_schema_markup() {
 }
 add_action('wp_head', 'yokohama_concierge_schema_markup');
 
-// ページごとの<title>タグを出力
-add_theme_support('title-tag');
 
-// ページごとのメタディスクリプションとOGPを出力
-function yokohama_concierge_meta_tags() {
-    // デフォルト値
-    $site_name = 'YOKOHAMA Concierge';
-    $default_description = '横浜で特別な体験を提供するYOKOHAMA Concierge。観光・文化・グルメ・通訳・撮影サポートなど、多彩なプランをお届けします。';
-    $default_image = esc_url(get_template_directory_uri() . '/images/ogp.jpg');
-    
-    // ページタイプによって内容を変更
-    if (is_404()) {
-        $title = 'ページが見つかりません | ' . $site_name;
-        $description = 'お探しのページが見つかりませんでした。YOKOHAMA Conciergeのホームページへお戻りください。';
-        $robots = 'noindex, nofollow';
-    } elseif (is_front_page()) {
-        $title = $site_name . ' | 外国人向け体験サービス・横浜観光・通訳サポート';
-        $description = $default_description;
-        $robots = 'index, follow';
-    } elseif (is_page()) {
-        $title = get_the_title() . ' | ' . $site_name;
-        $description = get_post_meta(get_the_ID(), '_meta_description', true) ?: $default_description;
-        $robots = 'index, follow';
-    } elseif (is_single()) {
-        $title = get_the_title() . ' | ' . $site_name;
-        $description = get_the_excerpt() ?: $default_description;
-        $robots = 'index, follow';
-    } elseif (is_search()) {
-        $title = '検索結果：' . get_search_query() . ' | ' . $site_name;
-        $description = get_search_query() . 'の検索結果ページです。';
-        $robots = 'noindex, follow';
-    } else {
-        $title = $site_name;
-        $description = $default_description;
-        $robots = 'index, follow';
-    }
-    
-    $current_url = esc_url(home_url(add_query_arg(null, null)));
-    
-    // メタタグ出力
-    ?>
-    <meta name="description" content="<?php echo esc_attr($description); ?>">
-    <meta name="robots" content="<?php echo esc_attr($robots); ?>">
-    
-    <!-- OGP -->
-    <meta property="og:type" content="<?php echo is_front_page() ? 'website' : 'article'; ?>">
-    <meta property="og:title" content="<?php echo esc_attr($title); ?>">
-    <meta property="og:description" content="<?php echo esc_attr($description); ?>">
-    <meta property="og:url" content="<?php echo $current_url; ?>">
-    <meta property="og:image" content="<?php echo has_post_thumbnail() ? esc_url(get_the_post_thumbnail_url(null, 'large')) : $default_image; ?>">
-    <meta property="og:site_name" content="<?php echo esc_attr($site_name); ?>">
-    <meta property="og:locale" content="ja_JP">
-    <?php if (!is_front_page() && has_post_thumbnail()) : ?>
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <?php endif; ?>
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="<?php echo esc_attr($title); ?>">
-    <meta name="twitter:description" content="<?php echo esc_attr($description); ?>">
-    <meta name="twitter:image" content="<?php echo has_post_thumbnail() ? esc_url(get_the_post_thumbnail_url(null, 'large')) : $default_image; ?>">
-    <?php
-}
-add_action('wp_head', 'yokohama_concierge_meta_tags');
 
 // テーマ有効化時の処理
 function yokohama_concierge_theme_activation() {
@@ -116,6 +52,12 @@ function yokohama_concierge_theme_activation() {
             'slug' => 'terms',
             'template' => 'page-terms.php',
             'content' => '<p>利用規約の内容をここに記載してください。</p>'
+        ),
+        array(
+            'title' => '観光ガイドサービス',
+            'slug' => 'service-tour-guide',
+            'template' => 'page-service-tour-guide.php',
+            'content' => '<p>観光ガイドサービスの内容をここに記載してください。</p>'
         )
     );
     
@@ -234,5 +176,16 @@ function yokohama_concierge_enqueue_scripts() {
         '1.0.0',
         true
     );
+    
+    // ツアーガイドページ専用スクリプト
+    if (is_page_template('page-service-tour-guide.php')) {
+        wp_enqueue_script(
+            'yokohama-service-tour-guide',
+            get_template_directory_uri() . '/js/service-tour-guide.js',
+            array('jquery'),
+            '1.0.0',
+            true
+        );
+    }
 }
 add_action('wp_enqueue_scripts', 'yokohama_concierge_enqueue_scripts');

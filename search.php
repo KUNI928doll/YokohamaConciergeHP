@@ -1,10 +1,8 @@
 <?php
-/**
- * Template Name: 検索結果ページ
- * Description: サイト内検索結果を表示するテンプレート
- */
+get_header(); 
+?>
 
-get_header(); ?>
+<?php get_template_part('template-parts/inner-nav'); ?>
 
     <main>
         <div class="search-page__hero">
