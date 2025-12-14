@@ -1,0 +1,110 @@
+@charset "UTF-8";
+@use "../abstracts" as *;
+
+/* _titles.scss */
+.section-title {
+  display: inline-block;
+  margin-bottom: clamp(24px, 5vw, 54px);
+  text-align: center;
+  transform: none !important;
+
+  img {
+    width: clamp(200px, 40vw, 340px);
+    height: auto;
+    display: inline-block;
+  }
+
+  &--sm img {
+    width: clamp(80px, 25vw, 97px);
+  }
+
+  &--lg img {
+    width: clamp(180px, 35vw, 275px);
+  } // 大きめタイトル
+}
+
+.section-title__text {
+  font-size: clamp(2rem, 4vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--color-main);
+  margin: 0;
+  font-family: var(--fobt-sub);
+  margin-bottom: 16px;
+}
+
+.section-title__icon {
+  display: block;
+  height: auto;
+}
+
+.section-title--about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(12px, 2vw, 18px);
+  width: fit-content;
+  margin-inline: auto;
+
+  .section-title__icon--bird {
+    width: 58px;
+    align-self: flex-start;
+  }
+
+  .section-title__icon--wave {
+    width: 100px;
+    margin-inline: auto;
+    margin-top: clamp(4px, 1vw, 10px);
+  }
+
+  .section-title__text {
+    letter-spacing: 0.08em;
+    font-size: 2.5rem;
+  }
+}
+
+// ================================
+// スマホ対応
+// ================================
+@include mq($until: sp-large) {
+  .section-title {
+    margin-bottom: clamp(16px, 4vw, 24px);
+
+    img {
+      width: clamp(140px, 50vw, 200px);
+    }
+
+    &--sm img {
+      width: clamp(60px, 20vw, 80px);
+    }
+
+    &--lg img {
+      width: clamp(120px, 45vw, 180px);
+    }
+  }
+
+  .section-title__text {
+    font-size: clamp(1.6rem, 5vw, 2rem);
+    margin-bottom: 10px;
+  }
+
+  .section-title__icon--wave {
+    width: clamp(60px, 20vw, 80px);
+  }
+
+  .section-title--about {
+    gap: clamp(8px, 2vw, 12px);
+
+    .section-title__icon--bird {
+      width: clamp(36px, 10vw, 48px);
+    }
+
+    .section-title__icon--wave {
+      width: clamp(60px, 18vw, 80px);
+    }
+
+    .section-title__text {
+      font-size: clamp(1.8rem, 5vw, 2.2rem);
+    }
+  }
+}

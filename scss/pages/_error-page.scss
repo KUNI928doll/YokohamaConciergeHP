@@ -1,0 +1,118 @@
+@charset "UTF-8";
+@use "../abstracts" as *;
+
+.error-page__hero {
+    background: #eff3f4;
+    padding: clamp(60px, 12vw, 120px) 0;
+    text-align: center;
+}
+
+.error-page__number {
+    font-size: clamp(8rem, 15vw, 16rem);
+    font-weight: 700;
+    color: #0d3d90;
+    line-height: 1;
+    margin-bottom: 24px;
+    font-family: var(--font-sub);
+}
+
+.error-page__title {
+    font-size: clamp(2rem, 3vw, 3.2rem);
+    font-weight: 700;
+    color: #0d3d90;
+    margin-bottom: 16px;
+}
+
+.error-page__description {
+    color: #1c3668;
+    font-size: clamp(1.4rem, 2vw, 1.6rem);
+    line-height: 1.7;
+    margin-bottom: 40px;
+}
+
+.error-page__actions {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.error-page__home-btn {
+    display: inline-block;
+    padding: 16px 48px;
+    background: #0d3d90;
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+    margin-bottom: 40px;
+}
+
+.error-page__home-btn:hover {
+    background: #0a2f6d;
+}
+
+.error-page__search {
+    margin-bottom: 60px;
+}
+
+.error-page__links {
+    padding: clamp(40px, 8vw, 80px) 0;
+    background: #fff;
+}
+
+.error-page__links-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.error-page__links-title {
+    font-size: clamp(2rem, 3vw, 2.4rem);
+    font-weight: 700;
+    color: #0d3d90;
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.error-page__links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.error-page__link-card {
+    padding: 24px;
+    border: 1px solid #d8e2ed;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    text-decoration: none;
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.error-page__link-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.error-page__link-card-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #0d3d90;
+    margin-bottom: 8px;
+}
+
+.error-page__link-card-description {
+    color: #1c2940;
+    font-size: 1.4rem;
+    line-height: 1.7;
+}
+
+@media (max-width: 767px) {
+    .error-page__links-grid {
+        grid-template-columns: 1fr;
+    }
+}

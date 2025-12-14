@@ -1,0 +1,156 @@
+@charset "UTF-8";
+@use "../abstracts" as *;
+
+/* =========================================================
+  _forms.scss
+  入力フォーム／検索フォーム 共通スタイル（BEMネストなし）
+========================================================= */
+
+/* 🧱 共通入力フィールド */
+.input-text,
+.textarea {
+  width: 100%;
+  border: 1.5px solid var(--color-main, #0D3D90);
+  border-radius: 30px;
+  padding: 0.6em 1.2em;
+  font-size: 1.6rem; // 16px (1rem=10px基準)
+  line-height: 1.5;
+  color: #333;
+  background-color: #fff;
+  font-family: var(--font-base);
+  transition: all 0.2s ease;
+}
+
+.input-text::placeholder,
+.textarea::placeholder {
+  color: #aaa;
+}
+
+.input-text:focus,
+.textarea:focus {
+  outline: none;
+  border-color: #E39A1D;
+  box-shadow: 0 0 0 3px rgba(227, 154, 29, 0.2);
+}
+
+.input-text.is-error,
+.textarea.is-error {
+  border-color: #d9534f;
+  background: #fff0f0;
+}
+
+/* 🪶 テキストエリア */
+.textarea {
+  min-height: 160px;
+  resize: vertical;
+  border-radius: 16px;
+}
+
+/* 🎨 セレクトボックス */
+.select-box {
+  width: 100%;
+  border: 1.5px solid var(--color-main, #0D3D90);
+  border-radius: 30px;
+  padding: 0.6em 2.5em 0.6em 1.2em;
+  background: #fff url("../images/common/icon-select.svg") no-repeat right 1em center / 16px auto;
+  font-size: 1.6rem; // 16px (1rem=10px基準)
+  color: #333;
+  cursor: pointer;
+  appearance: none;
+}
+
+.select-box:focus {
+  outline: none;
+  border-color: #E39A1D;
+}
+
+/* ✅ チェックボックス・ラジオ */
+.input-check,
+.input-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1.5rem; // 15px (1rem=10px基準)
+  cursor: pointer;
+}
+
+.input-check input,
+.input-radio input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-main, #0D3D90);
+}
+
+/* 🔍 検索フォーム（共通構造） */
+.search-form {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 400px;
+  margin-inline: auto;
+}
+
+/* 検索フォームのテキスト入力 */
+.search-form-input {
+  flex: 1;
+  height: 46px;
+  border: 1.5px solid var(--color-main, #0D3D90);
+  border-radius: 30px;
+  padding: 0 48px 0 16px;
+  font-size: 1.5rem; // 15px (1rem=10px基準)
+  color: #333;
+  background: #fff;
+  transition: 0.3s;
+}
+
+.search-form-input:focus {
+  border-color: #E39A1D;
+  outline: none;
+}
+
+/* 検索フォームのボタン */
+.search-form-button {
+  background: none;
+  border: none;
+  position: absolute;
+  right: 16px;
+  width: 24px;
+  cursor: pointer;
+}
+
+.search-form-button img {
+  width: 100%;
+  height: auto;
+}
+
+.search-form-button::before {
+  content: "";
+  position: absolute;
+  left: -14px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 60%;
+  border-left: 1px dashed var(--color-main, #0D3D90);
+  opacity: 0.6;
+}
+
+/* 📱 レスポンシブ補正 */
+@include mq(sp-large) {
+
+  .input-text,
+  .textarea,
+  .select-box {
+    font-size: 1.4rem; // 14px (1rem=10px基準)
+  }
+
+  .search-form {
+    max-width: 100%;
+  }
+
+  .search-form-input {
+    padding-right: 42px;
+  }
+}

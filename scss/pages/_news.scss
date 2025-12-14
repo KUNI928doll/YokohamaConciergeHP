@@ -1,0 +1,380 @@
+@charset "UTF-8";
+@use "../abstracts" as *;
+
+// news
+.news {
+  position: relative;
+  background: url("../images/news/wave-bg.png") repeat center top;
+  background-size: cover;
+  width: 100%;
+  margin-top: -80px; // 上に移動
+  padding-bottom: 110px;
+  z-index: 2; // contactセクションの上に表示
+
+  .section-title--news {
+ 
+    .section-title__text {
+      color: #fff;
+      font-family: var(--font-sub);
+      font-size: clamp(1.6rem, 2vw, 2rem);
+      margin-bottom: 8px;
+      margin-top: clamp(40px, 12vw, 108px);
+    }
+
+    .section-title__icon--wave {
+      width: 80px;
+      height: auto;
+      filter: brightness(0) invert(1); 
+    }
+  }
+}
+
+.news__wave-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  animation: waveMove 14s linear infinite;
+
+  img {
+    width: 50%;
+    height: auto;
+    display: block;
+  }
+}
+
+.news__bg {
+  position: relative;
+}
+
+// 装飾画像
+.news__decoration {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none; // クリック無効化
+
+  // 右上の装飾（かもめ）
+  &--top-right {
+    top: 190px;
+    right: 40px;
+    aspect-ratio: 270 /150;
+    width: min(276px,20.24944974%);
+    opacity: 0.9;
+
+    @include mq(tab) {
+      top: 170px;
+      right: 20px;
+    }
+    @include mq(sp-large) {
+      top: 130px;
+      right: 60px;
+    }
+  }
+  // 左下の装飾（吹き出し）
+  &--bottom-left {
+    bottom: 0;
+    left: 6.67644901%;
+    aspect-ratio: 140 / 114;
+    width: min(140px, 10.27146001%);
+    height: auto;
+    opacity: 0.8;
+
+    @include mq($until: mid-pc) {
+      width: clamp(100px, 12vw, 120px);
+      bottom: 0;
+      left: clamp(40px, 8vw, 80px);
+    }
+
+    @include mq($until: sp-large) {
+      width: clamp(80px, 20vw, 100px);
+      bottom: 0;
+      left: clamp(20px, 5vw, 40px);
+    }
+  }
+  }
+.news__inner {
+  position: relative;
+  padding: 117px 161px 135px;
+  color: #fff;
+  z-index: 3;
+
+  @include mq(tab) {
+    padding: 120px 60px 80px;
+  }
+
+  @include mq(sp-large) {
+    padding: 80px 40px 60px;
+  }
+}
+
+.news__filter {
+  display: flex;
+  justify-content: center;
+  gap: 68px;
+  margin-bottom: 50px;
+  @include mq(sp-large) {
+    gap: 40px;
+  }
+
+  label {
+    font-size: clamp(1.2rem, 1.5vw, 1.8rem);
+    cursor: pointer;
+  }
+
+  input {
+    margin-right: 6px;
+  }
+}
+
+.news__empty-message {
+  text-align: center;
+  color: #fff;
+  font-size: clamp(1.4rem, 2.5vw, 3.2rem);
+  padding: 60px 20px;
+  margin: 0;
+
+  @include mq(sp-large) {
+    padding: 76px 13px;
+  }
+}
+
+.news__slider {
+  margin: 0 auto 48px; // スライダーとボタンの間の余白を48pxに
+  max-width: 1200px;
+  width: 100%;
+
+  // スライダーのカード間の余白を48pxに設定
+  .slick-slide {
+    margin: 0 24px; // 左右に24pxずつ（合計48px）
+    
+    @include mq($until: sp-large) {
+      margin: 0 12px;
+    }
+  }
+
+  // スライダーのトラック全体
+  .slick-track {
+    display: flex !important;
+    align-items: stretch;
+  }
+
+  // スライダーのリスト
+  .slick-list {
+    overflow: hidden;
+    margin: 0 -24px; // カードのマージンを相殺して左右の端を揃える
+    
+    @include mq($until: sp-large) {
+      margin: 0;
+    }
+  }
+
+  .news__card {
+    background: #fff;
+    color: #333;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: left;
+    transition: transform 0.3s ease;
+    width: 234px !important; // カードの横幅を234pxに固定
+    height: 300px !important; // 高さを調整
+    display: flex !important; // Slickのdisplay: blockを上書き
+    flex-direction: column;
+
+    &:hover {
+      transform: translateY(-6px);
+    }
+
+    // フィルタリングで非表示にされた要素
+    &.filtered-out {
+      display: none !important;
+    }
+
+    img {
+      width: 100%;
+      height: 200px; // 画像の高さを調整
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+  }
+
+  .news__card-body {
+    padding: 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .news__card-date {
+    font-size: 1.3rem; // 13px (1rem=10px基準)
+    color: #777;
+    margin-bottom: 8px;
+  }
+
+  .news__card-title {
+    font-size: 1.5rem; // 15px (1rem=10px基準)
+    font-weight: 600;
+    line-height: 1.5;
+  }
+}
+
+// ドットと矢印を横並びにするコンテナ
+.news__dots-wrapper {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 34px; // ボタンとの間の余白
+  position: relative;
+  width: 221px;
+
+  // Slickが生成する矢印ボタンのスタイル（ドットの横に配置）
+  .slick-arrow {
+    position: static !important; // デフォルトの絶対配置を解除
+    transform: none !important;
+    top: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    display: inline-block !important;
+    margin: 0 !important;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    z-index: 10;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    padding: 0;
+
+    &:hover {
+      background: #fff;
+      transform: scale(1.1);
+    }
+
+    &::before {
+      color: #0077cc;
+      font-size: 1.8rem; // 18px (1rem=10px基準)
+      opacity: 1;
+    }
+
+    &.slick-prev {
+      order: -1; // ドットの左側に配置
+
+      &::before {
+        content: "←";
+      }
+    }
+
+    &.slick-next {
+      order: 1; // ドットの右側に配置
+
+      &::before {
+        content: "→";
+      }
+    }
+  }
+
+  // ドットのスタイル
+  .slick-dots {
+    position: static !important;
+    bottom: auto !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      margin: 0;
+      width: auto;
+      height: auto;
+
+      button {
+        width: 12px;
+        height: 12px;
+        padding: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s;
+
+        &::before {
+          display: none; // デフォルトのドットを非表示
+        }
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.8);
+        }
+      }
+
+      &.slick-active button {
+        background: #fff;
+      }
+    }
+  }
+}
+
+.news__btn {
+  display: inline-block;
+  text-align: center;
+  background: #fff;
+  color: var(--color-main);
+  font-family: var(--font-sub);
+  padding: 10px 26px;
+  border-radius: 24px;
+  font-weight: 600;
+  transition: all 0.3s;
+
+  &:hover {
+    background: #0077cc;
+    color: #fff;
+  }
+}
+
+.news__btn-wrapper {
+  text-align: center;
+}
+
+/* ===== 背景装飾 ===== */
+.news__decos{
+  width:min(249px,18vw );
+  position: absolute;
+  top: max(-20px,-1.46092038vw);
+  left: 56.02629657%;
+  aspect-ratio: 249 / 206; 
+}
+
+.news__line {
+  width: 66.26506024%;
+  aspect-ratio: 165/ 181;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 20;
+  @include mq($until: sp-large) {
+    display: none;
+  }
+}
+
+.news__seagull {
+  width: 16.15598886%;
+  aspect-ratio: 58/ 38;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 20;
+  transform-origin: center center;
+  animation: seagull-fly 8s ease-in-out infinite alternate;
+
+  @include mq($until: sp-large) {
+    top: 10%;
+    right: 10%;
+    width: clamp(40px, 15vw, 60px);
+  }
+}

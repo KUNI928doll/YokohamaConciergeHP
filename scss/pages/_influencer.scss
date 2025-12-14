@@ -1,0 +1,209 @@
+@charset "UTF-8";
+@use "../abstracts" as *;
+
+// インフルエンサー
+.influencer {
+  padding: 80px 0 100px;
+  margin-top: -86px;
+  text-align: center;
+  @include mq($until: sp-large)  {
+    padding: 40px 0 50px;
+  }
+
+  .influencer__inner {
+    width: min(1100px, 90%);
+    margin: 0 auto;
+  }
+
+  .influencer__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 24px;
+    background: #fff;
+    border: 4px solid #b1c3e0;
+    border-radius: 8px;
+    padding: 32px;
+    margin-bottom: 40px;
+
+    @include mq($until: sp-large)  {
+      flex-direction: column;
+      text-align: center;
+      padding: 10px;
+      margin-bottom: 30px;
+    }
+  }
+
+  // 動画セクション
+  .influencer__video {
+    margin-bottom: 80px;
+
+    @include mq($until: sp-large) {
+      margin-bottom: 50px;
+    }
+  }
+
+  // YouTube埋め込み用のレスポンシブコンテナ
+  .video-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-bottom: 56.25%; // 16:9のアスペクト比
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+    }
+  }
+
+  // 直接動画ファイルを使用する場合
+  .influencer__video-player {
+    width: 100%;
+    max-width: 600px;
+    height: 40vh;
+    margin: 0 auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+    @include mq($until: sp-large) {
+      max-width: 100%;
+      border-radius: 4px;
+    }
+  }
+
+  .influencer__title-box {
+    flex: 1;
+    background: linear-gradient(135deg, #ffe6f3 0%, #e4c3ff 100%);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .influencer__title {
+    font-size: clamp(1.4rem, 2vw, 1.8rem);
+    font-weight: 700;
+    color: #0d3d90;
+  }
+
+  .influencer__text-box {
+    flex: 2;
+    text-align: left;
+    position: relative;
+
+    @include mq($until: sp-large) {
+      text-align: center;
+    }
+  }
+
+  .influencer__text {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 12px;
+  }
+
+  .influencer__link {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 700;
+    color: #0d3d90;
+    text-decoration: none;
+    transition: opacity 0.3s;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    .influencer__icon {
+      width: 24px;
+      margin-right: 8px;
+    }
+  }
+
+  .influencer__cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+    margin-bottom: 40px;
+  }
+
+  .influencer-card-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .influencer-card {
+    background: #fff;
+    border: 1.5px solid #b3c4e1;
+    border-radius: 6px;
+    padding: 24px 16px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    .influencer-card__desc {
+      font-size: 1.4rem; // 14px (1rem=10px基準)
+      color: #0D3063;
+      margin-bottom: 8px;
+    }
+
+    .influencer-card__title {
+      font-size: 2.4rem; // 24px (1rem=10px基準)
+      color: #ce6c2b;
+      font-weight: 700;
+      margin-bottom: 0;
+      font-family: var(--font-sub);
+    }
+
+    &__link {
+      display: inline-block;
+      font-size: clamp(1.6rem, 4vw, 2rem);
+      color: #0d3d90;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+      font-family: var(--font-sub);
+      margin-top: 12px;
+      text-align: left;
+      @include mq($until: sp-large) {
+        margin-top: 10px;
+      }
+      &:hover {
+        border-color: #0d3d90;
+      }
+    }
+  }
+
+  .influencer__note {
+    font-size: 1.4rem; // 14px (1rem=10px基準)
+    color: #555;
+    margin-top: 135px;
+    margin-bottom: 100px;
+    text-align: right;
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+
+    @include mq($until: sp-large) {
+      text-align: center;
+      margin-top: 65px;
+    }
+  }
+}

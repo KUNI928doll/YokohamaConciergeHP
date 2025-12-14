@@ -1,0 +1,761 @@
+@charset "UTF-8";
+@use "../abstracts" as *;
+
+.br {
+  display: block;
+}
+
+.guide-overview__dot--lemon {
+  background: #F4E767;
+}
+
+.service-reserve {
+  .guide-overview__area-list {
+    gap: 12px 26px;
+  }
+
+  .guide-overview__area {
+    border-bottom: none;
+
+    @include mq($until: sp-large) {
+      flex-direction: column;
+    }
+  }
+
+  .guide-overview__inner {
+    border-bottom: 2px solid #2e65ba;
+  }
+}
+
+.map-img {
+  padding-bottom: 19px;
+  width: 567px;
+  margin-inline: auto;
+
+  @include mq($until: sp-large) {
+    width: 100%;
+  }
+}
+
+/* ===============================================
+# 様々なご予約に
+=============================================== */
+.reservation {
+  font-family: Zen Maru Gothic;
+  
+}
+
+.reservation__inner {
+  width: min(1199px, 92%);
+  margin: 0 auto;
+
+  h2 {
+    text-align: center;
+    color: var(--color-accent);
+    font-family: var(--font-sub);
+    margin-bottom: 130px;
+  }
+}
+
+.reservation__container {
+  position: relative;
+  height: 1900px;
+  @include mq($until: sp-large) {
+    height: auto;
+  }
+
+}
+.category--stay {
+  position: relative;
+  margin-left: 103px;
+
+  @include mq($until: sp-large) {
+    margin-left: 0;
+    margin-bottom: 60px;
+    position: static;
+  }
+}
+
+// 泊まる
+.category__circle {
+  display: block;
+  padding: 25px 57px 86px 57px;
+  text-align: center;
+  background-color: #F2F6F6;
+  border-radius: 50%;
+  width: 263px;
+  margin-left: 70px;
+  
+  @include mq($until: sp-large) {
+    width: 100%;
+    max-width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+  }
+}
+
+.category__shape {
+  content: '';
+  width: 172px;
+  height: 294px;
+  background: url(/images/service-reserve/resercation-circle-blue@2x.png) center center /contain no-repeat;
+
+  @include mq($until: sp-large) {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    aspect-ratio: 172 / 294;
+    margin: 0 auto;
+  }
+}
+
+.category__title{
+  font-family: var(--font-sub);
+  
+  @include mq($until: sp-large) {
+    font-size: 1.8rem;
+  }
+}
+.category__text {
+  color: #0D3063;
+  line-height: 1.5;
+  padding-top: 25px;
+  width: 158px;
+  font-family: var(--font-sub);
+
+  @include mq($until: sp-large) {
+    width: 100%;
+    font-size: 1.4rem;
+    padding-top: 15px;
+  }
+}
+
+.category__image {
+  position: absolute;
+  top: 194px;
+  left: 142px;
+  width: 314px;
+  z-index: -1;
+
+  @include mq($until: sp-large) {
+    position: static;
+   width: 100%;
+   left: 0;
+  }
+}
+
+.category__image2 {
+  position: absolute;
+  width: 275px;
+  left: -103px;
+  z-index: -2;
+  img {
+    border-radius: 16px;
+  }
+
+  @include mq($until: sp-large) {
+    position: static;
+    width: 100%;
+   left: 0;
+   margin-top: 10px;
+  }
+}
+
+
+// 食べる
+.category--eat {
+  position: absolute;
+  top: 372px;
+  right: 0;
+
+  @include mq($until: tab) {
+    position: static;
+    display: flex;
+    justify-content: center;
+    margin-left: 30px;
+    margin-top: 400px;
+  }
+
+  @include mq($until: sp-large) {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    margin-left: 0;
+  }
+
+  .category__circle {
+    position: absolute;
+    margin-left: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    @include mq($until: sp-large) {
+      width: 250px;
+      height: 250px;
+    }
+  }
+
+  .category__shape {
+    position: relative;
+    background: url(/images/service-reserve/reservation-circle-orange@2x.png) center center /contain no-repeat;
+    width: 578px;
+    height: 558px;
+    top: 0;
+    left: 0;
+
+    @include mq($until: sp-large) {
+      width: 100%;
+      max-width: 350px;
+      height: auto;
+      aspect-ratio: 578 / 558;
+      left: 0;
+      margin: 0 auto;
+    }
+  }
+
+  .category__text {
+    width: 169px;
+
+    @include mq($until: sp-large) {
+      width: 100%;
+    }
+  }
+}
+
+// 肉料理
+.circle-eat-img01 {
+  border-radius: 50%;
+  position: absolute;
+  top: -262px;
+  left: 376px;
+  width: 126px;
+
+  p {
+    text-align: center;
+  }
+}
+
+.circle-eat-img {
+  border-radius: 50%;
+}
+
+// ベジタリアン
+.circle-eat-img02 {
+  position: absolute;
+  width: 118px;
+  top: -176px;
+  left: 173px;
+
+  p {
+    text-align: center;
+  }
+
+}
+
+// 中華
+.circle-eat-img03 {
+  position: absolute;
+  width: 176px;
+  top: -100px;
+  right: 57px;
+
+  p {
+    text-align: center;
+  }
+
+  img {
+    border-radius: 50%;
+  }
+}
+
+// 和食
+.circle-eat-img04 {
+  position: absolute;
+  width: 182px;
+  top: 0;
+  left: 0;
+
+  p {
+    text-align: center;
+  }
+
+}
+
+// イタリア料理
+.circle-eat-img05 {
+  position: absolute;
+  width: 118px;
+  top: 271px;
+  left: -27px;
+
+  p {
+    text-align: center;
+  }
+}
+
+// ランチ
+.circle-eat-img06 {
+  position: absolute;
+  width: 118px;
+  top: 434px;
+  left: 100px;
+
+  p {
+    text-align: center;
+  }
+}
+
+// フランス料理
+.circle-eat-img07 {
+  position: absolute;
+  width: 126px;
+  top: 317px;
+  left: 264px;
+  z-index: 1;
+
+  p {
+    text-align: center;
+  }
+
+}
+
+// カフェ
+.circle-eat-img08 {
+  position: absolute;
+  width: 115px;
+  bottom: -136px;
+  left: 264px;
+  z-index: 1;
+
+  p {
+    text-align: center;
+  }
+
+}
+
+// ディナー
+.circle-eat-img09 {
+  position: absolute;
+  width: 164px;
+  bottom: -30px;
+  right: 0;
+
+  p {
+    text-align: center;
+  }
+}
+
+// インド料理
+.circle-eat-img10 {
+  position: absolute;
+  width: 143px;
+  top: 204px;
+  right: 0;
+
+  p {
+    text-align: center;
+  }
+}
+
+@include mq($until: sp-large) {
+
+  .circle-eat {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); // 2列
+    padding-top: 30px;
+    gap: 20px;
+    justify-items: center;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  .circle-eat-img01,
+  .circle-eat-img02,
+  .circle-eat-img03,
+  .circle-eat-img04,
+  .circle-eat-img05,
+  .circle-eat-img06,
+  .circle-eat-img07,
+  .circle-eat-img08,
+  .circle-eat-img09,
+  .circle-eat-img10 {
+    position: static;
+    width: 100%;
+    max-width: 140px;
+
+    p {
+      font-size: 1.3rem;
+      margin-top: 8px;
+    }
+  }
+}
+
+// 遊ぶ
+
+.category--play {
+  display: block;
+  height: 500px;
+  position: absolute;
+  top: 840px;
+  font-family: Zen Maru Gothic;
+
+  @include mq($until: tab) {
+  top: 1500px;
+  }
+
+  @include mq($until: sp-large) {
+    position: static;
+    width: 100%;
+    padding-inline: 16px;
+    height: auto;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+
+  .category__shape {
+    background: url(/images/service-reserve/reservation-circle-pink@2x.png) center center /contain no-repeat;
+    width: 651px;
+    height: 556px;
+    top: 0;
+    left: 0;
+
+    @include mq($until: sp-large) {
+      width: 100%;
+      max-width: 350px;
+      height: auto;
+      aspect-ratio: 651 / 556;
+      left: 0;
+    }
+  }
+
+  .category__circle {
+    padding: 14px 33px 48px 33px;
+    width: 290px;
+    height: 298px;
+
+    @include mq($until: sp-large) {
+      width: 100%;
+      max-width: 250px;
+      height: auto;
+      padding: 20px 20px 40px 20px;
+    }
+  }
+
+  .category__text {
+    text-align: start;
+    width: 224px;
+
+    @include mq($until: sp-large) {
+      width: 100%;
+      font-size: 1.4rem;
+    }
+  }
+}
+
+// スライダー
+.category__box {
+  background-color: #F2F6F6;
+  position: absolute;
+  top: 269px;
+  left: 150px;
+  border-radius: 130px 0 0 130px;
+  padding-block: 19px 51px;
+  width: 200%;
+  padding-inline: 20px;
+
+  @include mq($until: tab) {
+    left: 0;
+    border-radius: 30px;
+    width: 100%;
+  }
+
+  @include mq($until: sp-large) {
+    left: 0;
+    border-radius: 30px;
+    width: 100%;
+    padding-inline: 16px;
+  }
+}
+
+.container {
+  padding: 59px 31px 100px 31px;
+  overflow-x: hidden;
+
+  @include mq($until: sp-large) {
+    padding: 30px 16px 60px 16px;
+  }
+
+  &::before {
+    position: absolute;
+    content: '';
+    width:  276px;
+    height:  255px;
+    left: -203px;
+    top: 326px;
+    background: url(../../images/service-reserve/mascot@2x.png) center center /contain no-repeat;
+
+    @include mq($until: tab) {
+      display: none;
+     }
+  }
+}
+.flow__title {
+  margin-left: 224px;
+  color: #0D3063;
+
+  @include mq($until: sp-large) {
+    margin-left: 0;
+    text-align: center;
+    font-size: 1.6rem;
+  }
+}
+
+.slider {
+  margin: 30px auto 0;
+  max-width: 1100px;
+
+  @include mq($until: tab) {
+    max-width: 768px;
+   }
+  
+}
+
+.slick-img {
+  img {
+  height: auto;
+  width: 100px;
+ }
+}
+
+.play-img {
+  display: inline-block;
+ 
+}
+
+.slide-arrow {
+  position: absolute;
+  bottom: -70px; // 下に固定
+  width: 0;
+  height: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  @include mq($until: sp-large) {
+    bottom: -50px;
+  }
+}
+
+.prev-arrow {
+  left: 50%;
+  transform: translateX(-60px); // 中央から左へずらす
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent;
+  border-right: 25px solid #1D50A2; // 三角
+
+  @include mq($until: sp-large) {
+    transform: translateX(-45px);
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-right: 20px solid #1D50A2;
+  }
+}
+
+.next-arrow {
+  left: 50%;
+  transform: translateX(35px); // 中央から右へずらす
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent;
+  border-left: 25px solid #1D50A2; // 三角
+
+  @include mq($until: sp-large) {
+    transform: translateX(25px);
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid #1D50A2;
+  }
+}
+
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  padding: 0;
+}
+
+.play-slider__item {
+  text-align: center;
+}
+
+.play-slider__bubble {
+  position: relative;
+  background: url(../../images/service-reserve/bubble@2x.png) center left / cover no-repeat;
+  width: 407px;
+  min-height: 292px;
+  line-height: calc(28px /16px);
+  margin-inline: auto;
+
+  @include mq($until: sp-large) {
+    width: 100%;
+    max-width: 320px;
+    min-height: 250px;
+    background-size: contain;
+  }
+
+  p {
+    position: absolute;
+    top: 90px;
+    width: 255px;
+    left: 55%;
+    transform: translateX(-50%);
+    text-align: start;
+
+    @include mq($until: sp-large) {
+      width: 70%;
+      top: 70px;
+      font-size: 1.3rem;
+      line-height: 1.6;
+    }
+  }
+}
+.play-slider__bubble--width {
+  width: 447px;
+
+  p {
+    width: 255px;
+  }
+}
+
+.play__label {
+  padding-top: 16px;
+  color:#0D3063;
+  font-weight: 600;
+}
+
+.play-slider__links {
+  color:#0D3063;
+  width: 275px;
+  display: inline-block;
+  padding-right: 16px;
+  position: relative;
+  &::after {
+    position: absolute;
+    content: '';
+    width:  18px;
+    height:  14px;
+    top: 0;
+    right: 0;
+    transform: translateY(50%);
+    background: url(../../images/yokohama/link-icon@2x.png) center center /contain no-repeat;
+  }
+}
+
+// 注意書き
+.play-note {
+ position: absolute;
+ bottom:-120px;
+ line-height: 1.75;
+ font-weight: 600;
+ max-width: 769px;
+ margin-left: 160px;
+
+ @include mq($until: sp-large) {
+  position: static;
+  margin-left: 0;
+  margin-top: 40px;
+  width: 100%;
+  padding: 0 16px;
+  font-size: 1.4rem;
+  text-align: center;
+ }
+}
+
+.reserve-guide-fee {
+  margin-top: 200px;
+
+  @include mq($until: sp-large) {
+    margin-top: 80px;
+  }
+}
+
+// サポート内容
+
+.support__catchphrase {
+  display: inline-flex;
+  position: relative;
+ font-size: 18px;
+ color: #1D50A2;
+ padding-inline: 22px;
+ &::before {
+  position: absolute;
+  content: '';
+  width:  12px;
+  height:  27px;
+  left: 0;
+  top: 0;
+  background: url(../../images/service-reserve/nijyuhukidashi-left@2x.png) center center /contain no-repeat;
+ }
+ &::after {
+  position: absolute;
+  content: '';
+  width:  12px;
+  height:  27px;
+  right: 0;
+  top: 0;
+  background: url(../../images/service-reserve/nijyuhukidashi-right@2x.png) center center /contain no-repeat;
+ }
+}
+
+// 予約購入可能人数
+
+.price {
+  display: grid;
+  grid-template-columns: 12em 1fr; // 左：項目　右：金額ブロック
+  margin-bottom: 1em;
+  width: 60%;
+}
+
+.price__term {
+  font-weight: bold;
+  white-space: nowrap;
+}
+.price__term--additional {
+  margin-left: 16px;
+}
+
+.price__subheading {
+ color: #1D50A2;
+}
+
+
+
+.price__value {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.price__dot {
+  border-bottom: 1px dotted #000;
+  height: 1px;
+  width: 100%;
+}
+
+.price__desc {
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.price__note {
+  font-size: 12px;
+  color: #555;
+  white-space: nowrap;
+}
+
+
+
+
+

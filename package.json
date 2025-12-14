@@ -1,0 +1,14 @@
+{
+  "name": "yokohama-concierge-hp",
+  "version": "1.0.0",
+  "description": "Yokohama Concierge Homepage",
+  "scripts": {
+    "sass": "sass scss/style.scss css/style.css",
+    "sass:watch": "sass --watch scss/style.scss css/style.css",
+    "sass:build": "sass scss/style.scss css/style.css --style compressed"
+  },
+  "devDependencies": {
+    "sass": "^1.69.5"
+  }
+}
+

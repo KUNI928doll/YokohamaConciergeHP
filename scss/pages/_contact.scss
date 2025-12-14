@@ -1,0 +1,243 @@
+@charset "UTF-8";
+@use "../abstracts" as *;
+
+// contact
+.contact {
+  position: relative;
+  text-align: center;
+  background: url("../images/contact/contact-bg.png") no-repeat center top;
+  background-size: cover;
+  margin-top: -9.10576222vw;
+  margin-bottom: -200px;
+  z-index: 99;
+  mask-image: url(../images/contact/contact-mask.png);
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  min-height: 1044px;
+  overflow: hidden;
+  
+  @include mq(mid-pc) {
+    margin-bottom: -210px;
+    margin-top: -17.10576222vw;
+  }
+  
+  @include mq(sp-large) {
+    background-position: center top;
+    min-height: 900px;
+    margin-bottom: -200px;
+    margin-top: -50.10576222vw;
+  }
+
+  // 吹き出しとキャラクター
+.contact__decos {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  width: min(359px, 26vw);
+  z-index: 10;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include mq($until: sp-large) {
+    width: clamp(150px, 35vw, 250px);
+    bottom: 55px;
+    right: 10px;
+  }
+}
+
+
+.speech-wrap--contact {
+  position: relative;
+  width: clamp(200px, 33vw, 300px);
+
+  @include mq(sp-large) {
+    width: clamp(150px, 56vw, 200px);
+  }
+}
+
+.speech-bubble-imgwrap--contact {
+  position: relative;
+  aspect-ratio: 359 / 230;
+  width: 100%;
+  margin-bottom: 10px;
+  z-index: 2;
+
+  @include mq($until: mid-pc) {
+    margin-bottom: 40px;
+  }
+
+  @include mq($until: sp-large) {
+    margin-bottom: 5px;
+  }
+}
+
+.speech-bubble-text--contact {
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 65%;
+  text-align: center;
+  font-size: clamp(1.2rem, 1.2vw, 1.6rem);
+  line-height: 1.6;
+  color: var(--color-main);
+  word-break: keep-all;
+
+  @include mq($until: sp-large) {
+    width: 70%;
+    font-size: clamp(0.8rem, 2.5vw, 1.1rem);
+    line-height: 1.4;
+  }
+}
+
+.character--contact {
+  position: relative;
+  aspect-ratio: 264 / 244;
+  width: min(264px, 19vw);
+  z-index: 1;
+  animation: gull-bob 3.6s ease-in-out infinite;
+
+  @include mq($until: sp-large) {
+    width: 100%;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+  .section-title--contact {
+    display: flex;
+    flex-direction: column; // 縦並びに
+    align-items: center;
+    gap: 8px;
+
+    .section-title__text {
+      color: #fff;
+      font-family: var(--font-sub);
+      font-size: 2rem;
+    }
+
+    .section-title__icon--wave {
+      width: 80px;
+      height: auto;
+      filter: brightness(0) invert(1);
+    }
+  }
+}
+
+.contact--bottom {
+  margin-bottom: 0;
+}
+
+  .contact__inner {
+    position: relative;
+    padding: 150px 20px 200px;
+    // 吹き出しとキャラクター
+  }
+
+  .contact__box {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+    max-width: 524px;
+    margin: 0 auto;
+    padding: 47px 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    @include mq($until: sp-large) {
+      padding: 32px 16px;
+    }
+  }
+
+  .contact__item {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    
+
+    img {
+      width: 18px;
+    }
+  }
+  .contact__item--tel,
+  .contact__item--mobile,
+  .contact__item--mail{
+    background-color: #fff;
+    width: 100%;
+    max-width: 321px;
+    margin: 0 auto;
+    border-radius: 20px;
+    border: 1px solid var(--color-main);
+    margin-bottom: 18px;
+    padding: 12px 16px;
+
+    @include mq($until: sp-large) {
+      max-width: 100%;
+    }
+  }
+
+  .contact__item--tel span {
+    color: var(--color-main);
+    font-weight: 500;
+    font-size: 3rem;
+
+    @include mq (sp-large) {
+      font-size:  2rem;
+    }
+  }
+
+  .contact__item--mobile span {
+    color:var(--color-accent);
+    font-weight: 500;
+    font-size: 3rem;
+
+    @include mq (sp-large) {
+      font-size:  2rem;
+    }
+  }
+  .contact__item--time{
+    color: var(--color-main);
+  }
+  .contact__item--mail span{
+    color: var(--color-main);
+    font-size: 2rem;
+  }
+
+  .contact__btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    .btn--blue {
+      background: #0D3D90;
+      color: #fff;
+      width: 100%;
+      max-width: 369px;
+      margin-bottom: 0;
+
+      @include mq($until: sp-large) {
+        max-width: 100%;
+      }
+    }
+
+    .btn--orange {
+      background:var(--color-accent);
+      color: #fff;
+      width: 100%;
+      max-width: 294px;
+
+      @include mq($until: sp-large) {
+        max-width: 100%;
+      }
+    }
+  }
+
+

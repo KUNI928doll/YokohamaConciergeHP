@@ -1,0 +1,10 @@
+# PHPファイルへのアクセスを許可
+<Files "send-reservation.php">
+    Order allow,deny
+    Allow from all
+</Files>
+
+# エラーログの設定
+php_flag display_errors Off
+php_flag log_errors On
+

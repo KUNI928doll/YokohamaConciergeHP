@@ -1,0 +1,24 @@
+@use "sass:map";
+
+// ブレークポイント定義
+$breakpoints: (
+  sp-small: 376px,
+  sp-large: 768px,
+  tab: 1024px,
+  mid-pc: 1200px,
+  laptop: 1440px
+);
+
+// max-width（下方向）
+@mixin mq($until) {
+  @media (max-width: map.get($breakpoints, $until)) {
+    @content;
+  }
+}
+
+// min-width（上方向）
+@mixin mq-up($until) {
+  @media (min-width: map.get($breakpoints, $until)) {
+    @content;
+  }
+}

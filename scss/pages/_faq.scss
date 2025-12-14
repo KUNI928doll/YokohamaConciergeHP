@@ -1,0 +1,438 @@
+@charset "UTF-8";
+@use "../abstracts" as *;
+
+// FAQ
+// ================================
+// FAQセクション
+// ================================
+.faq {
+  position: relative;
+  width: 100%;
+  padding-top: 145px;
+  padding-bottom: 234px;
+  color: #fff;
+  z-index: 0;
+  overflow: hidden;
+  // background-image: url("../images/faq/wave_icon.png");
+  //   background-repeat: no-repeat;
+  //   background-size: 100% 100%;
+  //   background-position: center top;
+  background-image: url(../images/faq/faq-bg-pattern.png);
+  background-repeat: repeat;
+  background-size: 41px 45px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 36px;
+    background: url(../images/faq/faq-bg-wave.png) repeat-x center center;
+    background-size: 275px 36px;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 36px;
+    background: url(../images/faq/faq-bg-wave.png) repeat-x center center;
+    background-size: 275px 36px;
+    transform: scaleY(-1); // 下側は上下反転
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  // FAQタイトル（白色）
+  .section-title--faq {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    .section-title__text {
+      color: #fff;
+      font-family: var(--font-sub);
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .section-title__icon--wave {
+      width: 97px;
+      filter: brightness(0) invert(1); 
+      margin-left: 17px;
+    }
+  }
+
+  &.is-open .faq__bg {
+    // height: 1150px;
+
+    @include mq($until: sp-large) {
+      // height: 1300px;
+    }
+  }
+
+  // .faq__bg {
+  //   position: absolute;
+  //   top: 0;
+  //   left: 50%;
+  //   transform: translateX(-50%);
+  //   width: 100%;
+  //   height: 100%;
+  //   z-index: -1;
+  //   pointer-events: none;
+  //   transition: height 0.4s ease;
+
+  //   @include mq(mid-pc) {
+  //     min-width: auto;
+  //     width: 100%;
+  //     background-size: cover; // ← SPならOK
+  //   }
+  // }
+
+  .faq__container {
+    max-width: 1080px;
+    margin: 0 auto;
+    z-index: 2;
+    overflow: visible;
+    position: relative;
+
+    @include mq($until: mid-pc) {
+      padding-inline: 20px;
+    }
+
+    @include mq($until: sp-large) {
+   
+    }
+  }
+
+  .faq__inner {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+
+    @include mq($until: mid-pc) {
+      flex-direction: column;
+    }
+  }
+
+  .section-title {
+    position: relative;
+    text-align: left;
+    margin-bottom: 64px;
+    display: inline-block;
+  }
+
+  .faq__list {
+    display: grid;
+    gap: 21px;
+    flex: 1;
+    max-width: 650px;
+
+    @include mq($until: mid-pc) {
+      max-width: 100%;
+    }
+
+    @include mq($until: sp-large) {
+      max-width: 100%;
+    }
+  }
+
+  .faq__item {
+    background: #fff;
+    border-radius: 10px;
+    overflow: visible;
+    position: relative;
+    border: 2px solid #0D75C5;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 100%;
+      top: 36px;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-left: 20px solid #0D75C5;
+      /* 外側の枠線用（青） */
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: calc(100% - 1px);
+      top: 36px;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-left: 18px solid #fff;
+      /* 三角の色 */
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+    }
+  }
+
+  /* ==== 質問ボタン ==== */
+  .faq__question {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    /* Q とテキストの間隔を適度に */
+    background: #fff;
+    color: #333;
+    padding: 18px 48px 18px 17px;
+    border-radius: 10px;
+    width: 100%;
+    text-align: left;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: all 0.3s ease;
+    overflow: visible;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0%;
+      width: 100%;
+      height: 1px;
+      border-bottom: 2px dashed #8EA7D1;
+      /* 点線 */
+      transform: none;
+      opacity: 0;
+      transition: opacity 0.3s ease; //
+      z-index: 1;
+      display: none;
+    }
+  }
+
+  .is-active .faq__question::after {
+    display: block;
+    opacity: 1;
+  }
+
+  .faq__icon {
+    color: var(--color-text);
+    font-size: 3rem; 
+    font-family: var(--font-sub);
+    font-weight: bold
+  }
+
+  .faq__text {
+    color: var(--color-main);
+    font-size: 1.6rem; 
+    font-family: var(--font-sub);
+    font-weight: bold;
+    left: 3.2em;
+  }
+
+  .faq__plus {
+    position: absolute;
+    color: var(--color-text);
+    font-size: 3rem; 
+    transition: transform 0.3s ease;
+    right: 0.6667em;
+  }
+
+  /* ==== 答え部分（アコーディオン本体） ==== */
+  .faq__answer {
+    text-align: left;
+    background: #fff;
+    color: var(--color-main);
+    border-radius: 0 0 10px 10px;
+    padding: 0 1.5em;
+    /* 開いた時に中身が自然に見えるように */
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+
+    &-inner {
+      display: flex;
+      /* ← 横並びに */
+      align-items: flex-start;
+      gap: 12px;
+      /* Aとテキストの間に少し隙間 */
+    }
+  }
+
+  .faq__amark {
+    color: var(--color-accent);
+    font-size: 3rem; 
+    font-family: var(--font-sub);
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: 0;
+  }
+
+  .faq__atext {
+    p:first-child {
+      line-height: 1.5;
+      margin-top: 0;
+      padding-top: 0;
+    }
+  }
+
+  /* ==== 開いた状態 ==== */
+  .is-active &__answer {
+    max-height: 600px;
+    opacity: 1;
+    padding: 1.5em;
+  }
+
+  .faq__plus::before {
+    content: "+";
+    right: 1.2em;
+  }
+
+  .is-active .faq__plus::before {
+    content: "-";
+  }
+}
+
+/* ===== 背景装飾 ===== */
+.faq__decos{
+  width:min(359px,26vw );
+  position: absolute;
+  top: max(-67px,-4.89408327vw);
+  left: 55.84988962%;
+  aspect-ratio: 359 / 286; 
+}
+
+.faq__line {
+  width: 64.3454039%;
+  aspect-ratio: 231/ 245;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 20;
+  @include mq($until: sp-large) {
+    display: none;
+  }
+}
+
+.faq__seagull {
+  width: 16.15598886%;
+  aspect-ratio: 58/ 38;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 20;
+  transform-origin: center center;
+  animation: seagull-fly 8s ease-in-out infinite alternate;
+
+  @include mq($until: sp-large) {
+    top: 60%;
+    right: 10%;
+    width: clamp(40px, 15vw, 60px);
+  }
+}
+
+.faq-decorations {
+  position: absolute;
+  flex-shrink: 0;
+  aspect-ratio: 529 /451;
+  width: min(529px,38.64134405vw);
+  right: 0;
+  bottom: 0;
+  @include mq($until: mid-pc) {
+    right: 0;
+  }
+  @include mq($until: sp-large) {
+    width: 100%;
+    right: 0;
+    bottom: -3%;
+  }
+}
+
+.faq__character {
+  position: absolute;
+  aspect-ratio: 275 /255;
+  top: 0;
+  left: 0;
+  width: 51.98487713%;
+  /* ←ここを固定 */
+  z-index: 3;
+  animation: character-float 4s ease-in-out infinite;
+  transform-origin: center center;
+
+  @include mq($until: mid-pc) {
+    width: clamp(200px, 35vw, 260px);
+    top: 27%;
+    left: -100%;
+  }
+  @include mq($until: sp-large) {
+    top: 41%;
+    left: 85px;
+    transform: translateX(-50%);
+    width: clamp(160px, 50vw, 220px);
+    animation: none;
+  }
+
+  img {
+    width: 100%;
+    /* ←親要素（275px）に合わせる */
+    height: auto;
+    display: block;
+  }
+}
+
+/* ===== 雲（右下ふわふわ） ===== */
+.faq__cloud {
+  aspect-ratio: 387 /269;
+  width:min(387px,28vw);
+  position: absolute;
+  bottom:0;
+  right: 0;
+  z-index: 2;
+  animation: cloudFloat 6s ease-in-out infinite;
+  max-width: 100%;
+
+  @include mq($until: mid-pc) {
+    right:80px;
+  }
+  @include mq($until: sp-large) {
+    width: clamp(150px, 80vw, 250px);
+    right: 0;
+    opacity: 0.8;
+    animation: none;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+/* =======================================
+   FAQ下 CTAセクション（faq__actions）
+======================================= */
+.faq__actions {
+  position: relative;
+  background: #fff;
+  margin-top: 129px;
+  margin-bottom: 200px;
+  width: 100%;
+  
+  @include mq($until: sp-large) {
+    margin-top: 80px;
+  }
+}
+
+.faq__actions-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}

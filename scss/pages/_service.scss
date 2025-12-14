@@ -1,0 +1,538 @@
+@charset "UTF-8";
+@use "../abstracts" as *;
+
+// service
+.service {
+  position: relative;
+  padding: clamp(60px, 8vw, 100px) clamp(20px, 12vw, 182px) clamp(40px, 5vw, 56px);
+  background: #fff;
+  z-index: 1;
+  overflow: visible;
+  width: 100%;
+
+  @include mq($until: sp-large) {
+    padding: 40px 20px;
+  }
+
+  // 装飾（featuresから継続）
+  .service__deco-line {
+    position: absolute;
+    left: 94px;
+    top: -168px;
+    width: 95px;
+    z-index: 5;
+
+    @include mq($until: sp-large) {
+      display: none;
+    }
+  }
+
+  .service__deco-seagull {
+    position: absolute;
+    left: clamp(5%, 13vw, 13%);
+    top: clamp(10px, 2vw, 22px);
+    width: clamp(40px, 5vw, 58px);
+    animation: seagull-fly 8s ease-in-out infinite alternate;
+    z-index: 5;
+
+    @include mq($until: mid-pc) {
+      left: 28%;
+      top: 10px;
+      width: 40px;
+    }
+
+    @include mq($until: sp-large) {
+      display: none;
+    }
+  }
+
+  .service__inner {
+    position: relative;
+    max-width: 1080px;
+    margin-inline: auto;
+    padding-inline: 25px;
+  }
+
+  .service__heading {
+    text-align: left;
+
+    @include mq($until: sp-large) {
+      margin-bottom: 0px;
+    }
+
+    .section-title__text {
+      font-size: 2rem;
+      font-family: var(--font-sub);
+      margin-bottom: 16px;
+    }
+  }
+
+  .service__lead {
+    text-align: left;
+    font-size: clamp(14px, 1.4vw, 18px);
+    line-height: 2;
+    margin-bottom: 16px;
+    color: var(--color-main);
+    font-weight: 600;
+    font-family: var(--font-sub);
+  }
+
+  .service__note {
+    font-size: clamp(12px, 1.2vw, 14px);
+    color: #666;
+    margin-bottom: 45px;
+    text-align: left;
+    color: var(--color-main);
+    font-family: var(--font-sub);
+
+    @include mq($until: sp-large) {
+      
+    }
+  }
+  // 青波下線
+.text-wave-underline--blue {
+  position: relative;
+  display: inline;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath d='M0 3 Q5 0 10 3 T20 3' stroke='%231d4375' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: bottom;
+  background-size: 12px 4px;
+  padding-bottom: 4px;
+}
+
+  .service__area {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 43px;
+    padding: 8px 0;
+    border-top: 1px solid #0D3D90;
+    border-bottom: 1px solid #0D3D90;
+    position: relative;
+
+    @include mq($until: sp-large) {
+      flex-direction: column; // 横並び→縦並び
+      align-items: center;
+      gap: 16px;
+      padding: 20px 0;
+    }
+
+    .service-head {
+      flex-shrink: 0;
+    }
+
+    .service__area-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      background: #EFF3F4;
+      border-radius: 50%;
+      color: #0D3D90;
+      font-weight: 700;
+      font-size: 1.4rem; // 14px (1rem=10px基準)
+      line-height: 1.4;
+      text-align: center;
+
+      @include mq($until: sp-large) {
+        width: 64px;
+        height: 64px;
+        font-size: 1.2rem; // 12px (1rem=10px基準)
+      }
+    }
+
+    .service__area-list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px 15px;
+      color: #0D3D90;
+      font-size: clamp(14px, 1.4vw, 16px);
+      line-height: 1.6;
+      font-family: var(--font-sub);
+      width: 100%;
+
+      @include mq($until: mid-pc) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px 20px;
+        font-size: 1.4rem;
+      }
+
+      @include mq($until: sp-large) {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 12px;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      li {
+        position: relative;
+        padding-left: 1em;
+
+        @include mq($until: sp-large) {
+          padding-left: 0;
+        }
+
+        &::before {
+          content: "●";
+          position: absolute;
+          left: 0;
+          top: 0;
+          color: #0D3D90;
+          font-size: 0.8em;
+
+          @include mq($until: sp-large) {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .service__area-item--nowrap {
+      @include mq-up(sp-large) {
+        white-space: nowrap;
+      }
+    }
+  }
+}
+
+/* ===========================================
+   サービス紹介ページ専用 吹き出し位置調整
+   =========================================== */
+.section--service {
+  position: relative; // 念のため親要素に基準を
+  z-index: 3;
+
+  .speech-wrapper {
+    position: absolute;
+    left: 66%; // ← 左右位置
+    top: -99px; // featuresセクションに重なる
+    transform: none; // ← 中央寄せが入ってたら打ち消す
+    z-index: 20;
+
+    @include mq($until: sp-large) {
+      display: none;
+    }
+  }
+
+  .character {
+    position: absolute;
+    right: 5%;
+    width: clamp(180px, 22vw, 275px);
+    transition: all 0.4s ease; // 
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    @include mq($until: mid-pc) {
+      right: 24%;
+      width: clamp(160px, 26vw, 230px);
+      top: 145%;
+    }
+
+    @include mq($until: sp-large) {
+      position: relative; // ← 絶対配置解除（スマホでは下に来る）
+      right: auto;
+      margin-left: auto; // ← 右寄せの代わり
+      margin-right: 5%; // ← 少し右端に寄せる
+      width: clamp(140px, 50vw, 180px); // ← スマホでさらに小さく
+    }
+  }
+
+  .speech-bubble-imgwrap--service {
+    position: relative;
+    width: clamp(180px, 20vw, 260px);
+    left: clamp(-30%, -35vw, -45%);
+
+    @include mq($until: mid-pc) {
+      width: clamp(150px, 18vw, 200px);
+      left: -20%;
+    }
+
+    @include mq($until: sp-large) {
+      left: 0;
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+
+  .speech-bubble-text--service {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 65%;
+
+    @include mq($until: sp-large) {
+      width: 55%;
+      font-size: 1.2rem; // 12px (1rem=10px基準)
+      line-height: 1.6;
+      left: 39%;
+    }
+  }
+}
+
+// service-detail
+.service-detail {
+  background: #fff;
+
+  .service-detail__inner {
+    width: min(95%, 1080px);
+    margin: 0 auto;
+    padding-inline: 20px;
+  }
+
+  .service-detail__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(20px, 4vw, 40px);
+    align-items: stretch;
+
+    @include mq($until: tab) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mq($until: sp-large) {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+
+  .service-detail__item {
+    display: block;
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-4px);
+      
+      .service-detail__arrow-btn {
+        background: #2c7db3;
+      }
+    }
+  }
+
+  .service-detail__card {
+    display: flex; // ← 中身を縦方向に並べる
+    flex-direction: column; // ← タイトル〜ボタンを縦並びに
+    height: 100%;
+    position: relative;
+    background: #EFF3F4;
+    border-radius: 16px 16px 60px 16px; // ✅右下だけ大きく丸める
+    padding: 31px 35px 43px 35px;
+
+    text-align: center;
+    transition: 0.3s;
+
+    @include mq($until: sp-large) {
+      padding: 24px 20px 36px 20px;
+      border-radius: 12px 12px 48px 12px;
+    }
+
+    // 💡 右下の「くり抜き風」の疑似要素
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 60px; // くり抜きの直径
+      height: 60px;
+      background: #fff; // 背景色で"くり抜き"に見せる
+      border-top-left-radius: 60px; // 丸くくり抜く
+      z-index: 1;
+
+      @include mq($until: sp-large) {
+        width: 48px;
+        height: 48px;
+        border-top-left-radius: 48px;
+      }
+    }
+  }
+
+  .service-detail__corner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    background: #4096CC;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+    border-top-left-radius: 12px;
+    /* ←角を丸く */
+  }
+
+  .service-detail__icon img {
+    width: 120px;
+    max-width: 100%;
+    margin: 24px auto 16px;
+
+    @include mq($until: sp-large) {
+      width: 80px;
+      margin: 16px auto 12px;
+    }
+  }
+
+  .service-detail__title {
+    font-size: clamp(18px, 2vw, 21px);
+    font-weight: 600;
+    color: var(--color-main, #0D3D90);
+    margin-bottom: 16px;
+    font-family: var(--font-sub);
+
+    @include mq($until: sp-large) {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+  }
+
+  .service-detail__text {
+    font-size: clamp(14px, 1.8vw, 16px);
+    line-height: 1.8;
+    color: var(--color-main);
+    margin-bottom: 24px;
+    text-align: left;
+
+    @include mq($until: mid-pc) {
+      text-align: center;
+    }
+
+    @include mq($until: sp-large) {
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+  }
+
+  .service-detail__list {
+    list-style: none;
+    padding: 0 0 0 16px;
+    margin: 0;
+    font-size: clamp(14px, 1.8vw, 16px);
+    color: #333;
+    text-align: left;
+    border-left: 2px solid var(--color-main, #0D3D90);
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+  }
+
+  .service-detail__arrow {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+  }
+
+  .service-detail__arrow-btn {
+    width: 40px;
+    height: 40px;
+    background: #4096CC;
+    border-radius: 50%;
+    position: relative;
+    display: inline-block;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease;
+
+    @include mq($until:sp-large) {
+      width: 32px;
+      height: 32px;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 27%;
+      width: 16px; // ← 横棒の長さ
+      height: 2px;
+      background: #fff;
+      transform: translateY(-50%);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 49%;
+      left: 57%;
+      width: 10px; // ← 矢印の横幅を長く
+      height: 10px; // ← 縦幅を広くしてバランス調整
+      border-right: 2px solid #fff; // ← 太めにして見やすく
+      border-bottom: 2px solid #fff;
+      transform: translate(-40%, -40%) rotate(-45deg); // ← 少し角度を調整
+
+      &:hover {
+        background: #092e6a;
+      }
+    }
+  }
+}
+
+.section--service {
+  position: relative;
+}
+
+.speech-wrap--service {
+  @include mq($until: sp-large) {
+    position: absolute;
+    top: -119px;
+    right: 0;
+  }
+}
+
+/* 吹き出し背景 */
+.speech-bubble-imgwrap--service {
+  position: relative;
+  right: 0;
+  margin-left: auto;
+  transition: all 0.3s ease;
+
+  @include mq($until: mid-pc) {
+    width: clamp(160px, 26vw, 220px);
+  }
+
+  @include mq($until: sp-large) {
+    width: clamp(140px, 50vw, 180px);
+    position: relative;
+    margin-left: auto; // ← 左側に余白を取る
+    margin-right: 5%;
+    right: 0;
+    margin: 0 auto;
+  }
+
+}
+
+/* キャラクター */
+.character {
+  position: absolute;
+  width: clamp(180px, 22vw, 275px);
+  z-index: 1;
+  transition: all 0.4s ease;
+
+  @include mq($until: mid-pc) {
+    width: clamp(160px, 26vw, 230px);
+  }
+
+  @include mq($until: sp-large) {
+    position: relative;
+    right: auto;
+    margin-left: auto;
+    margin-right: 5%;
+    width: clamp(140px, 50vw, 180px);
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
