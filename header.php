@@ -42,39 +42,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
 
-
-    <!-- GSAP（ScrollTrigger付き） -->
-    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
-    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
-
-
-    <!-- JSON-LD（構文修正済み） -->
-    <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "YOKOHAMA Concierge",
-    "url": "https://yokohama-concierge.jp/",
-    "image": "https://yokohama-concierge.jp/images/ogp.jpg",
-    "telephone": "+81-45-681-2737",
-    "address": {
-      "@type": "PostalAddress",
-      "postalCode": "231-0023",
-      "addressRegion": "神奈川県",
-      "addressLocality": "横浜市中区山下町",
-      "streetAddress": "76−4−1301"
-    },
-    "openingHoursSpecification": [{
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-      "opens": "10:00",
-      "closes": "18:00"
-    }]
-  }
-  </script>
-
+    <?php wp_head(); ?>
 </head>
-<body>
+<body id="top">
     <!-- ヘッダー -->
  <header class="header">
         <div class="header__inner">

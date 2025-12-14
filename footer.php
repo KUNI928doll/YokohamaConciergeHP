@@ -56,24 +56,9 @@
             © 2025 YOKOHAMA Concierge. All Rights Reserved.
         </p>
     </footer>
-    <a href="#" class="pagetop" aria-label="ページの先頭へ">
+    <a href="#top" class="pagetop" aria-label="ページの先頭へ">
         <img src="<?php echo get_template_directory_uri(); ?>/images/icon-pagetop.png" alt="ページトップへ">
     </a>
-    <!-- jQuery（必ず一番上） -->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
-    <!-- Slick本体 -->
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
-    <!-- その他のJS（header.js など） -->
-    <script src="<?php echo get_template_directory_uri(); ?>/js/header.js"></script>
-    <script src="<?php echo get_template_directory_uri(); ?>/js/about.js"></script>
-    <script src="<?php echo get_template_directory_uri(); ?>/js/accordion.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <script src="<?php echo get_template_directory_uri(); ?>/js/news.js?v=9"></script>
-    <script src="<?php echo get_template_directory_uri(); ?>/js/pagetop.js"></script>
-    <script src="<?php echo get_template_directory_uri(); ?>/js/features-modal.js"></script>
-
     <?php wp_footer(); ?>
 </body>
 
