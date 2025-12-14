@@ -58,6 +58,18 @@ function yokohama_concierge_theme_activation() {
             'slug' => 'service-tour-guide',
             'template' => 'page-service-tour-guide.php',
             'content' => '<p>観光ガイドサービスの内容をここに記載してください。</p>'
+        ),
+        array(
+            'title' => 'トランクお預かりサービス',
+            'slug' => 'service-storage',
+            'template' => 'page-service-storage.php',
+            'content' => '<p>トランクお預かりサービスの内容をここに記載してください。</p>'
+        ),
+        array(
+            'title' => '予約代行サービス',
+            'slug' => 'service-reserve',
+            'template' => 'page-service-reserve.php',
+            'content' => '<p>予約代行サービスの内容をここに記載してください。</p>'
         )
     );
     

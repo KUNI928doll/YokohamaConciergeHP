@@ -8,8 +8,7 @@
   background: url("../images/contact/contact-bg.png") no-repeat center top;
   background-size: cover;
   margin-top: -9.10576222vw;
-  margin-bottom: -200px;
-  z-index: 99;
+  margin-bottom: -190px;
   mask-image: url(../images/contact/contact-mask.png);
   mask-size: 100% 100%;
   mask-repeat: no-repeat;
@@ -18,7 +17,7 @@
   overflow: hidden;
   
   @include mq(mid-pc) {
-    margin-bottom: -210px;
+    margin-bottom: -150px;
     margin-top: -17.10576222vw;
   }
   

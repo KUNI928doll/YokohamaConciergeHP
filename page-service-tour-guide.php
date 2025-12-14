@@ -8,33 +8,32 @@ get_header();
 <?php get_template_part('template-parts/inner-nav'); ?>
 
     <main>
-        <div class="sub-hero">
-            <div class="sub-hero__decoration">
-                <img src="./images/sub-hero__decoration.png" alt="" aria-hidden="true">
-            </div>
-            <div class="sub-hero__img">
-                <img src="./images/service-tour-guide/service-hero.png" alt="横浜の夜景">
-            </div>
-            <h1 class="sub-hero__title">サービス紹介</h1>
+    <!-- サブヒーロー -->
+    <div class="sub-hero js-fade-up">
+        <div class="sub-hero__decoration">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/sub-hero__decoration.png" alt="" aria-hidden="true">
         </div>
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-            <ul class="breadcrumb__list">
-                <li class="breadcrumb__item">
-                    <a href="index.html">ホーム</a>
-                </li>
-                <li class="breadcrumb__item">サービス紹介（観光ガイドサービス）</li>
-            </ul>
-        </nav>
-        <section class="guide-overview">
+        <div class="sub-hero__img">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/service-hero.png" alt="横浜の夜景">
+        </div>
+        <h1 class="sub-hero__title">サービス紹介</h1>
+    </div>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ul class="breadcrumb__list">
+            <li class="breadcrumb__item">
+                <a href="<?php echo esc_url(home_url('/')); ?>">ホーム</a>
+            </li>
+            <li class="breadcrumb__item">サービス紹介（観光ガイドサービス）</li>
+        </ul>
+    </nav>
+        <section class="guide-overview js-fade-up">
             <div class="guide-overview__inner">
 
                 <!-- タイトル -->
                 <div class="guide-overview__title-block">
-                    <img src="./images/service-tour-guide/guide-flag.svg" alt="" class="guide-overview__title-icon"
-                        aria-hidden="true">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/guide-flag.svg" alt="" class="guide-overview__title-icon" aria-hidden="true">
                     <h2 class="guide-overview__title">観光ガイドサービス</h2>
-                    <img src="./images/service-tour-guide/guide-wave.svg" alt="" class="guide-overview__title-wave"
-                        aria-hidden="true">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/guide-wave.svg" alt="" class="guide-overview__title-wave" aria-hidden="true">
                 </div>
 
                 <!-- 説明文 -->
@@ -73,7 +72,7 @@ get_header();
         </section>
 
         <!-- 主なみどころ（立ち寄り所） -->
-        <section class="guide-spots" id="guide-spots">
+        <section class="guide-spots js-fade-up" id="guide-spots">
             <div class="guide-spots__inner">
                 <div class="guide-spots__title">
                     <p class="guide-spots__eyebrow">主なみどころ（立ち寄り所）</p>
@@ -84,37 +83,37 @@ get_header();
                     <div class="guide-spots__nav" role="tablist" aria-label="観光エリア">
                         <button class="guide-spots__nav-btn is-active" type="button" role="tab" data-area="motomachi"
                             aria-selected="true" aria-controls="panel-motomachi" id="tab-motomachi">
-                            <img src="./images/about-yokohama/icon-motomachi.png" alt="" aria-hidden="true">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-motomachi.png" alt="" aria-hidden="true">
                             元町・山手エリア
                         </button>
                         <button class="guide-spots__nav-btn" type="button" role="tab" data-area="chinatown"
                             aria-selected="false" aria-controls="panel-chinatown" id="tab-chinatown">
-                            <img src="./images/about-yokohama/icon-chukagai.png" alt="" aria-hidden="true">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-chukagai.png" alt="" aria-hidden="true">
                             中華街・山下公園エリア
                         </button>
                         <button class="guide-spots__nav-btn" type="button" role="tab" data-area="nihondori"
                             aria-selected="false" aria-controls="panel-nihondori" id="tab-nihondori">
-                            <img src="./images/about-yokohama/icon-nihondori.png" alt="" aria-hidden="true">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-nihondori.png" alt="" aria-hidden="true">
                             日本大通りエリア
                         </button>
                         <button class="guide-spots__nav-btn" type="button" role="tab" data-area="kannai"
                             aria-selected="false" aria-controls="panel-kannai" id="tab-kannai">
-                            <img src="./images/about-yokohama/icon-kannai.png" alt="" aria-hidden="true">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-kannai.png" alt="" aria-hidden="true">
                             関内エリア
                         </button>
                         <button class="guide-spots__nav-btn" type="button" role="tab" data-area="bashamichi"
                             aria-selected="false" aria-controls="panel-bashamichi" id="tab-bashamichi">
-                            <img src="./images/about-yokohama/icon-bashamichi.png" alt="" aria-hidden="true">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-bashamichi.png" alt="" aria-hidden="true">
                             馬車道エリア
                         </button>
                         <button class="guide-spots__nav-btn" type="button" role="tab" data-area="sakuragicho"
                             aria-selected="false" aria-controls="panel-sakuragicho" id="tab-sakuragicho">
-                            <img src="./images/about-yokohama/icon-sakuragicho.png" alt="" aria-hidden="true">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-sakuragicho.png" alt="" aria-hidden="true">
                             桜木町エリア
                         </button>
                         <button class="guide-spots__nav-btn" type="button" role="tab" data-area="minatomirai"
                             aria-selected="false" aria-controls="panel-minatomirai" id="tab-minatomirai">
-                            <img src="./images/about-yokohama/icon-minatomirai.png" alt="" aria-hidden="true">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-minatomirai.png" alt="" aria-hidden="true">
                             みなとみらいエリア
                         </button>
                     </div>
@@ -128,12 +127,12 @@ get_header();
                                 <div class="guide-spots__panel-title-wrapper">
                                     <p class="guide-spots__panel-index">①</p>
                                     <p class="guide-spots__panel-title">
-                                        <img src="./images/about-yokohama/icon-motomachi.png" alt="" aria-hidden="true">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-motomachi.png" alt="" aria-hidden="true">
                                         元町・山手エリア
                                     </p>
                                 </div>
                                 <div class="guide-spots__panel-map">
-                                    <img src="./images/service-tour-guide/service-tour-guide_photo1.png" alt="港の見える丘公園">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/service-tour-guide_photo1.png" alt="港の見える丘公園">
                                 </div>
                             </div>
 
@@ -161,11 +160,11 @@ get_header();
 
                                 <div class="guide-spots__right">
                                     <div class="guide-spots__gallery">
-                                        <img src="./images/service-tour-guide/service-tour-guide_photo2.png" alt="山手西洋館">
-                                        <img src="./images/service-tour-guide/service-tour-guide_photo3.png" alt="三溪園の景色">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/service-tour-guide_photo2.png" alt="山手西洋館">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/service-tour-guide_photo3.png" alt="三溪園の景色">
                                     </div>
                                     <div class="guide-spots__footer">
-                                        <a href="yokohama.html#map-motomachi" class="guide-spots__map-link">
+                                        <a href="<?php echo esc_url(home_url('/yokohama/#map-motomachi')); ?>" class="guide-spots__map-link">
                                             <span>MAPへ</span>
                                         </a>
                                     </div>
@@ -180,12 +179,12 @@ get_header();
                                 <div class="guide-spots__panel-title-wrapper">
                                     <p class="guide-spots__panel-index">②</p>
                                     <p class="guide-spots__panel-title">
-                                        <img src="./images/about-yokohama/icon-chukagai.png" alt="" aria-hidden="true">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-chukagai.png" alt="" aria-hidden="true">
                                         中華街・山下公園エリア
                                     </p>
                                 </div>
                                 <div class="guide-spots__panel-map">
-                                    <img src="./images/service-tour-guide/service-tour-guide_photo4.png" alt="マリンタワー
+                                    <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/service-tour-guide_photo4.png" alt="マリンタワー
                                     の景色">
                                 </div>
                             </div>
@@ -215,11 +214,11 @@ get_header();
 
                                 <div class="guide-spots__right">
                                     <div class="guide-spots__gallery">
-                                    <img src="./images/service-tour-guide/service-tour-guide_photo5.png" alt="中華街の門">
-                                    <img src="./images/service-tour-guide/service-tour-guide_photo6.png" alt="横浜人形の家">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/service-tour-guide_photo5.png" alt="中華街の門">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/service-tour-guide_photo6.png" alt="横浜人形の家">
                                 </div>
                                     <div class="guide-spots__footer">
-                                <a href="yokohama.html#map-chinatown" class="guide-spots__map-link">
+                                <a href="<?php echo esc_url(home_url('/yokohama/#map-chinatown')); ?>" class="guide-spots__map-link">
                                     
                                     <span>MAPへ</span>
                                 </a>
@@ -235,12 +234,12 @@ get_header();
                                 <div class="guide-spots__panel-title-wrapper">
                                     <p class="guide-spots__panel-index">③</p>
                                     <p class="guide-spots__panel-title">
-                                        <img src="./images/about-yokohama/icon-nihondori.png" alt="" aria-hidden="true">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-nihondori.png" alt="" aria-hidden="true">
                                         日本大通りエリア
                                     </p>
                                 </div>
                                 <div class="guide-spots__panel-map">
-                                    <img src="./images/service-tour-guide/service-tour-guide_photo7.png" alt="日本新聞博物館ニュースパーク（日本大通り">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/service-tour-guide_photo7.png" alt="日本新聞博物館ニュースパーク（日本大通り">
                                 </div>
                             </div>
 
@@ -266,11 +265,11 @@ get_header();
 
                                 <div class="guide-spots__right">
                                     <div class="guide-spots__gallery">
-                                    <img src="./images/service-tour-guide/service-tour-guide_photo8.png" alt="横浜市開港記念会館(ジャックの塔)">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/service-tour-guide_photo8.png" alt="横浜市開港記念会館(ジャックの塔)">
                                 </div>
                                     <div class="guide-spots__footer">
 
-                                <a href="yokohama.html#map-nihondori" class="guide-spots__map-link">
+                                <a href="<?php echo esc_url(home_url('/yokohama/#map-nihondori')); ?>" class="guide-spots__map-link">
                                     
                                     <span>MAPへ</span>
                                 </a>
@@ -286,12 +285,12 @@ get_header();
                                 <div class="guide-spots__panel-title-wrapper">
                                     <p class="guide-spots__panel-index">④</p>
                                     <p class="guide-spots__panel-title">
-                                        <img src="./images/about-yokohama/icon-kannai.png" alt="" aria-hidden="true">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-kannai.png" alt="" aria-hidden="true">
                                         関内エリア
                                     </p>
                                 </div>
                                 <div class="guide-spots__panel-map">
-                                    <img src="./images/service-tour-guide/service-tour-guide_photo9.png" alt="伊勢佐木町商店街">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/service-tour-guide_photo9.png" alt="伊勢佐木町商店街">
                                 </div>
                             </div>
 
@@ -306,7 +305,7 @@ get_header();
                                     <div class="guide-spots__gallery">
                                     </div>
                                     <div class="guide-spots__footer">
-                                        <a href="yokohama.html#map-kannai" class="guide-spots__map-link">
+                                        <a href="<?php echo esc_url(home_url('/yokohama/#map-kannai')); ?>" class="guide-spots__map-link">
                                             <span>MAPへ</span>
                                         </a>
                                     </div>
@@ -321,13 +320,13 @@ get_header();
                                 <div class="guide-spots__panel-title-wrapper">
                                     <p class="guide-spots__panel-index">⑤</p>
                                     <p class="guide-spots__panel-title">
-                                        <img src="./images/about-yokohama/icon-bashamichi.png" alt=""
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-bashamichi.png" alt=""
                                             aria-hidden="true">
                                         馬車道エリア
                                     </p>
                                 </div>
                                 <div class="guide-spots__panel-map">
-                                    <img src="./images/service-tour-guide/service-tour-guide_photo10.png" alt="赤煉瓦倉庫">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/service-tour-guide_photo10.png" alt="赤煉瓦倉庫">
                                 </div>
                             </div>
 
@@ -357,13 +356,13 @@ get_header();
                                 <div class="guide-spots__panel-title-wrapper">
                                     <p class="guide-spots__panel-index">⑥</p>
                                     <p class="guide-spots__panel-title">
-                                        <img src="./images/about-yokohama/icon-sakuragicho.png" alt=""
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-sakuragicho.png" alt=""
                                             aria-hidden="true">
                                         桜木町エリア
                                     </p>
                                 </div>
                                 <div class="guide-spots__panel-map">
-                                    <img src="./images/service-tour-guide/service-tour-guide_photo11.png" alt="野毛商店街">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/service-tour-guide_photo11.png" alt="野毛商店街">
                                 </div>
                             </div>
 
@@ -387,7 +386,7 @@ get_header();
                                     <div class="guide-spots__gallery">
                                     </div>
                                     <div class="guide-spots__footer">
-                                        <a href="yokohama.html#map-sakuragicho" class="guide-spots__map-link">
+                                        <a href="<?php echo esc_url(home_url('/yokohama/#map-sakuragicho')); ?>" class="guide-spots__map-link">
                                             <span>MAPへ</span>
                                         </a>
                                     </div>
@@ -402,13 +401,13 @@ get_header();
                                 <div class="guide-spots__panel-title-wrapper">
                                     <p class="guide-spots__panel-index">⑦</p>
                                     <p class="guide-spots__panel-title">
-                                        <img src="./images/about-yokohama/icon-minatomirai.png" alt=""
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-minatomirai.png" alt=""
                                             aria-hidden="true">
                                         みなとみらいエリア
                                     </p>
                                 </div>
                                 <div class="guide-spots__panel-map">
-                                    <img src="./images/service-tour-guide/service-tour-guide_photo12.png" alt="ランドマークタワー">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/service-tour-guide_photo12.png" alt="ランドマークタワー">
                                 </div>
                             </div>
 
@@ -439,11 +438,11 @@ get_header();
 
                                 <div class="guide-spots__right">
                                     <div class="guide-spots__gallery">
-                                        <img src="./images/service-tour-guide/service-tour-guide_photo13.png" alt="コスモワールド">
-                                        <img src="./images/service-tour-guide/service-tour-guide_photo14.png" alt="美術館">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/service-tour-guide_photo13.png" alt="コスモワールド">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/service-tour-guide_photo14.png" alt="美術館">
                                     </div>
                                     <div class="guide-spots__footer">
-                                        <a href="yokohama.html#map-minatomirai" class="guide-spots__map-link">
+                                        <a href="<?php echo esc_url(home_url('/yokohama/#map-minatomirai')); ?>" class="guide-spots__map-link">
                                             <span>MAPへ</span>
                                         </a>
                                     </div>
@@ -455,13 +454,13 @@ get_header();
             </div>
 
             <div class="guide-spots__area-btn">
-                <a href="yokohama.html#guide-overview" class="btn btn--blue btn--md btn--with-arrow">
+                <a href="<?php echo esc_url(home_url('/yokohama/#guide-overview')); ?>" class="btn btn--blue btn--md btn--with-arrow">
                     <span>各エリアについて知る</span>
                     <span class="btn__arrow" aria-hidden="true">→</span>
                 </a>
             </div>
         </section>
-        <section class="guide-points">
+        <section class="guide-points js-fade-up">
             <div class="guide-points__inner">
                 <h2 class="guide-points__title">
                     <svg class="guide-points__curve" viewBox="0 0 600 160" aria-hidden="true">
@@ -479,7 +478,7 @@ get_header();
                     <ul class="guide-points__features">
                         <li class="guide-points__feature">
                             <div class="guide-points__icon">
-                                <img src="./images/service-tour-guide/guide-points1.png" alt="特徴1のまるアイコン">
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/guide-points1.png" alt="特徴1のまるアイコン">
                             </div>
                             <p class="guide-points__head">直前・緊急対応</p>
                             <p class="guide-points__text">（前日・当日OK）</p>
@@ -488,7 +487,7 @@ get_header();
                     <ul class="guide-points__features">
                         <li class="guide-points__feature">
                             <div class="guide-points__icon">
-                                <img src="./images/service-tour-guide/guide-points2.png" alt="特徴2のまるアイコン">
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/guide-points2.png" alt="特徴2のまるアイコン">
                             </div>
                             <p class="guide-points__head">多言語サポート</p>
                             <p class="guide-points__text">英語・中国語・韓国語</p>
@@ -497,7 +496,7 @@ get_header();
                     <ul class="guide-points__features">
                         <li class="guide-points__feature">
                             <div class="guide-points__icon">
-                                <img src="./images/service-tour-guide/guide-points3.png" alt="特徴3のまるアイコン">
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/guide-points3.png" alt="特徴3のまるアイコン">
                             </div>
                             <p class="guide-points__head">地元横浜に精通</p>
                             <p class="guide-points__text">横浜をよく知る<br>スタッフ同行で安心</p>
@@ -508,7 +507,7 @@ get_header();
         </section>
 
         <!-- 料金セクション -->
-        <section class="guide-fee">
+        <section class="guide-fee js-fade-up">
             <div class="guide-fee__inner">
                 <div class="guide-fee__info">
                     <div class="guide-fee__info-item">
@@ -584,20 +583,20 @@ get_header();
         </section>
 
         <!-- お困りごと対応セクション -->
-        <section class="support support--tour-guide">
+        <section class="support support--tour-guide js-fade-up">
             <div class="support__inner">
                 <h2 class="support__title support__title--tour-guide">
-                    <img src="./images/service-tour-guide/support-title-line_left.svg" alt="" aria-hidden="true"
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/support-title-line_left.svg" alt="" aria-hidden="true"
                         class="support__title-decoration support__title-decoration--left">
                     <span class="support__title-text">全てのサービスにサポート付き!</span>
-                    <img src="./images/service-tour-guide/support-title-line_right.svg" alt="" aria-hidden="true"
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/support-title-line_right.svg" alt="" aria-hidden="true"
                         class="support__title-decoration support__title-decoration--right">
                 </h2>
                 <div class="support__box">
                     <div class="support__top">
                         <div class="support__header">
                             <div class="support__icon">
-                                <img src="./images/service/icon-support.png" alt="お困りごと対応アイコン">
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-support.png" alt="お困りごと対応アイコン">
                             </div>
                             <h3 class="support__subtitle">お困りごと対応</h3>
                         </div>
@@ -626,7 +625,7 @@ get_header();
                             </li>
                         </ol>
                     </div>
-                    <a href="contact.html" class="btn btn--blue btn--md btn--support">ご相談はこちら
+                    <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn--blue btn--md btn--support">ご相談はこちら
                         <span class="btn__arrow">→</span>
                     </a>
                 </div>
@@ -634,7 +633,7 @@ get_header();
         </section>
 
         <!-- ご利用の流れセクション -->
-        <section class="guide-flow">
+        <section class="guide-flow js-fade-up">
             <div class="guide-flow__inner">
                 <h2 class="guide-flow__title">ご利用の流れ</h2>
 
@@ -646,8 +645,8 @@ get_header();
                             <h3 class="guide-flow__step-title">ご希望内容を選択</h3>
                             <p class="guide-flow__step-description">ご予約フォームより、ご希望内容をご選択ください</p>
                             <p class="guide-flow__step-detail">ご希望に沿ったコースのご提案とお見積り金額をメールでご提案いたします</p>
-                            <a href="reservation.html" class="btn btn--orange btn--md guide-flow__btn">ご予約フォーム
-                                <img src="./images/service/icon-link.png" alt="" class="btn__icon" aria-hidden="true">
+                            <a href="<?php echo esc_url(home_url('/reservation/')); ?>" class="btn btn--orange btn--md guide-flow__btn">ご予約フォーム
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-link.png" alt="" class="btn__icon" aria-hidden="true">
                             </a>
                         </div>
                     </div>
@@ -690,87 +689,87 @@ get_header();
         </section>
 
         <!-- サービスカードセクション -->
-        <section class="guide-services">
+        <section class="guide-services js-fade-up">
             <div class="guide-services__inner">
                 <div class="guide-services__cards">
                     <!-- カード1: 予約代行 -->
-                    <a class="guide-services__card" href="service-reserve.html">
+                    <a class="guide-services__card" href="<?php echo esc_url(home_url('/service-reserve/')); ?>">
                         <div class="guide-services__corner"></div>
                         <div class="guide-services__icon">
-                            <img src="./images/service/icon-reserve.png" alt="予約代行アイコン">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-reserve.png" alt="予約代行アイコン">
                         </div>
                         <h3 class="guide-services__title">予約代行</h3>
                     </a>
 
                     <!-- カード2: トランクお預かり -->
-                    <a class="guide-services__card" href="service-storage.html">
+                    <a class="guide-services__card" href="<?php echo esc_url(home_url('/service-storage/')); ?>">
                         <div class="guide-services__corner"></div>
                         <div class="guide-services__icon">
-                            <img src="./images/service/icon-trunk.png" alt="トランクお預かりアイコン">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-trunk.png" alt="トランクお預かりアイコン">
                         </div>
                         <h3 class="guide-services__title">トランクお預かり</h3>
                     </a>
 
                     <!-- カード3: 観光ガイドサービス -->
-                    <a class="guide-services__card" href="service-tour-guide.html">
+                    <a class="guide-services__card" href="<?php echo esc_url(home_url('/service-tour-guide/')); ?>">
                         <div class="guide-services__corner"></div>
                         <div class="guide-services__icon">
-                            <img src="./images/service/icon-guide.png" alt="観光ガイドサービスアイコン">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-guide.png" alt="観光ガイドサービスアイコン">
                         </div>
                         <h3 class="guide-services__title">観光ガイドサービス</h3>
                     </a>
                 </div>
 
                 <div class="guide-services__home">
-                    <a href="index.html" class="guide-services__home-btn">
-                        <img src="./images/icon-home.png" alt="ホームアイコン">
+                    <a href="<?php echo esc_url(home_url('/')); ?>" class="guide-services__home-btn">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/icon-home.png" alt="ホームアイコン">
                         <span>ホームへ</span>
                     </a>
                 </div>
             </div>
         </section>
 
-        <section class="contact contact--bottom" id="contact">
+        <section class="contact contact--bottom js-fade-up" id="contact">
             <div class="contact__inner">
                 <h2 class="section-title section-title--sm section-title--contact">
                     <span class="section-title__text">お問い合わせ</span>
-                    <img src="./images/about/about_title-wave.svg" alt="" aria-hidden="true" class="section-title__icon section-title__icon--wave">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_title-wave.svg" alt="" aria-hidden="true" class="section-title__icon section-title__icon--wave">
                 </h2>
 
                 <div class="contact__box">
                     <ul class="contact__list">
                         <li class="contact__item contact__item--tel">
-                            <img src="./images/header_phoneicon.png" alt="">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/header_phoneicon.png" alt="">
                             <span>045-681-2737</span>
                         </li>
                         <li class="contact__item contact__item--mobile">
-                            <img src="./images/header_mobileicon.png" alt="">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/header_mobileicon.png" alt="">
                             <span>070-1526-3845</span>
                         </li>
                         <li class="contact__item contact__item--time">対応時間：10:00〜18:00／不定休</li>
                         <li class="contact__item contact__item--mail">
-                            <img src="./images/header_mailicon.png" alt="">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/header_mailicon.png" alt="">
                             <span>info@hamanavi-s.jp</span>
                         </li>
                     </ul>
 
                     <div class="contact__btns">
-                        <a href="contact.html" class="btn btn--blue btn--md">お問い合わせ・ご相談窓口<span class="btn__arrow">→</span></a>
+                        <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn--blue btn--md">お問い合わせ・ご相談窓口<span class="btn__arrow">→</span></a>
                         
-                        <a href="reservation.html" class="btn btn--orange btn--md">予約をする
-                            <img src="./images/service/icon-link.png" alt="" class="btn__icon" aria-hidden="true"></a>
+                        <a href="<?php echo esc_url(home_url('/reservation/')); ?>" class="btn btn--orange btn--md">予約をする
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-link.png" alt="" class="btn__icon" aria-hidden="true"></a>
                     </div>
                 </div>
 
                     <div class="contact__decos">
                         <div class="speech-bubble-imgwrap speech-bubble-imgwrap--contact">
-                            <img src="./images/bubble.png" class="speech-bubble-img" aria-hidden="true">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/bubble.png" class="speech-bubble-img" aria-hidden="true">
                             <p class="speech-bubble-text speech-bubble-text--contact">
                                 ハマナビサービスで<br>横浜を楽しんでいってね！
                             </p>
                         </div>
                         <figure class="character character--contact">
-                            <img src="./images/contact/bird.png" alt="ハマナビくん">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/contact/bird.png" alt="ハマナビくん">
                         </figure>
                     </div>
             </div>

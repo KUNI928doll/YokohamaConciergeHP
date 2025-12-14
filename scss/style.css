@@ -5677,8 +5677,7 @@ img {
   background: url("../images/contact/contact-bg.png") no-repeat center top;
   background-size: cover;
   margin-top: -9.10576222vw;
-  margin-bottom: -200px;
-  z-index: 99;
+  margin-bottom: -190px;
   -webkit-mask-image: url(../images/contact/contact-mask.png);
           mask-image: url(../images/contact/contact-mask.png);
   -webkit-mask-size: 100% 100%;
@@ -5692,7 +5691,7 @@ img {
 }
 @media (max-width: 1200px) {
   .contact {
-    margin-bottom: -210px;
+    margin-bottom: -150px;
     margin-top: -17.10576222vw;
   }
 }
