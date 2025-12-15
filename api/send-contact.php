@@ -1,13 +1,20 @@
 <?php
+// WordPressを読み込む
+require_once('../../../wp-load.php');
+
 header('Content-Type: application/json; charset=utf-8');
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST');
-header('Access-Control-Allow-Headers: Content-Type');
 
 // POSTリクエストのみ受け付ける
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
     echo json_encode(['success' => false, 'message' => 'Method Not Allowed']);
+    exit;
+}
+
+// nonceチェック（CSRF対策）
+if (!isset($_POST['contact_nonce']) || !wp_verify_nonce($_POST['contact_nonce'], 'contact_form_submit')) {
+    http_response_code(403);
+    echo json_encode(['success' => false, 'message' => '不正なリクエストです。']);
     exit;
 }
 
@@ -56,16 +63,17 @@ $headers .= "Reply-To: " . $customer_email . "\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 $headers .= "X-Mailer: PHP/" . phpversion();
 
-// 管理者へメール送信
-$admin_sent = mb_send_mail($to, $subject, $message, $headers);
+// WordPressのwp_mail()を使用（より信頼性が高い）
+$admin_sent = wp_mail($to, $subject, $message, $headers);
 
 // お客様へ自動返信メール送信
-$customer_headers = "From: YOKOHAMA Concierge <info@hamanavi-s.jp>\r\n";
-$customer_headers .= "Reply-To: info@hamanavi-s.jp\r\n";
-$customer_headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-$customer_headers .= "X-Mailer: PHP/" . phpversion();
+$customer_headers = array(
+    'From: YOKOHAMA Concierge <info@hamanavi-s.jp>',
+    'Reply-To: info@hamanavi-s.jp',
+    'Content-Type: text/plain; charset=UTF-8'
+);
 
-$customer_sent = mb_send_mail($customer_email, $customer_subject, $customer_message, $customer_headers);
+$customer_sent = wp_mail($customer_email, $customer_subject, $customer_message, $customer_headers);
 
 // 結果を返す
 if ($admin_sent && $customer_sent) {

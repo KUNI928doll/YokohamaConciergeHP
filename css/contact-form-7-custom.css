@@ -1,0 +1,135 @@
+/**
+ * Contact Form 7 カスタムスタイル
+ * 既存のデザインに合わせるための調整
+ */
+
+/* Contact Form 7 のデフォルトスタイルをリセット */
+.wpcf7 {
+    width: 100%;
+}
+
+.wpcf7 form {
+    width: 100%;
+}
+
+/* フォームラッパー */
+.wpcf7 .inquiry-form {
+    width: 100%;
+}
+
+/* Contact Form 7 の入力フィールドスタイルを既存のデザインに合わせる */
+.wpcf7 input[type="text"],
+.wpcf7 input[type="email"],
+.wpcf7 input[type="tel"],
+.wpcf7 textarea {
+    /* 既存のクラスのスタイルを継承 */
+}
+
+/* チェックボックスのスタイル調整 */
+.wpcf7 .inquiry-form__checkboxes .wpcf7-list-item {
+    margin: 0;
+    display: inline-block;
+}
+
+.wpcf7 .inquiry-form__checkboxes .wpcf7-list-item-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Contact Form 7 のチェックボックスを既存のスタイルに合わせる */
+.wpcf7 .inquiry-form__checkboxes input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+/* 承認チェックボックス（プライバシーポリシー） */
+.wpcf7 .wpcf7-acceptance input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+/* バリデーションエラーメッセージ */
+.wpcf7-not-valid-tip {
+    color: #e74c3c;
+    font-size: 0.875rem;
+    margin-top: 4px;
+    display: block;
+}
+
+/* フォーム全体のエラーメッセージ */
+.wpcf7-response-output {
+    margin: 20px 0;
+    padding: 15px 20px;
+    border-radius: 4px;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+}
+
+.wpcf7-validation-errors {
+    background-color: #fff3cd;
+    border: 1px solid #ffc107;
+    color: #856404;
+}
+
+.wpcf7-mail-sent-ok {
+    background-color: #d4edda;
+    border: 1px solid #28a745;
+    color: #155724;
+}
+
+.wpcf7-mail-sent-ng,
+.wpcf7-aborted {
+    background-color: #f8d7da;
+    border: 1px solid #dc3545;
+    color: #721c24;
+}
+
+/* スピナー（送信中のローディング） */
+.wpcf7 .ajax-loader {
+    display: none;
+}
+
+.wpcf7 form.submitting .ajax-loader {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+/* 送信ボタンが無効化されているとき */
+.wpcf7 form.submitting .btn {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Contact Form 7 のデフォルトマージンを削除 */
+.wpcf7 p {
+    margin: 0;
+}
+
+/* リスト項目のスタイルをリセット */
+.wpcf7 .wpcf7-list-item {
+    margin: 0;
+}
+
+/* チェックボックスとラジオボタンのラベル */
+.wpcf7 .wpcf7-list-item label {
+    margin: 0;
+}
+
+/* 必須フィールドのアスタリスク（使用しない場合は非表示） */
+.wpcf7 .wpcf7-form-control-wrap {
+    position: relative;
+    display: block;
+}
+
+/* スパム対策（reCAPTCHA）のスタイル調整 */
+.wpcf7 .wpcf7-recaptcha {
+    margin: 20px 0;
+}
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 768px) {
+    .wpcf7-response-output {
+        font-size: 0.875rem;
+        padding: 12px 15px;
+    }
+}
+

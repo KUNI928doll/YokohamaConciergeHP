@@ -70,6 +70,12 @@ function yokohama_concierge_theme_activation() {
             'slug' => 'service-reserve',
             'template' => 'page-service-reserve.php',
             'content' => '<p>予約代行サービスの内容をここに記載してください。</p>'
+        ),
+        array(
+            'title' => 'お問い合わせ',
+            'slug' => 'contact',
+            'template' => 'page-contact.php',
+            'content' => '<p>お問い合わせページ</p>'
         )
     );
     
@@ -99,6 +105,36 @@ function yokohama_concierge_theme_activation() {
     flush_rewrite_rules();
 }
 add_action('after_switch_theme', 'yokohama_concierge_theme_activation');
+
+// 初回読み込み時にもページを確認・作成
+function yokohama_concierge_check_pages() {
+    // 管理画面でのみ実行（パフォーマンス向上のため）
+    if (!is_admin()) {
+        return;
+    }
+    
+    // お問い合わせページが存在するか確認
+    $contact_page = get_page_by_path('contact');
+    
+    if (!$contact_page) {
+        // ページが存在しない場合は作成
+        $page_id = wp_insert_post(array(
+            'post_title' => 'お問い合わせ',
+            'post_name' => 'contact',
+            'post_content' => '<p>お問い合わせページ</p>',
+            'post_status' => 'publish',
+            'post_type' => 'page',
+            'post_author' => 1
+        ));
+        
+        // テンプレートを設定
+        if ($page_id && !is_wp_error($page_id)) {
+            update_post_meta($page_id, '_wp_page_template', 'page-contact.php');
+            flush_rewrite_rules();
+        }
+    }
+}
+add_action('admin_init', 'yokohama_concierge_check_pages');
 
 // スクリプトとスタイルの読み込み
 function yokohama_concierge_enqueue_scripts() {
@@ -197,6 +233,17 @@ function yokohama_concierge_enqueue_scripts() {
             array('jquery'),
             '1.0.0',
             true
+        );
+    }
+    
+    // お問い合わせページ専用スタイルとスクリプト
+    if (is_page_template('page-contact.php')) {
+        // Contact Form 7 カスタムスタイル
+        wp_enqueue_style(
+            'yokohama-contact-form-7',
+            get_template_directory_uri() . '/css/contact-form-7-custom.css',
+            array(),
+            '1.0.0'
         );
     }
 }
