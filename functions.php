@@ -3,6 +3,27 @@
  * テーマ functions
  */
 
+// テーマサポート
+function yokohama_concierge_theme_support() {
+    // タイトルタグのサポート
+    add_theme_support('title-tag');
+    
+    // アイキャッチ画像のサポート
+    add_theme_support('post-thumbnails');
+    
+    // HTML5のサポート
+    add_theme_support('html5', array(
+        'search-form',
+        'comment-form',
+        'comment-list',
+        'gallery',
+        'caption',
+        'script',
+        'style',
+    ));
+}
+add_action('after_setup_theme', 'yokohama_concierge_theme_support');
+
 // 構造化データ(JSON-LD)を出力
 function yokohama_concierge_schema_markup() {
     $schema = array(
@@ -138,6 +159,14 @@ add_action('admin_init', 'yokohama_concierge_check_pages');
 
 // スクリプトとスタイルの読み込み
 function yokohama_concierge_enqueue_scripts() {
+    // メインスタイルシート
+    wp_enqueue_style(
+        'yokohama-main-style',
+        get_template_directory_uri() . '/css/style.css',
+        array(),
+        '20241214001'
+    );
+    
     // jQuery（WordPressに含まれているものを使用）
     wp_enqueue_script('jquery');
     
@@ -237,13 +266,13 @@ function yokohama_concierge_enqueue_scripts() {
     }
     
     // お問い合わせページ専用スタイルとスクリプト
-    if (is_page_template('page-contact.php')) {
+    if (is_page_template('page-contact.php') || is_page('contact')) {
         // Contact Form 7 カスタムスタイル
         wp_enqueue_style(
             'yokohama-contact-form-7',
             get_template_directory_uri() . '/css/contact-form-7-custom.css',
-            array(),
-            '1.0.0'
+            array('yokohama-main-style'),
+            '1.0.1'
         );
     }
 }

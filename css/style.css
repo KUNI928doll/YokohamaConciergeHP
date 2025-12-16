@@ -1605,8 +1605,7 @@ body.spmenu-open .header__toggle {
   background: url(../images/footer_wave.png);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center top;
-  padding: 20px 30px 32px;
+  padding: 120px 30px 32px;
   animation: waveMove 4s ease-in-out infinite;
   position: relative;
   z-index: 2;
@@ -5683,8 +5682,7 @@ img {
   background: url("../images/contact/contact-bg.png") no-repeat center top;
   background-size: cover;
   margin-top: -9.10576222vw;
-  margin-bottom: -400px;
-  z-index: 99;
+  margin-bottom: -190px;
   mask-image: url(../images/contact/contact-mask.png);
   mask-size: 100% 100%;
   mask-repeat: no-repeat;
@@ -5694,7 +5692,7 @@ img {
 }
 @media (max-width: 1200px) {
   .contact {
-    margin-bottom: -210px;
+    margin-bottom: -150px;
     margin-top: -17.10576222vw;
   }
 }
@@ -5801,6 +5799,10 @@ img {
   width: 80px;
   height: auto;
   filter: brightness(0) invert(1);
+}
+
+.contact--bottom {
+  margin-bottom: 0;
 }
 
 .contact__inner {
