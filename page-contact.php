@@ -33,7 +33,7 @@ get_header();
             <div class="inquiry__inner inner">
                 <?php
                 // Contact Form 7 のフォームを表示
-                echo do_shortcode('[contact-form-7 id="bd13808" title="お問い合わせフォーム"]');
+                echo do_shortcode('[contact-form-7 id="8f7b03f" title="お問い合わせフォーム"]');
                 ?>
             </div>
         </section>
