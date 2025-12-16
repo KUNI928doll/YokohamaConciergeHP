@@ -264,16 +264,5 @@ function yokohama_concierge_enqueue_scripts() {
             true
         );
     }
-    
-    // お問い合わせページ専用スタイルとスクリプト
-    if (is_page_template('page-contact.php') || is_page('contact')) {
-        // Contact Form 7 カスタムスタイル
-        wp_enqueue_style(
-            'yokohama-contact-form-7',
-            get_template_directory_uri() . '/css/contact-form-7-custom.css',
-            array('yokohama-main-style'),
-            '1.0.1'
-        );
-    }
 }
 add_action('wp_enqueue_scripts', 'yokohama_concierge_enqueue_scripts');
