@@ -29,7 +29,7 @@
             <div class="error-page__links-inner">
                 <h2 class="error-page__links-title">主要ページ</h2>
                 <div class="error-page__links-grid">
-                    <a href="<?php echo esc_url(home_url('/#service-reserve')); ?>" class="error-page__link-card">
+                    <a href="<?php echo esc_url(home_url('/service-reserve')); ?>" class="error-page__link-card">
                         <h3 class="error-page__link-card-title">予約代行サービス</h3>
                         <p class="error-page__link-card-description">ホテルや飲食店、観光チケットなどの手配を代行し、旅の準備をスムーズにします。</p>
                     </a>

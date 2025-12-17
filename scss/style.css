@@ -3018,6 +3018,7 @@ img {
   transition: transform 0.3s ease, opacity 0.3s ease;
   z-index: 9999;
   border: 3px solid var(--color-main);
+  overflow: visible;
 }
 @media (max-width: 768px) {
   .features-modal__content {
@@ -3113,24 +3114,25 @@ img {
 
 .features-modal__label-wrapper {
   position: absolute;
-  top: 67px;
-  left: 58%;
+  top: clamp(30px, 8vw, 67px);
+  left: 55%;
   transform: translateX(-50%);
-  z-index: 10000;
+  z-index: 10001;
+  width: clamp(100px, 15vw, 180px);
 }
 @media (max-width: 768px) {
   .features-modal__label-wrapper {
-    top: 0;
+    top: clamp(0px, 5vw, 30px);
     left: 44%;
+    width: clamp(80px, 20vw, 150px);
   }
 }
 
 .features-modal__label-bg {
   aspect-ratio: 276/203;
-  width: 50%;
+  width: 100%;
   height: auto;
   display: block;
-  margin-left: 20px;
 }
 @media (max-width: 768px) {
   .features-modal__label-bg {
@@ -5676,8 +5678,11 @@ img {
   text-align: center;
   background: url("../images/contact/contact-bg.png") no-repeat center top;
   background-size: cover;
-  margin-top: -9.10576222vw;
+  margin-top: 0;
   margin-bottom: -190px;
+  z-index: 1;
+  margin-top: 5.10576222vw;
+  z-index: 99;
   -webkit-mask-image: url(../images/contact/contact-mask.png);
           mask-image: url(../images/contact/contact-mask.png);
   -webkit-mask-size: 100% 100%;
@@ -5686,8 +5691,6 @@ img {
           mask-repeat: no-repeat;
   -webkit-mask-position: center;
           mask-position: center;
-  min-height: 1044px;
-  overflow: hidden;
 }
 @media (max-width: 1200px) {
   .contact {
@@ -7025,6 +7028,11 @@ img {
   display: flex;
   justify-content: center;
   padding-top: 8px;
+}
+.inquiry-form .inquiry-form__actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
 }
 .inquiry-form .btn--blue {
   min-width: 260px;

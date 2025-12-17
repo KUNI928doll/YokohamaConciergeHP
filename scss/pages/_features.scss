@@ -261,6 +261,7 @@
   transition: transform 0.3s ease, opacity 0.3s ease;
   z-index: 9999;
   border: 3px solid var(--color-main);
+  overflow: visible;
 
   @include mq($until: sp-large) {
     padding: 45px 25px;
@@ -352,23 +353,24 @@
 
 .features-modal__label-wrapper {
   position: absolute;
-  top: 67px;
-  left: 58%;
+  top: clamp(30px, 8vw, 67px);
+  left: 55%;
   transform: translateX(-50%);
-  z-index: 10000;
+  z-index: 10001;
+  width: clamp(100px, 15vw, 180px);
 
   @include mq($until: sp-large) {
-    top: 0;
+    top: clamp(0px, 5vw, 30px);
     left: 44%;
+    width: clamp(80px, 20vw, 150px);
   }
 }
 
 .features-modal__label-bg {
   aspect-ratio: 276 /203;
-  width: 50%;
+  width: 100%;
   height: auto;
   display: block;
-  margin-left: 20px;
 
   @include mq($until: sp-large) {
     width: 100%;

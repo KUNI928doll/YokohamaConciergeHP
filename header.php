@@ -18,7 +18,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/reset.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css?v=20241214001">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css?v=20241214005">
     <!-- Slick -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">

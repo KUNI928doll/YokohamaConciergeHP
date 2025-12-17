@@ -7,14 +7,18 @@
   text-align: center;
   background: url("../images/contact/contact-bg.png") no-repeat center top;
   background-size: cover;
-  margin-top: -9.10576222vw;
+  margin-top: 0;
   margin-bottom: -190px;
+  z-index: 1;
+
+  margin-top: 5.10576222vw;
+  z-index: 99;
   mask-image: url(../images/contact/contact-mask.png);
   mask-size: 100% 100%;
   mask-repeat: no-repeat;
   mask-position: center;
-  min-height: 1044px;
-  overflow: hidden;
+ 
+ 
   
   @include mq(mid-pc) {
     margin-bottom: -150px;

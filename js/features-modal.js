@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // モーダルを開く
   function openModal() {
     modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
+    // document.body.style.overflow = 'hidden'; // 背景スクロールを許可
     
     setTimeout(() => {
       modal.classList.add('is-active');
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     setTimeout(() => {
       modal.style.display = 'none';
-      document.body.style.overflow = '';
+      // document.body.style.overflow = ''; // 背景スクロールを許可
     }, 300);
   }
 

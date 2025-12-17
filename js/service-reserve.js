@@ -1,4 +1,4 @@
-$(function () {
+jQuery(function ($) {
   $(".js-slider").slick({
     autoplay: false,
     dots: false,

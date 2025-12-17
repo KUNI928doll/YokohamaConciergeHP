@@ -1,4 +1,4 @@
-$(document).ready(function () {
+jQuery(document).ready(function ($) {
     const slickOptions = {
         slidesToShow: 3,
         slidesToScroll: 1,

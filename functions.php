@@ -97,6 +97,12 @@ function yokohama_concierge_theme_activation() {
             'slug' => 'contact',
             'template' => 'page-contact.php',
             'content' => '<p>お問い合わせページ</p>'
+        ),
+        array(
+            'title' => 'お知らせ・イベント',
+            'slug' => 'news',
+            'template' => 'page-news.php',
+            'content' => '<p>お知らせ・イベントページ</p>'
         )
     );
     
@@ -260,6 +266,25 @@ function yokohama_concierge_enqueue_scripts() {
             'yokohama-service-tour-guide',
             get_template_directory_uri() . '/js/service-tour-guide.js',
             array('jquery'),
+            '1.0.0',
+            true
+        );
+    }
+    
+    // お問い合わせページ専用スクリプト
+    if (is_page_template('page-contact.php') || is_page('contact')) {
+        wp_enqueue_script(
+            'yokohama-contact',
+            get_template_directory_uri() . '/js/contact.js',
+            array('jquery'),
+            '1.0.0',
+            true
+        );
+        
+        wp_enqueue_script(
+            'yokohama-inquiry',
+            get_template_directory_uri() . '/js/inquiry.js',
+            array('jquery', 'yokohama-contact'),
             '1.0.0',
             true
         );

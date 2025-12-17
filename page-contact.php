@@ -29,7 +29,7 @@ get_header();
             </ul>
         </nav>
 
-        <section class="contact contact--page inquiry">
+        <section class="inquiry">
             <div class="inquiry__inner inner">
                 <?php
                 // Contact Form 7 のフォームを表示

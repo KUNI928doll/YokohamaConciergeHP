@@ -1,4 +1,4 @@
-$(function () {
+jQuery(function ($) {
     const $pageTop = $('.pagetop');
 
     $(window).on('scroll', function () {
