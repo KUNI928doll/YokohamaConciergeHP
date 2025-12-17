@@ -4792,6 +4792,7 @@ img {
 }
 
 .news-list__empty {
+  grid-column: 1 / -1;
   text-align: center;
   padding: 80px 20px;
   background: #fff;
