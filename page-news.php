@@ -112,6 +112,7 @@ get_header();
             <?php
             $args = [
                 'post_type' => 'post',
+                'post_status' => 'publish',
                 'posts_per_page' => 6,
                 'orderby' => 'date',
                 'order' => 'DESC'
@@ -205,5 +206,26 @@ get_header();
         </div>
     </section>
 </main>
+
+<script>
+jQuery(document).ready(function($) {
+    $('input[name="news-list-filter"]').on('change', function() {
+        var filterValue = $(this).val();
+        
+        if (filterValue === 'all') {
+            $('.news-list__card').fadeIn(300);
+        } else {
+            $('.news-list__card').each(function() {
+                var category = $(this).attr('data-category');
+                if (category === filterValue) {
+                    $(this).fadeIn(300);
+                } else {
+                    $(this).fadeOut(300);
+                }
+            });
+        }
+    });
+});
+</script>
 
 <?php get_footer(); ?>

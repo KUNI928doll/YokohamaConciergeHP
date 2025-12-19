@@ -4,23 +4,11 @@
  */
 get_header(); 
 ?>
+<?php get_template_part('template-parts/inner-nav'); ?>
 
     <main>
-        <?php get_template_part('template-parts/inner-nav'); ?>
 
-        <div class="search-area search-area--service">
-            <form action="<?php echo esc_url(home_url('/')); ?>" method="get" class="search-area__form">
-                <input type="text" name="s" class="search-area__input" placeholder="サイト内検索">
-                <button type="submit" class="search-area__btn" aria-label="検索">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/icon-search.png" alt="検索アイコン">
-                </button>
-            </form>
-
-            <div class="search-area__links">
-                <a href="#" class="search-area__link search-area__link--map">MAPで探す</a>
-            </div>
-        </div>
-
+        
         <div class="sub-hero">
             <div class="sub-hero__decoration">
                 <img src="<?php echo get_template_directory_uri(); ?>/images/sub-hero__decoration.png" alt="" aria-hidden="true">
@@ -172,8 +160,8 @@ get_header();
                     <div class="category__shape">
                         <div class="category__circle">
                             <h3 class="category__title">あそぶ</h3>
-                            <p class="category__text">体験型アクティビティも 多数対応！ <span class="br">横浜在住民ロコが最新で正確な情報をお伝えしながら、
-                                    ご希望の体験を手配します。</span></p>
+                            <p class="category__text">横浜在住民ロコが最新で正確な情報をお伝えしながら、 <span class="br">体験型アクティビティを多数対応！ご紹介いたします！
+                                    </span></p>
                         </div>
                     </div>
                     <div class="category__box">
@@ -294,11 +282,6 @@ get_header();
                                 </div>
                             </div> 
                         </div>
-                        <p class="play-note">各種体験アクティビティのお支払いにつきましては現地事業者支払いでお願いいたします。<span class="br">
-                            （弊社は予約代行料金のみのご請求を申し込み時にしていていただき、入金いただきます）</span>
-                            <span class="br">
-                            ＊各体験アクティビティのサービス内容、料金その他詳細につきましては、各サイトでご確認の程、宜しくお願い致します。</span>
-                            </p>
                     </div>           <!-- category__box -->
                 </div>
                 

@@ -118,7 +118,7 @@
                     当日でもご利用可能！<br class="u-visible-sp">横浜の旅を楽しむお手伝いを<br class="u-visible-sp">いたします
                 </p>
                 <p class="about__text js-fade">
-                    宿泊施設・飲食店・体験アクティビティサービスの予約代行から、緊急時の即日予約対応やトランク預かりサービスなど、外国人観光客様が旅行を楽しむお手伝いや、お困り事・ご解決をサポートする地元民コンシェルジュならではの、きめ細かなサービスを提供いたします。<span class="text-wave-underline">来日直前・当日など短納期でも柔軟にご対応</span>いたします。
+                    宿泊施設・飲食店の予約代行から、緊急時の即日予約対応やトランク預かりサービスなど、外国人観光客様が旅行を楽しむお手伝いや、お困り事・ご解決をサポートする地元民コンシェルジュならではの、きめ細かなサービスを提供いたします。<span class="text-wave-underline">来日直前・当日など短納期でも柔軟にご対応</span>いたします。
                 </p>
 
                 <!-- 画像エリア -->
@@ -201,7 +201,7 @@
                     <div class="features-modal__body">
                         <h3 class="features-modal__title">ネットで<br>簡単一括手配</h3>
                         <img src="<?php echo get_template_directory_uri(); ?>/images/features/feature_path.png" alt="" class="features-modal__image" aria-hidden="true">
-                        <p class="features-modal__text">宿泊施設も飲食店も体験アクティビティもワンストップでスムーズに予約。
+                        <p class="features-modal__text">宿泊施設も飲食店もワンストップでスムーズに予約。
                             ネットに出ていない施設や特別プランも代行可能です。</p>
                     </div>
                     
@@ -336,7 +336,7 @@
                             </div>
                             <h3 class="service-detail__title">予約代行</h3>
                             <p class="service-detail__text">
-                                横浜で人気の宿泊施設や飲食<br>店、体験アクティビティを、<br>
+                                横浜で人気の宿泊施設や飲食店を、<br>
                                 お客様のご希望に合わせて代<br>わりに予約します。
                             </p>
                         </div>

@@ -24,6 +24,16 @@ function yokohama_concierge_theme_support() {
 }
 add_action('after_setup_theme', 'yokohama_concierge_theme_support');
 
+// TranslatePress対応: テーマのテキストを翻訳可能にする
+function yokohama_concierge_translatepress_support() {
+    // TranslatePressが有効な場合、テーマのテキストを翻訳可能にする
+    if (class_exists('TRP_Translate_Press')) {
+        // テーマのテキストドメインを設定
+        load_theme_textdomain('yokohama-concierge', get_template_directory() . '/languages');
+    }
+}
+add_action('after_setup_theme', 'yokohama_concierge_translatepress_support');
+
 // 構造化データ(JSON-LD)を出力
 function yokohama_concierge_schema_markup() {
     $schema = array(
@@ -103,6 +113,12 @@ function yokohama_concierge_theme_activation() {
             'slug' => 'news',
             'template' => 'page-news.php',
             'content' => '<p>お知らせ・イベントページ</p>'
+        ),
+        array(
+            'title' => 'ご予約',
+            'slug' => 'reservation',
+            'template' => 'page-reservation.php',
+            'content' => '<p>ご予約ページ</p>'
         )
     );
     
@@ -271,6 +287,52 @@ function yokohama_concierge_enqueue_scripts() {
         );
     }
     
+    // 予約代行ページ専用スクリプト
+    if (is_page_template('page-service-reserve.php') || is_page('service-reserve')) {
+        wp_enqueue_script(
+            'yokohama-service-reserve',
+            get_template_directory_uri() . '/js/service-reserve.js',
+            array('jquery', 'slick-carousel'),
+            '1.0.0',
+            true
+        );
+    }
+    
+    // 横浜についてページ専用スクリプト
+    if (is_page_template('page-yokohama.php') || is_page('yokohama')) {
+        wp_enqueue_script(
+            'yokohama-yokohama',
+            get_template_directory_uri() . '/js/yokohama.js',
+            array('jquery'),
+            '1.0.0',
+            true
+        );
+    }
+    
+    // ご予約ページ専用スクリプト
+    if (is_page_template('page-reservation.php') || is_page('reservation')) {
+        wp_enqueue_script(
+            'yokohama-shop-selector',
+            get_template_directory_uri() . '/js/shop-selector.js',
+            array('jquery'),
+            '1.0.0',
+            true
+        );
+        
+        // テーマディレクトリURIをJavaScriptに渡す
+        wp_localize_script('yokohama-shop-selector', 'yokohamaConciergeThemeUri', array(
+            'themeUri' => get_template_directory_uri()
+        ));
+        
+        wp_enqueue_script(
+            'yokohama-reservation',
+            get_template_directory_uri() . '/js/reservation.js',
+            array('jquery', 'yokohama-shop-selector'),
+            '1.0.0',
+            true
+        );
+    }
+    
     // お問い合わせページ専用スクリプト
     if (is_page_template('page-contact.php') || is_page('contact')) {
         wp_enqueue_script(
@@ -291,3 +353,39 @@ function yokohama_concierge_enqueue_scripts() {
     }
 }
 add_action('wp_enqueue_scripts', 'yokohama_concierge_enqueue_scripts');
+
+// 予約フォーム送信処理
+function yokohama_concierge_handle_reservation_submit() {
+    // セキュリティチェック
+    if (!isset($_POST['reservation_nonce']) || !wp_verify_nonce($_POST['reservation_nonce'], 'reservation_form')) {
+        wp_die('セキュリティチェックに失敗しました。');
+    }
+    
+    // フォームデータの取得とサニタイズ
+    $name = isset($_POST['name']) ? sanitize_text_field($_POST['name']) : '';
+    $email = isset($_POST['email']) ? sanitize_email($_POST['email']) : '';
+    $phone = isset($_POST['phone']) ? sanitize_text_field($_POST['phone']) : '';
+    
+    // 必須項目チェック
+    if (empty($name) || empty($email) || empty($phone)) {
+        wp_redirect(add_query_arg('reservation', 'error', home_url('/reservation/')));
+        exit;
+    }
+    
+    // メール送信処理（必要に応じて実装）
+    $to = get_option('admin_email');
+    $subject = '【YOKOHAMA Concierge】予約フォームからのお問い合わせ';
+    $message = "予約フォームからお問い合わせがありました。\n\n";
+    $message .= "お名前: " . $name . "\n";
+    $message .= "メールアドレス: " . $email . "\n";
+    $message .= "電話番号: " . $phone . "\n";
+    // その他のフィールドも追加...
+    
+    wp_mail($to, $subject, $message);
+    
+    // リダイレクト
+    wp_redirect(add_query_arg('reservation', 'success', home_url('/reservation/')));
+    exit;
+}
+add_action('admin_post_submit_reservation', 'yokohama_concierge_handle_reservation_submit');
+add_action('admin_post_nopriv_submit_reservation', 'yokohama_concierge_handle_reservation_submit');

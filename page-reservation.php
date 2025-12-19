@@ -1,248 +1,26 @@
-<!DOCTYPE html>
-<html lang="ja">
-
-<head>
-    <meta charset="utf-8">
-    <title>ご予約 | YOKOHAMA Concierge | 外国人向け体験サービス・横浜観光・通訳サポート</title>
-    <meta name="description" content="YOKOHAMA Concierge各種サービスのご予約はこちら。観光ガイド、予約代行、体験アクティビティ、トランクお預かりまでワンストップで承ります。">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- OGP -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="ご予約 | YOKOHAMA Concierge">
-    <meta property="og:description"
-        content="YOKOHAMA Concierge各種サービスのご予約はこちら。観光ガイド、予約代行、体験アクティビティ、トランクお預かりまでワンストップで承ります。">
-    <meta property="og:url" content="https://yokohama-concierge.jp/reservation.html">
-    <meta property="og:image" content="https://yokohama-concierge.jp/images/ogp.jpg">
-    <meta property="og:site_name" content="YOKOHAMA Concierge">
-    <meta property="og:locale" content="ja_JP">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ご予約 | YOKOHAMA Concierge">
-    <meta name="twitter:description"
-        content="YOKOHAMA Concierge各種サービスのご予約はこちら。観光ガイド、予約代行、体験アクティビティ、トランクお預かりまでワンストップで承ります。">
-    <meta name="twitter:image" content="https://yokohama-concierge.jp/images/ogp.jpg">
-
-    <link rel="icon" href="https://yokohama-concierge.jp/images/favicon.ico">
-    <link rel="apple-touch-icon" href="https://yokohama-concierge.jp/images/apple-touch-icon.png">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="./css/reset.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
-</head>
-
-<body>
-    <!-- ヘッダー -->
-    <header class="header">
-        <div class="header__inner">
-            <div class="header__logo">
-                <div class="u-visible-pc">
-                    <a href="index.html">
-                        <img src="./images/header_logo-pc.png" alt="YOKOHAMA Concierge ロゴ（PC）">
-                    </a>
-                </div>
-                <div class="u-visible-sp">
-                    <a href="index.html">
-                        <img src="./images/header_logo-sp.png" alt="YOKOHAMA Concierge ロゴ（SP）">
-                    </a>
-                </div>
-            </div>
-
-            <nav class="header__nav u-visible-pc" aria-label="グローバルナビゲーション">
-                <div class="header__utility">
-                    <ul class="header__utility-list">
-                        <li class="header__utility-item header__utility-item--wide">
-                            <a href="#" class="header__utility-link is-column">
-                                <img src="./images/header_globeicon.png" alt="地球アイコン"
-                                    class="header__icon header__icon--globe">Language
-                            </a>
-                        </li>
-                        <li class="header__utility-item header__utility-item--xwide">
-                            <a href="mailto:info@hamanavi-s.jp" class="header__utility-link is-column is-gap-large">
-                                <img src="./images/header_mailicon.png" alt="メールアイコン"
-                                    class="header__icon header__icon--mail">
-                                メール
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="header__contact">
-                        <div class="header__contact-group">
-                            <ul class="header__tel-list">
-                                <li class="header__nav-item">
-                                    <a href="tel:+81456812737" class="header__nav-link tel-blue">
-                                        <img src="./images/header_phoneicon.png" alt="電話アイコン"
-                                            class="header__icon header__icon--phone">
-                                        045-681-2737
-                                    </a>
-                                </li>
-                                <li class="header__nav-item">
-                                    <a href="tel:+817015263845" class="header__nav-link tel-orange">
-                                        <img src="./images/header_mobileicon.png" alt="携帯アイコン"
-                                            class="header__icon header__icon--mobile">
-                                        070-1526-3845
-                                    </a>
-                                </li>
-                            </ul>
-                            <p class="header__time">
-                                対応時間 10:00〜18:00<span class="u-pc">/不定休</span><span class="u-sp"><br>不定休</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-
-            <button class="header__toggle u-visible-sp" aria-controls="global-nav" aria-expanded="false"
-                aria-label="メニューを開く">
-                <span class="header__toggle-line"></span>
-                <span class="header__toggle-line"></span>
-                <span class="header__toggle-line"></span>
-                <span class="header__toggle-text">MENU</span>
-            </button>
-
-            <div class="spmenu__overlay"></div>
-
-            <nav id="global-nav" class="header__nav header__nav--sp u-visible-sp">
-                <div class="spmenu">
-                    <div class="spmenu__top">
-                        <a href="reservation.html" class="btn btn--orange btn--sm spmenu__reserve">予約をする</a>
-                        <a href="index.html" class="spmenu__home">
-                            <img src="./images/icon-home.png" alt="ホームアイコン">
-                            <span>ホームへ戻る</span>
-                        </a>
-                        <button type="button" class="spmenu__close js-spmenu-close" aria-label="メニューを閉じる">
-                            <span class="spmenu__close-icon"></span>
-                            <span class="spmenu__close-text">CLOSE</span>
-                        </button>
-                    </div>
-                    <ul class="spmenu__list">
-                        <li class="spmenu__item spmenu__item--has-sub">
-                            <button type="button" class="spmenu__trigger js-spmenu-dropdown" aria-expanded="false">
-                                <img src="./images/icon-service.png" alt="" class="spmenu__icon">
-                                サービス紹介
-                                <span class="spmenu__caret" aria-hidden="true"></span>
-                            </button>
-                            <ul class="spmenu__sub" aria-label="サービス紹介のメニュー">
-                                <li><a href="service-reserve.html">予約代行</a></li>
-                                <li><a href="service-storage.html">トランクお預かり</a></li>
-                                <li><a href="service-tour-guide.html">観光ガイドサービス</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="yokohama.html"><img src="./images/icon-yokohama.png" alt=""
-                                    class="spmenu__icon">横浜について</a>
-                        </li>
-                        <li><a href="index.html#faq"><img src="./images/icon-faq.png" alt="" class="spmenu__icon">よくある質問</a></li>
-                        <li><a href="news.html"><img src="./images/icon-news.png" alt="" class="spmenu__icon">お知らせ・イベント</a>
-                        </li>
-                        <li><a href="contact.html"><img src="./images/icon-mail.png" alt=""
-                                    class="spmenu__icon">お問い合わせ</a></li>
-                    </ul>
-                    <div class="spmenu__bottom">
-                        <div class="spmenu__sns">
-                            <a href="https://www.instagram.com/yokohama_concierge/" target="_blank"
-                                rel="noopener noreferrer">
-                                <img src="./images/footer_insta.png" alt="Instagramアイコン">
-                            </a>
-                            <a href="mailto:info@hamanavi-s.jp">
-                                <img src="./images/header_mailicon.png" alt="メールアイコン">
-                            </a>
-                        </div>
-
-                        <div class="spmenu__tel">
-                            <a href="tel:+81456812737" class="tel-blue">045-681-2737</a>
-                            <a href="tel:+817015263845" class="tel-orange">070-1526-3845</a>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </div>
-        <a href="reservation.html" class="header__btn u-visible-pc">予約する</a>
-    </header>
-
-        <div class="nav-inner-wrapper u-visible-pc">
-            <nav class="inner-nav">
-                <ul class="inner-nav__list">
-                    <li class="inner-nav__item">
-                        <a href="index.html">
-                            <img src="./images/icon-home.png" alt="ホームアイコン">ホーム</a>
-                    </li>
-                    <li class="inner-nav__item inner-nav__item--has-sub">
-                        <button type="button" class="inner-nav__trigger js-inner-dropdown" aria-expanded="false">
-                            <img src="./images/icon-service.png" alt="">
-                            <span>サービス紹介</span>
-                            <span class="inner-nav__caret" aria-hidden="true"></span>
-                        </button>
-                        <ul class="inner-nav__sub" aria-label="サービス紹介のメニュー">
-                            <li><a href="service-reserve.html">予約代行</a></li>
-                            <li><a href="service-storage.html">トランクお預かり</a></li>
-                            <li><a href="service-tour-guide.html#guide-spots">横浜観光ガイドサービス</a></li>
-                        </ul>
-                    </li>
-                    <li class="inner-nav__item">
-                        <a href="yokohama.html">
-                            <img src="./images/icon-yokohama.png" alt="">
-                            <span>横浜について</span>
-                        </a>
-                    </li>
-                    <li class="inner-nav__item">
-                        <a href="index.html#faq">
-                            <img src="./images/icon-faq.png" alt="">
-                            <span>よくある質問</span>
-                        </a>
-                    </li>
-                    <li class="inner-nav__item">
-                        <a href="news.html">
-                            <img src="./images/icon-news.png" alt="">
-                            <span>お知らせ<br>イベント</span>
-                        </a>
-                    </li>
-                    <li class="inner-nav__item">
-                        <a href="contact.html">
-                            <img src="./images/icon-mail.png" alt="">
-                            <span>お問い合わせ</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-        <div class="search-area search-area--service">
-            <form action="search.html" method="get" class="search-area__form">
-                <input type="text" name="q" class="search-area__input" placeholder="サイト内検索">
-                <button type="submit" class="search-area__btn" aria-label="検索">
-                    <img src="./images/icon-search.png" alt="検索アイコン">
-                </button>
-            </form>
-
-            <div class="search-area__links">
-                <a href="#" class="search-area__link search-area__link--map">MAPで探す</a>
-            </div>
-        </div>
-
+<?php
+/**
+ * Template Name: ご予約
+ */
+get_header(); 
+?>
+<?php get_template_part('template-parts/inner-nav'); ?>
 
     <main>
         <section class="sub-hero sub-hero--reservation">
             <div class="sub-hero__decoration">
-                <img src="./images/sub-hero__decoration.png" alt="" aria-hidden="true">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/sub-hero__decoration.png" alt="" aria-hidden="true">
             </div>
             <div class="sub-hero__inner inner">
                 <h1 class="sub-hero__title">ご予約フォーム</h1>
-                <p class="sub-hero__lead">観光ガイドから各種予約代行、体験アクティビティ、トランクお預かりまで、必要な項目をご入力ください。担当者が内容を確認のうえ、折り返しご連絡いたします。
+                <p class="sub-hero__lead">観光ガイドから各種予約代行、トランクお預かりまで、必要な項目をご入力ください。担当者が内容を確認のうえ、折り返しご連絡いたします。
                 </p>
             </div>
         </section>
 
         <nav class="breadcrumb" aria-label="Breadcrumb">
             <ul class="breadcrumb__list">
-                <li class="breadcrumb__item"><a href="index.html">ホーム</a></li>
+                <li class="breadcrumb__item"><a href="<?php echo esc_url(home_url('/')); ?>">ホーム</a></li>
                 <li class="breadcrumb__item">ご予約</li>
             </ul>
         </nav>
@@ -250,7 +28,7 @@
         <section class="reservation">
             <div class="reservation__inner inner">
                 <div class="reservation__head">
-                    <p class="reservation__text">下記フォームに必要情報をご入力ください。クレジットカード情報やご希望内容は、暗号化された通信で安全に送信されます。<span
+                    <p class="reservation__text">下記フォームに必要情報をご入力ください<span
                             class="reservation-form__required reservation-form__required--inline">必須</span>の項目は必ずご入力ください。
                     </p>
                     <ul class="reservation__list">
@@ -260,7 +38,10 @@
                     </ul>
                 </div>
 
-                <form action="#" method="post" class="reservation-form">
+                <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post" class="reservation-form">
+                    <?php wp_nonce_field('reservation_form', 'reservation_nonce'); ?>
+                    <input type="hidden" name="action" value="submit_reservation">
+                    
                     <div class="reservation-form__section">
                         <h3 class="reservation-form__legend">基本入力項目（代表者）</h3>
                         <p class="reservation-form__description">代表者さまの基本情報をご入力ください。ご入力内容をもとに、担当者がお電話またはメールでご連絡いたします。
@@ -415,7 +196,7 @@
                             <textarea id="hotel-request" name="hotelRequest" class="reservation-form__textarea" rows="4"
                                 placeholder="部屋タイプ、ベッド数、送迎希望など"></textarea>
                         </div>
-                                                <div class="reservation-form__field reservation-form__field--full">
+                        <div class="reservation-form__field reservation-form__field--full">
                             <p class="reservation-form__label">ハマナビからの提案</p>
                             <div class="reservation-form__shop-selector">
                                 <button type="button" class="btn btn--outline btn--sm" id="selectHotelBtn">
@@ -643,76 +424,4 @@
         </div>
     </main>
 
-    <footer class="footer">
-        <section class="footer-scene">
-            <div class="footer__fx" aria-hidden="true">
-                <img src="./images/fireworks4.png" alt="左下の花火のイラスト" class="footer__fx-item footer__fx-item--l1">
-                <img src="./images/fireworks2.png" alt="左上の花火のイラスト" class="footer__fx-item footer__fx-item--l2">
-                <img src="./images/fireworks8.png" alt="右下の花火のイラスト" class="footer__fx-item footer__fx-item--r2">
-            </div>
-        </section>
-        <div class="footer__inner">
-            <!-- ロゴ -->
-            <div class="footer__logo">
-                <img src="./images/footer_logo.png" alt="YOKOHAMA Concierge ロゴ">
-            </div>
-            <!-- 住所・連絡先 -->
-            <div class="footer__info">
-                <p class="footer__address">〒231-0023 神奈川県横浜市中区山下町76-4-1301</p>
-                <div class="footer__links">
-                    <a href="mailto:info@hamanavi-s.jp" class="footer__link footer__link--mail">
-                        <img src="./images/header_mailicon.png" alt="メールアイコン">
-                        info@hamanavi-s.jp
-                    </a>
-                    <a href="https://www.instagram.com/yokohama_concierge?igsh=dmIzeWM4eW43Nmpn&utm_source=qr"
-                        target="_blank" rel="noopener noreferrer" class="footer__link footer__link--insta">
-                        <img src="./images/footer_insta.png" alt="Instagramアイコン">
-                        Instagram
-                    </a>
-                </div>
-            </div>
-        </div>
-        <nav class="footer__nav">
-            <ul class="footer__menu">
-                <li><a href="index.html">ホーム</a></li>
-                <li class="footer__item footer__item--has-sub">
-                    <button type="button" class="footer__trigger js-footer-dropdown" aria-expanded="false">
-                        サービス紹介
-                        <span class="footer__caret" aria-hidden="true"></span>
-                    </button>
-                    <ul class="footer__sub" aria-label="サービス紹介のメニュー">
-                        <li><a href="service-reserve.html">予約代行</a></li>
-                        <li><a href="service-storage.html">トランクお預かり</a></li>
-                        <li><a href="service-tour-guide.html">観光ガイドサービス</a></li>
-                    </ul>
-                </li>
-                <li><a href="yokohama.html">横浜について</a></li>
-                <li><a href="index.html#faq">よくある質問</a></li>
-                <li><a href="news.html">お知らせ・イベント</a></li>
-                <li><a href="contact.html">お問い合わせ</a></li>
-            </ul>
-            <ul class="footer__policy">
-                <li><a href="privacy.html">プライバシーポリシー</a></li>
-                <li><a href="terms.html">利用規約</a></li>
-            </ul>
-        </nav>
-
-        <p class="footer__copy">
-            © 2025 YOKOHAMA Concierge. All Rights Reserved.
-        </p>
-    </footer>
-
-    <a href="#" class="pagetop" aria-label="ページの先頭へ">
-        <img src="./images/icon-pagetop.png" alt="ページトップへ">
-    </a>
-
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="./js/header.js"></script>
-    <script src="./js/accordion.js"></script>
-    <script src="./js/pagetop.js"></script>
-    <script src="./js/shop-selector.js"></script>
-    <script src="./js/reservation.js"></script>
-</body>
-
-</html>
+<?php get_footer(); ?>

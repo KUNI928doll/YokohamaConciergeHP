@@ -17,9 +17,15 @@ document.addEventListener('DOMContentLoaded', function() {
   };
   let currentCategory = null;
 
+  // WordPressテーマディレクトリのパスを取得
+  const themeUri = (window.yokohamaConciergeThemeUri && window.yokohamaConciergeThemeUri.themeUri) || '/wp-content/themes/yokohama-concierge';
+  
   // CSVを読み込んでJSONに変換（新しい事業者用CSV対応）
-  fetch('./data/business-list.csv')
-    .then(response => response.text())
+  fetch(themeUri + '/data/business-list.csv')
+    .then(response => {
+      if (!response.ok) throw new Error('CSV not found');
+      return response.text();
+    })
     .then(csvText => {
       shopData = parseBusinessCSV(csvText);
       console.log('事業者データを読み込みました:', shopData);
@@ -27,18 +33,27 @@ document.addEventListener('DOMContentLoaded', function() {
     .catch(error => {
       console.error('CSVの読み込みに失敗しました:', error);
       // フォールバック: 旧CSVまたはJSONを試す
-      return fetch('./data/shop-list.csv')
-        .then(response => response.text())
+      return fetch(themeUri + '/data/shop-list.csv')
+        .then(response => {
+          if (!response.ok) throw new Error('CSV not found');
+          return response.text();
+        })
         .then(csvText => {
           shopData = parseCSV(csvText);
           console.log('旧CSVからお店データを読み込みました:', shopData);
         })
         .catch(() => {
-          return fetch('./data/shop-list.json')
-            .then(response => response.json())
+          return fetch(themeUri + '/data/shop-list.json')
+            .then(response => {
+              if (!response.ok) throw new Error('JSON not found');
+              return response.json();
+            })
             .then(data => {
               shopData = data;
               console.log('JSONからお店データを読み込みました:', shopData);
+            })
+            .catch(err => {
+              console.error('データの読み込みに完全に失敗しました:', err);
             });
         });
     });

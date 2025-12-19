@@ -99,7 +99,7 @@
   content: '';
   width: 172px;
   height: 294px;
-  background: url(/images/service-reserve/resercation-circle-blue@2x.png) center center /contain no-repeat;
+  background: url(../images/service-reserve/resercation-circle-blue@2x.png) center center /contain no-repeat;
 
   @include mq($until: sp-large) {
     width: 100%;
@@ -198,7 +198,7 @@
 
   .category__shape {
     position: relative;
-    background: url(/images/service-reserve/reservation-circle-orange@2x.png) center center /contain no-repeat;
+    background: url(../images/service-reserve/reservation-circle-orange@2x.png) center center /contain no-repeat;
     width: 578px;
     height: 558px;
     top: 0;
@@ -414,7 +414,7 @@
   }
 
   .category__shape {
-    background: url(/images/service-reserve/reservation-circle-pink@2x.png) center center /contain no-repeat;
+    background: url(../images/service-reserve/reservation-circle-pink@2x.png) center center /contain no-repeat;
     width: 651px;
     height: 556px;
     top: 0;
