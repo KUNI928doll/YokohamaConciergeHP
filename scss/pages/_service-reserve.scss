@@ -48,12 +48,26 @@
 .reservation__inner {
   width: min(1199px, 92%);
   margin: 0 auto;
+  padding-inline: 20px;
+
+  @include mq($until: sp-large) {
+    padding-inline: 16px;
+  }
 
   h2 {
     text-align: center;
     color: var(--color-accent);
     font-family: var(--font-sub);
     margin-bottom: 130px;
+
+    @include mq($until: tab) {
+      margin-bottom: 80px;
+    }
+
+    @include mq($until: sp-large) {
+      margin-bottom: 50px;
+      font-size: 2rem;
+    }
   }
 }
 
@@ -68,6 +82,13 @@
 .category--stay {
   position: relative;
   margin-left: 103px;
+
+  @include mq($until: tab) {
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
   @include mq($until: sp-large) {
     margin-left: 0;
@@ -138,10 +159,20 @@
   width: 314px;
   z-index: -1;
 
+  @include mq($until: tab) {
+    position: static;
+    width: 100%;
+    max-width: 300px;
+    left: 0;
+    margin: 20px auto 0;
+  }
+
   @include mq($until: sp-large) {
     position: static;
-   width: 100%;
-   left: 0;
+    width: 100%;
+    max-width: 280px;
+    left: 0;
+    margin: 20px auto 0;
   }
 }
 
@@ -154,11 +185,20 @@
     border-radius: 16px;
   }
 
+  @include mq($until: tab) {
+    position: static;
+    width: 100%;
+    max-width: 280px;
+    left: 0;
+    margin: 10px auto 0;
+  }
+
   @include mq($until: sp-large) {
     position: static;
     width: 100%;
-   left: 0;
-   margin-top: 10px;
+    max-width: 260px;
+    left: 0;
+    margin-top: 10px;
   }
 }
 
@@ -172,9 +212,12 @@
   @include mq($until: tab) {
     position: static;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    margin-left: 30px;
-    margin-top: 400px;
+    margin-left: 0;
+    margin-top: 80px;
+    width: 100%;
   }
 
   @include mq($until: sp-large) {
@@ -190,6 +233,14 @@
     left: 50%;
     transform: translate(-50%, -50%);
 
+    @include mq($until: tab) {
+      position: relative;
+      transform: none;
+      top: auto;
+      left: auto;
+      margin: 0 auto;
+    }
+
     @include mq($until: sp-large) {
       width: 250px;
       height: 250px;
@@ -203,6 +254,14 @@
     height: 558px;
     top: 0;
     left: 0;
+
+    @include mq($until: tab) {
+      width: 100%;
+      max-width: 450px;
+      height: auto;
+      aspect-ratio: 578 / 558;
+      margin: 0 auto;
+    }
 
     @include mq($until: sp-large) {
       width: 100%;
@@ -401,7 +460,7 @@
   font-family: Zen Maru Gothic;
 
   @include mq($until: tab) {
-  top: 1500px;
+    top: 1500px;
   }
 
   @include mq($until: sp-large) {
@@ -503,6 +562,12 @@
 .flow__title {
   margin-left: 224px;
   color: #0D3063;
+
+  @include mq($until: tab) {
+    margin-left: 0;
+    text-align: center;
+    font-size: 1.8rem;
+  }
 
   @include mq($until: sp-large) {
     margin-left: 0;
@@ -623,8 +688,17 @@ button {
 .play-slider__bubble--width {
   width: 447px;
 
+  @include mq($until: sp-large) {
+    width: 100%;
+    max-width: 320px;
+  }
+
   p {
     width: 255px;
+
+    @include mq($until: sp-large) {
+      width: 70%;
+    }
   }
 }
 
@@ -640,6 +714,13 @@ button {
   display: inline-block;
   padding-right: 16px;
   position: relative;
+
+  @include mq($until: sp-large) {
+    width: 100%;
+    max-width: 280px;
+    font-size: 1.3rem;
+  }
+
   &::after {
     position: absolute;
     content: '';
@@ -715,11 +796,25 @@ button {
   grid-template-columns: 12em 1fr; // 左：項目　右：金額ブロック
   margin-bottom: 1em;
   width: 60%;
+
+  @include mq($until: tab) {
+    width: 80%;
+  }
+
+  @include mq($until: sp-large) {
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 0.5em;
+  }
 }
 
 .price__term {
   font-weight: bold;
   white-space: nowrap;
+
+  @include mq($until: sp-large) {
+    font-size: 1.4rem;
+  }
 }
 .price__term--additional {
   margin-left: 16px;
@@ -736,6 +831,11 @@ button {
   grid-template-columns: 1fr auto auto;
   align-items: center;
   gap: 0.5em;
+
+  @include mq($until: sp-large) {
+    grid-template-columns: 1fr;
+    gap: 0.3em;
+  }
 }
 
 .price__dot {

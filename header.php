@@ -49,11 +49,95 @@
                 <div class="header__utility">
                     <!-- 左：Language / メール -->
                     <ul class="header__utility-list">
-                        <li class="header__utility-item header__utility-item--wide">
-                            <a href="#" class="header__utility-link is-column">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/header_globeicon.png" alt="地球アイコン"
-                                    class="header__icon header__icon--globe">Language
-                            </a>
+                        <li class="header__utility-item header__utility-item--wide header__utility-item--language">
+                            <div class="header__language-wrapper">
+                                <button type="button" class="header__utility-link is-column header__language-trigger" aria-expanded="false" aria-haspopup="true">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/images/header_globeicon.png" alt="地球アイコン"
+                                        class="header__icon header__icon--globe">
+                                    <span class="header__language-text">
+                                        <?php
+                                        // TranslatePressの現在の言語を取得
+                                        $current_lang_name = 'Language';
+                                        if (class_exists('TRP_Translate_Press')) {
+                                            $trp = TRP_Translate_Press::get_trp_instance();
+                                            $trp_settings = $trp->get_component('settings');
+                                            $settings = $trp_settings->get_settings();
+                                            $current_lang = $trp->get_component('url_converter')->get_lang_from_url_string();
+                                            
+                                            if (isset($settings['translation-languages'][$current_lang])) {
+                                                $current_lang_name = $settings['translation-languages'][$current_lang]['name'];
+                                            } elseif (isset($settings['default-language']) && $current_lang === $settings['default-language']) {
+                                                $current_lang_name = isset($settings['publish-languages'][$current_lang]) 
+                                                    ? $settings['publish-languages'][$current_lang]['name'] 
+                                                    : '日本語';
+                                            }
+                                        } elseif (function_exists('trp_get_current_language')) {
+                                            $current_lang = trp_get_current_language();
+                                            $languages = function_exists('trp_get_languages') ? trp_get_languages() : array();
+                                            if (isset($languages[$current_lang])) {
+                                                $current_lang_name = $languages[$current_lang]['name'];
+                                            }
+                                        }
+                                        echo esc_html($current_lang_name);
+                                        ?>
+                                    </span>
+                                </button>
+                                <div class="header__language-dropdown" style="display: none;">
+                                    <?php
+                                    // TranslatePressの言語スイッチャーを表示
+                                    if (class_exists('TRP_Translate_Press')) {
+                                        $trp = TRP_Translate_Press::get_trp_instance();
+                                        $trp_settings = $trp->get_component('settings');
+                                        $settings = $trp_settings->get_settings();
+                                        $current_lang = $trp->get_component('url_converter')->get_lang_from_url_string();
+                                        $url_converter = $trp->get_component('url_converter');
+                                        
+                                        $all_languages = array_merge(
+                                            array($settings['default-language'] => $settings['publish-languages'][$settings['default-language']]),
+                                            $settings['translation-languages']
+                                        );
+                                        
+                                        foreach ($all_languages as $lang_code => $lang_data) {
+                                            $url = $url_converter->get_url_for_language($lang_code, false);
+                                            if (!$url) {
+                                                $url = home_url('/');
+                                            }
+                                            
+                                            $is_active = ($lang_code === $current_lang);
+                                            $class = $is_active ? 'header__language-item header__language-item--active' : 'header__language-item';
+                                            $flag = isset($lang_data['flag']) ? $lang_data['flag'] : '🌐';
+                                            $name = isset($lang_data['name']) ? $lang_data['name'] : $lang_code;
+                                            
+                                            echo '<a href="' . esc_url($url) . '" class="' . esc_attr($class) . '" data-lang="' . esc_attr($lang_code) . '">';
+                                            echo '<span class="header__language-flag">' . esc_html($flag) . '</span>';
+                                            echo '<span class="header__language-name">' . esc_html($name) . '</span>';
+                                            echo '</a>';
+                                        }
+                                    } elseif (function_exists('trp_get_languages')) {
+                                        $languages = trp_get_languages();
+                                        $current_lang = function_exists('trp_get_current_language') ? trp_get_current_language() : 'ja';
+                                        
+                                        foreach ($languages as $lang_code => $lang_data) {
+                                            $url = function_exists('trp_translate_page_url') 
+                                                ? trp_translate_page_url(get_permalink(), $lang_code) 
+                                                : home_url('/');
+                                            
+                                            $is_active = ($lang_code === $current_lang);
+                                            $class = $is_active ? 'header__language-item header__language-item--active' : 'header__language-item';
+                                            
+                                            echo '<a href="' . esc_url($url) . '" class="' . esc_attr($class) . '" data-lang="' . esc_attr($lang_code) . '">';
+                                            echo '<span class="header__language-flag">' . esc_html(isset($lang_data['flag']) ? $lang_data['flag'] : '🌐') . '</span>';
+                                            echo '<span class="header__language-name">' . esc_html(isset($lang_data['name']) ? $lang_data['name'] : $lang_code) . '</span>';
+                                            echo '</a>';
+                                        }
+                                    } else {
+                                        // TranslatePressが無効な場合のフォールバック
+                                        echo '<a href="#" class="header__language-item">日本語</a>';
+                                        echo '<a href="#" class="header__language-item">English</a>';
+                                    }
+                                    ?>
+                                </div>
+                            </div>
                         </li>
                         <li class="header__utility-item header__utility-item--xwide">
                             <a href="mailto:info@hamanavi-s.jp" class="header__utility-link is-column is-gap-large">
@@ -137,6 +221,69 @@
                                     class="spmenu__icon">お問い合わせ</a></li>
                     </ul>
                     <div class="spmenu__bottom">
+                        <!-- モバイル用言語選択 -->
+                        <div class="spmenu__language">
+                            <div class="spmenu__language-label">
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/header_globeicon.png" alt="地球アイコン" class="spmenu__language-icon">
+                                <span>言語選択</span>
+                            </div>
+                            <div class="spmenu__language-list">
+                                <?php
+                                // TranslatePressの言語スイッチャーを表示
+                                if (class_exists('TRP_Translate_Press')) {
+                                    $trp = TRP_Translate_Press::get_trp_instance();
+                                    $trp_settings = $trp->get_component('settings');
+                                    $settings = $trp_settings->get_settings();
+                                    $current_lang = $trp->get_component('url_converter')->get_lang_from_url_string();
+                                    $url_converter = $trp->get_component('url_converter');
+                                    
+                                    $all_languages = array_merge(
+                                        array($settings['default-language'] => $settings['publish-languages'][$settings['default-language']]),
+                                        $settings['translation-languages']
+                                    );
+                                    
+                                    foreach ($all_languages as $lang_code => $lang_data) {
+                                        $url = $url_converter->get_url_for_language($lang_code, false);
+                                        if (!$url) {
+                                            $url = home_url('/');
+                                        }
+                                        
+                                        $is_active = ($lang_code === $current_lang);
+                                        $class = $is_active ? 'spmenu__language-item spmenu__language-item--active' : 'spmenu__language-item';
+                                        $flag = isset($lang_data['flag']) ? $lang_data['flag'] : '🌐';
+                                        $name = isset($lang_data['name']) ? $lang_data['name'] : $lang_code;
+                                        
+                                        echo '<a href="' . esc_url($url) . '" class="' . esc_attr($class) . '" data-lang="' . esc_attr($lang_code) . '">';
+                                        echo '<span class="spmenu__language-flag">' . esc_html($flag) . '</span>';
+                                        echo '<span class="spmenu__language-name">' . esc_html($name) . '</span>';
+                                        echo '</a>';
+                                    }
+                                } elseif (function_exists('trp_get_languages')) {
+                                    $languages = trp_get_languages();
+                                    $current_lang = function_exists('trp_get_current_language') ? trp_get_current_language() : 'ja';
+                                    
+                                    foreach ($languages as $lang_code => $lang_data) {
+                                        $url = function_exists('trp_translate_page_url') 
+                                            ? trp_translate_page_url(get_permalink(), $lang_code) 
+                                            : home_url('/');
+                                        
+                                        $is_active = ($lang_code === $current_lang);
+                                        $class = $is_active ? 'spmenu__language-item spmenu__language-item--active' : 'spmenu__language-item';
+                                        
+                                        echo '<a href="' . esc_url($url) . '" class="' . esc_attr($class) . '" data-lang="' . esc_attr($lang_code) . '">';
+                                        echo '<span class="spmenu__language-flag">' . esc_html(isset($lang_data['flag']) ? $lang_data['flag'] : '🌐') . '</span>';
+                                        echo '<span class="spmenu__language-name">' . esc_html(isset($lang_data['name']) ? $lang_data['name'] : $lang_code) . '</span>';
+                                        echo '</a>';
+                                    }
+                                } else {
+                                    // TranslatePressが無効な場合のフォールバック
+                                    echo '<a href="#" class="spmenu__language-item">日本語</a>';
+                                    echo '<a href="#" class="spmenu__language-item">English</a>';
+                                }
+                                ?>
+                            </div>
+                        </div>
+                        
                         <div class="spmenu__sns">
                             <a href="https://www.instagram.com/yokohama_concierge/" target="_blank"
                                 rel="noopener noreferrer">

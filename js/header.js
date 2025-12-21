@@ -98,5 +98,37 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   initDropdown('.js-inner-dropdown', '.inner-nav__item--has-sub');
+
+  // 言語選択ドロップダウン
+  const languageTrigger = document.querySelector('.header__language-trigger');
+  const languageDropdown = document.querySelector('.header__language-dropdown');
+  
+  if (languageTrigger && languageDropdown) {
+    languageTrigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = languageDropdown.style.display === 'block';
+      languageDropdown.style.display = isOpen ? 'none' : 'block';
+      languageTrigger.setAttribute('aria-expanded', String(!isOpen));
+      languageTrigger.classList.toggle('is-active', !isOpen);
+    });
+
+    // 外側をクリックしたら閉じる
+    document.addEventListener('click', (e) => {
+      if (!languageTrigger.contains(e.target) && !languageDropdown.contains(e.target)) {
+        languageDropdown.style.display = 'none';
+        languageTrigger.setAttribute('aria-expanded', 'false');
+        languageTrigger.classList.remove('is-active');
+      }
+    });
+
+    // ESCキーで閉じる
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && languageDropdown.style.display === 'block') {
+        languageDropdown.style.display = 'none';
+        languageTrigger.setAttribute('aria-expanded', 'false');
+        languageTrigger.classList.remove('is-active');
+      }
+    });
+  }
 });
 

@@ -12,7 +12,15 @@ document.addEventListener('DOMContentLoaded', function() {
   const completeCloseBtn = completeModal ? completeModal.querySelector('.reservation-modal__close') : null;
   const completeOverlay = completeModal ? completeModal.querySelector('.reservation-modal__overlay') : null;
 
-  if (!form || !confirmModal || !completeModal) return;
+  if (!form || !confirmBtn || !confirmModal || !completeModal) {
+    console.warn('予約フォームの必要な要素が見つかりません:', {
+      form: !!form,
+      confirmBtn: !!confirmBtn,
+      confirmModal: !!confirmModal,
+      completeModal: !!completeModal
+    });
+    return;
+  }
 
   // 料金テーブル
   const pricingTable = {
@@ -94,36 +102,90 @@ document.addEventListener('DOMContentLoaded', function() {
   };
 
   // 確認ボタンのクリック
-  confirmBtn.addEventListener('click', function() {
+  confirmBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    console.log('確認ボタンがクリックされました');
+    
     // 必須項目のバリデーション
     const requiredFields = form.querySelectorAll('[required]');
+    console.log('必須項目の数:', requiredFields.length);
+    
     let isValid = true;
     let firstInvalidField = null;
+    const invalidFields = [];
 
     requiredFields.forEach(field => {
-      if (!field.value.trim()) {
+      const value = field.value ? field.value.trim() : '';
+      console.log(`フィールド ${field.name || field.id}: "${value}"`);
+      
+      if (!value) {
         isValid = false;
+        invalidFields.push(field.name || field.id || '不明');
         field.style.borderColor = '#ff0000';
+        field.style.borderWidth = '2px';
         if (!firstInvalidField) {
           firstInvalidField = field;
         }
       } else {
         field.style.borderColor = '';
+        field.style.borderWidth = '';
       }
     });
 
+    console.log('バリデーション結果:', isValid);
+    if (invalidFields.length > 0) {
+      console.log('未入力の必須項目:', invalidFields);
+    }
+
     if (!isValid) {
-      alert('必須項目を入力してください。');
+      // エラーメッセージを表示
+      const errorMessage = '必須項目を入力してください。\n\n未入力項目:\n' + invalidFields.map(field => {
+        const label = fieldLabels[field] || field;
+        return '・' + label;
+      }).join('\n');
+      
+      alert(errorMessage);
+      
+      // エラー状態を視覚的に表示
+      invalidFields.forEach(fieldName => {
+        const field = form.querySelector(`[name="${fieldName}"]`);
+        if (field) {
+          field.style.borderColor = '#ff0000';
+          field.style.borderWidth = '2px';
+          field.style.backgroundColor = '#fff0f0';
+          
+          // 3秒後にエラー表示を解除
+          setTimeout(() => {
+            field.style.borderColor = '';
+            field.style.borderWidth = '';
+            field.style.backgroundColor = '';
+          }, 3000);
+        }
+      });
+      
       if (firstInvalidField) {
         firstInvalidField.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        firstInvalidField.focus();
+        setTimeout(() => {
+          firstInvalidField.focus();
+        }, 500);
       }
       return;
     }
 
-    // 確認画面の内容を生成
-    generateConfirmContent();
-    showConfirmModal();
+    console.log('バリデーション成功。確認画面を表示します。');
+    
+    try {
+      // 確認画面の内容を生成
+      generateConfirmContent();
+      console.log('確認内容を生成しました');
+      
+      // 確認モーダルを表示
+      showConfirmModal();
+      console.log('確認モーダルを表示しました');
+    } catch (error) {
+      console.error('確認画面の表示中にエラーが発生しました:', error);
+      alert('確認画面の表示中にエラーが発生しました。ページを再読み込みしてください。');
+    }
   });
 
   // 見積もり計算関数
@@ -211,9 +273,23 @@ document.addEventListener('DOMContentLoaded', function() {
     return { total, breakdown };
   }
 
+  // HTMLエスケープ関数
+  function escapeHtml(text) {
+    if (!text) return '';
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
   // 確認画面の内容を生成
   function generateConfirmContent() {
+    if (!confirmContent) {
+      console.error('confirmContent要素が見つかりません');
+      return;
+    }
+    
     let html = '';
+    console.log('確認内容を生成開始');
 
     Object.keys(sections).forEach(sectionTitle => {
       const fields = sections[sectionTitle];
@@ -222,36 +298,50 @@ document.addEventListener('DOMContentLoaded', function() {
 
       fields.forEach(fieldName => {
         const field = form.elements[fieldName];
-        if (field) {
-          let value = field.value.trim();
-          
-          // セレクトボックスの場合、選択されたテキストを取得
-          if (field.tagName === 'SELECT' && value) {
+        if (!field) {
+          console.warn(`フィールド "${fieldName}" が見つかりません`);
+          return;
+        }
+        
+        let value = '';
+        
+        // テキストエリアやテキスト入力の場合
+        if (field.tagName === 'TEXTAREA' || field.tagName === 'INPUT') {
+          value = field.value ? field.value.trim() : '';
+        }
+        // セレクトボックスの場合、選択されたテキストを取得
+        else if (field.tagName === 'SELECT') {
+          if (field.selectedIndex > 0) {
             value = field.options[field.selectedIndex].text;
           }
+        }
+        // チェックボックスの場合
+        else if (field.type === 'checkbox') {
+          value = field.checked ? '選択済み' : '';
+        }
 
-          // クレジットカード番号はマスク
-          if (fieldName === 'card' && value) {
-            value = value.replace(/\d(?=\d{4})/g, '*');
-          }
+        // クレジットカード番号はマスク
+        if (fieldName === 'card' && value) {
+          value = value.replace(/\d(?=\d{4})/g, '*');
+        }
 
-          // CVVはマスク
-          if (fieldName === 'cvv' && value) {
-            value = '***';
-          }
+        // CVVはマスク
+        if (fieldName === 'cvv' && value) {
+          value = '***';
+        }
 
-          if (value || fieldName.includes('Adult') || fieldName.includes('Child')) {
-            hasData = true;
-            const displayValue = value || '未入力';
-            const emptyClass = value ? '' : ' reservation-confirm__value--empty';
-            
-            sectionHtml += `
-              <div class="reservation-confirm__item">
-                <div class="reservation-confirm__label">${fieldLabels[fieldName] || fieldName}</div>
-                <div class="reservation-confirm__value${emptyClass}">${displayValue}</div>
-              </div>
-            `;
-          }
+        // 値がある場合、または人数フィールドの場合（0も有効な値）
+        if (value || fieldName.includes('Adult') || fieldName.includes('Child') || fieldName.includes('Count')) {
+          hasData = true;
+          const displayValue = value || '未入力';
+          const emptyClass = value ? '' : ' reservation-confirm__value--empty';
+          
+          sectionHtml += `
+            <div class="reservation-confirm__item">
+              <div class="reservation-confirm__label">${fieldLabels[fieldName] || fieldName}</div>
+              <div class="reservation-confirm__value${emptyClass}">${escapeHtml(displayValue)}</div>
+            </div>
+          `;
         }
       });
 
@@ -303,25 +393,54 @@ document.addEventListener('DOMContentLoaded', function() {
       html += estimateHtml;
     }
 
+    if (html === '') {
+      html = '<p>入力された内容がありません。</p>';
+    }
+    
     confirmContent.innerHTML = html;
+    console.log('確認内容を設定しました。HTMLの長さ:', html.length);
   }
 
   // 確認モーダル表示
   function showConfirmModal() {
+    if (!confirmModal) {
+      console.error('確認モーダルが見つかりません');
+      alert('確認画面を表示できませんでした。');
+      return;
+    }
+    
+    console.log('確認モーダルを表示します');
+    console.log('confirmModal要素:', confirmModal);
+    console.log('現在のdisplay:', confirmModal.style.display);
+    
     confirmModal.style.display = 'flex';
+    confirmModal.style.visibility = 'visible';
     document.body.style.overflow = 'hidden';
     
-    setTimeout(() => {
+    // 強制的に表示を確実にする
+    requestAnimationFrame(() => {
       confirmModal.classList.add('is-active');
-    }, 10);
+      confirmModal.style.opacity = '1';
+      console.log('is-activeクラスを追加しました');
+      console.log('モーダルの現在の状態:', {
+        display: confirmModal.style.display,
+        visibility: confirmModal.style.visibility,
+        opacity: confirmModal.style.opacity,
+        hasActiveClass: confirmModal.classList.contains('is-active')
+      });
+    });
   }
 
   // 確認モーダルを閉じる
   function closeConfirmModal() {
+    if (!confirmModal) return;
+    
     confirmModal.classList.remove('is-active');
+    confirmModal.style.opacity = '0';
     
     setTimeout(() => {
       confirmModal.style.display = 'none';
+      confirmModal.style.visibility = 'hidden';
       document.body.style.overflow = '';
     }, 300);
   }
