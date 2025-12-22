@@ -214,8 +214,82 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     shopModalTitle.textContent = title;
-    renderShopList(shopData[currentCategory]);
+    
+    // 希望金額でフィルタリング
+    let filteredShops = filterShopsByBudget(shopData[currentCategory]);
+    renderShopList(filteredShops);
     showModal();
+  }
+  
+  // 希望金額でお店をフィルタリング
+  function filterShopsByBudget(shops) {
+    if (!shops || shops.length === 0) return shops;
+    
+    // 希望金額を取得
+    let budgetValue = null;
+    if (currentCategory === 'hotels') {
+      const hotelBudget = document.getElementById('hotel-budget');
+      if (hotelBudget && hotelBudget.value) {
+        budgetValue = hotelBudget.value; // 文字列のまま取得（30000plus等に対応）
+      }
+    } else if (currentCategory === 'restaurants') {
+      const diningBudget = document.getElementById('dining-budget');
+      if (diningBudget && diningBudget.value) {
+        budgetValue = diningBudget.value; // 文字列のまま取得（30000plus等に対応）
+      }
+    }
+    
+    // 希望金額が選択されていない場合は全件表示
+    if (!budgetValue) {
+      return shops;
+    }
+    
+    // 希望金額に基づいてフィルタリング
+    return shops.filter(shop => {
+      const shopPrice = shop.priceRange || shop.price || '';
+      if (!shopPrice || shopPrice === '要問い合わせ') {
+        return true; // 価格情報がない場合は表示
+      }
+      
+      // 価格範囲を解析（例: "¥6,000~¥10,000" や "¥7,000~¥10,000"）
+      const priceMatches = shopPrice.match(/¥[\d,]+/g);
+      if (!priceMatches || priceMatches.length === 0) {
+        return true; // 価格が解析できない場合は表示
+      }
+      
+      // 最小価格と最大価格を取得
+      const minPrice = parseInt(priceMatches[0].replace(/[¥,]/g, ''));
+      const maxPrice = priceMatches.length > 1 
+        ? parseInt(priceMatches[1].replace(/[¥,]/g, '')) 
+        : minPrice; // 最大価格がない場合は最小価格と同じとする
+      
+      // 希望金額の範囲を定義
+      const budgetRanges = {
+        '3000': { min: 0, max: 3000 },
+        '6000': { min: 0, max: 6000 },
+        '12000': { min: 0, max: 12000 },
+        '20000': { min: 0, max: 20000 },
+        '30000': { min: 0, max: 30000 },
+        '30000plus': { min: 30000, max: Infinity },
+        '50000plus': { min: 50000, max: Infinity }
+      };
+      
+      const range = budgetRanges[budgetValue];
+      if (!range) {
+        return true; // 範囲が定義されていない場合は表示
+      }
+      
+      // お店の価格範囲が希望金額の範囲と重なるかチェック
+      // お店の最小価格が希望金額の最大値以下で、お店の最大価格が希望金額の最小値以上の場合
+      if (range.max === Infinity) {
+        // 上限なしの場合（30000plus, 50000plus）
+        return minPrice >= range.min;
+      } else {
+        // 上限ありの場合
+        // お店の最小価格が希望金額の範囲内にあるか、またはお店の価格範囲が希望金額の範囲と重なるか
+        return (minPrice <= range.max && maxPrice >= range.min);
+      }
+    });
   }
 
   // お店リストを表示
@@ -301,8 +375,94 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // 成功メッセージ
       showToast(`${shop.name} を提案（${slot}）に追加しました`);
+      
+      // 最終選択のラジオボタンの状態を更新
+      updateFinalSelectionState();
     }
   }
+  
+  // 最終選択のラジオボタンの状態を更新
+  function updateFinalSelectionState() {
+    // ホテルの場合
+    const hotelProposal1 = document.getElementById('hotel-proposal-1');
+    const hotelProposal2 = document.getElementById('hotel-proposal-2');
+    const hotelFinal1 = document.getElementById('hotel-final-1');
+    const hotelFinal2 = document.getElementById('hotel-final-2');
+    
+    if (hotelProposal1 && hotelProposal2 && hotelFinal1 && hotelFinal2) {
+      const hasProposal1 = hotelProposal1.value.trim() !== '';
+      const hasProposal2 = hotelProposal2.value.trim() !== '';
+      
+      // 両方入力されている場合のみ有効化
+      if (hasProposal1 && hasProposal2) {
+        hotelFinal1.disabled = false;
+        hotelFinal2.disabled = false;
+        hotelFinal1.closest('.reservation-form__radio-label').classList.remove('is-disabled');
+        hotelFinal2.closest('.reservation-form__radio-label').classList.remove('is-disabled');
+      } else {
+        hotelFinal1.disabled = true;
+        hotelFinal2.disabled = true;
+        hotelFinal1.checked = false;
+        hotelFinal2.checked = false;
+        hotelFinal1.closest('.reservation-form__radio-label').classList.add('is-disabled');
+        hotelFinal2.closest('.reservation-form__radio-label').classList.add('is-disabled');
+      }
+    }
+    
+    // レストランの場合
+    const diningProposal1 = document.getElementById('dining-proposal-1');
+    const diningProposal2 = document.getElementById('dining-proposal-2');
+    const diningFinal1 = document.getElementById('dining-final-1');
+    const diningFinal2 = document.getElementById('dining-final-2');
+    
+    if (diningProposal1 && diningProposal2 && diningFinal1 && diningFinal2) {
+      const hasProposal1 = diningProposal1.value.trim() !== '';
+      const hasProposal2 = diningProposal2.value.trim() !== '';
+      
+      // 両方入力されている場合のみ有効化
+      if (hasProposal1 && hasProposal2) {
+        diningFinal1.disabled = false;
+        diningFinal2.disabled = false;
+        diningFinal1.closest('.reservation-form__radio-label').classList.remove('is-disabled');
+        diningFinal2.closest('.reservation-form__radio-label').classList.remove('is-disabled');
+      } else {
+        diningFinal1.disabled = true;
+        diningFinal2.disabled = true;
+        diningFinal1.checked = false;
+        diningFinal2.checked = false;
+        diningFinal1.closest('.reservation-form__radio-label').classList.add('is-disabled');
+        diningFinal2.closest('.reservation-form__radio-label').classList.add('is-disabled');
+      }
+    }
+  }
+  
+  // 提案テキストエリアの変更を監視（既存のDOMContentLoaded内で実行）
+  const hotelProposal1 = document.getElementById('hotel-proposal-1');
+  const hotelProposal2 = document.getElementById('hotel-proposal-2');
+  const diningProposal1 = document.getElementById('dining-proposal-1');
+  const diningProposal2 = document.getElementById('dining-proposal-2');
+  
+  if (hotelProposal1) {
+    hotelProposal1.addEventListener('input', updateFinalSelectionState);
+    hotelProposal1.addEventListener('change', updateFinalSelectionState);
+  }
+  if (hotelProposal2) {
+    hotelProposal2.addEventListener('input', updateFinalSelectionState);
+    hotelProposal2.addEventListener('change', updateFinalSelectionState);
+  }
+  if (diningProposal1) {
+    diningProposal1.addEventListener('input', updateFinalSelectionState);
+    diningProposal1.addEventListener('change', updateFinalSelectionState);
+  }
+  if (diningProposal2) {
+    diningProposal2.addEventListener('input', updateFinalSelectionState);
+    diningProposal2.addEventListener('change', updateFinalSelectionState);
+  }
+  
+  // 初期状態を設定（少し遅延させて確実に実行）
+  setTimeout(() => {
+    updateFinalSelectionState();
+  }, 100);
 
   // お店情報をフォーマット
   function formatShopInfo(shop) {
@@ -328,7 +488,10 @@ document.addEventListener('DOMContentLoaded', function() {
   if (shopSearch) {
     shopSearch.addEventListener('input', function(e) {
       const query = e.target.value.toLowerCase();
-      const shops = shopData[currentCategory];
+      let shops = shopData[currentCategory];
+      
+      // まず希望金額でフィルタリング
+      shops = filterShopsByBudget(shops);
       
       if (!query) {
         renderShopList(shops);
@@ -398,6 +561,9 @@ document.addEventListener('DOMContentLoaded', function() {
       if (hiddenInput) {
         hiddenInput.value = '';
       }
+      
+      // 最終選択のラジオボタンの状態を更新
+      updateFinalSelectionState();
       
       showToast('クリアしました');
     });

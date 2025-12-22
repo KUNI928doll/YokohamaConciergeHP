@@ -47,3 +47,27 @@
     display: flex !important; // ← SP時のみ強制表示
   }
 }
+
+// =====================
+// 多言語対応：テキスト折り返し
+// =====================
+* {
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+// ボタンやリンクのテキストも折り返し可能に
+button,
+a,
+.btn {
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal !important;
+}
+
+// ただし、特定の要素は折り返しを維持（必要に応じて個別に調整）
+.sub-hero__title {
+  white-space: nowrap; // タイトルは折り返さない
+}

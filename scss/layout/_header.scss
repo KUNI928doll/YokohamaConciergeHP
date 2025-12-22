@@ -99,90 +99,13 @@
     letter-spacing: 1.5px;
   }
 
-  .header__utility-item-ーwide {
+  .header__utility-item--wide {
     width: 135px;
   }
 
   .header__utility-item--xwide {
     flex-basis: 55px; // ← 可変基準幅
     flex-shrink: 0; // ← これで潰れにくくなる
-  }
-
-  // 言語選択
-  .header__utility-item--language {
-    position: relative;
-  }
-
-  .header__language-wrapper {
-    position: relative;
-  }
-
-  .header__language-trigger {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    font-family: inherit;
-    
-    &.is-active {
-      .header__icon--globe {
-        opacity: 0.8;
-      }
-    }
-  }
-
-  .header__language-text {
-    font-size: 1.6rem;
-    color: var(--color-main);
-    font-weight: 500;
-  }
-
-  .header__language-dropdown {
-    position: absolute;
-    top: calc(100% + 8px);
-    left: 50%;
-    transform: translateX(-50%);
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    min-width: 160px;
-    z-index: 1000;
-    overflow: hidden;
-  }
-
-  .header__language-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 16px;
-    color: var(--color-main);
-    text-decoration: none;
-    font-size: 1.4rem;
-    transition: background-color 0.2s ease;
-    border-bottom: 1px solid #f0f0f0;
-
-    &:last-child {
-      border-bottom: none;
-    }
-
-    &:hover {
-      background-color: #f5f5f5;
-    }
-
-    &--active {
-      background-color: #e3f2fd;
-      font-weight: 600;
-    }
-  }
-
-  .header__language-flag {
-    font-size: 1.8rem;
-    line-height: 1;
-  }
-
-  .header__language-name {
-    flex: 1;
   }
 
   .header__utility-link {
@@ -193,6 +116,9 @@
     text-decoration: none;
     font-size: 1.6rem; // 16px (1rem=10px基準)
     font-weight: 500;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
 
     &.is-column {
       flex-direction: column;
@@ -275,10 +201,14 @@
     color: #fff;
     font-weight: bold;
     text-decoration: none;
-    white-space: nowrap;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
     width: 131px;
     font-size: 2rem; // 20px (1rem=10px基準)
     transition: opacity 0.3s ease;
+    padding: 0 8px;
+    text-align: center;
 
     &:hover {
       opacity: 0.85;
@@ -362,7 +292,9 @@
 
     .spmenu__reserve {
       flex-shrink: 0;
-      white-space: nowrap;
+      word-wrap: break-word;
+      word-break: break-word;
+      overflow-wrap: break-word;
     }
 
     .spmenu__home {
@@ -448,68 +380,6 @@
     }
   }
 
-  .spmenu__language {
-    width: 100%;
-    margin-bottom: 20px;
-    padding: 0 20px;
-  }
-
-  .spmenu__language-label {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    margin-bottom: 12px;
-    font-size: 1.4rem;
-    color: var(--color-main);
-    font-weight: 500;
-  }
-
-  .spmenu__language-icon {
-    width: 20px;
-    height: 20px;
-  }
-
-  .spmenu__language-list {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .spmenu__language-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 12px 16px;
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    color: var(--color-main);
-    text-decoration: none;
-    font-size: 1.4rem;
-    transition: all 0.2s ease;
-
-    &:hover {
-      background-color: #f5f5f5;
-      border-color: var(--color-accent);
-    }
-
-    &--active {
-      background-color: #e3f2fd;
-      border-color: var(--color-accent);
-      font-weight: 600;
-    }
-  }
-
-  .spmenu__language-flag {
-    font-size: 1.8rem;
-    line-height: 1;
-  }
-
-  .spmenu__language-name {
-    flex: 1;
-  }
 
   .spmenu__sns {
     display: flex;
@@ -935,4 +805,62 @@
 .header__toggle.is-active,
 body.spmenu-open .header__toggle {
   display: none !important;
+}
+
+/* 言語切り替え全体 */
+.header__language-wrapper.lang-switch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  color: var(--color-main);
+  font-size: 1.6rem;
+  font-weight: 500;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  
+  /* TranslatePressの言語切り替えスタイル */
+  .trp-ls-shortcode {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  
+  /* すべての言語リンクを非表示 */
+  .trp-ls-shortcode-language {
+    display: none !important;
+  }
+  
+  /* 現在の言語だけ表示 */
+  .trp-ls-shortcode-current-language {
+    display: inline-block;
+    font-weight: 500;
+    font-size: 1.6rem;
+    color: var(--color-main);
+    text-decoration: none;
+    line-height: 1.2;
+    text-align: center;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    
+    a {
+      color: var(--color-main);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.6rem;
+      word-wrap: break-word;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+  }
+  
+  /* 言語切り替えのドロップダウンなど */
+  .trp-ls-shortcode-list {
+    display: none;
+  }
 }

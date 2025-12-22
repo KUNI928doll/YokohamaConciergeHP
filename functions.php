@@ -24,16 +24,6 @@ function yokohama_concierge_theme_support() {
 }
 add_action('after_setup_theme', 'yokohama_concierge_theme_support');
 
-// TranslatePress対応: テーマのテキストを翻訳可能にする
-function yokohama_concierge_translatepress_support() {
-    // TranslatePressが有効な場合、テーマのテキストを翻訳可能にする
-    if (class_exists('TRP_Translate_Press')) {
-        // テーマのテキストドメインを設定
-        load_theme_textdomain('yokohama-concierge', get_template_directory() . '/languages');
-    }
-}
-add_action('after_setup_theme', 'yokohama_concierge_translatepress_support');
-
 // 構造化データ(JSON-LD)を出力
 function yokohama_concierge_schema_markup() {
     $schema = array(
@@ -331,6 +321,13 @@ function yokohama_concierge_enqueue_scripts() {
             '1.0.0',
             true
         );
+        
+        // ajaxurlとStripe決済用のnonceをJavaScriptに渡す
+        wp_localize_script('yokohama-reservation', 'yokohamaReservation', array(
+            'ajaxurl' => admin_url('admin-ajax.php'),
+            'nonce' => wp_create_nonce('reservation_form'),
+            'stripeAction' => 'create_stripe_session'
+        ));
     }
     
     // お問い合わせページ専用スクリプト
@@ -389,3 +386,163 @@ function yokohama_concierge_handle_reservation_submit() {
 }
 add_action('admin_post_submit_reservation', 'yokohama_concierge_handle_reservation_submit');
 add_action('admin_post_nopriv_submit_reservation', 'yokohama_concierge_handle_reservation_submit');
+
+// Stripe決済セッション作成
+function yokohama_concierge_create_stripe_session() {
+    // セキュリティチェック
+    if (!isset($_POST['reservation_nonce']) || !wp_verify_nonce($_POST['reservation_nonce'], 'reservation_form')) {
+        wp_send_json_error(array('message' => 'セキュリティチェックに失敗しました。'));
+        return;
+    }
+    
+    // Stripe APIキーの設定（環境変数またはオプションから取得）
+    $stripe_secret_key = defined('STRIPE_SECRET_KEY') ? STRIPE_SECRET_KEY : get_option('stripe_secret_key', '');
+    
+    if (empty($stripe_secret_key)) {
+        wp_send_json_error(array('message' => 'Stripe APIキーが設定されていません。'));
+        return;
+    }
+    
+    // Stripe PHP SDKの読み込み（Composer経由でインストールされている場合）
+    // require_once get_template_directory() . '/vendor/autoload.php';
+    // または、Stripe PHP SDKを直接インストールしている場合
+    // require_once get_template_directory() . '/includes/stripe-php/init.php';
+    
+    // フォームデータの取得
+    $name = isset($_POST['name']) ? sanitize_text_field($_POST['name']) : '';
+    $email = isset($_POST['email']) ? sanitize_email($_POST['email']) : '';
+    
+    // 見積もり計算（クライアント側から送信された金額を使用、またはサーバー側で計算）
+    $estimated_amount = isset($_POST['estimated_amount']) ? intval($_POST['estimated_amount']) : 0;
+    
+    if ($estimated_amount > 0) {
+        $amount = $estimated_amount;
+    } else {
+        // サーバー側で計算（フォールバック）
+        $amount = 0;
+        
+        // 観光ガイドサービス
+        if (isset($_POST['guideCourse']) && !empty($_POST['guideCourse'])) {
+            $guideCourse = sanitize_text_field($_POST['guideCourse']);
+            $guideNotes = isset($_POST['guideNotes']) ? sanitize_text_field($_POST['guideNotes']) : '';
+            $hasTranslation = (stripos($guideNotes, '通訳') !== false || stripos($guideNotes, '翻訳') !== false);
+            
+            if ($guideCourse === 'half') {
+                $amount += $hasTranslation ? 20000 : 12000;
+            } else {
+                $amount += $hasTranslation ? 30000 : 22000;
+            }
+        }
+        
+        // ホテル予約代行サービス
+        if (isset($_POST['hotelDate']) && !empty($_POST['hotelDate'])) {
+            $amount += 2200;
+        }
+        
+        // 飲食店予約代行サービス
+        if (isset($_POST['diningDate']) && !empty($_POST['diningDate'])) {
+            $amount += 2200;
+        }
+        
+        // トランク預かりサービス
+        if (isset($_POST['luggageDate']) && !empty($_POST['luggageDate'])) {
+            $luggageCount = isset($_POST['luggageCount']) ? intval($_POST['luggageCount']) : 1;
+            $amount += 1800 * $luggageCount;
+        }
+        
+        // 緊急予約料金のチェック
+        $now = time();
+        $tomorrow = $now + (24 * 60 * 60);
+        $urgentCount = 0;
+        
+        $datetimeFields = array('hotelDate', 'diningDate', 'luggageDate');
+        foreach ($datetimeFields as $fieldName) {
+            if (isset($_POST[$fieldName]) && !empty($_POST[$fieldName])) {
+                $reservationDate = strtotime($_POST[$fieldName]);
+                if ($reservationDate <= $tomorrow) {
+                    $urgentCount++;
+                }
+            }
+        }
+        
+        if ($urgentCount > 0) {
+            $amount += 1000 * $urgentCount;
+        }
+        
+        // 最低金額を設定
+        if ($amount < 1000) {
+            $amount = 1000;
+        }
+    }
+    
+    $description = 'YOKOHAMA Concierge 予約代行サービス';
+    
+    // Stripe Checkout Sessionを作成
+    try {
+        // Stripe APIを直接呼び出す（cURL使用）
+        $session_data = array(
+            'payment_method_types[0]' => 'card',
+            'line_items[0][price_data][currency]' => 'jpy',
+            'line_items[0][price_data][product_data][name]' => $description,
+            'line_items[0][price_data][unit_amount]' => $amount,
+            'line_items[0][quantity]' => 1,
+            'mode' => 'payment',
+            'success_url' => add_query_arg(
+                array(
+                    'reservation' => 'success',
+                    'session_id' => '{CHECKOUT_SESSION_ID}'
+                ),
+                home_url('/reservation/')
+            ),
+            'cancel_url' => add_query_arg(
+                array('reservation' => 'cancelled'),
+                home_url('/reservation/')
+            ),
+            'customer_email' => $email,
+            'metadata[name]' => $name,
+            'metadata[email]' => $email,
+        );
+        
+        // Stripe APIを呼び出し
+        $ch = curl_init('https://api.stripe.com/v1/checkout/sessions');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($session_data));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Authorization: Bearer ' . $stripe_secret_key,
+            'Content-Type: application/x-www-form-urlencoded',
+        ));
+        
+        $response = curl_exec($ch);
+        $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $curl_error = curl_error($ch);
+        curl_close($ch);
+        
+        if ($curl_error) {
+            wp_send_json_error(array('message' => 'cURLエラー: ' . $curl_error));
+            return;
+        }
+        
+        if ($http_code === 200) {
+            $session = json_decode($response, true);
+            if (isset($session['id']) && isset($session['url'])) {
+                wp_send_json_success(array(
+                    'session_id' => $session['id'],
+                    'url' => $session['url']
+                ));
+            } else {
+                wp_send_json_error(array('message' => 'Stripeセッションの作成に失敗しました。レスポンス: ' . $response));
+            }
+        } else {
+            $error_data = json_decode($response, true);
+            $error_message = isset($error_data['error']['message']) 
+                ? $error_data['error']['message'] 
+                : 'Stripeセッションの作成に失敗しました。';
+            wp_send_json_error(array('message' => $error_message));
+        }
+    } catch (Exception $e) {
+        wp_send_json_error(array('message' => 'エラーが発生しました: ' . $e->getMessage()));
+    }
+}
+add_action('wp_ajax_create_stripe_session', 'yokohama_concierge_create_stripe_session');
+add_action('wp_ajax_nopriv_create_stripe_session', 'yokohama_concierge_create_stripe_session');

@@ -131,6 +131,41 @@ document.addEventListener('DOMContentLoaded', function() {
         field.style.borderWidth = '';
       }
     });
+    
+    // 提案1と提案2の両方が入力されている場合、最終選択を確認
+    const hotelProposal1 = form.elements['hotelProposal1']?.value.trim();
+    const hotelProposal2 = form.elements['hotelProposal2']?.value.trim();
+    const hotelFinalSelection = form.elements['hotelFinalSelection']?.value;
+    
+    if (hotelProposal1 && hotelProposal2 && !hotelFinalSelection) {
+      isValid = false;
+      const hotelFinal1 = document.getElementById('hotel-final-1');
+      if (hotelFinal1) {
+        hotelFinal1.closest('.reservation-form__field').style.border = '2px solid #ff0000';
+        hotelFinal1.closest('.reservation-form__field').style.backgroundColor = '#fff0f0';
+        invalidFields.push('ホテル予約代行サービス：最終選択');
+        if (!firstInvalidField) {
+          firstInvalidField = hotelFinal1;
+        }
+      }
+    }
+    
+    const diningProposal1 = form.elements['diningProposal1']?.value.trim();
+    const diningProposal2 = form.elements['diningProposal2']?.value.trim();
+    const diningFinalSelection = form.elements['diningFinalSelection']?.value;
+    
+    if (diningProposal1 && diningProposal2 && !diningFinalSelection) {
+      isValid = false;
+      const diningFinal1 = document.getElementById('dining-final-1');
+      if (diningFinal1) {
+        diningFinal1.closest('.reservation-form__field').style.border = '2px solid #ff0000';
+        diningFinal1.closest('.reservation-form__field').style.backgroundColor = '#fff0f0';
+        invalidFields.push('飲食店予約代行サービス：最終選択');
+        if (!firstInvalidField) {
+          firstInvalidField = diningFinal1;
+        }
+      }
+    }
 
     console.log('バリデーション結果:', isValid);
     if (invalidFields.length > 0) {
@@ -345,6 +380,36 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
 
+      // ホテル予約代行サービスの場合、最終選択を追加
+      if (sectionTitle === 'ホテル予約代行サービス') {
+        const hotelFinalSelection = form.elements['hotelFinalSelection']?.value;
+        if (hotelFinalSelection) {
+          const selectedProposal = hotelFinalSelection === '1' ? '提案（1）' : '提案（2）';
+          sectionHtml += `
+            <div class="reservation-confirm__item">
+              <div class="reservation-confirm__label">最終選択</div>
+              <div class="reservation-confirm__value">${escapeHtml(selectedProposal)}</div>
+            </div>
+          `;
+          hasData = true;
+        }
+      }
+      
+      // 飲食店予約代行サービスの場合、最終選択を追加
+      if (sectionTitle === '飲食店予約代行サービス') {
+        const diningFinalSelection = form.elements['diningFinalSelection']?.value;
+        if (diningFinalSelection) {
+          const selectedProposal = diningFinalSelection === '1' ? '提案（1）' : '提案（2）';
+          sectionHtml += `
+            <div class="reservation-confirm__item">
+              <div class="reservation-confirm__label">最終選択</div>
+              <div class="reservation-confirm__value">${escapeHtml(selectedProposal)}</div>
+            </div>
+          `;
+          hasData = true;
+        }
+      }
+
       if (hasData) {
         html += `
           <div class="reservation-confirm__section">
@@ -453,6 +518,65 @@ document.addEventListener('DOMContentLoaded', function() {
   // 確認画面のオーバーレイ
   if (confirmOverlay) {
     confirmOverlay.addEventListener('click', closeConfirmModal);
+  }
+
+  // Stripe決済ボタン
+  const stripePaymentBtn = document.getElementById('stripePaymentBtn');
+  if (stripePaymentBtn) {
+    stripePaymentBtn.addEventListener('click', function() {
+      // ボタンを無効化（二重送信防止）
+      stripePaymentBtn.disabled = true;
+      stripePaymentBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 処理中...';
+
+      // 見積もりを計算
+      const estimate = calculateEstimate();
+      const totalAmount = estimate.total;
+
+      // フォームデータを作成
+      const formData = new FormData(form);
+      
+      // Stripe決済セッション作成用のアクションを追加
+      formData.append('action', window.yokohamaReservation?.stripeAction || 'create_stripe_session');
+      
+      // 見積もり金額を追加（サーバー側でも計算するが、クライアント側の計算も送信）
+      formData.append('estimated_amount', totalAmount);
+
+      // Stripe決済セッションを作成
+      const ajaxurl = window.yokohamaReservation?.ajaxurl || '/wp-admin/admin-ajax.php';
+      
+      fetch(ajaxurl, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest'
+        }
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('ネットワークエラーが発生しました。');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Stripe決済レスポンス:', data);
+        if (data.success && data.data && data.data.url) {
+          // Stripe決済ページにリダイレクト
+          window.location.href = data.data.url;
+        } else {
+          // エラー時
+          const errorMessage = data.data?.message || 'Stripe決済セッションの作成に失敗しました。';
+          alert(errorMessage);
+          stripePaymentBtn.disabled = false;
+          stripePaymentBtn.innerHTML = '<i class="fas fa-credit-card"></i> Stripe決済へ進む';
+        }
+      })
+      .catch(error => {
+        console.error('Stripe決済エラー:', error);
+        alert('エラーが発生しました。もう一度お試しください。\n' + error.message);
+        stripePaymentBtn.disabled = false;
+        stripePaymentBtn.innerHTML = '<i class="fas fa-credit-card"></i> Stripe決済へ進む';
+      });
+    });
   }
 
   // 送信ボタン

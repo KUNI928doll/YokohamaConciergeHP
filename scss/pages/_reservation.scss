@@ -168,6 +168,87 @@
     color: #7a869f;
   }
 
+  &__notice {
+    margin-top: 32px;
+    margin-bottom: 24px;
+    padding: 24px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border: 1px solid rgba(29, 67, 117, 0.1);
+
+    @include mq($until: sp-large) {
+      margin-top: 24px;
+      padding: 20px 16px;
+    }
+  }
+
+  &__notice-block {
+    margin-bottom: 24px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include mq($until: sp-large) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__notice-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-main);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--color-main);
+
+    @include mq($until: sp-large) {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      padding-bottom: 6px;
+    }
+  }
+
+  &__notice-text {
+    font-size: 1.4rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 12px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include mq($until: sp-large) {
+      font-size: 1.3rem;
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
+
+    strong {
+      color: var(--color-main);
+      font-weight: 700;
+    }
+  }
+
+  &__proposal-description {
+    font-size: 1.3rem;
+    color: #555;
+    line-height: 1.8;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    padding: 12px 16px;
+    background: #f8f9fa;
+    border-left: 3px solid var(--color-main);
+    border-radius: 4px;
+
+    @include mq($until: sp-large) {
+      font-size: 1.2rem;
+      line-height: 1.7;
+      padding: 10px 14px;
+    }
+  }
+
   &__inline-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -379,6 +460,92 @@
     &:hover {
       color: #ff4444;
     }
+  }
+
+  &__final-selection {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+
+    @include mq($until: sp-large) {
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+
+  &__radio-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 1.4rem;
+    color: var(--color-text);
+    padding: 12px 20px;
+    border: 2px solid rgba(29, 67, 117, 0.2);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    user-select: none;
+    flex: 1;
+    min-width: 180px;
+    justify-content: flex-start;
+    background: #fff;
+
+    &:hover:not(.is-disabled) {
+      border-color: var(--color-main);
+      background: rgba(29, 67, 117, 0.05);
+    }
+
+    &.is-disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      background: #f5f5f5;
+      border-color: #ddd;
+    }
+
+    input[type="radio"] {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      margin: 0;
+      accent-color: var(--color-main);
+      flex-shrink: 0;
+      display: block !important; // 常に表示
+    }
+
+    span {
+      display: inline-block;
+      flex: 1;
+    }
+
+    input[type="radio"]:checked + span {
+      color: var(--color-main);
+      font-weight: 600;
+    }
+
+    input[type="radio"]:checked ~ span,
+    &:has(input[type="radio"]:checked) {
+      border-color: var(--color-main);
+      background: rgba(29, 67, 117, 0.1);
+    }
+
+    input[type="radio"]:disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+
+    // 選択されている状態
+    &:has(input[type="radio"]:checked) {
+      border-color: var(--color-main);
+      background: rgba(29, 67, 117, 0.15);
+      box-shadow: 0 0 0 2px rgba(29, 67, 117, 0.1);
+    }
+  }
+
+  &__radio {
+    // ラジオボタンは常に表示
+    display: block !important;
+    margin: 0;
   }
 }
 
@@ -670,6 +837,7 @@
     transform: translateY(-20px);
     transition: transform 0.3s ease;
     z-index: 1;
+    box-sizing: border-box;
 
     @include mq($until: sp-large) {
       padding: 24px 20px;
@@ -762,21 +930,56 @@
 
   &__actions {
     display: flex;
-    gap: 16px;
+    gap: 12px;
     justify-content: center;
+    flex-wrap: wrap;
+    padding: 0 8px;
 
     @include mq($until: sp-large) {
       flex-direction: column;
       gap: 12px;
+      padding: 0;
     }
   }
 
   &__back,
-  &__submit {
-    min-width: 180px;
+  &__submit,
+  &__stripe {
+    flex: 1;
+    min-width: 140px;
+    max-width: 200px;
+    white-space: nowrap;
+    font-size: 1.4rem;
+    padding: 12px 16px;
 
     @include mq($until: sp-large) {
       min-width: 100%;
+      max-width: 100%;
+    }
+    
+    @include mq($until: 768px) {
+      font-size: 1.3rem;
+      padding: 10px 14px;
+    }
+  }
+
+  &__stripe {
+    background-color: var(--color-accent, #FF6B35);
+    color: #fff;
+    border: none;
+    
+    &:hover:not(:disabled) {
+      background-color: #e55a2b;
+      opacity: 0.9;
+    }
+    
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    
+    i {
+      margin-right: 8px;
     }
   }
 
@@ -1035,5 +1238,169 @@
     .btn {
       flex: 1;
     }
+  }
+}
+
+.reservation__price {
+  margin-top: 40px;
+  padding: 32px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border: 1px solid rgba(29, 67, 117, 0.1);
+
+  @include mq($until: sp-large) {
+    margin-top: 32px;
+    padding: 24px 16px;
+  }
+}
+
+.reservation__price-title {
+  font-size: clamp(18px, 2.5vw, 22px);
+  font-weight: 700;
+  color: var(--color-main);
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 3px solid var(--color-main);
+
+  @include mq($until: sp-large) {
+    font-size: 18px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+  }
+}
+
+.reservation__price-block {
+  margin-bottom: 32px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include mq($until: sp-large) {
+    margin-bottom: 28px;
+  }
+}
+
+.reservation__price-subtitle {
+  font-size: clamp(16px, 2vw, 18px);
+  font-weight: 700;
+  color: var(--color-main);
+  margin-bottom: 16px;
+  padding-left: 8px;
+  border-left: 4px solid var(--color-main);
+
+  @include mq($until: sp-large) {
+    font-size: 16px;
+    margin-bottom: 12px;
+    padding-left: 6px;
+  }
+}
+
+.reservation__price-table {
+  display: table;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(29, 67, 117, 0.1);
+  margin-bottom: 16px;
+
+  @include mq($until: sp-large) {
+    border-radius: 6px;
+    margin-bottom: 12px;
+  }
+}
+
+.reservation__price-table thead {
+  display: table-header-group;
+  background: var(--color-main);
+  color: #fff;
+}
+
+.reservation__price-table th {
+  display: table-cell;
+  padding: 14px 16px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: left;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  white-space: nowrap;
+
+  @include mq($until: sp-large) {
+    padding: 12px 14px;
+    font-size: 1.4rem;
+  }
+
+  &:first-child {
+    border-top-left-radius: 8px;
+  }
+
+  &:last-child {
+    border-top-right-radius: 8px;
+    text-align: right;
+  }
+}
+
+.reservation__price-table tbody {
+  display: table-row-group;
+}
+
+.reservation__price-table tbody tr {
+  display: table-row;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: rgba(29, 67, 117, 0.03);
+  }
+
+  &:last-child td {
+    border-bottom: none;
+  }
+}
+
+.reservation__price-table td {
+  display: table-cell;
+  padding: 14px 16px;
+  font-size: 1.4rem;
+  color: #333;
+  border-bottom: 1px solid rgba(29, 67, 117, 0.1);
+  vertical-align: middle;
+
+  @include mq($until: sp-large) {
+    padding: 12px 14px;
+    font-size: 1.3rem;
+  }
+
+  &:first-child {
+    width: 60%;
+  }
+
+  &:last-child {
+    width: 40%;
+    text-align: right;
+    font-weight: 600;
+    color: var(--color-main);
+  }
+}
+
+.reservation__price-note {
+  font-size: 1.3rem;
+  color: #666;
+  line-height: 1.7;
+  margin-top: 12px;
+  padding-left: 8px;
+
+  @include mq($until: sp-large) {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    padding-left: 6px;
+  }
+
+  strong {
+    color: var(--color-main);
+    font-weight: 700;
   }
 }
