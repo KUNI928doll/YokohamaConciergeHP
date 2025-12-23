@@ -740,7 +740,7 @@
 
                 <!-- 動画セクション -->
                 <div class="influencer__video">
-                    <video class="influencer__video-player" controls poster="<?php echo get_template_directory_uri(); ?>/images/video-thumbnail.jpg">
+                    <video class="influencer__video-player" controls>
                         <source src="<?php echo get_template_directory_uri(); ?>/videos/influencer-video.mp4" type="video/mp4">
                         <source src="<?php echo get_template_directory_uri(); ?>/videos/influencer-video.webm" type="video/webm">
                         お使いのブラウザは動画タグをサポートしていません。

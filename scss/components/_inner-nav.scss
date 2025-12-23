@@ -133,6 +133,8 @@
     word-wrap: break-word;
     word-break: break-word;
     overflow-wrap: break-word;
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -144,6 +146,9 @@
     padding: 0;
     margin: 0;
     line-height: 1.4;
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    white-space: normal;
 
     &::after {
         display: none !important;
@@ -156,6 +161,9 @@
     text-align: left;
     display: block;
     padding: 4px 0;
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    white-space: normal;
 }
 
 .inner-nav__sub a:hover {

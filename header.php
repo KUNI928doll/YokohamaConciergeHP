@@ -105,10 +105,9 @@
                 <div class="spmenu">
                     <div class="spmenu__top">
                         <a href="<?php echo esc_url(home_url('/reservation')); ?>" class="btn btn--orange btn--sm spmenu__reserve">予約をする</a>
-                        <a href="<?php echo esc_url(home_url('/')); ?>" class="spmenu__home">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/icon-home.png" alt="ホームアイコン">
-                            <span>ホームへ戻る</span>
-                        </a>
+                        <div class="spmenu__language lang-switch">
+                            <?php echo do_shortcode('[language-switcher]'); ?>
+                        </div>
                         <button type="button" class="spmenu__close js-spmenu-close" aria-label="メニューを閉じる">
                             <span class="spmenu__close-icon"></span>
                             <span class="spmenu__close-text">CLOSE</span>

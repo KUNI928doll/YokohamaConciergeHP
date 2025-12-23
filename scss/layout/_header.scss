@@ -270,11 +270,12 @@
 .spmenu {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
   height: 100vh;
   text-align: center;
+  overflow-y: auto;
 
 
   .spmenu__top {
@@ -297,19 +298,35 @@
       overflow-wrap: break-word;
     }
 
-    .spmenu__home {
+    .spmenu__language {
+      flex: 1;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      text-decoration: none;
-      color: var(--color-main);
-      font-size: 1.2rem;
-      gap: 4px;
-      flex-shrink: 0;
+      margin: 0 auto;
+      max-width: 200px;
 
-      img {
-        width: 24px;
-        height: auto;
+      // TranslatePressの言語切り替えスタイル
+      .trp-language-switcher-container {
+        width: 100%;
+      }
+
+      .trp-language-switcher {
+        background: #fff;
+        border-radius: 4px;
+        padding: 8px 12px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .trp-language-switcher > div {
+        display: flex;
+        align-items: center;
+        gap: 8px;
       }
     }
 
@@ -638,6 +655,7 @@
   display: flex;
   flex-direction: column;
   gap: 28px;
+  margin-top: 50px;
 
   li {
     a {

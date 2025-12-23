@@ -1247,6 +1247,7 @@
   background: #f8f9fa;
   border-radius: 12px;
   border: 1px solid rgba(29, 67, 117, 0.1);
+  margin-bottom: 32px;
 
   @include mq($until: sp-large) {
     margin-top: 32px;
