@@ -486,9 +486,10 @@
     content: "";
     position: absolute;
     right: 0px;
-    top: 12px;
+    top: 50%;
+    transform: translateY(-50%);
     width: 1px;
-    height: calc(100% - 24px);
+    height: 60%;
     background-color: rgba(13, 61, 144, 0.25);
     pointer-events: none;
   }

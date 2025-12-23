@@ -176,7 +176,7 @@ function yokohama_concierge_enqueue_scripts() {
         'yokohama-main-style',
         get_template_directory_uri() . '/css/style.css',
         array(),
-        '20241214001'
+        '20241214005'
     );
     
     // jQuery（WordPressに含まれているものを使用）
@@ -351,6 +351,236 @@ function yokohama_concierge_enqueue_scripts() {
 }
 add_action('wp_enqueue_scripts', 'yokohama_concierge_enqueue_scripts');
 
+// カスタム投稿タイプ「予約」の登録
+function yokohama_concierge_register_reservation_post_type() {
+    $labels = array(
+        'name' => '予約',
+        'singular_name' => '予約',
+        'menu_name' => '予約管理',
+        'add_new' => '新規追加',
+        'add_new_item' => '新しい予約を追加',
+        'edit_item' => '予約を編集',
+        'new_item' => '新しい予約',
+        'view_item' => '予約を表示',
+        'search_items' => '予約を検索',
+        'not_found' => '予約が見つかりませんでした',
+        'not_found_in_trash' => 'ゴミ箱に予約はありません',
+    );
+
+    $args = array(
+        'labels' => $labels,
+        'public' => false,
+        'publicly_queryable' => false,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'query_var' => true,
+        'rewrite' => false,
+        'capability_type' => 'post',
+        'has_archive' => false,
+        'hierarchical' => false,
+        'menu_position' => 25,
+        'menu_icon' => 'dashicons-calendar-alt',
+        'supports' => array('title', 'editor', 'custom-fields'),
+        'show_in_rest' => false,
+    );
+
+    register_post_type('reservation', $args);
+}
+add_action('init', 'yokohama_concierge_register_reservation_post_type');
+
+// 予約カスタム投稿タイプの管理画面カラムをカスタマイズ
+function yokohama_concierge_reservation_columns($columns) {
+    $new_columns = array();
+    $new_columns['cb'] = $columns['cb'];
+    $new_columns['title'] = '予約ID';
+    $new_columns['reservation_name'] = 'お名前';
+    $new_columns['reservation_email'] = 'メールアドレス';
+    $new_columns['reservation_phone'] = '電話番号';
+    $new_columns['reservation_status'] = 'ステータス';
+    $new_columns['date'] = '登録日時';
+    return $new_columns;
+}
+add_filter('manage_reservation_posts_columns', 'yokohama_concierge_reservation_columns');
+
+// 予約カスタム投稿タイプの管理画面カラム内容を表示
+function yokohama_concierge_reservation_column_content($column, $post_id) {
+    switch ($column) {
+        case 'reservation_name':
+            echo esc_html(get_post_meta($post_id, '_reservation_name', true));
+            break;
+        case 'reservation_email':
+            echo esc_html(get_post_meta($post_id, '_reservation_email', true));
+            break;
+        case 'reservation_phone':
+            echo esc_html(get_post_meta($post_id, '_reservation_phone', true));
+            break;
+        case 'reservation_status':
+            $status = get_post_meta($post_id, '_reservation_status', true);
+            $status_labels = array(
+                'pending' => '未対応',
+                'processing' => '対応中',
+                'completed' => '完了',
+                'cancelled' => 'キャンセル',
+            );
+            $status_label = isset($status_labels[$status]) ? $status_labels[$status] : '未対応';
+            echo '<span class="reservation-status reservation-status--' . esc_attr($status ?: 'pending') . '">' . esc_html($status_label) . '</span>';
+            break;
+    }
+}
+add_action('manage_reservation_posts_custom_column', 'yokohama_concierge_reservation_column_content', 10, 2);
+
+// 予約カスタム投稿タイプの管理画面にメタボックスを追加
+function yokohama_concierge_reservation_meta_boxes() {
+    add_meta_box(
+        'reservation_details',
+        '予約詳細情報',
+        'yokohama_concierge_reservation_meta_box_callback',
+        'reservation',
+        'normal',
+        'high'
+    );
+}
+add_action('add_meta_boxes', 'yokohama_concierge_reservation_meta_boxes');
+
+// 予約メタボックスの内容
+function yokohama_concierge_reservation_meta_box_callback($post) {
+    wp_nonce_field('yokohama_concierge_reservation_meta_box', 'yokohama_concierge_reservation_meta_box_nonce');
+    
+    $name = get_post_meta($post->ID, '_reservation_name', true);
+    $email = get_post_meta($post->ID, '_reservation_email', true);
+    $phone = get_post_meta($post->ID, '_reservation_phone', true);
+    $gender = get_post_meta($post->ID, '_reservation_gender', true);
+    $nationality = get_post_meta($post->ID, '_reservation_nationality', true);
+    $address = get_post_meta($post->ID, '_reservation_address', true);
+    $passport = get_post_meta($post->ID, '_reservation_passport', true);
+    $stay = get_post_meta($post->ID, '_reservation_stay', true);
+    $companion = get_post_meta($post->ID, '_reservation_companion', true);
+    $status = get_post_meta($post->ID, '_reservation_status', true);
+    
+    // 全フォームデータを取得（JSON形式で保存されている場合）
+    $form_data = get_post_meta($post->ID, '_reservation_form_data', true);
+    if (is_string($form_data)) {
+        $form_data = json_decode($form_data, true);
+    }
+    
+    ?>
+    <table class="form-table">
+        <tr>
+            <th><label for="reservation_status">ステータス</label></th>
+            <td>
+                <select name="reservation_status" id="reservation_status">
+                    <option value="pending" <?php selected($status, 'pending'); ?>>未対応</option>
+                    <option value="processing" <?php selected($status, 'processing'); ?>>対応中</option>
+                    <option value="completed" <?php selected($status, 'completed'); ?>>完了</option>
+                    <option value="cancelled" <?php selected($status, 'cancelled'); ?>>キャンセル</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th><label>お名前</label></th>
+            <td><?php echo esc_html($name); ?></td>
+        </tr>
+        <tr>
+            <th><label>メールアドレス</label></th>
+            <td><?php echo esc_html($email); ?></td>
+        </tr>
+        <tr>
+            <th><label>電話番号</label></th>
+            <td><?php echo esc_html($phone); ?></td>
+        </tr>
+        <?php if ($gender): ?>
+        <tr>
+            <th><label>性別</label></th>
+            <td><?php echo esc_html($gender === 'male' ? '男性' : ($gender === 'female' ? '女性' : 'その他')); ?></td>
+        </tr>
+        <?php endif; ?>
+        <?php if ($nationality): ?>
+        <tr>
+            <th><label>国籍</label></th>
+            <td><?php echo esc_html($nationality); ?></td>
+        </tr>
+        <?php endif; ?>
+        <?php if ($address): ?>
+        <tr>
+            <th><label>住所</label></th>
+            <td><?php echo esc_html($address); ?></td>
+        </tr>
+        <?php endif; ?>
+        <?php if ($passport): ?>
+        <tr>
+            <th><label>パスポート番号</label></th>
+            <td><?php echo esc_html($passport); ?></td>
+        </tr>
+        <?php endif; ?>
+        <?php if ($stay): ?>
+        <tr>
+            <th><label>滞在先</label></th>
+            <td><?php echo esc_html($stay); ?></td>
+        </tr>
+        <?php endif; ?>
+        <?php if ($companion): ?>
+        <tr>
+            <th><label>同伴者情報</label></th>
+            <td><?php echo nl2br(esc_html($companion)); ?></td>
+        </tr>
+        <?php endif; ?>
+    </table>
+    
+    <?php if ($form_data && is_array($form_data)): ?>
+    <h3>その他のフォームデータ</h3>
+    <table class="form-table">
+        <?php foreach ($form_data as $key => $value): ?>
+            <?php if (!empty($value) && !in_array($key, array('name', 'email', 'phone', 'gender', 'nationality', 'address', 'passport', 'stay', 'companion'))): ?>
+            <tr>
+                <th><label><?php echo esc_html(ucfirst(str_replace('_', ' ', $key))); ?></label></th>
+                <td><?php echo is_array($value) ? esc_html(implode(', ', $value)) : nl2br(esc_html($value)); ?></td>
+            </tr>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </table>
+    <?php endif; ?>
+    
+    <style>
+        .reservation-status {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .reservation-status--pending { background: #fff3cd; color: #856404; }
+        .reservation-status--processing { background: #cfe2ff; color: #084298; }
+        .reservation-status--completed { background: #d1e7dd; color: #0f5132; }
+        .reservation-status--cancelled { background: #f8d7da; color: #842029; }
+    </style>
+    <?php
+}
+
+// 予約メタボックスの保存
+function yokohama_concierge_reservation_save_meta_box($post_id) {
+    // 自動保存の場合は処理をスキップ
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+    
+    // 権限チェック
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+    
+    // ノンスチェック
+    if (!isset($_POST['yokohama_concierge_reservation_meta_box_nonce']) || 
+        !wp_verify_nonce($_POST['yokohama_concierge_reservation_meta_box_nonce'], 'yokohama_concierge_reservation_meta_box')) {
+        return;
+    }
+    
+    // ステータスの保存
+    if (isset($_POST['reservation_status'])) {
+        update_post_meta($post_id, '_reservation_status', sanitize_text_field($_POST['reservation_status']));
+    }
+}
+add_action('save_post_reservation', 'yokohama_concierge_reservation_save_meta_box');
+
 // 予約フォーム送信処理
 function yokohama_concierge_handle_reservation_submit() {
     // セキュリティチェック
@@ -369,14 +599,69 @@ function yokohama_concierge_handle_reservation_submit() {
         exit;
     }
     
-    // メール送信処理（必要に応じて実装）
+    // すべてのフォームデータを取得
+    $form_data = array();
+    foreach ($_POST as $key => $value) {
+        // セキュリティ関連のフィールドは除外
+        if (in_array($key, array('reservation_nonce', 'action', '_wp_http_referer'))) {
+            continue;
+        }
+        
+        if (is_array($value)) {
+            $form_data[$key] = array_map('sanitize_text_field', $value);
+        } else {
+            $form_data[$key] = sanitize_text_field($value);
+        }
+    }
+    
+    // カスタム投稿タイプ「予約」として保存
+    $post_data = array(
+        'post_type' => 'reservation',
+        'post_title' => sprintf('予約: %s (%s)', $name, date('Y-m-d H:i:s')),
+        'post_content' => '',
+        'post_status' => 'publish',
+        'meta_input' => array(
+            '_reservation_name' => $name,
+            '_reservation_email' => $email,
+            '_reservation_phone' => $phone,
+            '_reservation_gender' => isset($_POST['gender']) ? sanitize_text_field($_POST['gender']) : '',
+            '_reservation_nationality' => isset($_POST['nationality']) ? sanitize_text_field($_POST['nationality']) : '',
+            '_reservation_address' => isset($_POST['address']) ? sanitize_text_field($_POST['address']) : '',
+            '_reservation_passport' => isset($_POST['passport']) ? sanitize_text_field($_POST['passport']) : '',
+            '_reservation_stay' => isset($_POST['stay']) ? sanitize_text_field($_POST['stay']) : '',
+            '_reservation_companion' => isset($_POST['companion']) ? sanitize_textarea_field($_POST['companion']) : '',
+            '_reservation_status' => 'pending',
+            '_reservation_form_data' => json_encode($form_data, JSON_UNESCAPED_UNICODE),
+        ),
+    );
+    
+    $post_id = wp_insert_post($post_data);
+    
+    if (is_wp_error($post_id)) {
+        wp_redirect(add_query_arg('reservation', 'error', home_url('/reservation/')));
+        exit;
+    }
+    
+    // 個別のメタフィールドとしても保存（検索・表示用）
+    foreach ($form_data as $key => $value) {
+        if (!empty($value) && !in_array($key, array('name', 'email', 'phone', 'gender', 'nationality', 'address', 'passport', 'stay', 'companion'))) {
+            if (is_array($value)) {
+                update_post_meta($post_id, '_reservation_' . $key, $value);
+            } else {
+                update_post_meta($post_id, '_reservation_' . $key, $value);
+            }
+        }
+    }
+    
+    // メール送信処理
     $to = get_option('admin_email');
     $subject = '【YOKOHAMA Concierge】予約フォームからのお問い合わせ';
     $message = "予約フォームからお問い合わせがありました。\n\n";
+    $message .= "予約ID: #" . $post_id . "\n";
     $message .= "お名前: " . $name . "\n";
     $message .= "メールアドレス: " . $email . "\n";
-    $message .= "電話番号: " . $phone . "\n";
-    // その他のフィールドも追加...
+    $message .= "電話番号: " . $phone . "\n\n";
+    $message .= "詳細は管理画面でご確認ください: " . admin_url('post.php?post=' . $post_id . '&action=edit') . "\n";
     
     wp_mail($to, $subject, $message);
     

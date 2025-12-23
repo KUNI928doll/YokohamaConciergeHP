@@ -7,7 +7,7 @@
   text-align: center;
   background: url("../images/contact/contact-bg.png") no-repeat center top;
   background-size: cover;
-  margin-top: 0;
+  margin-top: -10.894238vw;
   margin-bottom: -190px;
   z-index: 1;
 
@@ -19,17 +19,16 @@
   mask-position: center;
  
  
-  
   @include mq(mid-pc) {
     margin-bottom: -150px;
-    margin-top: -17.10576222vw;
+    margin-top: -17.10576222vw !important;
   }
   
   @include mq(sp-large) {
     background-position: center top;
     min-height: 900px;
     margin-bottom: -200px;
-    margin-top: -50.10576222vw;
+    margin-top: -22.10576222vw;
   }
 
   // 吹き出しとキャラクター
