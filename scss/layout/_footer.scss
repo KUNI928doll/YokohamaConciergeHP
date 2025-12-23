@@ -8,7 +8,7 @@
   padding: 120px 30px 32px;
   animation: waveMove 4s ease-in-out infinite;
   position: relative;
-  z-index: 2;
+  z-index: 101;
   margin-top: -75px;
 
   @include mq($until: sp-large) {

@@ -128,13 +128,14 @@
     display: flex;
     flex-direction: column;
     gap: 4px;
-    width: auto;
-    min-width: auto;
+    min-width: 200px;
+    width: max-content;
     word-wrap: break-word;
     word-break: break-word;
     overflow-wrap: break-word;
-    writing-mode: horizontal-tb;
-    text-orientation: mixed;
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+    direction: ltr !important;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -146,8 +147,9 @@
     padding: 0;
     margin: 0;
     line-height: 1.4;
-    writing-mode: horizontal-tb;
-    text-orientation: mixed;
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+    direction: ltr !important;
     white-space: normal;
 
     &::after {
@@ -161,8 +163,9 @@
     text-align: left;
     display: block;
     padding: 4px 0;
-    writing-mode: horizontal-tb;
-    text-orientation: mixed;
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+    direction: ltr !important;
     white-space: normal;
 }
 

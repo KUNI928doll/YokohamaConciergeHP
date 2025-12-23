@@ -313,20 +313,57 @@
 
       .trp-language-switcher {
         background: #fff;
-        border-radius: 4px;
-        padding: 8px 12px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        padding: 10px 16px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 8px;
+        transition: all 0.3s ease;
+
+        &:hover {
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
       }
 
       .trp-language-switcher > div {
         display: flex;
         align-items: center;
         gap: 8px;
+      }
+
+      // 言語リンクのスタイル
+      .trp-ls-shortcode-language {
+        a {
+          color: var(--color-main);
+          text-decoration: none;
+          font-size: 1.4rem;
+          font-weight: 500;
+          padding: 4px 8px;
+          border-radius: 4px;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background-color: rgba(29, 67, 117, 0.1);
+          }
+        }
+      }
+
+      // 現在の言語のスタイル
+      .trp-ls-shortcode-current-language {
+        a {
+          color: var(--color-accent);
+          font-weight: 600;
+        }
+      }
+
+      // フラグ画像のスタイル
+      img {
+        width: 20px;
+        height: auto;
+        border-radius: 2px;
       }
     }
 
@@ -839,6 +876,8 @@ body.spmenu-open .header__toggle {
   word-wrap: break-word;
   word-break: break-word;
   overflow-wrap: break-word;
+  cursor: pointer;
+  position: relative;
   
   /* TranslatePressの言語切り替えスタイル */
   .trp-ls-shortcode {
@@ -848,7 +887,7 @@ body.spmenu-open .header__toggle {
     gap: 0;
   }
   
-  /* すべての言語リンクを非表示 */
+  /* すべての言語リンクを非表示（デフォルト） */
   .trp-ls-shortcode-language {
     display: none !important;
   }
@@ -866,6 +905,7 @@ body.spmenu-open .header__toggle {
     word-break: break-word;
     overflow-wrap: break-word;
     max-width: 100%;
+    transition: color 0.3s ease;
     
     a {
       color: var(--color-main);
@@ -875,11 +915,52 @@ body.spmenu-open .header__toggle {
       word-wrap: break-word;
       word-break: break-word;
       overflow-wrap: break-word;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: var(--color-accent);
+      }
     }
   }
   
-  /* 言語切り替えのドロップダウンなど */
+  /* 言語切り替えのドロップダウン */
   .trp-ls-shortcode-list {
     display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 8px 0;
+    margin-top: 8px;
+    min-width: 120px;
+    z-index: 1000;
+  }
+
+  &:hover .trp-ls-shortcode-list {
+    display: block;
+  }
+
+  .trp-ls-shortcode-list a {
+    display: block;
+    padding: 8px 16px;
+    color: var(--color-main);
+    text-decoration: none;
+    font-size: 1.4rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: rgba(29, 67, 117, 0.1);
+      color: var(--color-accent);
+    }
+  }
+
+  // フラグ画像のスタイル
+  img {
+    width: 20px;
+    height: auto;
+    border-radius: 2px;
   }
 }

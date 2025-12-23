@@ -339,12 +339,16 @@ get_header();
             </div>
         </section>
 
-        <!-- お困りごと -->
-        <section class="support support--tour-guide">
+        <!-- お困りごと対応セクション -->
+        <section class="support support--tour-guide js-fade-up">
             <div class="support__inner">
-                <div class="support__header">
-                    <h2 class="support__catchphrase">全てのサービスにサポート付き！</h2>
-                </div>
+                <h2 class="support__title support__title--tour-guide">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/support-title-line_left.svg" alt="" aria-hidden="true"
+                        class="support__title-decoration support__title-decoration--left">
+                    <span class="support__title-text">全てのサービスにサポート付き!</span>
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/support-title-line_right.svg" alt="" aria-hidden="true"
+                        class="support__title-decoration support__title-decoration--right">
+                </h2>
                 <div class="support__box">
                     <div class="support__top">
                         <div class="support__header">
@@ -361,20 +365,20 @@ get_header();
                     <div class="support__body">
                         <ol class="support__list">
                             <li class="support__list-item">
-                                1<strong>突然の交通トラブル</strong>による交通機関予約や宿泊先予約、飲食店の予約（横浜近隣施設）
+                                1 　<strong>突然の交通トラブル</strong>による交通機関予約や宿泊先予約、飲食店の予約（横浜近隣施設）</strong>
                             </li>
                             <li class="support__list-item">
-                                2 <strong>突然の体調不良</strong>による交通機関予約や宿泊先予約、飲食店の予約（横浜近隣施設） <br>
+                                2 　<strong>突然の体調不良</strong>による交通機関予約や宿泊先予約、飲食店の予約（横浜近隣施設） <br>
                                 ＊別途、病院の紹介や交通機関の利用方法などもご相談ください。
                             </li>
                             <li class="support__list-item">
-                                3旅行中の<strong>日程予定変更</strong>による各種ご予約（横浜近隣施設）<br>
+                                3 　旅行中の<strong>日程予定変更</strong>による各種ご予約（横浜近隣施設）<br>
                                 ＊<strong>旅行中の紛失物</strong>の対応方法などのご相談。<br>
                                 ＊日程的にどうしてもご対応ができない<strong>お土産品の購入代行</strong>のご相談<br>
                                 （横浜近隣で対応可能なもの）</li>
                             <li class="support__list-item">
-                                4 その他旅行中に<strong>ご相談事</strong>がある場合<br>
-                                ＊弊社でご対応できる内容であれば対応いたしますので、ご相談ください。
+                                4 　その他旅行中に<strong>ご相談事</strong>がある場合<br>
+                                ＊弊社でご対応できる内容であれば対応いたしますので、ご相談ください。</strong>
                             </li>
                         </ol>
                     </div>

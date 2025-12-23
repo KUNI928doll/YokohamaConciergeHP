@@ -290,6 +290,7 @@ get_header();
                         <p class="reservation-form__label">ハマナビからの提案</p>
                         <p class="reservation-form__proposal-description">
                             以下は、お客さまのご希望条件に基づき選定した2つの候補です。内容をご確認のうえ、いずれか1案について「予約代行を依頼する」場合のみ、下記ボタンを押してください。本提案には、条件に合う場合、ハマナビサービス提携事業者（特典のご案内が可能な場合を含む）を優先的に含めることがあります。
+                            ＊発注（決済）が行われない場合、本提案は自動的に（キャンセル）となります。
                         </p>
                         <div class="reservation-form__shop-selector">
                             <button type="button" class="btn btn--outline btn--sm" id="selectHotelBtn">
@@ -414,6 +415,7 @@ get_header();
                         <p class="reservation-form__label">ハマナビからの提案</p>
                         <p class="reservation-form__proposal-description">
                             以下は、お客さまのご希望条件に基づき選定した2つの候補です。内容をご確認のうえ、いずれか1案について「予約代行を依頼する」場合のみ、下記ボタンを押してください。本提案には、条件に合う場合、ハマナビサービス提携事業者（特典のご案内が可能な場合を含む）を優先的に含めることがあります。
+                            ＊発注（決済）が行われない場合、本提案は自動的に（キャンセル）となります。
                         </p>
                         <div class="reservation-form__shop-selector">
                             <button type="button" class="btn btn--outline btn--sm" id="selectRestaurantBtn">
@@ -488,10 +490,8 @@ get_header();
                         <h4 class="reservation-form__notice-title">お支払い方法について</h4>
                         <p class="reservation-form__notice-text">
                             ご予約手配が必要な場合、後日、ハマナビサービスより
-                            <strong>安全なオンライン決済ページ（Stripe）</strong> をご案内いたします。<br>
+                            <strong>安全なオンライン決済ページ（Stripe）</strong> をご案内いたします。
                             当フォームでは、クレジットカード番号・セキュリティコード等の情報は取得いたしません。
-                        </p>
-                        <p class="reservation-form__notice-text">
                             カード情報は Stripe により暗号化され、安全に処理されます。
                         </p>
                     </div>
@@ -500,10 +500,8 @@ get_header();
                         <h4 class="reservation-form__notice-title">送信後の流れについて</h4>
                         <p class="reservation-form__notice-text">
                             ご依頼内容を確認後、担当者よりメールまたはお電話にてご連絡いたします。
-                        </p>
-                        <p class="reservation-form__notice-text">
                             予約手配が必要なサービスについては、内容確定後に
-                            <strong>オンライン決済ページ（Stripe）</strong> をご案内いたします。<br>
+                            <strong>オンライン決済ページ（Stripe）</strong> をご案内いたします。
                             決済完了後に正式な予約確定となります。
                         </p>
                     </div>
@@ -530,9 +528,9 @@ get_header();
 
             <div class="reservation-confirm__actions">
                 <button type="button" class="btn btn--outline btn--md reservation-confirm__back">戻る</button>
-                <button type="button" class="btn btn--orange btn--md reservation-confirm__stripe" id="stripePaymentBtn">
+                <a href="https://buy.stripe.com/xxxx" target="_blank" rel="noopener noreferrer" class="btn btn--orange btn--md reservation-confirm__stripe" id="stripePaymentBtn">
                     <i class="fas fa-credit-card"></i> Stripe決済へ進む
-                </button>
+                </a>
             </div>
         </div>
     </div>
