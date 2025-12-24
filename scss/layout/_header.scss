@@ -85,7 +85,7 @@
 
   .header__utility-list {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: clamp(20px, 5vw, 60px);
     list-style: none;
 
@@ -94,7 +94,7 @@
   .header__utility-item {
     height: 100%;
     display: flex;
-    align-items: stretch;
+    align-items: flex-start;
     font-size: 1.6rem; // 16px (1rem=10px基準)
     letter-spacing: 1.5px;
   }
@@ -137,12 +137,14 @@
     flex-direction: column;
     align-items: flex-start;
     line-height: 1.3;
+    max-width: 350px;
 
     .header__contact-group {
       display: flex;
       flex-direction: column; // ← 初期は縦並び
       align-items: flex-start;
       gap: 6px;
+      width: 100%;
     }
 
   }
@@ -178,7 +180,6 @@
     list-style: none;
     margin: 0;
     padding: 0 0 0 24px;
-
   }
 
   .header__time {
@@ -187,6 +188,10 @@
     color: var(--color-main);
     font-weight: 500;
     margin-left: 46px;
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-word;
+    max-width: 300px;
   }
 
   .header__btn {
@@ -221,6 +226,9 @@
     font-weight: bold;
     font-size: clamp(1.8rem, 2.5vw, 2.6rem); // 18px-26px (1rem=10px基準)
     align-items: center;
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-word;
   }
 
   .tel-blue {
@@ -228,6 +236,9 @@
     font-weight: bold;
     font-size: clamp(1.8rem, 2.5vw, 2.6rem); // 18px-26px (1rem=10px基準)
     margin-bottom: 8px;
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-word;
   }
 
   .header__toggle {
@@ -514,11 +525,12 @@
     /* ← 波の上端が柔らかくなる */
     z-index: 2;
   }
-
   .header-pyoko__nav {
     display: block; // PCでは表示
     position: relative;
     z-index: 1; // ← heroより低く
+    width: 60%;
+    margin-inline: auto;
 
     @include mq($until: sp-large) {
       display: none; // SPでは非表示
@@ -527,9 +539,7 @@
 
   .header-pyoko__nav ul {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
   }
 
   .header-pyoko__nav li {
@@ -559,6 +569,7 @@
   .header-pyoko__nav li {
     position: relative;
     padding: 0 clamp(10px, 2vw, 24px);
+    flex:0 0 calc(100%/6)
 
   }
 
@@ -892,7 +903,7 @@ body.spmenu-open .header__toggle {
     display: none !important;
   }
   
-  /* 現在の言語だけ表示 */
+  /* 現在の言語を「Language」と表示 */
   .trp-ls-shortcode-current-language {
     display: inline-block;
     font-weight: 500;
@@ -906,6 +917,18 @@ body.spmenu-open .header__toggle {
     overflow-wrap: break-word;
     max-width: 100%;
     transition: color 0.3s ease;
+    visibility: hidden;
+    position: relative;
+    
+    // 「Language」と表示
+    &::before {
+      content: "Language";
+      visibility: visible;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+    }
     
     a {
       color: var(--color-main);
@@ -937,13 +960,27 @@ body.spmenu-open .header__toggle {
     margin-top: 8px;
     min-width: 120px;
     z-index: 1000;
+    list-style: none;
   }
 
-  &:hover .trp-ls-shortcode-list {
-    display: block;
+  // ホバー時に言語リストを表示
+  &:hover {
+    .trp-ls-shortcode-list {
+      display: block;
+    }
+    
+    .trp-ls-shortcode-language {
+      display: block !important;
+    }
   }
 
-  .trp-ls-shortcode-list a {
+  .trp-ls-shortcode-language {
+    margin: 0;
+    padding: 0;
+  }
+
+  .trp-ls-shortcode-list a,
+  .trp-ls-shortcode-language a {
     display: block;
     padding: 8px 16px;
     color: var(--color-main);
@@ -957,10 +994,30 @@ body.spmenu-open .header__toggle {
     }
   }
 
-  // フラグ画像のスタイル
-  img {
-    width: 20px;
-    height: auto;
-    border-radius: 2px;
+  // フラグ画像のスタイル（国旗のみ非表示）
+  .trp-flag-image {
+    display: none !important;
+  }
+
+  // TranslatePressのオーバーレイスタイル
+  .trp-shortcode-overlay {
+    border: none !important;
+    padding-block: 0 !important;
+  }
+  .trp-shortcode-arrow {
+    display: none;
+  }
+  .trp-current-language-item__wrapper::after{
+    content: "";
+    width: 1rem;
+    aspect-ratio: 1;
+    background-color: var(--color-main);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transition: transform 0.3s ease;
+  }
+
+  // ホバー時に三角を上向きに回転
+  &:hover .trp-current-language-item__wrapper::after {
+    transform: rotate(180deg);
   }
 }

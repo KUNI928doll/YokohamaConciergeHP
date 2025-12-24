@@ -7,27 +7,18 @@
   text-align: center;
   background: url("../images/contact/contact-bg.png") no-repeat center top;
   background-size: cover;
-  margin-top: -10.894238vw;
-  margin-bottom: -190px;
-  z-index: 1;
-
+  margin-top: clamp(-150px, -18.10576222vw, -130px);
+  margin-bottom: clamp(-200px, -15vw, -150px);
   z-index: 99;
   mask-image: url(../images/contact/contact-mask.png);
   mask-size: 100% 100%;
   mask-repeat: no-repeat;
   mask-position: center;
+  overflow: hidden;
  
- 
-  @include mq(mid-pc) {
-    margin-bottom: -150px;
-    margin-top: -17.10576222vw;
-  }
-  
   @include mq(sp-large) {
     background-position: center top;
     min-height: 900px;
-    margin-bottom: -200px;
-    margin-top: -42.10576222vw;
   }
 
   // 吹き出しとキャラクター

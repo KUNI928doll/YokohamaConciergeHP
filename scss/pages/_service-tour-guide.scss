@@ -1514,6 +1514,10 @@
         text-align: center;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         transition: transform 0.3s ease;
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        cursor: pointer;
 
         @include mq($until: mid-pc) {
             padding: 24px 32px;

@@ -15,11 +15,10 @@
 }
 
 .inner-nav .inner-nav__list {
-    max-width: 1080px;
+    max-width: 800px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
     gap: 8px;
 }
@@ -37,6 +36,7 @@
     border-right: 1px solid #d4d9e1;
     z-index: 1;
     flex-shrink: 0;
+    flex:0 0 calc(100%/6)
 
     &--has-sub {
         position: relative;

@@ -47,79 +47,46 @@ get_header();
             </div>
         </section>
         <!-- 料金セクション -->
-        <section class="guide-fee">
+        <section class="guide-fee storage-guide-fee">
             <div class="guide-fee__inner">
                 <div class="guide-fee__info">
                     <div class="guide-fee__info-item">
-                        <h3 class="guide-fee__info-title">予約購入可能人数</h3>
-                        <p class="guide-fee__info-text">1~6人 (3人目以降は追加料金が発生いたします)</p>
-                    </div>
-                    <div class="guide-fee__info-item">
-                        <h3 class="guide-fee__info-title">対応言語</h3>
-                        <p class="guide-fee__info-text">英語・中国語・韓国語</p>
+                        <h3 class="guide-fee__info-title">予約可能個数</h3>
+                        <p class="guide-fee__info-text">1~6個</p>
                     </div>
                 </div>
                 <div class="guide-fee__info-item">
                     <h3 class="guide-fee__info-title">料金</h3>
-                    <div class="guide-fee__courses">
-                        <div class="guide-fee__course">
-                            <h3 class="guide-fee__course-title">半日コース (約3時間)</h3>
-                            <div class="guide-fee__options">
-                                <div class="guide-fee__option">
-                                    <span class="guide-fee__option-label">音声ガイドのみ</span>
-                                    <span class="guide-fee__option-price">12,000円</span>
-                                </div>
-                                <div class="guide-fee__option guide-fee__option--highlight">
-                                    <span class="guide-fee__option-label">通訳付き</span>
-                                    <span class="guide-fee__option-price">20,000円</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="guide-fee__course">
-                            <h3 class="guide-fee__course-title">1日コース (約8時間)</h3>
-                            <div class="guide-fee__options">
-                                <div class="guide-fee__option">
-                                    <span class="guide-fee__option-label">音声ガイドのみ</span>
-                                    <span class="guide-fee__option-price">22,000円</span>
-                                </div>
-                                <div class="guide-fee__option guide-fee__option--highlight">
-                                    <span class="guide-fee__option-label">通訳付き</span>
-                                    <span class="guide-fee__option-price">30,000円</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
                     <div class="guide-fee__additional">
-                        <h3 class="guide-fee__additional-title">追加項目</h3>
-                        <ul class="guide-fee__additional-list">
-                            <li>前日・当日の予約 <span class="guide-fee__additional-price">+1,000円</span> (ガイド料金に追加)</li>
-                            <li>追加人数3人目以降 (最大6名まで) <span class="guide-fee__additional-price">+1,000円/人</span> (ガイド料金に追加)
-                            </li>
-                        </ul>
-                    </div>
 
-                    <div class="guide-fee__not-included">
-                        <h3 class="guide-fee__not-included-title">費用に含まれないもの</h3>
-                        <ul class="guide-fee__not-included-list">
-                            <li>飲食代・体験料金・交通費など実費でかかる費用</li>
-                            <li>飲食店ではガイドスタッフの飲食代もご負担願います</li>
-                        </ul>
-                    </div>
+                        <!-- 基本料金 -->
+                        <dl class="price">
+                            <dt class="price__term">1日あたり</dt>
+                            <dd class="price__value">
+                                <span class="price__dot"></span>
+                                <span class="price__desc">1,800円</span>
+                                <span class="price__note"></span>
+                            </dd>
+                        </dl>
 
-                    <div class="guide-fee__times">
-                        <h3 class="guide-fee__times-title">ガイド時刻</h3>
-                        <div class="guide-fee__times-content">
-                            <div class="guide-fee__time-item">
-                                <strong>半日コース:</strong> 午前の部 9:00~12:00 / 午後の部 14:00~17:00
-                            </div>
-                            <div class="guide-fee__time-item">
-                                <strong>1日コース:</strong> 午前9:00~12:00 - (昼食休憩1時間) - 午後13:00~18:00
-                            </div>
+                        <!-- 追加項目 -->
+                        <div class="price__block">
+                            <p class="price__subheading">追加項目</p>
+
+                            <dl class="price">
+                                <dt class="price__term price__term--additional">前日・当日の予約</dt>
+                                <dd class="price__value">
+                                    <span class="price__dot"></span>
+                                    <span class="price__desc">+1,000円</span>
+                                    <span class="price__note">お預かり料金に追加</span>
+                                </dd>
+                            </dl>
                         </div>
                     </div>
+
                 </div>
+            </div>
         </section>
 
         <!-- お困りごと対応セクション -->
@@ -185,7 +152,7 @@ get_header();
                             <h3 class="guide-flow__step-title">ご希望内容を選択</h3>
                             <p class="guide-flow__step-description">ご予約フォームより、ご希望内容をご選択ください</p>
                             <p class="guide-flow__step-detail">ご希望に沿ったコースのご提案とお見積り金額をメールでご提案いたします</p>
-                            <a href="#" class="btn btn--orange btn--md guide-flow__btn">ご予約フォーム
+                            <a href="<?php echo esc_url(home_url('/reservation')); ?>" class="btn btn--orange btn--md guide-flow__btn">ご予約フォーム
                                 <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-link.png" alt="" class="btn__icon" aria-hidden="true">
                             </a>
                         </div>
@@ -233,31 +200,31 @@ get_header();
             <div class="guide-services__inner">
                 <div class="guide-services__cards">
                     <!-- カード1: 予約代行 -->
-                    <div class="guide-services__card">
+                    <a href="<?php echo esc_url(home_url('/service-reserve/')); ?>" class="guide-services__card">
                         <div class="guide-services__corner"></div>
                         <div class="guide-services__icon">
                             <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-reserve.png" alt="予約代行アイコン">
                         </div>
                         <h3 class="guide-services__title">予約代行</h3>
-                    </div>
+                    </a>
 
                     <!-- カード2: トランクお預かり -->
-                    <div class="guide-services__card">
+                    <a href="<?php echo esc_url(home_url('/service-storage/')); ?>" class="guide-services__card">
                         <div class="guide-services__corner"></div>
                         <div class="guide-services__icon">
                             <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-trunk.png" alt="トランクお預かりアイコン">
                         </div>
                         <h3 class="guide-services__title">トランクお預かり</h3>
-                    </div>
+                    </a>
 
                     <!-- カード3: 観光ガイドサービス -->
-                    <div class="guide-services__card">
+                    <a href="<?php echo esc_url(home_url('/service-tour-guide/')); ?>" class="guide-services__card">
                         <div class="guide-services__corner"></div>
                         <div class="guide-services__icon">
                             <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-guide.png" alt="観光ガイドサービスアイコン">
                         </div>
                         <h3 class="guide-services__title">観光ガイドサービス</h3>
-                    </div>
+                    </a>
                 </div>
 
                 <div class="guide-services__home">

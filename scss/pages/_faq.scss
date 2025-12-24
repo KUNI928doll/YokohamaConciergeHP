@@ -371,7 +371,7 @@
     left: -100%;
   }
   @include mq($until: sp-large) {
-    top: 24%;
+    top: 50%;
     left: 85px;
     transform: translateX(-50%);
     width: clamp(160px, 50vw, 220px);

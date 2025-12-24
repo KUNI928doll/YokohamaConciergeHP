@@ -353,16 +353,17 @@
 
 .features-modal__label-wrapper {
   position: absolute;
-  top: clamp(30px, 8vw, 67px);
-  left: 55%;
-  transform: translateX(-50%);
+  top: 50px;
+  left: 50%;
+  transform: translate(-50%, 50%);
   z-index: 10001;
-  width: clamp(100px, 15vw, 180px);
+  width: clamp(150px, 25vw, 250px);
 
   @include mq($until: sp-large) {
-    top: clamp(0px, 5vw, 30px);
-    left: 44%;
-    width: clamp(80px, 20vw, 150px);
+    top: −30px;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    width: clamp(150px, 43vw, 200px);
   }
 }
 
@@ -380,7 +381,7 @@
 .features-modal__label-text {
   position: absolute;
   top:50%;
-  left: 30%;
+  left: 50%;
   transform: translate(-50%, -50%);
   color: var(--color-main);
   font-size: 1.6rem;
@@ -390,7 +391,6 @@
 
   @include mq($until: sp-large) {
     font-size: 1.4rem;
-    left: 60%;
   }
 }
 

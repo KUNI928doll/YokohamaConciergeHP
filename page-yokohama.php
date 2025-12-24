@@ -328,6 +328,62 @@ get_header();
             </div> <!-- inner -->
         </section>
 
+                <!-- ホームに戻るボタン -->
+                <div class="yokohama-home-btn">
+                    <a href="<?php echo esc_url(home_url('/')); ?>" class="btn-home">
+                        <span class="btn-home__icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="currentColor"/>
+                            </svg>
+                        </span>
+                        <span class="btn-home__text">ホームへ</span>
+                    </a>
+                </div>
+        <section class="contact contact--bottom" id="contact">
+            <div class="contact__decos">
+                <div class="speech-bubble-imgwrap speech-bubble-imgwrap--contact">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/bubble.png" class="speech-bubble-img" aria-hidden="true">
+                    <p class="speech-bubble-text speech-bubble-text--contact">
+                        ハマナビサービスで<br>横浜を楽しんでいってね！
+                    </p>
+                </div>
+                <figure class="character character--contact">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/contact/bird.png" alt="ハマナビくん">
+                </figure>
+            </div>
+            <div class="contact__inner">
+                <h2 class="section-title section-title--sm section-title--contact">
+                    <span class="section-title__text">お問い合わせ</span>
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_title-wave.svg" alt="" aria-hidden="true" class="section-title__icon section-title__icon--wave">
+                </h2>
+
+                <div class="contact__box">
+                    <ul class="contact__list">
+                        <li class="contact__item contact__item--tel">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/header_phoneicon.png" alt="">
+                            <span>045-681-2737</span>
+                        </li>
+                        <li class="contact__item contact__item--mobile">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/header_mobileicon.png" alt="">
+                            <span>070-1526-3845</span>
+                        </li>
+                        <li class="contact__item contact__item--time">対応時間：10:00〜18:00／不定休</li>
+                        <li class="contact__item contact__item--mail">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/header_mailicon.png" alt="">
+                            <span>info@hamanavi-s.jp</span>
+                        </li>
+                    </ul>
+
+                    <div class="contact__btns">
+                        <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn--blue btn--md">お問い合わせ・ご相談窓口<span class="btn__arrow">→</span></a>
+                        
+                        <a href="<?php echo esc_url(home_url('/reservation/')); ?>" class="btn btn--orange btn--md">予約をする
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-link.png" alt="" class="btn__icon" aria-hidden="true"></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <?php get_template_part('template-parts/contact-section'); ?>
 
         <section class="transport-links">
@@ -340,6 +396,14 @@ get_header();
                             <img src="<?php echo get_template_directory_uri(); ?>/images/influencer/influencer-header.png" alt="マイクロインフルエンサー募集バナー">
                         </picture>
                     </a>
+                </div>
+                                <!-- 動画セクション -->
+                                <div class="influencer__video">
+                    <video class="influencer__video-player" controls>
+                        <source src="<?php echo get_template_directory_uri(); ?>/videos/influencer-video.mp4" type="video/mp4">
+                        <source src="<?php echo get_template_directory_uri(); ?>/videos/influencer-video.webm" type="video/webm">
+                        お使いのブラウザは動画タグをサポートしていません。
+                    </video>
                 </div>
                 
                 <!-- リンクボックス一覧 -->
@@ -412,7 +476,6 @@ get_header();
                 <p class="note">
                     本ホームページ上のイラスト画像はあくまでもイメージ画像で、実際とは多少異なる箇所もございますので、ご了承くださいませ。
                 </p>
-
             </div>
         </section>
     </main>

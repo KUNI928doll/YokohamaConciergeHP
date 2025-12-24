@@ -749,61 +749,73 @@
 
                 <div class="influencer__cards">
                     <div class="influencer-card-wrapper">
-                        <div class="influencer-card">
+                        <a href="https://www.welcome.city.yokohama.jp/" class="influencer-card" target="_blank" rel="noopener">
                             <p class="influencer-card__desc">有名スポットに1本で移動できる連接バス</p>
                             <h3 class="influencer-card__title">BAYSIDE BLUE</h3>
-                        </div>
-                        <a href="https://www.welcome.city.yokohama.jp/" class="influencer-card__link" target="_blank" rel="noopener">
-                            横浜観光情報公式サイト
                         </a>
+                        <span class="influencer-card__link">
+                            <a href="https://www.welcome.city.yokohama.jp/" target="_blank" rel="noopener">
+                                横浜観光情報公式サイト
+                            </a>
+                        </span>
                     </div>
 
                     <div class="influencer-card-wrapper">
-                        <div class="influencer-card">
+                        <a href="https://www.city.yokohama.lg.jp/kotsu/" class="influencer-card" target="_blank" rel="noopener">
                             <p class="influencer-card__desc">横浜赤レンガ倉庫や中華街など、人気スポットを巡る</p>
                             <h3 class="influencer-card__title">周遊バス「あかいくつ」</h3>
-                        </div>
-                        <a href="https://www.city.yokohama.lg.jp/kotsu/" class="influencer-card__link" target="_blank" rel="noopener">
-                            横浜市交通局公式サイト
                         </a>
+                        <span class="influencer-card__link">
+                            <a href="https://www.city.yokohama.lg.jp/kotsu/" target="_blank" rel="noopener">
+                                横浜市交通局公式サイト
+                            </a>
+                            </span>
                     </div>
 
                     <div class="influencer-card-wrapper">
-                        <div class="influencer-card">
+                        <a href="https://luup.sc/" class="influencer-card" target="_blank" rel="noopener">
                             <p class="influencer-card__desc">横浜駅周辺及び元町中華街・関内周辺の</p>
                             <h3 class="influencer-card__title">電動キックボード</h3>
-                        </div>
-                        <a href="https://luup.sc/" class="influencer-card__link" target="_blank" rel="noopener">
-                            LUUP公式サイト
                         </a>
+                        <span class="influencer-card__link">
+                            <a href="https://luup.sc/" target="_blank" rel="noopener">
+                                LUUP公式サイト
+                            </a>
+                            </span>
                     </div>
                     <div class="influencer-card-wrapper">
-                    <div class="influencer-card">
-                        <p class="influencer-card__desc">日本初！世界最先端の都市型循環式ロープウェイ</p>
-                        <h3 class="influencer-card__title">YOKOHAMA AIR CABIN</h3>
-                    </div>
-                        <a href="https://yokohama-air-cabin.jp/" class="influencer-card__link" target="_blank" rel="noopener">
-                            YOKOHAMA AIR CABIN公式サイト
+                        <a href="https://yokohama-air-cabin.jp/" class="influencer-card" target="_blank" rel="noopener">
+                            <p class="influencer-card__desc">日本初！世界最先端の都市型循環式ロープウェイ</p>
+                            <h3 class="influencer-card__title">YOKOHAMA AIR CABIN</h3>
                         </a>
+                        <span class="influencer-card__link">
+                            <a href="https://yokohama-air-cabin.jp/" target="_blank" rel="noopener">
+                                YOKOHAMA AIR CABIN公式サイト
+                            </a>
+                            </span>
                     </div>
                    
                     <div class="influencer-card-wrapper">
-                    <div class="influencer-card">
-                        <p class="influencer-card__desc">インバウンド顧客対応</p>
-                        <h3 class="influencer-card__title">タクシーアプリ</h3>
-                    </div>
-                        <a href="https://goinc.jp/" class="influencer-card__link" target="_blank" rel="noopener">
-                            GO株式会社
+                        <a href="https://goinc.jp/" class="influencer-card" target="_blank" rel="noopener">
+                            <p class="influencer-card__desc">インバウンド顧客対応</p>
+                            <h3 class="influencer-card__title">タクシーアプリ</h3>
                         </a>
+                        <span class="influencer-card__link">
+                            <a href="https://goinc.jp/" target="_blank" rel="noopener">
+                                GO株式会社
+                            </a>
+                            </span>
                     </div>
                     <div class="influencer-card-wrapper">
-                    <div class="influencer-card">
-                        <p class="influencer-card__desc">横浜のコミュニティサイクル</p>
-                        <h3 class="influencer-card__title">バイクシェアサービス</h3>
-                    </div>
-                        <a href="https://docomo-cycle.jp/yokohama/" class="influencer-card__link" target="_blank" rel="noopener">
-                            baybike公式サイト
+                        <a href="https://docomo-cycle.jp/yokohama/" class="influencer-card" target="_blank" rel="noopener">
+                            <p class="influencer-card__desc">横浜のコミュニティサイクル</p>
+                            <h3 class="influencer-card__title">バイクシェアサービス</h3>
                         </a>
+                        <span class="influencer-card__link">
+                            <a href="https://docomo-cycle.jp/yokohama/" target="_blank" rel="noopener">
+                                baybike公式サイト
+                            </a>
+                            </span>
                     </div>
                 </div>
                 <p class="influencer__note">

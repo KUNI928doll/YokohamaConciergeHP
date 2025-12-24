@@ -519,8 +519,8 @@ get_header();
     <div id="confirmModal" class="reservation-confirm" style="display: none;">
         <div class="reservation-confirm__overlay"></div>
         <div class="reservation-confirm__content">
-            <h2 class="reservation-confirm__title">入力内容の確認</h2>
-            <p class="reservation-confirm__lead">以下の内容でよろしければ「Stripe決済へ進む」ボタンを押して決算に進んでください。</p>
+            <h2 class="reservation-confirm__title">予約内容の確認</h2>
+            <p class="reservation-confirm__lead">以下の内容でよろしければ「この内容で予約代行を依頼する」ボタンを押してStripe決済画面に進んでください。<br>※決済完了後に正式な予約依頼となります。</p>
 
             <div id="confirmContent" class="reservation-confirm__body">
                 <!-- JavaScriptで動的に生成 -->
@@ -529,7 +529,7 @@ get_header();
             <div class="reservation-confirm__actions">
                 <button type="button" class="btn btn--outline btn--md reservation-confirm__back">戻る</button>
                 <a href="https://buy.stripe.com/xxxx" target="_blank" rel="noopener noreferrer" class="btn btn--orange btn--md reservation-confirm__stripe" id="stripePaymentBtn">
-                    <i class="fas fa-credit-card"></i> Stripe決済へ進む
+                    <i class="fas fa-credit-card"></i> この内容で予約代行を依頼する
                 </a>
             </div>
         </div>

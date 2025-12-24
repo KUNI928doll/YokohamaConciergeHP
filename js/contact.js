@@ -1,9 +1,14 @@
 // お問い合わせフォーム送信処理
 document.addEventListener('DOMContentLoaded', function() {
+  console.log('contact.js が読み込まれました');
+  
   // Contact Form 7のフォームを取得
   const cf7Form = document.querySelector('.wpcf7-form');
   const customForm = document.querySelector('.inquiry-form');
   const form = cf7Form || customForm;
+  
+  console.log('cf7Form:', cf7Form);
+  console.log('customForm:', customForm);
   
   // 確認画面の要素
   const confirmModal = document.getElementById('contactConfirmModal');
@@ -23,10 +28,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Contact Form 7の場合
   if (cf7Form) {
-    // 送信ボタンをインターセプト
+    // フォームの送信イベントをインターセプト
+    cf7Form.addEventListener('submit', function(e) {
+      console.log('フォーム送信イベント');
+      e.preventDefault();
+      e.stopPropagation();
+      
+      // バリデーションチェック
+      if (validateForm()) {
+        // 確認画面を表示
+        generateConfirmContent();
+        showConfirmModal();
+      }
+      
+      return false;
+    });
+    
+    // 送信ボタンのクリックイベントもインターセプト
     const submitBtn = cf7Form.querySelector('input[type="submit"]');
+    console.log('送信ボタン:', submitBtn);
+    
     if (submitBtn) {
+      console.log('送信ボタンにイベントリスナーを設定');
       submitBtn.addEventListener('click', function(e) {
+        console.log('送信ボタンがクリックされました');
         e.preventDefault();
         e.stopPropagation();
         
@@ -36,7 +61,11 @@ document.addEventListener('DOMContentLoaded', function() {
           generateConfirmContent();
           showConfirmModal();
         }
+        
+        return false;
       });
+    } else {
+      console.error('送信ボタンが見つかりません');
     }
 
     // 確認画面から実際の送信
@@ -194,8 +223,12 @@ document.addEventListener('DOMContentLoaded', function() {
     let errorMessages = [];
     let firstErrorElement = null;
 
+    console.log('バリデーション開始');
+
     // 必須テキストフィールドのチェック
     const requiredFields = cf7Form.querySelectorAll('input[aria-required="true"]:not([type="checkbox"]), textarea[aria-required="true"], select[aria-required="true"]');
+    console.log('必須フィールド数:', requiredFields.length);
+    
     requiredFields.forEach(field => {
       const value = field.value.trim();
       const fieldName = field.getAttribute('name');
@@ -289,6 +322,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }
     });
+
+    console.log('バリデーション結果:', isValid);
+    console.log('エラーメッセージ:', errorMessages);
 
     if (!isValid && errorMessages.length > 0) {
       alert('以下の項目を確認してください：\n\n' + errorMessages.map(msg => '・' + msg).join('\n'));

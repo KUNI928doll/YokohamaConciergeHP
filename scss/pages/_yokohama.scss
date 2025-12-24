@@ -2,10 +2,10 @@
 @use "../abstracts" as *;
 
 .yokohama {
-  padding-block: 142px 286px;
+  padding-block: 0 100px;
 
   @include mq($until: tab) {
-    padding-block: 70px 140px;
+    padding-block: 70px 80px;
   }
 
 }
@@ -52,7 +52,6 @@
 
 .tabs {
   display: flex;
-  margin: 10% auto;
   width: 100%;
 
   @include mq($until: sp-large) {
@@ -152,7 +151,7 @@
     left: 180px;
     top: 50%;
     transform: translateY(50%);
-    background: url(/images/yokohama/yokohama-line@2x.png) center center /contain no-repeat;
+    background: url() center center /contain no-repeat;
 
     @include mq($until: sp-large) {
       display: none;
@@ -178,7 +177,7 @@
 }
 
 .tab-panel.active {
-  background: url(../../images/yokohama/bg@2x.png) left top / cover no-repeat;
+  background: url(..//images/yokohama/bg@2x.png) left top / cover no-repeat;
   padding: 91px 100px 91px 92px;
   font-family: 'Zen Maru Gothic', sans-serif;
   display: block;
@@ -326,7 +325,7 @@
 =============================================== */
 
 .transport-links {
-  padding-block: 86px 28px;
+  padding-block: 86px 80px;
 
   @include mq($until: sp-large) {
     padding-block: 86px 50px;
@@ -347,11 +346,35 @@
     }
   }
 
+  // 動画セクション
+  .influencer__video {
+    margin: 80px auto 0;
+    max-width: 900px;
+    width: 100%;
+
+    @include mq($until: sp-large) {
+      margin: 50px auto 0;
+    }
+  }
+
+  .influencer__video-player {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+    @include mq($until: sp-large) {
+      border-radius: 4px;
+    }
+  }
+
   &__grid {
     padding-block: 128px 125px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(298px, 1fr)); // ←ここを調整
-    gap: 47px 87px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
     max-width: 1082px;
     margin: 0 auto;
 
@@ -360,69 +383,136 @@
     }
   }
 
+  &__item {
+    background: #fff;
+    border: 1.5px solid #b3c4e1;
+    border-radius: 6px;
+    padding: 24px 16px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    }
+  }
+
   &__box {
-    border: 1px solid #ccc;
-    padding: 12px 13px;
-    background-color: #fff;
-    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
   }
 
   &__desc {
-    font-size: 12px;
-    color: var(--color-main);
+    font-size: 1.4rem;
+    color: #0D3063;
+    margin-bottom: 8px;
   }
 
   &__title {
-    font-size: 27px;
-    font-weight: 500;
-    margin-top: 8px;
-    color: #EA6F00; // オレンジ
+    font-size: 2.4rem;
+    color: #ce6c2b;
+    font-weight: 700;
+    margin-bottom: 0;
+    font-family: var(--font-sub);
+  }
+
+  &__link-wrap {
+    margin-top: 12px;
   }
 
   &__link {
-    font-size: 14px;
-    color: #2e65ba;
+    display: inline-block;
+    font-size: clamp(1.6rem, 4vw, 2rem);
+    color: #0d3d90;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s;
+    font-family: var(--font-sub);
+
+    @include mq($until: sp-large) {
+      margin-top: 10px;
+    }
   }
-}
 
-.transport-links__link-wrap {
-  position: relative;
-  display: inline-block;
-  /* 必須：幅をテキストに合わせる */
-  padding-right: 25px;
-  /* アイコン分の余白を作る */
-}
-
-.transport-links__link {
-  &::before {
-    position: absolute;
-    content: '';
-    width: 18px;
-    height: 14px;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 0;
-    /* 右横に配置 */
-    background: url(../../images/yokohama/link-icon@2x.png) center center /contain no-repeat;
-  }
-}
-
-// ４つ目のタイトル（YOKOHAMA AIRCABAINCABAIN
-.transport-links__item:nth-of-type(2),
-.transport-links__item:nth-of-type(4) {
-  .transport-links__title {
-    font-size: 24px;
-  }
-}
-
-
-.transport-links__item:nth-of-type(2) {
-  .transport-links__box {
-    padding: 4px;
+  &__item:hover &__link {
+    border-color: #0d3d90;
   }
 }
 
 .note {
   text-align: end;
   font-size: 14px;
+}
+
+/* ===============================================
+# ホームに戻るボタン
+=============================================== */
+
+.yokohama-home-btn {
+  text-align: center;
+  margin-top: 60px;
+  padding-bottom: 170px;
+
+  @include mq($until: sp-large) {
+    margin-top: 40px;
+    padding-bottom: 100px;
+  }
+}
+
+.btn-home {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: #fff;
+  color: #0d3d90;
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: var(--font-sub);
+  padding: 16px 48px;
+  border: 3px solid #0d3d90;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(13, 61, 144, 0.15);
+
+  @include mq($until: sp-large) {
+    font-size: 1.6rem;
+    padding: 12px 36px;
+    gap: 8px;
+  }
+
+  &:hover {
+    background: #0d3d90;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(13, 61, 144, 0.25);
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+
+    @include mq($until: sp-large) {
+      width: 20px;
+      height: 20px;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__text {
+    line-height: 1;
+  }
 }
