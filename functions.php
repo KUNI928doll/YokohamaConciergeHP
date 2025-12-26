@@ -760,6 +760,25 @@ function yokohama_concierge_create_stripe_session() {
         }
     }
     
+    // フォームデータを一時保存（24時間有効）
+    $form_data_to_save = array();
+    foreach ($_POST as $key => $value) {
+        // セキュリティ関連のフィールドは除外
+        if (in_array($key, array('reservation_nonce', 'action', '_wp_http_referer'))) {
+            continue;
+        }
+        
+        if (is_array($value)) {
+            $form_data_to_save[$key] = array_map('sanitize_text_field', $value);
+        } else {
+            $form_data_to_save[$key] = sanitize_text_field($value);
+        }
+    }
+    
+    $form_data_json = json_encode($form_data_to_save, JSON_UNESCAPED_UNICODE);
+    $temp_key = 'stripe_form_' . time() . '_' . wp_generate_password(12, false);
+    set_transient($temp_key, $form_data_json, 24 * HOUR_IN_SECONDS);
+    
     $description = 'YOKOHAMA Concierge 予約代行サービス';
     
     // Stripe Checkout Sessionを作成
@@ -775,7 +794,8 @@ function yokohama_concierge_create_stripe_session() {
             'success_url' => add_query_arg(
                 array(
                     'reservation' => 'success',
-                    'session_id' => '{CHECKOUT_SESSION_ID}'
+                    'session_id' => '{CHECKOUT_SESSION_ID}',
+                    'temp_key' => $temp_key  // 一時キーを追加
                 ),
                 home_url('/reservation/')
             ),
@@ -786,6 +806,7 @@ function yokohama_concierge_create_stripe_session() {
             'customer_email' => $email,
             'metadata[name]' => $name,
             'metadata[email]' => $email,
+            'metadata[temp_key]' => $temp_key,  // メタデータにも保存
         );
         
         // Stripe APIを呼び出し
@@ -831,3 +852,339 @@ function yokohama_concierge_create_stripe_session() {
 }
 add_action('wp_ajax_create_stripe_session', 'yokohama_concierge_create_stripe_session');
 add_action('wp_ajax_nopriv_create_stripe_session', 'yokohama_concierge_create_stripe_session');
+
+// Stripe決済成功時の処理
+function yokohama_concierge_handle_stripe_success() {
+    // セッションIDと一時キーを取得
+    $session_id = isset($_GET['session_id']) ? sanitize_text_field($_GET['session_id']) : '';
+    $temp_key = isset($_GET['temp_key']) ? sanitize_text_field($_GET['temp_key']) : '';
+    
+    if (empty($session_id)) {
+        // セッションIDがない場合は通常の予約ページを表示
+        return;
+    }
+    
+    // 既に処理済みかチェック（二重処理防止）
+    $processed_key = 'stripe_processed_' . $session_id;
+    if (get_transient($processed_key)) {
+        return;
+    }
+    
+    // Stripe APIキーの設定
+    $stripe_secret_key = defined('STRIPE_SECRET_KEY') ? STRIPE_SECRET_KEY : get_option('stripe_secret_key', '');
+    
+    if (empty($stripe_secret_key)) {
+        return;
+    }
+    
+    // Stripeセッション情報を取得
+    $ch = curl_init('https://api.stripe.com/v1/checkout/sessions/' . $session_id);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        'Authorization: Bearer ' . $stripe_secret_key,
+    ));
+    
+    $response = curl_exec($ch);
+    $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+    
+    if ($http_code !== 200) {
+        return;
+    }
+    
+    $session = json_decode($response, true);
+    
+    // 決済が完了していない場合はスキップ
+    if (!isset($session['payment_status']) || $session['payment_status'] !== 'paid') {
+        return;
+    }
+    
+    // セッションから顧客情報を取得
+    $customer_email = isset($session['customer_details']['email']) ? $session['customer_details']['email'] : '';
+    $customer_name = isset($session['customer_details']['name']) ? $session['customer_details']['name'] : '';
+    
+    // 決済金額を取得
+    $amount_total = isset($session['amount_total']) ? intval($session['amount_total']) : 0;
+    
+    // 一時保存されたフォームデータを取得
+    $form_data_json = null;
+    
+    // まず一時キーから取得を試みる
+    if (!empty($temp_key)) {
+        $form_data_json = get_transient($temp_key);
+    }
+    
+    // 一時キーから取得できない場合は、Stripeのメタデータから取得
+    if (!$form_data_json && isset($session['metadata']['temp_key'])) {
+        $temp_key_from_metadata = $session['metadata']['temp_key'];
+        $form_data_json = get_transient($temp_key_from_metadata);
+    }
+    
+    if (!$form_data_json) {
+        // フォームデータが取得できない場合は処理をスキップ
+        return;
+    }
+    
+    $form_data = json_decode($form_data_json, true);
+    
+    if (!$form_data || !is_array($form_data)) {
+        return;
+    }
+    
+    // カスタム投稿タイプ「予約」として保存
+    $post_data = array(
+        'post_type' => 'reservation',
+        'post_title' => sprintf('予約: %s (%s)', $customer_name ?: (isset($form_data['name']) ? $form_data['name'] : '不明'), date('Y-m-d H:i:s')),
+        'post_content' => '',
+        'post_status' => 'publish',
+        'meta_input' => array(
+            '_reservation_name' => $customer_name ?: (isset($form_data['name']) ? $form_data['name'] : ''),
+            '_reservation_email' => $customer_email ?: (isset($form_data['email']) ? $form_data['email'] : ''),
+            '_reservation_phone' => isset($form_data['phone']) ? $form_data['phone'] : '',
+            '_reservation_gender' => isset($form_data['gender']) ? $form_data['gender'] : '',
+            '_reservation_nationality' => isset($form_data['nationality']) ? $form_data['nationality'] : '',
+            '_reservation_address' => isset($form_data['address']) ? $form_data['address'] : '',
+            '_reservation_passport' => isset($form_data['passport']) ? $form_data['passport'] : '',
+            '_reservation_stay' => isset($form_data['stay']) ? $form_data['stay'] : '',
+            '_reservation_companion' => isset($form_data['companion']) ? $form_data['companion'] : '',
+            '_reservation_status' => 'confirmed',
+            '_reservation_payment_status' => 'completed',
+            '_reservation_stripe_session_id' => $session_id,
+            '_reservation_payment_amount' => $amount_total,
+            '_reservation_form_data' => $form_data_json,
+        ),
+    );
+    
+    $post_id = wp_insert_post($post_data);
+    
+    if (!is_wp_error($post_id)) {
+        // 個別のメタフィールドとしても保存
+        foreach ($form_data as $key => $value) {
+            if (!empty($value) && !in_array($key, array('name', 'email', 'phone', 'gender', 'nationality', 'address', 'passport', 'stay', 'companion', 'reservation_nonce', 'action'))) {
+                if (is_array($value)) {
+                    update_post_meta($post_id, '_reservation_' . $key, $value);
+                } else {
+                    update_post_meta($post_id, '_reservation_' . $key, sanitize_text_field($value));
+                }
+            }
+        }
+        
+        // メール送信処理
+        yokohama_concierge_send_reservation_emails($post_id, $form_data, $amount_total);
+        
+        // 処理済みフラグを設定（24時間有効）
+        set_transient($processed_key, true, 24 * HOUR_IN_SECONDS);
+        
+        // 一時データを削除
+        if (!empty($temp_key)) {
+            delete_transient($temp_key);
+        }
+        if (isset($session['metadata']['temp_key'])) {
+            delete_transient($session['metadata']['temp_key']);
+        }
+    }
+}
+add_action('template_redirect', 'yokohama_concierge_handle_stripe_success');
+
+// 予約メール送信処理
+function yokohama_concierge_send_reservation_emails($post_id, $form_data, $amount_total) {
+    $name = isset($form_data['name']) ? $form_data['name'] : '';
+    $email = isset($form_data['email']) ? $form_data['email'] : '';
+    $phone = isset($form_data['phone']) ? $form_data['phone'] : '';
+    
+    // 管理者へのメール
+    $admin_to = get_option('admin_email');
+    $admin_subject = '【YOKOHAMA Concierge】予約フォームからのお問い合わせ（決済完了）';
+    $admin_message = "予約フォームからお問い合わせがありました（決済完了）。\n\n";
+    $admin_message .= "予約ID: #" . $post_id . "\n";
+    $admin_message .= "お名前: " . $name . "\n";
+    $admin_message .= "メールアドレス: " . $email . "\n";
+    $admin_message .= "電話番号: " . $phone . "\n";
+    $admin_message .= "決済金額: ¥" . number_format($amount_total) . "\n\n";
+    
+    // 予約内容の詳細を追加
+    if (isset($form_data['guideCourse'])) {
+        $admin_message .= "観光ガイドサービス: " . $form_data['guideCourse'] . "\n";
+    }
+    if (isset($form_data['hotelDate'])) {
+        $admin_message .= "ホテル予約代行: " . $form_data['hotelDate'] . "\n";
+        if (isset($form_data['hotelFinalSelection'])) {
+            $admin_message .= "  選択された提案: 提案(" . $form_data['hotelFinalSelection'] . ")\n";
+        }
+    }
+    if (isset($form_data['diningDate'])) {
+        $admin_message .= "飲食店予約代行: " . $form_data['diningDate'] . "\n";
+        if (isset($form_data['diningFinalSelection'])) {
+            $admin_message .= "  選択された提案: 提案(" . $form_data['diningFinalSelection'] . ")\n";
+        }
+    }
+    if (isset($form_data['luggageCount'])) {
+        $admin_message .= "トランク預かり: " . $form_data['luggageCount'] . "個\n";
+    }
+    
+    $admin_message .= "\n詳細は管理画面でご確認ください: " . admin_url('post.php?post=' . $post_id . '&action=edit') . "\n";
+    
+    wp_mail($admin_to, $admin_subject, $admin_message);
+    
+    // 顧客への自動返信メール
+    $customer_subject = '【YOKOHAMA Concierge】ご予約を承りました';
+    $customer_message = $name . " 様\n\n";
+    $customer_message .= "この度はYOKOHAMA Conciergeをご利用いただき、誠にありがとうございます。\n\n";
+    $customer_message .= "ご予約のお申し込みを承りました。\n";
+    $customer_message .= "決済が完了いたしましたので、正式に予約が確定いたしました。\n";
+    $customer_message .= "担当者より改めてご連絡させていただきます。\n\n";
+    
+    $customer_message .= "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n";
+    $customer_message .= "お申し込み内容\n";
+    $customer_message .= "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n";
+    
+    $customer_message .= "予約ID: #" . $post_id . "\n";
+    $customer_message .= "お名前: " . $name . "\n";
+    $customer_message .= "電話番号: " . $phone . "\n";
+    $customer_message .= "メールアドレス: " . $email . "\n";
+    $customer_message .= "お支払い金額: ¥" . number_format($amount_total) . "\n\n";
+    
+    // 予約内容の詳細
+    if (isset($form_data['guideCourse'])) {
+        $course_name = $form_data['guideCourse'] === 'half' ? '半日コース' : '1日コース';
+        $customer_message .= "観光ガイドサービス: " . $course_name . "\n";
+        if (isset($form_data['guideArea'])) {
+            $customer_message .= "  エリア: " . $form_data['guideArea'] . "\n";
+        }
+    }
+    if (isset($form_data['hotelDate'])) {
+        $customer_message .= "ホテル予約代行: " . $form_data['hotelDate'] . "\n";
+        if (isset($form_data['hotelFinalSelection'])) {
+            $proposal_num = $form_data['hotelFinalSelection'];
+            $proposal_text = isset($form_data['hotelProposal' . $proposal_num]) ? $form_data['hotelProposal' . $proposal_num] : '';
+            $customer_message .= "  選択された提案: " . $proposal_text . "\n";
+        }
+    }
+    if (isset($form_data['diningDate'])) {
+        $customer_message .= "飲食店予約代行: " . $form_data['diningDate'] . "\n";
+        if (isset($form_data['diningFinalSelection'])) {
+            $proposal_num = $form_data['diningFinalSelection'];
+            $proposal_text = isset($form_data['diningProposal' . $proposal_num]) ? $form_data['diningProposal' . $proposal_num] : '';
+            $customer_message .= "  選択された提案: " . $proposal_text . "\n";
+        }
+    }
+    if (isset($form_data['luggageCount']) && intval($form_data['luggageCount']) > 0) {
+        $customer_message .= "トランク預かり: " . $form_data['luggageCount'] . "個\n";
+    }
+    
+    $customer_message .= "\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n";
+    
+    $customer_message .= "【お問い合わせ先】\n";
+    $customer_message .= "YOKOHAMA Concierge\n";
+    $customer_message .= "Email: info@hamanavi-s.jp\n\n";
+    
+    $customer_message .= "※このメールは自動送信されています。\n";
+    $customer_message .= "※ご不明な点がございましたら、上記連絡先までお問い合わせください。\n";
+    
+    $customer_headers = array(
+        'Content-Type: text/plain; charset=UTF-8',
+        'From: YOKOHAMA Concierge <' . get_option('admin_email') . '>',
+    );
+    
+    wp_mail($email, $customer_subject, $customer_message, $customer_headers);
+}
+
+// Stripe設定ページを追加
+function yokohama_concierge_add_stripe_settings_page() {
+    add_options_page(
+        'Stripe設定',
+        'Stripe設定',
+        'manage_options',
+        'yokohama-stripe-settings',
+        'yokohama_concierge_stripe_settings_page'
+    );
+}
+add_action('admin_menu', 'yokohama_concierge_add_stripe_settings_page');
+
+// Stripe設定ページの内容
+function yokohama_concierge_stripe_settings_page() {
+    // 設定を保存
+    if (isset($_POST['submit']) && isset($_POST['stripe_secret_key'])) {
+        check_admin_referer('yokohama_stripe_settings');
+        update_option('stripe_secret_key', sanitize_text_field($_POST['stripe_secret_key']));
+        echo '<div class="notice notice-success"><p>設定を保存しました。</p></div>';
+    }
+    
+    $current_key = get_option('stripe_secret_key', '');
+    $is_configured = !empty($current_key) || defined('STRIPE_SECRET_KEY');
+    ?>
+    <div class="wrap">
+        <h1>Stripe決済設定</h1>
+        <form method="post" action="">
+            <?php wp_nonce_field('yokohama_stripe_settings'); ?>
+            <table class="form-table">
+                <tr>
+                    <th scope="row">
+                        <label for="stripe_secret_key">Stripe Secret Key</label>
+                    </th>
+                    <td>
+                        <?php if (defined('STRIPE_SECRET_KEY')): ?>
+                            <p class="description">
+                                <strong>注意:</strong> APIキーは<code>wp-config.php</code>で設定されています。
+                                ここでの設定は無視されます。
+                            </p>
+                            <input type="text" 
+                                   id="stripe_secret_key" 
+                                   name="stripe_secret_key" 
+                                   value="<?php echo esc_attr($current_key); ?>" 
+                                   class="regular-text" 
+                                   placeholder="sk_test_... または sk_live_..."
+                                   disabled>
+                        <?php else: ?>
+                            <input type="text" 
+                                   id="stripe_secret_key" 
+                                   name="stripe_secret_key" 
+                                   value="<?php echo esc_attr($current_key); ?>" 
+                                   class="regular-text" 
+                                   placeholder="sk_test_... または sk_live_...">
+                            <p class="description">
+                                テスト環境: <code>sk_test_...</code><br>
+                                本番環境: <code>sk_live_...</code><br>
+                                <a href="https://dashboard.stripe.com/apikeys" target="_blank">Stripeダッシュボード</a>から取得してください。
+                            </p>
+                        <?php endif; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">設定状況</th>
+                    <td>
+                        <?php if ($is_configured): ?>
+                            <span style="color: green;">✓ APIキーが設定されています</span>
+                        <?php else: ?>
+                            <span style="color: red;">✗ APIキーが設定されていません</span>
+                        <?php endif; ?>
+                    </td>
+                </tr>
+            </table>
+            <?php if (!defined('STRIPE_SECRET_KEY')): ?>
+                <?php submit_button('設定を保存'); ?>
+            <?php endif; ?>
+        </form>
+        
+        <h2>設定方法</h2>
+        <h3>方法1: wp-config.phpで設定（推奨）</h3>
+        <p><code>wp-config.php</code>に以下を追加してください：</p>
+        <pre><code>define('STRIPE_SECRET_KEY', 'sk_test_...'); // テスト環境
+// または
+define('STRIPE_SECRET_KEY', 'sk_live_...'); // 本番環境</code></pre>
+        
+        <h3>方法2: このページから設定</h3>
+        <p>上記のフォームから設定することもできます（<code>wp-config.php</code>で設定されていない場合のみ有効）。</p>
+        
+        <h2>Stripe APIキーの取得方法</h2>
+        <ol>
+            <li><a href="https://dashboard.stripe.com/apikeys" target="_blank">Stripeダッシュボード</a>にログイン</li>
+            <li>「開発者」→「APIキー」に移動</li>
+            <li>「シークレットキーを表示」をクリック</li>
+            <li>表示されたキーをコピーして設定してください</li>
+        </ol>
+        
+        <p><strong>注意:</strong> テスト環境では<code>sk_test_</code>で始まるキー、本番環境では<code>sk_live_</code>で始まるキーを使用してください。</p>
+    </div>
+    <?php
+}
