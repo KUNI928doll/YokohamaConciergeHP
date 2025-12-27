@@ -24,7 +24,7 @@
   // 吹き出しとキャラクター
 .contact__decos {
   position: absolute;
-  bottom: 50px;
+  bottom: 140px;
   right: 50px;
   width: min(359px, 26vw);
   z-index: 10;
@@ -35,7 +35,7 @@
 
   @include mq($until: sp-large) {
     width: clamp(150px, 35vw, 250px);
-    bottom: 55px;
+    bottom: 110px;
     right: 10px;
   }
 }

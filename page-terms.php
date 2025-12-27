@@ -25,16 +25,16 @@ get_header();
             <h2 class="privacy-page__heading">第2条（サービス内容）</h2>
             <p class="privacy-page__text">当社が提供するサービスは以下のとおりとします。</p>
             <ul class="privacy-page__list">
-                <li>宿泊施設、飲食店、観光アクティビティ等の情報提供および予約代行サービス</li>
-                <li>観光ガイドサービス（2種類）
+                <li>1.宿泊施設、飲食店等の情報提供および予約代行サービス、体験アクティビティなどについては情報提供・紹介のみとします。</li>
+                <li>2.観光ガイドサービス
                     <ul class="privacy-page__list--nested">
                         <li>動画ガイドプラン（当社制作のナレーション付き映像を使用したセルフガイド方式）</li>
                         <li>通訳ガイド付きプラン（外部委託の通訳ガイドによる同行案内）</li>
                     </ul>
                 </li>
-                <li>荷物預かりサービス（1m × 1m以内のサイズに限る）
+                <li>3.荷物預かりサービス（1m × 1m以内のサイズに限る）
                     <ul class="privacy-page__list--nested">
-                        <li>返却は「預かり時点の外観状態」に限り保証し、内部の物品については一切保証しません。</li>
+                        <li>※返却は「預かり時点の外観状態」に限り保証し、内部の物品については一切保証しません。</li>
                     </ul>
                 </li>
                 <li>上記に付随する案内・連絡・サポート業務。</li>
@@ -45,16 +45,16 @@ get_header();
         <section class="privacy-page__section">
             <h2 class="privacy-page__heading">第3条（契約の成立）</h2>
             <ul class="privacy-page__list">
-                <li>当社の予約代行サービスは、利用者と各事業者（宿泊施設・飲食店・体験事業者・通訳ガイド等）との契約成立を補助するものであり、最終契約は利用者と事業者の間で直接成立するものとします。</li>
-                <li>当社は、各事業者が提供するサービス内容、品質、料金、営業時間、キャンセル規定等について保証するものではありません。</li>
-                <li>利用者は、各事業者の利用規約・キャンセル条件に従うものとします。</li>
+                <li>1.当社の予約代行サービスは、利用者と各事業者（宿泊施設・飲食店・体験事業者・通訳ガイド等）との契約成立を補助するものであり、最終契約は利用者と事業者の間で直接成立するものとします。</li>
+                <li>2.当社は、各事業者が提供するサービス内容、品質、料金、営業時間、キャンセル規定等について保証するものではありません。</li>
+                <li>3利用者は、各事業者の利用規約・キャンセル条件に従うものとします。</li>
             </ul>
         </section>
 
         <section class="privacy-page__section">
             <h2 class="privacy-page__heading">第4条（料金と支払い）</h2>
             
-            <h3 class="privacy-page__subheading">1. 観光ガイドサービス料金</h3>
+            <h3 class="privacy-page__subheading">1. 観光ガイドサービス料金（1組あたり）</h3>
             <ul class="privacy-page__list">
                 <li>動画ガイド（半日）：12,000円</li>
                 <li>通訳ガイド付（半日）：20,000円</li>
@@ -67,16 +67,15 @@ get_header();
             <ul class="privacy-page__list">
                 <li>ホテル予約代行：2,200円</li>
                 <li>飲食店予約代行：2,200円</li>
-                <li>体験アクティビティ予約代行：2,200円</li>
+
             </ul>
             <p class="privacy-page__text privacy-page__note">※予約代行手数料は予約完了後、いかなる理由でも返金不可とします。<br>※飲食代・宿泊代・体験料は現地事業者へ直接支払いとなります。</p>
 
             <h3 class="privacy-page__subheading">3. トランク預かりサービス</h3>
             <ul class="privacy-page__list">
                 <li>1個／1日：1,800円</li>
-                <li>1m × 1m以内のサイズのみ預かり可能</li>
             </ul>
-            <p class="privacy-page__text privacy-page__note">返却は預かり時点の外観状態を保証し、内部物品の破損・紛失等は保証対象外とします。</p>
+            <p class="privacy-page__text privacy-page__note">※1m × 1m以内のサイズのみ預かり可能<br>※返却は預かり時点の外観状態を保証し、内部物品の破損・紛失等は保証対象外とします。</p>
 
             <h3 class="privacy-page__subheading">4. 支払い方法および為替レート</h3>
             <ul class="privacy-page__list">
@@ -98,14 +97,13 @@ get_header();
                 <li>当日キャンセル：料金の100%</li>
                 <li>無断キャンセル：料金の100%</li>
             </ul>
-            <p class="privacy-page__text privacy-page__note">当社は Stripe の仕様に基づき、キャンセル料率に応じた部分返金または返金なしの対応を、当社判断にて行います。</p>
+            <p class="privacy-page__text privacy-page__note">※返金の有無・金額については、 Stripe の仕様及び本規約に基づき、当社判断にて行います。</p>
 
             <h3 class="privacy-page__subheading">2. 予約代行サービス</h3>
             <p class="privacy-page__text">予約代行手数料（2,200円）は、予約完了後は返金不可とします。</p>
 
             <h3 class="privacy-page__subheading">3. 事業者都合によるキャンセル</h3>
-            <p class="privacy-page__text">事業者側の事情（満席、急な休業、設備トラブル、天災等）により予約が取消しとなった場合、返金・補償・振替に関する取り扱いは利用者と事業者の間の契約に従って処理されます。</p>
-            <p class="privacy-page__text privacy-page__note">当社は、これらに関する返金義務・補償責任を負いません。</p>
+            <p class="privacy-page__text">事業者側の事情（満席、急な休業、天災等）による取消しについては、利用者と事業者間の契約条件に基づき処理されるものとし、当社は返金・補償義務を負いません。</p>
         </section>
 
         <section class="privacy-page__section">
@@ -117,11 +115,6 @@ get_header();
                 <li>外部委託ガイドの対応品質</li>
                 <li>動画ガイド利用中の事故・紛失</li>
                 <li>天災地変、不可抗力</li>
-            </ul>
-            <p class="privacy-page__text">荷物預かりサービスでは、以下について保証しません。</p>
-            <ul class="privacy-page__list">
-                <li>内部の物品（貴重品・電子機器・ガラス等）の破損／紛失</li>
-                <li>トランク自体の経年劣化・自然損耗</li>
             </ul>
             <p class="privacy-page__text privacy-page__note">ただし、当社の重大な過失または法令違反に該当する場合はこの限りではありません。</p>
         </section>
@@ -147,8 +140,7 @@ get_header();
         <section class="privacy-page__section">
             <h2 class="privacy-page__heading">第9条（準拠法・管轄裁判所）</h2>
             <ul class="privacy-page__list">
-                <li>本規約は日本法に準拠します。</li>
-                <li>本サービスに関連して紛争が生じた場合、横浜地方裁判所を第一審の専属的合意管轄裁判所とします。</li>
+                <li>本規約は日本法に準拠し、本サービスに関する紛争については、横浜地方裁判所を第一審の専属的合意管轄裁判所とします。</li>
             </ul>
         </section>
 

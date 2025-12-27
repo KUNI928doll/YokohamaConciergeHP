@@ -206,7 +206,7 @@
   content: '';
   width: 172px;
   height: 294px;
-  background: url(../images/service-reserve/resercation-circle-blue@2x.png) center center /contain no-repeat;
+  background: url(../images/service-reserve/reservation-circle-blue@2x.png) center center /contain no-repeat;
 
   @include mq($until: sp-large) {
     max-width: 300px;
@@ -241,7 +241,7 @@
   .category__images {
     @include mq($until: sp-large) {
       position: absolute;
-      top: 14%;
+      top: 10%;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
@@ -634,7 +634,7 @@
     width: 100%;
     padding-inline: 16px;
     height: auto;
-    margin-top: 777px;
+    margin-top: 0px;
     margin-bottom: 60px;
   }
 
@@ -646,7 +646,6 @@
     height: auto;
     margin-top: 777px;
     margin-bottom: 60px;
-    top: auto !important;
   }
 
   .category__shape {
@@ -830,7 +829,7 @@
   cursor: pointer;
 
   @include mq($until: sp-large) {
-    bottom: -50px;
+    bottom: -82px;
   }
 }
 
@@ -1020,6 +1019,7 @@ button {
   grid-template-columns: 12em 1fr; // 左：項目　右：金額ブロック
   margin-bottom: 1em;
   width: 60%;
+  
 
   @include mq($until: tab) {
     width: 80%;

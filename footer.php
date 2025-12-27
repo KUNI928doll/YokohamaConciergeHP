@@ -1,4 +1,10 @@
-<footer class="footer<?php if (!is_front_page()) echo ' footer--inner'; ?>">
+<footer class="footer<?php 
+    if (is_front_page() || is_page('yokohama')) {
+        echo ' footer--special';
+    } elseif (!is_front_page()) {
+        echo ' footer--inner';
+    }
+?>">
         <section class="footer-scene">
             <div class="footer__fx" aria-hidden="true">
                 <img src="<?php echo get_template_directory_uri(); ?>/images/fireworks4.png" alt="左下の花火のイラスト" class="footer__fx-item footer__fx-item--l1">

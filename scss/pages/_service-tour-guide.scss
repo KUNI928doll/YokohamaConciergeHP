@@ -958,10 +958,11 @@
     .guide-fee__additional,
     .guide-fee__not-included,
     .guide-fee__times {
-        border-radius: 12px;
-        margin-bottom: 24px;
-        font-family: var(--font-sub);
-        width: 100%;
+        border-radius: 12px !important;
+        margin-bottom: 24px !important;
+        font-family: var(--font-sub) !important;
+        color: var(--color-main) !important;
+        width: 100% !important;
     }
 
 
@@ -1626,5 +1627,68 @@
             background: #4096CC;
             color: #fff;
         }
+    }
+}
+.guide-flow__notice {
+    margin-top: 40px !important;
+    margin-left: 104px !important; // ステップ番号（80px）+ gap（24px）
+    padding: 24px !important;
+    background: #f8f9fa !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(29, 67, 117, 0.1) !important;
+
+    @include mq($until: sp-large) {
+        margin-top: 32px !important;
+        margin-left: 76px !important; // ステップ番号（60px）+ gap（16px）
+        padding: 20px 16px !important;
+    }
+}
+
+.guide-flow__notice-title {
+    font-size: 1.6rem !important;
+    font-weight: 700 !important;
+    color: var(--color-main) !important;
+    margin-bottom: 16px !important;
+    padding-bottom: 8px !important;
+    border-bottom: 2px solid var(--color-main) !important;
+
+    @include mq($until: sp-large) {
+        font-size: 1.5rem !important;
+        margin-bottom: 12px !important;
+        padding-bottom: 6px !important;
+    }
+}
+
+.guide-flow__notice-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.guide-flow__notice-item {
+    font-size: 1.4rem !important;
+    color: #555 !important;
+    line-height: 1.8 !important;
+    margin-bottom: 12px !important;
+    padding-left: 24px !important;
+    position: relative !important;
+
+    &:last-child {
+        margin-bottom: 0 !important;
+    }
+
+    &::before {
+        content: "※" !important;
+        position: absolute !important;
+        left: 0 !important;
+        color: var(--color-main) !important;
+        font-weight: 700 !important;
+    }
+
+    @include mq($until: sp-large) {
+        font-size: 1.3rem !important;
+        line-height: 1.7 !important;
+        margin-bottom: 10px !important;
+        padding-left: 20px !important;
     }
 }

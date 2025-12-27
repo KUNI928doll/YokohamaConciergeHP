@@ -140,19 +140,18 @@ get_header();
         </section>
 
         <!-- ご利用の流れセクション -->
-        <section class="guide-flow">
+        <section class="guide-flow js-fade-up">
             <div class="guide-flow__inner">
                 <h2 class="guide-flow__title">ご利用の流れ</h2>
-
                 <div class="guide-flow__steps">
                     <!-- ステップ1 -->
                     <div class="guide-flow__step">
                         <div class="guide-flow__step-number">1</div>
                         <div class="guide-flow__step-card">
-                            <h3 class="guide-flow__step-title">ご希望内容を選択</h3>
-                            <p class="guide-flow__step-description">ご予約フォームより、ご希望内容をご選択ください</p>
-                            <p class="guide-flow__step-detail">ご希望に沿ったコースのご提案とお見積り金額をメールでご提案いたします</p>
-                            <a href="<?php echo esc_url(home_url('/reservation')); ?>" class="btn btn--orange btn--md guide-flow__btn">ご予約フォーム
+                            <h3 class="guide-flow__step-title">ご希望内容の入力</h3>
+                            <p class="guide-flow__step-description">ご予約フォームより、ご希望のサービス内容・日時・条件をご入力ください。</p>
+                            <p class="guide-flow__step-detail">内容をご確認のうえ、「この内容で予約代行を依頼する」ボタンを押してください。</p>
+                            <a href="<?php echo esc_url(home_url('/reservation/')); ?>" class="btn btn--orange btn--md guide-flow__btn">ご予約フォーム
                                 <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-link.png" alt="" class="btn__icon" aria-hidden="true">
                             </a>
                         </div>
@@ -162,10 +161,10 @@ get_header();
                     <div class="guide-flow__step">
                         <div class="guide-flow__step-number">2</div>
                         <div class="guide-flow__step-card">
-                            <h3 class="guide-flow__step-title">見積り提案を承認</h3>
-                            <p class="guide-flow__step-description">内容ご確認の上、問題がなければメールに「承認」とご返信お願いいたします。</p>
-                            <p class="guide-flow__step-detail">承認いただきました時点で、各予約を進めます。</p>
-                            <p class="guide-flow__step-detail">お客様に受注予約手配中メールを送信いたします</p>
+                            <h3 class="guide-flow__step-title">予約内容の確認</h3>
+                            <p class="guide-flow__step-description">画面上に表示される予約内容をご確認ください。</p>
+                            <p class="guide-flow__step-detail">内容に問題がなければ、そのままお支払い手続きへお進みいただきます。</p>
+                            <p class="guide-flow__step-detail">ご提案内容は24時間以内にお手続きがない場合、自動的に無効となります。</p>
                         </div>
                     </div>
 
@@ -173,12 +172,11 @@ get_header();
                     <div class="guide-flow__step">
                         <div class="guide-flow__step-number">3</div>
                         <div class="guide-flow__step-card">
-                            <h3 class="guide-flow__step-title">お支払い確定</h3>
+                            <h3 class="guide-flow__step-title">お支払い（Stripe決済）</h3>
                             <p class="guide-flow__step-description">
-                                予約確定後、事前に登録していただいたクレジットカードで弊社サービス代金の自動引き落としをさせていただきます。</p>
-                            <p class="guide-flow__step-detail">お支払い後に予約確定通知 (確認書 (バウチャー) をメールで送付いたします</p>
-                            <p class="guide-flow__step-detail">実費は現地の各予約店舗へお支払いをお願いいたします</p>
-                            <p class="guide-flow__step-detail">当日現金でのお支払いや銀行振込でも対応可能です。</p>
+                            Stripeの安全な決済画面に移動し、予約代行手数料またはサービス料金のお支払いを行っていただきます。</p>
+                            <p class="guide-flow__step-detail">クレジットカード情報は当社では保持いたしません。</p>
+                            <p class="guide-flow__step-detail">宿泊費・飲食代・体験料金等は含まれておりません。</p>
                         </div>
                     </div>
 
@@ -186,11 +184,21 @@ get_header();
                     <div class="guide-flow__step">
                         <div class="guide-flow__step-number">4</div>
                         <div class="guide-flow__step-card guide-flow__step-card--highlight">
-                            <h3 class="guide-flow__step-title">予約完了</h3>
-                            <p class="guide-flow__step-description">当日、お時間になりましたら現地へ直接お越しください</p>
-                            <p class="guide-flow__step-detail">前日にメールにて再度予定をお知らせいたします</p>
+                            <h3 class="guide-flow__step-title">予約手配・完了</h3>
+                            <p class="guide-flow__step-description">お支払い完了後、当社にて正式に予約手配を開始いたします。</p>
+                            <p class="guide-flow__step-detail">予約が確定次第、メールにてご連絡いたします。当日は、指定された日時・場所へ直接お越しください</p>
                         </div>
                     </div>
+                </div>
+                
+                <!-- ご注意事項 -->
+                <div class="guide-flow__notice">
+                    <h3 class="guide-flow__notice-title">ご注意事項</h3>
+                    <ul class="guide-flow__notice-list">
+                        <li class="guide-flow__notice-item">本サービスは予約代行サービスです</li>
+                        <li class="guide-flow__notice-item">実際のサービス料金（宿泊費・飲食代等）は、各事業者の条件に従い、現地または指定方法でお支払いください</li>
+                        <li class="guide-flow__notice-item">予約代行手数料は、予約成立後は返金不可となります</li>
+                    </ul>
                 </div>
             </div>
         </section>

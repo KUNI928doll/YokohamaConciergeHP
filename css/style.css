@@ -476,7 +476,6 @@ a:hover {
   border: 1.5px solid var(--color-main, #0D3D90);
   border-radius: 30px;
   padding: 0.6em 2.5em 0.6em 1.2em;
-  background: #fff url("../images/common/icon-select.svg") no-repeat right 1em center/16px auto;
   font-size: 1.6rem;
   color: #333;
   cursor: pointer;
@@ -1821,12 +1820,17 @@ body.spmenu-open .header__toggle {
   animation: waveMove 4s ease-in-out infinite;
   position: relative;
   z-index: 101;
-  margin-top: -75px;
+  margin-top: -200px;
 }
 @media (max-width: 768px) {
   .footer {
     padding: 120px 30px 60px;
     margin-top: 0;
+  }
+}
+@media (max-width: 768px) {
+  .footer.footer--special {
+    margin-top: -65px;
   }
 }
 
@@ -2067,7 +2071,7 @@ body.spmenu-open .header__toggle {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 100;
+  z-index: 126;
   cursor: pointer;
   opacity: 0;
   visibility: hidden;
@@ -5919,7 +5923,7 @@ img {
 }
 .contact .contact__decos {
   position: absolute;
-  bottom: 50px;
+  bottom: 140px;
   right: 50px;
   width: min(359px, 26vw);
   z-index: 10;
@@ -5931,7 +5935,7 @@ img {
 @media (max-width: 768px) {
   .contact .contact__decos {
     width: clamp(150px, 35vw, 250px);
-    bottom: 55px;
+    bottom: 110px;
     right: 10px;
   }
 }
@@ -9361,10 +9365,11 @@ img {
 .guide-fee .guide-fee__additional,
 .guide-fee .guide-fee__not-included,
 .guide-fee .guide-fee__times {
-  border-radius: 12px;
-  margin-bottom: 24px;
-  font-family: var(--font-sub);
-  width: 100%;
+  border-radius: 12px !important;
+  margin-bottom: 24px !important;
+  font-family: var(--font-sub) !important;
+  color: var(--color-main) !important;
+  width: 100% !important;
 }
 .guide-fee .guide-fee__additional-title {
   font-size: 1.6rem;
@@ -10028,6 +10033,71 @@ img {
   color: #fff;
 }
 
+.guide-flow__notice {
+  margin-top: 40px !important;
+  margin-left: 104px !important;
+  padding: 24px !important;
+  background: #f8f9fa !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(29, 67, 117, 0.1) !important;
+}
+@media (max-width: 768px) {
+  .guide-flow__notice {
+    margin-top: 32px !important;
+    margin-left: 76px !important;
+    padding: 20px 16px !important;
+  }
+}
+
+.guide-flow__notice-title {
+  font-size: 1.6rem !important;
+  font-weight: 700 !important;
+  color: var(--color-main) !important;
+  margin-bottom: 16px !important;
+  padding-bottom: 8px !important;
+  border-bottom: 2px solid var(--color-main) !important;
+}
+@media (max-width: 768px) {
+  .guide-flow__notice-title {
+    font-size: 1.5rem !important;
+    margin-bottom: 12px !important;
+    padding-bottom: 6px !important;
+  }
+}
+
+.guide-flow__notice-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.guide-flow__notice-item {
+  font-size: 1.4rem !important;
+  color: #555 !important;
+  line-height: 1.8 !important;
+  margin-bottom: 12px !important;
+  padding-left: 24px !important;
+  position: relative !important;
+}
+.guide-flow__notice-item:last-child {
+  margin-bottom: 0 !important;
+}
+.guide-flow__notice-item::before {
+  content: "※" !important;
+  position: absolute !important;
+  left: 0 !important;
+  color: var(--color-main) !important;
+  font-weight: 700 !important;
+}
+@media (max-width: 768px) {
+  .guide-flow__notice-item {
+    font-size: 1.3rem !important;
+    line-height: 1.7 !important;
+    margin-bottom: 10px !important;
+    padding-left: 20px !important;
+  }
+}
+
 .yokohama {
   padding-block: 0 100px;
 }
@@ -10192,7 +10262,7 @@ img {
 }
 
 .tab-panel.active {
-  background: url(..//images/yokohama/bg@2x.png) left top/cover no-repeat;
+  background: url(../images/yokohama/bg@2x.png) left top/cover no-repeat;
   padding: 91px 100px 91px 92px;
   font-family: "Zen Maru Gothic", sans-serif;
   display: block;
@@ -10905,7 +10975,7 @@ img {
   content: "";
   width: 172px;
   height: 294px;
-  background: url(../images/service-reserve/resercation-circle-blue@2x.png) center center/contain no-repeat;
+  background: url(../images/service-reserve/reservation-circle-blue@2x.png) center center/contain no-repeat;
 }
 @media (max-width: 768px) {
   .category__shape {
@@ -10944,7 +11014,7 @@ img {
 @media (max-width: 768px) {
   .category__images {
     position: absolute;
-    top: 14%;
+    top: 10%;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -11325,7 +11395,7 @@ img {
     width: 100%;
     padding-inline: 16px;
     height: auto;
-    margin-top: 777px;
+    margin-top: 0px;
     margin-bottom: 60px;
   }
 }
@@ -11336,9 +11406,8 @@ img {
     width: 100%;
     padding-inline: 16px;
     height: auto;
-    margin-top: 0;
+    margin-top: 777px;
     margin-bottom: 60px;
-    top: auto !important;
   }
 }
 .category--play .category__shape {
@@ -11529,7 +11598,7 @@ img {
 }
 @media (max-width: 768px) {
   .slide-arrow {
-    bottom: -50px;
+    bottom: -82px;
   }
 }
 

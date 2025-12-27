@@ -51,7 +51,7 @@ get_header();
             <h2 class="privacy-page__heading">第3条（個人情報の利用目的）</h2>
             <p class="privacy-page__text">取得した個人情報は、以下の目的のみに使用します。</p>
             <ul class="privacy-page__list">
-                <li>予約代行業務（宿泊・飲食・体験アクティビティ 等）の実施</li>
+                <li>予約代行業務（宿泊・飲食等）の実施</li>
                 <li>観光ガイドサービス（動画ガイド／通訳ガイド付）の実施</li>
                 <li>荷物預かりサービスの提供</li>
                 <li>利用者への確認・連絡・サポート対応</li>

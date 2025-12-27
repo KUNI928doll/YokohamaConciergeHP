@@ -538,33 +538,96 @@ document.addEventListener('DOMContentLoaded', function() {
       // Stripe決済セッション作成用のアクションを追加
       formData.append('action', window.yokohamaReservation?.stripeAction || 'create_stripe_session');
       
+      // nonceを追加（セキュリティチェック用）
+      if (window.yokohamaReservation?.nonce) {
+        formData.append('reservation_nonce', window.yokohamaReservation.nonce);
+      }
+      
       // 見積もり金額を追加（サーバー側でも計算するが、クライアント側の計算も送信）
       formData.append('estimated_amount', totalAmount);
 
       // Stripe決済セッションを作成
       const ajaxurl = window.yokohamaReservation?.ajaxurl || '/wp-admin/admin-ajax.php';
       
+      console.log('リクエストURL:', ajaxurl);
+      console.log('リクエストデータ:', {
+        action: formData.get('action'),
+        estimated_amount: formData.get('estimated_amount'),
+        has_nonce: !!formData.get('reservation_nonce')
+      });
+      
       fetch(ajaxurl, {
         method: 'POST',
         body: formData,
         headers: {
           'X-Requested-With': 'XMLHttpRequest'
-        }
+        },
+        credentials: 'same-origin'
       })
       .then(response => {
-        if (!response.ok) {
-          throw new Error('ネットワークエラーが発生しました。');
+        console.log('レスポンスステータス:', response.status);
+        console.log('レスポンスURL:', response.url);
+        console.log('最終リクエストURL:', response.url !== ajaxurl ? 'リダイレクトされました: ' + response.url : 'リダイレクトなし');
+        
+        // レスポンスのContent-Typeを確認
+        const contentType = response.headers.get('content-type');
+        console.log('Content-Type:', contentType);
+        
+        // XMLエラーの場合を特別に処理
+        if (contentType && contentType.includes('application/xml') || contentType.includes('text/xml')) {
+          return response.text().then(text => {
+            console.error('XMLエラーレスポンス:', text);
+            // XMLエラーをパースしてメッセージを抽出
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(text, 'text/xml');
+            const errorCode = xmlDoc.querySelector('Code')?.textContent || '不明';
+            const errorMessage = xmlDoc.querySelector('Message')?.textContent || 'Access Denied';
+            throw new Error('アクセス拒否エラーが発生しました。\n\nエラーコード: ' + errorCode + '\nメッセージ: ' + errorMessage + '\n\nリクエストURL: ' + ajaxurl + '\n\nこのエラーは、リクエストがWordPressに到達する前にブロックされている可能性があります。\nサーバー設定やセキュリティプラグインを確認してください。');
+          });
         }
-        return response.json();
+        
+        if (!response.ok) {
+          // エラーレスポンスの内容を取得
+          return response.text().then(text => {
+            console.error('エラーレスポンス:', text);
+            throw new Error('サーバーエラー: ' + response.status + '\nリクエストURL: ' + ajaxurl + '\n\n' + text.substring(0, 500));
+          });
+        }
+        
+        // JSONかどうか確認
+        if (contentType && contentType.includes('application/json')) {
+          return response.json();
+        } else {
+          // JSONでない場合はテキストとして取得
+          return response.text().then(text => {
+            console.error('JSON以外のレスポンス:', text);
+            throw new Error('サーバーがJSON以外のレスポンスを返しました。\nリクエストURL: ' + ajaxurl + '\n\n' + text.substring(0, 500));
+          });
+        }
       })
       .then(data => {
         console.log('Stripe決済レスポンス:', data);
+        console.log('レスポンス詳細:', JSON.stringify(data, null, 2));
+        
         if (data.success && data.data && data.data.url) {
           // Stripe決済ページにリダイレクト
           window.location.href = data.data.url;
         } else {
           // エラー時
-          const errorMessage = data.data?.message || 'Stripe決済セッションの作成に失敗しました。';
+          let errorMessage = 'Stripe決済セッションの作成に失敗しました。';
+          
+          if (data.data) {
+            if (data.data.message) {
+              errorMessage = data.data.message;
+            }
+            if (data.data.debug) {
+              errorMessage += '\n\nデバッグ情報: ' + data.data.debug;
+            }
+          }
+          
+          console.error('Stripe決済エラー:', errorMessage);
+          console.error('エラーレスポンス全体:', data);
+          
           alert(errorMessage);
           stripePaymentBtn.disabled = false;
           stripePaymentBtn.innerHTML = '<i class="fas fa-credit-card"></i> Stripe決済へ進む';

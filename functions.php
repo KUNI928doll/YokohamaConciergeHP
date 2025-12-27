@@ -31,7 +31,7 @@ function yokohama_concierge_schema_markup() {
         '@type' => 'LocalBusiness',
         'name' => 'YOKOHAMA Concierge',
         'url' => esc_url(home_url('/')),
-        'image' => esc_url(get_template_directory_uri() . '/images/ogp.jpg'),
+        'image' => esc_url(get_template_directory_uri() . '/images/header_logo-pc.png'),
         'telephone' => '+81-45-681-2737',
         'address' => array(
             '@type' => 'PostalAddress',
@@ -176,7 +176,7 @@ function yokohama_concierge_enqueue_scripts() {
         'yokohama-main-style',
         get_template_directory_uri() . '/css/style.css',
         array(),
-        '20241214007'
+        '20241214014'
     );
     
     // jQuery（WordPressに含まれているものを使用）
@@ -688,6 +688,31 @@ function yokohama_concierge_create_stripe_session() {
         return;
     }
     
+    // APIキーのトリム（余分なスペースを削除）
+    $stripe_secret_key = trim($stripe_secret_key);
+    
+    // デバッグ: キーの情報をログに記録
+    error_log('Stripe API Key Debug - Length: ' . strlen($stripe_secret_key) . ', Prefix: ' . substr($stripe_secret_key, 0, 20) . '...');
+    
+    // APIキーの形式をチェック
+    $key_prefix = substr($stripe_secret_key, 0, 7);
+    if ($key_prefix !== 'sk_test' && $key_prefix !== 'sk_live') {
+        wp_send_json_error(array(
+            'message' => 'Stripe APIキーの形式が正しくありません。sk_test_またはsk_live_で始まる必要があります。',
+            'debug' => 'キーの先頭: ' . substr($stripe_secret_key, 0, 20) . '...（長さ: ' . strlen($stripe_secret_key) . '文字）'
+        ));
+        return;
+    }
+    
+    // キーの長さをチェック（通常のStripe APIキーは約100文字以上）
+    if (strlen($stripe_secret_key) < 50) {
+        wp_send_json_error(array(
+            'message' => 'Stripe APIキーが短すぎます。キーが完全に保存されていない可能性があります。',
+            'debug' => 'キーの長さ: ' . strlen($stripe_secret_key) . '文字（通常は100文字以上）'
+        ));
+        return;
+    }
+    
     // Stripe PHP SDKの読み込み（Composer経由でインストールされている場合）
     // require_once get_template_directory() . '/vendor/autoload.php';
     // または、Stripe PHP SDKを直接インストールしている場合
@@ -840,11 +865,42 @@ function yokohama_concierge_create_stripe_session() {
                 wp_send_json_error(array('message' => 'Stripeセッションの作成に失敗しました。レスポンス: ' . $response));
             }
         } else {
+            // エラーレスポンスの詳細をログに記録
+            error_log('Stripe API Error - HTTP Code: ' . $http_code);
+            error_log('Stripe API Error - Response: ' . $response);
+            error_log('Stripe API Error - Key length: ' . strlen($stripe_secret_key));
+            error_log('Stripe API Error - Key prefix: ' . substr($stripe_secret_key, 0, 20) . '...');
+            error_log('Stripe API Error - Key suffix: ...' . substr($stripe_secret_key, -10));
+            
             $error_data = json_decode($response, true);
             $error_message = isset($error_data['error']['message']) 
                 ? $error_data['error']['message'] 
-                : 'Stripeセッションの作成に失敗しました。';
-            wp_send_json_error(array('message' => $error_message));
+                : 'Stripeセッションの作成に失敗しました。HTTPステータス: ' . $http_code;
+            
+            // エラーの詳細情報を追加
+            if (isset($error_data['error'])) {
+                if (isset($error_data['error']['code'])) {
+                    $error_message .= '\nエラーコード: ' . $error_data['error']['code'];
+                }
+                if (isset($error_data['error']['type'])) {
+                    $error_message .= '\nエラータイプ: ' . $error_data['error']['type'];
+                }
+            }
+            
+            // デバッグ情報を追加
+            $debug_info = 'キーの長さ: ' . strlen($stripe_secret_key) . '文字';
+            $debug_info .= ', 先頭: ' . substr($stripe_secret_key, 0, 20) . '...';
+            $debug_info .= ', 末尾: ...' . substr($stripe_secret_key, -10);
+            
+            if (defined('WP_DEBUG') && WP_DEBUG) {
+                $error_message .= '\n\nデバッグ情報: ' . $debug_info;
+                $error_message .= '\nレスポンス: ' . substr($response, 0, 500);
+            }
+            
+            wp_send_json_error(array(
+                'message' => $error_message,
+                'debug' => $debug_info
+            ));
         }
     } catch (Exception $e) {
         wp_send_json_error(array('message' => 'エラーが発生しました: ' . $e->getMessage()));
@@ -1106,12 +1162,29 @@ function yokohama_concierge_stripe_settings_page() {
     // 設定を保存
     if (isset($_POST['submit']) && isset($_POST['stripe_secret_key'])) {
         check_admin_referer('yokohama_stripe_settings');
-        update_option('stripe_secret_key', sanitize_text_field($_POST['stripe_secret_key']));
+        // トリムして余分なスペースを削除
+        $stripe_key = trim(sanitize_text_field($_POST['stripe_secret_key']));
+        update_option('stripe_secret_key', $stripe_key);
         echo '<div class="notice notice-success"><p>設定を保存しました。</p></div>';
+        
+        // デバッグ情報（開発環境のみ）
+        if (defined('WP_DEBUG') && WP_DEBUG) {
+            echo '<div class="notice notice-info"><p>デバッグ情報: 保存されたキーの長さ=' . strlen($stripe_key) . '文字, 先頭=' . substr($stripe_key, 0, 20) . '...</p></div>';
+        }
     }
     
     $current_key = get_option('stripe_secret_key', '');
     $is_configured = !empty($current_key) || defined('STRIPE_SECRET_KEY');
+    
+    // デバッグ情報（開発環境のみ）
+    $debug_info = '';
+    if (defined('WP_DEBUG') && WP_DEBUG && !empty($current_key)) {
+        $key_length = strlen($current_key);
+        $key_prefix = substr($current_key, 0, 7);
+        $debug_info = '<p class="description" style="color: #666; font-size: 12px; margin-top: 5px;">';
+        $debug_info .= 'デバッグ情報: キーの長さ=' . $key_length . '文字, 先頭=' . $key_prefix;
+        $debug_info .= '</p>';
+    }
     ?>
     <div class="wrap">
         <h1>Stripe決済設定</h1>
@@ -1147,6 +1220,7 @@ function yokohama_concierge_stripe_settings_page() {
                                 本番環境: <code>sk_live_...</code><br>
                                 <a href="https://dashboard.stripe.com/apikeys" target="_blank">Stripeダッシュボード</a>から取得してください。
                             </p>
+                            <?php echo $debug_info; ?>
                         <?php endif; ?>
                     </td>
                 </tr>
