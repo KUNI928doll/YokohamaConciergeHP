@@ -373,9 +373,7 @@ get_header();
                             </li>
                             <li class="support__list-item">
                                 3 　旅行中の<strong>日程予定変更</strong>による各種ご予約（横浜近隣施設）<br>
-                                ＊<strong>旅行中の紛失物</strong>の対応方法などのご相談。<br>
-                                ＊日程的にどうしてもご対応ができない<strong>お土産品の購入代行</strong>のご相談<br>
-                                （横浜近隣で対応可能なもの）</li>
+                                ＊<strong>旅行中の紛失物</strong>の対応方法などのご相談</li>
                             <li class="support__list-item">
                                 4 　その他旅行中に<strong>ご相談事</strong>がある場合<br>
                                 ＊弊社でご対応できる内容であれば対応いたしますので、ご相談ください。</strong>

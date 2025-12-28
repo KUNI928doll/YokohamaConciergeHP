@@ -1079,6 +1079,20 @@ button {
   white-space: nowrap;
 }
 
+.price__caution {
+  font-size: 1.3rem;
+  color: #666;
+  margin-top: 12px;
+  padding-left: 16px;
+  line-height: 1.6;
+
+  @include mq($until: sp-large) {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    padding-left: 0;
+  }
+}
+
 
 
 

@@ -176,7 +176,7 @@ function yokohama_concierge_enqueue_scripts() {
         'yokohama-main-style',
         get_template_directory_uri() . '/css/style.css',
         array(),
-        '20241214014'
+        '20241214020'
     );
     
     // jQuery（WordPressに含まれているものを使用）

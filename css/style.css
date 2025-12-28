@@ -812,7 +812,7 @@ a:hover {
 
 .sub-hero__title {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: #fff;
@@ -826,7 +826,7 @@ a:hover {
 
 .sub-hero__text {
   position: absolute;
-  top: 60%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, 0);
   color: #fff;
@@ -841,7 +841,6 @@ a:hover {
   .sub-hero__text {
     font-size: clamp(12px, 3.5vw, 14px);
     line-height: 1.6;
-    top: 65%;
   }
 }
 
@@ -1831,6 +1830,14 @@ body.spmenu-open .header__toggle {
 @media (max-width: 768px) {
   .footer.footer--special {
     margin-top: -65px;
+  }
+}
+.footer.footer--legal {
+  margin-top: -130px !important;
+}
+@media (max-width: 768px) {
+  .footer.footer--legal {
+    margin-top: -112px !important;
   }
 }
 
@@ -7483,7 +7490,7 @@ img {
 }
 
 .inquiry {
-  padding: clamp(48px, 10vw, 100px) 0 120px;
+  padding: clamp(48px, 10vw, 100px) 0 200px;
   background: linear-gradient(180deg, rgba(29, 67, 117, 0.04), rgba(255, 255, 255, 0));
 }
 .inquiry .inquiry__inner {
@@ -11848,14 +11855,29 @@ button {
   white-space: nowrap;
 }
 
+.price__caution {
+  font-size: 1.3rem;
+  color: #666;
+  margin-top: 12px;
+  padding-left: 16px;
+  line-height: 1.6;
+}
+@media (max-width: 768px) {
+  .price__caution {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    padding-left: 0;
+  }
+}
+
 .privacy-page {
-  padding: 120px 20px 80px;
+  padding: 120px 20px 150px;
   background: #f9fafb;
   min-height: 100vh;
 }
 @media (max-width: 768px) {
   .privacy-page {
-    padding: 100px 16px 60px;
+    padding: 100px 16px 120px;
   }
 }
 

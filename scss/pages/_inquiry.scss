@@ -2,7 +2,7 @@
 @use "../abstracts" as *;
 
 .inquiry {
-  padding: clamp(48px, 10vw, 100px) 0 120px;
+  padding: clamp(48px, 10vw, 100px) 0 200px;
   background: linear-gradient(180deg, rgba(29, 67, 117, 0.04), rgba(255, 255, 255, 0));
 
   .inquiry__inner {

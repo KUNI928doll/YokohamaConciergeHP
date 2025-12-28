@@ -512,7 +512,7 @@ get_header();
                 <div class="guide-fee__info">
                     <div class="guide-fee__info-item">
                         <h3 class="guide-fee__info-title">予約購入可能人数</h3>
-                        <p class="guide-fee__info-text">1~6人 (3人目以降は追加料金が発生いたします)</p>
+                        <p class="guide-fee__info-text">1~3人</p>
                     </div>
                     <div class="guide-fee__info-item">
                         <h3 class="guide-fee__info-title">対応言語</h3>
@@ -550,16 +550,6 @@ get_header();
                             </div>
                         </div>
                     </div>
-
-                    <div class="guide-fee__additional">
-                        <h3 class="guide-fee__additional-title">追加項目</h3>
-                        <ul class="guide-fee__additional-list">
-                            <li>前日・当日の予約 <span class="guide-fee__additional-price">+1,000円</span> ガイド料金に追加</li>
-                            <li>追加人数3人目以降 (最大6名まで) <span class="guide-fee__additional-price">+1,000円/人</span> ガイド料金に追加
-                            </li>
-                        </ul>
-                    </div>
-
                     <div class="guide-fee__not-included">
                         <h3 class="guide-fee__not-included-title">費用に含まれないもの</h3>
                         <ul class="guide-fee__not-included-list">
@@ -616,9 +606,7 @@ get_header();
                             </li>
                             <li class="support__list-item">
                                 3 　旅行中の<strong>日程予定変更</strong>による各種ご予約（横浜近隣施設）<br>
-                                ＊<strong>旅行中の紛失物</strong>の対応方法などのご相談。<br>
-                                ＊日程的にどうしてもご対応ができない<strong>お土産品の購入代行</strong>のご相談<br>
-                                （横浜近隣で対応可能なもの）</li>
+                                ＊<strong>旅行中の紛失物</strong>の対応方法などのご相談。</li>
                             <li class="support__list-item">
                                 4 　その他旅行中に<strong>ご相談事</strong>がある場合<br>
                                 ＊弊社でご対応できる内容であれば対応いたしますので、ご相談ください。</strong>

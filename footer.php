@@ -1,6 +1,9 @@
 <footer class="footer<?php 
     if (is_front_page() || is_page('yokohama')) {
         echo ' footer--special';
+    } elseif (is_page('privacy') || is_page('terms') || is_page('commercial') || is_page('contact') || 
+              is_page_template('page-privacy.php') || is_page_template('page-terms.php') || is_page_template('page-commercial.php') || is_page_template('page-contact.php')) {
+        echo ' footer--legal';
     } elseif (!is_front_page()) {
         echo ' footer--inner';
     }
@@ -55,6 +58,7 @@
             <ul class="footer__policy">
                 <li><a href="<?php echo esc_url(home_url('/privacy/')); ?>">プライバシーポリシー</a></li>
                 <li><a href="<?php echo esc_url(home_url('/terms/')); ?>">利用規約</a></li>
+                <li><a href="<?php echo esc_url(home_url('/commercial/')); ?>">特定商取引法に基づく表記</a></li>
             </ul>
         </nav>
 
