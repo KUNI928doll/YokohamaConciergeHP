@@ -106,6 +106,8 @@
                     <div class="spmenu__top">
                         <a href="<?php echo esc_url(home_url('/reservation')); ?>" class="btn btn--orange btn--sm spmenu__reserve">予約をする</a>
                         <div class="spmenu__language lang-switch">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/header_globeicon.png" alt="地球アイコン"
+                                class="spmenu__language-icon">
                             <?php echo do_shortcode('[language-switcher]'); ?>
                         </div>
                         <button type="button" class="spmenu__close js-spmenu-close" aria-label="メニューを閉じる">

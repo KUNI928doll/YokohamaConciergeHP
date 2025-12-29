@@ -360,10 +360,10 @@
   width: clamp(150px, 25vw, 250px);
 
   @include mq($until: sp-large) {
-    top: −30px;
+    top: -30px;
     left: 50%;
     transform: translate(-50%, 50%);
-    width: clamp(150px, 43vw, 200px);
+    width: clamp(150px, 48vw, 200px);
   }
 }
 

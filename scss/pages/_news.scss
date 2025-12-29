@@ -81,7 +81,7 @@
 
     @include mq($until: mid-pc) {
       width: clamp(100px, 12vw, 120px);
-      bottom: 0;
+      bottom: -43px;
       left: clamp(40px, 8vw, 80px);
     }
 

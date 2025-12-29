@@ -92,10 +92,6 @@ get_header();
           <td>飲食店舗予約</td>
           <td>¥2,200</td>
         </tr>
-        <tr>
-          <td>体験・アクティビティ予約</td>
-          <td>¥2,200</td>
-        </tr>
       </tbody>
     </table>
     <p class="reservation__price-note">

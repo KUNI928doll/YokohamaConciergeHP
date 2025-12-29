@@ -363,7 +363,7 @@
                     </a>
 
                     <!-- カード③ -->
-                    <a href="<?php echo esc_url(home_url('/service-guide/')); ?>" id="service-guide" class="service-detail__item js-fade-up">
+                    <a href="<?php echo esc_url(home_url('/service-tour-guide/')); ?>" id="service-guide" class="service-detail__item js-fade-up">
                         <div class="service-detail__card">
                             <div class="service-detail__corner"></div>
                             <div class="service-detail__icon">
@@ -513,8 +513,6 @@
                                             class="u-visible-sp">＊別途、病院の紹介や交通機関の利用方法などもご相談ください。<br class="u-visible-sp">
                                         3.旅行中の日程予定変更による各種ご予約（横浜近隣施設）<br class="u-visible-pc"><br class="u-visible-sp">
                                         ＊旅行中の紛失物の対応方法などのご相談。<br class="u-visible-pc"><br class="u-visible-sp">
-                                        ＊日程的にどうしてもご対応ができないお土産品の購入代行の<br class="u-visible-pc">ご相談（横浜近隣で対応可能なもの）<br
-                                            class="u-visible-pc"><br class="u-visible-sp">
                                         4.その他旅行中にご相談事がある場合<br class="u-visible-pc">弊社でご対応できる内容であれば対応いたしますので、ご相談<br
                                             class="u-visible-pc">ください。
                                     </p>

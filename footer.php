@@ -1,8 +1,8 @@
 <footer class="footer<?php 
     if (is_front_page() || is_page('yokohama')) {
         echo ' footer--special';
-    } elseif (is_page('privacy') || is_page('terms') || is_page('commercial') || is_page('contact') || 
-              is_page_template('page-privacy.php') || is_page_template('page-terms.php') || is_page_template('page-commercial.php') || is_page_template('page-contact.php')) {
+    } elseif (is_page('privacy') || is_page('terms') || is_page('commercial') || is_page('contact') || is_page('reservation') || 
+              is_page_template('page-privacy.php') || is_page_template('page-terms.php') || is_page_template('page-commercial.php') || is_page_template('page-contact.php') || is_page_template('page-reservation.php')) {
         echo ' footer--legal';
     } elseif (!is_front_page()) {
         echo ' footer--inner';

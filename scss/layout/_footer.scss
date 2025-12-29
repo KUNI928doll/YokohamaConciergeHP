@@ -13,7 +13,6 @@
 
   @include mq($until: sp-large) {
     padding: 120px 30px 60px;
-    margin-top: 0;
   }
 
   // トップページと「横浜について」ページのフッター：SPの時だけ-65px

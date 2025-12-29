@@ -176,7 +176,7 @@ function yokohama_concierge_enqueue_scripts() {
         'yokohama-main-style',
         get_template_directory_uri() . '/css/style.css',
         array(),
-        '20241214020'
+        filemtime(get_template_directory() . '/css/style.css') // ファイルの更新日時を自動的にバージョンとして使用
     );
     
     // jQuery（WordPressに含まれているものを使用）

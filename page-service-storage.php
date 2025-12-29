@@ -62,28 +62,13 @@ get_header();
 
                         <!-- 基本料金 -->
                         <dl class="price">
-                            <dt class="price__term">1日あたり</dt>
+                            <dt class="price__term">1トランク１日あたり</dt>
                             <dd class="price__value">
                                 <span class="price__dot"></span>
                                 <span class="price__desc">1,800円</span>
                                 <span class="price__note"></span>
                             </dd>
                         </dl>
-
-                        <!-- 追加項目 -->
-                        <div class="price__block">
-                            <p class="price__subheading">追加項目</p>
-
-                            <dl class="price">
-                                <dt class="price__term price__term--additional">前日・当日の予約</dt>
-                                <dd class="price__value">
-                                    <span class="price__dot"></span>
-                                    <span class="price__desc">+1,000円</span>
-                                    <span class="price__note">お預かり料金に追加</span>
-                                </dd>
-                            </dl>
-                            <p class="price__caution">※基本的にトランク1m程度のもの以外はお預かりは致しません。</p>
-                        </div>
                     </div>
 
                 </div>

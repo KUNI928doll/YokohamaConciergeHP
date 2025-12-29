@@ -98,5 +98,29 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   initDropdown('.js-inner-dropdown', '.inner-nav__item--has-sub');
+
+  // SP用の多言語切り替えボタン
+  const spLanguageToggle = document.querySelector('.spmenu__language.lang-switch');
+  if (spLanguageToggle) {
+    spLanguageToggle.addEventListener('click', (event) => {
+      event.stopPropagation();
+      spLanguageToggle.classList.toggle('is-open');
+    });
+
+    // 外側をクリックしたら閉じる
+    document.addEventListener('click', (event) => {
+      if (!(event.target instanceof Element)) return;
+      if (!event.target.closest('.spmenu__language.lang-switch')) {
+        spLanguageToggle.classList.remove('is-open');
+      }
+    });
+
+    // 言語リンクをクリックしたら閉じる
+    spLanguageToggle.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        spLanguageToggle.classList.remove('is-open');
+      });
+    });
+  }
 });
 
