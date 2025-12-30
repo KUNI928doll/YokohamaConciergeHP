@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: お知らせ・イベント
+Template Name: お知らせ・イベント一覧
 */
 get_header();
 ?>

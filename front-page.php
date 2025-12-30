@@ -667,7 +667,47 @@
 
                     <!-- スライダー -->
                     <div class="news__slider js-news-slider">
-                        <!-- 記事がない場合は空 -->
+                        <?php
+                        $args = [
+                            'post_type' => 'post',
+                            'post_status' => 'publish',
+                            'posts_per_page' => 10, // スライダー用に多めに取得
+                            'orderby' => 'date',
+                            'order' => 'DESC'
+                        ];
+
+                        $query = new WP_Query($args);
+
+                        if ($query->have_posts()) :
+                            while ($query->have_posts()) : $query->the_post();
+                                // カテゴリーを取得（お知らせorイベント）
+                                $categories = get_the_category();
+                                $category_slug = !empty($categories) ? $categories[0]->slug : 'notice';
+                                $category_name = !empty($categories) ? $categories[0]->name : 'お知らせ';
+                        ?>
+                                <article class="news__card" data-category="<?php echo esc_attr($category_slug); ?>">
+                                    <a href="<?php the_permalink(); ?>" class="news__card-link">
+                                        <div class="news__card-img">
+                                            <?php if (has_post_thumbnail()) : ?>
+                                                <?php the_post_thumbnail('medium', ['alt' => get_the_title()]); ?>
+                                            <?php else : ?>
+                                                <img src="<?php echo get_template_directory_uri(); ?>/images/no-image.png" alt="No Image">
+                                            <?php endif; ?>
+                                            <span class="news__card-label news__card-label--<?php echo esc_attr($category_slug); ?>">
+                                                <?php echo esc_html($category_name); ?>
+                                            </span>
+                                        </div>
+                                        <div class="news__card-body">
+                                            <p class="news__card-date"><?php echo get_the_date('Y.m.d'); ?></p>
+                                            <h3 class="news__card-title"><?php the_title(); ?></h3>
+                                        </div>
+                                    </a>
+                                </article>
+                        <?php
+                            endwhile;
+                            wp_reset_postdata();
+                        endif;
+                        ?>
                     </div>
 
                     <!-- ドットと矢印を横並びにするコンテナ -->
