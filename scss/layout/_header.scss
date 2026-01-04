@@ -335,6 +335,15 @@
       margin: 0 auto;
       max-width: 135px;
 
+      // デフォルトで言語リストを非表示
+      .trp-ls-shortcode-list {
+        display: none !important;
+      }
+
+      .trp-ls-shortcode-language {
+        display: none !important;
+      }
+
       // クリック/タッチ時に言語リストを表示（SP用）
       &.is-open {
         .trp-ls-shortcode-list {
@@ -958,8 +967,19 @@ body.spmenu-open .header__toggle {
     list-style: none;
   }
 
-  // ホバー時に言語リストを表示
+  // ホバー時に言語リストを表示（PC版）
   &:hover {
+    .trp-ls-shortcode-list {
+      display: block;
+    }
+    
+    .trp-ls-shortcode-language {
+      display: block !important;
+    }
+  }
+
+  // SP版：is-openクラスが付いた時に言語リストを表示
+  &.is-open {
     .trp-ls-shortcode-list {
       display: block;
     }

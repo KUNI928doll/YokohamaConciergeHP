@@ -91,19 +91,16 @@
       left: clamp(20px, 5vw, 40px);
     }
   }
-  }
+}
+
 .news__inner {
   position: relative;
   padding: 150px 161px 160px;
   color: #fff;
   z-index: 3;
 
-  @include mq(tab) {
-    padding: 120px 60px 80px;
-  }
-
-  @include mq(sp-large) {
-    padding: 80px 40px 60px;
+  @include mq($until: mid-pc) {
+    padding: 130px 60px 80px;
   }
 }
 

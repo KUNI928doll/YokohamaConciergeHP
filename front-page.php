@@ -290,9 +290,7 @@
                     <div class="speech-wrap speech-wrap--service">
                         <div class="speech-bubble-imgwrap speech-bubble-imgwrap--service">
                             <img src="<?php echo get_template_directory_uri(); ?>/images/service/bubble.png" class="speech-bubble-img" aria-hidden="true">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/service/speech-bubble__text--service.png"
-                                class="speech-bubble-text speech-bubble-text--service"
-                                alt="地元○○ならではの嬉しいサービスもいっぱいあるからね〜！">
+                            <p class="speech-bubble-text speech-bubble-text--service">地元○○ならではの嬉しいサービスもいっぱいあるからね〜！</p>
                         </div>
                         <figure class="character -float js-fade-up">
                             <img src="<?php echo get_template_directory_uri(); ?>/images/service/mascot-service.png" alt="案内をするマスコットキャラクター">
@@ -603,8 +601,7 @@
                 <div class="about-yokohama__column about-yokohama__character js-fade-up">
                     <div class="about-yokohama__speech">
                         <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/atout-yokohama_bubble.png" alt="吹き出し背景">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/about-yokohama_text-gourmet.png" alt="美味しいグルメもたくさんあるよ！"
-                            class="about-yokohama__speech-text">
+                        <p class="about-yokohama__speech-text">美味しいグルメもたくさんあるよ！</p>
                     </div>
                     <img class="about-yokohama__character-img js-fade-up"
                         src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/about-yokohama_character.png" alt="ハマナビサービスの案内キャラクター">
