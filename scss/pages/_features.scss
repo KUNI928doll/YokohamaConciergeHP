@@ -353,11 +353,11 @@
 
 .features-modal__label-wrapper {
   position: absolute;
-  top: 50px;
+  top: 0;
   left: 50%;
   transform: translate(-50%, 50%);
   z-index: 10001;
-  width: clamp(150px, 25vw, 250px);
+  width: clamp(150px, 25vw, 270px);
 
   @include mq($until: sp-large) {
     top: -30px;

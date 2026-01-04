@@ -653,6 +653,9 @@ function yokohama_concierge_handle_reservation_submit() {
         }
     }
     
+    // Make Webhook送信（エラーでも処理は続行）
+    yokohama_concierge_send_to_make_webhook($post_id, $form_data);
+    
     // メール送信処理
     $to = get_option('admin_email');
     $subject = '【YOKOHAMA Concierge】予約フォームからのお問い合わせ';
@@ -1025,6 +1028,9 @@ function yokohama_concierge_handle_stripe_success() {
             }
         }
         
+        // Make Webhook送信（エラーでも処理は続行）
+        yokohama_concierge_send_to_make_webhook($post_id, $form_data);
+        
         // メール送信処理
         yokohama_concierge_send_reservation_emails($post_id, $form_data, $amount_total);
         
@@ -1041,6 +1047,47 @@ function yokohama_concierge_handle_stripe_success() {
     }
 }
 add_action('template_redirect', 'yokohama_concierge_handle_stripe_success');
+
+// Make Webhook送信関数
+function yokohama_concierge_send_to_make_webhook($post_id, $form_data) {
+    $webhook_url = 'https://hook.us2.make.com/12f8ezalyvew9ymq7b91tykvalm5dmfy';
+
+    $body = array(
+        'reservation_id' => (string)$post_id,
+        'name' => $form_data['name'] ?? '',
+        'email' => $form_data['email'] ?? '',
+        'phone' => $form_data['phone'] ?? '',
+        'gender' => $form_data['gender'] ?? '',
+        'nationality' => $form_data['nationality'] ?? '',
+        'address' => $form_data['address'] ?? '',
+        'passport' => $form_data['passport'] ?? '',
+        'stay' => $form_data['stay'] ?? '',
+        'companion' => $form_data['companion'] ?? '',
+        'raw_form_data' => wp_json_encode($form_data, JSON_UNESCAPED_UNICODE),
+        'submitted_at' => current_time('mysql'),
+        'source' => 'wordpress',
+        'form_name' => 'reservation',
+    );
+
+    $response = wp_remote_post($webhook_url, array(
+        'method'  => 'POST',
+        'headers' => array('Content-Type' => 'application/json'),
+        'body'    => wp_json_encode($body, JSON_UNESCAPED_UNICODE),
+        'timeout' => 20,
+    ));
+
+    // 失敗時の最低限ログ
+    if (is_wp_error($response)) {
+        error_log('[Make webhook] WP_Error: ' . $response->get_error_message());
+        return false;
+    }
+    $code = wp_remote_retrieve_response_code($response);
+    if ($code < 200 || $code >= 300) {
+        error_log('[Make webhook] HTTP ' . $code . ' body=' . wp_remote_retrieve_body($response));
+        return false;
+    }
+    return true;
+}
 
 // 予約メール送信処理
 function yokohama_concierge_send_reservation_emails($post_id, $form_data, $amount_total) {

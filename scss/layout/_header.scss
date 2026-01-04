@@ -329,103 +329,11 @@
       overflow-wrap: break-word;
     }
 
-    .spmenu__language {
+    // SP版の言語切り替え（PC版と同じクラス名を使用）
+    .header__language-wrapper {
       flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 4px;
       margin: 0 auto;
       max-width: 135px;
-      text-decoration: none;
-      color: var(--color-main);
-      font-size: 1.6rem;
-      font-weight: 500;
-      word-wrap: break-word;
-      word-break: break-word;
-      overflow-wrap: break-word;
-      cursor: pointer;
-      position: relative;
-
-      .spmenu__language-icon {
-        width: clamp(20px, 2vw, 30px);
-        height: auto;
-        flex-shrink: 0;
-      }
-
-      // TranslatePressの言語切り替えスタイル
-      .trp-ls-shortcode {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0;
-      }
-
-      // すべての言語リンクを非表示（デフォルト）
-      .trp-ls-shortcode-language {
-        display: none !important;
-      }
-
-      // 現在の言語を「Language」と表示
-      .trp-ls-shortcode-current-language {
-        display: inline-block;
-        font-weight: 500;
-        font-size: 1.6rem;
-        color: var(--color-main);
-        text-decoration: none;
-        line-height: 1.2;
-        text-align: center;
-        word-wrap: break-word;
-        word-break: break-word;
-        overflow-wrap: break-word;
-        max-width: 100%;
-        transition: color 0.3s ease;
-        visibility: hidden;
-        position: relative;
-
-        // 「Language」と表示
-        &::before {
-          content: "Language";
-          visibility: visible;
-          position: absolute;
-          left: 50%;
-          transform: translateX(-50%);
-          white-space: nowrap;
-        }
-
-        a {
-          color: var(--color-main);
-          text-decoration: none;
-          font-weight: 500;
-          font-size: 1.6rem;
-          word-wrap: break-word;
-          word-break: break-word;
-          overflow-wrap: break-word;
-          transition: color 0.3s ease;
-
-          &:hover {
-            color: var(--color-accent);
-          }
-        }
-      }
-
-      // 言語切り替えのドロップダウン
-      .trp-ls-shortcode-list {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        transform: translateX(-50%);
-        background: #fff;
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        padding: 8px 0;
-        margin-top: 8px;
-        min-width: 120px;
-        z-index: 1000;
-        list-style: none;
-      }
 
       // クリック/タッチ時に言語リストを表示（SP用）
       &.is-open {
@@ -436,68 +344,10 @@
         .trp-ls-shortcode-language {
           display: block !important;
         }
-      }
 
-      // ホバー時にも言語リストを表示（PC用のフォールバック）
-      &:hover {
-        .trp-ls-shortcode-list {
-          display: block;
+        .trp-current-language-item__wrapper::after {
+          transform: rotate(180deg);
         }
-
-        .trp-ls-shortcode-language {
-          display: block !important;
-        }
-      }
-
-      // アクティブ時にも表示（タッチデバイス用）
-      &:active,
-      &:focus {
-        .trp-ls-shortcode-list {
-          display: block !important;
-        }
-
-        .trp-ls-shortcode-language {
-          display: block !important;
-        }
-      }
-
-      .trp-ls-shortcode-language {
-        margin: 0;
-        padding: 0;
-      }
-
-      .trp-ls-shortcode-list a,
-      .trp-ls-shortcode-language a {
-        display: block;
-        padding: 8px 16px;
-        color: var(--color-main);
-        text-decoration: none;
-        font-size: 1.4rem;
-        transition: background-color 0.3s ease;
-
-        &:hover {
-          background-color: rgba(29, 67, 117, 0.1);
-        }
-      }
-
-      .trp-current-language-item__wrapper {
-        position: relative;
-        display: inline-block;
-      }
-
-      .trp-current-language-item__wrapper::after {
-        content: "";
-        width: 1rem;
-        aspect-ratio: 1;
-        background-color: var(--color-main);
-        clip-path: polygon(0 0, 100% 0, 50% 100%);
-        display: inline-block;
-        margin-left: 4px;
-        transition: transform 0.3s ease;
-      }
-
-      &:hover .trp-current-language-item__wrapper::after {
-        transform: rotate(180deg);
       }
     }
 

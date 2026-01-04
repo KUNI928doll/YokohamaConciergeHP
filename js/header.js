@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initDropdown('.js-inner-dropdown', '.inner-nav__item--has-sub');
 
   // SP用の多言語切り替えボタン
-  const spLanguageToggle = document.querySelector('.spmenu__language.lang-switch');
+  const spLanguageToggle = document.querySelector('.spmenu .header__language-wrapper.lang-switch');
   if (spLanguageToggle) {
     spLanguageToggle.addEventListener('click', (event) => {
       event.stopPropagation();
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 外側をクリックしたら閉じる
     document.addEventListener('click', (event) => {
       if (!(event.target instanceof Element)) return;
-      if (!event.target.closest('.spmenu__language.lang-switch')) {
+      if (!event.target.closest('.spmenu .header__language-wrapper.lang-switch')) {
         spLanguageToggle.classList.remove('is-open');
       }
     });
