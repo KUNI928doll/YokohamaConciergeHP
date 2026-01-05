@@ -44,10 +44,10 @@
 }
 
 .sub-hero__title {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
     color: #fff;
     font-size: clamp(24px, 4vw, 40px);
     font-weight: 700;
@@ -59,7 +59,7 @@
 
 .sub-hero__text {
     position: absolute;
-    top: 50%;
+    top: 56%;
     left: 50%;
     transform: translate(-50%, 0);
     color: #fff;

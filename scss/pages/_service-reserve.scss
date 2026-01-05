@@ -166,11 +166,14 @@
   background-color: #F2F6F6;
   border-radius: 50%;
   width: 263px;
+  max-width: 263px;
+  height: 263px;
   margin-left: 70px;
   
   @include mq($until: sp-large) {
-    width: 100%;
-    max-width: 250px;
+    width: 220px;
+    max-width: 220px;
+    height: 220px;
     margin-left: auto;
     margin-right: auto;
     padding: 20px;
@@ -182,6 +185,10 @@
   width: 172px;
   height: 294px;
   background: url(../images/service-reserve/reservation-circle-blue@2x.png) center center /contain no-repeat;
+
+  @include mq($until: mid-pc) {
+    margin: 0 auto;
+  }
 
   @include mq($until: sp-large) {
     max-width: 300px;
@@ -216,7 +223,7 @@
   .category__images {
     @include mq($until: sp-large) {
       position: absolute;
-      top: 10%;
+      top: 13%;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
@@ -342,17 +349,8 @@
     left: 50%;
     transform: translate(-50%, -50%);
 
-    @include mq($until: tab) {
-      position: relative;
-      transform: none;
-      top: auto;
-      left: auto;
-      margin: 0 auto;
-    }
-
     @include mq($until: sp-large) {
       width: 200px;
-      height: 200px;
       
     }
   }
@@ -536,7 +534,7 @@
     gap: 20px;
     justify-items: center;
     max-width: 450px;
-    margin: -20px auto 0;
+    margin: 360px auto 0;
   }
 
   .circle-eat-img01,
@@ -570,7 +568,7 @@
     gap: 20px;
     justify-items: center;
     max-width: 350px;
-    margin: 0 auto;
+    margin: 216px auto 0;
   }
 
   .circle-eat-img01,
@@ -609,7 +607,7 @@
     width: 100%;
     padding-inline: 16px;
     height: auto;
-    margin-top: 0px;
+    margin-top: 900px;
     margin-bottom: 60px;
   }
 
@@ -661,7 +659,7 @@
     @include mq($until: mid-pc) {
       position: relative;
       transform: none;
-      top: auto;
+
       left: auto;
       margin: 0 auto;
       width: 100%;
@@ -975,10 +973,10 @@ button {
 
 .price {
   display: grid;
-  grid-template-columns: 12em 1fr; // 左：項目　右：金額ブロック
+  grid-template-columns: minmax(12em, auto) 1fr; // 左：項目　右：金額ブロック
   margin-bottom: 1em;
   width: 60%;
-  
+  gap: 0.5em;
 
   @include mq($until: tab) {
     width: 80%;
@@ -993,7 +991,11 @@ button {
 
 .price__term {
   font-weight: bold;
-  white-space: nowrap;
+  white-space: normal;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.4;
 
   @include mq($until: sp-large) {
     font-size: 1.4rem;
@@ -1029,13 +1031,19 @@ button {
 
 .price__desc {
   font-weight: bold;
-  white-space: nowrap;
+  white-space: normal;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .price__note {
   font-size: 12px;
   color: #555;
-  white-space: nowrap;
+  white-space: normal;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .price__caution {

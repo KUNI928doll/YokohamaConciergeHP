@@ -104,7 +104,16 @@ document.addEventListener('DOMContentLoaded', () => {
                             document.querySelector('.spmenu .header__language-wrapper.lang-switch');
   if (spLanguageToggle) {
     console.log('SP language toggle found:', spLanguageToggle);
+    
+    // 言語切り替えボタン全体のクリック処理
     spLanguageToggle.addEventListener('click', (event) => {
+      // 言語リンク自体のクリックは通常通り動作させる
+      if (event.target.closest('a')) {
+        // リンクのクリックは通常通り動作させる（preventDefaultしない）
+        return;
+      }
+      
+      // ボタン部分のクリックのみ処理
       event.stopPropagation();
       event.preventDefault();
       console.log('Language toggle clicked');
@@ -121,12 +130,53 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // 言語リンクをクリックしたら閉じる
+    // 言語リンクをクリックしたら閉じる（リンクの動作は妨げない）
     spLanguageToggle.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
+      link.addEventListener('click', (event) => {
+        // リンクの通常の動作は妨げない
         spLanguageToggle.classList.remove('is-open');
+        // リンクの遷移は通常通り実行される
       });
     });
   }
+
+  // PC版・タブレット版の多言語切り替えボタン（ヘッダー内、SPメニュー外）
+  const allLanguageToggles = document.querySelectorAll('.header__language-wrapper.lang-switch');
+  allLanguageToggles.forEach((languageToggle) => {
+    // SPメニュー内のものは既に処理済みなのでスキップ
+    if (languageToggle.closest('.spmenu')) {
+      return;
+    }
+
+    console.log('PC/Tablet language toggle found:', languageToggle);
+    
+    // クリック/タッチで言語リストを表示
+    languageToggle.addEventListener('click', (event) => {
+      // 言語リンク自体のクリックは通常通り動作させる
+      if (event.target.closest('a')) {
+        return;
+      }
+      event.stopPropagation();
+      event.preventDefault();
+      console.log('PC/Tablet Language toggle clicked');
+      languageToggle.classList.toggle('is-open');
+      console.log('is-open class:', languageToggle.classList.contains('is-open'));
+    });
+
+    // 外側をクリックしたら閉じる
+    document.addEventListener('click', (event) => {
+      if (!(event.target instanceof Element)) return;
+      if (!event.target.closest('.header__language-wrapper.lang-switch')) {
+        languageToggle.classList.remove('is-open');
+      }
+    });
+
+    // 言語リンクをクリックしたら閉じる
+    languageToggle.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        languageToggle.classList.remove('is-open');
+      });
+    });
+  });
 });
 

@@ -75,6 +75,10 @@
     color: var(--color-main);
     font-weight: 600;
     font-family: var(--font-sub);
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
   }
 
   .service__note {
@@ -213,14 +217,13 @@
   z-index: 3;
 
   .speech-wrapper {
-    position: absolute;
-    left: 66%; // ← 左右位置
-    top: -99px; // featuresセクションに重なる
-    transform: none; // ← 中央寄せが入ってたら打ち消す
-    z-index: 20;
-
-    @include mq($until: sp-large) {
-      display: none;
+    position: absolute !important;
+    left: 62% !important; // ← 左右位置
+    top: -68px !important; // featuresセクションに重なる
+    transform: none !important; // ← 中央寄せが入ってたら打ち消す
+    z-index: 20 !important;
+    @include mq($until: mid-pc) {
+     display: none;;
     }
   }
 
@@ -236,9 +239,9 @@
     }
 
     @include mq($until: mid-pc) {
-      right: 24%;
+      right: 6%;
       width: clamp(160px, 26vw, 230px);
-      top: 145%;
+      top: 180%;
     }
 
     @include mq($until: sp-large) {
@@ -256,8 +259,7 @@
     left: clamp(-30%, -35vw, -45%);
 
     @include mq($until: mid-pc) {
-      width: clamp(150px, 18vw, 200px);
-      left: -20%;
+      width: clamp(150px, 22vw, 245px);
     }
 
     @include mq($until: sp-large) {

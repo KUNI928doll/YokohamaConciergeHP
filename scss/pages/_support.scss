@@ -50,6 +50,7 @@
     align-items: center;
     justify-content: center;
     gap: 50px;
+    padding-inline:20px;
 
     @include mq($until: sp-large) {
       flex-direction: column;
@@ -119,8 +120,7 @@
   transition: 0.3s ease;
   width: 232px;
   right: 0;
-  bottom: -50px; // ← 下端から16px内側に配置
-
+  bottom: -65px;
   @include mq($until: sp-large) {
     position: relative;
     right: auto;

@@ -320,7 +320,7 @@
     height: 90px;
     padding-inline: 20px;
     overflow: hidden;
-    gap: 16px;
+    gap: 12px;
 
     .spmenu__reserve {
       flex-shrink: 0;
@@ -330,32 +330,50 @@
     }
 
     // SP版の言語切り替え（PC版と同じクラス名を使用）
-    .header__language-wrapper {
+    .header__language-wrapper.lang-switch {
       flex: 1;
       margin: 0 auto;
       max-width: 135px;
+      cursor: pointer;
+      position: relative;
 
       // デフォルトで言語リストを非表示
       .trp-ls-shortcode-list {
         display: none !important;
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        margin-top: 8px !important;
+        z-index: 1000 !important;
+        width: 100% !important;
       }
 
       .trp-ls-shortcode-language {
         display: none !important;
+        width: 100% !important;
       }
 
       // クリック/タッチ時に言語リストを表示（SP用）
       &.is-open {
         .trp-ls-shortcode-list {
           display: block !important;
+          position: relative !important;
+          top: auto !important;
+          left: auto !important;
+          transform: none !important;
+          margin-top: 8px !important;
+          z-index: 1000 !important;
+          width: 100% !important;
         }
 
         .trp-ls-shortcode-language {
           display: block !important;
+          width: 100% !important;
         }
 
         .trp-current-language-item__wrapper::after {
-          transform: rotate(180deg);
+          transform: rotate(180deg) !important;
         }
       }
     }
@@ -368,7 +386,6 @@
       background: none;
       border: none;
       cursor: pointer;
-      padding: 8px;
       color: var(--color-main);
       font-size: 1.2rem;
 
@@ -967,7 +984,7 @@ body.spmenu-open .header__toggle {
     list-style: none;
   }
 
-  // ホバー時に言語リストを表示（PC版）
+  // ホバー時に言語リストを表示（PC版・タブレット版、マウス操作時）
   &:hover {
     .trp-ls-shortcode-list {
       display: block;
@@ -978,10 +995,11 @@ body.spmenu-open .header__toggle {
     }
   }
 
-  // SP版：is-openクラスが付いた時に言語リストを表示
+  // クリック/タッチ時：is-openクラスが付いた時に言語リストを表示（タブレット・PC版）
+  // SPメニュー内は別途スタイル定義されているため、ここではSPメニュー外のみ
   &.is-open {
     .trp-ls-shortcode-list {
-      display: block;
+      display: block !important;
     }
     
     .trp-ls-shortcode-language {
@@ -1031,8 +1049,13 @@ body.spmenu-open .header__toggle {
     transition: transform 0.3s ease;
   }
 
-  // ホバー時に三角を上向きに回転
+  // ホバー時に三角を上向きに回転（PC版・タブレット版、マウス操作時）
   &:hover .trp-current-language-item__wrapper::after {
+    transform: rotate(180deg);
+  }
+
+  // クリック/タッチ時にも三角を上向きに回転（タブレット・SP版）
+  &.is-open .trp-current-language-item__wrapper::after {
     transform: rotate(180deg);
   }
 }
