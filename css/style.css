@@ -6350,8 +6350,10 @@ img {
   color: var(--color-bg);
 }
 .sub-hero--reservation .sub-hero__title {
-  position: static;
-  transform: none;
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+  transform: none !important;
   text-shadow: none;
   letter-spacing: 0.05em;
   text-align: center;

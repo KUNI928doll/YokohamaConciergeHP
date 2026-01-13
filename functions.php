@@ -676,6 +676,18 @@ add_action('admin_post_submit_reservation', 'yokohama_concierge_handle_reservati
 add_action('admin_post_nopriv_submit_reservation', 'yokohama_concierge_handle_reservation_submit');
 
 // Stripe決済セッション作成
+/**
+ * Stripe Secret Key を正規化（不可視文字/改行/スペース等の混入を除去）
+ * - Stripeのキーは英数字とアンダースコアのみのため、それ以外は削除する
+ */
+function yokohama_concierge_normalize_stripe_secret_key($key) {
+    if (!is_string($key)) return '';
+    $key = trim($key);
+    // 目に見えない空白や改行、コピペ時の混入文字を除去
+    $key = preg_replace('/[^A-Za-z0-9_]/', '', $key);
+    return $key;
+}
+
 function yokohama_concierge_create_stripe_session() {
     // セキュリティチェック
     if (!isset($_POST['reservation_nonce']) || !wp_verify_nonce($_POST['reservation_nonce'], 'reservation_form')) {
@@ -691,18 +703,19 @@ function yokohama_concierge_create_stripe_session() {
         return;
     }
     
-    // APIキーのトリム（余分なスペースを削除）
-    $stripe_secret_key = trim($stripe_secret_key);
+    // APIキーの正規化（不可視文字/改行/スペース等を除去）
+    $stripe_secret_key = yokohama_concierge_normalize_stripe_secret_key($stripe_secret_key);
     
-    // デバッグ: キーの情報をログに記録
-    error_log('Stripe API Key Debug - Length: ' . strlen($stripe_secret_key) . ', Prefix: ' . substr($stripe_secret_key, 0, 20) . '...');
+    // デバッグ（サーバーログのみ）
+    if (defined('WP_DEBUG') && WP_DEBUG) {
+        error_log('Stripe API Key Debug - Length: ' . strlen($stripe_secret_key));
+    }
     
     // APIキーの形式をチェック
-    $key_prefix = substr($stripe_secret_key, 0, 7);
-    if ($key_prefix !== 'sk_test' && $key_prefix !== 'sk_live') {
+    $key_prefix = substr($stripe_secret_key, 0, 8); // sk_test_ / sk_live_
+    if ($key_prefix !== 'sk_test_' && $key_prefix !== 'sk_live_') {
         wp_send_json_error(array(
-            'message' => 'Stripe APIキーの形式が正しくありません。sk_test_またはsk_live_で始まる必要があります。',
-            'debug' => 'キーの先頭: ' . substr($stripe_secret_key, 0, 20) . '...（長さ: ' . strlen($stripe_secret_key) . '文字）'
+            'message' => 'Stripe APIキーの形式が正しくありません。sk_test_ または sk_live_ で始まるキーを設定してください。'
         ));
         return;
     }
@@ -710,8 +723,7 @@ function yokohama_concierge_create_stripe_session() {
     // キーの長さをチェック（通常のStripe APIキーは約100文字以上）
     if (strlen($stripe_secret_key) < 50) {
         wp_send_json_error(array(
-            'message' => 'Stripe APIキーが短すぎます。キーが完全に保存されていない可能性があります。',
-            'debug' => 'キーの長さ: ' . strlen($stripe_secret_key) . '文字（通常は100文字以上）'
+            'message' => 'Stripe APIキーが短すぎます。キーが完全に保存されていない可能性があります。'
         ));
         return;
     }
@@ -890,19 +902,13 @@ function yokohama_concierge_create_stripe_session() {
                 }
             }
             
-            // デバッグ情報を追加
-            $debug_info = 'キーの長さ: ' . strlen($stripe_secret_key) . '文字';
-            $debug_info .= ', 先頭: ' . substr($stripe_secret_key, 0, 20) . '...';
-            $debug_info .= ', 末尾: ...' . substr($stripe_secret_key, -10);
-            
+            // 画面にはキー情報を出さない（漏えい対策）
             if (defined('WP_DEBUG') && WP_DEBUG) {
-                $error_message .= '\n\nデバッグ情報: ' . $debug_info;
-                $error_message .= '\nレスポンス: ' . substr($response, 0, 500);
+                $error_message .= '\n\n（デバッグ）Stripeレスポンス: ' . substr($response, 0, 500);
             }
             
             wp_send_json_error(array(
-                'message' => $error_message,
-                'debug' => $debug_info
+                'message' => $error_message
             ));
         }
     } catch (Exception $e) {
@@ -935,6 +941,7 @@ function yokohama_concierge_handle_stripe_success() {
     if (empty($stripe_secret_key)) {
         return;
     }
+    $stripe_secret_key = yokohama_concierge_normalize_stripe_secret_key($stripe_secret_key);
     
     // Stripeセッション情報を取得
     $ch = curl_init('https://api.stripe.com/v1/checkout/sessions/' . $session_id);
@@ -1209,27 +1216,21 @@ function yokohama_concierge_stripe_settings_page() {
     // 設定を保存
     if (isset($_POST['submit']) && isset($_POST['stripe_secret_key'])) {
         check_admin_referer('yokohama_stripe_settings');
-        // トリムして余分なスペースを削除
-        $stripe_key = trim(sanitize_text_field($_POST['stripe_secret_key']));
+        // キーを正規化して保存（不可視文字/改行/スペース等を除去）
+        $stripe_key = yokohama_concierge_normalize_stripe_secret_key($_POST['stripe_secret_key']);
         update_option('stripe_secret_key', $stripe_key);
         echo '<div class="notice notice-success"><p>設定を保存しました。</p></div>';
-        
-        // デバッグ情報（開発環境のみ）
-        if (defined('WP_DEBUG') && WP_DEBUG) {
-            echo '<div class="notice notice-info"><p>デバッグ情報: 保存されたキーの長さ=' . strlen($stripe_key) . '文字, 先頭=' . substr($stripe_key, 0, 20) . '...</p></div>';
-        }
     }
     
     $current_key = get_option('stripe_secret_key', '');
     $is_configured = !empty($current_key) || defined('STRIPE_SECRET_KEY');
     
-    // デバッグ情報（開発環境のみ）
+    // 画面上にキー断片を出さない（漏えい対策）
     $debug_info = '';
     if (defined('WP_DEBUG') && WP_DEBUG && !empty($current_key)) {
         $key_length = strlen($current_key);
-        $key_prefix = substr($current_key, 0, 7);
         $debug_info = '<p class="description" style="color: #666; font-size: 12px; margin-top: 5px;">';
-        $debug_info .= 'デバッグ情報: キーの長さ=' . $key_length . '文字, 先頭=' . $key_prefix;
+        $debug_info .= '（デバッグ）キーの長さ=' . $key_length . '文字';
         $debug_info .= '</p>';
     }
     ?>

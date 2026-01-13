@@ -523,7 +523,11 @@ document.addEventListener('DOMContentLoaded', function() {
   // Stripe決済ボタン
   const stripePaymentBtn = document.getElementById('stripePaymentBtn');
   if (stripePaymentBtn) {
-    stripePaymentBtn.addEventListener('click', function() {
+    stripePaymentBtn.addEventListener('click', function(e) {
+      // 旧実装で<a>だった場合の遷移を確実に止める（button化済みだが安全のため残す）
+      if (e && typeof e.preventDefault === 'function') e.preventDefault();
+      if (e && typeof e.stopPropagation === 'function') e.stopPropagation();
+
       // ボタンを無効化（二重送信防止）
       stripePaymentBtn.disabled = true;
       stripePaymentBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 処理中...';

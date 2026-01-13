@@ -524,9 +524,9 @@ get_header();
 
             <div class="reservation-confirm__actions">
                 <button type="button" class="btn btn--outline btn--md reservation-confirm__back">戻る</button>
-                <a href="https://buy.stripe.com/xxxx" target="_blank" rel="noopener noreferrer" class="btn btn--orange btn--md reservation-confirm__stripe" id="stripePaymentBtn">
+                <button type="button" class="btn btn--orange btn--md reservation-confirm__stripe" id="stripePaymentBtn">
                     <i class="fas fa-credit-card"></i> この内容で予約代行を依頼する
-                </a>
+                </button>
             </div>
         </div>
     </div>

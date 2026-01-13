@@ -23,8 +23,12 @@
 
 
   .sub-hero__title {
-    position: static;
-    transform: none;
+    // ベース（_sub-hero.scss）で position: absolute !important になっているため、
+    // 予約ページでは !important で上書きして重なりを防ぐ
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
     text-shadow: none;
     letter-spacing: 0.05em;
     text-align: center;
