@@ -67,7 +67,7 @@ get_header();
                     </ul>
                 </div>
                 <div class="map-img">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/yoyakudaiko-map@2x.jpg" alt="" width="567" height="298"
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/yoyakudaiko-map@2x.jpg" alt="予約代行 対応エリアマップ" width="567" height="298"
                         loading="lazy" decoding="async">
                 </div>
             </div>
@@ -104,52 +104,52 @@ get_header();
                         </div>
                         <ul class="circle-eat">
                             <li class="circle-eat-img01">
-                                <img class="circle-eat-img" src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/eat-01nikuryori.png" alt="" width="126"
+                                <img class="circle-eat-img" src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/eat-01nikuryori.png" alt="肉料理" width="126"
                                     height="156" loading="lazy" decoding="async">
                                 <p class="eat-name">肉料理</p>
                             </li>
                             <li class="circle-eat-img02">
-                                <img class="circle-eat-img" src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/eat-02bejitarian.png" alt=""
+                                <img class="circle-eat-img" src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/eat-02bejitarian.png" alt="ベジタリアン"
                                     width="118" height="148" loading="lazy" decoding="async">
                                 <p class="eat-name">ベジタリアン</p>
                             </li>
                             <li class="circle-eat-img03">
-                                <img class="circle-eat-img" src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/eat-03tyuka.png" alt="" width="176"
+                                <img class="circle-eat-img" src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/eat-03tyuka.png" alt="中華" width="176"
                                     height="207" loading="lazy" decoding="async">
                                 <p class="eat-name">中華</p>
                             </li>
                             <li class="circle-eat-img04">
-                                <img class="circle-eat-img" src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/eat-04washoku.png" alt="" width="182"
+                                <img class="circle-eat-img" src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/eat-04washoku.png" alt="和食" width="182"
                                     height="216" loading="lazy" decoding="async">
                                 <p class="eat-name">和食</p>
                             </li>
                             <li class="circle-eat-img05">
-                                <img class="circle-eat-img eat-img05" src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/eat-05itarian.png" alt=""
+                                <img class="circle-eat-img eat-img05" src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/eat-05itarian.png" alt="イタリア料理"
                                     width="118" height="152" loading="lazy" decoding="async">
                                 <p class="eat-name">イタリア料理</p>
                             </li>
                             <li class="circle-eat-img06">
-                                <img class="circle-eat-img eat-img06" src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/eat-06runch.png" alt=""
+                                <img class="circle-eat-img eat-img06" src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/eat-06runch.png" alt="ランチ"
                                     width="118" height="152" loading="lazy" decoding="async">
                                 <p class="eat-name">ランチ</p>
                             </li>
                             <li class="circle-eat-img07">
-                                <img class="circle-eat-img eat-img07" src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/eat-07flench.png" alt=""
+                                <img class="circle-eat-img eat-img07" src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/eat-07flench.png" alt="フランス料理"
                                     width="126" height="156" loading="lazy" decoding="async">
                                 <p class="eat-name">フランス料理</p>
                             </li>
                             <li class="circle-eat-img08">
-                                <img class="circle-eat-img eat-img08" src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/eat-08cafe.png" alt=""
+                                <img class="circle-eat-img eat-img08" src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/eat-08cafe.png" alt="カフェ"
                                     width="115" height="148" loading="lazy" decoding="async">
                                 <p class="eat-name">カフェ</p>
                             </li>
                             <li class="circle-eat-img09">
-                                <img class="circle-eat-img eat-img09" src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/eat-09dinner.png" alt=""
+                                <img class="circle-eat-img eat-img09" src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/eat-09dinner.png" alt="ディナー"
                                     width="164" height="198" loading="lazy" decoding="async">
                                 <p class="eat-name">ディナー</p>
                             </li>
                             <li class="circle-eat-img10">
-                                <img class="circle-eat-img eat-img10" src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/eat-10indo.png" alt=""
+                                <img class="circle-eat-img eat-img10" src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/eat-10indo.png" alt="インド料理"
                                     width="143" height="171" loading="lazy" decoding="async">
                                 <p class="eat-name">インド料理</p>
                             </li>
@@ -172,7 +172,7 @@ get_header();
                                 <div class="slick-img">
                                     <div class="play-slider__item">
                                         <div class="play-img">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/paly-slider01@2x.png" alt="" width=""
+                                            <img src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/paly-slider01@2x.png" alt="陶芸教室" width=""
                                                 height="" loading="lazy" decoding="async">
                                         </div>
                                         <p class="play__label">陶芸教室</p>
@@ -188,7 +188,7 @@ get_header();
                                 <div class="slick-img">
                                     <div class="play-slider__item">
                                         <div class="play-img">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/play-slider02@2x.png" alt="" width=""
+                                            <img src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/play-slider02@2x.png" alt="着物レンタル" width=""
                                                 height="" loading="lazy" decoding="async">
                                         </div>
                                         <p class="play__label">着物レンタル</p>
@@ -203,7 +203,7 @@ get_header();
                                 <div class="slick-img">
                                     <div class="play-slider__item">
                                         <div class="play-img">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/play-slider03@2x.png" alt="" width=""
+                                            <img src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/play-slider03@2x.png" alt="人力車体験" width=""
                                                 height="" loading="lazy" decoding="async">
                                         </div>
                                         <p class="play__label">人力車体験</p>
@@ -219,7 +219,7 @@ get_header();
                                 <div class="slick-img">
                                     <div class="play-slider__item">
                                         <div class="play-img">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/play-slider04@2x.png" alt="" width=""
+                                            <img src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/play-slider04@2x.png" alt="SUP（スタンドアップパドル）体験" width=""
                                                 height="" loading="lazy" decoding="async">
                                         </div>
                                         <p class="play__label">SUP（スタンドアップパドル）体験</p>
@@ -234,7 +234,7 @@ get_header();
                                 <div class="slick-img">
                                     <div class="play-slider__item">
                                         <div class="play-img">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/play-slider05@2x.png" alt="" width=""
+                                            <img src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/play-slider05@2x.png" alt="水陸両用バス「SKY DUCK」クルーズ" width=""
                                                 height="" loading="lazy" decoding="async">
                                         </div>
                                         <p class="play__label">水陸両用バス「SKY DUCK」クルーズ</p>
@@ -251,7 +251,7 @@ get_header();
                                 <div class="slick-img">
                                     <div class="play-slider__item">
                                         <div class="play-img">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/play-slider06@2x.png" alt="" width=""
+                                            <img src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/play-slider06@2x.png" alt="マリーンルージュクルーズ" width=""
                                                 height="" loading="lazy" decoding="async">
                                         </div>
                                         <p class="play__label">マリーンルージュクルーズ</p>
@@ -267,7 +267,7 @@ get_header();
                                 <div class="slick-img">
                                     <div class="play-slider__item">
                                         <div class="play-img">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/play-slider07@2x.png" alt="" width=""
+                                            <img src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/play-slider07@2x.png" alt="屋形船" width=""
                                                 height="" loading="lazy" decoding="async">
                                         </div>
                                         <p class="play__label">屋形船</p>
@@ -339,7 +339,7 @@ get_header();
             </div>
         </section>
 
-        <!-- お困りごと対応セクション -->
+        <!-- お困りごとの解決セクション -->
         <section class="support support--tour-guide js-fade-up">
             <div class="support__inner">
                 <h2 class="support__title support__title--tour-guide">
@@ -353,9 +353,9 @@ get_header();
                     <div class="support__top">
                         <div class="support__header">
                             <div class="support__icon">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-support.png" alt="お困りごと対応アイコン">
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-support.png" alt="お困りごとの解決アイコン">
                             </div>
-                            <h3 class="support__subtitle">お困りごと対応</h3>
+                            <h3 class="support__subtitle">お困りごとの解決</h3>
                         </div>
                         <p class="support__text">
                             旅行中には予期せぬことが起こるものです。予定変更、体調不良、トラブルなどでお困りの際は、横浜ロコが「おもてなし」の心で迅速に対応いたします。
@@ -517,7 +517,7 @@ get_header();
                     <div class="contact__btns">
                         <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn--blue btn--md">お問い合わせ・ご相談窓口<span class="btn__arrow">→</span></a>
                         
-                        <a href="<?php echo esc_url(home_url('/reservation/')); ?>" class="btn btn--orange btn--md">予約をする
+                        <a href="<?php echo esc_url(home_url('/reservation/')); ?>" class="btn btn--orange btn--md">予約する
                             <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-link.png" alt="" class="btn__icon" aria-hidden="true"></a>
                     </div>
                 </div>

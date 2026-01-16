@@ -46,13 +46,13 @@
                     <ul>
                         <li>
                             <a href="<?php echo esc_url(home_url('/')); ?>">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/icon-home.png" alt="" class="header-pyoko__icon">
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/icon-home.png" alt="" class="header-pyoko__icon" aria-hidden="true">
                                 ホーム
                             </a>
                         </li>
                         <li class="inner-nav__item inner-nav__item--has-sub">
                             <button type="button" class="inner-nav__trigger js-inner-dropdown" aria-expanded="false">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/icon-service.png" alt="" class="header-pyoko__icon">
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/icon-service.png" alt="" class="header-pyoko__icon" aria-hidden="true">
                                 <span>サービス紹介</span>
                                 <span class="inner-nav__caret" aria-hidden="true"></span>
                             </button>
@@ -64,25 +64,25 @@
                         </li>
                         <li>
                         <a href="<?php echo esc_url(home_url('/yokohama/')); ?>">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/icon-yokohama.png" alt="" class="header-pyoko__icon">
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/icon-yokohama.png" alt="" class="header-pyoko__icon" aria-hidden="true">
                                 横浜について
                             </a>
                         </li>
                         <li>
                             <a href="#faq">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/icon-faq.png" alt="" class="header-pyoko__icon">
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/icon-faq.png" alt="" class="header-pyoko__icon" aria-hidden="true">
                                 よくある質問
                             </a>
                         </li>
                         <li>
                         <a href="<?php echo esc_url(home_url('/news/')); ?>">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/icon-news.png" alt="" class="header-pyoko__icon">
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/icon-news.png" alt="" class="header-pyoko__icon" aria-hidden="true">
                                 お知らせ<br>イベント
                             </a>
                         </li>
                         <li>
                         <a href="<?php echo esc_url(home_url('/contact/')); ?>">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/icon-mail.png" alt="" class="header-pyoko__icon">
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/icon-mail.png" alt="" class="header-pyoko__icon" aria-hidden="true">
                                 お問い合わせ
                             </a>
                         </li>
@@ -118,7 +118,7 @@
                     当日でもご利用可能！<br class="u-visible-sp">横浜の旅を楽しむお手伝いを<br class="u-visible-sp">いたします
                 </p>
                 <p class="about__text js-fade">
-                    宿泊施設・飲食店の予約代行から、緊急時の即日予約対応やトランク預かりサービスなど、外国人観光客様が旅行を楽しむお手伝いや、お困り事・ご解決をサポートする地元民コンシェルジュならではの、きめ細かなサービスを提供いたします。<span class="text-wave-underline">来日直前・当日など短納期でも柔軟にご対応</span>いたします。
+                    宿泊施設・飲食店の予約代行から、緊急時の即日予約対応やトランクお預かりサービスなど、外国人観光客が旅行を楽しむお手伝いや、お困りごとの解決をサポートする地元民コンシェルジュならではの、きめ細かなサービスを提供いたします。<span class="text-wave-underline">来日直前・当日など短納期でも柔軟にご対応</span>いたします。
                 </p>
 
                 <!-- 画像エリア -->
@@ -391,8 +391,8 @@
 
                 <div class="support__box js-fade-up">
                     <div class="support__icon">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-support.png" alt="お困りごと対応アイコン">
-                        <h3 class="support__subtitle">お困りごと対応</h3>
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-support.png" alt="お困りごとの解決アイコン">
+                        <h3 class="support__subtitle">お困りごとの解決</h3>
                     </div>
                     <div class="support__body js-fade-up">
                         <p class="support__text">
@@ -478,11 +478,11 @@
                             <div class="faq__answer-inner">
                                 <span class="faq__amark">A</span>
                                 <div class="faq__atext">
-                                    <p>基本的にクレジットカード決済（Strip決済）の支払いとなります。</p>
+                                    <p>基本的にクレジットカード決済（Stripe決済）の支払いとなります。</p>
                                     <p>
-                                        予約代行料金は基本的にクレジットカード決済（Strip決済）の支<br class="u-visible-pc">
+                                        予約代行料金は基本的にクレジットカード決済（Stripe決済）の支<br class="u-visible-pc">
                                         払いとなります。簡単、安心決済対応いたします。トランクお預<br class="u-visible-pc">
-                                        かり、観光ガイドサービス、お困りごと対応は現金または銀行<br class="u-visible-pc">
+                                        かり、観光ガイドサービス、お困りごとの解決は現金または銀行<br class="u-visible-pc">
                                         振込も可能です。なお、弊社サービス以外のご利用代金について<br class="u-visible-pc">
                                         は、各事業者様ルールによる決済でお願いいたします。
 
@@ -495,7 +495,7 @@
                     <li class="faq__item js-accordion js-fade-up">
                         <button class="faq__question js-accordion-btn">
                             <span class="faq__icon">Q</span>
-                            <span class="faq__text">お困りごとサービスの具体的な内容はどのようなことがありますか？</span>
+                            <span class="faq__text">お困りごとの解決サービスの具体的な内容はどのようなことがありますか？</span>
                             <span class="faq__plus"></span>
                         </button>
                         <div class="faq__answer js-accordion-body">
@@ -504,9 +504,9 @@
                                 <div class="faq__atext">
                                     <p>幅広い内容に対応しております。</p>
                                     <p>
-                                        1.突然の交通トラブルによる交通機関予約や宿泊先予約、飲食店の<br class="u-visible-pc">予約（横浜近隣施設）<br
+                                        1.突然の交通トラブルによる交通機関予約や宿泊先予約、飲食店舗<br class="u-visible-pc">予約（横浜近隣施設）<br
                                             class="u-visible-sp">
-                                        2.突然の体調不良による交通機関予約や宿泊先予約、飲食店の予約<br class="u-visible-pc">横浜近隣施設）<br
+                                        2.突然の体調不良による交通機関予約や宿泊先予約、飲食店舗予約<br class="u-visible-pc">横浜近隣施設）<br
                                             class="u-visible-pc"><br
                                             class="u-visible-sp">＊別途、病院の紹介や交通機関の利用方法などもご相談ください。<br class="u-visible-sp">
                                         3.旅行中の日程予定変更による各種ご予約（横浜近隣施設）<br class="u-visible-pc"><br class="u-visible-sp">
@@ -539,7 +539,7 @@
                     </a>
 
                     <a href="<?php echo esc_url(home_url('/reservation/')); ?>" class="btn btn--orange btn--lg">
-                        予約をする
+                        予約する
                         <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-link.png" alt="" class="btn__icon" aria-hidden="true">
                     </a>
                 </div>
@@ -688,7 +688,7 @@
                                             <?php if (has_post_thumbnail()) : ?>
                                                 <?php the_post_thumbnail('medium', ['alt' => get_the_title()]); ?>
                                             <?php else : ?>
-                                                <img src="<?php echo get_template_directory_uri(); ?>/images/no-image.png" alt="No Image">
+                                                <!-- no-image placeholder removed -->
                                             <?php endif; ?>
                                             <span class="news__card-label news__card-label--<?php echo esc_attr($category_slug); ?>">
                                                 <?php echo esc_html($category_name); ?>
@@ -737,16 +737,16 @@
                 <div class="contact__box">
                     <ul class="contact__list">
                         <li class="contact__item contact__item--tel">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/header_phoneicon.png" alt="">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/header_phoneicon.png" alt="" aria-hidden="true">
                             <span>045-681-2737</span>
                         </li>
                         <li class="contact__item contact__item--mobile">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/header_mobileicon.png" alt="">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/header_mobileicon.png" alt="" aria-hidden="true">
                             <span>070-1526-3845</span>
                         </li>
                         <li class="contact__item contact__item--time">対応時間：10:00〜18:00／不定休</li>
                         <li class="contact__item contact__item--mail">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/header_mailicon.png" alt="">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/header_mailicon.png" alt="" aria-hidden="true">
                             <span>info@hamanavi-s.jp</span>
                         </li>
                     </ul>
@@ -754,7 +754,7 @@
                     <div class="contact__btns">
                         <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn--blue btn--md">お問い合わせ・ご相談窓口<span class="btn__arrow">→</span></a>
                         
-                        <a href="<?php echo esc_url(home_url('/reservation/')); ?>" class="btn btn--orange btn--md">予約をする
+                        <a href="<?php echo esc_url(home_url('/reservation/')); ?>" class="btn btn--orange btn--md">予約する
                             <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-link.png" alt="" class="btn__icon" aria-hidden="true"></a>
                     </div>
                 </div>

@@ -133,7 +133,7 @@ get_header();
                                 <?php if (has_post_thumbnail()) : ?>
                                     <?php the_post_thumbnail('medium', ['alt' => get_the_title()]); ?>
                                 <?php else : ?>
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/no-image.png" alt="No Image">
+                                    <!-- no-image placeholder removed -->
                                 <?php endif; ?>
                                 <span class="news-list__card-label news-list__card-label--<?php echo esc_attr($category_slug); ?>">
                                     <?php echo esc_html($category_name); ?>
@@ -187,7 +187,7 @@ get_header();
                 <div class="contact__btns">
                     <a href="<?php echo esc_url(home_url("/contact/")); ?>" class="btn btn--blue btn--md">お問い合わせ・ご相談窓口<span class="btn__arrow">→</span></a>
 
-                    <a href="<?php echo esc_url(home_url("/reservation/")); ?>" class="btn btn--orange btn--md">予約をする
+                    <a href="<?php echo esc_url(home_url("/reservation/")); ?>" class="btn btn--orange btn--md">予約する
                         <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-link.png" alt="" class="btn__icon" aria-hidden="true"></a>
                 </div>
             </div>

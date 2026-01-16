@@ -954,9 +954,11 @@ html[lang=en-GB] .inner-nav__item {
   background: var(--color-bg);
   box-sizing: border-box;
   position: relative;
+  z-index: 100;
   width: 100%;
   max-width: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
   display: flex;
 }
 @media (max-width: 768px) {
@@ -1218,7 +1220,7 @@ html[lang=en-GB] .header .tel-orange {
   background-color: #EFF3F4;
   height: 90px;
   padding-inline: 20px;
-  overflow: hidden;
+  overflow: visible;
   gap: 12px;
 }
 .spmenu .spmenu__top .spmenu__reserve {
@@ -9579,7 +9581,7 @@ img {
 }
 
 /* ===========================================
-   お困りごと対応セクション
+  お困りごとの解決セクション
    =========================================== */
 .support--tour-guide {
   background: #fff;

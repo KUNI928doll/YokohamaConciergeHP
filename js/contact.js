@@ -1,3 +1,11 @@
+// HTML5標準バリデーションを無効化（ブラウザ固定メッセージを回避）
+document.addEventListener('DOMContentLoaded', function() {
+  const cf7Form = document.querySelector('.wpcf7-form');
+  if (cf7Form) {
+    cf7Form.setAttribute('novalidate', 'novalidate');
+  }
+});
+
 // //Contact Form 7 に「確認モーダル」をプラスしているjs
 
 // // お問い合わせフォーム送信処理（「準備完了してから実行」）

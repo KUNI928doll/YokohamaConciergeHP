@@ -7,6 +7,14 @@ document.addEventListener('DOMContentLoaded', function() {
   const confirmBackBtn = confirmModal ? confirmModal.querySelector('.reservation-confirm__back') : null;
   const confirmSubmitBtn = confirmModal ? confirmModal.querySelector('.reservation-confirm__submit') : null;
   const confirmOverlay = confirmModal ? confirmModal.querySelector('.reservation-confirm__overlay') : null;
+  const i18nContainer = document.getElementById('reservationI18n');
+  const getI18nText = key => {
+    if (!i18nContainer) return '';
+    const node = i18nContainer.querySelector(`[data-key="${key}"]`);
+    return node ? node.textContent.trim() : '';
+  };
+  const requiredMessageText = getI18nText('requiredMessage') || '必須項目を入力してください。';
+  const requiredListTitleText = getI18nText('requiredListTitle') || '未入力項目:';
   
   const completeModal = document.getElementById('reservationModal');
   const completeCloseBtn = completeModal ? completeModal.querySelector('.reservation-modal__close') : null;
@@ -42,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
       basic: 2200, // 基本料金
       urgentFee: 1000 // 前日・当日予約
     },
-    // トランク預かりサービス
+    // トランクお預かりサービス
     luggage: {
       perDay: 1800, // 1日1個あたり
       urgentFee: 1000 // 前日・当日予約
@@ -96,9 +104,9 @@ document.addEventListener('DOMContentLoaded', function() {
     '基本入力項目': ['name', 'gender', 'nationality', 'address', 'passport', 'stay', 'phone', 'email', 'card', 'cardType', 'cvv', 'companion'],
     '観光ガイドサービス': ['guideCourse', 'guideArea', 'guideSpots', 'guideNotes'],
     'ホテル予約代行サービス': ['hotelDate', 'hotelArea', 'hotelBudget', 'hotelAdults', 'hotelChildren', 'hotelRequest', 'hotelProposal1', 'hotelProposal2'],
-    '飲食店予約代行サービス': ['diningDate', 'diningAdults', 'diningChildren', 'diningBudget', 'diningGenre', 'diningRequest'],
+    '飲食店舗予約代行サービス': ['diningDate', 'diningAdults', 'diningChildren', 'diningBudget', 'diningGenre', 'diningRequest'],
     '体験アクティビティ代行サービス': ['activityDatetime', 'activityAdults', 'activityChildren', 'activityType', 'activityRequest'],
-    'トランク預かりサービス': ['luggageDate', 'luggageCount', 'luggageNotes']
+    'トランクお預かりサービス': ['luggageDate', 'luggageCount', 'luggageNotes']
   };
 
   // 確認ボタンのクリック
@@ -160,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (diningFinal1) {
         diningFinal1.closest('.reservation-form__field').style.border = '2px solid #ff0000';
         diningFinal1.closest('.reservation-form__field').style.backgroundColor = '#fff0f0';
-        invalidFields.push('飲食店予約代行サービス：最終選択');
+        invalidFields.push('飲食店舗予約代行サービス：最終選択');
         if (!firstInvalidField) {
           firstInvalidField = diningFinal1;
         }
@@ -174,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (!isValid) {
       // エラーメッセージを表示
-      const errorMessage = '必須項目を入力してください。\n\n未入力項目:\n' + invalidFields.map(field => {
+      const errorMessage = requiredMessageText + '\n\n' + requiredListTitleText + '\n' + invalidFields.map(field => {
         const label = fieldLabels[field] || field;
         return '・' + label;
       }).join('\n');
@@ -258,10 +266,10 @@ document.addEventListener('DOMContentLoaded', function() {
       total += pricingTable.reservation.basic;
     }
 
-    // 飲食店予約代行
+    // 飲食店舗予約代行
     const diningDate = form.elements['diningDate']?.value;
     if (diningDate) {
-      breakdown.push({ name: '飲食店予約代行', price: pricingTable.reservation.basic });
+      breakdown.push({ name: '飲食店舗予約代行', price: pricingTable.reservation.basic });
       total += pricingTable.reservation.basic;
     }
 
@@ -272,11 +280,11 @@ document.addEventListener('DOMContentLoaded', function() {
       total += pricingTable.reservation.basic;
     }
 
-    // トランク預かり
+    // トランクお預かり
     const luggageCount = parseInt(form.elements['luggageCount']?.value) || 0;
     if (luggageCount > 0) {
       const luggagePrice = pricingTable.luggage.perDay * luggageCount;
-      breakdown.push({ name: `トランク預かり（${luggageCount}個 × 1日）`, price: luggagePrice });
+      breakdown.push({ name: `トランクお預かり（${luggageCount}個 × 1日）`, price: luggagePrice });
       total += luggagePrice;
     }
 
@@ -395,8 +403,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }
       
-      // 飲食店予約代行サービスの場合、最終選択を追加
-      if (sectionTitle === '飲食店予約代行サービス') {
+      // 飲食店舗予約代行サービスの場合、最終選択を追加
+      if (sectionTitle === '飲食店舗予約代行サービス') {
         const diningFinalSelection = form.elements['diningFinalSelection']?.value;
         if (diningFinalSelection) {
           const selectedProposal = diningFinalSelection === '1' ? '提案（1）' : '提案（2）';

@@ -39,11 +39,11 @@ get_header();
                 </ul>
             </div>
             <div class="reservation__price">
-  <h3 class="reservation__price-title">ハマナビサービス 価格表</h3>
+  <h2 class="reservation__price-title">ハマナビサービス 価格表</h2>
 
   <!-- 観光ガイドサービス -->
   <div class="reservation__price-block">
-    <h4 class="reservation__price-subtitle">観光ガイドサービス</h4>
+    <h3 class="reservation__price-subtitle">観光ガイドサービス</h3>
     <table class="reservation__price-table">
       <thead>
         <tr>
@@ -75,7 +75,7 @@ get_header();
 
   <!-- 予約代行サービス -->
   <div class="reservation__price-block">
-    <h4 class="reservation__price-subtitle">予約代行サービス</h4>
+    <h3 class="reservation__price-subtitle">予約代行サービス</h3>
     <table class="reservation__price-table">
       <thead>
         <tr>
@@ -99,9 +99,9 @@ get_header();
     </p>
   </div>
 
-  <!-- トランク預かりサービス -->
+  <!-- トランクお預かりサービス -->
   <div class="reservation__price-block">
-    <h4 class="reservation__price-subtitle">トランク預かりサービス</h4>
+    <h3 class="reservation__price-subtitle">トランクお預かりサービス</h3>
     <table class="reservation__price-table">
       <thead>
         <tr>
@@ -111,7 +111,7 @@ get_header();
       </thead>
       <tbody>
         <tr>
-          <td>トランク預かり（1個／1日）</td>
+          <td>トランクお預かり（1個／1日）</td>
           <td>¥1,800</td>
         </tr>
       </tbody>
@@ -124,7 +124,11 @@ get_header();
 </div>
 
 
-            <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post" class="reservation-form">
+            <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post" class="reservation-form" novalidate>
+                <div id="reservationI18n" style="display: none;">
+                    <span data-key="requiredMessage">必須項目を入力してください。</span>
+                    <span data-key="requiredListTitle">未入力項目:</span>
+                </div>
                 <?php wp_nonce_field('reservation_form', 'reservation_nonce'); ?>
                 <input type="hidden" name="action" value="submit_reservation">
 
@@ -335,7 +339,7 @@ get_header();
                 </div>
 
                 <div class="reservation-form__section">
-                    <h3 class="reservation-form__legend">飲食店予約代行サービス</h3>
+                    <h3 class="reservation-form__legend">飲食店舗予約代行サービス</h3>
                     <p class="reservation-form__description">ご希望の日時・人数・ご予算をお知らせください。条件に合う店舗をご提案します。</p>
                     <div class="reservation-form__grid">
                         <div class="reservation-form__field">
@@ -460,7 +464,7 @@ get_header();
                 </div>
 
                 <div class="reservation-form__section">
-                    <h3 class="reservation-form__legend">トランク預かりサービス</h3>
+                    <h3 class="reservation-form__legend">トランクお預かりサービス</h3>
                     <p class="reservation-form__description">大きなお荷物も安心してお預けください。お預かり数や日時をご入力ください。</p>
                     <div class="reservation-form__grid">
                         <div class="reservation-form__field">

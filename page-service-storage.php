@@ -75,7 +75,7 @@ get_header();
             </div>
         </section>
 
-        <!-- お困りごと対応セクション -->
+        <!-- お困りごとの解決セクション -->
         <section class="support support--tour-guide js-fade-up">
             <div class="support__inner">
                 <h2 class="support__title support__title--tour-guide">
@@ -89,9 +89,9 @@ get_header();
                     <div class="support__top">
                         <div class="support__header">
                             <div class="support__icon">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-support.png" alt="お困りごと対応アイコン">
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-support.png" alt="お困りごとの解決アイコン">
                             </div>
-                            <h3 class="support__subtitle">お困りごと対応</h3>
+                            <h3 class="support__subtitle">お困りごとの解決</h3>
                         </div>
                         <p class="support__text">
                             旅行中には予期せぬことが起こるものです。予定変更、体調不良、トラブルなどでお困りの際は、横浜ロコが「おもてなし」の心で迅速に対応いたします。
@@ -255,7 +255,7 @@ get_header();
                     <div class="contact__btns">
                         <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn--blue btn--md">お問い合わせ・ご相談窓口<span class="btn__arrow">→</span></a>
                         
-                        <a href="<?php echo esc_url(home_url('/reservation/')); ?>" class="btn btn--orange btn--md">予約をする
+                        <a href="<?php echo esc_url(home_url('/reservation/')); ?>" class="btn btn--orange btn--md">予約する
                             <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-link.png" alt="" class="btn__icon" aria-hidden="true"></a>
                     </div>
                 </div>

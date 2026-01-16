@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Favicon -->
-    <link rel="icon" href="<?php echo esc_url(get_template_directory_uri()); ?>/images/favicon.ico">
+    <link rel="icon" href="<?php echo esc_url(get_template_directory_uri()); ?>/images/favicon.icon.png">
     <link rel="apple-touch-icon" href="<?php echo esc_url(get_template_directory_uri()); ?>/images/apple-touch-icon.png">
 
     <!-- Fonts -->
@@ -104,7 +104,7 @@
             <nav id="global-nav" class="header__nav header__nav--sp u-visible-sp">
                 <div class="spmenu">
                     <div class="spmenu__top">
-                        <a href="<?php echo esc_url(home_url('/reservation')); ?>" class="btn btn--orange btn--sm spmenu__reserve">予約をする</a>
+                        <a href="<?php echo esc_url(home_url('/reservation')); ?>" class="btn btn--orange btn--sm spmenu__reserve">予約する</a>
                         <div class="header__language-wrapper lang-switch">
                             <img src="<?php echo get_template_directory_uri(); ?>/images/header_globeicon.png" alt="地球アイコン"
                                 class="header__icon header__icon--globe">
@@ -118,7 +118,7 @@
                     <ul class="spmenu__list">
                         <li class="spmenu__item spmenu__item--has-sub">
                             <button type="button" class="spmenu__trigger js-spmenu-dropdown" aria-expanded="false">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/icon-service.png" alt="" class="spmenu__icon">
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/icon-service.png" alt="" class="spmenu__icon" aria-hidden="true">
                                 サービス紹介
                                 <span class="spmenu__caret" aria-hidden="true"></span>
                             </button>
@@ -129,13 +129,13 @@
                             </ul>
                         </li>
                         <li><a href="<?php echo esc_url(home_url('/yokohama')); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/icon-yokohama.png" alt=""
-                                    class="spmenu__icon">横浜について</a>
+                                    class="spmenu__icon" aria-hidden="true">横浜について</a>
                         </li>
-                        <li><a href="<?php echo esc_url(home_url('/#faq')); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/icon-faq.png" alt="" class="spmenu__icon">よくある質問</a></li>
-                        <li><a href="<?php echo esc_url(home_url('/news')); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/icon-news.png" alt="" class="spmenu__icon">お知らせ・イベント</a>
+                        <li><a href="<?php echo esc_url(home_url('/#faq')); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/icon-faq.png" alt="" class="spmenu__icon" aria-hidden="true">よくある質問</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/news')); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/icon-news.png" alt="" class="spmenu__icon" aria-hidden="true">お知らせ・イベント</a>
                         </li>
                         <li><a href="<?php echo esc_url(home_url('/contact')); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/icon-mail.png" alt=""
-                                    class="spmenu__icon">お問い合わせ</a></li>
+                                    class="spmenu__icon" aria-hidden="true">お問い合わせ</a></li>
                     </ul>
                 </div>
             </nav>

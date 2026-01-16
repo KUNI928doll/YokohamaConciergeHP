@@ -16,7 +16,7 @@ get_header();
             <div class="sub-hero__img">
                 <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/service-hero.png" alt="横浜の夜景">
             </div>
-            <h1 class="sub-hero__title">お知らせ・イベント</h1>
+            <h2 class="sub-hero__title">お知らせ・イベント</h2>
         </div>
         <nav class="breadcrumb" aria-label="Breadcrumb">
             <ul class="breadcrumb__list">
@@ -52,7 +52,7 @@ get_header();
                         <?php endif; ?>
                         <time class="news-detail__date" datetime="<?php echo get_the_date('Y-m-d'); ?>"><?php echo get_the_date('Y.m.d'); ?></time>
                     </div>
-                    <h1 class="news-detail__title"><?php the_title(); ?></h1>
+                    <h2 class="news-detail__title"><?php the_title(); ?></h2>
                 </header>
 
                 <!-- アイキャッチ画像 -->

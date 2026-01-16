@@ -26,8 +26,8 @@ add_action('after_setup_theme', 'yokohama_concierge_theme_support');
 
 // 構造化データ(JSON-LD)を出力
 function yokohama_concierge_schema_markup() {
-    $schema = array(
-        '@context' => 'https://schema.org',
+    $schema = null;
+    $business = array(
         '@type' => 'LocalBusiness',
         'name' => 'YOKOHAMA Concierge',
         'url' => esc_url(home_url('/')),
@@ -49,7 +49,81 @@ function yokohama_concierge_schema_markup() {
             )
         )
     );
-    
+
+    if (is_front_page()) {
+        $schema = array_merge(array('@context' => 'https://schema.org'), $business);
+    } elseif (is_page(array('service-tour-guide', 'service-storage', 'service-reserve', 'reservation'))) {
+        $schema = array(
+            '@context' => 'https://schema.org',
+            '@type' => 'Service',
+            'name' => get_the_title(),
+            'url' => get_permalink(),
+            'provider' => $business
+        );
+        $desc = trim(wp_strip_all_tags(get_the_excerpt()));
+        if ($desc !== '') {
+            $schema['description'] = $desc;
+        }
+    } elseif (is_page('contact')) {
+        $schema = array(
+            '@context' => 'https://schema.org',
+            '@type' => 'ContactPage',
+            'name' => get_the_title(),
+            'url' => get_permalink(),
+            'about' => $business
+        );
+    } elseif (is_page('news') || is_home()) {
+        $schema = array(
+            '@context' => 'https://schema.org',
+            '@type' => 'CollectionPage',
+            'name' => get_the_title(),
+            'url' => get_permalink()
+        );
+    } elseif (is_singular('post')) {
+        $schema = array(
+            '@context' => 'https://schema.org',
+            '@type' => 'Article',
+            'headline' => get_the_title(),
+            'datePublished' => get_the_date('c'),
+            'dateModified' => get_the_modified_date('c'),
+            'author' => array(
+                '@type' => 'Person',
+                'name' => get_the_author()
+            ),
+            'publisher' => array(
+                '@type' => 'Organization',
+                'name' => 'YOKOHAMA Concierge',
+                'logo' => array(
+                    '@type' => 'ImageObject',
+                    'url' => esc_url(get_template_directory_uri() . '/images/header_logo-pc.png')
+                )
+            ),
+            'mainEntityOfPage' => array(
+                '@type' => 'WebPage',
+                '@id' => get_permalink()
+            )
+        );
+        $image = get_the_post_thumbnail_url(null, 'full');
+        if ($image) {
+            $schema['image'] = esc_url($image);
+        }
+    } elseif (is_page()) {
+        $schema = array(
+            '@context' => 'https://schema.org',
+            '@type' => 'WebPage',
+            'name' => get_the_title(),
+            'url' => get_permalink()
+        );
+        $desc = trim(wp_strip_all_tags(get_the_excerpt()));
+        if ($desc !== '') {
+            $schema['description'] = $desc;
+        }
+    }
+
+    if (!$schema) {
+        return;
+    }
+
     echo '<script type="application/ld+json">' . "\n";
     echo wp_json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
     echo "\n" . '</script>' . "\n";
@@ -764,12 +838,12 @@ function yokohama_concierge_create_stripe_session() {
             $amount += 2200;
         }
         
-        // 飲食店予約代行サービス
+        // 飲食店舗予約代行サービス
         if (isset($_POST['diningDate']) && !empty($_POST['diningDate'])) {
             $amount += 2200;
         }
         
-        // トランク預かりサービス
+        // トランクお預かりサービス
         if (isset($_POST['luggageDate']) && !empty($_POST['luggageDate'])) {
             $luggageCount = isset($_POST['luggageCount']) ? intval($_POST['luggageCount']) : 1;
             $amount += 1800 * $luggageCount;
@@ -1123,13 +1197,13 @@ function yokohama_concierge_send_reservation_emails($post_id, $form_data, $amoun
         }
     }
     if (isset($form_data['diningDate'])) {
-        $admin_message .= "飲食店予約代行: " . $form_data['diningDate'] . "\n";
+        $admin_message .= "飲食店舗予約代行: " . $form_data['diningDate'] . "\n";
         if (isset($form_data['diningFinalSelection'])) {
             $admin_message .= "  選択された提案: 提案(" . $form_data['diningFinalSelection'] . ")\n";
         }
     }
     if (isset($form_data['luggageCount'])) {
-        $admin_message .= "トランク預かり: " . $form_data['luggageCount'] . "個\n";
+        $admin_message .= "トランクお預かり: " . $form_data['luggageCount'] . "個\n";
     }
     
     $admin_message .= "\n詳細は管理画面でご確認ください: " . admin_url('post.php?post=' . $post_id . '&action=edit') . "\n";
@@ -1140,12 +1214,12 @@ function yokohama_concierge_send_reservation_emails($post_id, $form_data, $amoun
     $customer_subject = '【YOKOHAMA Concierge】ご予約を承りました';
     $customer_message = $name . " 様\n\n";
     $customer_message .= "この度はYOKOHAMA Conciergeをご利用いただき、誠にありがとうございます。\n\n";
-    $customer_message .= "ご予約のお申し込みを承りました。\n";
+    $customer_message .= "ご予約の申し込みを承りました。\n";
     $customer_message .= "決済が完了いたしましたので、正式に予約が確定いたしました。\n";
     $customer_message .= "担当者より改めてご連絡させていただきます。\n\n";
     
     $customer_message .= "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n";
-    $customer_message .= "お申し込み内容\n";
+    $customer_message .= "申し込み内容\n";
     $customer_message .= "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n";
     
     $customer_message .= "予約ID: #" . $post_id . "\n";
@@ -1171,7 +1245,7 @@ function yokohama_concierge_send_reservation_emails($post_id, $form_data, $amoun
         }
     }
     if (isset($form_data['diningDate'])) {
-        $customer_message .= "飲食店予約代行: " . $form_data['diningDate'] . "\n";
+        $customer_message .= "飲食店舗予約代行: " . $form_data['diningDate'] . "\n";
         if (isset($form_data['diningFinalSelection'])) {
             $proposal_num = $form_data['diningFinalSelection'];
             $proposal_text = isset($form_data['diningProposal' . $proposal_num]) ? $form_data['diningProposal' . $proposal_num] : '';
@@ -1179,7 +1253,7 @@ function yokohama_concierge_send_reservation_emails($post_id, $form_data, $amoun
         }
     }
     if (isset($form_data['luggageCount']) && intval($form_data['luggageCount']) > 0) {
-        $customer_message .= "トランク預かり: " . $form_data['luggageCount'] . "個\n";
+        $customer_message .= "トランクお預かり: " . $form_data['luggageCount'] . "個\n";
     }
     
     $customer_message .= "\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n";

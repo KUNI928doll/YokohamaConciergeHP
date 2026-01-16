@@ -12,7 +12,7 @@ get_header();
 
         <section class="privacy-page__section">
             <h2 class="privacy-page__heading">第1条（適用範囲）</h2>
-            <p class="privacy-page__text">本プライバシーポリシーは、当社が提供する「YOKOHAMA Concierge（宿泊・飲食・体験・観光ガイド・予約代行・荷物預かりサービス）」において取得するすべての個人情報の取り扱いに適用されます。</p>
+            <p class="privacy-page__text">本プライバシーポリシーは、当社が提供する「YOKOHAMA Concierge（宿泊・飲食・体験・観光ガイド・予約代行・トランクお預かりサービス）」において取得するすべての個人情報の取り扱いに適用されます。</p>
         </section>
 
         <section class="privacy-page__section">
@@ -53,7 +53,7 @@ get_header();
             <ul class="privacy-page__list">
                 <li>予約代行業務（宿泊・飲食等）の実施</li>
                 <li>観光ガイドサービス（動画ガイド／通訳ガイド付）の実施</li>
-                <li>荷物預かりサービスの提供</li>
+                <li>トランクお預かりサービスの提供</li>
                 <li>利用者への確認・連絡・サポート対応</li>
                 <li>トラブル発生時の本人確認および連絡</li>
                 <li>Stripe を利用した決済処理</li>
@@ -85,7 +85,7 @@ get_header();
                     <ul class="privacy-page__list--nested">
                         <li>通訳ガイド</li>
                         <li>飲食店・ホテル・体験事業者</li>
-                        <li>荷物預かりに関する協力業者</li>
+                        <li>トランクお預かりに関する協力業者</li>
                     </ul>
                 </li>
                 <li>法令に基づく場合</li>

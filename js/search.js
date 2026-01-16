@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'トランクお預かりサービス',
             description: '横浜観光のあいだ、お客様の大切なお荷物を安全にお預かりするサービスです。',
             url: 'service-storage.html',
-            keywords: ['トランク', '荷物預かり', '保管', 'storage'],
+            keywords: ['トランク', 'トランクお預かり', '保管', 'storage'],
         },
         {
             title: '横浜観光ガイドサービス',

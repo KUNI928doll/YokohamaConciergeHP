@@ -50,7 +50,7 @@ get_header();
                         <li>通訳ガイド付き観光案内（外部委託）</li>
                     </ul>
                 </li>
-                <li>荷物預かりサービス</li>
+                <li>トランクお預かりサービス</li>
             </ul>
             <p class="privacy-page__text privacy-page__note">※ 宿泊費、飲食代、体験費用、交通費、施設利用料等は含まれておりません。<br>※ 実際のサービス提供は、各事業者の条件に基づき行われます。</p>
         </section>

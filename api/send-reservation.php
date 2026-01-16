@@ -113,7 +113,7 @@ function generateEmailBody($data) {
     }
     
     if (!empty($data['diningDate'])) {
-        $body .= "【飲食店予約代行サービス】\n";
+        $body .= "【飲食店舗予約代行サービス】\n";
         $body .= "予約日: " . ($data['diningDate'] ?? '') . "\n";
         $body .= "大人: " . ($data['diningAdults'] ?? '0') . "名\n";
         $body .= "子供: " . ($data['diningChildren'] ?? '0') . "名\n";
@@ -132,7 +132,7 @@ function generateEmailBody($data) {
     }
     
     if (!empty($data['luggageDate'])) {
-        $body .= "【トランク預かりサービス】\n";
+        $body .= "【トランクお預かりサービス】\n";
         $body .= "予約日: " . ($data['luggageDate'] ?? '') . "\n";
         $body .= "予約個数: " . ($data['luggageCount'] ?? '') . "個\n";
         $body .= "その他ご希望: " . ($data['luggageNotes'] ?? '') . "\n\n";
@@ -149,11 +149,11 @@ function generateEmailBody($data) {
 function generateCustomerEmailBody($data) {
     $body = $data['name'] . " 様\n\n";
     $body .= "この度はYOKOHAMA Conciergeをご利用いただき、誠にありがとうございます。\n\n";
-    $body .= "ご予約のお申し込みを承りました。\n";
+    $body .= "ご予約の申し込みを承りました。\n";
     $body .= "ご入力いただいた内容を確認後、すぐに担当者からご連絡させていただきます。\n\n";
     
     $body .= "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n";
-    $body .= "お申し込み内容\n";
+    $body .= "申し込み内容\n";
     $body .= "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n";
     
     $body .= "お名前: " . ($data['name'] ?? '') . "\n";
@@ -167,13 +167,13 @@ function generateCustomerEmailBody($data) {
         $body .= "ホテル予約代行: " . $data['hotelArea'] . "\n";
     }
     if (!empty($data['diningDate'])) {
-        $body .= "飲食店予約代行: " . $data['diningDate'] . "\n";
+        $body .= "飲食店舗予約代行: " . $data['diningDate'] . "\n";
     }
     if (!empty($data['activityType'])) {
         $body .= "体験アクティビティ: " . $data['activityType'] . "\n";
     }
     if (!empty($data['luggageCount'])) {
-        $body .= "トランク預かり: " . $data['luggageCount'] . "個\n";
+        $body .= "トランクお預かり: " . $data['luggageCount'] . "個\n";
     }
     
     $body .= "\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n";

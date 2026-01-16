@@ -28,6 +28,15 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleMenu(false);
       });
     }
+
+    // 画面幅変更時にオーバーレイだけ残ってクリックを奪うことがあるため、
+    // ハンバーガーが非表示になる幅では強制的にメニューを閉じる
+    window.addEventListener('resize', () => {
+      const toggleDisplay = window.getComputedStyle(toggle).display;
+      if (toggleDisplay === 'none' && nav.classList.contains('is-open')) {
+        toggleMenu(false);
+      }
+    });
   }
 
   const initDropdown = (buttonSelector, itemSelector) => {
