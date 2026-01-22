@@ -894,6 +894,44 @@ function yokohama_concierge_create_stripe_session() {
     set_transient($temp_key, $form_data_json, 24 * HOUR_IN_SECONDS);
     
     $description = 'YOKOHAMA Concierge 予約代行サービス';
+    // 観光ガイドサービス
+    // Stripe metadata 用の値を抽出（存在するものだけ）
+    $area = '';
+    if (!empty($_POST['guideArea'])) {
+        $area = sanitize_text_field($_POST['guideArea']);
+    } elseif (!empty($_POST['diningArea'])) {
+        $area = sanitize_text_field($_POST['diningArea']);
+    } elseif (!empty($_POST['hotelArea'])) {
+        $area = sanitize_text_field($_POST['hotelArea']);
+    }
+
+    $food_type = !empty($_POST['diningGenre']) ? sanitize_text_field($_POST['diningGenre']) : '';
+
+    $price_range = '';
+    if (!empty($_POST['diningBudget'])) {
+        $price_range = sanitize_text_field($_POST['diningBudget']);
+    } elseif (!empty($_POST['hotelBudget'])) {
+        $price_range = sanitize_text_field($_POST['hotelBudget']);
+    }
+
+    $coupon = !empty($_POST['coupon']) ? sanitize_text_field($_POST['coupon']) : '';
+    $priority = !empty($_POST['priority']) ? sanitize_text_field($_POST['priority']) : '';
+
+    $note_parts = array();
+    if (!empty($_POST['guideNotes'])) $note_parts[] = sanitize_text_field($_POST['guideNotes']);
+    if (!empty($_POST['diningRequest'])) $note_parts[] = sanitize_text_field($_POST['diningRequest']);
+    if (!empty($_POST['hotelRequest'])) $note_parts[] = sanitize_text_field($_POST['hotelRequest']);
+    if (!empty($_POST['luggageNotes'])) $note_parts[] = sanitize_text_field($_POST['luggageNotes']);
+    $note = implode(' / ', $note_parts);
+
+    // Stripe metadata の長さ制限対策（念のため）
+    $max_meta_len = 500;
+    $area = substr($area, 0, $max_meta_len);
+    $food_type = substr($food_type, 0, $max_meta_len);
+    $price_range = substr($price_range, 0, $max_meta_len);
+    $coupon = substr($coupon, 0, $max_meta_len);
+    $priority = substr($priority, 0, $max_meta_len);
+    $note = substr($note, 0, $max_meta_len);
     
     // Stripe Checkout Sessionを作成
     try {
@@ -921,6 +959,12 @@ function yokohama_concierge_create_stripe_session() {
             'metadata[name]' => $name,
             'metadata[email]' => $email,
             'metadata[temp_key]' => $temp_key,  // メタデータにも保存
+            'metadata[area]' => $area,
+            'metadata[food_type]' => $food_type,
+            'metadata[price_range]' => $price_range,
+            'metadata[coupon]' => $coupon,
+            'metadata[priority]' => $priority,
+            'metadata[note]' => $note,
         );
         
         // Stripe APIを呼び出し
