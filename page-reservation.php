@@ -206,6 +206,10 @@ get_header();
                             </select>
                         </div>
                         <div class="reservation-form__field">
+                            <label for="guide-date" class="reservation-form__label">予約日</label>
+                            <input type="date" id="guide-date" name="guideDate" class="reservation-form__input">
+                        </div>
+                        <div class="reservation-form__field">
                             <label for="guide-area" class="reservation-form__label">ご希望エリア</label>
                             <select id="guide-area" name="guideArea" class="reservation-form__select">
                                 <option value="" disabled selected>選択してください</option>

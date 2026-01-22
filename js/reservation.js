@@ -72,6 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
     'cvv': 'セキュリティコード',
     'companion': '同伴者情報',
     'guideCourse': 'ご希望コース',
+    'guideDate': '予約日',
     'guideArea': 'ご希望エリア',
     'guideSpots': 'ご希望スポット場所',
     'guideNotes': 'その他ご要望事項',
@@ -102,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // セクションの定義
   const sections = {
     '基本入力項目': ['name', 'gender', 'nationality', 'address', 'passport', 'stay', 'phone', 'email', 'card', 'cardType', 'cvv', 'companion'],
-    '観光ガイドサービス': ['guideCourse', 'guideArea', 'guideSpots', 'guideNotes'],
+    '観光ガイドサービス': ['guideCourse', 'guideDate', 'guideArea', 'guideSpots', 'guideNotes'],
     'ホテル予約代行サービス': ['hotelDate', 'hotelArea', 'hotelBudget', 'hotelAdults', 'hotelChildren', 'hotelRequest', 'hotelProposal1', 'hotelProposal2'],
     '飲食店舗予約代行サービス': ['diningDate', 'diningAdults', 'diningChildren', 'diningBudget', 'diningGenre', 'diningRequest'],
     '体験アクティビティ代行サービス': ['activityDatetime', 'activityAdults', 'activityChildren', 'activityType', 'activityRequest'],
