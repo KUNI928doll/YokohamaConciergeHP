@@ -948,6 +948,7 @@ html[lang=en-GB] .inner-nav__item {
   }
 }
 .header {
+  --header-height: 124px;
   min-height: 124px;
   margin: 0 auto;
   background: var(--color-bg);
@@ -960,7 +961,8 @@ html[lang=en-GB] .inner-nav__item {
 }
 @media (max-width: 768px) {
   .header {
-    height: 80px;
+    height: 70px;
+    --header-height: 70px;
   }
 }
 .header .header__inner {
@@ -980,7 +982,7 @@ html[lang=en-GB] .inner-nav__item {
 @media (max-width: 768px) {
   .header .header__inner {
     padding-inline: 20px;
-    padding-block: 10px;
+    padding-block: 8px;
     justify-content: space-between;
   }
 }
@@ -1772,34 +1774,37 @@ body.spmenu-open .header__toggle {
 }
 .header__language-wrapper.lang-switch .trp-ls-shortcode-list {
   display: none;
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
+  position: absolute !important;
+  top: calc(var(--header-height) + 8px);
+  right: clamp(16px, 2vw, 32px);
+  left: auto;
+  transform: none;
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   padding: 8px 0;
   margin-top: 8px;
   min-width: 120px;
+  max-height: 50vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   z-index: 1000;
   list-style: none;
 }
 .header__language-wrapper.lang-switch:hover .trp-ls-shortcode-list {
   display: block;
 }
-.header__language-wrapper.lang-switch:hover .trp-ls-shortcode-language {
-  display: block !important;
-}
 .header__language-wrapper.lang-switch.is-open .trp-ls-shortcode-list {
-  display: block !important;
-}
-.header__language-wrapper.lang-switch.is-open .trp-ls-shortcode-language {
   display: block !important;
 }
 .header__language-wrapper.lang-switch .trp-ls-shortcode-language {
   margin: 0;
   padding: 0;
+  display: none !important;
+}
+.header__language-wrapper.lang-switch:hover .trp-ls-shortcode-language,
+.header__language-wrapper.lang-switch.is-open .trp-ls-shortcode-language {
+  display: none !important;
 }
 .header__language-wrapper.lang-switch .trp-ls-shortcode-list a,
 .header__language-wrapper.lang-switch .trp-ls-shortcode-language a {
@@ -11898,24 +11903,28 @@ button {
 
 .price__value {
   display: grid;
-  grid-template-columns: 1fr auto auto;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: "dot desc" "note note";
   align-items: center;
-  gap: 0.5em;
+  column-gap: 0.5em;
+  row-gap: 0.3em;
 }
 @media (max-width: 768px) {
   .price__value {
     grid-template-columns: 1fr;
-    gap: 0.3em;
+    grid-template-areas: "desc" "note";
   }
 }
 
 .price__dot {
+  grid-area: dot;
   border-bottom: 1px dotted #000;
   height: 1px;
   width: 100%;
 }
 
 .price__desc {
+  grid-area: desc;
   font-weight: bold;
   white-space: normal;
   word-wrap: break-word;
@@ -11924,6 +11933,7 @@ button {
 }
 
 .price__note {
+  grid-area: note;
   font-size: 12px;
   color: #555;
   white-space: normal;

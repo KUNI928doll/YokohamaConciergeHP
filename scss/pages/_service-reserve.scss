@@ -1013,23 +1013,31 @@ button {
 
 .price__value {
   display: grid;
-  grid-template-columns: 1fr auto auto;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "dot desc"
+    "note note";
   align-items: center;
-  gap: 0.5em;
+  column-gap: 0.5em;
+  row-gap: 0.3em;
 
   @include mq($until: sp-large) {
     grid-template-columns: 1fr;
-    gap: 0.3em;
+    grid-template-areas:
+      "desc"
+      "note";
   }
 }
 
 .price__dot {
+  grid-area: dot;
   border-bottom: 1px dotted #000;
   height: 1px;
   width: 100%;
 }
 
 .price__desc {
+  grid-area: desc;
   font-weight: bold;
   white-space: normal;
   word-wrap: break-word;
@@ -1038,6 +1046,7 @@ button {
 }
 
 .price__note {
+  grid-area: note;
   font-size: 12px;
   color: #555;
   white-space: normal;

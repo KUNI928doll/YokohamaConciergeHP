@@ -2,6 +2,7 @@
 @use "../abstracts" as *;
 
 .header {
+  --header-height: 124px;
   min-height: 124px;
   margin: 0 auto;
   background: var(--color-bg);
@@ -18,7 +19,8 @@
   display: flex;
 
   @include mq(sp-large) {
-    height: 80px;
+    height: 70px;
+    --header-height: 70px;
   }
 
   .header__inner {
@@ -36,7 +38,7 @@
 
     @include mq($until: sp-large) {
       padding-inline: 20px;
-      padding-block: 10px;
+      padding-block: 8px;
       justify-content: space-between;
     }
   }
@@ -976,16 +978,20 @@ body.spmenu-open .header__toggle {
   /* 言語切り替えのドロップダウン */
   .trp-ls-shortcode-list {
     display: none;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
+    position: absolute !important;
+    top: calc(var(--header-height) + 8px);
+    right: clamp(16px, 2vw, 32px);
+    left: auto;
+    transform: none;
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     padding: 8px 0;
     margin-top: 8px;
     min-width: 120px;
+    max-height: 50vh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
     z-index: 1000;
     list-style: none;
   }
@@ -995,10 +1001,6 @@ body.spmenu-open .header__toggle {
     .trp-ls-shortcode-list {
       display: block;
     }
-    
-    .trp-ls-shortcode-language {
-      display: block !important;
-    }
   }
 
   // クリック/タッチ時：is-openクラスが付いた時に言語リストを表示（タブレット・PC版）
@@ -1007,15 +1009,18 @@ body.spmenu-open .header__toggle {
     .trp-ls-shortcode-list {
       display: block !important;
     }
-    
-    .trp-ls-shortcode-language {
-      display: block !important;
-    }
   }
 
   .trp-ls-shortcode-language {
     margin: 0;
     padding: 0;
+    display: none !important;
+  }
+
+  // 念のためホバー/開閉時も言語行がヘッダー高さに影響しないよう固定
+  &:hover .trp-ls-shortcode-language,
+  &.is-open .trp-ls-shortcode-language {
+    display: none !important;
   }
 
   .trp-ls-shortcode-list a,

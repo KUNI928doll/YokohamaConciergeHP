@@ -70,7 +70,7 @@ get_header();
         </tr>
       </tbody>
     </table>
-    <p class="reservation__price-note">※ 内容詳細はサービス詳細をご参照ください。</p>
+    <p class="reservation__price-note">※ 3名1組までの料金です。内容詳細は観光ガイドサービスページをご参照ください。</p>
   </div>
 
   <!-- 予約代行サービス -->
@@ -201,8 +201,10 @@ get_header();
                             <label for="guide-course" class="reservation-form__label">ご希望コース</label>
                             <select id="guide-course" name="guideCourse" class="reservation-form__select">
                                 <option value="" disabled selected>選択してください</option>
-                                <option value="half">半日コース</option>
-                                <option value="full">1日コース</option>
+                                <option value="half_audio">半日コース(音声ガイドのみ)</option>
+                                <option value="half_interpreter">半日コース(通訳付き)</option>
+                                <option value="full_audio">1日コース(音声ガイドのみ)</option>
+                                <option value="full_interpreter">1日コース(通訳付き)</option>
                             </select>
                         </div>
                         <div class="reservation-form__field">
@@ -223,6 +225,21 @@ get_header();
                             </select>
                         </div>
                     </div>
+                <div class="reservation-form__field reservation-form__field--full">
+                    <p class="reservation-form__label">人数</p>
+                    <div class="reservation-form__inline-grid reservation-form__inline-grid--simple">
+                        <label for="guide-adults" class="reservation-form__inline-field">
+                            <span>大人</span>
+                            <input type="number" id="guide-adults" name="guideAdults"
+                                class="reservation-form__input" min="0" value="0">
+                        </label>
+                        <label for="guide-children" class="reservation-form__inline-field">
+                            <span>子供</span>
+                            <input type="number" id="guide-children" name="guideChildren"
+                                class="reservation-form__input" min="0" value="0">
+                        </label>
+                    </div>
+                </div>
                     <div class="reservation-form__field reservation-form__field--full">
                         <label for="guide-spots" class="reservation-form__label">ご希望スポット場所</label>
                         <textarea id="guide-spots" name="guideSpots" class="reservation-form__textarea" rows="4"

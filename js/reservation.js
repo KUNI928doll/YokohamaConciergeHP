@@ -74,6 +74,8 @@ document.addEventListener('DOMContentLoaded', function() {
     'guideCourse': 'ご希望コース',
     'guideDate': '予約日',
     'guideArea': 'ご希望エリア',
+    'guideAdults': '大人',
+    'guideChildren': '子供',
     'guideSpots': 'ご希望スポット場所',
     'guideNotes': 'その他ご要望事項',
     'hotelDate': '予約日',
@@ -103,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // セクションの定義
   const sections = {
     '基本入力項目': ['name', 'gender', 'nationality', 'address', 'passport', 'stay', 'phone', 'email', 'card', 'cardType', 'cvv', 'companion'],
-    '観光ガイドサービス': ['guideCourse', 'guideDate', 'guideArea', 'guideSpots', 'guideNotes'],
+    '観光ガイドサービス': ['guideCourse', 'guideDate', 'guideArea', 'guideAdults', 'guideChildren', 'guideSpots', 'guideNotes'],
     'ホテル予約代行サービス': ['hotelDate', 'hotelArea', 'hotelBudget', 'hotelAdults', 'hotelChildren', 'hotelRequest', 'hotelProposal1', 'hotelProposal2'],
     '飲食店舗予約代行サービス': ['diningDate', 'diningAdults', 'diningChildren', 'diningBudget', 'diningGenre', 'diningRequest'],
     '体験アクティビティ代行サービス': ['activityDatetime', 'activityAdults', 'activityChildren', 'activityType', 'activityRequest'],
@@ -240,20 +242,43 @@ document.addEventListener('DOMContentLoaded', function() {
     // 観光ガイドサービス
     const guideCourse = form.elements['guideCourse']?.value;
     if (guideCourse) {
-      const guideNotes = form.elements['guideNotes']?.value || '';
-      const hasTranslation = guideNotes.toLowerCase().includes('通訳') || guideNotes.includes('翻訳');
-      
       let guidePrice = 0;
       let guideName = '';
-      
-      if (guideCourse === 'half') {
-        guidePrice = hasTranslation ? pricingTable.guide.half.withTranslation : pricingTable.guide.half.audioOnly;
-        guideName = `観光ガイド 半日コース（${hasTranslation ? '通訳付き' : '音声ガイド'}）`;
-      } else if (guideCourse === 'full') {
-        guidePrice = hasTranslation ? pricingTable.guide.full.withTranslation : pricingTable.guide.full.audioOnly;
-        guideName = `観光ガイド 1日コース（${hasTranslation ? '通訳付き' : '音声ガイド'}）`;
+      const courseMap = {
+        half_audio: {
+          price: pricingTable.guide.half.audioOnly,
+          name: '観光ガイド 半日コース（音声ガイド）'
+        },
+        half_interpreter: {
+          price: pricingTable.guide.half.withTranslation,
+          name: '観光ガイド 半日コース（通訳付き）'
+        },
+        full_audio: {
+          price: pricingTable.guide.full.audioOnly,
+          name: '観光ガイド 1日コース（音声ガイド）'
+        },
+        full_interpreter: {
+          price: pricingTable.guide.full.withTranslation,
+          name: '観光ガイド 1日コース（通訳付き）'
+        }
+      };
+
+      if (courseMap[guideCourse]) {
+        guidePrice = courseMap[guideCourse].price;
+        guideName = courseMap[guideCourse].name;
+      } else {
+        // 旧値（half/full）互換
+        const guideNotes = form.elements['guideNotes']?.value || '';
+        const hasTranslation = guideNotes.toLowerCase().includes('通訳') || guideNotes.includes('翻訳');
+        if (guideCourse === 'half') {
+          guidePrice = hasTranslation ? pricingTable.guide.half.withTranslation : pricingTable.guide.half.audioOnly;
+          guideName = `観光ガイド 半日コース（${hasTranslation ? '通訳付き' : '音声ガイド'}）`;
+        } else if (guideCourse === 'full') {
+          guidePrice = hasTranslation ? pricingTable.guide.full.withTranslation : pricingTable.guide.full.audioOnly;
+          guideName = `観光ガイド 1日コース（${hasTranslation ? '通訳付き' : '音声ガイド'}）`;
+        }
       }
-      
+
       if (guidePrice > 0) {
         breakdown.push({ name: guideName, price: guidePrice });
         total += guidePrice;

@@ -825,11 +825,26 @@ function yokohama_concierge_create_stripe_session() {
             $guideCourse = sanitize_text_field($_POST['guideCourse']);
             $guideNotes = isset($_POST['guideNotes']) ? sanitize_text_field($_POST['guideNotes']) : '';
             $hasTranslation = (stripos($guideNotes, '通訳') !== false || stripos($guideNotes, '翻訳') !== false);
-            
-            if ($guideCourse === 'half') {
-                $amount += $hasTranslation ? 20000 : 12000;
-            } else {
-                $amount += $hasTranslation ? 30000 : 22000;
+
+            switch ($guideCourse) {
+                case 'half_audio':
+                    $amount += 12000;
+                    break;
+                case 'half_interpreter':
+                    $amount += 20000;
+                    break;
+                case 'full_audio':
+                    $amount += 22000;
+                    break;
+                case 'full_interpreter':
+                    $amount += 30000;
+                    break;
+                case 'half':
+                    $amount += $hasTranslation ? 20000 : 12000;
+                    break;
+                case 'full':
+                    $amount += $hasTranslation ? 30000 : 22000;
+                    break;
             }
         }
         
@@ -1232,7 +1247,27 @@ function yokohama_concierge_send_reservation_emails($post_id, $form_data, $amoun
     
     // 予約内容の詳細を追加
     if (isset($form_data['guideCourse'])) {
-        $admin_message .= "観光ガイドサービス: " . $form_data['guideCourse'] . "\n";
+        $course_label = $form_data['guideCourse'];
+        $course_map = array(
+            'half_audio' => '半日コース（音声ガイド）',
+            'half_interpreter' => '半日コース（通訳付き）',
+            'full_audio' => '1日コース（音声ガイド）',
+            'full_interpreter' => '1日コース（通訳付き）',
+            'half' => '半日コース',
+            'full' => '1日コース'
+        );
+        if (isset($course_map[$course_label])) {
+            $course_label = $course_map[$course_label];
+        }
+        $admin_message .= "観光ガイドサービス: " . $course_label . "\n";
+        if (!empty($form_data['guideDate'])) {
+            $admin_message .= "  予約日: " . $form_data['guideDate'] . "\n";
+        }
+        $guide_adults = isset($form_data['guideAdults']) ? intval($form_data['guideAdults']) : 0;
+        $guide_children = isset($form_data['guideChildren']) ? intval($form_data['guideChildren']) : 0;
+        if ($guide_adults > 0 || $guide_children > 0) {
+            $admin_message .= "  人数: 大人{$guide_adults}名 / 子供{$guide_children}名\n";
+        }
     }
     if (isset($form_data['hotelDate'])) {
         $admin_message .= "ホテル予約代行: " . $form_data['hotelDate'] . "\n";
@@ -1274,10 +1309,29 @@ function yokohama_concierge_send_reservation_emails($post_id, $form_data, $amoun
     
     // 予約内容の詳細
     if (isset($form_data['guideCourse'])) {
-        $course_name = $form_data['guideCourse'] === 'half' ? '半日コース' : '1日コース';
-        $customer_message .= "観光ガイドサービス: " . $course_name . "\n";
+        $course_label = $form_data['guideCourse'];
+        $course_map = array(
+            'half_audio' => '半日コース（音声ガイド）',
+            'half_interpreter' => '半日コース（通訳付き）',
+            'full_audio' => '1日コース（音声ガイド）',
+            'full_interpreter' => '1日コース（通訳付き）',
+            'half' => '半日コース',
+            'full' => '1日コース'
+        );
+        if (isset($course_map[$course_label])) {
+            $course_label = $course_map[$course_label];
+        }
+        $customer_message .= "観光ガイドサービス: " . $course_label . "\n";
         if (isset($form_data['guideArea'])) {
             $customer_message .= "  エリア: " . $form_data['guideArea'] . "\n";
+        }
+        if (!empty($form_data['guideDate'])) {
+            $customer_message .= "  予約日: " . $form_data['guideDate'] . "\n";
+        }
+        $guide_adults = isset($form_data['guideAdults']) ? intval($form_data['guideAdults']) : 0;
+        $guide_children = isset($form_data['guideChildren']) ? intval($form_data['guideChildren']) : 0;
+        if ($guide_adults > 0 || $guide_children > 0) {
+            $customer_message .= "  人数: 大人{$guide_adults}名 / 子供{$guide_children}名\n";
         }
     }
     if (isset($form_data['hotelDate'])) {
