@@ -920,7 +920,14 @@ function yokohama_concierge_create_stripe_session() {
         $area = sanitize_text_field($_POST['hotelArea']);
     }
 
-    $food_type = !empty($_POST['diningGenre']) ? sanitize_text_field($_POST['diningGenre']) : '';
+    $food_type = '';
+    if (!empty($_POST['cuisine'])) {
+        $food_type = sanitize_text_field($_POST['cuisine']);
+    } elseif (!empty($_POST['diningGenre'])) {
+        $food_type = sanitize_text_field($_POST['diningGenre']);
+    } elseif (!empty($_POST['diningCuisine'])) {
+        $food_type = sanitize_text_field($_POST['diningCuisine']);
+    }
 
     $price_range = '';
     if (!empty($_POST['diningBudget'])) {
@@ -1203,6 +1210,7 @@ function yokohama_concierge_send_to_make_webhook($post_id, $form_data) {
         'passport' => $form_data['passport'] ?? '',
         'stay' => $form_data['stay'] ?? '',
         'companion' => $form_data['companion'] ?? '',
+        'cuisine' => $form_data['cuisine'] ?? ($form_data['diningCuisine'] ?? ($form_data['diningGenre'] ?? '')),
         'raw_form_data' => wp_json_encode($form_data, JSON_UNESCAPED_UNICODE),
         'submitted_at' => current_time('mysql'),
         'source' => 'wordpress',
@@ -1277,12 +1285,18 @@ function yokohama_concierge_send_reservation_emails($post_id, $form_data, $amoun
     }
     if (isset($form_data['diningDate'])) {
         $admin_message .= "飲食店舗予約代行: " . $form_data['diningDate'] . "\n";
+        if (!empty($form_data['diningTime'])) {
+            $admin_message .= "  予約時間: " . $form_data['diningTime'] . "\n";
+        }
         if (isset($form_data['diningFinalSelection'])) {
             $admin_message .= "  選択された提案: 提案(" . $form_data['diningFinalSelection'] . ")\n";
         }
     }
     if (isset($form_data['luggageCount'])) {
         $admin_message .= "トランクお預かり: " . $form_data['luggageCount'] . "個\n";
+        if (!empty($form_data['luggageTime'])) {
+            $admin_message .= "  お預かり時間: " . $form_data['luggageTime'] . "\n";
+        }
     }
     
     $admin_message .= "\n詳細は管理画面でご確認ください: " . admin_url('post.php?post=' . $post_id . '&action=edit') . "\n";
@@ -1344,6 +1358,9 @@ function yokohama_concierge_send_reservation_emails($post_id, $form_data, $amoun
     }
     if (isset($form_data['diningDate'])) {
         $customer_message .= "飲食店舗予約代行: " . $form_data['diningDate'] . "\n";
+        if (!empty($form_data['diningTime'])) {
+            $customer_message .= "  予約時間: " . $form_data['diningTime'] . "\n";
+        }
         if (isset($form_data['diningFinalSelection'])) {
             $proposal_num = $form_data['diningFinalSelection'];
             $proposal_text = isset($form_data['diningProposal' . $proposal_num]) ? $form_data['diningProposal' . $proposal_num] : '';
@@ -1352,6 +1369,9 @@ function yokohama_concierge_send_reservation_emails($post_id, $form_data, $amoun
     }
     if (isset($form_data['luggageCount']) && intval($form_data['luggageCount']) > 0) {
         $customer_message .= "トランクお預かり: " . $form_data['luggageCount'] . "個\n";
+        if (!empty($form_data['luggageTime'])) {
+            $customer_message .= "  お預かり時間: " . $form_data['luggageTime'] . "\n";
+        }
     }
     
     $customer_message .= "\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n";
@@ -1370,6 +1390,57 @@ function yokohama_concierge_send_reservation_emails($post_id, $form_data, $amoun
     
     wp_mail($email, $customer_subject, $customer_message, $customer_headers);
 }
+
+// Contact Form 7 の自動返信をTranslatePressの言語に合わせて切り替え
+function yokohama_concierge_cf7_switch_autoreply_by_language($contact_form) {
+    if (!is_object($contact_form)) {
+        return;
+    }
+
+    $is_target_form = false;
+    $form_title = method_exists($contact_form, 'title') ? $contact_form->title() : '';
+    if ($form_title === 'お問い合わせフォーム') {
+        $is_target_form = true;
+    }
+
+    if (method_exists($contact_form, 'hash')) {
+        $form_hash = $contact_form->hash();
+        if ($form_hash === '8f7b03f') {
+            $is_target_form = true;
+        }
+    }
+
+    if (!$is_target_form) {
+        return;
+    }
+
+    $lang = function_exists('trp_get_current_language') ? trp_get_current_language() : '';
+    if ($lang !== 'en' && $lang !== 'en_US') {
+        return;
+    }
+
+    $props = $contact_form->get_properties();
+    if (isset($props['mail_2']) && is_array($props['mail_2'])) {
+        $props['mail_2']['subject'] = '【YOKOHAMA Concierge】We received your inquiry';
+        $props['mail_2']['body'] =
+            "[your-name] 様\n\n" .
+            "Thank you for contacting YOKOHAMA Concierge.\n" .
+            "We will get back to you within 2 business days.\n\n" .
+            "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" .
+            "Inquiry Details\n" .
+            "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n" .
+            "Name: [your-name]\n" .
+            "Email: [your-email]\n\n" .
+            "Message:\n[your-message]\n\n" .
+            "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n" .
+            "YOKOHAMA Concierge\n" .
+            "Email: info@hamanavi-s.jp\n\n" .
+            "※ This email was sent automatically.\n";
+    }
+
+    $contact_form->set_properties($props);
+}
+add_action('wpcf7_before_send_mail', 'yokohama_concierge_cf7_switch_autoreply_by_language');
 
 // Stripe設定ページを追加
 function yokohama_concierge_add_stripe_settings_page() {

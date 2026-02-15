@@ -118,7 +118,8 @@ function generateEmailBody($data) {
         $body .= "大人: " . ($data['diningAdults'] ?? '0') . "名\n";
         $body .= "子供: " . ($data['diningChildren'] ?? '0') . "名\n";
         $body .= "ご予算: " . ($data['diningBudget'] ?? '') . "\n";
-        $body .= "ジャンル: " . ($data['diningGenre'] ?? '') . "\n";
+        $cuisine = $data['cuisine'] ?? ($data['diningGenre'] ?? ($data['diningCuisine'] ?? ''));
+        $body .= "ジャンル: " . $cuisine . "\n";
         $body .= "その他ご希望: " . ($data['diningRequest'] ?? '') . "\n\n";
     }
     

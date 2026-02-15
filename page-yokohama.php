@@ -180,13 +180,12 @@ get_header();
                             </p>
 
                             <h3 class="tab-sub-title">見どころスポット</h3>
-                            <div class="tab-wrapper2">
+                            <div class="tab-wrapper2 tab-wrapper2--vertical">
                                 <ul class="tab-text">
                                     <li>• 象の鼻パーク　開港当時の防波堤が復元されている、海沿いの散策・休憩スポット。開放感抜群です。
 
                                     </li>
                                     <li>• 大さん橋（メリケン波止場）　クルーズ船発着であり、夜景スポットへも近い、日本で最も古い桟橋です。</li>
-                                    <li> • 横浜スタジアム　野球観戦やイベントで盛り上がる拠点です。</li>
                                 </ul>
                                 <div class="tab-img4">
                                     <img src="<?php echo get_template_directory_uri(); ?>/images/yokohama/nihonodori-tab01@2x.png" alt="日本大通りエリアの写真" loading="lazy"
@@ -206,26 +205,28 @@ get_header();
                                 <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-kannai.png" alt="" aria-hidden="true">
                                 関内エリア
                             </h2>
-                            <div class="tab-wrapper2">
-                                <div class="tab-head">
-                                    <p class="tab-text">
-                                        文明開化の時代に外国人居留地として栄えた馬車道は、ガス灯とレンガ造りの建物が並ぶ、レトロな雰囲気漂うエリア。アイスクリームやガス灯発祥の地としても知られ、昔ながらの洋食店やアートスポットが点在しています。レトロとモダンが調和した散策におすすめの場所です。
-                                    </p>
-                                    <h3 class="tab-sub-title">見どころスポット</h3>
-                                    <p class="tab-text">
-                                        吉田町　　小さなバーやギャラリーが集まるアートとナイトスポットのエリアです。
-                                    </p>
-                                </div>
-                                <div class="tab-img6">
+                            <div class="tab-panel-wrap">
+                                <p class="tab-text">文明開化の時代に外国人居留地として栄えた馬車道は、ガス灯とレンガ造りの建物が並ぶ、レトロな雰囲気漂うエリア。アイスクリームやガス灯発祥の地としても知られ、昔ながらの洋食店やアートスポットが点在しています。レトロとモダンが調和した散策におすすめの場所です。
+                                </p>
+                                </p>
+                                <div class="tab-img2">
                                     <img src="<?php echo get_template_directory_uri(); ?>/images/yokohama/kannai-tab01@2x.png" alt="関内エリアの写真" loading="lazy"
                                         decoding="async">
                                 </div>
                             </div>
-                            <div class="tab__map-button">
-                                <a href="#yokohama-area" class="guide-spots__map-link" data-target="map-kannai">
-                                    <span aria-hidden="true">↑</span>
-                                    <span>MAPへ</span>
-                                </a>
+                            <div class="tab-spot">
+                                <h3 class="tab-sub-title">見どころスポット</h3>
+                                <p class="tab-text">横浜スタジアム　　プロ野球の試合や大型イベントが開催される、横浜の象徴的な球場です。</p>
+                                <div class="tab-img3">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/images/yokohama/kannai-tab02@2x.png" alt="横浜スタジアムの写真" loading="lazy"
+                                        decoding="async">
+                                </div>
+                                <div class="tab__map-button tab__map-button--position">
+                                    <a href="#yokohama-area" class="guide-spots__map-link" data-target="map-chinatown">
+                                        <span aria-hidden="true">↑</span>
+                                        <span>MAPへ</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <!-- 馬車道 -->

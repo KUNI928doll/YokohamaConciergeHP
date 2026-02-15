@@ -369,6 +369,11 @@ get_header();
                                 class="reservation-form__input">
                         </div>
                         <div class="reservation-form__field">
+                            <label for="dining-time" class="reservation-form__label">予約時間</label>
+                            <input type="time" id="dining-time" name="diningTime"
+                                class="reservation-form__input">
+                        </div>
+                        <div class="reservation-form__field">
                             <label for="dining-area" class="reservation-form__label">エリア選択</label>
                             <select id="dining-area" name="diningArea" class="reservation-form__select">
                                 <option value="" disabled selected>選択してください</option>
@@ -379,14 +384,19 @@ get_header();
                                 <option value="kannai">関内</option>
                                 <option value="minatomirai">みなとみらい</option>
                                 <option value="sakuragicho">桜木町</option>
+                                <option value="other_yokohama">横浜市内その他</option>
                             </select>
                         </div>
                         <div class="reservation-form__field">
                             <label for="dining-cuisine" class="reservation-form__label">料理ジャンル</label>
-                            <select id="dining-cuisine" name="diningCuisine" class="reservation-form__select">
+                            <select id="dining-cuisine" name="cuisine" class="reservation-form__select">
                                 <option value="" disabled selected>選択してください</option>
-                                <option value="japanese">日本食</option>
+                                <option value="washoku">和食</option>
+                                <option value="sushi">お寿司</option>
+                                <option value="tempura">天ぷら</option>
+                                <option value="soba_udon">そばうどん</option>
                                 <option value="chinese">中華</option>
+                                <option value="indian">インド料理</option>
                                 <option value="french">フレンチ</option>
                                 <option value="italian">イタリアン</option>
                                 <option value="spanish">スペイン</option>
@@ -402,6 +412,7 @@ get_header();
                             <label for="dining-budget" class="reservation-form__label">ご希望金額</label>
                             <select id="dining-budget" name="diningBudget" class="reservation-form__select">
                                 <option value="" disabled selected>選択してください</option>
+                                <option value="2000">〜2,000円</option>
                                 <option value="3000">〜3,000円</option>
                                 <option value="6000">〜6,000円</option>
                                 <option value="12000">〜12,000円</option>
@@ -491,6 +502,11 @@ get_header();
                         <div class="reservation-form__field">
                             <label for="luggage-date" class="reservation-form__label">予約日</label>
                             <input type="date" id="luggage-date" name="luggageDate"
+                                class="reservation-form__input">
+                        </div>
+                        <div class="reservation-form__field">
+                            <label for="luggage-time" class="reservation-form__label">お預かり時間</label>
+                            <input type="time" id="luggage-time" name="luggageTime"
                                 class="reservation-form__input">
                         </div>
                         <div class="reservation-form__field">

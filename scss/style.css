@@ -954,9 +954,11 @@ html[lang=en-GB] .inner-nav__item {
   background: var(--color-bg);
   box-sizing: border-box;
   position: relative;
+  z-index: 100;
   width: 100%;
   max-width: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
   display: flex;
 }
 @media (max-width: 768px) {
@@ -1219,7 +1221,7 @@ html[lang=en-GB] .header .tel-orange {
   background-color: #EFF3F4;
   height: 90px;
   padding-inline: 20px;
-  overflow: hidden;
+  overflow: visible;
   gap: 12px;
 }
 .spmenu .spmenu__top .spmenu__reserve {
@@ -1775,8 +1777,8 @@ body.spmenu-open .header__toggle {
 .header__language-wrapper.lang-switch .trp-ls-shortcode-list {
   display: none;
   position: absolute !important;
-  top: calc(var(--header-height) + 8px);
-  right: clamp(16px, 2vw, 32px);
+  top: calc(100% + 8px);
+  right: 0;
   left: auto;
   transform: none;
   background: #fff;
@@ -1802,8 +1804,7 @@ body.spmenu-open .header__toggle {
   padding: 0;
   display: none !important;
 }
-.header__language-wrapper.lang-switch:hover .trp-ls-shortcode-language,
-.header__language-wrapper.lang-switch.is-open .trp-ls-shortcode-language {
+.header__language-wrapper.lang-switch:hover .trp-ls-shortcode-language, .header__language-wrapper.lang-switch.is-open .trp-ls-shortcode-language {
   display: none !important;
 }
 .header__language-wrapper.lang-switch .trp-ls-shortcode-list a,
@@ -1829,6 +1830,11 @@ body.spmenu-open .header__toggle {
 }
 .header__language-wrapper.lang-switch .trp-shortcode-arrow {
   display: none;
+}
+.header__language-wrapper.lang-switch .trp-switcher-dropdown-list {
+  bottom: calc(100% + 8px);
+  top: auto;
+  max-height: 350px;
 }
 .header__language-wrapper.lang-switch .trp-current-language-item__wrapper::after {
   content: "";
@@ -6350,8 +6356,10 @@ img {
   color: var(--color-bg);
 }
 .sub-hero--reservation .sub-hero__title {
-  position: static;
-  transform: none;
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+  transform: none !important;
   text-shadow: none;
   letter-spacing: 0.05em;
   text-align: center;
@@ -10497,6 +10505,14 @@ img {
   }
 }
 
+.tab-wrapper2--vertical {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.tab-wrapper2--vertical .tab-head {
+  width: 100%;
+}
+
 @media (max-width: 1024px) {
   .tab-img4 {
     text-align: center;
@@ -11906,7 +11922,8 @@ button {
   grid-template-columns: minmax(0, 1fr) auto;
   grid-template-areas: "dot desc" "note note";
   align-items: center;
-  column-gap: 0.5em;
+  -moz-column-gap: 0.5em;
+       column-gap: 0.5em;
   row-gap: 0.3em;
 }
 @media (max-width: 768px) {

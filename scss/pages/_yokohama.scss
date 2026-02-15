@@ -278,6 +278,15 @@
   }
 }
 
+.tab-wrapper2--vertical {
+  flex-direction: column;
+  align-items: flex-start;
+
+  .tab-head {
+    width: 100%;
+  }
+}
+
 @include mq($until: tab) {
   .tab-img4 {
     text-align: center;

@@ -87,10 +87,11 @@ document.addEventListener('DOMContentLoaded', function() {
     'hotelProposal1': 'ハマナビからの提案1',
     'hotelProposal2': 'ハマナビからの提案2',
     'diningDate': '予約日',
+    'diningTime': '予約時間',
     'diningAdults': '大人',
     'diningChildren': '子供',
     'diningBudget': 'ご予算',
-    'diningGenre': 'ジャンル',
+    'cuisine': 'ジャンル',
     'diningRequest': 'その他ご希望事項',
     'activityDatetime': '予約希望日時',
     'activityAdults': '大人',
@@ -98,6 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
     'activityType': '体験アクティビティ',
     'activityRequest': 'その他ご希望事項',
     'luggageDate': '予約日',
+    'luggageTime': 'お預かり時間',
     'luggageCount': '予約個数',
     'luggageNotes': 'その他ご希望事項'
   };
@@ -107,9 +109,9 @@ document.addEventListener('DOMContentLoaded', function() {
     '基本入力項目': ['name', 'gender', 'nationality', 'address', 'passport', 'stay', 'phone', 'email', 'card', 'cardType', 'cvv', 'companion'],
     '観光ガイドサービス': ['guideCourse', 'guideDate', 'guideArea', 'guideAdults', 'guideChildren', 'guideSpots', 'guideNotes'],
     'ホテル予約代行サービス': ['hotelDate', 'hotelArea', 'hotelBudget', 'hotelAdults', 'hotelChildren', 'hotelRequest', 'hotelProposal1', 'hotelProposal2'],
-    '飲食店舗予約代行サービス': ['diningDate', 'diningAdults', 'diningChildren', 'diningBudget', 'diningGenre', 'diningRequest'],
+    '飲食店舗予約代行サービス': ['diningDate', 'diningTime', 'diningAdults', 'diningChildren', 'diningBudget', 'cuisine', 'diningRequest'],
     '体験アクティビティ代行サービス': ['activityDatetime', 'activityAdults', 'activityChildren', 'activityType', 'activityRequest'],
-    'トランクお預かりサービス': ['luggageDate', 'luggageCount', 'luggageNotes']
+    'トランクお預かりサービス': ['luggageDate', 'luggageTime', 'luggageCount', 'luggageNotes']
   };
 
   // 確認ボタンのクリック

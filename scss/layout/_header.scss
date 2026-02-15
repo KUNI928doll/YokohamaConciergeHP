@@ -15,7 +15,7 @@
   // 言語切り替えのドロップダウンがヘッダー外に展開されるため
   // 縦方向は visible にしてクリック不能（見切れ）を防ぐ
   overflow-x: hidden;
-  overflow-y: visible;
+  overflow-y: hidden;
   display: flex;
 
   @include mq(sp-large) {
@@ -979,8 +979,8 @@ body.spmenu-open .header__toggle {
   .trp-ls-shortcode-list {
     display: none;
     position: absolute !important;
-    top: calc(var(--header-height) + 8px);
-    right: clamp(16px, 2vw, 32px);
+    top: calc(100% + 8px);
+    right: 0;
     left: auto;
     transform: none;
     background: #fff;
@@ -1050,6 +1050,13 @@ body.spmenu-open .header__toggle {
   }
   .trp-shortcode-arrow {
     display: none;
+  }
+
+  // TranslatePress別スイッチャー（ドロップダウン表示位置を上側に）
+  .trp-switcher-dropdown-list {
+    bottom: calc(100% + 8px);
+    top: auto;
+    max-height: 350px;
   }
   .trp-current-language-item__wrapper::after{
     content: "";
