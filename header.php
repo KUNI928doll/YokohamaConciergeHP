@@ -56,7 +56,7 @@
                             </div>
                         </li>
                         <li class="header__utility-item header__utility-item--xwide">
-                            <a href="mailto:info@hamanavi-s.jp" class="header__utility-link is-column is-gap-large">
+                            <a href="contact.php" class="header__utility-link is-column is-gap-large">
                                 <img src="<?php echo get_template_directory_uri(); ?>/images/header_mailicon.png" alt="メールアイコン"
                                     class="header__icon header__icon--mail">
                                 メール
