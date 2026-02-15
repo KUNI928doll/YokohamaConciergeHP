@@ -342,7 +342,7 @@ get_header();
                                 <input type="hidden" id="hotel-proposal-2-id" name="hotelProposal2Id">
                             </div>
                         </div>
-                        <div class="reservation-form__field reservation-form__field--full">
+                        <div class="reservation-form__field reservation-form__field--full reservation-form__field--final-selection">
                             <p class="reservation-form__label">最終選択<span class="reservation-form__required">必須</span></p>
                             <div class="reservation-form__final-selection">
                                 <label class="reservation-form__radio-label">
@@ -478,7 +478,7 @@ get_header();
                                 <input type="hidden" id="dining-proposal-2-id" name="diningProposal2Id">
                             </div>
                         </div>
-                        <div class="reservation-form__field reservation-form__field--full">
+                        <div class="reservation-form__field reservation-form__field--full reservation-form__field--final-selection">
                             <p class="reservation-form__label">最終選択<span class="reservation-form__required">必須</span></p>
                             <div class="reservation-form__final-selection">
                                 <label class="reservation-form__radio-label">
