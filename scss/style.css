@@ -6,9 +6,9 @@
   --color-text: #1D50A2;
   --color-bg:#fff;
   /* ===== Fonts ===== */
-  --font-heading:"Noto Sans JP", sans-serif;
-  --font-sub: "Zen Maru Gothic", sans-serif;
-  --font-sub-al:"uzura_font", sans-serif;
+  --font-heading:'Noto Sans JP', sans-serif;
+  --font-sub: 'Zen Maru Gothic', sans-serif;
+  --font-sub-al:'uzura_font', sans-serif;
 }
 
 @supports (-webkit-font-smoothing: antialiased) {
@@ -275,21 +275,6 @@ a:hover {
   flex-grow: 0;
   flex-shrink: 0;
   /* アイコン */
-  /* ================================
-     カラーバリエーション
-  ================================= */
-  /* ================================
-     サイズバリエーション
-  ================================= */
-  /* ================================
-     形状バリエーション
-  ================================= */
-  /* ================================
-     アイコン付きボタン（例：見積り用）
-  ================================= */
-  /* ================================
-     矢印付きボタン（テキスト中央、矢印右端）
-  ================================= */
 }
 .btn .btn__icon, .news__btn .btn__icon, .about-yokohama__map-btn .btn__icon, .support__btn .btn__icon, .faq-bottom__btn .btn__icon {
   width: 1.1em;
@@ -298,6 +283,11 @@ a:hover {
 .btn .btn__iconarrow, .news__btn .btn__iconarrow, .about-yokohama__map-btn .btn__iconarrow, .support__btn .btn__iconarrow, .faq-bottom__btn .btn__iconarrow {
   font-size: 1.2em;
   line-height: 1;
+}
+.btn, .news__btn, .contact .news__btn, .about-yokohama__map-btn, .contact .about-yokohama__map-btn, .contact .btn, .contact .faq-bottom__btn, .contact .support__btn, .support__btn, .faq-bottom__btn {
+  /* ================================
+     カラーバリエーション
+  ================================= */
 }
 .btn--blue {
   background: #0D3D90;
@@ -331,6 +321,11 @@ a:hover {
 .btn--gray:hover {
   background: #e8ecee;
 }
+.btn, .news__btn, .contact .news__btn, .about-yokohama__map-btn, .contact .about-yokohama__map-btn, .contact .btn, .contact .faq-bottom__btn, .contact .support__btn, .support__btn, .faq-bottom__btn {
+  /* ================================
+     サイズバリエーション
+  ================================= */
+}
 .btn--lg {
   font-size: clamp(1.6rem, 1.8vw, 1.8rem);
   padding: 1em 1em;
@@ -346,6 +341,11 @@ a:hover {
   font-size: 1.4rem;
   padding: 0.571em 1.714em;
   border-radius: 9999px;
+}
+.btn, .news__btn, .contact .news__btn, .about-yokohama__map-btn, .contact .about-yokohama__map-btn, .contact .btn, .contact .faq-bottom__btn, .contact .support__btn, .support__btn, .faq-bottom__btn {
+  /* ================================
+     形状バリエーション
+  ================================= */
 }
 .btn--circle {
   width: 60px;
@@ -375,12 +375,22 @@ a:hover {
   background: #0D3D90;
   color: #fff;
 }
+.btn, .news__btn, .contact .news__btn, .about-yokohama__map-btn, .contact .about-yokohama__map-btn, .contact .btn, .contact .faq-bottom__btn, .contact .support__btn, .support__btn, .faq-bottom__btn {
+  /* ================================
+     アイコン付きボタン（例：見積り用）
+  ================================= */
+}
 .btn--with-icon {
   gap: 10px;
 }
 .btn--with-icon img {
   width: 20px;
   height: auto;
+}
+.btn, .news__btn, .contact .news__btn, .about-yokohama__map-btn, .contact .about-yokohama__map-btn, .contact .btn, .contact .faq-bottom__btn, .contact .support__btn, .support__btn, .faq-bottom__btn {
+  /* ================================
+     矢印付きボタン（テキスト中央、矢印右端）
+  ================================= */
 }
 .btn--with-arrow {
   position: relative;
@@ -1724,9 +1734,6 @@ body.spmenu-open .header__toggle {
   cursor: pointer;
   position: relative;
   /* TranslatePressの言語切り替えスタイル */
-  /* すべての言語リンクを非表示（デフォルト） */
-  /* 現在の言語を「Language」と表示 */
-  /* 言語切り替えのドロップダウン */
 }
 .header__language-wrapper.lang-switch .trp-ls-shortcode {
   display: flex;
@@ -1734,8 +1741,14 @@ body.spmenu-open .header__toggle {
   align-items: center;
   gap: 0;
 }
+.header__language-wrapper.lang-switch {
+  /* すべての言語リンクを非表示（デフォルト） */
+}
 .header__language-wrapper.lang-switch .trp-ls-shortcode-language {
   display: none !important;
+}
+.header__language-wrapper.lang-switch {
+  /* 現在の言語を「Language」と表示 */
 }
 .header__language-wrapper.lang-switch .trp-ls-shortcode-current-language {
   display: inline-block;
@@ -1773,6 +1786,9 @@ body.spmenu-open .header__toggle {
 }
 .header__language-wrapper.lang-switch .trp-ls-shortcode-current-language a:hover {
   color: var(--color-accent);
+}
+.header__language-wrapper.lang-switch {
+  /* 言語切り替えのドロップダウン */
 }
 .header__language-wrapper.lang-switch .trp-ls-shortcode-list {
   display: none;
@@ -1841,8 +1857,7 @@ body.spmenu-open .header__toggle {
   width: 1rem;
   aspect-ratio: 1;
   background-color: var(--color-main);
-  -webkit-clip-path: polygon(0 0, 100% 0, 50% 100%);
-          clip-path: polygon(0 0, 100% 0, 50% 100%);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
   transition: transform 0.3s ease;
 }
 .header__language-wrapper.lang-switch:hover .trp-current-language-item__wrapper::after {
@@ -2818,15 +2833,6 @@ img {
   text-align: center;
   background-color: #fff;
   overflow: visible;
-  /* =======================
-     画像エリア（PCは重ね配置）
-  ======================= */
-  /* =======================
-     各画像
-  ======================= */
-  /* =======================
-     スタンプ・カモメ・旗
-  ======================= */
 }
 @media (max-width: 768px) {
   .about {
@@ -2879,6 +2885,11 @@ img {
     font-size: 1.4rem;
   }
 }
+.about {
+  /* =======================
+     画像エリア（PCは重ね配置）
+  ======================= */
+}
 .about .about__images {
   position: relative;
   width: 100%;
@@ -2914,14 +2925,17 @@ img {
     content: none;
   }
 }
-.about .about__image {
-  /* 💻 PC（1200px以上）：absoluteで重ね配置 */
-  /* 💻 タブレット：グリッド配置 */
-  /* 📱 スマホ：縦1列 */
+.about {
+  /* =======================
+     各画像
+  ======================= */
 }
 .about .about__image img {
   width: 100%;
   display: block;
+}
+.about .about__image {
+  /* 💻 PC（1200px以上）：absoluteで重ね配置 */
 }
 @media (min-width: 1200px) {
   .about .about__image {
@@ -2946,6 +2960,9 @@ img {
     z-index: 2;
   }
 }
+.about .about__image {
+  /* 💻 タブレット：グリッド配置 */
+}
 @media (max-width: 1200px) {
   .about .about__image {
     position: relative;
@@ -2963,12 +2980,20 @@ img {
        object-fit: cover;
   }
 }
+.about .about__image {
+  /* 📱 スマホ：縦1列 */
+}
 @media (max-width: 768px) {
   .about .about__image {
     width: 90%;
     max-width: 380px;
     margin-inline: auto;
   }
+}
+.about {
+  /* =======================
+     スタンプ・カモメ・旗
+  ======================= */
 }
 .about .about__stamp {
   position: absolute;
@@ -3044,7 +3069,6 @@ img {
   overflow: visible;
   width: 100%;
   z-index: 2;
-  /* 下の波 */
 }
 .features::before {
   content: "";
@@ -3056,6 +3080,9 @@ img {
   top: 0px;
   left: 0;
   right: 0;
+}
+.features {
+  /* 下の波 */
 }
 .features::after {
   content: "";
@@ -3086,8 +3113,7 @@ img {
 
 .features__wrap {
   background-color: rgba(242, 246, 246, 0.85);
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   padding-block: 100px;
 }
 @media (max-width: 768px) {
@@ -3278,8 +3304,7 @@ img {
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.6);
-  -webkit-backdrop-filter: blur(3px);
-          backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
   z-index: 9998;
 }
 
@@ -3890,8 +3915,7 @@ img {
   width: 60px;
   height: 60px;
   background: #4096CC;
-  -webkit-clip-path: polygon(0 0, 100% 0, 0 100%);
-          clip-path: polygon(0 0, 100% 0, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 0 100%);
   border-top-left-radius: 12px;
   /* ←角を丸く */
 }
@@ -4070,7 +4094,6 @@ img {
   padding-inline: 20px;
   overflow: visible;
   width: 100%;
-  /* 背景つき部分 */
 }
 @media (max-width: 768px) {
   .support {
@@ -4092,6 +4115,9 @@ img {
   height: auto;
   -o-object-fit: contain;
      object-fit: contain;
+}
+.support {
+  /* 背景つき部分 */
 }
 .support .support__box {
   position: relative;
@@ -4208,9 +4234,6 @@ img {
   background-image: url(../images/faq/faq-bg-pattern.png);
   background-repeat: repeat;
   background-size: 41px 45px;
-  /* ==== 質問ボタン ==== */
-  /* ==== 答え部分（アコーディオン本体） ==== */
-  /* ==== 開いた状態 ==== */
 }
 .faq::before {
   content: "";
@@ -4332,6 +4355,9 @@ img {
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
 }
+.faq {
+  /* ==== 質問ボタン ==== */
+}
 .faq .faq__question {
   position: relative;
   display: flex;
@@ -4390,6 +4416,9 @@ img {
   transition: transform 0.3s ease;
   right: 0.6667em;
 }
+.faq {
+  /* ==== 答え部分（アコーディオン本体） ==== */
+}
 .faq .faq__answer {
   text-align: left;
   background: #fff;
@@ -4420,6 +4449,9 @@ img {
   line-height: 1.5;
   margin-top: 0;
   padding-top: 0;
+}
+.faq {
+  /* ==== 開いた状態 ==== */
 }
 .is-active .faq__answer {
   max-height: 600px;
@@ -9295,11 +9327,6 @@ img {
 .guide-points {
   padding: 99px 0;
   text-align: center;
-  /* ▼ SPは縦、PCは横3つ */
-  /* ▼ 各ポイントブロック */
-  /* ▼ まる画像（ここが大事） */
-  /* 見出し */
-  /* サブテキスト */
 }
 @media (max-width: 768px) {
   .guide-points {
@@ -9348,6 +9375,9 @@ img {
   margin: 0 auto;
   flex-wrap: wrap;
 }
+.guide-points {
+  /* ▼ SPは縦、PCは横3つ */
+}
 .guide-points .guide-points__features {
   display: flex;
   justify-content: center;
@@ -9360,6 +9390,9 @@ img {
     gap: 60px;
   }
 }
+.guide-points {
+  /* ▼ 各ポイントブロック */
+}
 .guide-points .guide-points__feature {
   display: flex;
   flex-direction: column;
@@ -9368,6 +9401,9 @@ img {
   position: relative;
   width: 280px;
   flex-shrink: 0;
+}
+.guide-points {
+  /* ▼ まる画像（ここが大事） */
 }
 .guide-points .guide-points__icon {
   flex-shrink: 0;
@@ -9380,6 +9416,9 @@ img {
   width: 100%;
   height: auto;
   display: block;
+}
+.guide-points {
+  /* 見出し */
 }
 .guide-points .guide-points__head {
   position: absolute;
@@ -9394,6 +9433,9 @@ img {
   width: 100%;
   text-align: center;
   margin: 0;
+}
+.guide-points {
+  /* サブテキスト */
 }
 .guide-points .guide-points__text {
   position: absolute;
@@ -10115,8 +10157,7 @@ img {
   width: 56px;
   height: 56px;
   background: #4096CC;
-  -webkit-clip-path: polygon(0 0, 100% 0, 0 100%);
-          clip-path: polygon(0 0, 100% 0, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 0 100%);
   border-top-left-radius: 16px;
 }
 @media (max-width: 768px) {

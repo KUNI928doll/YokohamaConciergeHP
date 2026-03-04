@@ -159,13 +159,10 @@ aboutTl.fromTo(
 );
 
 // ③ 3枚のイメージが順に出現
-aboutTl.from(".about__image img", {
-  y: 50,
-  opacity: 0,
-  stagger: 0.25,
-  duration: 1.2,
-  ease: "power2.out",
-});
+aboutTl.fromTo(".about__image img",
+  { y: 50, opacity: 0 },
+  { y: 0, opacity: 1, stagger: 0.25, duration: 1.2, ease: "power2.out", immediateRender: false }
+);
 
 gsap.to(".seagull", {
   scrollTrigger: {

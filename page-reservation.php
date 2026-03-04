@@ -370,8 +370,17 @@ get_header();
                         </div>
                         <div class="reservation-form__field">
                             <label for="dining-time" class="reservation-form__label">予約時間</label>
-                            <input type="time" id="dining-time" name="diningTime"
-                                class="reservation-form__input">
+                            <select id="dining-time" name="diningTime" class="reservation-form__select">
+                                <option value="" disabled selected>選択してください</option>
+                                <?php
+                                for ($h = 0; $h < 24; $h++) {
+                                    foreach (['00', '30'] as $m) {
+                                        $val = sprintf('%02d:%s', $h, $m);
+                                        echo "<option value=\"{$val}\">{$val}</option>\n";
+                                    }
+                                }
+                                ?>
+                            </select>
                         </div>
                         <div class="reservation-form__field">
                             <label for="dining-area" class="reservation-form__label">エリア選択</label>
@@ -506,8 +515,17 @@ get_header();
                         </div>
                         <div class="reservation-form__field">
                             <label for="luggage-time" class="reservation-form__label">お預かり時間</label>
-                            <input type="time" id="luggage-time" name="luggageTime"
-                                class="reservation-form__input">
+                            <select id="luggage-time" name="luggageTime" class="reservation-form__select">
+                                <option value="" disabled selected>選択してください</option>
+                                <?php
+                                for ($h = 0; $h < 24; $h++) {
+                                    foreach (['00', '30'] as $m) {
+                                        $val = sprintf('%02d:%s', $h, $m);
+                                        echo "<option value=\"{$val}\">{$val}</option>\n";
+                                    }
+                                }
+                                ?>
+                            </select>
                         </div>
                         <div class="reservation-form__field">
                             <label for="luggage-count" class="reservation-form__label">予約個数</label>
