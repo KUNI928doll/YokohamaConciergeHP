@@ -11,10 +11,10 @@ get_header();
         
         <div class="sub-hero">
             <div class="sub-hero__decoration">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/sub-hero__decoration.png" alt="" aria-hidden="true">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/sub-hero__decoration.png" alt="" aria-hidden="true" width="1730" height="92">
             </div>
             <div class="sub-hero__img">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/service-hero.png" alt="横浜の夜景">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/service-hero.png" alt="横浜の夜景" width="2734" height="746">
             </div>
             <h1 class="sub-hero__title">サービス紹介</h1>
         </div>
@@ -32,7 +32,7 @@ get_header();
                 <!-- タイトル -->
                 <div class="guide-overview__title-block">
                     <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-reserve.png" alt="" class="guide-overview__title-icon"
-                        aria-hidden="true">
+                        aria-hidden="true" width="240" height="240">
                     <h2 class="guide-overview__title">予約代行</h2>
                     <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/guide-wave.svg" alt="" class="guide-overview__title-wave"
                         aria-hidden="true">
@@ -89,10 +89,10 @@ get_header();
                     </div>
                     <div class="category__images">
                         <figure class="category__image">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/reservation-circle01@2x.png" alt="ホテルの写真">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/reservation-circle01@2x.png" alt="ホテルの写真" width="629" height="410">
                         </figure>
                         <figure class="category__image2">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/reservation-circle02@2x.png" alt="ホテルの写真">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/reservation-circle02@2x.png" alt="ホテルの写真" width="550" height="288">
                         </figure>
                     </div>
                 </div>
@@ -172,8 +172,8 @@ get_header();
                                 <div class="slick-img">
                                     <div class="play-slider__item">
                                         <div class="play-img">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/paly-slider01@2x.png" alt="陶芸教室" width=""
-                                                height="" loading="lazy" decoding="async">
+                                            <img src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/paly-slider01@2x.png" alt="陶芸教室" width="200"
+                                                height="200" loading="lazy" decoding="async">
                                         </div>
                                         <p class="play__label">陶芸教室</p>
                                         <div class="play-slider__bubble">
@@ -188,8 +188,8 @@ get_header();
                                 <div class="slick-img">
                                     <div class="play-slider__item">
                                         <div class="play-img">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/play-slider02@2x.png" alt="着物レンタル" width=""
-                                                height="" loading="lazy" decoding="async">
+                                            <img src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/play-slider02@2x.png" alt="着物レンタル" width="200"
+                                                height="200" loading="lazy" decoding="async">
                                         </div>
                                         <p class="play__label">着物レンタル</p>
                                         <div class="play-slider__bubble">
@@ -203,8 +203,8 @@ get_header();
                                 <div class="slick-img">
                                     <div class="play-slider__item">
                                         <div class="play-img">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/play-slider03@2x.png" alt="人力車体験" width=""
-                                                height="" loading="lazy" decoding="async">
+                                            <img src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/play-slider03@2x.png" alt="人力車体験" width="200"
+                                                height="200" loading="lazy" decoding="async">
                                         </div>
                                         <p class="play__label">人力車体験</p>
                                         <div class="play-slider__bubble play-slider__bubble--width">
@@ -219,8 +219,8 @@ get_header();
                                 <div class="slick-img">
                                     <div class="play-slider__item">
                                         <div class="play-img">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/play-slider04@2x.png" alt="SUP（スタンドアップパドル）体験" width=""
-                                                height="" loading="lazy" decoding="async">
+                                            <img src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/play-slider04@2x.png" alt="SUP（スタンドアップパドル）体験" width="200"
+                                                height="200" loading="lazy" decoding="async">
                                         </div>
                                         <p class="play__label">SUP（スタンドアップパドル）体験</p>
                                         <div class="play-slider__bubble">
@@ -234,8 +234,8 @@ get_header();
                                 <div class="slick-img">
                                     <div class="play-slider__item">
                                         <div class="play-img">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/play-slider05@2x.png" alt="水陸両用バス「SKY DUCK」クルーズ" width=""
-                                                height="" loading="lazy" decoding="async">
+                                            <img src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/play-slider05@2x.png" alt="水陸両用バス「SKY DUCK」クルーズ" width="200"
+                                                height="200" loading="lazy" decoding="async">
                                         </div>
                                         <p class="play__label">水陸両用バス「SKY DUCK」クルーズ</p>
                                         <div class="play-slider__bubble">
@@ -251,8 +251,8 @@ get_header();
                                 <div class="slick-img">
                                     <div class="play-slider__item">
                                         <div class="play-img">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/play-slider06@2x.png" alt="マリーンルージュクルーズ" width=""
-                                                height="" loading="lazy" decoding="async">
+                                            <img src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/play-slider06@2x.png" alt="マリーンルージュクルーズ" width="200"
+                                                height="200" loading="lazy" decoding="async">
                                         </div>
                                         <p class="play__label">マリーンルージュクルーズ</p>
                                         <div class="play-slider__bubble">
@@ -267,8 +267,8 @@ get_header();
                                 <div class="slick-img">
                                     <div class="play-slider__item">
                                         <div class="play-img">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/play-slider07@2x.png" alt="屋形船" width=""
-                                                height="" loading="lazy" decoding="async">
+                                            <img src="<?php echo get_template_directory_uri(); ?>/images/service-reserve/play-slider07@2x.png" alt="屋形船" width="200"
+                                                height="200" loading="lazy" decoding="async">
                                         </div>
                                         <p class="play__label">屋形船</p>
                                         <div class="play-slider__bubble">

@@ -4,17 +4,17 @@
         <section class="hero js-fade-up">
             <img src="<?php echo get_template_directory_uri(); ?>/images/fireworks.gif"alt="夜空に咲く花火のアニメーション"class="hero__bg">
             <div class="hero__fx" aria-hidden="true">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/fireworks1.png"class="hero__fx-item hero__fx-item--l1" alt="">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/fireworks1.png"class="hero__fx-item hero__fx-item--l1" alt="" width="189" height="258">
                 <i class="hero__fx-shine hero__fx-shine--l1" aria-hidden="true"></i>
-                <img src="<?php echo get_template_directory_uri(); ?>/images/fireworks2.png" class="hero__fx-item hero__fx-item--l2 u-visible-pc"alt="左側に輝く花火のイラスト">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/fireworks2.png" class="hero__fx-item hero__fx-item--l2 u-visible-pc"alt="左側に輝く花火のイラスト" width="287" height="455">
                 <i class="hero__fx-shine hero__fx-shine--l1" aria-hidden="true"></i>
-                <img src="<?php echo get_template_directory_uri(); ?>/images/fireworks12.png" class="hero__fx-item hero__fx-item--l3" alt="左下に輝く花火のイラスト">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/fireworks12.png" class="hero__fx-item hero__fx-item--l3" alt="左下に輝く花火のイラスト" width="498" height="608">
                 <i class="hero__fx-shine hero__fx-shine--l1" aria-hidden="true"></i>
-                <img src="<?php echo get_template_directory_uri(); ?>/images/fireworks3.png" class="hero__fx-item hero__fx-item--r1" alt="右側に咲く花火のイラスト">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/fireworks3.png" class="hero__fx-item hero__fx-item--r1" alt="右側に咲く花火のイラスト" width="309" height="377">
                 <i class="hero__fx-shine hero__fx-shine--l1" aria-hidden="true"></i>
-                <img src="<?php echo get_template_directory_uri(); ?>/images/fireworks5.png" class="hero__fx-item hero__fx-item--r2" alt="右側で打ち上がる花火のイラスト">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/fireworks5.png" class="hero__fx-item hero__fx-item--r2" alt="右側で打ち上がる花火のイラスト" width="490" height="598">
                 <i class="hero__fx-shine hero__fx-shine--l1" aria-hidden="true"></i>
-                <img src="<?php echo get_template_directory_uri(); ?>/images/fireworks13.png" class="hero__fx-item hero__fx-item--r3" alt="右下で打ち上がる花火のイラスト">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/fireworks13.png" class="hero__fx-item hero__fx-item--r3" alt="右下で打ち上がる花火のイラスト" width="574" height="700">
                 <i class="hero__fx-shine hero__fx-shine--l1" aria-hidden="true"></i>
             </div>
             <div class="hero__content js-fade-up">
@@ -32,13 +32,13 @@
                 <div class="speech-wrapper -pos-bl">
                     <div class="speech-wrap speech-wrap--hero">
                         <div class="speech-bubble-imgwrap speech-bubble-imgwrap--hero">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/bubble.png" class="speech-bubble-img" aria-hidden="true">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/bubble.png" class="speech-bubble-img" aria-hidden="true" width="376" height="241">
                             <p class="speech-bubble-text speech-bubble-text--hero">
                                 こんにちは！<br>横浜に住んでいるぼくが<br>お手伝いするね！
                             </p>
                         </div>
                         <figure class="character -float">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/mascot.png" alt="横浜案内をするマスコットキャラクター">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/mascot.png" alt="横浜案内をするマスコットキャラクター" width="250" height="231">
                         </figure>
                     </div>
                 </div>
@@ -46,13 +46,13 @@
                     <ul>
                         <li>
                             <a href="<?php echo esc_url(home_url('/')); ?>">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/icon-home.png" alt="" class="header-pyoko__icon" aria-hidden="true">
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/icon-home.png" alt="" class="header-pyoko__icon" aria-hidden="true" width="29" height="24">
                                 ホーム
                             </a>
                         </li>
                         <li class="inner-nav__item inner-nav__item--has-sub">
                             <button type="button" class="inner-nav__trigger js-inner-dropdown" aria-expanded="false">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/icon-service.png" alt="" class="header-pyoko__icon" aria-hidden="true">
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/icon-service.png" alt="" class="header-pyoko__icon" aria-hidden="true" width="52" height="52">
                                 <span>サービス紹介</span>
                                 <span class="inner-nav__caret" aria-hidden="true"></span>
                             </button>
@@ -64,25 +64,25 @@
                         </li>
                         <li>
                         <a href="<?php echo esc_url(home_url('/yokohama/')); ?>">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/icon-yokohama.png" alt="" class="header-pyoko__icon" aria-hidden="true">
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/icon-yokohama.png" alt="" class="header-pyoko__icon" aria-hidden="true" width="60" height="60">
                                 横浜について
                             </a>
                         </li>
                         <li>
                             <a href="#faq">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/icon-faq.png" alt="" class="header-pyoko__icon" aria-hidden="true">
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/icon-faq.png" alt="" class="header-pyoko__icon" aria-hidden="true" width="74" height="38">
                                 よくある質問
                             </a>
                         </li>
                         <li>
                         <a href="<?php echo esc_url(home_url('/news/')); ?>">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/icon-news.png" alt="" class="header-pyoko__icon" aria-hidden="true">
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/icon-news.png" alt="" class="header-pyoko__icon" aria-hidden="true" width="52" height="52">
                                 お知らせ<br>イベント
                             </a>
                         </li>
                         <li>
                         <a href="<?php echo esc_url(home_url('/contact/')); ?>">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/icon-mail.png" alt="" class="header-pyoko__icon" aria-hidden="true">
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/icon-mail.png" alt="" class="header-pyoko__icon" aria-hidden="true" width="46" height="44">
                                 お問い合わせ
                             </a>
                         </li>
@@ -94,7 +94,7 @@
             <form action="<?php echo esc_url(home_url('/')); ?>" method="get" class="search-area__form">
                 <input type="text" name="s" class="search-area__input" placeholder="サイト内検索">
                 <button type="submit" class="search-area__btn" aria-label="検索">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/icon-search.png" alt="検索アイコン">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/icon-search.png" alt="検索アイコン" width="50" height="51">
                 </button>
             </form>
 
@@ -124,21 +124,21 @@
                 <!-- 画像エリア -->
                 <div class="about__images js-fade-up">
                     <div class="about__image about__image--1">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_yokohama.png" alt="横浜の景観">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_yokohama.png" alt="横浜の景観" width="728" height="486">
 
                     </div>
                     <div class="about__image about__image--2">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_ropeway.png" alt="横浜ロープウェイ">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_ropeway.png" alt="横浜ロープウェイ" width="592" height="487">
                     </div>
                     <div class="about__image about__image--3">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_boat.png" alt="屋形船">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_boat.png" alt="屋形船" width="462" height="308">
                     </div>
                 </div>
 
                 <!-- 装飾 -->
-                <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_flag.png" alt="YOKOHAMA" class="about__flag js-fade">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_stamp.png" alt="" class="about__stamp js-fade">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_seagull.png" alt="" class="about__seagull" aria-hidden="true">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_flag.png" alt="YOKOHAMA" class="about__flag js-fade" width="166" height="130">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_stamp.png" alt="" class="about__stamp js-fade" width="395" height="205">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_seagull.png" alt="" class="about__seagull" aria-hidden="true" width="132" height="143">
             </div>
         </section>
 
@@ -184,7 +184,7 @@
             <div class="features-modal" id="featuresModal">
                 <div class="features-modal__overlay"></div>
                 <div class="features-modal__label-wrapper">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/features/feature_bubble.png" alt="" class="features-modal__label-bg" aria-hidden="true">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/features/feature_bubble.png" alt="" class="features-modal__label-bg" aria-hidden="true" width="553" height="408">
                     <span class="features-modal__label-text">ラクラク！</span>
                 </div>
                 <div class="features-modal__content" data-feature="1">
@@ -200,7 +200,7 @@
                     
                     <div class="features-modal__body">
                         <h3 class="features-modal__title">ネットで<br>簡単一括手配</h3>
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/features/feature_path.png" alt="" class="features-modal__image" aria-hidden="true">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/features/feature_path.png" alt="" class="features-modal__image" aria-hidden="true" width="133" height="16">
                         <p class="features-modal__text">宿泊施設も飲食店もワンストップでスムーズに予約。
                             ネットに出ていない施設や特別プランも代行可能です。</p>
                     </div>
@@ -221,7 +221,7 @@
                     
                     <div class="features-modal__body">
                         <h3 class="features-modal__title">当日や緊急時も対応可能</h3>
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/features/feature_path.png" alt="" class="features-modal__image" aria-hidden="true">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/features/feature_path.png" alt="" class="features-modal__image" aria-hidden="true" width="133" height="16">
                         <p class="features-modal__text">旅行中に予定を変更せざるを得ないことや急な体調不良や各種トラブルなど想定外の出来事が発生しても大丈夫！
                             おもてなし精神の横浜ロコが対応させていただきますのでお気軽にご相談ください。</p>
                     </div>
@@ -242,7 +242,7 @@
                     
                     <div class="features-modal__body">
                         <h3 class="features-modal__title">文化や食の希望に対応</h3>
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/features/feature_path.png" alt="" class="features-modal__image" aria-hidden="true">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/features/feature_path.png" alt="" class="features-modal__image" aria-hidden="true" width="133" height="16">
                         <p class="features-modal__text">食文化の違いや、ハラル、ヴィーガンアレルギーなどのご要望にも柔軟に対応いたします。</p>
                     </div>
                     
@@ -262,7 +262,7 @@
                     
                     <div class="features-modal__body">
                         <h3 class="features-modal__title">お得でシンプルな料金体系</h3>
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/features/feature_path.png" alt="" class="features-modal__image" aria-hidden="true">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/features/feature_path.png" alt="" class="features-modal__image" aria-hidden="true" width="133" height="16">
                         <p class="features-modal__text">他より安くお得な価格設定をしています。料金は見積り後の変動はなし！
                             各代行手数料はわかりやすい固定価格です。</p>
                     </div>
@@ -274,9 +274,9 @@
         <section id="service" class="service section--service">
             <!-- 装飾（featuresから継続） -->
             <img src="<?php echo get_template_directory_uri(); ?>/images/features/features_line-left.png" alt="" class="service__deco-line js-fade-up"
-                aria-hidden="true">
+                aria-hidden="true" width="194" height="379">
             <img src="<?php echo get_template_directory_uri(); ?>/images/features/features_seagull.png" alt="" class="service__deco-seagull js-fade-up"
-                aria-hidden="true">
+                aria-hidden="true" width="117" height="76">
             <div class="service__inner inner">
                 <div class="service__heading">
                     <div class="section-title section-title--sm section-title--service js-fade-up">
@@ -289,11 +289,11 @@
                 <div class="speech-wrapper -pos-tr js-fade-up">
                     <div class="speech-wrap speech-wrap--service">
                         <div class="speech-bubble-imgwrap speech-bubble-imgwrap--service">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/service/bubble.png" class="speech-bubble-img" aria-hidden="true">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/service/bubble.png" class="speech-bubble-img" aria-hidden="true" width="696" height="500">
                             <p class="speech-bubble-text speech-bubble-text--service">地元○○ならではの嬉しいサービスもいっぱいあるからね〜！</p>
                         </div>
                         <figure class="character -float js-fade-up">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/service/mascot-service.png" alt="案内をするマスコットキャラクター">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/service/mascot-service.png" alt="案内をするマスコットキャラクター" width="552" height="511">
                         </figure>
                     </div>
                 </div>
@@ -330,7 +330,7 @@
                         <div class="service-detail__card">
                             <div class="service-detail__corner"></div>
                             <div class="service-detail__icon">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-reserve.png" alt="カレンダーアイコン">
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-reserve.png" alt="カレンダーアイコン" width="240" height="240">
                             </div>
                             <h3 class="service-detail__title">予約代行</h3>
                             <p class="service-detail__text">
@@ -348,7 +348,7 @@
                         <div class="service-detail__card">
                             <div class="service-detail__corner"></div>
                             <div class="service-detail__icon">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-trunk.png" alt="スーツケースアイコン">
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-trunk.png" alt="スーツケースアイコン" width="240" height="240">
                             </div>
                             <h3 class="service-detail__title">トランクお預かり</h3>
                             <p class="service-detail__text">
@@ -365,7 +365,7 @@
                         <div class="service-detail__card">
                             <div class="service-detail__corner"></div>
                             <div class="service-detail__icon">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-guide.png" alt="旗アイコン">
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-guide.png" alt="旗アイコン" width="240" height="240">
                             </div>
                             <h3 class="service-detail__title">観光ガイドサービス</h3>
                             <p class="service-detail__text">
@@ -391,7 +391,7 @@
 
                 <div class="support__box js-fade-up">
                     <div class="support__icon">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-support.png" alt="お困りごとの解決アイコン">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-support.png" alt="お困りごとの解決アイコン" width="80" height="82">
                         <h3 class="support__subtitle">お困りごとの解決</h3>
                     </div>
                     <div class="support__body js-fade-up">
@@ -409,7 +409,7 @@
             <div class="cta">
                 <a href="<?php echo esc_url(home_url('/reservation/')); ?>" class="btn btn--orange btn--lg btn--with-icon">
                     予約する
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-link.png" alt="" class="btn__icon" aria-hidden="true">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-link.png" alt="" class="btn__icon" aria-hidden="true" width="19" height="18">
                 </a>
             </div>
         </section>
@@ -418,7 +418,7 @@
             <!-- <div class="faq__bg"> -->
                 <!-- 装飾 -->
                  <div class="faq__decos">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/faq/faq_line-right.png" alt="" class="faq__line js-fade-up" aria-hidden="true">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/faq/faq_line-right.png" alt="" class="faq__line js-fade-up" aria-hidden="true" width="466" height="495">
                 <img src="<?php echo get_template_directory_uri(); ?>/images/faq/faq_seagull.png" alt="" class="faq__seagull js-fade-up" aria-hidden="true">
             </div>
             <div class="faq__container">
@@ -540,7 +540,7 @@
 
                     <a href="<?php echo esc_url(home_url('/reservation/')); ?>" class="btn btn--orange btn--lg">
                         予約する
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-link.png" alt="" class="btn__icon" aria-hidden="true">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-link.png" alt="" class="btn__icon" aria-hidden="true" width="19" height="18">
                     </a>
                 </div>
             </div>
@@ -587,7 +587,7 @@
                     <form action="<?php echo esc_url(home_url('/')); ?>" method="get" class="about-yokohama__search js-fade-up">
                         <input type="text" name="s" class="about-yokohama__input" placeholder="サイト内検索">
                         <button type="submit" class="about-yokohama__search-btn">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/icon-search.png" alt="検索アイコン">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/icon-search.png" alt="検索アイコン" width="50" height="51">
                         </button>
                         <div class="about-yokohama__filters">
                             <a href="<?php echo esc_url(home_url('/yokohama/')); ?>" class="about-yokohama__filter">MAPで探す</a>
@@ -755,7 +755,7 @@
                         <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn--blue btn--md">お問い合わせ・ご相談窓口<span class="btn__arrow">→</span></a>
                         
                         <a href="<?php echo esc_url(home_url('/reservation/')); ?>" class="btn btn--orange btn--md">予約する
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-link.png" alt="" class="btn__icon" aria-hidden="true"></a>
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-link.png" alt="" class="btn__icon" aria-hidden="true" width="19" height="18"></a>
                     </div>
                 </div>
             </div>

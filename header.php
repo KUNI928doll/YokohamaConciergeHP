@@ -32,14 +32,14 @@
                 <!-- PC用ロゴ -->
                 <div class="u-visible-pc">
                     <a href="<?php echo esc_url(home_url('/')); ?>">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/header_logo-pc.png" alt="YOKOHAMA Concierge ロゴ（PC）">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/header_logo-pc.png" alt="YOKOHAMA Concierge ロゴ（PC）" width="5135" height="1325">
                     </a>
                 </div>
 
                 <!-- SP用ロゴ -->
                 <div class="u-visible-sp">
                     <a href="<?php echo esc_url(home_url('/')); ?>">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/header_logo-sp.png" alt="YOKOHAMA Concierge ロゴ（SP）">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/header_logo-sp.png" alt="YOKOHAMA Concierge ロゴ（SP）" width="1751" height="1786">
                     </a>
                 </div>
             </div>
@@ -51,14 +51,14 @@
                         <li class="header__utility-item header__utility-item--wide">
                             <div class="header__language-wrapper lang-switch">
                                 <img src="<?php echo get_template_directory_uri(); ?>/images/header_globeicon.png" alt="地球アイコン"
-                                    class="header__icon header__icon--globe">
+                                    class="header__icon header__icon--globe" width="26" height="24">
                                 <?php echo do_shortcode('[language-switcher]'); ?>
                             </div>
                         </li>
                         <li class="header__utility-item header__utility-item--xwide">
                             <a href="contact.php" class="header__utility-link is-column is-gap-large">
                                 <img src="<?php echo get_template_directory_uri(); ?>/images/header_mailicon.png" alt="メールアイコン"
-                                    class="header__icon header__icon--mail">
+                                    class="header__icon header__icon--mail" width="25" height="18">
                                 メール
                             </a>
                         </li>
@@ -70,14 +70,14 @@
                                 <li class="header__nav-item">
                                     <a href="tel:+81456812737" class="header__nav-link tel-blue">
                                         <img src="<?php echo get_template_directory_uri(); ?>/images/header_phoneicon.png" alt="電話アイコン"
-                                            class="header__icon header__icon--phone">
+                                            class="header__icon header__icon--phone" width="17" height="20">
                                         045-681-2737
                                     </a>
                                 </li>
                                 <li class="header__nav-item">
                                     <a href="tel:+817015263845" class="header__nav-link tel-orange">
                                         <img src="<?php echo get_template_directory_uri(); ?>/images/header_mobileicon.png" alt="携帯アイコン"
-                                            class="header__icon header__icon--mobile">
+                                            class="header__icon header__icon--mobile" width="14" height="21">
                                         070-1526-3845
                                     </a>
                                 </li>
@@ -107,7 +107,7 @@
                         <a href="<?php echo esc_url(home_url('/reservation')); ?>" class="btn btn--orange btn--sm spmenu__reserve">予約する</a>
                         <div class="header__language-wrapper lang-switch">
                             <img src="<?php echo get_template_directory_uri(); ?>/images/header_globeicon.png" alt="地球アイコン"
-                                class="header__icon header__icon--globe">
+                                class="header__icon header__icon--globe" width="26" height="24">
                             <?php echo do_shortcode('[language-switcher]'); ?>
                         </div>
                         <button type="button" class="spmenu__close js-spmenu-close" aria-label="メニューを閉じる">
@@ -118,7 +118,7 @@
                     <ul class="spmenu__list">
                         <li class="spmenu__item spmenu__item--has-sub">
                             <button type="button" class="spmenu__trigger js-spmenu-dropdown" aria-expanded="false">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/icon-service.png" alt="" class="spmenu__icon" aria-hidden="true">
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/icon-service.png" alt="" class="spmenu__icon" aria-hidden="true" width="52" height="52">
                                 サービス紹介
                                 <span class="spmenu__caret" aria-hidden="true"></span>
                             </button>
@@ -129,13 +129,13 @@
                             </ul>
                         </li>
                         <li><a href="<?php echo esc_url(home_url('/yokohama')); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/icon-yokohama.png" alt=""
-                                    class="spmenu__icon" aria-hidden="true">横浜について</a>
+                                    class="spmenu__icon" aria-hidden="true" width="60" height="60">横浜について</a>
                         </li>
-                        <li><a href="<?php echo esc_url(home_url('/#faq')); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/icon-faq.png" alt="" class="spmenu__icon" aria-hidden="true">よくある質問</a></li>
-                        <li><a href="<?php echo esc_url(home_url('/news')); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/icon-news.png" alt="" class="spmenu__icon" aria-hidden="true">お知らせ・イベント</a>
+                        <li><a href="<?php echo esc_url(home_url('/#faq')); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/icon-faq.png" alt="" class="spmenu__icon" aria-hidden="true" width="74" height="38">よくある質問</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/news')); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/icon-news.png" alt="" class="spmenu__icon" aria-hidden="true" width="52" height="52">お知らせ・イベント</a>
                         </li>
                         <li><a href="<?php echo esc_url(home_url('/contact')); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/icon-mail.png" alt=""
-                                    class="spmenu__icon" aria-hidden="true">お問い合わせ</a></li>
+                                    class="spmenu__icon" aria-hidden="true" width="46" height="44">お問い合わせ</a></li>
                     </ul>
                 </div>
             </nav>

@@ -10,10 +10,10 @@ get_header();
 
         <div class="sub-hero">
             <div class="sub-hero__decoration">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/sub-hero__decoration.png" alt="" aria-hidden="true">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/sub-hero__decoration.png" alt="" aria-hidden="true" width="1730" height="92">
             </div>
             <div class="sub-hero__img">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/service-hero.png" alt="横浜の夜景">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/service-hero.png" alt="横浜の夜景" width="2734" height="746">
             </div>
             <h1 class="sub-hero__title">横浜について</h1>
         </div>
@@ -73,25 +73,25 @@ get_header();
 
                 <div class="yokohama-area__maps">
                     <div class="yokohama-area__map is-active" id="map-motomachi">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/yokohama/motomati-map@2x.jpg" alt="元町・山手エリアの地図">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/yokohama/motomati-map@2x.jpg" alt="元町・山手エリアの地図" width="2577" height="1471">
                     </div>
                     <div class="yokohama-area__map" id="map-chinatown">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/yokohama/tyukamati-map@2x.jpg" alt="中華街・山下公園エリアの地図">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/yokohama/tyukamati-map@2x.jpg" alt="中華街・山下公園エリアの地図" width="2577" height="1471">
                     </div>
                     <div class="yokohama-area__map" id="map-nihondori">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/yokohama/nihondori-map.jpg" alt="日本大通りエリアの地図">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/yokohama/nihondori-map.jpg" alt="日本大通りエリアの地図" width="2577" height="1471">
                     </div>
                     <div class="yokohama-area__map" id="map-kannai">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/yokohama/kannai-map@2x.jpg" alt="関内エリアの地図">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/yokohama/kannai-map@2x.jpg" alt="関内エリアの地図" width="2577" height="1471">
                     </div>
                     <div class="yokohama-area__map" id="map-bashamichi">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/yokohama/bashamichi-map.jpg" alt="馬車道エリアの地図">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/yokohama/bashamichi-map.jpg" alt="馬車道エリアの地図" width="2577" height="1471">
                     </div>
                     <div class="yokohama-area__map" id="map-sakuragicho">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/yokohama/sakuragi-map.jpg" alt="桜木町エリアの地図">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/yokohama/sakuragi-map.jpg" alt="桜木町エリアの地図" width="2577" height="1471">
                     </div>
                     <div class="yokohama-area__map" id="map-minatomirai">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/yokohama/minatomirai-map@2x.jpg" alt="みなとみらいエリアの地図">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/yokohama/minatomirai-map@2x.jpg" alt="みなとみらいエリアの地図" width="2577" height="1471">
                     </div>
                 </div>
             </div>
@@ -394,7 +394,7 @@ get_header();
                     <a href="https://www.instagram.com/yokohama_concierge/" target="_blank" rel="noopener noreferrer">
                         <picture>
                             <source media="(max-width: 768px)" srcset="<?php echo get_template_directory_uri(); ?>/images/influencer/influencer-header-sp.png">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/influencer/influencer-header.png" alt="マイクロインフルエンサー募集バナー">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/influencer/influencer-header.png" alt="マイクロインフルエンサー募集バナー" width="2098" height="276">
                         </picture>
                     </a>
                 </div>
