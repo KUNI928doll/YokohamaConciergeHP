@@ -9,7 +9,6 @@ jQuery(document).ready(function ($) {
         arrows: true,
         dots: true,
         centerMode: false,
-        adaptiveHeight: true,
         infinite: true,
         appendArrows: '.news__dots-wrapper',
         appendDots: '.news__dots-wrapper',

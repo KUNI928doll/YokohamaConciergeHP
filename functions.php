@@ -7,10 +7,10 @@
 function yokohama_concierge_theme_support() {
     // タイトルタグのサポート
     add_theme_support('title-tag');
-    
+
     // アイキャッチ画像のサポート
     add_theme_support('post-thumbnails');
-    
+
     // HTML5のサポート
     add_theme_support('html5', array(
         'search-form',
@@ -23,6 +23,39 @@ function yokohama_concierge_theme_support() {
     ));
 }
 add_action('after_setup_theme', 'yokohama_concierge_theme_support');
+
+// アイキャッチ画像にwidth/height属性を自動付与
+function yokohama_concierge_add_img_width_height($html, $post_id, $post_thumbnail_id, $size, $attr) {
+    // すでにwidth/height属性が設定されている場合はスキップ
+    if (strpos($html, 'width=') !== false && strpos($html, 'height=') !== false) {
+        return $html;
+    }
+
+    // 画像のメタデータを取得
+    $image_meta = wp_get_attachment_metadata($post_thumbnail_id);
+
+    if (!$image_meta) {
+        return $html;
+    }
+
+    // サイズが指定されている場合
+    if (is_string($size) && isset($image_meta['sizes'][$size])) {
+        $width = $image_meta['sizes'][$size]['width'];
+        $height = $image_meta['sizes'][$size]['height'];
+    } else {
+        // フルサイズまたは配列でサイズ指定されている場合
+        $width = $image_meta['width'];
+        $height = $image_meta['height'];
+    }
+
+    // width/height属性を追加
+    if ($width && $height) {
+        $html = str_replace('<img', '<img width="' . esc_attr($width) . '" height="' . esc_attr($height) . '"', $html);
+    }
+
+    return $html;
+}
+add_filter('post_thumbnail_html', 'yokohama_concierge_add_img_width_height', 10, 5);
 
 // 構造化データ(JSON-LD)を出力
 function yokohama_concierge_schema_markup() {

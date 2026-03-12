@@ -361,17 +361,24 @@ get_header();
                 <div class="contact__box">
                     <ul class="contact__list">
                         <li class="contact__item contact__item--tel">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/header_phoneicon.png" alt="">
-                            <span>045-681-2737</span>
+                            <a href="tel:0456812737" class="contact__tel">
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/header_phoneicon.png" alt="" aria-hidden="true">
+                                <span>045-681-2737</span>
+                            </a>
                         </li>
+
                         <li class="contact__item contact__item--mobile">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/header_mobileicon.png" alt="">
-                            <span>070-1526-3845</span>
+                            <a href="tel:07015263845" class="contact__tel">
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/header_mobileicon.png" alt="" aria-hidden="true">
+                                <span>070-1526-3845</span>
+                            </a>
                         </li>
                         <li class="contact__item contact__item--time">対応時間：10:00〜18:00／不定休</li>
                         <li class="contact__item contact__item--mail">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/header_mailicon.png" alt="">
-                            <span>info@hamanavi-s.jp</span>
+                            <a href="mailto:info@hamanavi-s.jp" class="contact__mail">
+                                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/header_mailicon.png" alt="" aria-hidden="true">
+                                <span>info@hamanavi-s.jp</span>
+                            </a>
                         </li>
                     </ul>
 

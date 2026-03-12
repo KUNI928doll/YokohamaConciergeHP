@@ -14,7 +14,6 @@
   max-width: 100%;
   // 言語切り替えのドロップダウンがヘッダー外に展開されるため
   // 縦方向は visible にしてクリック不能（見切れ）を防ぐ
-  overflow-x: hidden;
   overflow-y: hidden;
   display: flex;
 
