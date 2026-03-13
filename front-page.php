@@ -26,7 +26,7 @@
         </div>
     </section>
     <!-- キャラと吹き出し -->
-    <section class="header-pyoko js-fade-up">
+    <div class="header-pyoko js-fade-up">
         <div class="header-pyoko__decoration" aria-hidden="true">
             <img src="<?php echo get_template_directory_uri(); ?>/images/header/header-pyoko-wave.svg" alt="">
         </div>
@@ -91,28 +91,16 @@
                 </ul>
             </nav>
         </div>
-    </section>
-    <div class="search-area">
-        <form action="<?php echo esc_url(home_url('/')); ?>" method="get" class="search-area__form">
-            <input type="text" name="s" class="search-area__input" placeholder="サイト内検索">
-            <button type="submit" class="search-area__btn" aria-label="検索">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/icon-search.png" alt="検索アイコン" width="50" height="51">
-            </button>
-        </form>
-
-        <div class="search-area__links">
-            <a href="<?php echo esc_url(home_url('/yokohama/')); ?>" class="search-area__link search-area__link--map">MAPで探す</a>
-        </div>
-
-    </div>
+</div>
+    <?php get_template_part('template-parts/search-form'); ?>
 
     <section id="about" class="about">
         <div class="about__inner">
             <div class="section-title section-title--lg section-title--about js-fade-up">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_title-bird.svg" alt="" aria-hidden="true"
+                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about/about_title-bird.svg" alt="" aria-hidden="true"
                     class="section-title__icon section-title__icon--bird">
                 <h2 class="section-title__text">ハマナビサービスについて</h2>
-                <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_title-wave.svg" alt="" aria-hidden="true"
+                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about/about_title-wave.svg" alt="" aria-hidden="true"
                     class="section-title__icon section-title__icon--wave">
             </div>
             <!-- リード文 -->
@@ -126,21 +114,21 @@
             <!-- 画像エリア -->
             <div class="about__images js-fade-up">
                 <div class="about__image about__image--1">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_yokohama.png" alt="横浜の景観" width="728" height="486">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_yokohama.png" alt="横浜の景観" width="728" height="486" loading="lazy">
 
                 </div>
                 <div class="about__image about__image--2">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_ropeway.png" alt="横浜ロープウェイ" width="592" height="487">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_ropeway.png" alt="横浜ロープウェイ" width="592" height="487" loading="lazy">
                 </div>
                 <div class="about__image about__image--3">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_boat.png" alt="屋形船" width="462" height="308">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_boat.png" alt="屋形船" width="462" height="308" loading="lazy">
                 </div>
             </div>
 
             <!-- 装飾 -->
-            <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_flag.png" alt="YOKOHAMA" class="about__flag js-fade" width="166" height="130">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_stamp.png" alt="" class="about__stamp js-fade" width="395" height="205">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_seagull.png" alt="" class="about__seagull" aria-hidden="true" width="132" height="143">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_flag.png" alt="YOKOHAMA" class="about__flag js-fade" width="166" height="130" loading="lazy">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_stamp.png" alt="" class="about__stamp js-fade" width="395" height="205" loading="lazy">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_seagull.png" alt="" class="about__seagull" aria-hidden="true" width="132" height="143" loading="lazy">
         </div>
     </section>
 
@@ -160,7 +148,7 @@
                         </text>
                     </svg>
                     <h2 class="section-title__text">ハマナビサービスの特徴</h2>
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_title-wave.svg" alt="" aria-hidden="true"
+                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about/about_title-wave.svg" alt="" aria-hidden="true"
                         class="section-title__icon section-title__icon--wave">
                 </div>
 
@@ -186,7 +174,7 @@
         <div class="features-modal" id="featuresModal">
             <div class="features-modal__overlay"></div>
             <div class="features-modal__label-wrapper">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/features/feature_bubble.png" alt="" class="features-modal__label-bg" aria-hidden="true" width="553" height="408">
+                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/features/feature_bubble.png" alt="" class="features-modal__label-bg" aria-hidden="true" width="553" height="408">
                 <span class="features-modal__label-text">ラクラク！</span>
             </div>
             <div class="features-modal__content" data-feature="1">
@@ -202,7 +190,7 @@
 
                 <div class="features-modal__body">
                     <h3 class="features-modal__title">ネットで<br>簡単一括手配</h3>
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/features/feature_path.png" alt="" class="features-modal__image" aria-hidden="true" width="133" height="16">
+                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/features/feature_path.png" alt="" class="features-modal__image" aria-hidden="true" width="133" height="16">
                     <p class="features-modal__text">宿泊施設も飲食店もワンストップでスムーズに予約。
                         ネットに出ていない施設や特別プランも代行可能です。</p>
                 </div>
@@ -223,7 +211,7 @@
 
                 <div class="features-modal__body">
                     <h3 class="features-modal__title">当日や緊急時も対応可能</h3>
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/features/feature_path.png" alt="" class="features-modal__image" aria-hidden="true" width="133" height="16">
+                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/features/feature_path.png" alt="" class="features-modal__image" aria-hidden="true" width="133" height="16">
                     <p class="features-modal__text">旅行中に予定を変更せざるを得ないことや急な体調不良や各種トラブルなど想定外の出来事が発生しても大丈夫！
                         おもてなし精神の横浜ロコが対応させていただきますのでお気軽にご相談ください。</p>
                 </div>
@@ -244,7 +232,7 @@
 
                 <div class="features-modal__body">
                     <h3 class="features-modal__title">文化や食の希望に対応</h3>
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/features/feature_path.png" alt="" class="features-modal__image" aria-hidden="true" width="133" height="16">
+                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/features/feature_path.png" alt="" class="features-modal__image" aria-hidden="true" width="133" height="16">
                     <p class="features-modal__text">食文化の違いや、ハラル、ヴィーガンアレルギーなどのご要望にも柔軟に対応いたします。</p>
                 </div>
 
@@ -264,7 +252,7 @@
 
                 <div class="features-modal__body">
                     <h3 class="features-modal__title">お得でシンプルな料金体系</h3>
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/features/feature_path.png" alt="" class="features-modal__image" aria-hidden="true" width="133" height="16">
+                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/features/feature_path.png" alt="" class="features-modal__image" aria-hidden="true" width="133" height="16">
                     <p class="features-modal__text">他より安くお得な価格設定をしています。料金は見積り後の変動はなし！
                         各代行手数料はわかりやすい固定価格です。</p>
                 </div>
@@ -275,15 +263,15 @@
     </section>
     <section id="service" class="service section--service">
         <!-- 装飾（featuresから継続） -->
-        <img src="<?php echo get_template_directory_uri(); ?>/images/features/features_line-left.png" alt="" class="service__deco-line js-fade-up"
+        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/features/features_line-left.png" alt="" class="service__deco-line js-fade-up"
             aria-hidden="true" width="194" height="379">
-        <img src="<?php echo get_template_directory_uri(); ?>/images/features/features_seagull.png" alt="" class="service__deco-seagull js-fade-up"
+        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/features/features_seagull.png" alt="" class="service__deco-seagull js-fade-up"
             aria-hidden="true" width="117" height="76">
         <div class="service__inner inner">
             <div class="service__heading">
                 <div class="section-title section-title--sm section-title--service js-fade-up">
                     <h2 class="section-title__text">サービス紹介</h2>
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_title-wave.svg" alt="" aria-hidden="true"
+                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about/about_title-wave.svg" alt="" aria-hidden="true"
                         class="section-title__icon section-title__icon--wave">
                 </div>
             </div>
@@ -291,11 +279,11 @@
             <div class="speech-wrapper -pos-tr js-fade-up">
                 <div class="speech-wrap speech-wrap--service">
                     <div class="speech-bubble-imgwrap speech-bubble-imgwrap--service">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/service/bubble.png" class="speech-bubble-img" aria-hidden="true" width="696" height="500">
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service/bubble.png" class="speech-bubble-img" aria-hidden="true" width="696" height="500">
                         <p class="speech-bubble-text speech-bubble-text--service">地元○○ならではの嬉しいサービスもいっぱいあるからね〜！</p>
                     </div>
                     <figure class="character -float js-fade-up">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/service/mascot-service.png" alt="案内をするマスコットキャラクター" width="552" height="511">
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service/mascot-service.png" alt="案内をするマスコットキャラクター" width="552" height="511">
                     </figure>
                 </div>
             </div>
@@ -332,7 +320,7 @@
                     <div class="service-detail__card">
                         <div class="service-detail__corner"></div>
                         <div class="service-detail__icon">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-reserve.png" alt="カレンダーアイコン" width="240" height="240">
+                            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service/icon-reserve.png" alt="カレンダーアイコン" width="240" height="240">
                         </div>
                         <h3 class="service-detail__title">予約代行</h3>
                         <p class="service-detail__text">
@@ -350,7 +338,7 @@
                     <div class="service-detail__card">
                         <div class="service-detail__corner"></div>
                         <div class="service-detail__icon">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-trunk.png" alt="スーツケースアイコン" width="240" height="240">
+                            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service/icon-trunk.png" alt="スーツケースアイコン" width="240" height="240">
                         </div>
                         <h3 class="service-detail__title">トランクお預かり</h3>
                         <p class="service-detail__text">
@@ -367,7 +355,7 @@
                     <div class="service-detail__card">
                         <div class="service-detail__corner"></div>
                         <div class="service-detail__icon">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-guide.png" alt="旗アイコン" width="240" height="240">
+                            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service/icon-guide.png" alt="旗アイコン" width="240" height="240">
                         </div>
                         <h3 class="service-detail__title">観光ガイドサービス</h3>
                         <p class="service-detail__text">
@@ -384,16 +372,16 @@
     <section class="support js-fade-up">
         <div class="support__inner">
             <h2 class="support__title">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/support-title-line_left.svg" alt="" aria-hidden="true"
+                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/support-title-line_left.svg" alt="" aria-hidden="true"
                     class="support__title-decoration support__title-decoration--left">
                 <span class="support__title-text">さらに安心のサポート付き！</span>
-                <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/support-title-line_right.svg" alt="" aria-hidden="true"
+                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/support-title-line_right.svg" alt="" aria-hidden="true"
                     class="support__title-decoration support__title-decoration--right">
             </h2>
 
             <div class="support__box js-fade-up">
                 <div class="support__icon">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-support.png" alt="お困りごとの解決アイコン" width="80" height="82">
+                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service/icon-support.png" alt="お困りごとの解決アイコン" width="80" height="82">
                     <h3 class="support__subtitle">お困りごとの解決</h3>
                 </div>
                 <div class="support__body js-fade-up">
@@ -411,124 +399,140 @@
         <div class="cta">
             <a href="<?php echo esc_url(home_url('/reservation/')); ?>" class="btn btn--orange btn--lg btn--with-icon">
                 予約する
-                <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-link.png" alt="" class="btn__icon" aria-hidden="true" width="19" height="18">
+                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service/icon-link.png" alt="" class="btn__icon" aria-hidden="true" width="19" height="18">
             </a>
         </div>
     </section>
 
-    <section id="faq" class="faq">
-        <!-- <div class="faq__bg"> -->
+    <section id="faq" class="faq" aria-labelledby="faq-heading">
         <!-- 装飾 -->
         <div class="faq__decos">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/faq/faq_line-right.png" alt="" class="faq__line js-fade-up" aria-hidden="true" width="466" height="495">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/faq/faq_seagull.png" alt="" class="faq__seagull js-fade-up" aria-hidden="true">
+            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/faq/faq_line-right.png" alt="" class="faq__line js-fade-up" aria-hidden="true" width="466" height="495">
+            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/faq/faq_seagull.png" alt="" class="faq__seagull js-fade-up" aria-hidden="true">
         </div>
         <div class="faq__container">
             <div class="section-title section-title--sm section-title--faq js-fade-up">
-                <h2 class="section-title__text">よくある質問</h2>
-                <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_title-wave.svg" alt="" aria-hidden="true"
+                <h2 id="faq-heading" class="section-title__text">よくある質問</h2>
+                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about/about_title-wave.svg" alt="" aria-hidden="true"
                     class="section-title__icon section-title__icon--wave">
             </div>
-            <div class="faq__inner inner js-fade-up">
-                <ul class="faq__list">
-                    <li class="faq__item js-accordion js-fade-up">
-                        <button class="faq__question js-accordion-btn">
-                            <span class="faq__icon">Q</span>
-                            <span class="faq__text">予約後のキャンセルはできますか？</span>
-                            <span class="faq__plus"></span>
-                        </button>
-                        <div class="faq__answer js-accordion-body">
-                            <div class="faq__answer-inner">
-                                <span class="faq__amark">A</span>
-                                <div class="faq__atext">
-                                    <p>はい、できます</p>
-                                    <p>
-                                        代行予約料金はご利用日の48時間前までは無料でキャンセル可能<br class="u-visible-pc">
-                                        です。なお、他のサービスは各事業者様のキャンセルルールに基づ<br class="u-visible-pc">くものとなります。
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="faq__item js-accordion js-fade-up">
-                        <button class="faq__question js-accordion-btn">
-                            <span class="faq__icon">Q</span>
-                            <span class="faq__text">当日予約も可能ですか？</span>
-                            <span class="faq__plus"></span>
-                        </button>
-                        <div class="faq__answer js-accordion-body">
-                            <div class="faq__answer-inner">
-                                <span class="faq__amark">A</span>
-                                <div class="faq__atext">
-                                    <p>できる限り対応いたします。まずはご相談ください。</p>
-                                    <p>
-                                        ご相談いただければ、可能な限りご対応いたします。5日以内の予<br class="u-visible-pc">
-                                        約は緊急予約料金となりますのでご了承ください。（条件変更など<br class="u-visible-pc">
-                                        相談させていただく場合もございますので、要ご相談ください）
-                                </div>
-                            </div>
-                        </div>
-                    </li>
+            <div class="faq__inner inner">
+                <dl class="faq__list">
+                    <div class="faq__item js-fade-up">
+                        <dt>
+                            <details class="faq__details">
+                                <summary class="faq__question">
+                                    <span class="faq__icon" aria-hidden="true">Q</span>
+                                    <span class="faq__text">予約後のキャンセルはできますか？</span>
+                                    <span class="faq__plus" aria-hidden="true"></span>
+                                </summary>
+                                <dd class="faq__answer">
+                                    <div class="faq__answer-inner">
+                                        <span class="faq__amark" aria-hidden="true">A</span>
+                                        <div class="faq__atext">
+                                            <p>はい、できます</p>
+                                            <p>
+                                                代行予約料金はご利用日の48時間前までは無料でキャンセル可能<br class="u-visible-pc">
+                                                です。なお、他のサービスは各事業者様のキャンセルルールに基づ<br class="u-visible-pc">くものとなります。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </dd>
+                            </details>
+                        </dt>
+                    </div>
 
-                    <li class="faq__item js-accordion js-fade-up">
-                        <button class="faq__question js-accordion-btn">
-                            <span class="faq__icon">Q</span>
-                            <span class="faq__text">支払いはどのようにするのでしょうか？</span>
-                            <span class="faq__plus"></span>
-                        </button>
-                        <div class="faq__answer js-accordion-body">
-                            <div class="faq__answer-inner">
-                                <span class="faq__amark">A</span>
-                                <div class="faq__atext">
-                                    <p>基本的にクレジットカード決済（Stripe決済）の支払いとなります。</p>
-                                    <p>
-                                        予約代行料金は基本的にクレジットカード決済（Stripe決済）の支<br class="u-visible-pc">
-                                        払いとなります。簡単、安心決済対応いたします。トランクお預<br class="u-visible-pc">
-                                        かり、観光ガイドサービス、お困りごとの解決は現金または銀行<br class="u-visible-pc">
-                                        振込も可能です。なお、弊社サービス以外のご利用代金について<br class="u-visible-pc">
-                                        は、各事業者様ルールによる決済でお願いいたします。
+                    <div class="faq__item js-fade-up">
+                        <dt>
+                            <details class="faq__details">
+                                <summary class="faq__question">
+                                    <span class="faq__icon" aria-hidden="true">Q</span>
+                                    <span class="faq__text">当日予約も可能ですか？</span>
+                                    <span class="faq__plus" aria-hidden="true"></span>
+                                </summary>
+                                <dd class="faq__answer">
+                                    <div class="faq__answer-inner">
+                                        <span class="faq__amark" aria-hidden="true">A</span>
+                                        <div class="faq__atext">
+                                            <p>できる限り対応いたします。まずはご相談ください。</p>
+                                            <p>
+                                                ご相談いただければ、可能な限りご対応いたします。5日以内の予<br class="u-visible-pc">
+                                                約は緊急予約料金となりますのでご了承ください。（条件変更など<br class="u-visible-pc">
+                                                相談させていただく場合もございますので、要ご相談ください）
+                                            </p>
+                                        </div>
+                                    </div>
+                                </dd>
+                            </details>
+                        </dt>
+                    </div>
 
-                                        。
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="faq__item js-accordion js-fade-up">
-                        <button class="faq__question js-accordion-btn">
-                            <span class="faq__icon">Q</span>
-                            <span class="faq__text">お困りごとの解決サービスの具体的な内容はどのようなことがありますか？</span>
-                            <span class="faq__plus"></span>
-                        </button>
-                        <div class="faq__answer js-accordion-body">
-                            <div class="faq__answer-inner">
-                                <span class="faq__amark">A</span>
-                                <div class="faq__atext">
-                                    <p>幅広い内容に対応しております。</p>
-                                    <p>
-                                        1.突然の交通トラブルによる交通機関予約や宿泊先予約、飲食店舗<br class="u-visible-pc">予約（横浜近隣施設）<br
-                                            class="u-visible-sp">
-                                        2.突然の体調不良による交通機関予約や宿泊先予約、飲食店舗予約<br class="u-visible-pc">横浜近隣施設）<br
-                                            class="u-visible-pc"><br
-                                            class="u-visible-sp">＊別途、病院の紹介や交通機関の利用方法などもご相談ください。<br class="u-visible-sp">
-                                        3.旅行中の日程予定変更による各種ご予約（横浜近隣施設）<br class="u-visible-pc"><br class="u-visible-sp">
-                                        ＊旅行中の紛失物の対応方法などのご相談。<br class="u-visible-pc"><br class="u-visible-sp">
-                                        4.その他旅行中にご相談事がある場合<br class="u-visible-pc">弊社でご対応できる内容であれば対応いたしますので、ご相談<br
-                                            class="u-visible-pc">ください。
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+                    <div class="faq__item js-fade-up">
+                        <dt>
+                            <details class="faq__details">
+                                <summary class="faq__question">
+                                    <span class="faq__icon" aria-hidden="true">Q</span>
+                                    <span class="faq__text">支払いはどのようにするのでしょうか？</span>
+                                    <span class="faq__plus" aria-hidden="true"></span>
+                                </summary>
+                                <dd class="faq__answer">
+                                    <div class="faq__answer-inner">
+                                        <span class="faq__amark" aria-hidden="true">A</span>
+                                        <div class="faq__atext">
+                                            <p>基本的にクレジットカード決済（Stripe決済）の支払いとなります。</p>
+                                            <p>
+                                                予約代行料金は基本的にクレジットカード決済（Stripe決済）の支<br class="u-visible-pc">
+                                                払いとなります。簡単、安心決済対応いたします。トランクお預<br class="u-visible-pc">
+                                                かり、観光ガイドサービス、お困りごとの解決は現金または銀行<br class="u-visible-pc">
+                                                振込も可能です。なお、弊社サービス以外のご利用代金について<br class="u-visible-pc">
+                                                は、各事業者様ルールによる決済でお願いいたします。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </dd>
+                            </details>
+                        </dt>
+                    </div>
+
+                    <div class="faq__item js-fade-up">
+                        <dt>
+                            <details class="faq__details">
+                                <summary class="faq__question">
+                                    <span class="faq__icon" aria-hidden="true">Q</span>
+                                    <span class="faq__text">お困りごとの解決サービスの具体的な内容はどのようなことがありますか？</span>
+                                    <span class="faq__plus" aria-hidden="true"></span>
+                                </summary>
+                                <dd class="faq__answer">
+                                    <div class="faq__answer-inner">
+                                        <span class="faq__amark" aria-hidden="true">A</span>
+                                        <div class="faq__atext">
+                                            <p>幅広い内容に対応しております。</p>
+                                            <p>
+                                                1.突然の交通トラブルによる交通機関予約や宿泊先予約、飲食店舗<br class="u-visible-pc">予約（横浜近隣施設）<br
+                                                    class="u-visible-sp">
+                                                2.突然の体調不良による交通機関予約や宿泊先予約、飲食店舗予約<br class="u-visible-pc">（横浜近隣施設）<br
+                                                    class="u-visible-pc"><br
+                                                    class="u-visible-sp">＊別途、病院の紹介や交通機関の利用方法などもご相談ください。<br class="u-visible-sp">
+                                                3.旅行中の日程予定変更による各種ご予約（横浜近隣施設）<br class="u-visible-pc"><br class="u-visible-sp">
+                                                ＊旅行中の紛失物の対応方法などのご相談。<br class="u-visible-pc"><br class="u-visible-sp">
+                                                4.その他旅行中にご相談事がある場合<br class="u-visible-pc">弊社でご対応できる内容であれば対応いたしますので、ご相談<br
+                                                    class="u-visible-pc">ください。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </dd>
+                            </details>
+                        </dt>
+                    </div>
+                </dl>
             </div>
         </div>
         <div class="faq-decorations">
             <div class="faq__character js-fade-up">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/faq/faq_character.png" alt="ハマナビサービスの案内キャラクター">
+                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/faq/faq_character.png" alt="ハマナビサービスの案内キャラクター">
             </div>
             <div class="faq__cloud js-fade-up">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/faq/faq_cloud.png" alt="雲のイラスト">
+                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/faq/faq_cloud.png" alt="雲のイラスト">
             </div>
         </div>
     </section>
@@ -542,7 +546,7 @@
 
             <a href="<?php echo esc_url(home_url('/reservation/')); ?>" class="btn btn--orange btn--lg">
                 予約する
-                <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-link.png" alt="" class="btn__icon" aria-hidden="true" width="19" height="18">
+                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service/icon-link.png" alt="" class="btn__icon" aria-hidden="true" width="19" height="18">
             </a>
         </div>
     </div>
@@ -552,26 +556,26 @@
     <section class="about-yokohama js-fade-up">
         <div class="about-yokohama__inner inner">
             <div class="about-yokohama__decorations">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/faq/faq_line-left.png" alt="左の軌跡" class="about-yokohama__line-left js-fade-up"
+                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/faq/faq_line-left.png" alt="左の軌跡" class="about-yokohama__line-left js-fade-up"
                     aria-hidden="true">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/about-yokohama_seagull.png" alt="左のカモメ"
+                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/about-yokohama_seagull.png" alt="左のカモメ"
                     class="about-yokohama__seagull-bottom js-fade-up" aria-hidden="true">
             </div>
             <div class="about-yokohama__wave js-fade-up">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/about-yokohama__wave-line.png" alt="装飾の波線">
+                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/about-yokohama__wave-line.png" alt="装飾の波線">
             </div>
             <!-- 画像たち -->
             <div class="about-yokohama__photos js-fade-up">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/about-yokohama_photo1.png" alt="赤レンガ倉庫"
+                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/about-yokohama_photo1.png" alt="赤レンガ倉庫"
                     class="photo--1 js-fade-up">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/about-yokohama_photo2.png" alt="山下公園" class="photo--2 js-fade-up">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/about-yokohama_photo3.png" alt="中華街" class="photo--3 js-fade-up">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-camera.png" alt="カメラアイコン" class="photo__camera">
+                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/about-yokohama_photo2.png" alt="山下公園" class="photo--2 js-fade-up">
+                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/about-yokohama_photo3.png" alt="中華街" class="photo--3 js-fade-up">
+                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-camera.png" alt="カメラアイコン" class="photo__camera">
             </div>
             <div class="about-yokohama__content js-fade-up">
                 <div class="section-title section-title--sm js-fade-up">
                     <h2 class="section-title__text">横浜について</h2>
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_title-wave.svg" alt="" aria-hidden="true"
+                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about/about_title-wave.svg" alt="" aria-hidden="true"
                         class="section-title__icon section-title__icon--wave">
                 </div>
                 <div class="about-yokohama__lead js-fade-up">
@@ -589,7 +593,7 @@
                 <form action="<?php echo esc_url(home_url('/')); ?>" method="get" class="about-yokohama__search js-fade-up">
                     <input type="text" name="s" class="about-yokohama__input" placeholder="サイト内検索">
                     <button type="submit" class="about-yokohama__search-btn">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/icon-search.png" alt="検索アイコン" width="50" height="51">
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/icon-search.png" alt="検索アイコン" width="50" height="51">
                     </button>
                     <div class="about-yokohama__filters">
                         <a href="<?php echo esc_url(home_url('/yokohama/')); ?>" class="about-yokohama__filter">MAPで探す</a>
@@ -602,28 +606,28 @@
             <!-- 左カラム：キャラ -->
             <div class="about-yokohama__column about-yokohama__character js-fade-up">
                 <div class="about-yokohama__speech">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/atout-yokohama_bubble.png" alt="吹き出し背景">
+                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/atout-yokohama_bubble.png" alt="吹き出し背景">
                     <p class="about-yokohama__speech-text">美味しいグルメもたくさんあるよ！</p>
                 </div>
-                <img class="about-yokohama__character-img js-fade-up"
+                <img loading="lazy" class="about-yokohama__character-img js-fade-up"
                     src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/about-yokohama_character.png" alt="ハマナビサービスの案内キャラクター">
             </div>
             <!-- 右カラム：エリア一覧 -->
             <div class="about-yokohama__column about-yokohama__areas-wrapper js-fade-up">
                 <ul class="about-yokohama__areas js-fade-up">
-                    <li><a href="<?php echo esc_url(home_url('/yokohama/#map-motomachi')); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-motomachi.png" alt="元町"
+                    <li><a href="<?php echo esc_url(home_url('/yokohama/#map-motomachi')); ?>"><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-motomachi.png" alt="元町"
                                 class="about-yokohama__area-icon">元町・山手エリア</a></li>
-                    <li><a href="<?php echo esc_url(home_url('/yokohama/#map-chinatown')); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-chukagai.png" alt="中華街"
+                    <li><a href="<?php echo esc_url(home_url('/yokohama/#map-chinatown')); ?>"><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-chukagai.png" alt="中華街"
                                 class="about-yokohama__area-icon">中華街・山下公園エリア</a></li>
-                    <li><a href="<?php echo esc_url(home_url('/yokohama/#map-nihondori')); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-nihondori.png" alt="日本大通り"
+                    <li><a href="<?php echo esc_url(home_url('/yokohama/#map-nihondori')); ?>"><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-nihondori.png" alt="日本大通り"
                                 class="about-yokohama__area-icon">日本大通りエリア</a></li>
-                    <li><a href="<?php echo esc_url(home_url('/yokohama/#map-bashamichi')); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-bashamichi.png" alt="馬車道"
+                    <li><a href="<?php echo esc_url(home_url('/yokohama/#map-bashamichi')); ?>"><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-bashamichi.png" alt="馬車道"
                                 class="about-yokohama__area-icon">馬車道エリア</a></li>
-                    <li><a href="<?php echo esc_url(home_url('/yokohama/#map-sakuragicho')); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-sakuragicho.png" alt="桜木町"
+                    <li><a href="<?php echo esc_url(home_url('/yokohama/#map-sakuragicho')); ?>"><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-sakuragicho.png" alt="桜木町"
                                 class="about-yokohama__area-icon">桜木町エリア</a></li>
-                    <li><a href="<?php echo esc_url(home_url('/yokohama/#map-kannai')); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-kannai.png" alt="関内"
+                    <li><a href="<?php echo esc_url(home_url('/yokohama/#map-kannai')); ?>"><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-kannai.png" alt="関内"
                                 class="about-yokohama__area-icon">関内エリア</a></li>
-                    <li><a href="<?php echo esc_url(home_url('/yokohama/#map-minatomirai')); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-minatomirai.png" alt="みなとみらい"
+                    <li><a href="<?php echo esc_url(home_url('/yokohama/#map-minatomirai')); ?>"><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-minatomirai.png" alt="みなとみらい"
                                 class="about-yokohama__area-icon">みなとみらいエリア</a></li>
                 </ul>
                 <!-- MAPボタン -->
@@ -636,26 +640,26 @@
             </div>
         </div>
         <div class="about-yokohama__foods">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/food1.png" alt="横浜中華街の点心料理" class="about-yokohama__food js-fade-up">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/food2.png" alt="港町横浜の洋食プレート" class="about-yokohama__food js-fade-up">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/food3.png" alt="横浜名物の海鮮料理" class="about-yokohama__food js-fade-up">
+            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/food1.png" alt="横浜中華街の点心料理" class="about-yokohama__food js-fade-up">
+            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/food2.png" alt="港町横浜の洋食プレート" class="about-yokohama__food js-fade-up">
+            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/food3.png" alt="横浜名物の海鮮料理" class="about-yokohama__food js-fade-up">
         </div>
     </section>
     <section class="news" id="news">
         <div class="news__decos">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/faq/faq_line-right.png" alt="" class="news__line js-fade-up" aria-hidden="true">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/faq/faq_seagull.png" alt="" class="news__seagull js-fade-up" aria-hidden="true">
+            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/faq/faq_line-right.png" alt="" class="news__line js-fade-up" aria-hidden="true">
+            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/faq/faq_seagull.png" alt="" class="news__seagull js-fade-up" aria-hidden="true">
         </div>
         <div class="news__bg">
             <!-- 装飾画像：右上 -->
-            <img src="<?php echo get_template_directory_uri(); ?>/images/news/news_flag.png" alt="" aria-hidden="true" class="news__decoration news__decoration--top-right">
+            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/news/news_flag.png" alt="" aria-hidden="true" class="news__decoration news__decoration--top-right">
             <!-- 装飾画像：左下 -->
-            <img src="<?php echo get_template_directory_uri(); ?>/images/news/news_signboard.png" alt="" aria-hidden="true" class="news__decoration news__decoration--bottom-left">
+            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/news/news_signboard.png" alt="" aria-hidden="true" class="news__decoration news__decoration--bottom-left">
 
             <div class="news__inner inner">
                 <div class="section-title section-title--sm section-title--news js-fade-up">
                     <h2 class="section-title__text">お知らせ・イベント</h2>
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_title-wave.svg" alt="" aria-hidden="true"
+                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about/about_title-wave.svg" alt="" aria-hidden="true"
                         class="section-title__icon section-title__icon--wave">
                 </div>
                 <div class="news__filter">
@@ -721,40 +725,40 @@
     <section class="contact contact--bottom" id="contact">
         <div class="contact__decos">
             <div class="speech-bubble-imgwrap speech-bubble-imgwrap--contact">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/bubble.png" class="speech-bubble-img" aria-hidden="true">
+                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/bubble.png" class="speech-bubble-img" aria-hidden="true">
                 <p class="speech-bubble-text speech-bubble-text--contact">
                     ハマナビサービスで<br>横浜を楽しんでいってね！
                 </p>
             </div>
             <figure class="character character--contact">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/contact/bird.png" alt="ハマナビくん">
+                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/contact/bird.png" alt="ハマナビくん">
             </figure>
         </div>
         <div class="contact__inner">
             <h2 class="section-title section-title--sm section-title--contact">
                 <span class="section-title__text">お問い合わせ</span>
-                <img src=<?php echo get_template_directory_uri(); ?>/images/about/about_title-wave.svg" alt="" aria-hidden="true" class="section-title__icon section-title__icon--wave">
+                <img loading="lazy" src=<?php echo get_template_directory_uri(); ?>/images/about/about_title-wave.svg" alt="" aria-hidden="true" class="section-title__icon section-title__icon--wave">
             </h2>
 
             <div class="contact__box">
                 <ul class="contact__list">
                     <li class="contact__item contact__item--tel">
                         <a href="tel:0456812737" class="contact__tel">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/header_phoneicon.png" alt="" aria-hidden="true">
+                            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/header_phoneicon.png" alt="" aria-hidden="true">
                             <span>045-681-2737</span>
                         </a>
                     </li>
 
                     <li class="contact__item contact__item--mobile">
                         <a href="tel:07015263845" class="contact__tel">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/header_mobileicon.png" alt="" aria-hidden="true">
+                            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/header_mobileicon.png" alt="" aria-hidden="true">
                             <span>070-1526-3845</span>
                         </a>
                     </li>
                     <li class="contact__item contact__item--time">対応時間：10:00〜18:00／不定休</li>
                     <li class="contact__item contact__item--mail">
                         <a href="mailto:info@hamanavi-s.jp" class="contact__mail">
-                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/header_mailicon.png" alt="" aria-hidden="true">
+                            <img loading="lazy" src="<?php echo esc_url(get_template_directory_uri()); ?>/images/header_mailicon.png" alt="" aria-hidden="true">
                             <span>info@hamanavi-s.jp</span>
                         </a>
                     </li>
@@ -764,7 +768,7 @@
                     <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn--blue btn--md">お問い合わせ・ご相談窓口<span class="btn__arrow">→</span></a>
 
                     <a href="<?php echo esc_url(home_url('/reservation/')); ?>" class="btn btn--orange btn--md">予約する
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-link.png" alt="" class="btn__icon" aria-hidden="true" width="19" height="18"></a>
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service/icon-link.png" alt="" class="btn__icon" aria-hidden="true" width="19" height="18"></a>
                 </div>
             </div>
         </div>
@@ -776,7 +780,7 @@
                 <a href="https://www.instagram.com/yokohama_concierge/" target="_blank" rel="noopener noreferrer">
                     <picture>
                         <source media="(max-width: 768px)" srcset="<?php echo get_template_directory_uri(); ?>/images/influencer/influencer-header-sp.png">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/influencer/influencer-header.png"
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/influencer/influencer-header.png"
                             alt="マイクロインフルエンサー募集！ハマナビサービスでは、Instagram・TikTok・YouTubeなどで情報を発信してくださるマイクロインフルエンサーを募集しています。詳しくはInstagramへ">
                     </picture>
                 </a>

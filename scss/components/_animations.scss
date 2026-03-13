@@ -71,7 +71,6 @@
 .js-fade-up {
   opacity: 0;
   transform: translateY(30px);
-  transition: all 0.8s ease;
 
   &.is-visible {
     opacity: 1;
