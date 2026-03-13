@@ -14,7 +14,6 @@
   max-width: 100%;
   // 言語切り替えのドロップダウンがヘッダー外に展開されるため
   // 縦方向は visible にしてクリック不能（見切れ）を防ぐ
-  overflow-y: hidden;
   display: flex;
 
   @include mq(sp-large) {
@@ -1067,12 +1066,24 @@ body.spmenu-open .header__toggle {
   }
 
   // ホバー時に三角を上向きに回転（PC版・タブレット版、マウス操作時）
-  &:hover .trp-current-language-item__wrapper::after {
-    transform: rotate(180deg);
-  }
-
-  // クリック/タッチ時にも三角を上向きに回転（タブレット・SP版）
+  // リスト表示と同じ .trp-shortcode-overlay:hover に揃える
+  .trp-shortcode-overlay:hover .trp-current-language-item__wrapper::after,
   &.is-open .trp-current-language-item__wrapper::after {
     transform: rotate(180deg);
+  }
+}
+
+/* PC版 言語切り替えドロップダウン修正 */
+@media (min-width: 769px) {
+  /* デフォルトは閉じた状態 */
+  .header__language-wrapper.lang-switch .trp-switcher-dropdown-list {
+    max-height: 0 !important;
+    overflow: hidden !important;
+  }
+  /* ホバー時・is-open時のみ開く */
+  .header__language-wrapper.lang-switch .trp-shortcode-overlay:hover .trp-switcher-dropdown-list,
+  .header__language-wrapper.lang-switch .trp-shortcode-overlay.is-open .trp-switcher-dropdown-list {
+    max-height: min(350px, 70vh) !important;
+    overflow: auto !important;
   }
 }
