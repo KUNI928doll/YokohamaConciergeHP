@@ -44,18 +44,7 @@
         </ul>
     </nav>
 </div>
-<div class="search-area search-area--service">
-            <form action="<?php echo esc_url(home_url('/')); ?>" method="get" class="search-area__form">
-                <input type="text" name="s" class="search-area__input" placeholder="サイト内検索">
-                <button type="submit" class="search-area__btn" aria-label="検索">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/icon-search.png" alt="検索アイコン">
-                </button>
-            </form>
-
-            <div class="search-area__links">
-                <a href="#" class="search-area__link search-area__link--map">MAPで探す</a>
-            </div>
-        </div>
+<?php get_template_part('template-parts/search-form', null, array('modifier' => 'service')); ?>
         <div class="sub-hero">
             <div class="sub-hero__decoration">
                 <img src="<?php echo get_template_directory_uri(); ?>/images/sub-hero__decoration.png" alt="" aria-hidden="true">

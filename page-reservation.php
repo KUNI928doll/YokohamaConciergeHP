@@ -10,7 +10,7 @@ get_header();
 <main>
     <section class="sub-hero sub-hero--reservation">
         <div class="sub-hero__decoration">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/sub-hero__decoration.png" alt="" aria-hidden="true">
+            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/sub-hero__decoration.png" alt="" aria-hidden="true">
         </div>
         <div class="sub-hero__inner inner">
             <h1 class="sub-hero__title">ご予約フォーム</h1>

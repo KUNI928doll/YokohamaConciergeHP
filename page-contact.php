@@ -11,10 +11,10 @@
         <main>
             <div class="sub-hero">
                 <div class="sub-hero__decoration">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/sub-hero__decoration.png" alt="" aria-hidden="true">
+                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/sub-hero__decoration.png" alt="" aria-hidden="true">
                 </div>
                 <div class="sub-hero__img">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/contact/contact-hero.png" alt="ベイブリッチ">
+                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/contact/contact-hero.png" alt="ベイブリッチ">
                 </div>
                 <h1 class="sub-hero__title">お問い合わせ</h1>
                 <p class="sub-hero__text">サービス内容やご予約、見積もりについてなど、お気軽にご相談ください。必須の項目は必ずご入力ください。</p>

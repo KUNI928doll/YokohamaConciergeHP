@@ -11,15 +11,12 @@
             <div class="error-page__actions">
                 <a href="<?php echo esc_url(home_url('/')); ?>" class="error-page__home-btn">ホームに戻る</a>
                 <div class="error-page__search">
-                    <section class="search-area search-area--page">
-                        <div class="search-area__inner inner">
-                            <form action="<?php echo esc_url(home_url('/')); ?>" method="get" class="search-area__form">
-                                <input type="text" name="s" class="search-area__input" placeholder="例）トランク お預かり サポート">
-                                <button type="submit" class="search-area__btn" aria-label="検索">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/icon-search.png" alt="検索アイコン">
-                                </button>
-                            </form>
-                        </div>
+                    <section>
+                        <?php get_template_part('template-parts/search-form', null, array(
+                            'wrapper_class' => 'search-area--page',
+                            'placeholder' => '例）トランク お預かり サポート',
+                            'show_map_link' => false
+                        )); ?>
                     </section>
                 </div>
             </div>

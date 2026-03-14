@@ -10,10 +10,10 @@ get_header();
     <main>
         <div class="sub-hero">
             <div class="sub-hero__decoration">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/sub-hero__decoration.png" alt="" aria-hidden="true">
+                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/sub-hero__decoration.png" alt="" aria-hidden="true">
             </div>
             <div class="sub-hero__img">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/service-hero.png" alt="横浜の夜景">
+                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/service-hero.png" alt="横浜の夜景">
             </div>
             <h1 class="sub-hero__title">サービス紹介</h1>
         </div>
@@ -30,10 +30,10 @@ get_header();
 
                 <!-- タイトル -->
                 <div class="guide-overview__title-block">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/guide-storage.svg" alt="" class="guide-overview__title-icon"
+                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/guide-storage.svg" alt="" class="guide-overview__title-icon"
                         aria-hidden="true">
                     <h2 class="guide-overview__title">トランクお預かり</h2>
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/guide-wave.svg" alt="" class="guide-overview__title-wave"
+                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/guide-wave.svg" alt="" class="guide-overview__title-wave"
                         aria-hidden="true">
                 </div>
 
@@ -79,17 +79,17 @@ get_header();
         <section class="support support--tour-guide js-fade-up">
             <div class="support__inner">
                 <h2 class="support__title support__title--tour-guide">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/support-title-line_left.svg" alt="" aria-hidden="true"
+                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/support-title-line_left.svg" alt="" aria-hidden="true"
                         class="support__title-decoration support__title-decoration--left">
                     <span class="support__title-text">全てのサービスにサポート付き!</span>
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/support-title-line_right.svg" alt="" aria-hidden="true"
+                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/support-title-line_right.svg" alt="" aria-hidden="true"
                         class="support__title-decoration support__title-decoration--right">
                 </h2>
                 <div class="support__box">
                     <div class="support__top">
                         <div class="support__header">
                             <div class="support__icon">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-support.png" alt="お困りごとの解決アイコン">
+                                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service/icon-support.png" alt="お困りごとの解決アイコン">
                             </div>
                             <h3 class="support__subtitle">お困りごとの解決</h3>
                         </div>
@@ -136,7 +136,7 @@ get_header();
                             <p class="guide-flow__step-description">ご予約フォームより、ご希望のサービス内容・日時・条件をご入力ください。</p>
                             <p class="guide-flow__step-detail">内容をご確認のうえ、「この内容で予約代行を依頼する」ボタンを押してください。</p>
                             <a href="<?php echo esc_url(home_url('/reservation/')); ?>" class="btn btn--orange btn--md guide-flow__btn">ご予約フォーム
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-link.png" alt="" class="btn__icon" aria-hidden="true">
+                                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service/icon-link.png" alt="" class="btn__icon" aria-hidden="true">
                             </a>
                         </div>
                     </div>
@@ -195,7 +195,7 @@ get_header();
                     <a href="<?php echo esc_url(home_url('/service-reserve/')); ?>" class="guide-services__card">
                         <div class="guide-services__corner"></div>
                         <div class="guide-services__icon">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-reserve.png" alt="予約代行アイコン">
+                            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service/icon-reserve.png" alt="予約代行アイコン">
                         </div>
                         <h3 class="guide-services__title">予約代行</h3>
                     </a>
@@ -204,7 +204,7 @@ get_header();
                     <a href="<?php echo esc_url(home_url('/service-storage/')); ?>" class="guide-services__card">
                         <div class="guide-services__corner"></div>
                         <div class="guide-services__icon">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-trunk.png" alt="トランクお預かりアイコン">
+                            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service/icon-trunk.png" alt="トランクお預かりアイコン">
                         </div>
                         <h3 class="guide-services__title">トランクお預かり</h3>
                     </a>
@@ -213,7 +213,7 @@ get_header();
                     <a href="<?php echo esc_url(home_url('/service-tour-guide/')); ?>" class="guide-services__card">
                         <div class="guide-services__corner"></div>
                         <div class="guide-services__icon">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-guide.png" alt="観光ガイドサービスアイコン">
+                            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service/icon-guide.png" alt="観光ガイドサービスアイコン">
                         </div>
                         <h3 class="guide-services__title">観光ガイドサービス</h3>
                     </a>
@@ -221,7 +221,7 @@ get_header();
 
                 <div class="guide-services__home">
                     <a href="<?php echo esc_url(home_url('/')); ?>" class="guide-services__home-btn">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/icon-home.png" alt="ホームアイコン">
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/icon-home.png" alt="ホームアイコン">
                         <span>ホームへ</span>
                     </a>
                 </div>
@@ -232,28 +232,28 @@ get_header();
             <div class="contact__inner">
                 <h2 class="section-title section-title--sm section-title--contact">
                     <span class="section-title__text">お問い合わせ</span>
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_title-wave.svg" alt="" aria-hidden="true" class="section-title__icon section-title__icon--wave">
+                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about/about_title-wave.svg" alt="" aria-hidden="true" class="section-title__icon section-title__icon--wave">
                 </h2>
 
                 <div class="contact__box">
                     <ul class="contact__list">
                         <li class="contact__item contact__item--tel">
                             <a href="tel:0456812737" class="contact__tel">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/header_phoneicon.png" alt="" aria-hidden="true">
+                                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/header_phoneicon.png" alt="" aria-hidden="true">
                                 <span>045-681-2737</span>
                             </a>
                         </li>
 
                         <li class="contact__item contact__item--mobile">
                             <a href="tel:07015263845" class="contact__tel">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/header_mobileicon.png" alt="" aria-hidden="true">
+                                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/header_mobileicon.png" alt="" aria-hidden="true">
                                 <span>070-1526-3845</span>
                             </a>
                         </li>
                         <li class="contact__item contact__item--time">対応時間：10:00〜18:00／不定休</li>
                         <li class="contact__item contact__item--mail">
                             <a href="mailto:info@hamanavi-s.jp" class="contact__mail">
-                                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/header_mailicon.png" alt="" aria-hidden="true">
+                                <img loading="lazy" src="<?php echo esc_url(get_template_directory_uri()); ?>/images/header_mailicon.png" alt="" aria-hidden="true">
                                 <span>info@hamanavi-s.jp</span>
                             </a>
                         </li>
@@ -263,19 +263,19 @@ get_header();
                         <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn--blue btn--md">お問い合わせ・ご相談窓口<span class="btn__arrow">→</span></a>
                         
                         <a href="<?php echo esc_url(home_url('/reservation/')); ?>" class="btn btn--orange btn--md">予約する
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-link.png" alt="" class="btn__icon" aria-hidden="true"></a>
+                            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service/icon-link.png" alt="" class="btn__icon" aria-hidden="true"></a>
                     </div>
                 </div>
 
                 <div class="contact__decos">
                     <div class="speech-bubble-imgwrap speech-bubble-imgwrap--contact">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/bubble.png" class="speech-bubble-img" aria-hidden="true">
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/bubble.png" class="speech-bubble-img" aria-hidden="true">
                         <p class="speech-bubble-text speech-bubble-text--contact">
                             ハマナビサービスで<br>横浜を楽しんでいってね！
                         </p>
                     </div>
                     <figure class="character character--contact">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/contact/bird.png" alt="ハマナビくん">
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/contact/bird.png" alt="ハマナビくん">
                     </figure>
                 </div>
             </div>

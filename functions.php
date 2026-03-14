@@ -57,6 +57,38 @@ function yokohama_concierge_add_img_width_height($html, $post_id, $post_thumbnai
 }
 add_filter('post_thumbnail_html', 'yokohama_concierge_add_img_width_height', 10, 5);
 
+// コンテンツ画像に loading="lazy" を自動追加
+function yokohama_concierge_add_lazy_loading($content) {
+    // 既に loading 属性が設定されている画像はスキップ
+    $content = preg_replace_callback(
+        '/<img([^>]+?)>/i',
+        function($matches) {
+            $img_tag = $matches[0];
+
+            // 既に loading 属性がある場合はそのまま返す
+            if (strpos($img_tag, 'loading=') !== false) {
+                return $img_tag;
+            }
+
+            // loading="lazy" を追加
+            $img_tag = str_replace('<img', '<img loading="lazy"', $img_tag);
+
+            return $img_tag;
+        },
+        $content
+    );
+
+    return $content;
+}
+add_filter('the_content', 'yokohama_concierge_add_lazy_loading');
+add_filter('post_thumbnail_html', 'yokohama_concierge_add_lazy_loading');
+add_filter('get_avatar', 'yokohama_concierge_add_lazy_loading');
+
+// 管理バーをフロントエンドから非表示（管理者以外）
+add_filter('show_admin_bar', function($show) {
+    return current_user_can('administrator') ? $show : false;
+});
+
 // 構造化データ(JSON-LD)を出力
 function yokohama_concierge_schema_markup() {
     $schema = null;
@@ -85,6 +117,51 @@ function yokohama_concierge_schema_markup() {
 
     if (is_front_page()) {
         $schema = array_merge(array('@context' => 'https://schema.org'), $business);
+
+        // FAQPageスキーマを追加出力
+        $faq_schema = array(
+            '@context' => 'https://schema.org',
+            '@type' => 'FAQPage',
+            'mainEntity' => array(
+                array(
+                    '@type' => 'Question',
+                    'name' => '予約後のキャンセルはできますか？',
+                    'acceptedAnswer' => array(
+                        '@type' => 'Answer',
+                        'text' => 'はい、できます。代行予約料金はご利用日の48時間前までは無料でキャンセル可能です。なお、他のサービスは各事業者様のキャンセルルールに基づくものとなります。'
+                    )
+                ),
+                array(
+                    '@type' => 'Question',
+                    'name' => '当日予約も可能ですか？',
+                    'acceptedAnswer' => array(
+                        '@type' => 'Answer',
+                        'text' => 'できる限り対応いたします。まずはご相談ください。ご相談いただければ、可能な限りご対応いたします。5日以内の予約は緊急予約料金となりますのでご了承ください。（条件変更など相談させていただく場合もございますので、要ご相談ください）'
+                    )
+                ),
+                array(
+                    '@type' => 'Question',
+                    'name' => '支払いはどのようにするのでしょうか？',
+                    'acceptedAnswer' => array(
+                        '@type' => 'Answer',
+                        'text' => '基本的にクレジットカード決済（Stripe決済）の支払いとなります。予約代行料金は基本的にクレジットカード決済（Stripe決済）の支払いとなります。簡単、安心決済対応いたします。トランクお預かり、観光ガイドサービス、お困りごとの解決は現金または銀行振込も可能です。なお、弊社サービス以外のご利用代金については、各事業者様ルールによる決済でお願いいたします。'
+                    )
+                ),
+                array(
+                    '@type' => 'Question',
+                    'name' => 'お困りごとの解決サービスの具体的な内容はどのようなことがありますか？',
+                    'acceptedAnswer' => array(
+                        '@type' => 'Answer',
+                        'text' => '幅広い内容に対応しております。1.突然の交通トラブルによる交通機関予約や宿泊先予約、飲食店舗予約（横浜近隣施設）2.突然の体調不良による交通機関予約や宿泊先予約、飲食店舗予約（横浜近隣施設）＊別途、病院の紹介や交通機関の利用方法などもご相談ください。3.旅行中の日程予定変更による各種ご予約（横浜近隣施設）＊旅行中の紛失物の対応方法などのご相談。4.その他旅行中にご相談事がある場合、弊社でご対応できる内容であれば対応いたしますので、ご相談ください。'
+                    )
+                )
+            )
+        );
+
+        // 2つ目のスキーマとしてFAQPageを出力
+        echo '<script type="application/ld+json">' . "\n";
+        echo wp_json_encode($faq_schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+        echo "\n" . '</script>' . "\n";
     } elseif (is_page(array('service-tour-guide', 'service-storage', 'service-reserve', 'reservation'))) {
         $schema = array(
             '@context' => 'https://schema.org',

@@ -10,10 +10,10 @@ get_header();
 
         <div class="sub-hero">
             <div class="sub-hero__decoration">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/sub-hero__decoration.png" alt="" aria-hidden="true" width="1730" height="92">
+                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/sub-hero__decoration.png" alt="" aria-hidden="true" width="1730" height="92">
             </div>
             <div class="sub-hero__img">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/service-hero.png" alt="横浜の夜景" width="2734" height="746">
+                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/service-hero.png" alt="横浜の夜景" width="2734" height="746">
             </div>
             <h1 class="sub-hero__title">横浜について</h1>
         </div>
@@ -31,7 +31,7 @@ get_header();
                 <!-- タイトル -->
                 <div class="guide-overview__title-block">
                     <h2 class="guide-overview__title">横浜について</h2>
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/guide-wave.svg" alt="" class="guide-overview__title-wave"
+                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/guide-wave.svg" alt="" class="guide-overview__title-wave"
                         aria-hidden="true">
                 </div>
             </div>
@@ -42,56 +42,56 @@ get_header();
             <div class="guide-spots__inner">
                 <div class="guide-spots__nav" role="group" aria-label="観光エリア">
                     <button class="guide-spots__nav-btn is-active" type="button" data-target="map-motomachi">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-motomachi.png" alt="" aria-hidden="true">
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-motomachi.png" alt="" aria-hidden="true">
                         元町・山手エリア
                     </button>
                     <button class="guide-spots__nav-btn" type="button" data-target="map-chinatown">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-chukagai.png" alt="" aria-hidden="true">
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-chukagai.png" alt="" aria-hidden="true">
                         中華街・山下公園エリア
                     </button>
                     <button class="guide-spots__nav-btn" type="button" data-target="map-nihondori">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-nihondori.png" alt="" aria-hidden="true">
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-nihondori.png" alt="" aria-hidden="true">
                         日本大通りエリア
                     </button>
                     <button class="guide-spots__nav-btn" type="button" data-target="map-kannai">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-kannai.png" alt="" aria-hidden="true">
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-kannai.png" alt="" aria-hidden="true">
                         関内エリア
                     </button>
                     <button class="guide-spots__nav-btn" type="button" data-target="map-bashamichi">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-bashamichi.png" alt="" aria-hidden="true">
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-bashamichi.png" alt="" aria-hidden="true">
                         馬車道エリア
                     </button>
                     <button class="guide-spots__nav-btn" type="button" data-target="map-sakuragicho">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-sakuragicho.png" alt="" aria-hidden="true">
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-sakuragicho.png" alt="" aria-hidden="true">
                         桜木町エリア
                     </button>
                     <button class="guide-spots__nav-btn" type="button" data-target="map-minatomirai">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-minatomirai.png" alt="" aria-hidden="true">
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-minatomirai.png" alt="" aria-hidden="true">
                         みなとみらいエリア
                     </button>
                 </div>
 
                 <div class="yokohama-area__maps">
                     <div class="yokohama-area__map is-active" id="map-motomachi">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/yokohama/motomati-map@2x.jpg" alt="元町・山手エリアの地図" width="2577" height="1471">
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/motomati-map@2x.jpg" alt="元町・山手エリアの地図" width="2577" height="1471">
                     </div>
                     <div class="yokohama-area__map" id="map-chinatown">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/yokohama/tyukamati-map@2x.jpg" alt="中華街・山下公園エリアの地図" width="2577" height="1471">
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/tyukamati-map@2x.jpg" alt="中華街・山下公園エリアの地図" width="2577" height="1471">
                     </div>
                     <div class="yokohama-area__map" id="map-nihondori">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/yokohama/nihondori-map.jpg" alt="日本大通りエリアの地図" width="2577" height="1471">
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/nihondori-map.jpg" alt="日本大通りエリアの地図" width="2577" height="1471">
                     </div>
                     <div class="yokohama-area__map" id="map-kannai">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/yokohama/kannai-map@2x.jpg" alt="関内エリアの地図" width="2577" height="1471">
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/kannai-map@2x.jpg" alt="関内エリアの地図" width="2577" height="1471">
                     </div>
                     <div class="yokohama-area__map" id="map-bashamichi">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/yokohama/bashamichi-map.jpg" alt="馬車道エリアの地図" width="2577" height="1471">
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/bashamichi-map.jpg" alt="馬車道エリアの地図" width="2577" height="1471">
                     </div>
                     <div class="yokohama-area__map" id="map-sakuragicho">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/yokohama/sakuragi-map.jpg" alt="桜木町エリアの地図" width="2577" height="1471">
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/sakuragi-map.jpg" alt="桜木町エリアの地図" width="2577" height="1471">
                     </div>
                     <div class="yokohama-area__map" id="map-minatomirai">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/yokohama/minatomirai-map@2x.jpg" alt="みなとみらいエリアの地図" width="2577" height="1471">
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/minatomirai-map@2x.jpg" alt="みなとみらいエリアの地図" width="2577" height="1471">
                     </div>
                 </div>
             </div>
@@ -114,11 +114,11 @@ get_header();
                         <div class="tab-panel active">
                             <div class="tab-wrapper">
                                 <h2 class="guide-spots__panel-title">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-chukagai.png" alt="" aria-hidden="true">
+                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-chukagai.png" alt="" aria-hidden="true">
                                     元町・山手エリア
                                 </h2>
                                 <div class="tab-img">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/yokohama/motomati-tab01@2x.png" alt="元町・山手エリアの写真" loading="lazy"
+                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/motomati-tab01@2x.png" alt="元町・山手エリアの写真" loading="lazy"
                                         decoding="async">
                                 </div>
                             </div>
@@ -128,7 +128,7 @@ get_header();
                             <h3 class="tab-sub-title">見どころスポット</h3>
                             <p class="tab-text">アメリカ山公園　　屋上庭園のような公園。港や街並みを見下ろす美しい景色が楽しめます。</p>
                             <div class="tab-img2">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/yokohama/motomati-tab02@2x.png" alt="元町・山手エリアの写真" loading="lazy"
+                                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/motomati-tab02@2x.png" alt="元町・山手エリアの写真" loading="lazy"
                                     decoding="async">
                             </div>
                             <div class="tab__map-button">
@@ -142,7 +142,7 @@ get_header();
                         <!-- 中華街 -->
                         <div class="tab-panel">
                             <h2 class="guide-spots__panel-title">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-chukagai.png" alt="" aria-hidden="true">
+                                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-chukagai.png" alt="" aria-hidden="true">
                                 中華街・山下公園エリア
                             </h2>
                             <div class="tab-panel-wrap">
@@ -150,7 +150,7 @@ get_header();
                                     世界最大級の規模を誇る横浜中華街では、カラフルな牌楼（門）と活気ある屋台が旅行者を出迎えます。本格中華料理や点心の食べ歩きはもちろんのこと、伝統的な寺院や雑貨屋巡りも人気。すぐ近くの山下公園は海風を感じながら散歩でき、氷川丸やベイブリッジを眺めることができる絶景スポットです。
                                 </p>
                                 <div class="tab-img2">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/yokohama/tyukamati-tab01@2x.png" alt="中華街・山下公園エリアの写真" loading="lazy"
+                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/tyukamati-tab01@2x.png" alt="中華街・山下公園エリアの写真" loading="lazy"
                                         decoding="async">
                                 </div>
                             </div>
@@ -158,7 +158,7 @@ get_header();
                                 <h3 class="tab-sub-title">見どころスポット</h3>
                                 <p class="tab-text">横浜大世界　　中国文化をテーマにした複合施設。雑貨、アート、フードが楽しめます。</p>
                                 <div class="tab-img3">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/yokohama/tyukamati-tab02@2x.png" alt="中華街・山下公園エリアの写真" loading="lazy"
+                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/tyukamati-tab02@2x.png" alt="中華街・山下公園エリアの写真" loading="lazy"
                                         decoding="async">
                                 </div>
                                 <div class="tab__map-button tab__map-button--position">
@@ -172,7 +172,7 @@ get_header();
                         <!-- 日本大通り -->
                         <div class="tab-panel">
                             <h2 class="guide-spots__panel-title">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-nihondori.png" alt="" aria-hidden="true">
+                                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-nihondori.png" alt="" aria-hidden="true">
                                 日本大通りエリア
                             </h2>
                             <p class="tab-text">
@@ -188,7 +188,7 @@ get_header();
                                     <li>• 大さん橋（メリケン波止場）　クルーズ船発着であり、夜景スポットへも近い、日本で最も古い桟橋です。</li>
                                 </ul>
                                 <div class="tab-img4">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/yokohama/nihonodori-tab01@2x.png" alt="日本大通りエリアの写真" loading="lazy"
+                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/nihonodori-tab01@2x.png" alt="日本大通りエリアの写真" loading="lazy"
                                         decoding="async">
                                 </div>
                             </div>
@@ -202,7 +202,7 @@ get_header();
                         <!-- 関内 -->
                         <div class="tab-panel">
                             <h2 class="guide-spots__panel-title">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-kannai.png" alt="" aria-hidden="true">
+                                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-kannai.png" alt="" aria-hidden="true">
                                 関内エリア
                             </h2>
                             <div class="tab-panel-wrap">
@@ -210,7 +210,7 @@ get_header();
                                 </p>
                                 </p>
                                 <div class="tab-img2">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/yokohama/kannai-tab01@2x.png" alt="関内エリアの写真" loading="lazy"
+                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/kannai-tab01@2x.png" alt="関内エリアの写真" loading="lazy"
                                         decoding="async">
                                 </div>
                             </div>
@@ -218,7 +218,7 @@ get_header();
                                 <h3 class="tab-sub-title">見どころスポット</h3>
                                 <p class="tab-text">横浜スタジアム　　プロ野球の試合や大型イベントが開催される、横浜の象徴的な球場です。</p>
                                 <div class="tab-img3">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/yokohama/kannai-tab02@2x.png" alt="横浜スタジアムの写真" loading="lazy"
+                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/kannai-tab02@2x.png" alt="横浜スタジアムの写真" loading="lazy"
                                         decoding="async">
                                 </div>
                                 <div class="tab__map-button tab__map-button--position">
@@ -232,10 +232,10 @@ get_header();
                         <!-- 馬車道 -->
                         <div class="tab-panel">
                             <div class="tab-img5">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/yokohama/kannai-tab01@2x.png" alt="関内エリアの写真" loading="lazy" decoding="async">
+                                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/kannai-tab01@2x.png" alt="関内エリアの写真" loading="lazy" decoding="async">
                             </div>
                             <h2 class="guide-spots__panel-title">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-bashamichi.png" alt="" aria-hidden="true">馬車道エリア
+                                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-bashamichi.png" alt="" aria-hidden="true">馬車道エリア
                             </h2>
                             <p class="tab-text">
                                 文明開化の時代に外国人居留地として栄えた馬車道は、ガス灯とレンガ造りの建物が並ぶ、レトロな雰囲気漂うエリア。アイスクリームやガス灯発祥の地としても知られ、昔ながらの洋食店やアートスポットが点在しています。レトロとモダンが調和した散策におすすめの場所です。
@@ -263,11 +263,11 @@ get_header();
                         <!-- 桜木町エリア -->
                         <div class="tab-panel">
                             <div class="tab-img5">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/yokohama/sakuragimachi-tab01@2x.png" alt="桜木町エリアの写真" loading="lazy"
+                                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/sakuragimachi-tab01@2x.png" alt="桜木町エリアの写真" loading="lazy"
                                     decoding="async">
                             </div>
                             <h2 class="guide-spots__panel-title">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-sakuragicho.png" alt="" aria-hidden="true">桜木町エリア
+                                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-sakuragicho.png" alt="" aria-hidden="true">桜木町エリア
                             </h2>
                             <p class="tab-text">
                                 横浜観光の玄関口である桜木町駅周辺は、海と高層ビルの風景が広がり、夜景の美しさでも有名です。駅前には、桜木町と新港地区を結ぶロープウェイ「YOKOHAMA AIR
@@ -292,7 +292,7 @@ get_header();
                         <!-- みなとみらいエリア -->
                         <div class="tab-panel">
                             <h2 class="guide-spots__panel-title">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-minatomirai.png" alt="" aria-hidden="true">
+                                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-minatomirai.png" alt="" aria-hidden="true">
                                 みなとみらいエリア
                             </h2>
                             <div class="tab-panel-wrap">
@@ -300,7 +300,7 @@ get_header();
                                     横浜のシンボルともいえるみなとみらいは、近未来的な高層ビル群。と海辺の景色が融合する大人気エリア。ショッピングモールやアミューズメント施設、美術観光などが楽しめます。
                                 </p>
                                 <div class="tab-img2">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/yokohama/minatomirai-tab01@2x.png" alt="みなとみらいエリアの写真" loading="lazy"
+                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/minatomirai-tab01@2x.png" alt="みなとみらいエリアの写真" loading="lazy"
                                         decoding="async">
                                 </div>
                             </div>
@@ -312,7 +312,7 @@ get_header();
                                     <li>• 横浜美術館　国内外の近現代美術を鑑賞できる文化スポット</li>
                                 </ul>
                                 <div class="tab-img3">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/yokohama/minatomitai-tab02@2x.png" alt="みなとみらいエリアの写真" loading="lazy"
+                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/minatomitai-tab02@2x.png" alt="みなとみらいエリアの写真" loading="lazy"
                                         decoding="async">
                                 </div>
                                 <div class="tab__map-button tab__map-button--position">
@@ -343,40 +343,40 @@ get_header();
         <section class="contact contact--bottom" id="contact">
             <div class="contact__decos">
                 <div class="speech-bubble-imgwrap speech-bubble-imgwrap--contact">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/bubble.png" class="speech-bubble-img" aria-hidden="true">
+                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/bubble.png" class="speech-bubble-img" aria-hidden="true">
                     <p class="speech-bubble-text speech-bubble-text--contact">
                         ハマナビサービスで<br>横浜を楽しんでいってね！
                     </p>
                 </div>
                 <figure class="character character--contact">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/contact/bird.png" alt="ハマナビくん">
+                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/contact/bird.png" alt="ハマナビくん">
                 </figure>
             </div>
             <div class="contact__inner">
                 <h2 class="section-title section-title--sm section-title--contact">
                     <span class="section-title__text">お問い合わせ</span>
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_title-wave.svg" alt="" aria-hidden="true" class="section-title__icon section-title__icon--wave">
+                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about/about_title-wave.svg" alt="" aria-hidden="true" class="section-title__icon section-title__icon--wave">
                 </h2>
 
                 <div class="contact__box">
                     <ul class="contact__list">
                         <li class="contact__item contact__item--tel">
                             <a href="tel:0456812737" class="contact__tel">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/header_phoneicon.png" alt="" aria-hidden="true">
+                                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/header_phoneicon.png" alt="" aria-hidden="true">
                                 <span>045-681-2737</span>
                             </a>
                         </li>
 
                         <li class="contact__item contact__item--mobile">
                             <a href="tel:07015263845" class="contact__tel">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/header_mobileicon.png" alt="" aria-hidden="true">
+                                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/header_mobileicon.png" alt="" aria-hidden="true">
                                 <span>070-1526-3845</span>
                             </a>
                         </li>
                         <li class="contact__item contact__item--time">対応時間：10:00〜18:00／不定休</li>
                         <li class="contact__item contact__item--mail">
                             <a href="mailto:info@hamanavi-s.jp" class="contact__mail">
-                                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/header_mailicon.png" alt="" aria-hidden="true">
+                                <img loading="lazy" src="<?php echo esc_url(get_template_directory_uri()); ?>/images/header_mailicon.png" alt="" aria-hidden="true">
                                 <span>info@hamanavi-s.jp</span>
                             </a>
                         </li>
@@ -386,7 +386,7 @@ get_header();
                         <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn--blue btn--md">お問い合わせ・ご相談窓口<span class="btn__arrow">→</span></a>
                         
                         <a href="<?php echo esc_url(home_url('/reservation/')); ?>" class="btn btn--orange btn--md">予約する
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-link.png" alt="" class="btn__icon" aria-hidden="true"></a>
+                            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service/icon-link.png" alt="" class="btn__icon" aria-hidden="true"></a>
                     </div>
                 </div>
             </div>
@@ -401,7 +401,7 @@ get_header();
                     <a href="https://www.instagram.com/yokohama_concierge/" target="_blank" rel="noopener noreferrer">
                         <picture>
                             <source media="(max-width: 768px)" srcset="<?php echo get_template_directory_uri(); ?>/images/influencer/influencer-header-sp.png">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/influencer/influencer-header.png" alt="マイクロインフルエンサー募集バナー" width="2098" height="276">
+                            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/influencer/influencer-header.png" alt="マイクロインフルエンサー募集バナー" width="2098" height="276">
                         </picture>
                     </a>
                 </div>

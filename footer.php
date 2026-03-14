@@ -12,27 +12,27 @@
 ?>">
         <section class="footer-scene">
             <div class="footer__fx" aria-hidden="true">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/fireworks4.png" alt="左下の花火のイラスト" class="footer__fx-item footer__fx-item--l1" width="156" height="350">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/fireworks2.png" alt="左上の花火のイラスト" class="footer__fx-item footer__fx-item--l2" width="287" height="455">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/fireworks8.png" alt="右下の花火のイラスト" class="footer__fx-item footer__fx-item--r2" width="249" height="465">
+                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/fireworks4.png" alt="左下の花火のイラスト" class="footer__fx-item footer__fx-item--l1" width="156" height="350">
+                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/fireworks2.png" alt="左上の花火のイラスト" class="footer__fx-item footer__fx-item--l2" width="287" height="455">
+                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/fireworks8.png" alt="右下の花火のイラスト" class="footer__fx-item footer__fx-item--r2" width="249" height="465">
             </div>
         </section>
         <div class="footer__inner">
             <!-- ロゴ -->
             <div class="footer__logo">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/footer_logo.png" alt="YOKOHAMA Concierge ロゴ" width="476" height="123">
+                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/footer_logo.png" alt="YOKOHAMA Concierge ロゴ" width="476" height="123">
             </div>
             <!-- 住所・連絡先 -->
             <div class="footer__info">
                 <p class="footer__address">〒231-0023 神奈川県横浜市中区山下町76-4-1301</p>
                 <div class="footer__links">
                     <a href="mailto:info@hamanavi-s.jp" class="footer__link footer__link--mail">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/header_mailicon.png" alt="メールアイコン" width="25" height="18">
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/header_mailicon.png" alt="メールアイコン" width="25" height="18">
                         info@hamanavi-s.jp
                     </a>
                     <a href="https://www.instagram.com/yokohama_concierge?igsh=dmIzeWM4eW43Nmpn&utm_source=qr"
                         target="_blank" rel="noopener noreferrer" class="footer__link footer__link--insta">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/footer_insta.png" alt="Instagramアイコン" width="22" height="22">
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/footer_insta.png" alt="Instagramアイコン" width="22" height="22">
                         Instagram
                     </a>
                 </div>
@@ -69,7 +69,7 @@
         </p>
     </footer>
     <a href="#top" class="pagetop" aria-label="ページの先頭へ">
-        <img src="<?php echo get_template_directory_uri(); ?>/images/icon-pagetop.png" alt="ページトップへ" width="192" height="192">
+        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/icon-pagetop.png" alt="ページトップへ" width="192" height="192">
     </a>
     <?php wp_footer(); ?>
 </body>

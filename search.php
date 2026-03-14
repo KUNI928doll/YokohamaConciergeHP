@@ -10,16 +10,12 @@ get_header();
             <p>知りたいキーワードを入力して、目的のページをお探しください。</p>
         </div>
 
-        <section class="search-area search-area--page">
-            <div class="search-area__inner inner">
-                <form role="search" method="get" class="search-area__form" action="<?php echo esc_url(home_url('/')); ?>">
-                    <input type="text" name="s" class="search-area__input" placeholder="例）トランク お預かり サポート" value="<?php echo get_search_query(); ?>">
-                    <button type="submit" class="search-area__btn" aria-label="検索">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/icon-search.png" alt="検索アイコン">
-                    </button>
-                </form>
-            </div>
-        </section>
+        <?php get_template_part('template-parts/search-form', null, array(
+            'wrapper_class' => 'search-area--page',
+            'placeholder' => '例）トランク お預かり サポート',
+            'search_value' => get_search_query(),
+            'show_map_link' => false
+        )); ?>
 
         <section class="search-results">
             <div class="search-results__inner">
