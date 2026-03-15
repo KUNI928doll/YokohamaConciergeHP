@@ -1087,3 +1087,21 @@ body.spmenu-open .header__toggle {
     overflow: auto !important;
   }
 }
+
+/* SPメニュー内の言語切り替え修正 */
+@media (max-width: 768px) {
+  /* SPメニュー内ではドロップダウンを初期状態で閉じる */
+  .spmenu .spmenu__top .header__language-wrapper.lang-switch .trp-switcher-dropdown-list {
+    display: none !important;
+  }
+
+  /* is-openクラスが付いたときに開く */
+  .spmenu .spmenu__top .header__language-wrapper.lang-switch.is-open .trp-switcher-dropdown-list {
+    display: flex !important;
+  }
+
+  /* 矢印の回転をis-openクラスと同期 */
+  .spmenu .spmenu__top .header__language-wrapper.lang-switch.is-open .trp-current-language-item__wrapper::after {
+    transform: rotate(180deg) !important;
+  }
+}
