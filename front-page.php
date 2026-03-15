@@ -420,109 +420,101 @@
                 <dl class="faq__list">
                     <div class="faq__item js-fade-up">
                         <dt>
-                            <details class="faq__details">
-                                <summary class="faq__question">
-                                    <span class="faq__icon" aria-hidden="true">Q</span>
-                                    <span class="faq__text">予約後のキャンセルはできますか？</span>
-                                    <span class="faq__plus" aria-hidden="true"></span>
-                                </summary>
-                                <dd class="faq__answer">
-                                    <div class="faq__answer-inner">
-                                        <span class="faq__amark" aria-hidden="true">A</span>
-                                        <div class="faq__atext">
-                                            <p>はい、できます</p>
-                                            <p>
-                                                代行予約料金はご利用日の48時間前までは無料でキャンセル可能<br class="u-visible-pc">
-                                                です。なお、他のサービスは各事業者様のキャンセルルールに基づ<br class="u-visible-pc">くものとなります。
-                                            </p>
-                                        </div>
-                                    </div>
-                                </dd>
-                            </details>
+                            <button class="faq__question" aria-expanded="false" aria-controls="faq-answer-1">
+                                <span class="faq__icon" aria-hidden="true">Q</span>
+                                <span class="faq__text">予約後のキャンセルはできますか？</span>
+                                <span class="faq__plus" aria-hidden="true"></span>
+                            </button>
                         </dt>
+                        <dd id="faq-answer-1" class="faq__answer" hidden>
+                            <div class="faq__answer-inner">
+                                <span class="faq__amark" aria-hidden="true">A</span>
+                                <div class="faq__atext">
+                                    <p>はい、できます</p>
+                                    <p>
+                                        代行予約料金はご利用日の48時間前までは無料でキャンセル可能<br class="u-visible-pc">
+                                        です。なお、他のサービスは各事業者様のキャンセルルールに基づ<br class="u-visible-pc">くものとなります。
+                                    </p>
+                                </div>
+                            </div>
+                        </dd>
                     </div>
 
                     <div class="faq__item js-fade-up">
                         <dt>
-                            <details class="faq__details">
-                                <summary class="faq__question">
-                                    <span class="faq__icon" aria-hidden="true">Q</span>
-                                    <span class="faq__text">当日予約も可能ですか？</span>
-                                    <span class="faq__plus" aria-hidden="true"></span>
-                                </summary>
-                                <dd class="faq__answer">
-                                    <div class="faq__answer-inner">
-                                        <span class="faq__amark" aria-hidden="true">A</span>
-                                        <div class="faq__atext">
-                                            <p>できる限り対応いたします。まずはご相談ください。</p>
-                                            <p>
-                                                ご相談いただければ、可能な限りご対応いたします。5日以内の予<br class="u-visible-pc">
-                                                約は緊急予約料金となりますのでご了承ください。（条件変更など<br class="u-visible-pc">
-                                                相談させていただく場合もございますので、要ご相談ください）
-                                            </p>
-                                        </div>
-                                    </div>
-                                </dd>
-                            </details>
+                            <button class="faq__question" aria-expanded="false" aria-controls="faq-answer-2">
+                                <span class="faq__icon" aria-hidden="true">Q</span>
+                                <span class="faq__text">当日予約も可能ですか？</span>
+                                <span class="faq__plus" aria-hidden="true"></span>
+                            </button>
                         </dt>
+                        <dd id="faq-answer-2" class="faq__answer" hidden>
+                            <div class="faq__answer-inner">
+                                <span class="faq__amark" aria-hidden="true">A</span>
+                                <div class="faq__atext">
+                                    <p>できる限り対応いたします。まずはご相談ください。</p>
+                                    <p>
+                                        ご相談いただければ、可能な限りご対応いたします。5日以内の予<br class="u-visible-pc">
+                                        約は緊急予約料金となりますのでご了承ください。（条件変更など<br class="u-visible-pc">
+                                        相談させていただく場合もございますので、要ご相談ください）
+                                    </p>
+                                </div>
+                            </div>
+                        </dd>
                     </div>
 
                     <div class="faq__item js-fade-up">
                         <dt>
-                            <details class="faq__details">
-                                <summary class="faq__question">
-                                    <span class="faq__icon" aria-hidden="true">Q</span>
-                                    <span class="faq__text">支払いはどのようにするのでしょうか？</span>
-                                    <span class="faq__plus" aria-hidden="true"></span>
-                                </summary>
-                                <dd class="faq__answer">
-                                    <div class="faq__answer-inner">
-                                        <span class="faq__amark" aria-hidden="true">A</span>
-                                        <div class="faq__atext">
-                                            <p>基本的にクレジットカード決済（Stripe決済）の支払いとなります。</p>
-                                            <p>
-                                                予約代行料金は基本的にクレジットカード決済（Stripe決済）の支<br class="u-visible-pc">
-                                                払いとなります。簡単、安心決済対応いたします。トランクお預<br class="u-visible-pc">
-                                                かり、観光ガイドサービス、お困りごとの解決は現金または銀行<br class="u-visible-pc">
-                                                振込も可能です。なお、弊社サービス以外のご利用代金について<br class="u-visible-pc">
-                                                は、各事業者様ルールによる決済でお願いいたします。
-                                            </p>
-                                        </div>
-                                    </div>
-                                </dd>
-                            </details>
+                            <button class="faq__question" aria-expanded="false" aria-controls="faq-answer-3">
+                                <span class="faq__icon" aria-hidden="true">Q</span>
+                                <span class="faq__text">支払いはどのようにするのでしょうか？</span>
+                                <span class="faq__plus" aria-hidden="true"></span>
+                            </button>
                         </dt>
+                        <dd id="faq-answer-3" class="faq__answer" hidden>
+                            <div class="faq__answer-inner">
+                                <span class="faq__amark" aria-hidden="true">A</span>
+                                <div class="faq__atext">
+                                    <p>基本的にクレジットカード決済（Stripe決済）の支払いとなります。</p>
+                                    <p>
+                                        予約代行料金は基本的にクレジットカード決済（Stripe決済）の支<br class="u-visible-pc">
+                                        払いとなります。簡単、安心決済対応いたします。トランクお預<br class="u-visible-pc">
+                                        かり、観光ガイドサービス、お困りごとの解決は現金または銀行<br class="u-visible-pc">
+                                        振込も可能です。なお、弊社サービス以外のご利用代金について<br class="u-visible-pc">
+                                        は、各事業者様ルールによる決済でお願いいたします。
+                                    </p>
+                                </div>
+                            </div>
+                        </dd>
                     </div>
 
                     <div class="faq__item js-fade-up">
                         <dt>
-                            <details class="faq__details">
-                                <summary class="faq__question">
-                                    <span class="faq__icon" aria-hidden="true">Q</span>
-                                    <span class="faq__text">お困りごとの解決サービスの具体的な内容はどのようなことがありますか？</span>
-                                    <span class="faq__plus" aria-hidden="true"></span>
-                                </summary>
-                                <dd class="faq__answer">
-                                    <div class="faq__answer-inner">
-                                        <span class="faq__amark" aria-hidden="true">A</span>
-                                        <div class="faq__atext">
-                                            <p>幅広い内容に対応しております。</p>
-                                            <p>
-                                                1.突然の交通トラブルによる交通機関予約や宿泊先予約、飲食店舗<br class="u-visible-pc">予約（横浜近隣施設）<br
-                                                    class="u-visible-sp">
-                                                2.突然の体調不良による交通機関予約や宿泊先予約、飲食店舗予約<br class="u-visible-pc">（横浜近隣施設）<br
-                                                    class="u-visible-pc"><br
-                                                    class="u-visible-sp">＊別途、病院の紹介や交通機関の利用方法などもご相談ください。<br class="u-visible-sp">
-                                                3.旅行中の日程予定変更による各種ご予約（横浜近隣施設）<br class="u-visible-pc"><br class="u-visible-sp">
-                                                ＊旅行中の紛失物の対応方法などのご相談。<br class="u-visible-pc"><br class="u-visible-sp">
-                                                4.その他旅行中にご相談事がある場合<br class="u-visible-pc">弊社でご対応できる内容であれば対応いたしますので、ご相談<br
-                                                    class="u-visible-pc">ください。
-                                            </p>
-                                        </div>
-                                    </div>
-                                </dd>
-                            </details>
+                            <button class="faq__question" aria-expanded="false" aria-controls="faq-answer-4">
+                                <span class="faq__icon" aria-hidden="true">Q</span>
+                                <span class="faq__text">お困りごとの解決サービスの具体的な内容はどのようなことがありますか？</span>
+                                <span class="faq__plus" aria-hidden="true"></span>
+                            </button>
                         </dt>
+                        <dd id="faq-answer-4" class="faq__answer" hidden>
+                            <div class="faq__answer-inner">
+                                <span class="faq__amark" aria-hidden="true">A</span>
+                                <div class="faq__atext">
+                                    <p>幅広い内容に対応しております。</p>
+                                    <p>
+                                        1.突然の交通トラブルによる交通機関予約や宿泊先予約、飲食店舗<br class="u-visible-pc">予約（横浜近隣施設）<br
+                                            class="u-visible-sp">
+                                        2.突然の体調不良による交通機関予約や宿泊先予約、飲食店舗予約<br class="u-visible-pc">（横浜近隣施設）<br
+                                            class="u-visible-pc"><br
+                                            class="u-visible-sp">＊別途、病院の紹介や交通機関の利用方法などもご相談ください。<br class="u-visible-sp">
+                                        3.旅行中の日程予定変更による各種ご予約（横浜近隣施設）<br class="u-visible-pc"><br class="u-visible-sp">
+                                        ＊旅行中の紛失物の対応方法などのご相談。<br class="u-visible-pc"><br class="u-visible-sp">
+                                        4.その他旅行中にご相談事がある場合<br class="u-visible-pc">弊社でご対応できる内容であれば対応いたしますので、ご相談<br
+                                            class="u-visible-pc">ください。
+                                    </p>
+                                </div>
+                            </div>
+                        </dd>
                     </div>
                 </dl>
             </div>
