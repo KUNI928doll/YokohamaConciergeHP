@@ -34,11 +34,11 @@ gsap.utils.toArray(".js-fade-up").forEach((el) => {
       { opacity: 0 },
       {
         opacity: 1,
-        duration: 1,
+        duration: 0.6,
         ease: "power2.out",
         scrollTrigger: {
           trigger: el,
-          start: "top 85%",
+          start: "top 75%",
         },
       }
     );
@@ -52,11 +52,11 @@ gsap.utils.toArray(".js-fade-up").forEach((el) => {
     {
       y: 0,
       opacity: 1,
-      duration: 1,
+      duration: 0.6,
       ease: "power2.out",
       scrollTrigger: {
         trigger: el,
-        start: "top 85%",
+        start: "top 75%",
       },
     }
   );
@@ -66,11 +66,11 @@ gsap.utils.toArray(".js-fade-up").forEach((el) => {
 gsap.utils.toArray(".js-fade").forEach((el) => {
   gsap.to(el, {
     opacity: 1,
-    duration: 1.2,
+    duration: 0.6,
     ease: "power1.out",
     scrollTrigger: {
       trigger: el,
-      start: "top 90%",
+      start: "top 75%",
     },
   });
 });
