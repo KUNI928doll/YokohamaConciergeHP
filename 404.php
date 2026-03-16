@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-    <main>
+    <main id="main-content">
         <div class="error-page__hero">
             <div class="error-page__number">404</div>
             <h1 class="error-page__title">ページが見つかりませんでした</h1>

@@ -5,7 +5,7 @@
 get_header(); 
 ?>
 <?php get_template_part('template-parts/inner-nav'); ?>
-<main class="privacy-page">
+<main id="main-content" class="privacy-page">
     <div class="privacy-page__inner">
         <h1 class="privacy-page__title">特定商取引法に基づく表記</h1>
 

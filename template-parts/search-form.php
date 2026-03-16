@@ -19,10 +19,11 @@ $wrapper_class = isset($args['wrapper_class']) ? $args['wrapper_class'] : '';
         <div class="search-area__inner inner">
     <?php endif; ?>
 
-    <form action="<?php echo esc_url(home_url('/')); ?>" method="get" class="search-area__form"<?php echo $wrapper_class === 'search-area--page' ? ' role="search"' : ''; ?>>
-        <input type="text" name="s" class="search-area__input" placeholder="<?php echo esc_attr($placeholder); ?>"<?php echo $search_value ? ' value="' . esc_attr($search_value) . '"' : ''; ?>>
-        <button type="submit" class="search-area__btn" aria-label="検索">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/icon-search.png" alt="検索アイコン">
+    <form action="<?php echo esc_url(home_url('/')); ?>" method="get" class="search-area__form" role="search">
+        <label for="site-search" class="sr-only">サイト内検索</label>
+        <input type="search" id="site-search" name="s" class="search-area__input" placeholder="<?php echo esc_attr($placeholder); ?>" aria-label="サイト内検索"<?php echo $search_value ? ' value="' . esc_attr($search_value) . '"' : ''; ?>>
+        <button type="submit" class="search-area__btn" aria-label="検索を実行">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/icon-search.png" alt="" aria-hidden="true">
         </button>
     </form>
 

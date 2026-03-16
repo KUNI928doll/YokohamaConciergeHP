@@ -25,6 +25,9 @@
     <?php wp_head(); ?>
 </head>
 <body id="top">
+    <!-- スキップリンク -->
+    <a href="#main-content" class="skip-link">メインコンテンツへスキップ</a>
+
     <!-- ヘッダー -->
  <header class="header">
         <div class="header__inner">
@@ -101,7 +104,7 @@
             <!-- オーバーレイ -->
             <div class="spmenu__overlay"></div>
 
-            <nav id="global-nav" class="header__nav header__nav--sp u-visible-sp">
+            <nav id="global-nav" class="header__nav header__nav--sp u-visible-sp" aria-label="モバイルメニュー">
                 <div class="spmenu">
                     <div class="spmenu__top">
                         <a href="<?php echo esc_url(home_url('/reservation')); ?>" class="btn btn--orange btn--sm spmenu__reserve">予約する</a>

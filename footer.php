@@ -38,7 +38,7 @@
                 </div>
             </div>
         </div>
-        <nav class="footer__nav">
+        <nav class="footer__nav" aria-label="フッターナビゲーション">
             <ul class="footer__menu">
                 <li><a href="<?php echo esc_url(home_url('/')); ?>">ホーム</a></li>
                 <li class="footer__item footer__item--has-sub">

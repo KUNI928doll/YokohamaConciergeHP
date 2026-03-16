@@ -6,7 +6,7 @@ get_header();
 ?>
 <?php get_template_part('template-parts/inner-nav'); ?>
 
-    <main>
+    <main id="main-content">
 
         
         <div class="sub-hero">

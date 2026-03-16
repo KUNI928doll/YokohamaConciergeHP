@@ -7,7 +7,7 @@ get_header();
 
 <?php get_template_part('template-parts/inner-nav'); ?>
 
-    <main>
+    <main id="main-content">
         <div class="sub-hero">
             <div class="sub-hero__decoration">
                 <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/sub-hero__decoration.png" alt="" aria-hidden="true">

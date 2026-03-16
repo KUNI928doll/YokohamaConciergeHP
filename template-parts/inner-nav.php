@@ -1,5 +1,5 @@
 <div class="nav-inner-wrapper u-visible-pc">
-    <nav class="inner-nav">
+    <nav class="inner-nav" aria-label="ページ内ナビゲーション">
         <ul class="inner-nav__list">
             <li class="inner-nav__item">
                 <a href="<?php echo esc_url(home_url('/')); ?>">

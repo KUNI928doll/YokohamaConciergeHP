@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <!-- 花火セクション -->
-<main>
+<main id="main-content">
     <section class="hero js-fade-up">
         <img src="<?php echo get_template_directory_uri(); ?>/images/fireworks.gif" alt="夜空に咲く花火のアニメーション" class="hero__bg">
         <div class="hero__fx" aria-hidden="true">
@@ -44,7 +44,7 @@
                     </figure>
                 </div>
             </div>
-            <nav class="header-pyoko__nav">
+            <nav class="header-pyoko__nav" aria-label="ページ内ナビゲーション">
                 <ul>
                     <li>
                         <a href="<?php echo esc_url(home_url('/')); ?>">
@@ -582,10 +582,11 @@
                 </div>
 
                 <!-- 検索フォーム -->
-                <form action="<?php echo esc_url(home_url('/')); ?>" method="get" class="about-yokohama__search js-fade-up">
-                    <input type="text" name="s" class="about-yokohama__input" placeholder="サイト内検索">
-                    <button type="submit" class="about-yokohama__search-btn">
-                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/icon-search.png" alt="検索アイコン" width="50" height="51">
+                <form action="<?php echo esc_url(home_url('/')); ?>" method="get" class="about-yokohama__search js-fade-up" role="search">
+                    <label for="about-site-search" class="sr-only">サイト内検索</label>
+                    <input type="search" id="about-site-search" name="s" class="about-yokohama__input" placeholder="サイト内検索" aria-label="サイト内検索">
+                    <button type="submit" class="about-yokohama__search-btn" aria-label="検索を実行">
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/icon-search.png" alt="" aria-hidden="true" width="50" height="51">
                     </button>
                     <div class="about-yokohama__filters">
                         <a href="<?php echo esc_url(home_url('/yokohama/')); ?>" class="about-yokohama__filter">MAPで探す</a>
@@ -789,70 +790,70 @@
 
             <div class="influencer__cards">
                 <div class="influencer-card-wrapper">
-                    <a href="https://www.welcome.city.yokohama.jp/" class="influencer-card" target="_blank" rel="noopener">
+                    <a href="https://www.welcome.city.yokohama.jp/" class="influencer-card" target="_blank" rel="noopener noreferrer">
                         <p class="influencer-card__desc">有名スポットに1本で移動できる連接バス</p>
                         <h3 class="influencer-card__title">BAYSIDE BLUE</h3>
                     </a>
                     <span class="influencer-card__link">
-                        <a href="https://www.welcome.city.yokohama.jp/" target="_blank" rel="noopener">
+                        <a href="https://www.welcome.city.yokohama.jp/" target="_blank" rel="noopener noreferrer">
                             横浜観光情報公式サイト
                         </a>
                     </span>
                 </div>
 
                 <div class="influencer-card-wrapper">
-                    <a href="https://www.city.yokohama.lg.jp/kotsu/" class="influencer-card" target="_blank" rel="noopener">
+                    <a href="https://www.city.yokohama.lg.jp/kotsu/" class="influencer-card" target="_blank" rel="noopener noreferrer">
                         <p class="influencer-card__desc">横浜赤レンガ倉庫や中華街など、人気スポットを巡る</p>
                         <h3 class="influencer-card__title">周遊バス「あかいくつ」</h3>
                     </a>
                     <span class="influencer-card__link">
-                        <a href="https://www.city.yokohama.lg.jp/kotsu/" target="_blank" rel="noopener">
+                        <a href="https://www.city.yokohama.lg.jp/kotsu/" target="_blank" rel="noopener noreferrer">
                             横浜市交通局公式サイト
                         </a>
                     </span>
                 </div>
 
                 <div class="influencer-card-wrapper">
-                    <a href="https://luup.sc/" class="influencer-card" target="_blank" rel="noopener">
+                    <a href="https://luup.sc/" class="influencer-card" target="_blank" rel="noopener noreferrer">
                         <p class="influencer-card__desc">横浜駅周辺及び元町中華街・関内周辺の</p>
                         <h3 class="influencer-card__title">電動キックボード</h3>
                     </a>
                     <span class="influencer-card__link">
-                        <a href="https://luup.sc/" target="_blank" rel="noopener">
+                        <a href="https://luup.sc/" target="_blank" rel="noopener noreferrer">
                             LUUP公式サイト
                         </a>
                     </span>
                 </div>
                 <div class="influencer-card-wrapper">
-                    <a href="https://yokohama-air-cabin.jp/" class="influencer-card" target="_blank" rel="noopener">
+                    <a href="https://yokohama-air-cabin.jp/" class="influencer-card" target="_blank" rel="noopener noreferrer">
                         <p class="influencer-card__desc">日本初！世界最先端の都市型循環式ロープウェイ</p>
                         <h3 class="influencer-card__title">YOKOHAMA AIR CABIN</h3>
                     </a>
                     <span class="influencer-card__link">
-                        <a href="https://yokohama-air-cabin.jp/" target="_blank" rel="noopener">
+                        <a href="https://yokohama-air-cabin.jp/" target="_blank" rel="noopener noreferrer">
                             YOKOHAMA AIR CABIN公式サイト
                         </a>
                     </span>
                 </div>
 
                 <div class="influencer-card-wrapper">
-                    <a href="https://goinc.jp/" class="influencer-card" target="_blank" rel="noopener">
+                    <a href="https://goinc.jp/" class="influencer-card" target="_blank" rel="noopener noreferrer">
                         <p class="influencer-card__desc">インバウンド顧客対応</p>
                         <h3 class="influencer-card__title">タクシーアプリ</h3>
                     </a>
                     <span class="influencer-card__link">
-                        <a href="https://goinc.jp/" target="_blank" rel="noopener">
+                        <a href="https://goinc.jp/" target="_blank" rel="noopener noreferrer">
                             GO株式会社
                         </a>
                     </span>
                 </div>
                 <div class="influencer-card-wrapper">
-                    <a href="https://docomo-cycle.jp/yokohama/" class="influencer-card" target="_blank" rel="noopener">
+                    <a href="https://docomo-cycle.jp/yokohama/" class="influencer-card" target="_blank" rel="noopener noreferrer">
                         <p class="influencer-card__desc">横浜のコミュニティサイクル</p>
                         <h3 class="influencer-card__title">バイクシェアサービス</h3>
                     </a>
                     <span class="influencer-card__link">
-                        <a href="https://docomo-cycle.jp/yokohama/" target="_blank" rel="noopener">
+                        <a href="https://docomo-cycle.jp/yokohama/" target="_blank" rel="noopener noreferrer">
                             baybike公式サイト
                         </a>
                     </span>

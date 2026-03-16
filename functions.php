@@ -240,6 +240,48 @@ function yokohama_concierge_schema_markup() {
 }
 add_action('wp_head', 'yokohama_concierge_schema_markup');
 
+// OGP(Open Graph Protocol)タグを出力
+function yokohama_concierge_add_ogp_tags() {
+    // プラグインでOGP設定されている場合はスキップ
+    if (defined('WPSEO_VERSION') || class_exists('All_in_One_SEO_Pack')) {
+        return;
+    }
+
+    $site_name = 'YOKOHAMA Concierge（ハマナビサービス）';
+    $og_title = wp_get_document_title();
+    $og_type = is_front_page() ? 'website' : 'article';
+    $og_url = get_permalink();
+    $og_description = '';
+    $og_image = get_template_directory_uri() . '/images/header_logo-pc.png';
+
+    // ディスクリプションの取得
+    if (is_singular()) {
+        $og_description = get_the_excerpt();
+    }
+    if (empty($og_description)) {
+        $og_description = get_bloginfo('description');
+    }
+
+    // アイキャッチ画像がある場合は優先
+    if (is_singular() && has_post_thumbnail()) {
+        $og_image = get_the_post_thumbnail_url(null, 'full');
+    }
+
+    echo '<meta property="og:site_name" content="' . esc_attr($site_name) . '">' . "\n";
+    echo '<meta property="og:title" content="' . esc_attr($og_title) . '">' . "\n";
+    echo '<meta property="og:type" content="' . esc_attr($og_type) . '">' . "\n";
+    echo '<meta property="og:url" content="' . esc_url($og_url) . '">' . "\n";
+    echo '<meta property="og:description" content="' . esc_attr($og_description) . '">' . "\n";
+    echo '<meta property="og:image" content="' . esc_url($og_image) . '">' . "\n";
+
+    // Twitter Card
+    echo '<meta name="twitter:card" content="summary_large_image">' . "\n";
+    echo '<meta name="twitter:title" content="' . esc_attr($og_title) . '">' . "\n";
+    echo '<meta name="twitter:description" content="' . esc_attr($og_description) . '">' . "\n";
+    echo '<meta name="twitter:image" content="' . esc_url($og_image) . '">' . "\n";
+}
+add_action('wp_head', 'yokohama_concierge_add_ogp_tags', 1);
+
 
 
 // テーマ有効化時の処理
@@ -1619,7 +1661,7 @@ function yokohama_concierge_stripe_settings_page() {
                             <p class="description">
                                 テスト環境: <code>sk_test_...</code><br>
                                 本番環境: <code>sk_live_...</code><br>
-                                <a href="https://dashboard.stripe.com/apikeys" target="_blank">Stripeダッシュボード</a>から取得してください。
+                                <a href="https://dashboard.stripe.com/apikeys" target="_blank" rel="noopener noreferrer">Stripeダッシュボード</a>から取得してください。
                             </p>
                             <?php echo $debug_info; ?>
                         <?php endif; ?>
@@ -1653,7 +1695,7 @@ define('STRIPE_SECRET_KEY', 'sk_live_...'); // 本番環境</code></pre>
         
         <h2>Stripe APIキーの取得方法</h2>
         <ol>
-            <li><a href="https://dashboard.stripe.com/apikeys" target="_blank">Stripeダッシュボード</a>にログイン</li>
+            <li><a href="https://dashboard.stripe.com/apikeys" target="_blank" rel="noopener noreferrer">Stripeダッシュボード</a>にログイン</li>
             <li>「開発者」→「APIキー」に移動</li>
             <li>「シークレットキーを表示」をクリック</li>
             <li>表示されたキーをコピーして設定してください</li>

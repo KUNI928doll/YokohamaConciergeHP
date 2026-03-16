@@ -4,7 +4,7 @@ get_header();
 
 <?php get_template_part('template-parts/inner-nav'); ?>
 
-    <main>
+    <main id="main-content">
         <div class="search-page__hero">
             <h1>サイト内検索</h1>
             <p>知りたいキーワードを入力して、目的のページをお探しください。</p>
