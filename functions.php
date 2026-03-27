@@ -1349,7 +1349,7 @@ add_action('template_redirect', 'yokohama_concierge_handle_stripe_success');
 
 // Make Webhook送信関数
 function yokohama_concierge_send_to_make_webhook($post_id, $form_data) {
-    $webhook_url = 'https://hook.us2.make.com/q4s664foazn8sn737ccpojfh964enyuu';
+    $webhook_url = 'https://hook.us2.make.com/3abrnnel0xw7vi8642i85h99br22c';
 
     $body = array(
         'reservation_id' => (string)$post_id,
