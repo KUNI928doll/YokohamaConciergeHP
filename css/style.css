@@ -201,10 +201,7 @@ a:hover {
   opacity: 0;
   transform: translateY(30px);
 }
-.js-fade-up.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+
 
 /* ================================================
    breadcrumb（パンくず）

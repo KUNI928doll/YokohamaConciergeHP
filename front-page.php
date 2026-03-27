@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <!-- 花火セクション -->
 <main id="main-content">
-    <section class="hero js-fade-up">
+    <section class="hero">
         <img src="<?php echo get_template_directory_uri(); ?>/images/fireworks.gif" alt="夜空に咲く花火のアニメーション" class="hero__bg">
         <div class="hero__fx" aria-hidden="true">
             <img src="<?php echo get_template_directory_uri(); ?>/images/fireworks1.png" class="hero__fx-item hero__fx-item--l1" alt="" width="189" height="258">
@@ -17,7 +17,7 @@
             <img src="<?php echo get_template_directory_uri(); ?>/images/fireworks13.png" class="hero__fx-item hero__fx-item--r3" alt="右下で打ち上がる花火のイラスト" width="574" height="700">
             <i class="hero__fx-shine hero__fx-shine--l1" aria-hidden="true"></i>
         </div>
-        <div class="hero__content js-fade-up">
+        <div class="hero__content">
             <p class="hero__catch js-fade-up">外国人旅行者向けコンシェルジュ</p>
             <h1 class="hero__title js-fade-up">
                 横浜での特別な体験を<br>
@@ -132,7 +132,7 @@
         </div>
     </section>
 
-    <section id="features" class="features js-fade-up">
+    <section id="features" class="features">
         <div class="features__wrap">
             <div class="features__inner">
                 <!-- タイトル -->
@@ -276,7 +276,7 @@
                 </div>
             </div>
             <!-- キャラクター吹き出し -->
-            <div class="speech-wrapper -pos-tr js-fade-up">
+            <div class="speech-wrapper -pos-tr">
                 <div class="speech-wrap speech-wrap--service">
                     <div class="speech-bubble-imgwrap speech-bubble-imgwrap--service">
                         <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service/bubble.png" class="speech-bubble-img" aria-hidden="true" width="696" height="500">
@@ -351,7 +351,7 @@
                 </a>
 
                 <!-- カード③ -->
-                <a href="<?php echo esc_url(home_url('/service-tour-guide/')); ?>" id="service-guide" class="service-detail__item js-fade-up">
+                <a href="<?php echo esc_url(home_url('/service-tour-guide/')); ?>" id="service-guide" class="service-detail__item">
                     <div class="service-detail__card">
                         <div class="service-detail__corner"></div>
                         <div class="service-detail__icon">
@@ -369,7 +369,7 @@
             </div>
         </div>
     </section>
-    <section class="support js-fade-up">
+    <section class="support">
         <div class="support__inner">
             <h2 class="support__title">
                 <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/support-title-line_left.svg" alt="" aria-hidden="true"
@@ -379,7 +379,7 @@
                     class="support__title-decoration support__title-decoration--right">
             </h2>
 
-            <div class="support__box js-fade-up">
+            <div class="support__box">
                 <div class="support__icon">
                     <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service/icon-support.png" alt="お困りごとの解決アイコン" width="80" height="82">
                     <h3 class="support__subtitle">お困りごとの解決</h3>
@@ -545,7 +545,7 @@
 
 
 
-    <section class="about-yokohama js-fade-up">
+    <section class="about-yokohama">
         <div class="about-yokohama__inner inner">
             <div class="about-yokohama__decorations">
                 <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/faq/faq_line-left.png" alt="左の軌跡" class="about-yokohama__line-left js-fade-up"
@@ -557,14 +557,14 @@
                 <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/about-yokohama__wave-line.png" alt="装飾の波線">
             </div>
             <!-- 画像たち -->
-            <div class="about-yokohama__photos js-fade-up">
+            <div class="about-yokohama__photos">
                 <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/about-yokohama_photo1.png" alt="赤レンガ倉庫"
                     class="photo--1 js-fade-up">
                 <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/about-yokohama_photo2.png" alt="山下公園" class="photo--2 js-fade-up">
                 <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/about-yokohama_photo3.png" alt="中華街" class="photo--3 js-fade-up">
                 <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-camera.png" alt="カメラアイコン" class="photo__camera">
             </div>
-            <div class="about-yokohama__content js-fade-up">
+            <div class="about-yokohama__content">
                 <div class="section-title section-title--sm js-fade-up">
                     <h2 class="section-title__text">横浜について</h2>
                     <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about/about_title-wave.svg" alt="" aria-hidden="true"
@@ -595,9 +595,9 @@
             </div>
         </div>
         </div>
-        <div class="about-yokohama__section js-fade-up">
+        <div class="about-yokohama__section">
             <!-- 左カラム：キャラ -->
-            <div class="about-yokohama__column about-yokohama__character js-fade-up">
+            <div class="about-yokohama__column about-yokohama__character">
                 <div class="about-yokohama__speech">
                     <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/atout-yokohama_bubble.png" alt="吹き出し背景">
                     <p class="about-yokohama__speech-text">美味しいグルメもたくさんあるよ！</p>
@@ -606,7 +606,7 @@
                     src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/about-yokohama_character.png" alt="ハマナビサービスの案内キャラクター">
             </div>
             <!-- 右カラム：エリア一覧 -->
-            <div class="about-yokohama__column about-yokohama__areas-wrapper js-fade-up">
+            <div class="about-yokohama__column about-yokohama__areas-wrapper">
                 <ul class="about-yokohama__areas js-fade-up">
                     <li><a href="<?php echo esc_url(home_url('/yokohama/#map-motomachi')); ?>"><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-motomachi.png" alt="元町"
                                 class="about-yokohama__area-icon">元町・山手エリア</a></li>
