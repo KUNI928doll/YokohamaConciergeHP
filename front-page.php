@@ -280,7 +280,7 @@
                 <div class="speech-wrap speech-wrap--service">
                     <div class="speech-bubble-imgwrap speech-bubble-imgwrap--service">
                         <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service/bubble.png" class="speech-bubble-img" aria-hidden="true" width="696" height="500">
-                        <p class="speech-bubble-text speech-bubble-text--service">地元○○ならではの嬉しいサービスもいっぱいあるからね〜！</p>
+                        <p class="speech-bubble-text speech-bubble-text--service">地元横浜ならではの嬉しいサービスもいっぱいあるからね〜！</p>
                     </div>
                     <figure class="character -float js-fade-up">
                         <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service/mascot-service.png" alt="案内をするマスコットキャラクター" width="552" height="511">
