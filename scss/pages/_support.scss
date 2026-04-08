@@ -129,14 +129,13 @@
     display: flex;
   }
 
-  &:hover {
+  @include hover {
     background-color: #fff;
     color: #0D3D90;
     border: 2px solid #0D3D90;
 
     &::after {
-      border-color: #0D3D90; // ← hover時に矢印も白に
-
+      border-color: #0D3D90;
     }
   }
 }

@@ -162,7 +162,7 @@
         cursor: pointer;
       }
 
-      &:hover {
+      @include hover {
         color: var(--color-main);
       }
     }
@@ -184,7 +184,7 @@
     text-decoration: underline;
     font-weight: 600;
 
-    &:hover {
+    @include hover {
       opacity: 0.7;
     }
   }
@@ -210,7 +210,7 @@
       margin: 0;
     }
 
-    &:hover {
+    @include hover {
       background: rgba(29, 67, 117, 0.05);
     }
 
@@ -422,7 +422,7 @@
     border-radius: 8px;
     transition: background 0.2s ease;
 
-    &:hover {
+    @include hover {
       background: rgba(29, 67, 117, 0.1);
     }
   }
@@ -675,7 +675,7 @@
       display: flex !important;
     }
 
-    &:hover {
+    @include hover {
       color: var(--color-main) !important;
     }
 
@@ -747,7 +747,7 @@
     transition: all 0.3s ease !important;
     font-family: inherit !important;
 
-    &:hover {
+    @include hover {
       background: var(--color-accent) !important;
       transform: translateY(-2px) !important;
       box-shadow: 0 8px 20px rgba(29, 67, 117, 0.25) !important;

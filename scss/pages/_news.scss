@@ -177,7 +177,7 @@
     display: flex !important; // Slickのdisplay: blockを上書き
     flex-direction: column;
 
-    &:hover {
+    @include hover {
       transform: translateY(-6px);
     }
 
@@ -295,7 +295,7 @@
     border: none;
     padding: 0;
 
-    &:hover {
+    @include hover {
       background: #fff;
       transform: scale(1.1);
     }
@@ -354,7 +354,7 @@
           display: none; // デフォルトのドットを非表示
         }
 
-        &:hover {
+        @include hover {
           background: rgba(255, 255, 255, 0.8);
         }
       }
@@ -377,7 +377,7 @@
   font-weight: 600;
   transition: all 0.3s;
 
-  &:hover {
+  @include hover {
     background: #0077cc;
     color: #fff;
   }

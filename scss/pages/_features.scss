@@ -137,7 +137,7 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 
-  &:hover {
+  @include hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(13, 61, 144, 0.4);
   }
@@ -300,7 +300,7 @@
     font-size: 1.6rem;
   }
 
-  &:hover {
+  @include hover {
     background: var(--color-main);
     color: #fff;
     transform: translateY(-50%) scale(1.1);
@@ -412,7 +412,7 @@
   transition: all 0.3s ease;
   font-family: var(--font-sub);
 
-  &:hover {
+  @include hover {
     background: #fff;
     color: var(--color-main);
   }

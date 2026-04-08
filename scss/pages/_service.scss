@@ -328,12 +328,14 @@
     text-decoration: none;
     color: inherit;
     transition: all 0.3s ease;
-    
-    &:hover {
-      transform: translateY(-4px);
-      
-      .service-detail__arrow-btn {
-        background: #2c7db3;
+
+    @media (hover: hover) {
+      &:hover {
+        transform: translateY(-4px);
+
+        .service-detail__arrow-btn {
+          background: #2c7db3;
+        }
       }
     }
   }
@@ -490,7 +492,7 @@
       border-bottom: 2px solid #fff;
       transform: translate(-40%, -40%) rotate(-45deg); // ← 少し角度を調整
 
-      &:hover {
+      @include hover {
         background: #092e6a;
       }
     }

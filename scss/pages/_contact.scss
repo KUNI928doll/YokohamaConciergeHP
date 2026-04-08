@@ -302,7 +302,7 @@
       pointer-events: auto;
       cursor: pointer;
 
-      &:hover {
+      @include hover {
         color: #d66200;
         text-decoration: underline;
       }

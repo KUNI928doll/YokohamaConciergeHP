@@ -49,8 +49,10 @@
     margin-bottom: 40px;
 }
 
-.error-page__home-btn:hover {
+@media (hover: hover) {
+  .error-page__home-btn:hover {
     background: #0a2f6d;
+  }
 }
 
 .error-page__search {
@@ -93,9 +95,11 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.error-page__link-card:hover {
+@media (hover: hover) {
+  .error-page__link-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  }
 }
 
 .error-page__link-card-title {

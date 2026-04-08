@@ -385,13 +385,15 @@
         transform: translateX(-5px);
     }
 
-    &:hover {
+    @media (hover: hover) {
+      &:hover {
         color: #2e65ba;
-        
+
         &::after {
-            opacity: 1;
-            transform: translateX(0);
+          opacity: 1;
+          transform: translateX(0);
         }
+      }
     }
 }
 
@@ -470,13 +472,15 @@
     }
 }
 
-.guide-spots__map-link:hover {
+@media (hover: hover) {
+  .guide-spots__map-link:hover {
     background: #2e65ba;
     color: #fff;
 
     &::before {
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='18 15 12 9 6 15'%3E%3C/polyline%3E%3C/svg%3E");
     }
+  }
 }
 
 .guide-spots__footer {
@@ -1266,7 +1270,7 @@
             align-self: center;
         }
 
-        &:hover {
+        @include hover {
             background-color: #0a2d6f;
         }
     }
@@ -1529,7 +1533,7 @@
             border-radius: 14px;
         }
 
-        &:hover {
+        @include hover {
             transform: translateY(-4px);
         }
     }
@@ -1624,7 +1628,7 @@
             }
         }
 
-        &:hover {
+        @include hover {
             background: #4096CC;
             color: #fff;
         }

@@ -167,7 +167,7 @@
     text-decoration: underline;
     transition: color 0.3s ease;
 
-    &:hover {
+    @include hover {
       color: #2c7db3;
     }
   }
@@ -276,7 +276,7 @@
   &--twitter {
     background: #1DA1F2;
 
-    &:hover {
+    @include hover {
       background: #0d8bd9;
       transform: translateY(-2px);
     }
@@ -285,7 +285,7 @@
   &--facebook {
     background: #1877F2;
 
-    &:hover {
+    @include hover {
       background: #0e5fc7;
       transform: translateY(-2px);
     }
@@ -294,7 +294,7 @@
   &--line {
     background: #00B900;
 
-    &:hover {
+    @include hover {
       background: #009600;
       transform: translateY(-2px);
     }

@@ -240,7 +240,7 @@
     text-align: center;
     margin-left: auto;
 
-    &:hover {
+    @include hover {
       opacity: 0.85;
     }
 
@@ -444,7 +444,7 @@
       text-decoration: none;
       transition: opacity .3s;
 
-      &:hover {
+      @include hover {
         opacity: .7;
       }
     }
@@ -596,7 +596,7 @@
     word-break: break-word;
     overflow-wrap: break-word;
 
-    &:hover {
+    @include hover {
       opacity: 0.8;
       transform: translateY(-2px);
     }
@@ -648,7 +648,7 @@
     word-break: break-word;
     overflow-wrap: break-word;
 
-    &:hover {
+    @include hover {
       opacity: 0.8;
       transform: translateY(-2px);
     }
@@ -717,7 +717,7 @@
     display: block;
     padding: 4px 0;
 
-    &:hover {
+    @include hover {
       color: #1658a0;
     }
   }
@@ -743,8 +743,7 @@
       text-decoration: none;
       transition: opacity 0.3s ease;
 
-
-      &:hover {
+      @include hover {
         opacity: 0.8;
       }
 
@@ -775,9 +774,8 @@
         width: 100%;
         text-align: left;
 
-        &:hover {
+        @include hover {
           opacity: 0.8;
-
         }
 
         img {
@@ -821,7 +819,7 @@
             text-decoration: none;
             transition: opacity 0.3s ease;
 
-            &:hover {
+            @include hover {
               opacity: 0.8;
               color: var(--color-accent);
             }
@@ -967,7 +965,7 @@ body.spmenu-open .header__toggle {
       overflow-wrap: break-word;
       transition: color 0.3s ease;
 
-      &:hover {
+      @include hover {
         color: var(--color-accent);
       }
     }
@@ -995,9 +993,11 @@ body.spmenu-open .header__toggle {
   }
 
   // ホバー時に言語リストを表示（PC版・タブレット版、マウス操作時）
-  &:hover {
-    .trp-ls-shortcode-list {
-      display: block;
+  @media (hover: hover) {
+    &:hover {
+      .trp-ls-shortcode-list {
+        display: block;
+      }
     }
   }
 
@@ -1016,7 +1016,12 @@ body.spmenu-open .header__toggle {
   }
 
   // 念のためホバー/開閉時も言語行がヘッダー高さに影響しないよう固定
-  &:hover .trp-ls-shortcode-language,
+  @media (hover: hover) {
+    &:hover .trp-ls-shortcode-language {
+      display: none !important;
+    }
+  }
+
   &.is-open .trp-ls-shortcode-language {
     display: none !important;
   }
@@ -1030,7 +1035,7 @@ body.spmenu-open .header__toggle {
     font-size: 1.4rem;
     transition: all 0.3s ease;
 
-    &:hover {
+    @include hover {
       background-color: rgba(29, 67, 117, 0.1);
       color: var(--color-accent);
     }
@@ -1066,8 +1071,12 @@ body.spmenu-open .header__toggle {
   }
 
   // ホバー時に三角を上向きに回転（PC版・タブレット版、マウス操作時）
-  // リスト表示と同じ .trp-shortcode-overlay:hover に揃える
-  .trp-shortcode-overlay:hover .trp-current-language-item__wrapper::after,
+  @media (hover: hover) {
+    .trp-shortcode-overlay:hover .trp-current-language-item__wrapper::after {
+      transform: rotate(180deg);
+    }
+  }
+
   &.is-open .trp-current-language-item__wrapper::after {
     transform: rotate(180deg);
   }
@@ -1081,7 +1090,13 @@ body.spmenu-open .header__toggle {
     overflow: hidden !important;
   }
   /* ホバー時・is-open時のみ開く */
-  .header__language-wrapper.lang-switch .trp-shortcode-overlay:hover .trp-switcher-dropdown-list,
+  @media (hover: hover) {
+    .header__language-wrapper.lang-switch .trp-shortcode-overlay:hover .trp-switcher-dropdown-list {
+      max-height: min(350px, 70vh) !important;
+      overflow: auto !important;
+    }
+  }
+
   .header__language-wrapper.lang-switch .trp-shortcode-overlay.is-open .trp-switcher-dropdown-list {
     max-height: min(350px, 70vh) !important;
     overflow: auto !important;

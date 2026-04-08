@@ -97,7 +97,7 @@
     pointer-events: none !important;
     z-index: 0;
 
-    &:hover {
+    @include hover {
       transform: scale(1.05) rotate(0deg);
     }
   }
@@ -304,7 +304,7 @@
   color: var(--color-main);
   font-weight: 500;
 
-  &:hover {
+  @include hover {
     background: var(--color-main);
     color: #fff;
   }

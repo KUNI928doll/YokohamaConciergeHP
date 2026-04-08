@@ -82,9 +82,11 @@
     opacity: 0.85;
 }
 
-.inner-nav__item a:hover,
-.inner-nav__item .inner-nav__trigger:hover {
+@media (hover: hover) {
+  .inner-nav__item a:hover,
+  .inner-nav__item .inner-nav__trigger:hover {
     opacity: 1;
+  }
 }
 
 .inner-nav__item a.is-active,
@@ -169,8 +171,10 @@
     white-space: normal;
 }
 
-.inner-nav__sub a:hover {
+@media (hover: hover) {
+  .inner-nav__sub a:hover {
     color: var(--color-accent);
+  }
 }
 
 .inner-nav__item--has-sub.is-open .inner-nav__sub {

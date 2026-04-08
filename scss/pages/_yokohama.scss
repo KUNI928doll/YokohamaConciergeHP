@@ -404,7 +404,7 @@
     flex-direction: column;
     cursor: pointer;
 
-    &:hover {
+    @include hover {
       transform: translateY(-4px);
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     }
@@ -448,8 +448,10 @@
     }
   }
 
-  &__item:hover &__link {
-    border-color: #0d3d90;
+  @media (hover: hover) {
+    &__item:hover &__link {
+      border-color: #0d3d90;
+    }
   }
 }
 
@@ -496,7 +498,7 @@
     gap: 8px;
   }
 
-  &:hover {
+  @include hover {
     background: #0d3d90;
     color: #fff;
     transform: translateY(-2px);

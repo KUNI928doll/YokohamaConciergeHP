@@ -434,8 +434,10 @@ img {
 }
 
 /* ホバー中は少し元気に（任意） */
-.character.-float:hover {
-  animation-duration: 2.8s;
+@media (hover: hover) {
+  .character.-float:hover {
+    animation-duration: 2.8s;
+  }
 }
 
 @keyframes gull-bob {
@@ -557,7 +559,7 @@ img {
     text-decoration: none;
     transition: background 0.3s, color 0.3s;
 
-    &:hover {
+    @include hover {
       background: #0d3d90;
       color: #fff;
     }

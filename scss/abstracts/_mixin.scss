@@ -22,3 +22,12 @@ $breakpoints: (
     @content;
   }
 }
+
+// ホバー（タッチデバイス除外）
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}

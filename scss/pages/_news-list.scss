@@ -42,7 +42,7 @@
     cursor: pointer;
   }
 
-  &:hover {
+  @include hover {
     color: var(--color-main);
   }
 
@@ -76,7 +76,7 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 
-  &:hover {
+  @include hover {
     transform: translateY(-8px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   }
@@ -101,8 +101,10 @@
     transition: transform 0.3s ease;
   }
 
-  .news-list__card:hover & img {
-    transform: scale(1.05);
+  @media (hover: hover) {
+    .news-list__card:hover & img {
+      transform: scale(1.05);
+    }
   }
 }
 
