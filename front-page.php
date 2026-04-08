@@ -28,13 +28,13 @@
     <!-- キャラと吹き出し -->
     <div class="header-pyoko js-fade-up">
         <div class="header-pyoko__decoration" aria-hidden="true">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/header/header-pyoko-wave.svg" alt="">
+            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/header/header-pyoko-wave.svg" alt="">
         </div>
         <div class="header-pyoko__inner">
             <div class="speech-wrapper -pos-bl">
                 <div class="speech-wrap speech-wrap--hero">
                     <div class="speech-bubble-imgwrap speech-bubble-imgwrap--hero">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/bubble.png" class="speech-bubble-img" aria-hidden="true" width="376" height="241">
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/bubble.png" class="speech-bubble-img" aria-hidden="true" alt="" width="376" height="241">
                         <p class="speech-bubble-text speech-bubble-text--hero">
                             こんにちは！<br>横浜に住んでいるぼくが<br>お手伝いするね！
                         </p>
@@ -48,13 +48,13 @@
                 <ul>
                     <li>
                         <a href="<?php echo esc_url(home_url('/')); ?>">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/icon-home.png" alt="" class="header-pyoko__icon" aria-hidden="true" width="29" height="24">
+                            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/icon-home.png" alt="" class="header-pyoko__icon" aria-hidden="true" width="29" height="24">
                             ホーム
                         </a>
                     </li>
                     <li class="inner-nav__item inner-nav__item--has-sub">
                         <button type="button" class="inner-nav__trigger js-inner-dropdown" aria-expanded="false">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/icon-service.png" alt="" class="header-pyoko__icon" aria-hidden="true" width="52" height="52">
+                            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/icon-service.png" alt="" class="header-pyoko__icon" aria-hidden="true" width="52" height="52">
                             <span>サービス紹介</span>
                             <span class="inner-nav__caret" aria-hidden="true"></span>
                         </button>
@@ -66,25 +66,25 @@
                     </li>
                     <li>
                         <a href="<?php echo esc_url(home_url('/yokohama/')); ?>">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/icon-yokohama.png" alt="" class="header-pyoko__icon" aria-hidden="true" width="60" height="60">
+                            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/icon-yokohama.png" alt="" class="header-pyoko__icon" aria-hidden="true" width="60" height="60">
                             横浜について
                         </a>
                     </li>
                     <li>
                         <a href="#faq">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/icon-faq.png" alt="" class="header-pyoko__icon" aria-hidden="true" width="74" height="38">
+                            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/icon-faq.png" alt="" class="header-pyoko__icon" aria-hidden="true" width="74" height="38">
                             よくある質問
                         </a>
                     </li>
                     <li>
                         <a href="<?php echo esc_url(home_url('/news/')); ?>">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/icon-news.png" alt="" class="header-pyoko__icon" aria-hidden="true" width="52" height="52">
+                            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/icon-news.png" alt="" class="header-pyoko__icon" aria-hidden="true" width="52" height="52">
                             お知らせ<br>イベント
                         </a>
                     </li>
                     <li>
                         <a href="<?php echo esc_url(home_url('/contact/')); ?>">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/icon-mail.png" alt="" class="header-pyoko__icon" aria-hidden="true" width="46" height="44">
+                            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/icon-mail.png" alt="" class="header-pyoko__icon" aria-hidden="true" width="46" height="44">
                             お問い合わせ
                         </a>
                     </li>
@@ -127,7 +127,7 @@
 
             <!-- 装飾 -->
             <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_flag.png" alt="YOKOHAMA" class="about__flag js-fade" width="166" height="130" loading="lazy">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_stamp.png" alt="" class="about__stamp js-fade" width="395" height="205" loading="lazy">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_stamp.png" alt="" aria-hidden="true" class="about__stamp js-fade" width="395" height="205" loading="lazy">
             <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_seagull.png" alt="" class="about__seagull" aria-hidden="true" width="132" height="143" loading="lazy">
         </div>
     </section>
@@ -279,7 +279,7 @@
             <div class="speech-wrapper -pos-tr">
                 <div class="speech-wrap speech-wrap--service">
                     <div class="speech-bubble-imgwrap speech-bubble-imgwrap--service">
-                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service/bubble.png" class="speech-bubble-img" aria-hidden="true" width="696" height="500">
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service/bubble.png" class="speech-bubble-img" aria-hidden="true" alt="" width="696" height="500">
                         <p class="speech-bubble-text speech-bubble-text--service">地元横浜ならではの嬉しいサービスもいっぱいあるからね〜！</p>
                     </div>
                     <figure class="character -float js-fade-up">
@@ -718,7 +718,7 @@
     <section class="contact contact--bottom" id="contact">
         <div class="contact__decos">
             <div class="speech-bubble-imgwrap speech-bubble-imgwrap--contact">
-                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/bubble.png" class="speech-bubble-img" aria-hidden="true">
+                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/bubble.png" class="speech-bubble-img" aria-hidden="true" alt="">
                 <p class="speech-bubble-text speech-bubble-text--contact">
                     ハマナビサービスで<br>横浜を楽しんでいってね！
                 </p>
@@ -736,14 +736,14 @@
             <div class="contact__box">
                 <ul class="contact__list">
                     <li class="contact__item contact__item--tel">
-                        <a href="tel:0456812737" class="contact__tel">
+                        <a href="tel:+81456812737" class="contact__tel">
                             <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/header_phoneicon.png" alt="" aria-hidden="true">
                             <span>045-681-2737</span>
                         </a>
                     </li>
 
                     <li class="contact__item contact__item--mobile">
-                        <a href="tel:07015263845" class="contact__tel">
+                        <a href="tel:+817015263845" class="contact__tel">
                             <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/header_mobileicon.png" alt="" aria-hidden="true">
                             <span>070-1526-3845</span>
                         </a>

@@ -238,14 +238,14 @@ get_header();
                 <div class="contact__box">
                     <ul class="contact__list">
                         <li class="contact__item contact__item--tel">
-                            <a href="tel:0456812737" class="contact__tel">
+                            <a href="tel:+81456812737" class="contact__tel">
                                 <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/header_phoneicon.png" alt="" aria-hidden="true">
                                 <span>045-681-2737</span>
                             </a>
                         </li>
 
                         <li class="contact__item contact__item--mobile">
-                            <a href="tel:07015263845" class="contact__tel">
+                            <a href="tel:+817015263845" class="contact__tel">
                                 <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/header_mobileicon.png" alt="" aria-hidden="true">
                                 <span>070-1526-3845</span>
                             </a>
@@ -269,7 +269,7 @@ get_header();
 
                 <div class="contact__decos">
                     <div class="speech-bubble-imgwrap speech-bubble-imgwrap--contact">
-                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/bubble.png" class="speech-bubble-img" aria-hidden="true">
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/bubble.png" class="speech-bubble-img" aria-hidden="true" alt="">
                         <p class="speech-bubble-text speech-bubble-text--contact">
                             ハマナビサービスで<br>横浜を楽しんでいってね！
                         </p>

@@ -15,7 +15,7 @@ get_header();
                 </li>
                 <li class="inner-nav__item inner-nav__item--has-sub">
                     <button type="button" class="inner-nav__trigger js-inner-dropdown" aria-expanded="false">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/icon-service.png" alt="">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/icon-service.png" alt="" aria-hidden="true">
                         <span>サービス紹介</span>
                         <span class="inner-nav__caret" aria-hidden="true"></span>
                     </button>
@@ -28,28 +28,28 @@ get_header();
 
                 <li class="inner-nav__item">
                     <a href="<?php echo home_url('/yokohama/'); ?>">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/icon-yokohama.png" alt="">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/icon-yokohama.png" alt="" aria-hidden="true">
                         <span>横浜について</span>
                     </a>
                 </li>
 
                 <li class="inner-nav__item">
                     <a href="<?php echo home_url('/#faq'); ?>">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/icon-faq.png" alt="">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/icon-faq.png" alt="" aria-hidden="true">
                         <span>よくある質問</span>
                     </a>
                 </li>
 
                 <li class="inner-nav__item">
                     <a href="<?php echo home_url('/news/'); ?>">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/icon-news.png" alt="">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/icon-news.png" alt="" aria-hidden="true">
                         <span>お知らせ<br>イベント</span>
                     </a>
                 </li>
 
                 <li class="inner-nav__item">
                     <a href="<?php echo home_url('/contact/'); ?>">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/icon-mail.png" alt="">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/icon-mail.png" alt="" aria-hidden="true">
                         <span>お問い合わせ</span>
                     </a>
                 </li>
@@ -153,22 +153,22 @@ get_header();
         <div class="contact__inner">
             <h2 class="section-title section-title--sm section-title--contact">
                 <span class="section-title__text">お問い合わせ</span>
-                <img src="<?php echo get_template_directory_uri(); ?>/images/about/about_title-wave.svg" alt="" aria-hidden="true" class="section-title__icon section-title__icon--wave">
+                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about/about_title-wave.svg" alt="" aria-hidden="true" class="section-title__icon section-title__icon--wave">
             </h2>
 
             <div class="contact__box">
                 <ul class="contact__list">
                     <li class="contact__item contact__item--tel">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/header_phoneicon.png" alt="">
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/header_phoneicon.png" alt="" aria-hidden="true">
                         <span>045-681-2737</span>
                     </li>
                     <li class="contact__item contact__item--mobile">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/header_mobileicon.png" alt="">
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/header_mobileicon.png" alt="" aria-hidden="true">
                         <span>070-1526-3845</span>
                     </li>
                     <li class="contact__item contact__item--time">対応時間：10:00〜18:00／不定休</li>
                     <li class="contact__item contact__item--mail">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/header_mailicon.png" alt="">
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/header_mailicon.png" alt="" aria-hidden="true">
                         <span>info@hamanavi-s.jp</span>
                     </li>
                 </ul>
@@ -177,19 +177,19 @@ get_header();
                     <a href="<?php echo esc_url(home_url("/contact/")); ?>" class="btn btn--blue btn--md">お問い合わせ・ご相談窓口<span class="btn__arrow">→</span></a>
 
                     <a href="<?php echo esc_url(home_url("/reservation/")); ?>" class="btn btn--orange btn--md">予約する
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/service/icon-link.png" alt="" class="btn__icon" aria-hidden="true"></a>
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service/icon-link.png" alt="" class="btn__icon" aria-hidden="true"></a>
                 </div>
             </div>
 
             <div class="contact__decos">
                 <div class="speech-bubble-imgwrap speech-bubble-imgwrap--contact">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/bubble.png" class="speech-bubble-img" aria-hidden="true">
+                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/bubble.png" class="speech-bubble-img" aria-hidden="true" alt="">
                     <p class="speech-bubble-text speech-bubble-text--contact">
                         ハマナビサービスで<br>横浜を楽しんでいってね！
                     </p>
                 </div>
                 <figure class="character character--contact">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/contact/bird.png" alt="ハマナビくん">
+                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/contact/bird.png" alt="ハマナビくん">
                 </figure>
             </div>
         </div>

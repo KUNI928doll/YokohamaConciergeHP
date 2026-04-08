@@ -7,7 +7,7 @@
             </li>
             <li class="inner-nav__item inner-nav__item--has-sub">
                 <button type="button" class="inner-nav__trigger js-inner-dropdown" aria-expanded="false">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/icon-service.png" alt="">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/icon-service.png" alt="" aria-hidden="true">
                     <span>サービス紹介</span>
                     <span class="inner-nav__caret" aria-hidden="true"></span>
                 </button>
@@ -19,25 +19,25 @@
             </li>
             <li class="inner-nav__item">
                 <a href="<?php echo esc_url(home_url('/yokohama/')); ?>">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/icon-yokohama.png" alt="">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/icon-yokohama.png" alt="" aria-hidden="true">
                     <span>横浜について</span>
                 </a>
             </li>
             <li class="inner-nav__item">
                 <a href="<?php echo esc_url(home_url('/#faq')); ?>">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/icon-faq.png" alt="">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/icon-faq.png" alt="" aria-hidden="true">
                     <span>よくある質問</span>
                 </a>
             </li>
             <li class="inner-nav__item">
                 <a href="<?php echo esc_url(home_url('/news/')); ?>">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/icon-news.png" alt="">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/icon-news.png" alt="" aria-hidden="true">
                     <span>お知らせ<br>イベント</span>
                 </a>
             </li>
             <li class="inner-nav__item">
                 <a href="<?php echo esc_url(home_url('/contact/')); ?>">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/icon-mail.png" alt="">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/icon-mail.png" alt="" aria-hidden="true">
                     <span>お問い合わせ</span>
                 </a>
             </li>

@@ -56,7 +56,7 @@
                             </div>
                         </li>
                         <li class="header__utility-item header__utility-item--xwide">
-                            <a href="contact.php" class="header__utility-link is-column is-gap-large">
+                            <a href="/contact/" class="header__utility-link is-column is-gap-large">
                                 <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/header_mailicon.png" alt="メールアイコン"
                                     class="header__icon header__icon--mail" width="25" height="18">
                                 メール

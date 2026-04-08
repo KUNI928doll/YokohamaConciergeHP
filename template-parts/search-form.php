@@ -23,7 +23,7 @@ $wrapper_class = isset($args['wrapper_class']) ? $args['wrapper_class'] : '';
         <label for="site-search" class="sr-only">サイト内検索</label>
         <input type="search" id="site-search" name="s" class="search-area__input" placeholder="<?php echo esc_attr($placeholder); ?>" aria-label="サイト内検索"<?php echo $search_value ? ' value="' . esc_attr($search_value) . '"' : ''; ?>>
         <button type="submit" class="search-area__btn" aria-label="検索を実行">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/icon-search.png" alt="" aria-hidden="true">
+            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/icon-search.png" alt="" aria-hidden="true">
         </button>
     </form>
 
