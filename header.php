@@ -25,9 +25,6 @@
     <?php wp_head(); ?>
 </head>
 <body id="top">
-    <!-- スキップリンク -->
-    <a href="#main-content" class="skip-link">メインコンテンツへスキップ</a>
-
     <!-- ヘッダー -->
  <header class="header">
         <div class="header__inner">
