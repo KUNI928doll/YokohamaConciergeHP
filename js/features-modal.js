@@ -1,3 +1,5 @@
+"use strict";
+
 // 特徴ポップアップ機能（スライド式）
 document.addEventListener('DOMContentLoaded', function() {
   const featureCircles = document.querySelectorAll('.features__circle');

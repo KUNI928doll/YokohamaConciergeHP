@@ -1,3 +1,5 @@
+"use strict";
+
 document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.querySelector('.header__toggle');
   const nav = document.querySelector('.header__nav--sp');
@@ -96,24 +98,12 @@ document.addEventListener('DOMContentLoaded', () => {
   initDropdown('.js-footer-dropdown', '.footer__item--has-sub');
   initDropdown('.js-spmenu-dropdown', '.spmenu__item--has-sub');
 
-  // デバッグ用
-  console.log('Initializing inner-nav dropdown...');
-  const innerNavButtons = document.querySelectorAll('.js-inner-dropdown');
-  console.log('Found inner-nav buttons:', innerNavButtons.length);
-  innerNavButtons.forEach((btn, index) => {
-    console.log(`Button ${index}:`, btn);
-    const item = btn.closest('.inner-nav__item--has-sub');
-    console.log(`Item ${index}:`, item);
-  });
-
   initDropdown('.js-inner-dropdown', '.inner-nav__item--has-sub');
 
   // SP用の多言語切り替えボタン
   const spLanguageToggle = document.querySelector('.spmenu .spmenu__top .header__language-wrapper.lang-switch') || 
                             document.querySelector('.spmenu .header__language-wrapper.lang-switch');
   if (spLanguageToggle) {
-    console.log('SP language toggle found:', spLanguageToggle);
-    
     // 言語切り替えボタン全体のクリック処理
     spLanguageToggle.addEventListener('click', (event) => {
       // 言語リンク自体のクリックは通常通り動作させる
@@ -125,9 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // ボタン部分のクリックのみ処理
       event.stopPropagation();
       event.preventDefault();
-      console.log('Language toggle clicked');
       spLanguageToggle.classList.toggle('is-open');
-      console.log('is-open class:', spLanguageToggle.classList.contains('is-open'));
     });
 
     // 外側をクリックしたら閉じる
@@ -157,8 +145,6 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    console.log('PC/Tablet language toggle found:', languageToggle);
-    
     // クリック/タッチで言語リストを表示
     languageToggle.addEventListener('click', (event) => {
       // 言語リンク自体のクリックは通常通り動作させる
@@ -167,9 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       event.stopPropagation();
       event.preventDefault();
-      console.log('PC/Tablet Language toggle clicked');
       languageToggle.classList.toggle('is-open');
-      console.log('is-open class:', languageToggle.classList.contains('is-open'));
     });
 
     // 外側をクリックしたら閉じる

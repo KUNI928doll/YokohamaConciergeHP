@@ -1,3 +1,5 @@
+"use strict";
+
 jQuery(function ($) {
     const $pageTop = $('.pagetop');
 

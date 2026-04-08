@@ -1,3 +1,5 @@
+"use strict";
+
 // 予約フォーム送信処理
 document.addEventListener('DOMContentLoaded', function() {
   const form = document.querySelector('.reservation-form');

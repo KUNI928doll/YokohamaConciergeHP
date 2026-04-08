@@ -1,3 +1,5 @@
+"use strict";
+
 document.addEventListener('DOMContentLoaded', () => {
     const navButtons = document.querySelectorAll('.guide-spots__nav-btn[role="tab"]');
     const panels = document.querySelectorAll('.guide-spots__panel[role="tabpanel"]');

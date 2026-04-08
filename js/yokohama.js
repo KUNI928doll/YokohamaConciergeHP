@@ -1,3 +1,5 @@
+"use strict";
+
 document.addEventListener('DOMContentLoaded', () => {
   const buttons = document.querySelectorAll('.guide-spots__nav-btn');
   const maps = document.querySelectorAll('.yokohama-area__map');

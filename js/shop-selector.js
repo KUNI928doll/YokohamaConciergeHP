@@ -1,3 +1,5 @@
+"use strict";
+
 // お店選択機能（CSV対応版）
 document.addEventListener('DOMContentLoaded', function() {
   const selectHotelBtn = document.getElementById('selectHotelBtn');

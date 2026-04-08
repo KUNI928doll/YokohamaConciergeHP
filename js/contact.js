@@ -1,3 +1,5 @@
+"use strict";
+
 // HTML5標準バリデーションを無効化（ブラウザ固定メッセージを回避）
 document.addEventListener('DOMContentLoaded', function() {
   const cf7Form = document.querySelector('.wpcf7-form');

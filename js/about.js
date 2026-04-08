@@ -1,3 +1,5 @@
+"use strict";
+
 gsap.registerPlugin(ScrollTrigger);
 
 // スマホ・タブレット判定（1200px以下）

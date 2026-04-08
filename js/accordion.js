@@ -1,3 +1,5 @@
+"use strict";
+
 document.addEventListener("DOMContentLoaded", () => {
   const faqSection = document.querySelector(".faq");
   const faqButtons = document.querySelectorAll(".faq__question");

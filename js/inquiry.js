@@ -1,3 +1,5 @@
+"use strict";
+
 // お問い合わせフォームの確認機能
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('.inquiry-form');
