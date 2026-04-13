@@ -336,6 +336,23 @@
     gap: 16px;
   }
 
+  &__proposal-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+
+    @include mq($until: sp-large) {
+      flex-direction: column;
+      gap: 10px;
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  }
+
   &__actions {
     display: flex;
     justify-content: center;
@@ -1453,5 +1470,28 @@
   strong {
     color: var(--color-main);
     font-weight: 700;
+  }
+}
+
+// 2回未承認時メッセージ
+.reservation-rejection-message {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 24px 32px;
+  background: #fff8f8;
+  border: 2px solid #e74c3c;
+  border-radius: 8px;
+  text-align: center;
+
+  &__text {
+    font-size: var(--font-size-base);
+    color: #c0392b;
+    font-weight: 700;
+    line-height: 1.8;
+  }
+
+  @include mq($until: sp-large) {
+    margin: 24px 16px;
+    padding: 20px 20px;
   }
 }
