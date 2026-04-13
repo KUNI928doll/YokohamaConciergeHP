@@ -310,7 +310,7 @@ get_header();
                     <div class="reservation-form__field reservation-form__field--full">
                         <p class="reservation-form__label">ハマナビからの提案</p>
                         <p class="reservation-form__proposal-description">
-                            以下は、お客さまのご希望条件に基づき選定した2つの候補です。内容をご確認のうえ、いずれか1案について「予約代行を依頼する」場合のみ、下記ボタンを押してください。本提案には、条件に合う場合、ハマナビサービス提携事業者（特典のご案内が可能な場合を含む）を優先的に含めることがあります。
+                            以下は、お客さまのご希望条件に基づき選定した候補です。内容をご確認のうえ、「予約代行を依頼する」場合のみ、下記ボタンを押してください。本提案には、条件に合う場合、ハマナビサービス提携事業者（特典のご案内が可能な場合を含む）を優先的に含めることがあります。
                             ＊発注（決済）が行われない場合、本提案は自動的に（キャンセル）となります。
                         </p>
                         <div class="reservation-form__shop-selector">
@@ -330,31 +330,10 @@ get_header();
                                     rows="4" placeholder="ホテルを選択するか、直接入力してください" readonly></textarea>
                                 <input type="hidden" id="hotel-proposal-1-id" name="hotelProposal1Id">
                             </div>
-                            <div class="reservation-form__proposal-item">
-                                <label for="hotel-proposal-2" class="reservation-form__proposal-label">
-                                    提案（2）
-                                    <button type="button" class="reservation-form__clear-btn" data-target="hotel-proposal-2" title="クリア">
-                                        <i class="fas fa-times-circle"></i>
-                                    </button>
-                                </label>
-                                <textarea id="hotel-proposal-2" name="hotelProposal2" class="reservation-form__textarea"
-                                    rows="4" placeholder="ホテルを選択するか、直接入力してください" readonly></textarea>
-                                <input type="hidden" id="hotel-proposal-2-id" name="hotelProposal2Id">
-                            </div>
                         </div>
-                        <div class="reservation-form__field reservation-form__field--full reservation-form__field--final-selection">
-                            <p class="reservation-form__label">最終選択<span class="reservation-form__required">必須</span></p>
-                            <div class="reservation-form__final-selection">
-                                <label class="reservation-form__radio-label">
-                                    <input type="radio" name="hotelFinalSelection" value="1" class="reservation-form__radio" id="hotel-final-1">
-                                    <span>提案（1）を選択</span>
-                                </label>
-                                <label class="reservation-form__radio-label">
-                                    <input type="radio" name="hotelFinalSelection" value="2" class="reservation-form__radio" id="hotel-final-2">
-                                    <span>提案（2）を選択</span>
-                                </label>
-                            </div>
-                            <p class="reservation-form__note">提案（1）と提案（2）の両方を入力した後、どちらかを選択してください。</p>
+                        <div class="reservation-form__proposal-actions">
+                            <a href="https://hook.us2.make.com/q4s664foazn8sn737ccpojfh964enyuu?status=approve" class="btn btn--orange btn--sm" target="_blank" rel="noopener noreferrer">この内容で予約する</a>
+                            <a href="https://hook.us2.make.com/q4s664foazn8sn737ccpojfh964enyuu?status=retry" class="btn btn--outline btn--sm" target="_blank" rel="noopener noreferrer">別の提案を希望する</a>
                         </div>
                     </div>
                 </div>
@@ -455,7 +434,7 @@ get_header();
                     <div class="reservation-form__field reservation-form__field--full">
                         <p class="reservation-form__label">ハマナビからの提案</p>
                         <p class="reservation-form__proposal-description">
-                            以下は、お客さまのご希望条件に基づき選定した2つの候補です。内容をご確認のうえ、いずれか1案について「予約代行を依頼する」場合のみ、下記ボタンを押してください。本提案には、条件に合う場合、ハマナビサービス提携事業者（特典のご案内が可能な場合を含む）を優先的に含めることがあります。
+                            以下は、お客さまのご希望条件に基づき選定した候補です。内容をご確認のうえ、「予約代行を依頼する」場合のみ、下記ボタンを押してください。本提案には、条件に合う場合、ハマナビサービス提携事業者（特典のご案内が可能な場合を含む）を優先的に含めることがあります。
                             ＊発注（決済）が行われない場合、本提案は自動的に（キャンセル）となります。
                         </p>
                         <div class="reservation-form__shop-selector">
@@ -475,31 +454,10 @@ get_header();
                                     class="reservation-form__textarea" rows="4" placeholder="レストランを選択するか、直接入力してください" readonly></textarea>
                                 <input type="hidden" id="dining-proposal-1-id" name="diningProposal1Id">
                             </div>
-                            <div class="reservation-form__proposal-item">
-                                <label for="dining-proposal-2" class="reservation-form__proposal-label">
-                                    提案（2）
-                                    <button type="button" class="reservation-form__clear-btn" data-target="dining-proposal-2" title="クリア">
-                                        <i class="fas fa-times-circle"></i>
-                                    </button>
-                                </label>
-                                <textarea id="dining-proposal-2" name="diningProposal2"
-                                    class="reservation-form__textarea" rows="4" placeholder="レストランを選択するか、直接入力してください" readonly></textarea>
-                                <input type="hidden" id="dining-proposal-2-id" name="diningProposal2Id">
-                            </div>
                         </div>
-                        <div class="reservation-form__field reservation-form__field--full reservation-form__field--final-selection">
-                            <p class="reservation-form__label">最終選択<span class="reservation-form__required">必須</span></p>
-                            <div class="reservation-form__final-selection">
-                                <label class="reservation-form__radio-label">
-                                    <input type="radio" name="diningFinalSelection" value="1" class="reservation-form__radio" id="dining-final-1">
-                                    <span>提案（1）を選択</span>
-                                </label>
-                                <label class="reservation-form__radio-label">
-                                    <input type="radio" name="diningFinalSelection" value="2" class="reservation-form__radio" id="dining-final-2">
-                                    <span>提案（2）を選択</span>
-                                </label>
-                            </div>
-                            <p class="reservation-form__note">提案（1）と提案（2）の両方を入力した後、どちらかを選択してください。</p>
+                        <div class="reservation-form__proposal-actions">
+                            <a href="https://hook.us2.make.com/q4s664foazn8sn737ccpojfh964enyuu?status=approve" class="btn btn--orange btn--sm" target="_blank" rel="noopener noreferrer">この内容で予約する</a>
+                            <a href="https://hook.us2.make.com/q4s664foazn8sn737ccpojfh964enyuu?status=retry" class="btn btn--outline btn--sm" target="_blank" rel="noopener noreferrer">別の提案を希望する</a>
                         </div>
                     </div>
                 </div>
@@ -608,6 +566,11 @@ get_header();
             </p>
             <button type="button" class="btn btn--blue btn--md reservation-modal__close">閉じる</button>
         </div>
+    </div>
+
+    <!-- 2回未承認時メッセージ（システム側で表示制御） -->
+    <div class="reservation-rejection-message" style="display: none;">
+        <p class="reservation-rejection-message__text">大変申し訳ございませんが、<br>これ以上このサイトではご提案できません。</p>
     </div>
 
     <!-- お店選択モーダル -->

@@ -86,8 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
     'hotelAdults': '大人',
     'hotelChildren': '子供',
     'hotelRequest': 'その他ご希望事項',
-    'hotelProposal1': 'ハマナビからの提案1',
-    'hotelProposal2': 'ハマナビからの提案2',
+    'hotelProposal1': 'ハマナビからの提案',
     'diningDate': '予約日',
     'diningTime': '予約時間',
     'diningAdults': '大人',
@@ -110,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const sections = {
     '基本入力項目': ['name', 'gender', 'nationality', 'address', 'passport', 'stay', 'phone', 'email', 'card', 'cardType', 'cvv', 'companion'],
     '観光ガイドサービス': ['guideCourse', 'guideDate', 'guideArea', 'guideAdults', 'guideChildren', 'guideSpots', 'guideNotes'],
-    'ホテル予約代行サービス': ['hotelDate', 'hotelArea', 'hotelBudget', 'hotelAdults', 'hotelChildren', 'hotelRequest', 'hotelProposal1', 'hotelProposal2'],
+    'ホテル予約代行サービス': ['hotelDate', 'hotelArea', 'hotelBudget', 'hotelAdults', 'hotelChildren', 'hotelRequest', 'hotelProposal1'],
     '飲食店舗予約代行サービス': ['diningDate', 'diningTime', 'diningAdults', 'diningChildren', 'diningBudget', 'cuisine', 'diningRequest'],
     '体験アクティビティ代行サービス': ['activityDatetime', 'activityAdults', 'activityChildren', 'activityType', 'activityRequest'],
     'トランクお預かりサービス': ['luggageDate', 'luggageTime', 'luggageCount', 'luggageNotes']
@@ -147,40 +146,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
     
-    // 提案1と提案2の両方が入力されている場合、最終選択を確認
-    const hotelProposal1 = form.elements['hotelProposal1']?.value.trim();
-    const hotelProposal2 = form.elements['hotelProposal2']?.value.trim();
-    const hotelFinalSelection = form.elements['hotelFinalSelection']?.value;
-    
-    if (hotelProposal1 && hotelProposal2 && !hotelFinalSelection) {
-      isValid = false;
-      const hotelFinal1 = document.getElementById('hotel-final-1');
-      if (hotelFinal1) {
-        hotelFinal1.closest('.reservation-form__field').style.border = '2px solid #ff0000';
-        hotelFinal1.closest('.reservation-form__field').style.backgroundColor = '#fff0f0';
-        invalidFields.push('ホテル予約代行サービス：最終選択');
-        if (!firstInvalidField) {
-          firstInvalidField = hotelFinal1;
-        }
-      }
-    }
-    
-    const diningProposal1 = form.elements['diningProposal1']?.value.trim();
-    const diningProposal2 = form.elements['diningProposal2']?.value.trim();
-    const diningFinalSelection = form.elements['diningFinalSelection']?.value;
-    
-    if (diningProposal1 && diningProposal2 && !diningFinalSelection) {
-      isValid = false;
-      const diningFinal1 = document.getElementById('dining-final-1');
-      if (diningFinal1) {
-        diningFinal1.closest('.reservation-form__field').style.border = '2px solid #ff0000';
-        diningFinal1.closest('.reservation-form__field').style.backgroundColor = '#fff0f0';
-        invalidFields.push('飲食店舗予約代行サービス：最終選択');
-        if (!firstInvalidField) {
-          firstInvalidField = diningFinal1;
-        }
-      }
-    }
 
     console.log('バリデーション結果:', isValid);
     if (invalidFields.length > 0) {
@@ -418,35 +383,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
 
-      // ホテル予約代行サービスの場合、最終選択を追加
-      if (sectionTitle === 'ホテル予約代行サービス') {
-        const hotelFinalSelection = form.elements['hotelFinalSelection']?.value;
-        if (hotelFinalSelection) {
-          const selectedProposal = hotelFinalSelection === '1' ? '提案（1）' : '提案（2）';
-          sectionHtml += `
-            <div class="reservation-confirm__item">
-              <div class="reservation-confirm__label">最終選択</div>
-              <div class="reservation-confirm__value">${escapeHtml(selectedProposal)}</div>
-            </div>
-          `;
-          hasData = true;
-        }
-      }
-      
-      // 飲食店舗予約代行サービスの場合、最終選択を追加
-      if (sectionTitle === '飲食店舗予約代行サービス') {
-        const diningFinalSelection = form.elements['diningFinalSelection']?.value;
-        if (diningFinalSelection) {
-          const selectedProposal = diningFinalSelection === '1' ? '提案（1）' : '提案（2）';
-          sectionHtml += `
-            <div class="reservation-confirm__item">
-              <div class="reservation-confirm__label">最終選択</div>
-              <div class="reservation-confirm__value">${escapeHtml(selectedProposal)}</div>
-            </div>
-          `;
-          hasData = true;
-        }
-      }
 
       if (hasData) {
         html += `
