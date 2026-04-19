@@ -223,76 +223,114 @@ document.addEventListener('DOMContentLoaded', function() {
     showModal();
   }
   
-  // 希望金額でお店をフィルタリング
-  function filterShopsByBudget(shops) {
+  // フォーム条件（金額・エリア・ジャンル）でお店をフィルタリング
+  function filterShops(shops) {
     if (!shops || shops.length === 0) return shops;
-    
-    // 希望金額を取得
+
+    let filtered = shops;
+
+    // --- 希望金額フィルター ---
     let budgetValue = null;
     if (currentCategory === 'hotels') {
-      const hotelBudget = document.getElementById('hotel-budget');
-      if (hotelBudget && hotelBudget.value) {
-        budgetValue = hotelBudget.value; // 文字列のまま取得（30000plus等に対応）
-      }
+      const el = document.getElementById('hotel-budget');
+      if (el && el.value) budgetValue = el.value;
     } else if (currentCategory === 'restaurants') {
-      const diningBudget = document.getElementById('dining-budget');
-      if (diningBudget && diningBudget.value) {
-        budgetValue = diningBudget.value; // 文字列のまま取得（30000plus等に対応）
-      }
+      const el = document.getElementById('dining-budget');
+      if (el && el.value) budgetValue = el.value;
     }
-    
-    // 希望金額が選択されていない場合は全件表示
-    if (!budgetValue) {
-      return shops;
-    }
-    
-    // 希望金額に基づいてフィルタリング
-    return shops.filter(shop => {
-      const shopPrice = shop.priceRange || shop.price || '';
-      if (!shopPrice || shopPrice === '要問い合わせ') {
-        return true; // 価格情報がない場合は表示
-      }
-      
-      // 価格範囲を解析（例: "¥6,000~¥10,000" や "¥7,000~¥10,000"）
-      const priceMatches = shopPrice.match(/¥[\d,]+/g);
-      if (!priceMatches || priceMatches.length === 0) {
-        return true; // 価格が解析できない場合は表示
-      }
-      
-      // 最小価格と最大価格を取得
-      const minPrice = parseInt(priceMatches[0].replace(/[¥,]/g, ''));
-      const maxPrice = priceMatches.length > 1 
-        ? parseInt(priceMatches[1].replace(/[¥,]/g, '')) 
-        : minPrice; // 最大価格がない場合は最小価格と同じとする
-      
-      // 希望金額の範囲を定義
+
+    if (budgetValue) {
       const budgetRanges = {
-        '3000': { min: 0, max: 3000 },
-        '6000': { min: 0, max: 6000 },
-        '12000': { min: 0, max: 12000 },
-        '20000': { min: 0, max: 20000 },
-        '30000': { min: 0, max: 30000 },
+        '2000':      { min: 0,     max: 2000 },
+        '3000':      { min: 0,     max: 3000 },
+        '6000':      { min: 0,     max: 6000 },
+        '12000':     { min: 0,     max: 12000 },
+        '20000':     { min: 0,     max: 20000 },
+        '30000':     { min: 0,     max: 30000 },
         '30000plus': { min: 30000, max: Infinity },
         '50000plus': { min: 50000, max: Infinity }
       };
-      
       const range = budgetRanges[budgetValue];
-      if (!range) {
-        return true; // 範囲が定義されていない場合は表示
+      if (range) {
+        filtered = filtered.filter(shop => {
+          const shopPrice = shop.priceRange || shop.price || '';
+          if (!shopPrice || shopPrice === '要問い合わせ') return true;
+          const nums = shopPrice.match(/[\d,]+/g);
+          if (!nums || nums.length === 0) return true;
+          const minPrice = parseInt(nums[0].replace(/,/g, ''));
+          const maxPrice = nums.length > 1 ? parseInt(nums[1].replace(/,/g, '')) : minPrice;
+          if (range.max === Infinity) return minPrice >= range.min;
+          return minPrice <= range.max && maxPrice >= range.min;
+        });
       }
-      
-      // お店の価格範囲が希望金額の範囲と重なるかチェック
-      // お店の最小価格が希望金額の最大値以下で、お店の最大価格が希望金額の最小値以上の場合
-      if (range.max === Infinity) {
-        // 上限なしの場合（30000plus, 50000plus）
-        return minPrice >= range.min;
-      } else {
-        // 上限ありの場合
-        // お店の最小価格が希望金額の範囲内にあるか、またはお店の価格範囲が希望金額の範囲と重なるか
-        return (minPrice <= range.max && maxPrice >= range.min);
+    }
+
+    // --- エリアフィルター ---
+    const areaMap = {
+      'motomachi':      ['元町', '山手'],
+      'yamashita':      ['山下公園', '山下町', '中華街'],
+      'nihonodori':     ['日本大通り'],
+      'bashamichi':     ['馬車道'],
+      'kannai':         ['関内'],
+      'minatomirai':    ['みなとみらい'],
+      'sakuragicho':    ['桜木町'],
+      'other_yokohama': []
+    };
+
+    let areaValue = null;
+    if (currentCategory === 'hotels') {
+      const el = document.getElementById('hotel-area');
+      if (el && el.value) areaValue = el.value;
+    } else if (currentCategory === 'restaurants') {
+      const el = document.getElementById('dining-area');
+      if (el && el.value) areaValue = el.value;
+    }
+
+    if (areaValue && areaValue !== 'other_yokohama') {
+      const keywords = areaMap[areaValue] || [];
+      if (keywords.length > 0) {
+        filtered = filtered.filter(shop => {
+          const shopArea = shop.area || '';
+          return keywords.some(kw => shopArea.includes(kw));
+        });
       }
-    });
+    }
+
+    // --- 料理ジャンルフィルター（飲食店のみ）---
+    if (currentCategory === 'restaurants') {
+      const cuisineEl = document.getElementById('dining-cuisine');
+      if (cuisineEl && cuisineEl.value && cuisineEl.value !== 'other') {
+        const cuisineMap = {
+          'washoku':   ['和食', 'うなぎ', '鍋', '割烹'],
+          'sushi':     ['寿司', 'お寿司', '鮨', 'すし'],
+          'tempura':   ['天ぷら', '天麩羅'],
+          'soba_udon': ['そば', 'うどん', '蕎麦'],
+          'chinese':   ['中華', '台湾', '上海', '四川', '広東', '湖南'],
+          'indian':    ['インド'],
+          'french':    ['フレンチ', 'フランス'],
+          'italian':   ['イタリアン', 'イタリア'],
+          'spanish':   ['スペイン'],
+          'grill':     ['グリル', '鉄板'],
+          'yakiniku':  ['焼肉', '焼き肉'],
+          'steak':     ['ステーキ'],
+          'vege':      ['ベジタリアン', '野菜'],
+          'cafe':      ['カフェ']
+        };
+        const keywords = cuisineMap[cuisineEl.value] || [];
+        if (keywords.length > 0) {
+          filtered = filtered.filter(shop => {
+            const shopCategory = shop.category || '';
+            return keywords.some(kw => shopCategory.includes(kw));
+          });
+        }
+      }
+    }
+
+    return filtered;
   }
+
+  // 後方互換のエイリアス
+  function filterShopsByBudget(shops) { return filterShops(shops); }
 
   // お店リストを表示
   function renderShopList(shops) {

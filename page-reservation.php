@@ -263,7 +263,7 @@ get_header();
                         </div>
                         <div class="reservation-form__field">
                             <label for="hotel-area" class="reservation-form__label">エリア選択</label>
-                            <select id="hotel-area" name="hotelArea" class="reservation-form__select">
+                            <select id="hotel-area" name="area" class="reservation-form__select">
                                 <option value="" disabled selected>選択してください</option>
                                 <option value="motomachi">元町・山手</option>
                                 <option value="yamashita">山下公園・中華街</option>
@@ -276,7 +276,7 @@ get_header();
                         </div>
                         <div class="reservation-form__field">
                             <label for="hotel-budget" class="reservation-form__label">ご希望金額</label>
-                            <select id="hotel-budget" name="hotelBudget" class="reservation-form__select">
+                            <select id="hotel-budget" name="price_rank" class="reservation-form__select">
                                 <option value="" disabled selected>選択してください</option>
                                 <option value="6000">〜6,000円</option>
                                 <option value="12000">〜12,000円</option>
@@ -363,7 +363,7 @@ get_header();
                         </div>
                         <div class="reservation-form__field">
                             <label for="dining-area" class="reservation-form__label">エリア選択</label>
-                            <select id="dining-area" name="diningArea" class="reservation-form__select">
+                            <select id="dining-area" name="area" class="reservation-form__select">
                                 <option value="" disabled selected>選択してください</option>
                                 <option value="motomachi">元町・山手</option>
                                 <option value="yamashita">山下公園・中華街</option>
@@ -398,7 +398,7 @@ get_header();
                         </div>
                         <div class="reservation-form__field">
                             <label for="dining-budget" class="reservation-form__label">ご希望金額</label>
-                            <select id="dining-budget" name="diningBudget" class="reservation-form__select">
+                            <select id="dining-budget" name="price_rank" class="reservation-form__select">
                                 <option value="" disabled selected>選択してください</option>
                                 <option value="2000">〜2,000円</option>
                                 <option value="3000">〜3,000円</option>
