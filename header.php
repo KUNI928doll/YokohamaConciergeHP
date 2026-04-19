@@ -32,14 +32,14 @@
                 <!-- PC用ロゴ -->
                 <div class="u-visible-pc">
                     <a href="<?php echo esc_url(home_url('/')); ?>">
-                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/header_logo-pc.png" alt="YOKOHAMA Concierge ロゴ（PC）" width="5135" height="1325">
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/header_logo-pc.png" alt="YOKOHAMA Concierge" width="5135" height="1325">
                     </a>
                 </div>
 
                 <!-- SP用ロゴ -->
                 <div class="u-visible-sp">
                     <a href="<?php echo esc_url(home_url('/')); ?>">
-                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/header_logo-sp.png" alt="YOKOHAMA Concierge ロゴ（SP）" width="1751" height="1786">
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/header_logo-sp.png" alt="YOKOHAMA Concierge" width="1751" height="1786">
                     </a>
                 </div>
             </div>
