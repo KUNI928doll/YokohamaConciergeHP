@@ -1,6 +1,9 @@
 "use strict";
 
-// お店選択機能（CSV対応版）
+// Make Webhook URL（シナリオ作成後に差し替え）
+const MAKE_WEBHOOK_URL = 'https://hook.us2.make.com/q4s664foazn8sn737ccpojfh964enyuu';
+
+// お店選択機能（Make連携版）
 document.addEventListener('DOMContentLoaded', function() {
   const selectHotelBtn = document.getElementById('selectHotelBtn');
   const selectRestaurantBtn = document.getElementById('selectRestaurantBtn');
@@ -184,28 +187,157 @@ document.addEventListener('DOMContentLoaded', function() {
     return result;
   }
 
-  // ホテル選択ボタン
+  // ホテル選択ボタン → Make連携
   if (selectHotelBtn) {
     selectHotelBtn.addEventListener('click', function() {
-      currentCategory = 'hotels';
-      openShopModal('ホテルを選択');
+      fetchProposalsFromMake('hotels');
     });
   }
 
-  // レストラン選択ボタン
+  // レストラン選択ボタン → Make連携
   if (selectRestaurantBtn) {
     selectRestaurantBtn.addEventListener('click', function() {
-      currentCategory = 'restaurants';
-      openShopModal('レストランを選択');
+      fetchProposalsFromMake('restaurants');
     });
   }
 
-  // アクティビティ選択ボタン
+  // アクティビティ選択ボタン（既存）
   if (selectActivityBtn) {
     selectActivityBtn.addEventListener('click', function() {
       currentCategory = 'activities';
       openShopModal('アクティビティを選択');
     });
+  }
+
+  // Make Webhookから提案を取得
+  function fetchProposalsFromMake(category) {
+    currentCategory = category;
+
+    // フォームから条件を収集
+    const conditions = collectConditions(category);
+
+    // ボタンをローディング状態に
+    const btn = category === 'hotels' ? selectHotelBtn : selectRestaurantBtn;
+    const originalText = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 検索中...';
+
+    fetch(MAKE_WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ type: category, ...conditions })
+    })
+      .then(response => {
+        if (!response.ok) throw new Error('Makeからの応答エラー');
+        return response.json();
+      })
+      .then(data => {
+        console.log('MAKEレスポンス全体:', JSON.stringify(data, null, 2));
+        const proposals = data.proposals || [];
+        if (proposals.length === 0) {
+          showToast('条件に合う提案が見つかりませんでした');
+          return;
+        }
+        console.log('提案[0]のキー一覧:', Object.keys(proposals[0]));
+        applyProposals(category, proposals);
+        showToast(`${proposals.length}件の提案を取得しました`);
+      })
+      .catch(err => {
+        console.error('Make連携エラー:', err);
+        showToast('提案の取得に失敗しました。URLの設定をご確認ください。');
+      })
+      .finally(() => {
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+      });
+  }
+
+  // フォームの選択値 → シートのテキスト値マッピング
+  const BUDGET_MAP = {
+    '2000':      '～2,000円',
+    '3000':      '～3,000円',
+    '6000':      '～6,000円',
+    '12000':     '～12,000円',
+    '20000':     '～20,000円',
+    '30000':     '～30,000円',
+    '30000plus': '30,000円～',
+    '50000plus': '50,000円～'
+  };
+
+  const AREA_MAP = {
+    'motomachi':      '元町',
+    'yamashita':      '山下公園',
+    'nihonodori':     '日本大通り',
+    'bashamichi':     '馬車道',
+    'kannai':         '関内',
+    'minatomirai':    'みなとみらい',
+    'sakuragicho':    '桜木町',
+    'other_yokohama': ''
+  };
+
+  const CUISINE_MAP = {
+    'washoku':   '和食',
+    'sushi':     '寿司',
+    'tempura':   '天ぷら',
+    'soba_udon': 'そば・うどん',
+    'chinese':   '中華',
+    'indian':    'インド料理',
+    'french':    'フレンチ',
+    'italian':   'イタリアン',
+    'spanish':   'スペイン料理',
+    'grill':     'グリル',
+    'yakiniku':  '焼肉',
+    'steak':     'ステーキ',
+    'vege':      'ベジタリアン',
+    'cafe':      'カフェ',
+    'other':     ''
+  };
+
+  // フォームから条件を収集（シートのテキスト値に変換して送信）
+  function collectConditions(category) {
+    if (category === 'hotels') {
+      const budgetVal = document.getElementById('hotel-budget')?.value || '';
+      const areaVal   = document.getElementById('hotel-area')?.value || '';
+      return {
+        type:     'hotel',
+        area:     AREA_MAP[areaVal] || '',
+        budget:   BUDGET_MAP[budgetVal] || '',
+        date:     document.getElementById('hotel-date')?.value || '',
+        adults:   document.getElementById('hotel-adults')?.value || '0',
+        children: document.getElementById('hotel-children')?.value || '0',
+        request:  document.getElementById('hotel-request')?.value || ''
+      };
+    } else {
+      const budgetVal  = document.getElementById('dining-budget')?.value || '';
+      const areaVal    = document.getElementById('dining-area')?.value || '';
+      const cuisineVal = document.getElementById('dining-cuisine')?.value || '';
+      return {
+        type:     'restaurant',
+        area:     AREA_MAP[areaVal] || '',
+        budget:   BUDGET_MAP[budgetVal] || '',
+        cuisine:  CUISINE_MAP[cuisineVal] || '',
+        date:     document.getElementById('dining-date')?.value || '',
+        time:     document.getElementById('dining-time')?.value || '',
+        adults:   document.getElementById('dining-adults')?.value || '0',
+        children: document.getElementById('dining-children')?.value || '0',
+        request:  document.getElementById('dining-request')?.value || ''
+      };
+    }
+  }
+
+  // 取得した提案をテキストエリアに反映
+  function applyProposals(category, proposals) {
+    proposals.slice(0, 1).forEach((shop, i) => {
+      const slot = i + 1;
+      const prefix = category === 'hotels' ? 'hotel' : 'dining';
+      const textarea = document.getElementById(`${prefix}-proposal-${slot}`);
+      const hidden   = document.getElementById(`${prefix}-proposal-${slot}-id`);
+      if (!textarea) return;
+      textarea.value = formatShopInfo(shop);
+      textarea.removeAttribute('readonly');
+      if (hidden) hidden.value = shop.name || '';
+    });
+    updateFinalSelectionState();
   }
 
   // モーダルを開く
@@ -587,9 +719,74 @@ document.addEventListener('DOMContentLoaded', function() {
     shopModalOverlay.addEventListener('click', closeModal);
   }
 
-  // クリアボタン
+  // セクションクリアボタン
+  const sectionFields = {
+    guide: [
+      { id: 'guide-course',    type: 'select' },
+      { id: 'guide-date',      type: 'input' },
+      { id: 'guide-area',      type: 'select' },
+      { id: 'guide-adults',    type: 'number' },
+      { id: 'guide-children',  type: 'number' },
+      { id: 'guide-spots',     type: 'textarea' },
+      { id: 'guide-notes',     type: 'textarea' }
+    ],
+    hotel: [
+      { id: 'hotel-date',        type: 'input' },
+      { id: 'hotel-area',        type: 'select' },
+      { id: 'hotel-budget',      type: 'select' },
+      { id: 'hotel-adults',      type: 'number' },
+      { id: 'hotel-children',    type: 'number' },
+      { id: 'hotel-request',     type: 'textarea' },
+      { id: 'hotel-proposal-1',  type: 'proposal' },
+      { id: 'hotel-proposal-1-id', type: 'hidden' }
+    ],
+    dining: [
+      { id: 'dining-date',        type: 'input' },
+      { id: 'dining-time',        type: 'select' },
+      { id: 'dining-area',        type: 'select' },
+      { id: 'dining-cuisine',     type: 'select' },
+      { id: 'dining-budget',      type: 'select' },
+      { id: 'dining-adults',      type: 'number' },
+      { id: 'dining-children',    type: 'number' },
+      { id: 'dining-request',     type: 'textarea' },
+      { id: 'dining-proposal-1',  type: 'proposal' },
+      { id: 'dining-proposal-1-id', type: 'hidden' }
+    ],
+    luggage: [
+      { id: 'luggage-date',   type: 'input' },
+      { id: 'luggage-time',   type: 'select' },
+      { id: 'luggage-count',  type: 'input' },
+      { id: 'luggage-notes',  type: 'textarea' }
+    ]
+  };
+
+  document.querySelectorAll('.reservation-form__section-clear-btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const section = this.dataset.section;
+      const fields = sectionFields[section] || [];
+      fields.forEach(({ id, type }) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        if (type === 'number') {
+          el.value = '0';
+        } else if (type === 'select') {
+          el.selectedIndex = 0;
+        } else if (type === 'proposal') {
+          el.value = '';
+          el.setAttribute('readonly', 'readonly');
+        } else {
+          el.value = '';
+        }
+      });
+      showToast('セクションをクリアしました');
+    });
+  });
+
+  // 提案テキストエリアのクリアボタン
   document.querySelectorAll('.reservation-form__clear-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
       const target = this.dataset.target;
       const textarea = document.getElementById(target);
       const hiddenInput = document.getElementById(`${target}-id`);
