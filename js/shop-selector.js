@@ -339,7 +339,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const rankNum    = parseInt(shop.price_rank);
       const priceLabel = (!isNaN(rankNum) && PRICE_RANK_LABELS[rankNum]) ? PRICE_RANK_LABELS[rankNum] : t('priceUnknown');
       const coupon     = shop.coupon_available === '1'
-        ? `<span class="shop-card__coupon"><i class="fas fa-tag"></i> ${t('coupon')}</span>`
+        ? `<span class="shop-card__coupon"><i class="fas fa-tag" aria-hidden="true"></i> ${t('coupon')}</span>`
         : '';
 
       html += `
@@ -349,13 +349,13 @@ document.addEventListener('DOMContentLoaded', function() {
             <span class="shop-card__price">${priceLabel}</span>
           </div>
           <div class="shop-card__meta">
-            <span class="shop-card__area"><i class="fas fa-map-marker-alt"></i> ${escapeHtml(shop.area)}</span>
-            ${shop.cuisine_type ? `<span class="shop-card__category"><i class="fas fa-utensils"></i> ${escapeHtml(shop.cuisine_type)}</span>` : ''}
+            <span class="shop-card__area"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> ${escapeHtml(shop.area)}</span>
+            ${shop.cuisine_type ? `<span class="shop-card__category"><i class="fas fa-utensils" aria-hidden="true"></i> ${escapeHtml(shop.cuisine_type)}</span>` : ''}
             ${coupon}
           </div>
           ${shop.description ? `<p class="shop-card__description">${escapeHtml(shop.description)}</p>` : ''}
-          ${shop.business_hours ? `<p class="shop-card__hours"><i class="fas fa-clock"></i> ${escapeHtml(shop.business_hours)}</p>` : ''}
-          ${(shop.website && shop.website !== '#') ? `<p class="shop-card__website"><a href="${escapeHtml(shop.website)}" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> ${t('website')}</a></p>` : ''}
+          ${shop.business_hours ? `<p class="shop-card__hours"><i class="fas fa-clock" aria-hidden="true"></i> ${escapeHtml(shop.business_hours)}</p>` : ''}
+          ${(shop.website && shop.website !== '#') ? `<p class="shop-card__website"><a href="${escapeHtml(shop.website)}" target="_blank" rel="noopener noreferrer"><i class="fas fa-link" aria-hidden="true"></i> ${t('website')}</a></p>` : ''}
           <div class="shop-card__actions">
             <button type="button" class="btn btn--sm btn--outline shop-select-btn" data-slot="1">${t('addToProposal')}</button>
           </div>
@@ -477,7 +477,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const originalHtml = this.innerHTML;
       this.disabled = true;
-      this.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${t('sending')}`;
+      this.innerHTML = `<i class="fas fa-spinner fa-spin" aria-hidden="true"></i> ${t('sending')}`;
       const self = this;
 
       fetch(MAKE_WEBHOOK_URL, {

@@ -197,7 +197,7 @@ get_header();
                     <div class="reservation-form__section-head">
                         <h3 class="reservation-form__legend">観光ガイドサービス</h3>
                         <button type="button" class="reservation-form__section-clear-btn" data-section="guide" title="このセクションをクリア">
-                            <i class="fas fa-eraser"></i> クリア
+                            <i class="fas fa-eraser" aria-hidden="true"></i> クリア
                         </button>
                     </div>
                     <p class="reservation-form__description">専任ガイドがご案内します。ご希望のコースとエリア、訪れたいスポットをご指定ください。</p>
@@ -261,7 +261,7 @@ get_header();
                     <div class="reservation-form__section-head">
                         <h3 class="reservation-form__legend">ホテル（宿泊先）予約代行サービス</h3>
                         <button type="button" class="reservation-form__section-clear-btn" data-section="hotel" title="このセクションをクリア">
-                            <i class="fas fa-eraser"></i> クリア
+                            <i class="fas fa-eraser" aria-hidden="true"></i> クリア
                         </button>
                     </div>
                     <p class="reservation-form__description">ご希望の宿泊条件を入力ください。空室状況を確認のうえ、手配可否をご連絡します。</p>
@@ -325,7 +325,7 @@ get_header();
                         </p>
                         <div class="reservation-form__shop-selector">
                             <button type="button" class="btn btn--outline btn--sm" id="selectHotelBtn">
-                                <i class="fas fa-hotel"></i> ホテル・飲食店から選ぶ
+                                <i class="fas fa-hotel" aria-hidden="true"></i> ホテル・飲食店から選ぶ
                             </button>
                         </div>
                         <div class="reservation-form__proposal-grid">
@@ -351,7 +351,7 @@ get_header();
                     <div class="reservation-form__section-head">
                         <h3 class="reservation-form__legend">飲食店舗予約代行サービス</h3>
                         <button type="button" class="reservation-form__section-clear-btn" data-section="dining" title="このセクションをクリア">
-                            <i class="fas fa-eraser"></i> クリア
+                            <i class="fas fa-eraser" aria-hidden="true"></i> クリア
                         </button>
                     </div>
                     <p class="reservation-form__description">ご希望の日時・人数・ご予算をお知らせください。条件に合う店舗をご提案します。</p>
@@ -453,7 +453,7 @@ get_header();
                         </p>
                         <div class="reservation-form__shop-selector">
                             <button type="button" class="btn btn--outline btn--sm" id="selectRestaurantBtn">
-                                <i class="fas fa-utensils"></i> ホテル・飲食店から選ぶ
+                                <i class="fas fa-utensils" aria-hidden="true"></i> ホテル・飲食店から選ぶ
                             </button>
                         </div>
                         <div class="reservation-form__proposal-grid">
@@ -479,7 +479,7 @@ get_header();
                     <div class="reservation-form__section-head">
                         <h3 class="reservation-form__legend">トランクお預かりサービス</h3>
                         <button type="button" class="reservation-form__section-clear-btn" data-section="luggage" title="このセクションをクリア">
-                            <i class="fas fa-eraser"></i> クリア
+                            <i class="fas fa-eraser" aria-hidden="true"></i> クリア
                         </button>
                     </div>
                     <p class="reservation-form__description">大きなお荷物も安心してお預けください。お預かり数や日時をご入力ください。</p>
@@ -560,7 +560,7 @@ get_header();
             <div class="reservation-confirm__actions">
                 <button type="button" class="btn btn--outline btn--md reservation-confirm__back">戻る</button>
                 <button type="button" class="btn btn--orange btn--md reservation-confirm__stripe" id="stripePaymentBtn">
-                    <i class="fas fa-credit-card"></i> この内容で予約代行を依頼する
+                    <i class="fas fa-credit-card" aria-hidden="true"></i> この内容で予約代行を依頼する
                 </button>
             </div>
         </div>
@@ -598,7 +598,7 @@ get_header();
             <div class="shop-select-modal__header">
                 <h3 class="shop-select-modal__title" id="shopModalTitle">お店を選択</h3>
                 <button type="button" class="shop-select-modal__close-btn" aria-label="閉じる">
-                    <i class="fas fa-times"></i>
+                    <i class="fas fa-times" aria-hidden="true"></i>
                 </button>
             </div>
             <div class="shop-select-modal__search">

@@ -90,7 +90,7 @@
                 </div>
             </nav>
             <!-- ハンバーガー -->
-            <button class="header__toggle u-visible-sp" aria-controls="global-nav" aria-expanded="false"
+            <button type="button" class="header__toggle u-visible-sp" aria-controls="global-nav" aria-expanded="false"
                 aria-label="メニューを開く">
                 <span class="header__toggle-line"></span>
                 <span class="header__toggle-line"></span>
