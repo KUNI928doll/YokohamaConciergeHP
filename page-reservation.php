@@ -10,7 +10,7 @@ get_header();
 <main id="main-content">
     <section class="sub-hero sub-hero--reservation">
         <div class="sub-hero__decoration">
-            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/sub-hero__decoration.png" alt="" aria-hidden="true">
+            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/sub-hero__decoration.png" alt="" aria-hidden="true" width="1730" height="92">
         </div>
         <div class="sub-hero__inner inner">
             <h1 class="sub-hero__title">ご予約フォーム</h1>
@@ -332,8 +332,8 @@ get_header();
                             <div class="reservation-form__proposal-item">
                                 <div class="reservation-form__proposal-label">
                                     <span>提案</span>
-                                    <button type="button" class="reservation-form__clear-btn" data-target="hotel-proposal-1" title="クリア">
-                                        <i class="fas fa-times-circle"></i>
+                                    <button type="button" class="reservation-form__clear-btn" data-target="hotel-proposal-1" title="クリア" aria-label="クリア">
+                                        <i class="fas fa-times-circle" aria-hidden="true"></i>
                                     </button>
                                 </div>
                                 <textarea id="hotel-proposal-1" name="hotelProposal1" class="reservation-form__textarea"
@@ -460,8 +460,8 @@ get_header();
                             <div class="reservation-form__proposal-item">
                                 <div class="reservation-form__proposal-label">
                                     <span>提案</span>
-                                    <button type="button" class="reservation-form__clear-btn" data-target="dining-proposal-1" title="クリア">
-                                        <i class="fas fa-times-circle"></i>
+                                    <button type="button" class="reservation-form__clear-btn" data-target="dining-proposal-1" title="クリア" aria-label="クリア">
+                                        <i class="fas fa-times-circle" aria-hidden="true"></i>
                                     </button>
                                 </div>
                                 <textarea id="dining-proposal-1" name="diningProposal1"

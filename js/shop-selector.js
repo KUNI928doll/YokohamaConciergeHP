@@ -137,7 +137,6 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(r => { if (!r.ok) throw new Error('CSV not found'); return r.text(); })
     .then(csvText => {
       allShops = parseOperatorCSV(csvText);
-      console.log('オペレーターデータ読み込み完了:', allShops.length, '件');
     })
     .catch(err => console.error('CSVの読み込みに失敗:', err));
 
