@@ -1,0 +1,292 @@
+area,name,category,address,phone,email,website,sns,description,cuisine_type,business_hours,price_rank,coupon_available,keywords
+みなとみらい,横浜ランドマークタワー,activity,横浜市西区みなとみらい2-2-1,045-222-5030,,https://www.yokohama-landmark.jp/,,展望フロア、ショッピングモール、ホテル併設,,10:00～22：00スカイガーデン11:00～19：00/2F3F,,,
+桜木町,横浜赤レンガ倉庫,activity,横浜市中区新港1-1,045-227-2002,,https://www.yokohama-akarenga.jp/,,歴史的建造物、イベントスペース、ショッピング・飲食店あり,,11:00～20:00,,,
+山下公園・中華街,横浜関帝廟,activity,横浜市中区山下町140,045-681-3967,,https://www.yokohama-kanteibyo.com/,,中国の伝統的建築、祈願体験も可,,9:00～19:00,,,
+元町・山手,アメリカ山公園,activity,横浜市中区元町1-11-3,045-232-4661,,,,元町直結の丘上公園、夜景・庭園が人気,,-,,,
+山下公園・中華街,氷川丸（日本郵船）,activity,横浜市中区山下町山下公園内,045-641-4362,,https://www.nyk.com/rekishi/hikawamaru/,,歴史的船舶、船内見学可能,,10:00～17:00　月休,,,
+みなとみらい,カップヌードルミュージアム 横浜,activity,横浜市中区新港2-3-4,045-345-0918,,https://www.cupnoodles-museum.jp/ja/yokohama/,,インスタントラーメン体験・ミュージアムショップ,,10:00～18:00　火休,,,
+桜木町,横浜コスモワールド,activity,横浜市中区新港2-8-1,045-641-6591,,http://cosmoworld.jp/,,入園無料、観覧車や絶叫マシンが人気,,11:00～21:00,,,
+山下公園・中華街,横浜マリンタワー,activity,横浜市中区山下町15番地,045-664-1100,,https://www.marinetower.yokohama/,,展望台・夜景スポット・リニューアルオープン,,10:00～22:00,,,
+関内,横浜スタジアム,activity,横浜市中区横浜公園,045-661-1251,,https://www.yokohama-stadium.co.jp/,,野球観戦・ライブイベント対応,,不定休,,,
+桜木町,原鉄道模型博物館,activity,横浜市西区高島1-1-2 横浜三井ビルディング2階,045-640-6699,,https://www.hara-mrm.com/,,鉄道ファン必見・精巧なジオラマ展示,,10:00～17:00　火水休,,,
+みなとみらい,横浜着物レンタル Vasara みなとみらい店,activity,横浜市西区伊勢町1-15染谷ビル2F,03-6744-6725,,https://vasara-h.co.jp/shop/yokohama/,https://www.instagram.com/kimono_vasara,外国語対応・着物散策体験・写真映え,,9:00～18:00,,,
+みなとみらい,横浜アート陶芸教室,activity,横浜市中区花咲町2₋69小原ビル１F,045-250-1266,,https://www.mm21tougei.com/inquiry/#wpcf7-f4-p20-o1,,外国人OK・英語対応可・手びねり体験,,10:30～16:00　月休,,,
+関内,横浜ものつくりハンドメイト陶芸体験,activity,横浜市中区大和町2-47-5メゾン・ド・ポミエ102,03-6862-5311,,https://www.activityjapan.co.jp,,月・火・水・木・土・日　10：00～、13：30～、16：00～、18:00～ハンドメイド陶芸,,金休,,,
+山下公園・中華街,横浜おもてなし家（人力車）,activity,横浜市中区小港町1-5　小港マンション403,045-622-8146,,http://www.yokohama-jinrikisha.com/rickshaw,,はまの人力車/観光散策5コース(30分/40分/50分/70分/80分）,,11:00～20:00,,,
+みなとみらい,SUP体験（スタンドアップパドル）,activity,横浜市中区新港周辺 運河エリア,090-3502-2701, supyokohama@gmail.com,https://yokohamasup-club.com,https://www.instagram.com/supyokohama/,運河での水上体験・初心者OK・外国人対応,,10:00～11:30/13:00～14:30,,,
+みなとみらい,SKY DUCK 横浜,activity,東京都文京区後楽1-1-8,03-3215-0008,,https://www.skybus.jp,https://www.instagram.com/skybus_hinomaru_official/,水陸両用車グルーズ/2コース（昼・ナイトクルーズ）,,10：00/ 11：30 / 14：15 / 15：45平日10：00/10：45/11：30/ 13：45/ 14：30 / 15：15 / 16：00/16：45土日　水休,,,
+桜木町,マリンルージュ ナイトクルーズ,activity,横浜市中区山下町 山下公園前,045-671-7719,,https://www.yokohama-cruising.jp/,https://www.instagram.com/yokohama.cruise/,ランチ・アフタヌーン・トワイライト・ディナー夜景観賞4種コース,,12:00/14:30/17:00/19:30,5,,"restaurant,cruise_dining"
+山下公園・中華街,シーバス 横浜ベイクルーズ,rest,横浜市中区山下町 山下公園りんかい口,045-671-7719,,https://www.yokohama-cruising.jp/contents/seabass.html,https://www.instagram.com/yokohama.cruise/,みなとみらい〜横浜駅直通の水上バス・観光対応,,10:00～18:00,,,harbor_cruise
+馬車道,濱進（Hamashin）,restaurant,横浜市金沢区金沢町103-6,045-781-7377,yakatabune@hamashin.co.jp,https://www.hamashin.co.jp/english/index.html,,金沢沖直送鮮魚＋Hayama牛コース、3船体制で快適クルーズ　屋形船,yakatabune,18:00～20:30,4,,"restaurant,cruise_dining,yakatabune"
+馬車道,すずよし（Suzuyoshi）,restaurant,横浜市西区西戸部町3-297-10,045-231-1600,,http://suzuyoshi.jp/,,コタツ席、カラオケ付き、乗合＆貸切、演奏イベントあり　屋形船,yakatabune,18:00～20:30,4,,"restaurant,cruise_dining,yakatabune"
+馬車道,横浜屋形船ピア・フォー,restaurant,横浜市神奈川区浦島町380,045-441-0404,info@pier4.net,http://www.yakatabune.jp,,掘りごたつ式、横浜地産野菜＋穴子天ぷら使用　屋形船,yakatabune,18:00～20:30,4,,"restaurant,cruise_dining,yakatabune"
+馬車道,祝良屋（いわいや）,restaurant,横浜市内（出航地により異なる）,03-6435-6108,,https://yakatabune.anniversary-cruise.com/en/,,太鼓・忍者・折り紙などパフォーマンス体験　屋形船,yakatabune,18:00～20:30,4,,"restaurant,cruise_dining,yakatabune"
+元町・山手,COFFEE ROASTERY MEGURO,restaurant,横浜市中区山下町３７−９,,,https://roasterymeguro.com,,カフェレストラン/モーニング・ランチ,cafe,9:00～20:00,1,,"restaurant,cafe restaurant,mornig,lunch"
+元町・山手,エリゼ光,restaurant,横浜市中区山手町246,045-622-2014,,https://elysee-hikaru.com,https://www.instagram.com/elyseehikaru/,高級フレンチ一軒家レストラン、記念日向き,french,11:30～15:00 /17:30～22:30 　水休,4,,"restaurant,luxury,french,private room,anniversary"
+元町・山手,pavlov,restaurant,横浜市中区山下町105,045-641-1266,,https://www.pavlov.jp/shop/,https://www.instagram.com/pavlov._official,洋風高級カフェ,cafe,11:00～19:00 月休,3,,"restaurant,luxury cafe"
+元町・山手,kandy,restaurant,神奈川県横浜市中区元町3-143 ヒルサイド元町1F ,045-633-3301,,https://www.italian-tearoom-kandy.com,https://www.instagram.com/motoya.espresso.express/,カジュアルイタリアン,italian,11:00～15:00 /17:00～22:00 火水休,3,,"restaurant,casual italian"
+元町・山手,マークガストロミー＆ワイン,restaurant,神奈川県 横浜市中区元町1丁目37‐10,045-680-0966,,https://r.goope.jp/marques,https://www.instagram.com/marquesgastronomyandwine/,高級フレンチ,french,月18:00～22:00  水木金:12:00-15:00/18:00-22:30 土日祝:12:00-15:00/18:00-22:00　火休,4,,"restaurant,premium french"
+元町・山手,Rio’s Buongustaio（リオス ボングスタイオ,restaurant,神奈川県横浜市中区元町1-23-1 リバーサイド元町 1F,045-222-6101,,https://riosbuongustaio.ciao.jp,,カジュアルイタリアン,italian,平祝:12:00～14:30/17:30-22:00  土祝前日:12:00-14:30/17:30-22:30 土:12:00-14:30/17:30-22:30　火休,3,,"restaurant,casual italian"
+元町・山手,スタージュエリー カフェ＆レストラン,restaurant,横浜市中区元町1-24-1,045-641-0650,,https://www.star-jewelry.com/shopinfo/motomachi.html,https://www.instagram.com/starjewelry_press/,カジュアルブランド直営カフェ、洗練された空間,grill,火水木:11:00-18:00  　　　　　　　金土日祝:11:00-19:00　月休,3,,"restaurant,weatern food"
+元町・山手,La Royale,restaurant,横浜市中区新山下１－4－3　MMTビル　２F,045-264-8585,,https://larpyale-yokohama.owst.jp,,高級肉魚フレンチ,french,平土:11:30-15:00/17:30-22:00  　日祝:11:30-15:00/17:00-21:00　火休,4,,"restaurant,luxury french"
+元町・山手,馬肉料理　小桜,restaurant,横浜市中区元町１-23-1　リバーサイド元町1F,045-264-4238,,https://baniku-kozakura.owst.jp,,高級和食系馬肉料理　美味しい　14席,meat,平土:11:30-15:00/17:00-22:00  　日:11:30-15:00 　月休,3,,"restaurant,japanese horse meat dishes"
+元町・山手,あおぞら,restaurant,横浜市中区元町４−１６１,045-299-0573,,https://vaghat.wixsite.com/aozora/,,カジュアル肉魚洋食レストラン20席ぐらい,japanese,平土:11:30-15:00/17:00-22:00  　日:11:30-15:00 　月休,3,,"restaurant,casual weatern-style restaurant"
+元町・山手,LE BOIS,restaurant,横浜市中区石川町１丁目２１ 穂苅ビル １階,045-263-9393,,https://www.instagram.com/lebois_yokohama,https://www.instagram.com/lebois_yokohama/,お手頃カジュアルフレンチ,french,月:11:30-14:30    水木金土日:11:30-14;30/17:00-23:00  　火休,3,,"restaurant,casual french"
+元町・山手,ビー玉スタンド,restaurant,横浜市中区元町3-141-6,045-263-8853,,https://bidama-stand.jimdofree.com,https://www.instagram.com/b_dama.standtenpura/,カジュアル天ぷら和食系居酒屋,tenpura,火水木土日:11:30-14;30/17:00-23:00  金:17:00-23;00　月休,3,,"restaurant,casual japanese food tenpura"
+元町・山手,春鶯亭ひら,restaurant,横浜市中区元町１丁目５５,045-662-2215,,https://shunoutei.com/menu,https://www.instagram.com/shunouteihira/,カジュアル和食,japanese,平土日祝12:00-15:00/17:00-22:30  月休,3,,"restaurant,casual japanese food "
+元町・山手,Trattoria NOTO,restaurant,横浜市中区元町４丁目１６１−８ M&K元町 1F,045-264-8099,motomachi@trattorianoto.com,https://trattorianoto.com,https://www.instagram.com/accounts/login/,カジュアルイタリアン・テラス席犬同伴OK,italian,平:11:30-15:00/17:00-23:00  　　　　　土日:11:00-16:00/17:00-23:00   祝:11:00-15:00/17:00-23:00   火休,3,,"restaurant,casual italian,dogs allowed"
+元町・山手,En Route,restaurant,横浜市中区石川町1-18-2 花こビル1F,045-319-6966,,https://enroute.gorp.jp,,カジュアル石窯イタリアンピザ　40席　即日●,italian,11:30～00:00 月休,3,,"restaurant,casual italian,stone oven_itlian pizza"
+元町・山手,ル プティ クラージュ,restaurant,横浜市中区元町５丁目２０９−１０１,045-681-2665,,https://lepetitcourageux.com,,カジュアルお手頃フレンチ,french,11:30-15:00/18:00-22:30  月休,3,,"restaurant,casual french"
+元町・山手,濱新,restaurant,横浜市中区元町3－143,045-681-1808,,https://www.hamashin.org,,高級創業百年の老舗うなぎ店、落ち着いた接待にも,ell food,平:11:30-15;30/17:00-21:30  土日祝:11:30-21:00　火休,3,,"restaurant,premium japanese ell food"
+元町・山手,インドゥ アーユルヴェーダ 南インド料理,restaurant,横浜市中区元町１丁目３６−２ 原ビル, 045-211-4130,,,https://www.instagram.com/indu_yokohamamotomachi/,本格南インド料理とインドワイン・自然派ワインが楽しめるお店,indian,月火金土日祝:11:00-22:00                水木:11:00-15:00/17:00-23:00  ,2,,"restaurant,casual indian cuisine"
+元町・山手,ぱおむ元町,restaurant,横浜市中区元町１丁目４２,045-319-4677,,,ぱおむ元町 (@paomu.motomachi) • Instagram photos and videos,洋食とカフェとケーキ,cafe,9:00～18:00,1,,"restaurant,casual,cafe,cake"
+山下公園・中華街,Puella プエラ,restaurant,〒231-0023 神奈川県横浜市中区山下町２７ プロシード山下公園ザ・タワー B1F, 045-323-9833,,https://www.tablecheck.com/shops/puella-yokohama/reserve?utm_source=google,,お菓子・空間・世界観をひとつの体験として設計する パティスリー＆カフェブランドです,cafe,10:00-20:00,2,1,"restaurant,cafe,cake, bear, flower motif"
+山下公園・中華街,華正樓 本店,restaurant,横浜市中区山下町164,045-681-2911,,https://www.kaseiro.com,,老舗高級中華、個室完備,chinese,11:30-22:00 水休,3,,"restaurant,long-established high-end chinese "
+山下公園・中華街,ローズホテル/鉄板焼 浜,restaurant,横浜市中区 山下町77,045-681-2993,,https://www.rosehotelyokohama.com/restaurant,,ローズホテル内の高級フレンチと中華の鉄板焼き,french,17:00-22:00,5,,"restaurant,premium french,chinese steak"
+山下公園・中華街,ローズホテル/ミリーラフォーレ,restaurant,横浜市中区 山下町77,045-681-2916,,https://www.rosehotelyokohama.com/restaurant,,ローズホテル内のカジュアルフレンチレストラン,french,7:00-22:00,5,,"restaurant,casual french"
+山下公園・中華街,ローズホテル/重慶飯店新館,restaurant,横浜市中区 山下町77,045-681-6885,,https://www.rosehotelyokohama.com/restaurant,,ローズホテル内の本格四川料理重慶飯店（四川中華料理）,chinese,平：11:30-15:00/17:00-22:00  土日祝11:30-22:00,4,1,"restaurant,premium chinese shichuan cuisine"
+山下公園・中華街,株式会社東源（梅蘭金蘭閣）,restaurant,横浜市中区山下町220-4 東源ビル 4F,045-263-8378,,https://bairan-tougen.jp/company/,,焼きそばが有名な上海中華料理カジュアル,chinese,平：11:30-15:30/17:00-22:00  木休,4,,"restaurant,casual chinese restaurant,fried noodles"
+山下公園・中華街,萬珍樓 本店,restaurant,横浜市中区山下町153,045-681-4004,,https://www.manchinro.com/,,高級豪華な内装と本格広東料理、接待向け,chinese,平：11:00-15:00/17:00-22:00  土日祝:11:00-22:00 月休,4,,"restaurant,premium chinese cantone cuisine"
+山下公園・中華街,萬珍樓點心舗,restaurant,横浜市中区山下町156,045-664-4004,,https://www.manchinro.com/tenshimpo,,リーズナブル白粥と彩り点心の朝食セット　広東,chinese,平：11:00-15:00/17:00-22:00  土日祝:8:00-22:00 月休,3,,"restaurant,chinese breakfast congee dish"
+山下公園・中華街,重慶飯店 本館,restaurant,横浜市中区山下町164,045-641-8288,,https://www.jukeihanten.com/,https://www.instagram.com/jukeihanten/,本格四川料理、辛さと香りが特徴、観光客に人気　四川,chinese,月火水木：11:30-15:00/17:00-21:00  金：11:30-15:00/17:00-22:00           土日祝:11:30-21:00,4,,"restaurant,premium chinese shichuan cuisine restaurant,private_room"
+山下公園・中華街,謝甜記 貮号店,restaurant,横浜市中区山下町189-9,045-664-4305,,http://www.shatenki-nigouten.co.jp,https://www.instagram.com/shatenki/,朝7:00から営業、中華粥専門店、行列必至　朝食,chinese,平：8:30-21:00   　　　　土日：8:00-21:00    水休,2,,"restaurant,chinese breakfast congee dish"
+山下公園・中華街,金香楼,restaurant,横浜市中区山下町200-1,045-228-1688,,https://www.kinkoro.com/,,中国式宮殿のような内装、豪華なコース料理が人気,chinese,11:00-22:30,2,,"restaurant,chinese breakfast congee dish"
+山下公園・中華街,龍華楼 新館,restaurant,横浜市中区山下町152,045-681-6078,,https://b268002.gorp.jp,,リーズナブルな価格、セットメニュー多数 庶民的,chinese,11:00-22:30,2,,"restaurant,casual chinese  restaurant "
+山下公園・中華街,福満園 本店,restaurant,横浜市中区山下町157-8,045-662-5185,,https://fukumanen.jp,,激辛四川料理、麻婆豆腐が人気、量が多い　四川・湖南,chinese,11:00-23:30,2,,"restaurant,casual chinese sichuan cuisine  restaurant "
+山下公園・中華街,山東 1号店,restaurant,横浜市中区山下町150-3,045-212-1198,,https://www.santon.co.jp,https://www.instagram.com/santon_yokohama/,水餃子が名物、現地風の味付け、観光客に人気　山東,chinese,月火水木：11:00-23:00  　　　　　金土日祝：11:00-24:00,2,,"restaurant,casual chinese shandong home cooking cuisene"
+山下公園・中華街,北京飯店,restaurant,横浜市中区山下町79-5,045-681-3535,,https://pekinghanten.com,,北京ダック・フカヒレなど本格北京料理、観光バス歓迎,chinese,平・土：11:00-23:00    日祝休,3,,"restaurant,premium chinese beijing cuisine restaurant "
+山下公園・中華街,RouRoucafe,restaurant,横浜市中区山下町130-12,045-650-5644,,https://cafe.rourou.com/,,中華街にある隠れ家カフェ,chinese,12:00-18:00,2,,"restaurant,cafe chinese"
+山下公園・中華街,状元樓 横浜中華街本店,restaurant,横浜市中区山下町191,045-641-8888,,https://www.jogen.co.jp/,https://www.instagram.com/jogenrou_yokohama/,クラシックな内装、上海料理をベースに点心も充実,chinese,平：11:30-16:00/17:00-22:00  　　　　　土日祝：11:30-22:00,3,,"restaurant,casual chinese shanghai cuisene,crab cuisene"
+山下公園・中華街,慶福楼 本店,restaurant,横浜市中区山下町150,045-681-1137,,https://www.keifukurou.com/,https://www.instagram.com/keifukurou/,フカヒレ姿煮が有名、団体対応も可能　福建,chinese,11:00-22:00,3,,"restaurant,casual fujian cuisene,shark fin cuisene"
+山下公園・中華街,中華菜館 同發 本館,restaurant,横浜市中区山下町148,045-681-7273, homepage@douhatsu.co.jp,http://www.douhatsu.co.jp,https://www.instagram.com/douhatsu_official/,1892年創業、焼き物料理が名物、観光客に人気　広東,chinese,平：11:30-15:00/17:00-21:30  　　　　土日祝：11:30-21:30      水休,3,,"restaurant,casual chinese cantone cuisine"
+山下公園・中華街,鵬天閣,restaurant,横浜市中区山下町192-15,045-681-9016,houten_info@houtenkaku.com,https://houtenkaku.com/company,,食べ歩き人気店、小籠包・焼き小籠包が名物　点心,chinese,11:00-22:00,2,,"restaurant,casual chinese cantone cuisine"
+山下公園・中華街,景徳鎮新館,restaurant,横浜市中区山下町２００－５,045-641-5285,,https://www.keitokuchin.info,,四川料理中華街人気NO1,chinese,11:00-21:30    火休,3,,"restaurant,casual chinese sichuan cuisine  restaurant "
+山下公園・中華街,金陵 本店,restaurant,横浜市中区山下町132,045-681-2967,k_i_n_r_y_o@yahoo.co.jp,https://sites.google.com/view/kinryo/,,焼き物と豚バラチャーシューが有名、テイクアウトもあり　広東,chinese,月火水木金祝:17:00-22:45土：14:00-22:45        日祝後日休,3,,"restaurant,takeout xiaolongbao,fried xiaolongbao"
+山下公園・中華街,謝朋酒樓,restaurant,横浜市中区山下町188,045-662-9113,,https://syahosyuro.com,,大型店、点心・ランチメニューも豊富、広い客席　広東,chinese,平：11:00-23:00  　　土日祝：10:30-23:00,2,,"restaurant,premium chinese cantone cuisine,large floor"
+山下公園・中華街,京華樓 本館,restaurant,横浜市中区山下町138,045-211-2866,u-info@kyokarou.com,https://www.kyokarou.com/,,本場四川の激辛麻婆豆腐、ランチもあり　,chinese,平：11:30-21:30　　　　土日祝：11:00-21:30,2,,"restaurant,casual chinese sichuan cuisine "
+山下公園・中華街,悟空茶荘,restaurant,横浜市中区山下町130,045-681-7776,,https://www.goku-teahouse.com/,https://www.instagram.com/gokuchaso/,本格中国茶専門店、茶器も販売、観光客向け,chinese,平：10:30-18:00　　　　　土日：10:30-18:30,1,,"restaurant,china tea cafe"
+山下公園・中華街,ボブフロウ,restaurant,横浜市中区山下町25-1上田ビル１F,045-662-1106,,https://hofbrau.owst.jp/,,すぐそこは山下公園♪デートや観光にもぴったり　ドイツ料理,germany,平：11:00-15:00/17:00-23:00  　　　土日祝：11:00-23:00,2,,"restaurant,german westaern cuisine"
+山下公園・中華街,SALONE2007,restaurant,横浜市中区山下町36-1 B1F,050-5589-4129,,https://www.salone2007.com,,横浜人気NO1リストランテイタリアン,italian,12:00-15:00/18:00-22:00,5,,"restaurant,lurxury italian cuisine"
+山下公園・中華街,THE WHARF HOUSE 山下公園,restaurant,横浜市中区山下町279,045-228-7737,,https://wharfhouse-yokohama.zetton.co.jp,,海を望む開放的空間、軽食・アルコール提供あり　カフェダイニング,grill,＜CAFE＞9:00-17:00                 ＜GRILL＞17:00-22:00,3,,"restaurant,casual grill,cafe"
+山下公園・中華街,ホテルニューグランド/ノ・ルマンディ,restaurant,横浜市中区山下町10,045-681-1841,,https://www.hotel-newgrand.co.jp/restaurant/sg3/,,歴史あるホテルバー、落ち着いた大人向け空間,bar,7:00-10:30/11:45-15:30/17:30-21:00,5,,"restaurant,quiet adult bar"
+山下公園・中華街,ホテルニューグランド/イル・ジャルディーノ,restaurant,横浜市中区山下町10,045-681-1841,,https://www.hotel-newgrand.co.jp/restaurant/sg3/,,日本発祥のナポリタンなどの洋食,western,11:30-16:30/17:00-21:00,4,,"restaurant,classic western cuisine"
+山下公園・中華街,ホテルニューグランド/熊魚庵,restaurant,横浜市中区山下町10,045₋663₋6321,,https://www.yugyoan.co.jp/shop/yokohama,,京料理懐石,japanese,7:00-10:00/11:30-14:30/17:00-21:00,5,,"restaurant,luxury quiet japanese restaurant"
+山下公園・中華街,ホテルニューグランド/シーガーディアンⅡ,restaurant,横浜市中区山下町10,045-681-1841,,https://www.hotel-newgrand.co.jp/restaurant/sg3,,歴史あるホテルバー、落ち着いた大人向け空間,bar,17:00-23:00,4,,"restaurant,quiet adult bar"
+山下公園・中華街,EAGLE RARE　関内日本大通り店,restaurant,横浜市中区山下町74－6ロクマルビル地下1F,045-577-0108,,,,隠れ家的な場所にあるランチからディナーまでリーズナブルな価格で対応,western,11:30～22:00,4,,"restaurant,casual weatern-style"
+山下公園・中華街,ザ・テラス横浜マリンタワー,restaurant,横浜市中区山下町14-1YOKOHAMA MARINE TOWER 4F,050-3091-9510,,https://www.styles.jp/restaurant/theterrace,,本格イタリアンコスパ良し,italian,11:30-15:00/17:00-22:00     月火休,3,,"restaurant,casual italian"
+日本大通り,象の鼻カフェ,restaurant,横浜市中区海岸通1丁目,045-680-5677,,https://www.zounohana.com/,https://www.instagram.com/zounohana_cafe/,アートと融合した観光カフェ、海沿いテラスあり,cafe,10:00-18:00　年中無休,1,,"restaurant,casual cafe"
+日本大通り,CAFE de la PRESSE,restaurant,横浜市中区日本大通11 情報文化センター2F,045-222-3348,,https://cafedelapresse.jp,https://www.instagram.com/cafe.de.la.presse,新聞社跡地のクラシック空間、フランス軽食が人気,cafe,10:00-20:00　月火休,1,,"restaurant,frence cafe"
+日本大通り,ありあけ本館 ハーバーズムーン,restaurant,横浜市中区日本大通36,045-210-9778,,https://harboursmoon.com/,https://www.instagram.com/harboursmoon/,横浜土産「ハーバー」のカフェ併設店、スイーツ充実,western,平:11:00-18:00　ランチ：11:00-14:00　土日祝:11:00-18:30 ,1,,"restaurant,casual western cuisine"
+日本大通り,アルテリーベ横浜本店,restaurant,横浜市中区日本大通11 横浜情報文化センター1F,045-210-9407,,https://www.alteliebe.co.jp/,,生演奏付き本格フレンチ、クラシックな空間　,french,11:30-15:00/17:30-22:00　　　　　　　　 月火休,5,,"restaurant,luxury furech cuisine,live classical music"
+日本大通り,荒井屋（万国橋店）,restaurant,横浜市中区海岸通4₋23相模ビル１F,045‐226-5003,,https://www.araiya.co.jp,,横浜の老舗牛鍋店,beef,11:00-14:30/17:00-22:00  月休,3,,"restaurant,long-establishedbeaf hotpot"
+日本大通り,ミントデリ,restaurant, 神奈川県横浜市中区常盤町２丁目１０ 常盤不動産ビル 1階, 050-5475-7806,,,https://www.instagram.com/mint_deli_yokohama/?igsh=YzVkODRmOTdmMw%3D%3D#,スパイシーなインド料理専門店,indian,11:00-15:00　土日祝休,2,,"restaurant,spicy indian cuisine"
+日本大通り,オステリア サーレ エ ペペ,restaurant,横浜市中区南仲通１丁目８−番地 1F, 045-228-9998,,,https://www.facebook.com/people/Osteria-Sale-e-Pepe/100069348715571,席数は13席好きないのでカップル向き,italian,12:00-15:00/17:30-22:00,2,,"restaurant,casual italian,limitedseats,13seats"
+日本大通り,アルティザン,restaurant,神奈川県横浜市中区日本大通36 シティタワー横濱2F,045-228-8189,,http://artisan-yokohama.com,,横浜公園近くの職人気質のシェフ,italian,平:11:30-22:00　土日祝:9:00-11:20モーニング/11:00-18:30 ,3,,"restaurant,luxury quiet itlian restaurant"
+日本大通り,シチュー＆カリー 横濱KAN,restaurant,横浜市中区南仲通１丁目１４ 三金ビル １０１,045-263-8557,,https://gg89100.gorp.jp,,カジュアルなカレーやシチューなど,indian,平:11:30-15:00/17:00-23:00　土:12:00-15:00/17:22:00 　　　　　　　　 日12:00-16:00　　木休,3,,"restaurant,indian cuisine,curry,stew"
+日本大通り,bills 横浜赤レンガ倉庫,restaurant,横浜市中区新港1-1-2 赤レンガ倉庫2号館1F,045-650-1266,info@billsjapan.com,https://billsjapan.com/jp/yokohama,,観光客に人気のパンケーキ・リゾート系空間,hawaiian,月火水木:9:00-22:00金:9:00-23:00 土8:00-23:00 日祝8:00-22:00,2,,"restaurant,luxury morning and lumch western cuisine"
+日本大通り,marcys.yokohama,restaurant,横浜市中区日本大通５８ 日本大通ビル 1階 地下1階,045-651-1375,,,https://www.instagram.com/marcys.yokohama/#,ジャンクフードハンバーガー・サンドイッチ,western,11:30-14:00/17:00-22:30      日祝休,3,,"restaurant,junk foods,hamburger,sandoichi"
+日本大通り,Le Bouquet Garni（ル ブーケガルニ）,restaurant,横浜市中区本町1－5西田ビルB1階,045-222-3305,,http://lebouquetgarni-yokohama.com,,カジュアルな気取らないフレンチ,french,平土11:30-14:00/17:00-22:00    　　　  日11:30-14:00   月休,3,,"restaurant,casual french"
+日本大通り,スカンディヤ ガーデン,restaurant,横浜市中区海岸通1-1,045-201-2262,,https://scandia-yokohama.jp,,横浜港を臨む老舗北欧レストラン、観光立地,nordic,平土：11:00-22:00 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 日:17:00-22:00  水休,4,,"restaurant,premium nordic food cuisine"
+日本大通り,サンアロハ,restaurant,横浜市中区海岸通1-1,045-6635-555,,https://storeboard.jp/guest/media/sunaroha,,店内雰囲気からハワイアンを感じさせロコモコ、ポキ、カレーが名物料理,hawaiian,11:30-15:00/17:00-23:00,2,,"restaurant,casual hawaiian cuisine,loco moco,poke bowl"
+日本大通り,ジェイハン（Cayhan),restaurant,横浜市中区石川町2－70,050-5494-2663,,https://gh5x800.gorp.jp/?gad_source=1,,トルコ料理/ケバブ,turkiye,11:30-14:30/17:30-21:30,2,,"restaurant,turkish cuisine,kavabu"
+日本大通り,UNI COFFEE ROASTERY 横浜日本大通り,restaurant,横浜市中区弁天通1-1 1F,050-3623-3456,,https://unicoffeeroastery.jp/location/nihonodori,,横浜の代表的な西洋式街路である日本大通りちかくに立地します。,cafe,7:30-20:00,1,,"restaurant,casual cafe"
+関内,RICE CUISINE　S⊇YA（スーヤ）,restaurant,横浜市中区南仲通1丁目14番 三金ビル2F,,,https://suyainfo.wixsite.com/kitchen, https://www.instagram.com/su_ya_kitchen,米粉を使ったピザや玄米パスタなど、グルテンフリー&ヴィーガンメニューをご用意しており、,vegetarian,11:30 - 14:00/18:00-21:00　火休,1,,"restaurant,vegetarian,gluten-free,vegan cuisine"
+関内,カサ・デ・フジモリ,restaurant,横浜市中区相生町２丁目４１,045-662-9474,,https://www.casa-de-fujimori.co.jp,,古風で居心地の良いレストランでパエリア・タパス・ワインなど,spanish,平：11:00-22:30  土：12:00-22:30   日祝：12:00-22:00,2,,"restaurant,spanish cuisine,paella,tapas"
+関内,鉄板焼き中田,restaurant,横浜市中区太田町２丁目32−１ ビラ・アペックス横浜関内 2F,045-264-8875,,https://teppan-nakata.co.jp,,横浜・関内で味わえる本格鉄板焼。神戸牛をはじめ、厳選した食材,steak,11:30-14:00/17:00-22:00 日休,4,,"restaurant,steak,teppanyaki cuisine"
+関内,"丿貫 福富町本店　へチカン
+",restaurant,横浜市中区福富町仲通2-4,045-251-2041,,,,魚介系低カロリーラーメンうり関内地域評判NO1＋ディナー日本酒バーあり,ramen,11:30-15:00/17:00-22:00,2,,"restaurant,low-calorie seafood ramen"
+関内,寿司つぐ,restaurant,横浜市中区住吉町５丁目５７−２ TYビル 2F,045-225-9117,,https://www.tablecheck.com/ja/shops/sushi-tsugu,,寿司関内地域評判NO1,sushi,17:00-23:00  月休,5,,"restaurant,famous japanese sushi"
+関内,鶏味庵,restaurant,横浜市中区住吉町５‐６４‐１ 石渡ビル１階,045-681-0128,,https://toribiankannai.owst.jp,,焼きとり、釜飯、和食、コースあり,japanese,11:00-14:00/17:00-23:00  日休,2,,"jarestaurant,panese cuisine,yakitori,kamameshi"
+関内,炭焼き割烹庵,restaurant,横浜市中区南仲通3-35 エクセレントビルIII,050-5456-9171,,,,日本料理・うなぎ・炭火焼き割烹・和食地域NO１,japanese,月：17:30-22:00  火水木金土：11:30-15:00/17:30-22:00  日休,3,,"restaurant,japanese cuisine,grilled eel,charcoal grill"
+関内,関内よいまち,restaurant,横浜市中区常盤町２丁目１５ 三洋ビル 201,045-306-7390,,,,落ち着いた和食専門12席お酒も豊富,japanese,11:30-14:00/16:00-23:00  日休,3,,"restaurant,japanese cuisine,alcohol"
+関内,エールアンジュ,restaurant,横浜市中区常盤町３丁目24−２ 関内オーブビル 1~3階,045-228-9722,,https://aile-de-ange.com,,イタリアンカジュアル・おしゃれなカフェバー,italian,11:30-14:30/17:00-23:00  日祝休,2,,"restaurant,casual itaiian"
+関内,太田なわのれん,restaurant,神奈川県横浜市中区末吉町1-15,045-261-0636,, https://www.ohtanawanoren.jp/,,横浜のれん会（老舗の伝統に味を守れる会）牛鍋・すき焼き,meat,平：17:00-21:00  土日祝：12:00-15:00/17:00-21:00月休1.3.5日休,3,,"restaurant,classic japanese cuisine,beef hotpot,sukiyaki"
+関内,天吉,restaurant,神奈川県横浜市中区港町2-9,050-5493-6536,,天吉,移転予定,横浜のれん会（老舗の伝統に味を守れる会）天ぷら・割烹和食,tenpura,11:30-15:00/17:00-21:00　月休,2,,"restaurant,classic japanese cuisine,tenpura"
+関内,焼肉ホルモン ふたご 関内店,restaurant,横浜市中区真砂町3-33 セルテ1F,045-264-4080,,https://yakiniku-futago.com/,,小規模ながら本格焼肉ホルモン、活気ある雰囲気,yakiniku,平：17:00-00:00  土：15:00-00:00 日:15:00-23:30,2,,"restaurant,casual yakiniku restarunt,grilled offal"
+関内,ビストロドゥシェル,restaurant,中区太田町１丁目１７−２ 川島ビル １階,045-305-6905,,https://deux-ciel.yokohama,,地産地消の食材をリーズナブルに提供,italian,11:30-14:30/17:30-21:00　日休,3,,"restaurant,casual itaiian"
+関内,センターグリル,restaurant,神奈川県横浜市中区花咲町1-9,045-241-7327,,https://www.center-grill.com,,横浜のれん会（老舗の伝統に味を守れる会）移転,western,11:00-20:00　月休,2,,"restaurant,classic western"
+関内,モアチェ・モアチェ,restaurant,横浜市中区常盤町６丁目７５ 横浜常盤ビル 1階,070-5457-4568,,,https://www.instagram.com/bistro_moitie_moitie,リーズナブルで種類豊富なフレンチ,french,11:30-15:30/17:30-23:00　木休,2,,"restaurant,casual french"
+関内,ラ・テンダロッサ,restaurant,横浜市中区太田町６丁目７５ 関内北原不動産 1F,045-663-0133,,,https://www.instagram.com/tendarossa045,カジュアルなイタリアン・ワイン,italian,平土：11:30-15:00/17:30-22:00  日祝:11:30-15:00/17:30-21:30  月火休,3,,"restaurant,casual itaiian"
+関内,利休庵,restaurant,神奈川県横浜市中区真砂町２−１７,０４５−６４１−３０３５,,https://osoba-n.com,移転予定,横浜のれん会（老舗の伝統に味を守れる会）米国風洋食,western,11:00-21:30　日休,2,,"restaurant,classic western food,grill"
+関内,炭火焼肉 牛角 関内店,restaurant,横浜市中区尾上町3-35 横浜第一有楽ビル2F,045-650-2929,,https://www.gyukaku.ne.jp/,,全国展開の焼肉チェーン、外国人にも人気,grill,平：16:00-23:00  土日祝11:30-23:00　 年中無休,2,,"restaurant,casual grilled meat"
+関内,libertemps,restaurant,横浜市中区北仲通２丁目２０ KCK馬車道 1F,045-263-8535,,https://libertemps2023.com,,フランス料理や日本料理という枠組みを超えた自由な発想を取り入れた料理をお楽しみいただけます。,grill,月金土：18:00-22:00  火水木祝:12:00-15:00/18:00-22:00   日休,3,,
+馬車道,Vee Sweets CAFE YOKOHAMA,restaurant,横浜市中区海岸通5-25-3アパホテル＆リゾーツタワー１F,050-8888-0779,,https://www.vee-sweets.com,,アパホテル＆リゾート横浜ベイタワー内 カフェ軽食,cafe,7:00～17:00,1,,hotel in cafe
+馬車道,ビストロ カンパリ,restaurant,横浜市中区相生町2-38 佐藤相生ビル1階,045-228-9384,,https://www.bistro-campari.com,,フランス郷土料理自然派ワインが楽しめるカジュアルフレンチのお店,french,平11:30～14:00/17:30～22:30　　　　　　　　　　　　　　　　　　　　　/休土日17:00～23:00,2,,"restaurant,casual french"
+馬車道,レストラン アクアオリビン,restaurant,横浜市中区海岸通１丁目１ 昭和ビル 2F, 045-681-9009,,https://aquaolivine.com,,大桟橋をバックに夜景がきれいなカジュアルフレンチのお店　地中海料理,french,11:30～14:00/17:30～21:00 月休,2,,"restaurant,casual french mediterranean restarunt,very nice night view "
+馬車道,グリル・エス,restaurant,横浜市中区相生町5-89,045-681-2581,,,,昭和風情漂う老舗洋食屋、ビーフシチューオムライスが名物,western,平11:30～13:45/17:00～21:30　　　　　　　　　　　　　　　　　　　　　/土祝11:3013:45/17:00～20:45　日月休,2,,"restaurant,classic western food,grill,beef stew,omelette rice"
+馬車道,Charcoal Grill green 馬車道,restaurant,横浜市中区弁天通6-79,045.263.8976,,http://www.greenyokohama.com/bashamichi,,炭火焼とワインのカジュアルダイニング、外国人にも人気,grill,平11:30～14:15/17:00～22:30　　　　　　　　　　　　　　　　　　　　　/土日祝11:30～15:00/17:00～22:30,2,,"restaurant,casual western grill"
+馬車道,ラ フィーリア デル プレジデンテ,restaurant,横浜市中区常盤町5-59,045-228-8846,, http://la-figlia-del-presidente.jp, https://www.instagram.com/0804presidente,コスパ最高のピッツアイタリアン,italian,平11:30～15:00/17:00～22:00　　　　　　　　　　　　　　　　　　　　　/土日祝11:30～22:00,2,,"restaurant,casual itaiian,pizza"
+馬車道,天七 馬車道店,restaurant,横浜市中区常盤町5-57 竹内ビル 1F,045-681-3376,,https://www.tenshichi.com,,江戸前天ぷらの人気店、ランチも好評,tenpura,11:00～15:00/17:00～22:30 休年始,2,,"restaurant,japanese cuisine,tenpura"
+馬車道,バニラビーンズ みなとみらい本店,restaurant,横浜市中区海岸通5-25-2 シャレール海岸通 1F,050-5595-0317,, http://www.vanillabeans.yokohama, https://www.instagram.com/vanillabeans_official/,チョコレート、カフェ、ジェラート・アイスクリーム,gelato,11:00～19:00　休水,1,,"restaurant,cafe,gelato,ice cream"
+馬車道,丸祇羅（マルマサラ）,restaurant,横浜市中区福富町仲通4-2 一和ビル 3F,,,, https://www.instagram.com/marumasala/,野菜料理にこだわるカレー屋さん,indian,11:30～15:00　休年末年始,2,,"restaurant,indian curry,vegetable curry"
+馬車道,登良屋,restaurant,横浜市中区吉田町2-3,045-251-2271,,,,天ぷら・海鮮・日本料理,japanese,11:00～20:00　休日月年末年始,2,,"restaurant,casual japanese cuisine,tenpura,japanese seafood"
+馬車道,TSUBAKI食堂,restaurant,横浜市中区本町6-50-10 横浜市市庁舎 2F,050-5890-6438,,,,横浜の新鮮な食材をふんだんに使ったお料理とお酒。お野菜,japanese,11:00～15:00/17:00～22:00,2,,"restaurant,casual japanese cuisine,alcohol"
+馬車道,大徳壽 関内本店,restaurant,横浜市中区羽衣町2-5-15 平楽ビル　１Ｆ,050-5589-9433,,,,自慢の肉質、こだわりの韓国焼肉をモダンラグジュアリーな雰囲気でお楽しみください。,korean,平17:00～23:00/休土日11:00～23:00,2,,"restaurant,casual korean barbecue cuisine,alcohol"
+馬車道,なるとキッチン 関内店,restaurant,横浜市中区羽衣町2-5-13 カントー3ビル 2F,050-5593-8869,, https://www.naruto-kitchen.com,,北海道小樽名物の「若鶏半身揚げ」地元「小樽」で愛される伝統の味,japanese,11:30～15:00/17:00～23:00　月休,1,,"restaurant,casual japanese cuisine,deep fried chicken haif"
+馬車道,関内バル 333,restaurant,横浜市中区常盤町3-27-3 2F,050-5593-4347,,,,めちゃくちゃリーズナブルなランチやフレンチトーストが名物料理,french,平17:00～23:00/　　　　土11:00～14:30/17:00～20:00　日休,1,,"restaurant,casual french"
+馬車道,鮨と酒　魚伸,restaurant,横浜市中区常盤町4-42-3 KGR×BLD常磐町 4F,050-5590-7038,,https://www.sushiyauoshin.com, https://www.instagram.com/sushiyauoshin,気のおまかせコースは、たくさんのお料理を少しずつ味わえるよう構成,japanese,11:30～14:00/17:00～22:00 日祝休,3,,"restaurant,casual japanese cuisine,alcohol"
+馬車道,勝烈庵 馬車道総本店,restaurant,横浜市中区常盤町5-58-2,045-681-4411,,https://www.katsuretsuan.co.jp,,創業昭和2年、横浜名物とんかつ専門店,pork cutlet,11:00～21:30　休年末年始,2,,"restaurant,casual japanese cuisine,pork cutlet"
+馬車道,とんかつ割烹　かつ半,restaurant,横浜市中区長者町6-94,045-261-4588,,https://www.katsuhan.jp,,横浜のれん会（老舗の伝統に味を守れる会）天ぷら・割烹和食,japanese,11:00～20:30　木休,2,,"restaurant,classic japanese cuisine,pork cutlet"
+馬車道,Toastar,restaurant,横浜市中区常盤町6-76東邦ビル1F​,045-263-8971,,https://www.toaster-takasho.com,https://www.instagram.com/toaster_takasho/,食パン専門店「髙匠」監修のジャパニーズブレッドカフェ,cafe,平8:00～21:00/8：00～19:00土日祝,1,,"restaurant,cafe,japanese bread"
+馬車道,Café LEAFⅡ natural＆organic,restaurant,横浜市中区南仲通３−３７,045-228-9555,,https://www.ruru.co.jp/cafe-leaf/accessmap,,有機食材・無添加にこだわり、Caféに来ていただいたお客様に食を通して健康になっていただきたいと思っています。,cafe,9:00～19:00　水休年末年始,2,,"restaurant,cafe,japanese organic ingredients,no additives"
+みなとみらい,bills 横浜赤レンガ倉庫,restaurant,横浜市中区新港1-1 赤レンガ倉庫2号館1F,045-650-1266,,https://billsjapan.com/jp/横浜,https://www.instagram.com/billsjapan/,世界的に有名なブランチカフェ、パンケーキが人気,brunch,平9:00～22:00/　　　土8:00～23:00/日祝8:00～22:00,2,1,"restaurant,famous brunch cafe,pancakes"
+みなとみらい,エムエム タイ（MM THAI）,restaurant,横浜市西区みなとみらい4-6-2 みなとみらいグランドセントラルテラス 1Ｆ,050-5869-9317,,https://mmthai.jp/,https://www.instagram.com/mm.thai_,タイ料理ならではのトムヤムクン・グリーンカレーなどのスタンダードから食べやすくアレンジされたオリジナルタイ料理も人気です。,thailand,平11:30～15:00/17:00～22:00　土日祝11:30～16:30/17:00～22:00,2,,"restaurant,casual thai cuisine,tomyamu-kun,green curry"
+みなとみらい,クイーン・アリス（横浜ベイホテル東急）,restaurant,横浜市西区みなとみらい2-3-7,045-682-2216,,https://ybht.co.jp/restaurant/qalice.php,,石鍋裕シェフ監修、記念日・会食向け高級フレンチ,french,平土日祝11:30～/13:40～2部制/平17:30～21:00/土日祝17:30～20：30,5,,"restaurant,luxury,french,private room,anniversary,nice night view"
+みなとみらい,カフェ トスカ（横浜ベイホテル東急）,restaurant,横浜市西区みなとみらい2-3-7,045-682-2218,,https://ybht.co.jp/restaurant/tosca.php,,ホテルブッフェの人気店、外国人観光客にも対応,french,朝：平土日祝7:00～10:00/昼11:30～15:30/夜17:00～21:00土夜17:00～19:30～2部制,5,,"restaurant,luxury,buffet dining ,anniversary,nice night view"
+みなとみらい,アニヴェルセルカフェ みなとみらい横浜,restaurant,横浜市中区新港2-1-4,045-640-5188,,https://cafe.anniversaire.co.jp/minatomirai/,https://www.instagram.com/anniversaire_cafe/,結婚式場併設のフォトジェニックカフェ,western,平11:00～17:0平/土日11:00～21:00　火水休,3,,"nrestaurant,ice view cafe,photogenic"
+みなとみらい,バビーズ 横浜,restaurant,横浜市西区みなとみらい2-3-1 クイーンズタワーA 1F,045-263-8139,,https://bubbys.jp/,https://www.instagram.com/bubbys_japan/,ニューヨーク発の本格バーガー＆パイ、外国人にも人気,western,10:00～16:00/16:00～22:00,2,,"restaurant,american new york burger and pai"
+みなとみらい,天ぷら　ふく西　禅と匠,restaurant,横浜市西区みなとみらい4－6－2グランドセントラルビル２F,050-5488-2468,,https://www.r.gnavi.co.jp/gd3c200/,,季節を感じることのできる匠の技を堪能できる高級天ぷら料理店,tenpura,11:30～14:00/1700～21:00,3,,"restaurant,luxury japanese cuisine,tenpura"
+みなとみらい,レオーネ・マルチアーノ（LEONE MARCIANO）,restaurant,横浜市西区みなとみらい4-6-2 みなとみらいグランドセントラルテラス 1F,045-232-4080,,https://leonemarciano.com,,ミリアロマーニャ州出身のパオロ・マッツィーニによる手作りパスタや新鮮な魚介料理をお楽しみいただけます。,italian,11:30～15:00/17:30～22:00　月休,3,,"restaurant,luxury italian cuisine,nice view"
+みなとみらい,万葉倶楽部 お食事処,restaurant,横浜市中区新港2-7-1,0570-07-4126,,https://www.manyo.co.jp/mm21/,,温浴施設併設、観光・リラクゼーション対応,japanese,月火水木11:30～23:00/金土日祝前11:30～01:00,2,,"restaurant,casual  japanese cuisine,hot spring facilities"
+みなとみらい,GRAND SUSHI,restaurant,横浜市西区みなとみらい４-5-3 神奈川大学 みなとみらいキャンパス 1F,090-1606-7255,,https://grandsushi.owst.jp,,"神奈川大学１F/鮨ランチ2,000円ディナー10,000円～",sushi,11:00～14:00/17:00～21:00　　　　水日祝休,3,,"restaurant,japanese sushi"
+みなとみらい,24/7 restaurant,restaurant,横浜市西区みなとみらい2-3-8　東急スクエア３F,045-222-6522,, https://www.dd-holdings.jp/shops/247/minatomirai#/, https://www.instagram.com/247.restaurant,おしゃれで開放感のあるカフェ空間、ランチ人気、夜景最高,western,11:00～23:00,2,,"restaurant,stylish,open-feeling western,perfect ,couples, beautiful night view"
+みなとみらい,横浜グランドインターコンチネンタルホテルなだ万,restaurant,横浜市西区みなとみらい1-1-1　4階,045-223-3343,,https://www.icyokohama-grand.com/restaurant/nadaman,,季節感溢れる日本料理や寿司・鉄板ステーキ,sushi,07:00 - 10:30/                 11:30-15:30/17:00-21:00,4,,"restaurant,sushi_specialty,steak_specialty,luxury,night_view,private_room,anniversary"
+みなとみらい,横浜グランドインターコンチネンタルホテルオーシャンテラス,restaurant,横浜市西区みなとみらい1-1-1　1階,045-223-2267,,https://www.icyokohama-grand.com/restaurant/ocean_terrace,,ホテル内ビュッフェダイニング、海を眺める上質空間,french,平:7:00 - 10:00/11:30-15:00/17:00-21:00土日祝月:6:30 - 10:00/11:30-15:00/17:00-21:00,4,,"restaurant,buffet dining_cuisine,luxury,night_view,private_room,anniversary"
+みなとみらい,横浜グランドインターコンチネンタルホテルアジュール,restaurant,横浜市西区みなとみらい1-1-1　2階,045-223-2267,,https://www.icyokohama-grand.com/restaurant/azur,,ホテル内本格的高級フランス料理、,french,木:12:00～14:00/金土日祝12:00-14:00/18:00-20:00 　　　月火水休,5,,"restaurant_french_cuisine,luxury,night_view,private_room,anniversary"
+みなとみらい,横浜グランドインターコンチネンタルホテル「驊騮(カリュウ)」,restaurant,横浜市西区みなとみらい1-1-1　31階,045-223-2267,,https://www.icyokohama-grand.com/restaurant/karyu,,ホテル内本格的高級中国料理、,chinese,平:11:30-14:30/17:30-20:00               土日祝:11:30-14:30/17:30-20:00,4,,"restaurant,chinese cuisine,luxury,night_view,private_room,anniversary"
+みなとみらい,PIER21 MUSIC CAFE & BAR,restaurant,横浜市西区みなとみらい1-1-1　ぷかりさん橋,080-4582-2556,,https://www.icyokohama-grand.com/restaurant/pier21,,レコードバーを”現代的にクロスオーバーさせた海にうかぶミュージックカフェ＆バー”です。,western,火水木日祝:11:30-19:00/　　　金土：11:30-22:00            月休,3,,"restaurant,nice view marine restaurant cafe"
+みなとみらい,ピアアリーナMM ダイニング,restaurant,横浜市西区みなとみらい3-2-2,045-211-4162‬,,https://pia-arena-mm.jp/about/gourmet/bluebell,,イベント施設併設の多国籍レストランゾーン,western,月火水木:11:00-20:00/　　　　金土日祝祝前：11:30-22:00,2,,"restaurant,multinational,event facilities"
+みなとみらい,京懐石美濃吉ランドマーク店,restaurant,横浜市西区みなとみらい２丁目２−１ ランドマークプラザ4F,045-222-5420,,https://www.minokichi.co.jp/shops,,京都老舗の伝統の京料理高級和食,japanese,平:11:00-14:00/17:00-20:00　　土日祝:11:00-20:00,3,,"restaurant,luxury kyoto japanese cuisine,"
+みなとみらい,シズラーランドマーク店,restaurant,横浜市西区みなとみらい2-2-1 ランドマークプラザ1F,045-222-5316,,https://www.sizzler.jp,,グリルチェーン店（ランチ/ディナー),grill,平:10:00-22:00　　土日祝:8:00-22:00,2,,"restaurant,grill_cuisine"
+みなとみらい,ベッジェドーロランドマーク店,restaurant,横浜市西区みなとみらい2-3-1 クイーンズタワーA1F-105,045-682-5635,,https://www.giraud.co.jp,,イタリアン料理チェーン店コスパ良し（ジローチェーン）,italian,11:00～22:00,2,,"casual itaiian,good cost performance"
+みなとみらい,横浜ハンマーヘッド 蕎麦薫,restaurant,横浜市中区新港2-14-1　２F,045-900-5359,,https://www.hammerhead.co.jp/shoprestaurant/detail,,「日本の辛味」。柚子胡椒、山椒、辛子など、日本各地からこだわりの辛味スパイスを集め、料理のアクセントそば・天ぷら,spanish,11:00～22:00,3,1,"restaurant, japanese cuisine,soba noodles"
+みなとみらい,横浜ハンマーヘッドスパニッシュ,restaurant,横浜市中区新港2-14-1　２F,045-900-5352,delmar@huge.co.jp,https://www.huge.co.jp/service/restaurant/spanish,,魚介の旨味が凝縮された“パエージャ”や“カルドソ”もおすすめ。シンプルなスペイン料理。,spanish,11:00～22:00,3,,"restaurant,spanish cuisine,paella,sea foods,very nice view"
+みなとみらい,横浜ハンマーヘッドCOLONIAL BEACH,restaurant,横浜市中区新港2-14-1　２F,045-900-0302,,https://www.hammerhead.co.jp/shoprestaurant/detail/,,伊勢海老牡蠣鯛など厳選した魚介を豪快に盛り込んだ自慢の「シーフードプラッター」,italian,11:00～22:00,3,,"restaurant,luxury sea foods restaurant,very nice view"
+みなとみらい,メレンゲ みなとみらい店,restaurant,横浜市西区みなとみらい4-4-1 横浜野村ビル1F,045-227-2171,,https://www.merengue-hawaii.jp,,ハワイアンパンケーキとロコモコが人気、南国気分のカフェ,hawaiian,８:00～21:30,2,,"restaurant,special hawaiian cuisine cafe,loco moco,pancakes"
+みなとみらい,マリンアンドウォーク/Pie Holic,restaurant,横浜市中区新港1-3-1, 045-227-6777,,https://marineandwalk.jp/shop-list/pie-holic,,アメリカンカリフォルニアスタイルパイの専門店,western,平:11:00-16:30/17:00-22:00　　　　　祝:11:00-16:00/17:00-22:00,2,,"restaurant,american new york burger and pai"
+みなとみらい,マリンアンドウォーク/ミゲルファニ,restaurant,横浜市中区新港1-3-1 MARINE & WALK YOKOHAMA B棟２F,045-226-4008,,https://www.zato.co.jp/restaurant/migueljuani,,パエリア世界チャンピオンプロデューススペイン料理,spanish,平:11:00-16:00/17:00-22:00　　　　　土日祝:11:00-22:00,2,,"restaurant, luxury cuisine,paella,sea foods,very nice view"
+みなとみらい,マリンアンドウォーク/A16,restaurant,横浜市中区新港1-3-1,045-323-9610,,https://marineandwalk.jp/shop-list/a16,,ワインとピッツアがおすすめのカリフォルニアイタリアン,italian,11:00～22:00,2,,"restaurant,special california itrian foods restaurant,nice view"
+みなとみらい,マリンアンドウォーク/グッドスプーン,restaurant,横浜市中区新港1-3-1 MARINE & WALK YOKOHAMA内,045-263-8139,,https://goodspoonyokohama.owst.jp,,チーズ工房併設、ブッフェスタイル、観光人気,italian,11:00～22:00,3,,"restaurant,cheese factory with buffet dining italian"
+みなとみらい,ウェスティンホテル/パシフィックテーブル,restaurant,横浜市西区みなとみらい4-2-8 ウェスティンホテル横浜 3F,045₋577‐0888,,https://www.pacifictable.westinyokohama.com,,ウエスティンホテル3Fビュッフェスタイルレストラン,italian,平:6:30-10:00/11:30-14:00/17:30-20:30土日祝:7:00-10:00/11:30-13:00・13:30-15:002部制/17:30-20:30,3,,"restaurant, luxury buffet dining"
+みなとみらい,ウェスティンホテル/Iron Bay,restaurant,横浜市西区みなとみらい4-2-8 ウェスティンホテル横浜 ,045-577-0870, restaurants.yokohama@westin.com,https://ironbay.westinyokohama.com,,ウエスティンホテル3F高級グリル・ステーキ・肉中心,grill,12：00-15:00/17:30-22:00,4,,"restaurant,luxury grill,steak,hamburger steak"
+みなとみらい,焼肉・韓国料理 KollaBo 横浜,restaurant,横浜市西区みなとみらい3-5-1 MARK IS みなとみらい4F,045-264-9493,,https://shop.kollabo.co.jp/minatomirai,,韓国料理・焼肉/コース料理ありコスパ最高！,yakiniku,平:11:00-15:30/15:30-22:00　　土日祝:11:00-16:00/16:00-22:00,3,,"restaurant,casual  korean barbecue cuisine"
+みなとみらい,リストランテ ウミリア,restaurant,横浜市西区みなとみらい４丁目６−２ グランドセントラルタワ 2F, 045-232-4919,,https://umiria.net,,横浜港の絶景と本格イタリアン、接待・記念日向き,italian,平:11:30-15:30/18:00-22:00　　土日祝:11:00-15:30/17:30-22:30,3,1,"restaurant,italian_cuisine,luxury,night_view,private_room,anniversary"
+みなとみらい,RESTAURANT DANZERO,restaurant,横浜市西区みなとみらい1-1-1パシフィコ横浜 展示ホール2階 Soto（外）海側, 045-633-3563,,https://danzero.net,,ダンゼロは創作料理、クラシック料理にとらわれず自由な高級フランス料理を提供します,french,平:11:30-15:30/17:30-21:30　　土日祝:11:00-21:30    　     水休,3,,"restaurant,luxury furech cuisine,nice view"
+みなとみらい,美食米門 横浜,restaurant,横浜市中区新港2-2-1 横浜ワールドポーターズ 5F,050-5890-1616,,https://www.dd-holdings.jp/shops/maimon/yokohama, https://www.instagram.com/bishoku.maimon.yokohama/,みなとみらいの夜景を見ながら美食を楽しむ和食レストラン,japanese,平:11:00-14:30/17:00-23:00　　土日祝:11:00-15:30/17:00-23:00,3,,"restaurant,luxury japanese,cuisine,very nice knight view"
+みなとみらい,焼肉 GRANDELA（グランデラ）,restaurant,横浜市西区みなとみらい5-1-1 横浜グランゲート 1F,045-228-9042,,, https://www.instagram.com/grandela_yokohamagrangate,プロジェクションマッピングと特急レーンの創作焼肉店,yakiniku,平:11:00-14:30/17:00-23:00　　　土日祝:11:00-15:30/17:00-23:00,3,,"restaurant,creative yakiniku dishes,purojekushonmappingu"
+みなとみらい,横濱こてがえし,restaurant,横浜市西区みなとみらい3-5-1 MARK IS みなとみらい 4F,050-5571-2754,,https://www.towafood-net.co.jp/shop/pasutakan,,オリジナルソースと最高品質の小麦粉を使用したふわふわもっちりなお好み焼きは、味に自信あり！,japanese,11：00-15:00/17:00-23:00,2,,"restaurant,japanese cuisine,okonomiyaki"
+みなとみらい,福琳酒家（フクリンシュカ）,restaurant,横浜市西区みなとみらい3-3-1 三菱重工横浜ビル 205,050-5592-6674,, https://fukurin.owst.jp/,,名物『赤・白・黒』3種の特製麻婆豆腐◎8名～利用可能な個室あり,chinese,平:11:00-15:00/17:00-23:00　土日祝:11:00-15:00/17:00-22:00,3,,"restaurant,premium chinese shichuan cuisine"
+みなとみらい,RISTORANTE E’VOLTA -Unico Polo-,restaurant,横浜市西区みなとみらい３丁目３−３ 20F 三井ガーデンホテル横浜みなとみらいプレミア, 045-306-6731,,https://www.evolta.tokyo/location-yokohama_minatomirai.html,,ミシュラン掲載シェフによる現代イタリアン、記念日・接待に最適,italian,7:00-10:30/12:00-15:30/17:30-22:00,4,,"restaurant,latest italian_cuisine,luxury,night_view,private_room,anniversary"
+みなとみらい,ブルーボトルコーヒー みなとみらいカフェ,restaurant,横浜市西区みなとみらい 3-5-1MarkIsみなとみらいGL階,,,https://store.bluebottlecoffee.jp/pages/minatomirai,,ブルーボトルコーヒーではグリーンビーンバイヤー（生豆のバイヤー）が季節ごとに旬のコーヒーを吟味し、最もおいしいとされるコーヒー豆を世界中から買い付けています。,cafe,8:00～20:00,1,,"restaurant,bluebottle cafe"
+桜木町,野毛焼肉Taro,restaurant,横浜市中区野毛町１-４８-１,050-5462-9025,,https://nogeyakiniku-taro.foodre.jp/,https://www.instagram.com/nogeyakiniku_taro,世界に誇る黒毛和牛A5ランクの厳選肉をリーズナブルに楽しめる焼肉店,yakiniku,土日祝15:00～23:30平日17:00～火休,2,,"restaurant,casual grill meat cuisine,yakiniku"
+桜木町,鉄板焼 にし田,restaurant,横浜市中区桜木町3-13-3 5F,050-5592-0488,,https://ghwz200.gorp.jp,https://www.instagram.com/teppanyaki_nishida,"大人の隠れ家のような落ち着いた店内で""五感に響く鉄板焼き""で幸せなひと時を",j,17:00～22:00　月休,4,,"restaurant,tepanyaki,steak,seafoods"
+桜木町,大衆すし酒場めのじ,restaurant,横浜市中区野毛町3-160-4,045-231-2171,,https://www.dynacjapan.com/brands/menoji/shops/noge,,大繁盛の『釣宿酒場マヅメ』の新業態、寿司と天ぷらがウリの大衆酒場,japanese,12:00～２２：００,3,,"restaurant,casual japanese cuisine,sushi,tenpura,alcohol"
+桜木町,淡麗拉麺 己巳（つちのとみ） 野毛本店,restaurant,横浜市中区野毛町2-87-1 イニシア横浜桜木町103,045-315-2515,,https://www.tsuchinotomi.com/shop/,,鴨ガラ、鶏ガラ、豚背ガラ、大山鷄の丸鶏、香味野菜を独自の温度調節により旨みが最大限に引き出されています。,ramen,11:00～23:00,1,,"restaurant,chicken soup ramen, pork soup ramen,vegetable soup ramen"
+桜木町,RAMEN KAIBUTSU,restaurant,横浜市中区野毛町１丁目30−２ TKビル 1階,,,https://ramendb.supleks.jp/s/164305.html/,,特製オマール海老ラーメン,ramen,11:00〜15:00/18:00〜L.O.21:30水休,1,,"restaurant,lobster ramen"
+桜木町,牛カツ京都勝牛 CIAL桜木町,restaurant,横浜市中区桜木町1-1 CIAL桜木町,045-228-9732,,https://gyukatsu-kyotokatsugyu.com/,,京都発祥の牛カツ、揚げたてサクサク　和食,japanese,11:00～22:00,3,,"restaurant,japanese cuisine,beef cutlet"
+桜木町,せんざん 横浜横浜東口店,restaurant,横浜市西区高島1-1-2　横浜東口三井ビル店,045-681-1200,,https://www.senzan.co.jp/,,魚料理中心、落ち着いた雰囲気と個室対応　和食,japanese,11:30～20:30,3,,"restaurant,japanese cuisine,sashimi,sushi,tenpura"
+桜木町,GARDEN HOUSE MINATOMIRAI,restaurant,神奈川県横浜市中区桜木町1-1-7 コレットマーレ 6F,050-3196-8835,,https://ghghgh.jp/blogs/shoplist,,ノーザンカリフォルニアスタイルの料理と共に旬の食材を用いたパフェやカクテルなどをお楽しみいただけます。,western,11:00～15:00/17:00～22:00,3,,
+桜木町,蘭の拾璞,restaurant,横浜市中区桜木町1-1-7 コレットマーレ6F,050-5493-2817,,https://colettemare-yokohama.com/shop/256175/,,リーズなぶるなコスパ良し中華料理,chinese,11:00～22:00,2,,"restaurant,casual chinese cuisine"
+桜木町,KITCHEN JO’S CIAL桜木町店,restaurant,横浜市中区桜木町1-1 CIAL1F,050-5494-2121,,https://americanhouse.co.jp/shop/kitchen-jos-cial-sakuragicho,,リーズなぶるなコスパ良し洋食レストラン,western,11:00～23:00,2,,"restaurant,casual western food cuisine "
+桜木町,イリエスケープ,restaurant,横浜市中区桜木町1-1-7 コレットマーレ 7F,045-2111－5515,,https://www.iliescapeyokohama.com,,圧巻のロケーションと旬が彩る現代フレンチで感動の記念日を,french,11:30～14:00/17:30～20:00火水不定期休,4,,"restaurant_luxury_french,private,anniversary,nice view"
+桜木町,フレンチ ビストロ lemidi 桜木町 みなとみらい（ルミディ）,restaurant,横浜市中区花咲町3-87,050-5589-8921,, https://lemidi-yokohama.com, https://www.instagram.com/lemidi_planet/,本場フランスミシュラン星付レストランのメインを務めたシェフによるフランス料理,french,12:00～14:00/17:00～22:00,4,,"reataurant,luxury_mishuran_french,anniversary"
+桜木町,海鮮肉炉端 大夢,restaurant,横浜市中区桜木町1-1-7 コレットマーレ 7F,050-5600-1271,,https://colettemare-yokohama.com/shop/251119/, https://www.instagram.com/robata_time/,焼き場の炉を囲むカウンター席では目の前で炉端焼きを楽しみながら熱々の料理,japanese,11:00～23:00,3,,"restraurant,food cooked,grill,japanese_robatayaki"
+桜木町,鉄板焼　ぼんの（テッパンヤキボンノ）,restaurant,横浜市中区花咲町3-87,050-5868-6764,,https://bon-no.com,,野菜、肉、魚は徳島産のものを中心に揃えております。,japanese,11:30～14:00/17:00～23:00火休,3,,"restraurant,iron-plate cooking,grill,japanese_teppanyaki"
+桜木町,札幌弥助 桜木町店,restaurant,横浜市中区桜木町1-101-1 クロスゲート ワシントンホテル 4F,045-640-3255,,https://hanare-sakuragicho.gorp.jp,,北海道より取り寄せた本場の食材を使用した北海道料理が楽しめる居酒屋,japanese,16:00～23:00,3,,"restaurant,luxury,japanese hokkaido cuisine"
+桜木町,レストラン 下町 DINING ＆ CAFE THE sea,restaurant,横浜市中区桜木町1-1-7ニューオータニインプレミアム横浜,045-210-0781,,https://colettemare-yokohama.com/shop/1080/,,モーニング/ランチビュッフェ/ランチ/アフタヌーン/ディナーホテルレストラン夜景がきれい,grill,7:00～21：00,3,,"restaurant,grill,very nice night view"
+桜木町,OCTAGON（オクタゴン）,restaurant,横浜市中区野毛町1-4-1 野毛キアラガーデン 8F,050-5600-3921,,https://octagon-yokohama.owst.jp, https://www.instagram.com/octagon_yokohama,屋上テラスでビアガーデン！アメリカンBBQ＆クラフトビールの絶品コンビ,western,17:00～25：00,3,,"restaurant,barbecue rooftop,beer garden,grill"
+桜木町,トラットリアバジル（TRATTORIA BASIL）,restaurant,横浜市中区花咲町1-40 ３F,050-5590-1534,,https://gezf400.gorp.jp,https://www.instagram.com/trattoriabasil_0616,新鮮野菜ジューシーなグリル料理をワインと共に◆急な団体様のご予約OK,grill,14：00～23：30,4,,"restaurant,italian,casual,grill_specialty,group_ok,late_open"
+桜木町,魚乃福,restaurant,横浜市中区野毛町1-37-1 第4竹内恵比寿ビル 2F,050-5589-2488,,https://www.uonofuku.com, https://www.instagram.com/uonofuku/,豊洲市場で仕入れる旬の鮮魚と海鮮創作料理,japanese,16:00～22:00,2,,"restaurant,japanese,seafood_specialty,luxury"
+桜木町,RIGELリゲル,restaurant,横浜市中区野毛町２-１０１ ネオキャッスル野毛２０１,045-325-7701,,https://rigel-sakuragicho.foodre.jp/,https://www.instagram.com/rigel_yokohama,バックバーには多数のお酒が並び、スタンダードなものから当店おすすめ季節のフルーツを使ったカクテルまで幅広くお楽しみ頂けます,bar,18:00～23:00,2,,"restaurant,bar,stylish,date_night,alcohol_specialty"
+桜木町,AMPM,restaurant,横浜市中区花咲町1-40 叶家ビル 1F,050-5868-6781,,https://ampm-sakuragichou.owst.jp, https://www.instagram.com/am_______pm/,12種スパイス香るよだれ鶏やラム餃子、毛沢東ポテサラなどの本格皿に加え、約500円で楽しめる小皿メニューも充実。,chinese,18:00～23:00,3,,"restaurant,chinese,casual,private_room"
+桜木町,アンデルセンシェル桜木町店,restaurant,横浜市中区桜木町１丁目１シェル桜木町,045-228-9412（カフェ）,,https://www.andersen.co.jp/,,ベーカリーチェーンのモーニングサービス,cafe,8:00～21：00,2,,"restaurant,casual,bakery,cafe_style,morning_available"
+横浜駅前,崎陽軒本店ショップ＆中華レストラン嘉宮,restaurant,横浜市西区高島2-13-12,045-441-8811,,https://kiyoken-restauant.com/,,横浜名物シウマイや弁当・レストラン嘉宮・カフェも併設,chinese,11:30～15:00/17:00～21:00,3,,"restaurant,chinese,casual,private_room,local_specialty"
+横浜駅前,カンブーザ,restaurant,横浜市神奈川区鶴屋町2-11-2,045-512-8882,,https://cambusa-2011.com,https://www.instagram.com/cambusa_/,地産地消イタリアン、ミシュランガイド掲載,italian,11:30～14:30/18:00～22:00,4,,"restaurant,italian,luxury,fine_dining,anniversary"
+横浜駅前,カフェ＆レストラン シェ・フルール横濱,restaurant,横浜市西区北幸 2-12-26 Felice横浜 1Fs3,045-342-6292,,https://www.chaifleurs.net,,横浜駅から徒歩10分の創作和フレンチのお店,french,11:30～15:00/18:00～22:00,3,,"restaurant,luxury,french,anniversary"
+横浜駅前,更科一休,restaurant,神奈川県横浜市西区北幸2-10-42 寺内ビル1Ｆ,045-,,http://yokohama-norenkai.jp,,横浜のれん会（老舗の伝統に味を守れる会）そば・うどん,japanese,11:00～22：00,1,,"restaurant,japanese,soba_specialty,traditional"
+山下公園・中華街,TRAN.SCENDER® HÔTEL Yokohama,hotel,神奈川県横浜市中区山下町81-3,045-415-0311,,https://transcender.jp/yokohama/,,新しい横濱発見！中華街のド真ん中にあるホテル,hotel,,4,1,"hotel,new_open,mid_range,chainatown near"
+山下公園・中華街,ホテルニューグランド,hotel,横浜市中区山下町10,045-681-1841,,https://www.hotel-newgrand.co.jp/,,横浜の歴史的ホテル、山下公園前・クラシック建築,hotel,,7,,"hotel,luxury,classic,harbor_view,historic"
+山下公園・中華街,ハイアットリージェンシー横浜,hotel,横浜市中区山下町280-2,045-222-0121,,https://www.hyatt.com/hyatt-regency/ja-JP/hndry-hyatt-regency-yokohama,,インターナショナルブランド、観光とビジネス両対応,hotel,,7,,"hotel,luxury,international_brand,business_friendly"
+山下公園・中華街,シタディーン ハーバーフロント横浜,hotel,横浜市中区日本大通5-2,045-680-3322,,https://www.discoverasr.com/ja/citadines/japan,,中長期滞在にも対応。モダンで国際的,hotel,,4,,"hotel,mid_range,long_stay,apartment_style"
+山下公園・中華街,ローズホテル横浜,hotel,横浜市中区山下町77,045-681-3311,,https://www.rosehotelyokohama.com/,,中華街中心に位置。ファミリー・インバウンドに人気,hotel,,5,,"hotel,intermadiate,chainatown_near"
+山下公園・中華街,ホテルリブマックス 横浜元町駅前,hotel,横浜市中区山下町187,045-228-5600,,https://www.hotel-livemax.com/kanagawa/yokohama-motomachi/,,駅近でコストパフォーマンス良好,hotel,,4,,"hotel,business,budget,station_near"
+山下公園・中華街,ホテルフィール,hotel,横浜市中区山下町168-1,045-663-1681,,https://hotel-feel.jp/,,地元客も利用する手頃価格のシティホテル,hotel,,4,,"hotel,casual hotel"
+山下公園・中華街,ザ・ゲートホテル横浜 by HULIC,hotel,横浜市中区山下町11-3,045-264-6040,,https://www.gate-hotel.jp/yokohama,,山下公園前の横浜港を望む眺望◎2025年6月オープン,hotel,,6,,"hotel,new_open,mid_range,harbor_view"
+山下公園・中華街,エグゼクティブ ホテル グランドガーデン,hotel,横浜市中区寿町１丁目１−６,045-222-0444,,https://exe-hotel.jp,,ラブホテル石川町1分,hotel,,4,,"hotel,love_hotel,adult_oriented"
+日本大通り,ダイワロイネットホテル 横浜公園,hotel,横浜市中区山下町204-1,045-664-3745,,https://www.daiwaroynet.jp/yokohama-koen/,,関内駅・日本大通り駅近、設備新しく清潔,hotel,,4,,"horel,business hotels"
+日本大通り,東横INN 横浜スタジアム前Ⅰ,hotel,横浜市中区山下町205-1,045-662-1045,,https://www.toyoko-inn.com,,全国チェーンの低価格ホテル。朝食無料,hotel,,4,,"horel,business hotels"
+日本大通り,ホテルJALシティ関内 横浜,hotel,横浜市中区山下町72,045-661-2580,,https://www.kannai-yokohama.jalcity.co.jp,,日本航空系。観光・ビジネス対応,hotel,,4,,"horel,business hotels"
+日本大通り,スーパーホテル横浜・関内,hotel,横浜市中区山下町195-1,045-664-9000,,https://www.superhotel.co.jp/s_hotels/kannai/,,環境配慮型、無料朝食付き、観光にも便利,hotel,,4,,"horel,business hotels"
+日本大通り,ホテルリブマックス横浜スタジアム前,hotel,横浜市中区山下町219-3,045-226-3210,,https://www.hotel-livemax.com/kanagawa/yokohama_stadium/,,スタジアム隣接、コンパクトで便利,hotel,,4,,"horel,business hotels"
+馬車道,マンダリンホテル　横浜,hotel,横浜市中区野毛4-170,045-243-3131,,https://yokohamamandarin.com/,,京急日之出町徒歩3分,hotel,,4,,"horel,business hotels"
+馬車道,ホテルルートイン 横浜馬車道,hotel,横浜市中区弁天通4-53-1,050-1726-2472,,https://www.route-inn.co.jp/hotel_list/kanagawa/index_hotel_id_530,,駅徒歩1分、大浴場あり、安定の設備,hotel,,4,,"horel,business hotels"
+馬車道,PROSTYLE旅館 横浜馬車道,hotel,横浜市中区常盤町5-64,045-232-2222,,https://www.prostyleryokan.com/yokohamabashamichi,,和風デザイン、サウナ・大浴場付き、外国人観光客に人気,hotel,,6,,"horel,business hotels"
+馬車道,アパホテル＆リゾート横浜ベイタワー,hotel,横浜市中区海岸通5丁目25番3,0570-055-111,,https://www.apahotel.com/resort/yokohama,,横浜1の高層ホテル,hotel,,5,,
+馬車道,リッチモンドホテル 横浜馬車道,hotel,横浜市中区住吉町5-59,045-228-6655,,https://richmondhotel.jp/yokohama/?utm_source=GGL&utm_medium=GBP&utm_campaign=Canly/,,英語対応・清潔感・高レビュー,hotel,,4,,"horel,business hotels"
+馬車道,Oakwood Suites Yokohama,hotel,横浜市中区北仲通5-57-2,045-211-6111,,https://www.oakwood.com/ja-jp/japan/yokohama/suites-yokohama,,高層階・長期滞在・外国人ビジネス客に人気短期予約困難,hotel,,8,,"hotel,luxury_high rise_famous hotel"
+馬車道,横浜東急REIホテル,hotel,横浜市中区本町6-78-1,045-663-0109,,https://www.tokyuhotels.co.jp/yokohama-r/,,観光地アクセス良好・設備充実,hotel,,4,,"horel,business hotels"
+馬車道,ホテルマイステイズ横浜関内,hotel,横浜市中区羽衣町2-60-6,045-250-6111,,https://iconia.co.jp/hotel-mystays-yokohama-kannai-kanagawa,,長期滞在・コスパ良好・駅近,hotel,,4,,"horel,business hotels"
+桜木町,ニューオータニイン横浜プレミアム,hotel,横浜市中区桜木町1-1-7 コレットマーレ,045-210-0707,,https://www.newotani.co.jp/innyokohama/,,みなとみらいビュー、駅直結、高級ホテル,hotel,,6,,"hotel,luxury_vest view_famous hotel"
+桜木町,JR東日本ホテルメッツ 横浜桜木町,hotel,横浜市中区桜木町1-1-93,045-228-3111,,https://www.hotelmets.jp/sakuragicho,,桜木町駅から徒歩1分、新しい設備,hotel,,4,,"horel,business hotels"
+桜木町,東横INN 横浜桜木町,hotel,横浜市中区花咲町1-5-1,045-231-1045,,https://www.toyoko-inn.com/search/detail/00050,,駅近・無料朝食あり・全国チェーン,hotel,,4,,"horel,business hotels"
+桜木町,絹の湯ホテルテラス横浜桜木町,hotel,横浜市中区花咲町3-95,050-1807-3370,,https://breezbay-group.com/terrace,,スタイリッシュ、リーズナブルな価格,hotel,,5,,"horel,business hotels"
+桜木町,ホテルリブマックスBUGET横浜関内,hotel,横浜市中区伊勢佐木町4-117,045-250-1510,,https://www.hotel-livemax.com/kanagawa/kannai,,リーズナブルで立地良好,hotel,,4,,"horel,business hotels"
+桜木町,ウェスティンホテル横浜,hotel,横浜市西区みなとみらい4-2-8,045-577-0888,,https://www.marriott.co.jp/hotels/travel/tyowy-the-westin-yokohama/,,世界的ブランド、最新設備、観光・ビジネスに最適,hotel,,7,,"hotel,luxury_high rise_famous hotel"
+山下公園・中華街,ホテルZEN,hotel,横浜市中区松影町3-10-5第三ホテル浜松荘５階,045-342-9553 ,,http://zen.ilee.jp,,民家を改造和畳素泊6部屋,hotel,,3,,private lodging facilities
+桜木町,野毛ホステル(FUTARENO),hotel,横浜市中区野毛町3-122,045-308-8577,,https://gh.futareno.com,,民家を改造和畳素泊6部屋,hotel,,3,,private lodging facilities
+関内,レンブラント横浜関内,hotel,横浜市中区不老町1－2,045₋681₋4800,,https://rembrandt-style.com/yokohama-kannai/,,横浜公園向かい,hotel,,4,,"horel,business hotels"
+関内,アパホテル〈横浜関内〉,hotel,横浜市中区住吉町3-37-2,045-650-6111,,https://www.apahotel.com/hotel/syutoken/kanagawa/yokohamakannai/?utm_source=google&utm_medium=maps,,関内駅すぐ、外国人利用あり,hotel,,4,,"horel,business hotels"
+関内,ホテルリブマックス横浜関内駅前,hotel,横浜市中区真砂町3-30,045-681-0002,,https://www.hotel-livemax.com/kanagawa/yokohama-kannai/,,リーズナブル・清潔感あり・駅近,hotel,,4,,"horel,business hotels"
+関内,ホテルアルファーワン横浜関内,hotel,横浜市中区長者町5-80,045-231-8686,,https://www.alpha-1.co.jp/yokohama-kannai/,,リーズナブル、大浴場あり,hotel,,4,,"horel,business hotels"
+関内,ダイワロイネットホテル横浜関内,hotel,横浜市中区尾上町2-7-4,045-252-1475,,https://www.daiwaroynet.jp/yokohama-kannai/,,大型ホテル・快適な部屋・観光にも便利,hotel,,4,,"horel,business hotels"
+関内,スーパーホテル横浜・関内,hotel,横浜市中区山下町195-1,045-664-9000,,https://www.superhotel.co.jp/s_hotels/kannai/,,SDGs認証、無料朝食、快眠重視,hotel,,4,,"horel,business hotels"
+関内,ホテルコメント横浜関内,hotel,横浜市中区不老町2丁目7-2,045-222-0027,,https://www.hotelcomento-yokohamakannai.jp,,お得に泊まれるホテル・サウナ付き大浴場,hotel,,4,,"horel,business hotels"
+関内,横浜伊勢佐木町ワシントンホテル,hotel,横浜市中区長者町5-53,045-243-7111,,https://washington-hotels.jp/yokohama/,,伊勢佐木モール直結、利便性◎,hotel,,4,,"horel,business hotels"
+関内,ファーイーストビレッジホテル横浜,hotel,横浜市中区尾上町６丁目９０−１,045-232-4476,,https://www.villagehotels.co.jp/ja-JP/Far-East-Village-Hotel-Yokohama/,,馬車道-みなとみらい近アクセス良い,hotel,,4,,"horel,business hotels"
+関内,ホテルステイ横浜,hotel,横浜市中区福富町西通46-2,045-261-2632,,https://www.hotelstay-yokohama.com,,モダンデザイン・観光・ビジネス両対応,hotel,,4,,"horel,business hotels"
+みなとみらい,ヨコハマグランドインターコンチネンタル ホテル,hotel,横浜市西区みなとみらい1-1-1,045-223-2222,,https://www.icyokohama-grand.com/company,,ヨット型シンボルホテル、海に囲まれた絶景,hotel,,7,,"hotel,luxury_high rise_famous hotel"
+みなとみらい,ザ・カハラ・ホテル＆リゾート横浜,hotel,横浜市西区みなとみらい1-1-3,045-522-0008,,https://thekahala.jp/yokohama/,,ハワイ発の最高級ブランド、日本初進出,hotel,,7,,"hotel,luxury_vest view_famous hotel"
+みなとみらい,横浜ロイヤルパークホテル,hotel,横浜市西区みなとみらい2-2-1-3,045-221-1111,,https://www.yrph.com/,,ランドマークタワー上層階、絶景夜景　休館中,hotel,,7,,"hotel,luxury_vest view_famous hotel"
+みなとみらい,横浜ベイホテル東急,hotel,横浜市西区みなとみらい二丁目3番7号,045-682-2222,,https://ybht.co.jp,,みなとみらい海に隣接した高級ホテル,hotel,,6,,"hotel,luxury_vest view_famous hotel"
+みなとみらい,三井ガーデンホテル横浜プレミア,hotel,横浜市西区みなとみらい3-3-3,045-227-1311,,https://www.gardenhotels.co.jp/yokohama-minatomirai-premier/,,みなとみらいの高級ホテル,hotel,,6,,"hotel,luxury_vest view_famous hotel"
+みなとみらい,万葉倶楽部,hotel,神奈川県横浜市中区新港2-7-1,0570-07-4126,,https://www.manyo.co.jp/mm21/access,,宿泊施設付温泉施設館内に食事施設もあり,hotel,,4,,hot spring facility availailable for private lodging
+みなとみらい,ナビオス横浜,hotel,横浜市中区新港2丁目1-1,045-633-6000,,https://www.navios-yokohama.com,,日本船員厚生協会運営,hotel,,4,,"hotel,intermadiate hotel"
+横浜市内その他,インターコンチネンタル横浜pier8,hotel,横浜市神奈川区金港町1-4,045-534-5353,,https://www.icyokohama-pier8.com,,モダン・観光・レジャー向け,hotel,,5,,"hotel,luxury_vest view_famous hotel"
+横浜市内その他,ホテルプラム横浜,hotel,横浜市西区北幸2-9-1,045-314-3111,,https://hotel-plumm.jp/,,モダンデザイン・観光・ビジネス両対応,hotel,,4,,"hotel,intermadiate hotel"
+横浜市内その他,ホテル横浜キャメロットジャパン,hotel,横浜市西区北幸1-11-3,045-312-2111,,https://www.camelotjapan.com/,,西口徒歩5分・会議室・和洋レストラン併設,hotel,,4,,"hotel,intermadiate hotel"
+横浜市内その他,横浜ベイシェラトン ホテル＆タワーズ,hotel,横浜市西区北幸1-3-23,045-411-1111,,https://www.marriott.co.jp/hotels/travel/tyoys-yokohama-bay-sheraton-hotel-and-towers/,,外資系・レストラン充実・国際会議対応,hotel,,6,,"hotel,luxury_vest view_famous hotel"
+山下公園・中華街,グローバルキャビン横浜中華街（ドーミーイン系列）,hotel,横浜市中区山下町166,045-226-5489,,https://dormy-hotels.com/dormyinn/hotels/gc_yokohama,,外国人旅行者にも人気の快適キャビン,hotel,,5,1,"hotel,casual capsule hotel"
+横浜市内その他,スカイスパYOKOHAMA,hotel,横浜市西区高島2-19-12 スカイビル14F,045-461-1126,,https://www.skyspa.co.jp/,,サウナ＆スパ併設・男性専用・外国人利用多,hotel,,4,,"hotel,casual capsule hotel"
+横浜市内その他,カプセルプラス,hotel,横浜市西区北幸２丁目１−５,050-1807-3375,,https://capsule-plus.jp/yokohama/,,浜駅からわずか徒歩5分の好アクセス。ホテルから出てすぐのところに、西口の繁華街エリアが広がっています。,hotel,,4,,"hotel,casual capsule hotel"
+関内,Tabist Mayudama Cabin,hotel,横浜市中区不老町１丁目４−６,045-263-9351,,https://tabist.co.jp/h/N14HMCI/,,JR関内駅から徒歩2分、カプセルとホステルが融合した新しいカタチの宿泊施設。横浜駅からも近く観光やイベント時の滞在におすすめです。,hotel,,4,,"hotel,casual capsule hotel"
+関内,グランカスタマ 伊勢佐木町店,hotel,横浜市中区長者町７丁目１１５ TC42長者町ビル 2F,045-315-7272,,https://g-customa.com/shop/isezaki.php,,お風呂もカプセルも御利用頂ける革新的インターネットカフェ,hotel,,3,,"hotel,casual capsule hotel"
+元町・山手,bnb+ Yokohama Motomachi 横濱元町店,hotel,中区元町１丁目２７−２ いちご横濱元町ビル 3F,045-263-8893,,https://www.booking.com/searchresults.ja.html?aid=356980&label=gog235jc-10CAsodUIWYm5iLXlva29oYW1hLW1vdG9tYWNoaUgVWANodYgBAZgBM7gBF8gBDNgBA-gBAfgBAYgCAagCAbgCrOD4xQbAAgHSAiRmMTgwZDVmMi02Zjg4LTRlNTYtYmFjZi1jNTkwYjJlNjY5YTLYAgHgAgE&highlighted_hotels=6601687&redirected=1&city=-248593&hlrd=user_sh&source=hotel&expand_sb=1&keep_landing=1&sid=1a12a8855ed46a472e68b854c9b503d3/,,横浜マリンタワーから徒歩5分以内で、共用ラウンジ、禁煙のお部屋、無料WiFi、テラスを提供しています。,hotel,,4,,"hotel,casual capsule hotel"
+関内,カプセル イン 都,hotel,横浜市中区野毛町１丁目２２,045-241-0133,,http://www.capsule-inn.jp/,,男性専用のカプセルホテルです。,hotel,,3,,"hotel,casual capsule hotel"
+日本大通り,Retrospect_Stay,hotel,横浜市中区山下町１５６−２,050-8880-4077,,https://retrospect-stay.com,,横浜の歴史を感じられるもの全てがある横浜市中区は1859年のペリー来航で横浜港が開港してから急速に進化してきた街。,hotel,,3,,private lodging facilities
+桜木町,リゾートカプセル桜木町,hotel,横浜市中区花咲町１丁目２２−２,045-253-5553,,https://breezbay-group.com/resocap-sakuragi/,,桜木町駅徒歩3分、ブリーズベイホテル B1Fにございます。,hotel,,3,,"hotel,casual capsule hotel"
+元町・山手,ホテルアイエス,hotel,横浜市中区松影町 １－２－５,045-641-1377,,https://hotel-is.com/?sa=X&ved=0CJYDEMiuA2oYChMIoJXE34bIjwMVAAAAAB0AAAAAELID/,,石川町北口1分2段ベッド～ダブルベット（ホテルグランドガーデン横浜系列）,hotel,,3,,"hotel,casual hotel"
+馬車道,横浜平和プラザホテル,hotel,横浜市中区太田町5-65,045-212-2333,,https://www.heiwaplaza-hotel.com/,,横浜の魅力をまるかじり♪ みなとみらい~元町中華街までヨコハマを存分に満喫,hotel,,4,,"horel,business hotels"
+日本大通り,横浜マルタ二ホテル,hotel,横浜市中区相生町6-99,045-681-2748,,http://www.marutani-hotel.co.jp/,,マルタニホテル」はJR桜木町駅、地下鉄関内駅、みなとみらい線馬車道駅から徒歩5分。横浜の主な交通すべてにアクセスが便利なビジネスホテルです。,hotel,,4,,"horel,business hotels"
+関内,ホテルロイ,hotel,横浜市南区永楽町２丁目２０−６,03-6659-6820,,https://www.hotel-roy.jp/?utm_source=google&utm_medium=maps,,横浜ラブホテルなら -HOTEL ROY-モダンがコンセプトのホテルです。,hotel,,3,,"hotel,love_hotel,adult_oriented"
+関内,チサンホテル横浜伊勢佐木町,hotel,横浜市中区長者町5丁目-53,045-262-2811,,https://www.solarehotels.com/hotel/kanagawa/chisunhotel-isezakicho/,,伊勢佐木長者駅徒歩1分、リーズナブルな価格のビジネスホテル,hotel,,4,,"horel,business hotels"
+桜木町,フレックステイイン桜木町,hotel,横浜市中区花咲町2-72-16,045-262-5388,,https://iconia.co.jp/hotel-flexstay-inn-sakuragicho-kanagawa/?utm_source=google&utm_medium=GBP&utm_campaign=FSISakuragicho,,全面改装したフレックステイイン桜木町は横浜にあり、宿泊の期間を問わず、日本での滞在にはもってこいのホテルです。,hotel,,4,,"horel,business hotels"
+横浜市内その他,横浜屋形船事業協同組合,,,045₋325₋8185,yokohama-yakatabune@outlook.jp,,,屋形船事業協同組合,,,,,
+元町,協同組合元町エスエス会,,横浜市中区元町1-14,045-663-1557,info@motomachi.or.jp,https://www.motomachi.or.jp/shop/ss-office,,,,,,,
+山下公園・中華街,中華街発展会協同組合,,横浜市中区山下町118-2 廣東會館ビル5F,045-662-1252,,https://www.chinatown.or.jp/hattenkai/institution/,,,,,,,
+山下公園・中華街,横浜中華街関帝廟通り会,,横浜市中区山下町166,045-633-3086,,http://www.kanteibyo.com,,,,,,,
+山下公園・中華街,横浜中華街市場通り会,,横浜市中区山下町137,045-662-7801,,,,,,,,,
+日本大通り,,横浜市西区みなとみらい2-3-1　クイーンズタワーA 403B（ルーデンス株式会社内）,,,,https://nihonodori.jp/gourmet,,,,,,,
+関内,協同組合伊勢佐木町商店街,,横浜市中区若葉町2-34,045-261-2835,,,,,,,,,
+関内,伊勢佐木町1･2丁目地区商店街振興組合,,横浜市中区末広町2-6-10,,,https://www.isezaki.jp/,,,,,,,
+関内,関内駅前商店会,,横浜市中区真砂町3,,,https://rarea.events/event/222903,,,,,,,
+馬車道,馬車道商店街協同組合,,横浜市中区常盤町4-42,045-641-4068,,https://bashamichi.or.jp/inq/index.html,,,,,,,
+みなとみらい,マークイズ店舗会,,横浜市西区みなとみらい3-5-1,045-224-0650,,https://www.mec-markis.jp/mm/,,,,,,,
+みなとみらい,ランドマークプラザテナント会,,横浜市西区みなとみらい2-2-1,045-222-5015,,,,,,,,,
+桜木町,桜木町ぴおシティ商店会,,横浜市中区桜木町1-1,045-201-8365,,https://www.piocity.com/,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+種別,氏名／団体名,所在地,対応言語,資格,対応内容,料金目安,連絡先／Web,,メモ,,,,
+法人,IES通訳（ワイアールシー）,横浜市関内,英語・中国語・韓国語,-,徒歩・公共交通での観光案内,"半日（4時間）15,000円/1日（8時間）20,000円",https://ies-world.com/interpretation/genre.html,契約中,045-650-3531岡田代表,,,,
+個人,GetYourGuide Local Expert,横浜市,英語,不明,半日観光（中華街・港の見える丘）,"13,500円前後",https://www.getyourguide.jp,未確認,,,,,
+個人,藍 秀璃（ラン・シュウリ）,横浜市,中国語,全国通訳案内士,観光・展示会・企業案内など,応相談,神奈川県登録PDF（pref.kanagawa.jp）,未確認,,,,,
+個人,相沢 久美子,横浜市,中国語・英語,中国語通訳案内士,VIP案内・観光ガイド,応相談,神奈川県登録PDF kuku.akzawa@nifty.ne.jp,未確認,080-43304558,,,,
+個人,滝澤 三佐子,横浜市,中国語,全国通訳案内士,UIJツアー・観光案内,応相談,神奈川県登録PDF,未確認,,,,,
+法人,株式会社メディアリンク,横浜市西区,中国語,不明,ビジネス通訳／観光アテンド,"要見積～3h20,000/～8h30,000",https://www.medialink-net.com/translation/company.html,未確認,045-594-8589,,,,
+団体,日本中国語通訳案内士協会,全国／紹介あり,中国語,団体所属通訳士,紹介・調整対応,-,https://cga-japan.org,未確認,,,,,
+個人,ちょる（ロコタビ）,横浜市,韓国語,不明,観光案内・通訳（初級）,応相談,https://www.medialink-net.com/translation/company.html,未確認,,,,,
+個人,ロコタビ韓国語ガイド複数,横浜市,韓国語,不明,予約代行・観光案内,応相談,https://locotabi.jp,未確認,,,,,
+法人,くらしのマーケット 韓国語通訳,横浜市,韓国語,不明,出張通訳（観光・会議）,"5,000～15,000円／h",https://curama.jp/interpreter/korean/kanagawa,未確認,,,,,
+法人,ホットライン通訳サービス,横浜市,韓国語,不明,スポット通訳／観光アテンド,"5,000円～",検索可,未確認,,,,,
+法人,Zehitomo 韓国語通訳,横浜市栄区,韓国語,不明,通訳・翻訳対応,応相談,https://www.zehitomo.com,未確認,,,,,
+,横浜市多文化共生総合相談センター,,,,,,,,045-222-1209,,,,
+,横浜市国際交流センター,,,,,,,,,,,,

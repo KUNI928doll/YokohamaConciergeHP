@@ -531,7 +531,7 @@ function yokohama_concierge_enqueue_scripts() {
             'yokohama-shop-selector',
             get_template_directory_uri() . '/js/shop-selector.js',
             array('jquery'),
-            '1.0.0',
+            '1.4.0',
             true
         );
         
