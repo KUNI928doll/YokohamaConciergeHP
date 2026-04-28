@@ -4,46 +4,43 @@ document.addEventListener("DOMContentLoaded", () => {
   const faqSection = document.querySelector(".faq");
   const faqButtons = document.querySelectorAll(".faq__question");
 
-  faqButtons.forEach(button => {
-    button.addEventListener("click", function () {
-      const expanded = this.getAttribute("aria-expanded") === "true";
-      const answerId = this.getAttribute("aria-controls");
-      const answer = document.getElementById(answerId);
-      const faqItem = this.closest(".faq__item");
+  faqButtons.forEach(faqBtn => {
+    faqBtn.addEventListener("click", function() {
+      const item   = this.closest(".faq__item");
+      const answer = item.querySelector(".faq__answer");
+      const isOpen = item.classList.contains("is-active");
 
-      // 他のFAQを閉じる（アコーディオン動作）
-      faqButtons.forEach(otherButton => {
-        if (otherButton !== this) {
-          const otherAnswerId = otherButton.getAttribute("aria-controls");
-          const otherAnswer = document.getElementById(otherAnswerId);
-          const otherFaqItem = otherButton.closest(".faq__item");
+      // 他のFAQを閉じる
+      faqButtons.forEach(otherBtn => {
+        if (otherBtn === this) return;
+        const otherItem   = otherBtn.closest(".faq__item");
+        const otherAnswer = otherItem.querySelector(".faq__answer");
 
-          otherButton.setAttribute("aria-expanded", "false");
-          if (otherAnswer) {
-            otherAnswer.hidden = true;
-          }
-          if (otherFaqItem) {
-            otherFaqItem.classList.remove("is-active");
-          }
+        if (otherItem.classList.contains("is-active")) {
+          otherAnswer.style.maxHeight = otherAnswer.scrollHeight + "px";
+          requestAnimationFrame(() => {
+            otherAnswer.style.maxHeight = "0px";
+          });
+          otherItem.classList.remove("is-active");
+          otherBtn.setAttribute("aria-expanded", "false");
         }
       });
 
-      // 現在のFAQをトグル
-      this.setAttribute("aria-expanded", String(!expanded));
-      if (answer) {
-        answer.hidden = expanded;
-      }
-
-      if (!expanded) {
-        faqItem.classList.add("is-active");
-        faqSection.classList.add("is-open");
+      if (isOpen) {
+        // 閉じる
+        answer.style.maxHeight = answer.scrollHeight + "px";
+        requestAnimationFrame(() => {
+          answer.style.maxHeight = "0px";
+        });
+        item.classList.remove("is-active");
+        this.setAttribute("aria-expanded", "false");
+        if (faqSection) faqSection.classList.remove("is-open");
       } else {
-        faqItem.classList.remove("is-active");
-        // すべて閉じているかチェック
-        const anyOpen = Array.from(faqButtons).some(btn => btn.getAttribute("aria-expanded") === "true");
-        if (!anyOpen) {
-          faqSection.classList.remove("is-open");
-        }
+        // 開く
+        item.classList.add("is-active");
+        answer.style.maxHeight = answer.scrollHeight + "px";
+        this.setAttribute("aria-expanded", "true");
+        if (faqSection) faqSection.classList.add("is-open");
       }
     });
   });
