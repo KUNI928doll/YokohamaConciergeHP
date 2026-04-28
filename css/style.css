@@ -1966,8 +1966,9 @@ body.spmenu-open .header__toggle {
   background: url(../images/footer_wave.png);
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center top;
   padding: 120px 30px 32px;
-  animation: waveMove 4s ease-in-out infinite;
+  animation: footerWaveFloat 4s ease-in-out infinite;
   position: relative;
   z-index: 101;
   margin-top: -200px;
@@ -2120,15 +2121,15 @@ body.spmenu-open .header__toggle {
   }
 }
 
-@keyframes waveMove {
+@keyframes footerWaveFloat {
   0% {
-    background-position: 0 0;
+    background-position: center 0px;
   }
   50% {
-    background-position: 0 30px;
+    background-position: center 30px;
   }
   100% {
-    background-position: 0 0;
+    background-position: center 0px;
   }
 }
 /* ラッパー：スタックを独立させて順序を固定 */
@@ -6785,58 +6786,25 @@ img {
 .reservation-form__inline-field .reservation-form__input {
   background: var(--color-bg);
 }
-.reservation-form__section-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 8px;
-}
-.reservation-form__section-head .reservation-form__legend {
-  margin-bottom: 0;
-}
-.reservation-form__section-clear-btn {
-  background: none;
-  border: 1px solid #ccc;
-  color: #666;
-  cursor: pointer;
-  font-size: 12px;
-  padding: 4px 12px;
-  border-radius: 4px;
-  transition: border-color 0.2s, color 0.2s;
-  white-space: nowrap;
-}
-@media (hover: hover) {
-  .reservation-form__section-clear-btn:hover {
-    border-color: #ff4444;
-    color: #ff4444;
-  }
-}
 .reservation-form__proposal-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 16px;
 }
-.reservation-form__proposal-label {
+.reservation-form__proposal-actions {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: 600;
-  color: var(--color-main);
-  font-size: 14px;
-  margin-bottom: 8px;
+  gap: 12px;
+  margin-top: 16px;
+  flex-wrap: wrap;
 }
-.reservation-form__clear-btn {
-  background: none;
-  border: none;
-  color: #999;
-  cursor: pointer;
-  font-size: 18px;
-  padding: 4px;
-  transition: color 0.2s;
-}
-@media (hover: hover) {
-  .reservation-form__clear-btn:hover {
-    color: #ff4444;
+@media (max-width: 768px) {
+  .reservation-form__proposal-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .reservation-form__proposal-actions .btn {
+    width: 100%;
+    justify-content: center;
   }
 }
 .reservation-form__actions {
@@ -7874,6 +7842,28 @@ img {
 .reservation__price-note strong {
   color: var(--color-main);
   font-weight: 700;
+}
+
+.reservation-rejection-message {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 24px 32px;
+  background: #fff8f8;
+  border: 2px solid #e74c3c;
+  border-radius: 8px;
+  text-align: center;
+}
+.reservation-rejection-message__text {
+  font-size: var(--font-size-base);
+  color: #c0392b;
+  font-weight: 700;
+  line-height: 1.8;
+}
+@media (max-width: 768px) {
+  .reservation-rejection-message {
+    margin: 24px 16px;
+    padding: 20px 20px;
+  }
 }
 
 .inquiry {
@@ -12462,5 +12452,3 @@ a,
 .sub-hero__title {
   white-space: nowrap;
 }
-
-/*# sourceMappingURL=style.css.map */

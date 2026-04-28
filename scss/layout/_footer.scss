@@ -5,8 +5,9 @@
   background: url(../images/footer_wave.png);
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center top;
   padding: 120px 30px 32px;
-  animation: waveMove 4s ease-in-out infinite;
+  animation: footerWaveFloat 4s ease-in-out infinite;
   position: relative;
   z-index: 101;
   margin-top: -200px;
@@ -165,17 +166,17 @@
 
 
 
-@keyframes waveMove {
+@keyframes footerWaveFloat {
   0% {
-    background-position: 0 0;
+    background-position: center 0px;
   }
 
   50% {
-    background-position: 0 30px;
+    background-position: center 30px;
   }
 
   100% {
-    background-position: 0 0;
+    background-position: center 0px;
   }
 }
 
