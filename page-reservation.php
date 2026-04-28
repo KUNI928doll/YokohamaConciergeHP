@@ -325,7 +325,7 @@ get_header();
                         </p>
                         <div class="reservation-form__shop-selector">
                             <button type="button" class="btn btn--outline btn--sm" id="selectHotelBtn">
-                                <i class="fas fa-search"></i> 条件で提案を取得する
+                                <i class="fas fa-hotel"></i> ホテル・飲食店から選ぶ
                             </button>
                         </div>
                         <div class="reservation-form__proposal-grid">
@@ -342,8 +342,7 @@ get_header();
                             </div>
                         </div>
                         <div class="reservation-form__proposal-actions">
-                            <a href="https://hook.us2.make.com/q4s664foazn8sn737ccpojfh964enyuu?status=approve" class="btn btn--orange btn--sm" target="_blank" rel="noopener noreferrer">この内容で予約する</a>
-                            <a href="https://hook.us2.make.com/q4s664foazn8sn737ccpojfh964enyuu?status=retry" class="btn btn--outline btn--sm" target="_blank" rel="noopener noreferrer">別の提案を希望する</a>
+                            <button type="button" class="btn btn--orange btn--sm make-action-btn" data-section="hotel" data-status="approve">この内容で予約する</button>
                         </div>
                     </div>
                 </div>
@@ -454,7 +453,7 @@ get_header();
                         </p>
                         <div class="reservation-form__shop-selector">
                             <button type="button" class="btn btn--outline btn--sm" id="selectRestaurantBtn">
-                                <i class="fas fa-search"></i> 条件で提案を取得する
+                                <i class="fas fa-utensils"></i> ホテル・飲食店から選ぶ
                             </button>
                         </div>
                         <div class="reservation-form__proposal-grid">
@@ -471,8 +470,7 @@ get_header();
                             </div>
                         </div>
                         <div class="reservation-form__proposal-actions">
-                            <a href="https://hook.us2.make.com/q4s664foazn8sn737ccpojfh964enyuu?status=approve" class="btn btn--orange btn--sm" target="_blank" rel="noopener noreferrer">この内容で予約する</a>
-                            <a href="https://hook.us2.make.com/q4s664foazn8sn737ccpojfh964enyuu?status=retry" class="btn btn--outline btn--sm" target="_blank" rel="noopener noreferrer">別の提案を希望する</a>
+                            <button type="button" class="btn btn--orange btn--sm make-action-btn" data-section="dining" data-status="approve">この内容で予約する</button>
                         </div>
                     </div>
                 </div>
