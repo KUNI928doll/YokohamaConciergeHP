@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
           });
           otherItem.classList.remove("is-active");
           otherBtn.setAttribute("aria-expanded", "false");
+          setTimeout(() => { otherAnswer.setAttribute("hidden", ""); }, 400);
         }
       });
 
@@ -35,10 +36,14 @@ document.addEventListener("DOMContentLoaded", () => {
         item.classList.remove("is-active");
         this.setAttribute("aria-expanded", "false");
         if (faqSection) faqSection.classList.remove("is-open");
+        setTimeout(() => { answer.setAttribute("hidden", ""); }, 400);
       } else {
         // 開く
+        answer.removeAttribute("hidden");
         item.classList.add("is-active");
-        answer.style.maxHeight = answer.scrollHeight + "px";
+        requestAnimationFrame(() => {
+          answer.style.maxHeight = answer.scrollHeight + "px";
+        });
         this.setAttribute("aria-expanded", "true");
         if (faqSection) faqSection.classList.add("is-open");
       }
