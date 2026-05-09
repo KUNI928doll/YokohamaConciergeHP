@@ -16,11 +16,13 @@ const excludedClasses = [
 // 除外対象かどうか判定
 const isExcluded = (el) => excludedClasses.some(cls => el.classList.contains(cls));
 
+// ビューポート内判定（ページロード時）
+const isInViewport = (el) => el.getBoundingClientRect().top < window.innerHeight;
+
 // 共通フェードアップ
 gsap.utils.toArray(".js-fade-up").forEach((el) => {
   // 除外対象の要素
   if (isExcluded(el)) {
-    // タブレット・スマホでは完全にスキップ（インラインスタイルを設定しない）
     if (isTabletOrMobile) {
       el.style.opacity = "1";
       el.style.transform = "";
@@ -29,8 +31,6 @@ gsap.utils.toArray(".js-fade-up").forEach((el) => {
       el.style.scale = "";
       return;
     }
-    
-    // PCではopacityのみアニメーション
     gsap.fromTo(
       el,
       { opacity: 0 },
@@ -38,16 +38,19 @@ gsap.utils.toArray(".js-fade-up").forEach((el) => {
         opacity: 1,
         duration: 0.6,
         ease: "power2.out",
-        scrollTrigger: {
-          trigger: el,
-          start: "top 75%",
-        },
+        scrollTrigger: { trigger: el, start: "top 75%" },
       }
     );
     return;
   }
-  
-  // 通常の要素
+
+  // ページロード時にすでに表示されている要素はアニメーションなしで即表示
+  if (isTabletOrMobile || isInViewport(el)) {
+    gsap.set(el, { y: 0, opacity: 1 });
+    return;
+  }
+
+  // ビューポート外の要素はスクロールでフェードイン
   gsap.fromTo(
     el,
     { y: 40, opacity: 0 },
@@ -58,7 +61,8 @@ gsap.utils.toArray(".js-fade-up").forEach((el) => {
       ease: "power2.out",
       scrollTrigger: {
         trigger: el,
-        start: "top 75%",
+        start: "top 85%",
+        once: true,
       },
     }
   );
@@ -66,13 +70,18 @@ gsap.utils.toArray(".js-fade-up").forEach((el) => {
 
 // 通常フェード
 gsap.utils.toArray(".js-fade").forEach((el) => {
+  if (isTabletOrMobile || isInViewport(el)) {
+    gsap.set(el, { opacity: 1 });
+    return;
+  }
   gsap.to(el, {
     opacity: 1,
     duration: 0.6,
     ease: "power1.out",
     scrollTrigger: {
       trigger: el,
-      start: "top 75%",
+      start: "top 85%",
+      once: true,
     },
   });
 });

@@ -78,4 +78,13 @@ a {
   transform: scale(0.5);
 }
 
+@media (max-width: 768px) {
+  .js-fade,
+  .js-fade-up,
+  .js-stamp {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 

@@ -351,7 +351,7 @@
                 </a>
 
                 <!-- カード③ -->
-                <a href="<?php echo esc_url(home_url('/service-tour-guide/')); ?>" id="service-guide" class="service-detail__item">
+                <a href="<?php echo esc_url(home_url('/service-tour-guide/')); ?>" id="service-guide" class="service-detail__item js-fade-up">
                     <div class="service-detail__card">
                         <div class="service-detail__corner"></div>
                         <div class="service-detail__icon">
@@ -362,7 +362,7 @@
                             「半日プラン」「1日プラン」から選べる観光コースをご用意。音声ガイドまたは通訳付きで、港町横浜の魅力をしっかり味わえる大満足のプランです。
                         </p>
                     </div>
-                    <div class="service-detail__arrow js-fade-up">
+                    <div class="service-detail__arrow">
                         <span class="service-detail__arrow-btn" aria-label="詳細を見る"></span>
                     </div>
                 </a>
@@ -418,7 +418,7 @@
             </div>
             <div class="faq__inner inner">
                 <dl class="faq__list">
-                    <div class="faq__item js-fade-up">
+                    <div class="faq__item">
                         <dt>
                             <button class="faq__question" aria-expanded="false" aria-controls="faq-answer-1">
                                 <span class="faq__icon" aria-hidden="true">Q</span>
@@ -440,7 +440,7 @@
                         </dd>
                     </div>
 
-                    <div class="faq__item js-fade-up">
+                    <div class="faq__item">
                         <dt>
                             <button class="faq__question" aria-expanded="false" aria-controls="faq-answer-2">
                                 <span class="faq__icon" aria-hidden="true">Q</span>
@@ -463,7 +463,7 @@
                         </dd>
                     </div>
 
-                    <div class="faq__item js-fade-up">
+                    <div class="faq__item">
                         <dt>
                             <button class="faq__question" aria-expanded="false" aria-controls="faq-answer-3">
                                 <span class="faq__icon" aria-hidden="true">Q</span>
@@ -488,7 +488,7 @@
                         </dd>
                     </div>
 
-                    <div class="faq__item js-fade-up">
+                    <div class="faq__item">
                         <dt>
                             <button class="faq__question" aria-expanded="false" aria-controls="faq-answer-4">
                                 <span class="faq__icon" aria-hidden="true">Q</span>
