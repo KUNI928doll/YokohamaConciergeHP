@@ -630,11 +630,14 @@ document.addEventListener('DOMContentLoaded', function() {
       // フォームデータを作成
       const formData = new FormData(form);
 
-      // デバッグ: フォームデータの内容を確認
-      console.log('送信するデータ:');
-      for (let [key, value] of formData.entries()) {
-        console.log(key + ': ' + value);
-      }
+      // 現在の言語を検出して送信（TranslatePress の trp_data を優先）
+      const _trpLang = (typeof trp_data !== 'undefined' && trp_data.trp_current_language)
+        ? trp_data.trp_current_language : (document.documentElement.lang || 'ja');
+      const _lang = _trpLang === 'en_US' ? 'en'
+        : _trpLang.startsWith('zh') ? 'zh'
+        : _trpLang === 'ko_KR' ? 'ko'
+        : 'ja';
+      formData.append('lang', _lang);
 
       // サーバーに送信を試みる
       fetch('./api/send-reservation.php', {

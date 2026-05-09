@@ -456,7 +456,7 @@ function yokohama_concierge_enqueue_scripts() {
         'yokohama-about',
         get_template_directory_uri() . '/js/about.js',
         array('jquery', 'gsap'),
-        '1.0.0',
+        filemtime(get_template_directory() . '/js/about.js'),
         true
     );
     
@@ -1351,23 +1351,37 @@ add_action('template_redirect', 'yokohama_concierge_handle_stripe_success');
 function yokohama_concierge_send_to_make_webhook($post_id, $form_data) {
     $webhook_url = 'https://hook.us2.make.com/q4s664foazn8sn737ccpojfh964enyuu';
 
+    $fd = $form_data;
+
     $body = array(
-        'reservation_id' => (string)$post_id,
-        'name' => $form_data['name'] ?? '',
-        'email' => $form_data['email'] ?? '',
-        'phone' => $form_data['phone'] ?? '',
-        'gender' => $form_data['gender'] ?? '',
-        'nationality' => $form_data['nationality'] ?? '',
-        'address' => $form_data['address'] ?? '',
-        'passport' => $form_data['passport'] ?? '',
-        'stay' => $form_data['stay'] ?? '',
-        'companion' => $form_data['companion'] ?? '',
-        'cuisine' => $form_data['cuisine'] ?? ($form_data['diningCuisine'] ?? ($form_data['diningGenre'] ?? '')),
-        'raw_form_data' => wp_json_encode($form_data, JSON_UNESCAPED_UNICODE),
-        'submitted_at' => current_time('mysql'),
-        'source' => 'wordpress',
-        'form_name' => 'reservation',
+        'reservation_id'   => (string)$post_id,
+        'name'             => $fd['name']        ?? '',
+        'email'            => $fd['email']       ?? '',
+        'phone'            => $fd['phone']       ?? '',
+        'gender'           => $fd['gender']      ?? '',
+        'nationality'      => $fd['nationality'] ?? '',
+        'address'          => $fd['address']     ?? '',
+        'passport'         => $fd['passport']    ?? '',
+        'stay'             => $fd['stay']        ?? '',
+        'companion'        => $fd['companion']   ?? '',
+        'cuisine'          => $fd['cuisine'] ?? ($fd['diningCuisine'] ?? ($fd['diningGenre'] ?? '')),
+        'partner_name'     => ($fd['hotelProposal1Id']  ?? '') ?: ($fd['diningProposal1Id']  ?? ''),
+        'partner_address'  => ($fd['hotelShopAddress']  ?? '') ?: ($fd['diningShopAddress']  ?? ''),
+        'partner_phone'    => ($fd['hotelShopPhone']    ?? '') ?: ($fd['diningShopPhone']    ?? ''),
+        'reservation_date' => ($fd['hotelDate']  ?? '') ?: ($fd['diningDate']  ?? '') ?: ($fd['guideDate']   ?? '') ?: ($fd['luggageDate'] ?? ''),
+        'reservation_time' => ($fd['diningTime'] ?? '') ?: ($fd['luggageTime'] ?? ''),
+        'adult_count'      => ($fd['hotelAdults']    ?? '') ?: ($fd['diningAdults']    ?? '') ?: ($fd['guideAdults']   ?? ''),
+        'child_count'      => ($fd['hotelChildren']  ?? '') ?: ($fd['diningChildren']  ?? '') ?: ($fd['guideChildren'] ?? ''),
+        'trunk_count'      => $fd['luggageCount'] ?? '',
+        'guide_course'     => $fd['guideCourse']  ?? '',
+        'raw_form_data'    => wp_json_encode($fd, JSON_UNESCAPED_UNICODE),
+        'submitted_at'     => current_time('mysql'),
+        'source'           => 'wordpress',
+        'form_name'        => 'reservation',
     );
+
+    // payload全体をJSON文字列化したものを raw_payload として同梱
+    $body['raw_payload'] = wp_json_encode($body, JSON_UNESCAPED_UNICODE);
 
     $response = wp_remote_post($webhook_url, array(
         'method'  => 'POST',
@@ -1455,23 +1469,21 @@ function yokohama_concierge_send_reservation_emails($post_id, $form_data, $amoun
     
     wp_mail($admin_to, $admin_subject, $admin_message);
     
-    // 顧客への自動返信メール
-    $customer_subject = '【YOKOHAMA Concierge】ご予約を承りました';
-    $customer_message = $name . " 様\n\n";
-    $customer_message .= "この度はYOKOHAMA Conciergeをご利用いただき、誠にありがとうございます。\n\n";
-    $customer_message .= "ご予約の申し込みを承りました。\n";
-    $customer_message .= "決済が完了いたしましたので、正式に予約が確定いたしました。\n";
-    $customer_message .= "担当者より改めてご連絡させていただきます。\n\n";
-    
-    $customer_message .= "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n";
-    $customer_message .= "申し込み内容\n";
-    $customer_message .= "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n";
-    
-    $customer_message .= "予約ID: #" . $post_id . "\n";
-    $customer_message .= "お名前: " . $name . "\n";
-    $customer_message .= "電話番号: " . $phone . "\n";
-    $customer_message .= "メールアドレス: " . $email . "\n";
-    $customer_message .= "お支払い金額: ¥" . number_format($amount_total) . "\n\n";
+    // 顧客への自動返信メール（api/send-reservation.php の generateCustomerEmailBody と整合）
+    $customer_subject = '【YOKOHAMA Concierge】ご予約受付完了／現在手配中のお知らせ';
+    $customer_message = $name . " 様\n";
+    $customer_message .= "この度はYOKOHAMA Concierge（ハマナビサービス）をご利用いただき、誠にありがとうございます。\n";
+    $customer_message .= "ご予約のお申し込みおよび決済を確認いたしました。\n";
+    $customer_message .= "現在、ご希望内容に基づき提携店舗・提携事業者へ予約手配を進めております。\n";
+    $customer_message .= "ご希望の日時・内容にて手配が完了次第、担当者より正式な「予約確定メール」を改めてお送りいたしますので、今しばらくお待ちください。\n";
+    $customer_message .= "なお、満席・満室・予約不可等によりご希望内容での手配が難しい場合は、同等条件の代替候補をご提案させていただく場合がございます。その際はメールにてご相談申し上げます。\n";
+    $customer_message .= "\n";
+    $customer_message .= "受付内容\n";
+    $customer_message .= "予約ID：#" . $post_id . "\n";
+    $customer_message .= "お名前：" . $name . "\n";
+    $customer_message .= "電話番号：" . $phone . "\n";
+    $customer_message .= "メールアドレス：" . $email . "\n";
+    $customer_message .= "お支払い金額：¥" . number_format($amount_total) . "\n";
     
     // 予約内容の詳細
     if (isset($form_data['guideCourse'])) {
@@ -1487,53 +1499,60 @@ function yokohama_concierge_send_reservation_emails($post_id, $form_data, $amoun
         if (isset($course_map[$course_label])) {
             $course_label = $course_map[$course_label];
         }
-        $customer_message .= "観光ガイドサービス: " . $course_label . "\n";
+        $customer_message .= "【観光ガイドサービス】\n";
+        $customer_message .= "コース：" . $course_label . "\n";
         if (isset($form_data['guideArea'])) {
-            $customer_message .= "  エリア: " . $form_data['guideArea'] . "\n";
+            $customer_message .= "エリア：" . $form_data['guideArea'] . "\n";
         }
         if (!empty($form_data['guideDate'])) {
-            $customer_message .= "  予約日: " . $form_data['guideDate'] . "\n";
+            $customer_message .= "予約日：" . $form_data['guideDate'] . "\n";
         }
         $guide_adults = isset($form_data['guideAdults']) ? intval($form_data['guideAdults']) : 0;
         $guide_children = isset($form_data['guideChildren']) ? intval($form_data['guideChildren']) : 0;
         if ($guide_adults > 0 || $guide_children > 0) {
-            $customer_message .= "  人数: 大人{$guide_adults}名 / 子供{$guide_children}名\n";
+            $customer_message .= "人数：大人{$guide_adults}名 / 子供{$guide_children}名\n";
         }
+        $customer_message .= "\n";
     }
     if (isset($form_data['hotelDate'])) {
-        $customer_message .= "ホテル予約代行: " . $form_data['hotelDate'] . "\n";
+        $customer_message .= "【ホテル予約代行サービス】\n";
+        $customer_message .= "予約日：" . $form_data['hotelDate'] . "\n";
         if (isset($form_data['hotelFinalSelection'])) {
             $proposal_num = $form_data['hotelFinalSelection'];
             $proposal_text = isset($form_data['hotelProposal' . $proposal_num]) ? $form_data['hotelProposal' . $proposal_num] : '';
-            $customer_message .= "  選択された提案: " . $proposal_text . "\n";
+            $customer_message .= "ご提案内容：" . $proposal_text . "\n";
         }
+        $customer_message .= "\n";
     }
     if (isset($form_data['diningDate'])) {
-        $customer_message .= "飲食店舗予約代行: " . $form_data['diningDate'] . "\n";
+        $customer_message .= "【飲食店舗予約代行サービス】\n";
+        $customer_message .= "予約日：" . $form_data['diningDate'] . "\n";
         if (!empty($form_data['diningTime'])) {
-            $customer_message .= "  予約時間: " . $form_data['diningTime'] . "\n";
+            $customer_message .= "予約時間：" . $form_data['diningTime'] . "\n";
         }
         if (isset($form_data['diningFinalSelection'])) {
             $proposal_num = $form_data['diningFinalSelection'];
             $proposal_text = isset($form_data['diningProposal' . $proposal_num]) ? $form_data['diningProposal' . $proposal_num] : '';
-            $customer_message .= "  選択された提案: " . $proposal_text . "\n";
+            $customer_message .= "ご提案内容：" . $proposal_text . "\n";
         }
+        $customer_message .= "\n";
     }
     if (isset($form_data['luggageCount']) && intval($form_data['luggageCount']) > 0) {
-        $customer_message .= "トランクお預かり: " . $form_data['luggageCount'] . "個\n";
+        $customer_message .= "【トランクお預かりサービス】\n";
+        $customer_message .= "個数：" . $form_data['luggageCount'] . "個\n";
         if (!empty($form_data['luggageTime'])) {
-            $customer_message .= "  お預かり時間: " . $form_data['luggageTime'] . "\n";
+            $customer_message .= "お預かり時間：" . $form_data['luggageTime'] . "\n";
         }
+        $customer_message .= "\n";
     }
-    
-    $customer_message .= "\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n";
-    
+
+    $customer_message .= "\n";
     $customer_message .= "【お問い合わせ先】\n";
-    $customer_message .= "YOKOHAMA Concierge\n";
-    $customer_message .= "Email: info@hamanavi-s.jp\n\n";
-    
+    $customer_message .= "YOKOHAMA Concierge（ハマナビサービス）\n";
+    $customer_message .= "Email：info@hamanavi-s.jp\n";
+    $customer_message .= "TEL：070-1526-3845\n";
     $customer_message .= "※このメールは自動送信されています。\n";
-    $customer_message .= "※ご不明な点がございましたら、上記連絡先までお問い合わせください。\n";
+    $customer_message .= "※正式な予約確定は、担当者からの別途ご連絡をもって完了となります。\n";
     
     $customer_headers = array(
         'Content-Type: text/plain; charset=UTF-8',

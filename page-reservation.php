@@ -253,7 +253,8 @@ get_header();
                     <div class="reservation-form__field reservation-form__field--full">
                         <label for="guide-notes" class="reservation-form__label">その他ご要望事項</label>
                         <textarea id="guide-notes" name="guideNotes" class="reservation-form__textarea" rows="4"
-                            placeholder="通訳の有無、特別対応などございましたらご入力ください"></textarea>
+                            placeholder="通訳の有無、特別対応などございましたらご入力ください
+Please enter any special requests in English if possible."></textarea>
                     </div>
                 </div>
 
@@ -315,7 +316,8 @@ get_header();
                     <div class="reservation-form__field reservation-form__field--full">
                         <label for="hotel-request" class="reservation-form__label">その他ご希望事項</label>
                         <textarea id="hotel-request" name="hotelRequest" class="reservation-form__textarea" rows="4"
-                            placeholder="部屋タイプ、ベッド数、送迎希望など"></textarea>
+                            placeholder="部屋タイプ、ベッド数、送迎希望など
+Please enter any special requests in English if possible."></textarea>
                     </div>
                     <div class="reservation-form__field reservation-form__field--full">
                         <p class="reservation-form__label">ハマナビからの提案</p>
@@ -339,10 +341,13 @@ get_header();
                                 <textarea id="hotel-proposal-1" name="hotelProposal1" class="reservation-form__textarea"
                                     rows="4" placeholder="ホテルを選択するか、直接入力してください" readonly></textarea>
                                 <input type="hidden" id="hotel-proposal-1-id" name="hotelProposal1Id">
+                                <input type="hidden" id="hotel-shop-address" name="hotelShopAddress">
+                                <input type="hidden" id="hotel-shop-phone" name="hotelShopPhone">
                             </div>
                         </div>
                         <div class="reservation-form__proposal-actions">
                             <button type="button" class="btn btn--orange btn--sm make-action-btn" data-section="hotel" data-status="approve">この内容で予約する</button>
+                            <p class="reservation-form__action-note">下記HP入力内容を確認するボタンを押して、カード情報の入力後、予約入力項目完了となります。</p>
                         </div>
                     </div>
                 </div>
@@ -443,7 +448,8 @@ get_header();
                     <div class="reservation-form__field reservation-form__field--full">
                         <label for="dining-request" class="reservation-form__label">その他ご希望事項</label>
                         <textarea id="dining-request" name="diningRequest" class="reservation-form__textarea"
-                            rows="4" placeholder="アレルギーや記念日利用などございましたらご入力ください"></textarea>
+                            rows="4" placeholder="アレルギーや記念日利用などございましたらご入力ください
+Please enter any special requests in English if possible."></textarea>
                     </div>
                     <div class="reservation-form__field reservation-form__field--full">
                         <p class="reservation-form__label">ハマナビからの提案</p>
@@ -467,10 +473,13 @@ get_header();
                                 <textarea id="dining-proposal-1" name="diningProposal1"
                                     class="reservation-form__textarea" rows="4" placeholder="レストランを選択するか、直接入力してください" readonly></textarea>
                                 <input type="hidden" id="dining-proposal-1-id" name="diningProposal1Id">
+                                <input type="hidden" id="dining-shop-address" name="diningShopAddress">
+                                <input type="hidden" id="dining-shop-phone" name="diningShopPhone">
                             </div>
                         </div>
                         <div class="reservation-form__proposal-actions">
                             <button type="button" class="btn btn--orange btn--sm make-action-btn" data-section="dining" data-status="approve">この内容で予約する</button>
+                            <p class="reservation-form__action-note">下記HP入力内容を確認するボタンを押して、カード情報の入力後、予約入力項目完了となります。</p>
                         </div>
                     </div>
                 </div>
@@ -512,7 +521,8 @@ get_header();
                     <div class="reservation-form__field reservation-form__field--full">
                         <label for="luggage-notes" class="reservation-form__label">その他ご希望事項</label>
                         <textarea id="luggage-notes" name="luggageNotes" class="reservation-form__textarea" rows="4"
-                            placeholder="サイズや受け渡し希望時間など"></textarea>
+                            placeholder="サイズや受け渡し希望時間など
+Please enter any special requests in English if possible."></textarea>
                     </div>
                 </div>
 

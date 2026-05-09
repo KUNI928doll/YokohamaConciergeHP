@@ -403,13 +403,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // お店を提案欄にセット
   function selectShop(shop, slot) {
-    const prefix   = currentCategory === 'hotels' ? 'hotel' : 'dining';
-    const textarea = document.getElementById(`${prefix}-proposal-${slot}`);
-    const hidden   = document.getElementById(`${prefix}-proposal-${slot}-id`);
+    const prefix        = currentCategory === 'hotels' ? 'hotel' : 'dining';
+    const textarea      = document.getElementById(`${prefix}-proposal-${slot}`);
+    const hidden        = document.getElementById(`${prefix}-proposal-${slot}-id`);
+    const hiddenAddress = document.getElementById(`${prefix}-shop-address`);
+    const hiddenPhone   = document.getElementById(`${prefix}-shop-phone`);
     if (!textarea) return;
     textarea.value = formatShopInfo(shop);
     textarea.removeAttribute('readonly');
-    if (hidden) hidden.value = shop.name;
+    if (hidden)        hidden.value        = shop.name;
+    if (hiddenAddress) hiddenAddress.value = shop.address;
+    if (hiddenPhone)   hiddenPhone.value   = shop.phone;
     closeModal();
     showToast(t('toastAdded', shop.name));
   }
@@ -502,32 +506,57 @@ document.addEventListener('DOMContentLoaded', function() {
   // Makeに送るフォームデータを収集
   function collectMakePayload(section, status) {
     const data = {
-      status:   status,
-      type:     section === 'hotel' ? 'hotel' : 'restaurant',
-      name:     document.getElementById('reservation-name')?.value  || '',
-      email:    document.getElementById('reservation-email')?.value || '',
-      phone:    document.getElementById('reservation-phone')?.value || ''
+      status:      status,
+      type:        section === 'hotel' ? 'hotel' : 'restaurant',
+      name:        document.getElementById('reservation-name')?.value  || '',
+      email:       document.getElementById('reservation-email')?.value || '',
+      phone:       document.getElementById('reservation-phone')?.value || '',
+      guide_course: document.getElementById('guide-course')?.value     || '',
+      trunk_count:  document.getElementById('luggage-count')?.value    || '',
     };
 
     if (section === 'hotel') {
-      data.date     = document.getElementById('hotel-date')?.value     || '';
-      data.area     = document.getElementById('hotel-area')?.value     || '';
-      data.budget   = document.getElementById('hotel-budget')?.value   || '';
-      data.adults   = document.getElementById('hotel-adults')?.value   || '0';
-      data.children = document.getElementById('hotel-children')?.value || '0';
-      data.request  = document.getElementById('hotel-request')?.value  || '';
-      data.proposal = document.getElementById('hotel-proposal-1')?.value || '';
+      data.date             = document.getElementById('hotel-date')?.value          || '';
+      data.area             = document.getElementById('hotel-area')?.value          || '';
+      data.budget           = document.getElementById('hotel-budget')?.value        || '';
+      data.adults           = document.getElementById('hotel-adults')?.value        || '0';
+      data.children         = document.getElementById('hotel-children')?.value      || '0';
+      data.request          = document.getElementById('hotel-request')?.value       || '';
+      data.proposal         = document.getElementById('hotel-proposal-1')?.value    || '';
+      data.shop_name        = document.getElementById('hotel-proposal-1-id')?.value || '';
+      data.shop_address     = document.getElementById('hotel-shop-address')?.value  || '';
+      data.shop_phone       = document.getElementById('hotel-shop-phone')?.value    || '';
+      data.reservation_date = data.date;
+      data.reservation_time = '';
+      data.adult_count      = data.adults;
+      data.child_count      = data.children;
+      data.partner_name     = data.shop_name;
+      data.partner_address  = data.shop_address;
+      data.partner_phone    = data.shop_phone;
     } else {
-      data.date     = document.getElementById('dining-date')?.value     || '';
-      data.time     = document.getElementById('dining-time')?.value     || '';
-      data.area     = document.getElementById('dining-area')?.value     || '';
-      data.cuisine  = document.getElementById('dining-cuisine')?.value  || '';
-      data.budget   = document.getElementById('dining-budget')?.value   || '';
-      data.adults   = document.getElementById('dining-adults')?.value   || '0';
-      data.children = document.getElementById('dining-children')?.value || '0';
-      data.request  = document.getElementById('dining-request')?.value  || '';
-      data.proposal = document.getElementById('dining-proposal-1')?.value || '';
+      data.date             = document.getElementById('dining-date')?.value          || '';
+      data.time             = document.getElementById('dining-time')?.value          || '';
+      data.area             = document.getElementById('dining-area')?.value          || '';
+      data.cuisine          = document.getElementById('dining-cuisine')?.value       || '';
+      data.budget           = document.getElementById('dining-budget')?.value        || '';
+      data.adults           = document.getElementById('dining-adults')?.value        || '0';
+      data.children         = document.getElementById('dining-children')?.value      || '0';
+      data.request          = document.getElementById('dining-request')?.value       || '';
+      data.proposal         = document.getElementById('dining-proposal-1')?.value    || '';
+      data.shop_name        = document.getElementById('dining-proposal-1-id')?.value || '';
+      data.shop_address     = document.getElementById('dining-shop-address')?.value  || '';
+      data.shop_phone       = document.getElementById('dining-shop-phone')?.value    || '';
+      data.reservation_date = data.date;
+      data.reservation_time = data.time;
+      data.adult_count      = data.adults;
+      data.child_count      = data.children;
+      data.partner_name     = data.shop_name;
+      data.partner_address  = data.shop_address;
+      data.partner_phone    = data.shop_phone;
     }
+
+    // payload全体をJSON文字列化したものを raw_payload として同梱
+    data.raw_payload = JSON.stringify(data);
 
     return data;
   }
@@ -551,7 +580,9 @@ document.addEventListener('DOMContentLoaded', function() {
       { id: 'hotel-children',      type: 'number' },
       { id: 'hotel-request',       type: 'textarea' },
       { id: 'hotel-proposal-1',    type: 'proposal' },
-      { id: 'hotel-proposal-1-id', type: 'hidden' }
+      { id: 'hotel-proposal-1-id', type: 'hidden' },
+      { id: 'hotel-shop-address',  type: 'hidden' },
+      { id: 'hotel-shop-phone',    type: 'hidden' }
     ],
     dining: [
       { id: 'dining-date',          type: 'input' },
@@ -563,7 +594,9 @@ document.addEventListener('DOMContentLoaded', function() {
       { id: 'dining-children',      type: 'number' },
       { id: 'dining-request',       type: 'textarea' },
       { id: 'dining-proposal-1',    type: 'proposal' },
-      { id: 'dining-proposal-1-id', type: 'hidden' }
+      { id: 'dining-proposal-1-id', type: 'hidden' },
+      { id: 'dining-shop-address',  type: 'hidden' },
+      { id: 'dining-shop-phone',    type: 'hidden' }
     ],
     luggage: [
       { id: 'luggage-date',  type: 'input' },
@@ -593,11 +626,16 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.reservation-form__clear-btn').forEach(btn => {
     btn.addEventListener('click', function(e) {
       e.stopPropagation();
-      const target      = this.dataset.target;
-      const textarea    = document.getElementById(target);
-      const hiddenInput = document.getElementById(`${target}-id`);
-      if (textarea)    { textarea.value = ''; textarea.setAttribute('readonly', 'readonly'); }
-      if (hiddenInput) hiddenInput.value = '';
+      const target        = this.dataset.target;
+      const textarea      = document.getElementById(target);
+      const hiddenInput   = document.getElementById(`${target}-id`);
+      const prefix        = target.startsWith('hotel') ? 'hotel' : 'dining';
+      const hiddenAddress = document.getElementById(`${prefix}-shop-address`);
+      const hiddenPhone   = document.getElementById(`${prefix}-shop-phone`);
+      if (textarea)      { textarea.value = ''; textarea.setAttribute('readonly', 'readonly'); }
+      if (hiddenInput)   hiddenInput.value   = '';
+      if (hiddenAddress) hiddenAddress.value = '';
+      if (hiddenPhone)   hiddenPhone.value   = '';
       showToast(t('toastClear'));
     });
   });

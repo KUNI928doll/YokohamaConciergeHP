@@ -338,12 +338,14 @@
 
   &__proposal-actions {
     display: flex;
+    align-items: center;
     gap: 12px;
     margin-top: 16px;
     flex-wrap: wrap;
 
     @include mq($until: sp-large) {
       flex-direction: column;
+      align-items: flex-start;
       gap: 10px;
 
       .btn {
@@ -351,6 +353,13 @@
         justify-content: center;
       }
     }
+  }
+
+  &__action-note {
+    color: #e00;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin-bottom: 0;
   }
 
   &__actions {
