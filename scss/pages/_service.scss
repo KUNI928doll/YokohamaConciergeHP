@@ -327,7 +327,7 @@
     position: relative;
     text-decoration: none;
     color: inherit;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
 
     @media (hover: hover) {
       &:hover {
