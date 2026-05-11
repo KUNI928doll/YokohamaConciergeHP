@@ -1557,8 +1557,10 @@ function yokohama_concierge_send_reservation_emails($post_id, $form_data, $amoun
     $customer_headers = array(
         'Content-Type: text/plain; charset=UTF-8',
         'From: YOKOHAMA Concierge <' . get_option('admin_email') . '>',
+        'Reply-To: info@hamanavi-s.jp',
+        'Bcc: info@hamanavi-s.jp',
     );
-    
+
     wp_mail($email, $customer_subject, $customer_message, $customer_headers);
 }
 
