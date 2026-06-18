@@ -1130,6 +1130,7 @@ function yokohama_concierge_create_stripe_session() {
                 home_url('/reservation/')
             ),
             'customer_email' => $email,
+            'payment_intent_data[receipt_email]' => $email,
             'metadata[name]' => $name,
             'metadata[email]' => $email,
             'metadata[temp_key]' => $temp_key,  // メタデータにも保存
