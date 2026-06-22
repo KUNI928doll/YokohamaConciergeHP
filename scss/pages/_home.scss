@@ -137,11 +137,11 @@
     font-size: clamp(24px, calc(12.2934px + 3.1217 * 1vw), 54px);
     font-family: var(--font-sub);
     font-weight: normal;
-    margin-top: 17px;
     letter-spacing: -3px;
   }
 
-  &__subtitle {
+  &__subt
+  itle {
     font-size: clamp(20px, calc(20px + (36 - 20) * ((100vw - 375px) / (1336 - 375))), 36px);
     font-family: var(--font-sub);
     font-weight: normal;

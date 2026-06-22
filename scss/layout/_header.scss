@@ -847,13 +847,15 @@
   background-color: #fff;
   color: #fff;
   transform: translateX(100%); // ← 右に隠す
-  transition: transform 0.4s ease;
+  visibility: hidden; // position:fixed はbodyのoverflow-x:hiddenで抑制できないため
+  transition: transform 0.4s ease, visibility 0.4s ease;
   z-index: 9999;
   overflow-y: auto;
   box-shadow: -4px 0 16px rgba(0, 0, 0, 0.2);
 
   &.is-open {
     transform: translateX(0); // ← 開くと表示
+    visibility: visible;
   }
 
   .spmenu__home {
@@ -897,6 +899,35 @@
 .header__toggle.is-active,
 body.spmenu-open .header__toggle {
   display: none !important;
+}
+
+// ======================================
+// SP用ヘッダー言語切り替え（ハンバーガー外）
+// ======================================
+.header__lang-sp {
+  display: none;
+
+  @include mq($until: sp-large) {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 8px;
+
+    // ドロップダウンを下向きに開く・デフォルト非表示
+    .header__language-wrapper.lang-switch {
+      .trp-switcher-dropdown-list {
+        bottom: auto;
+        top: calc(100% + 8px);
+        max-height: 0 !important;
+        overflow: hidden !important;
+      }
+
+      &.is-open .trp-switcher-dropdown-list {
+        max-height: min(350px, 50vh) !important;
+        overflow: auto !important;
+      }
+    }
+  }
 }
 
 /* 言語切り替え全体 */

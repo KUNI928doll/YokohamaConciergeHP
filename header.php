@@ -93,6 +93,15 @@
                     </div>
                 </div>
             </nav>
+            <!-- SP用言語切り替え（ハンバーガー外） -->
+            <div class="header__lang-sp">
+                <div class="header__language-wrapper lang-switch">
+                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/header_globeicon.png" alt="地球アイコン"
+                        class="header__icon header__icon--globe" width="26" height="24">
+                    <?php echo do_shortcode('[language-switcher]'); ?>
+                </div>
+            </div>
+
             <!-- ハンバーガー -->
             <button type="button" class="header__toggle u-visible-sp" aria-controls="global-nav" aria-expanded="false"
                 aria-label="メニューを開く">
@@ -109,11 +118,6 @@
                 <div class="spmenu">
                     <div class="spmenu__top">
                         <a href="<?php echo esc_url(home_url('/reservation')); ?>" class="btn btn--orange btn--sm spmenu__reserve">予約する</a>
-                        <div class="header__language-wrapper lang-switch">
-                            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/header_globeicon.png" alt="地球アイコン"
-                                class="header__icon header__icon--globe" width="26" height="24">
-                            <?php echo do_shortcode('[language-switcher]'); ?>
-                        </div>
                         <button type="button" class="spmenu__close js-spmenu-close" aria-label="メニューを閉じる">
                             <span class="spmenu__close-icon"></span>
                             <span class="spmenu__close-text">CLOSE</span>

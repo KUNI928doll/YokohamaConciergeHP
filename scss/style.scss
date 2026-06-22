@@ -18,9 +18,9 @@
 }
 
 .u-visible-sp {
-  display: none;
+  display: none !important;
   @include mq($until: sp-large) {
-    display: block;
+    display: block !important;
   }
 }
 
