@@ -471,35 +471,12 @@ document.addEventListener('DOMContentLoaded', function() {
     if (e.key === 'Escape' && shopModal && shopModal.style.display === 'flex') closeModal();
   });
 
-  // Make Webhook ボタン（この内容で予約する）
-  // <a>のGETではなくフォームデータをPOSTで送信する
+  // 「この内容で予約する」ボタン
+  // Webhook送信はStripe決済完了後のサーバーサイド処理（functions.php）で一元化するため、
+  // このボタンでは送信しない。クリック時は選択確定のUIフィードバックのみ表示する。
   document.querySelectorAll('.make-action-btn').forEach(btn => {
     btn.addEventListener('click', function() {
-      const section = this.dataset.section;  // 'hotel' or 'dining'
-      const status  = this.dataset.status;   // 'approve'
-      const payload = collectMakePayload(section, status);
-
-      const originalHtml = this.innerHTML;
-      this.disabled = true;
-      this.innerHTML = `<i class="fas fa-spinner fa-spin" aria-hidden="true"></i> ${t('sending')}`;
-      const self = this;
-
-      fetch(MAKE_WEBHOOK_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      })
-      .then(r => r.text())
-      .then(() => {
-        showToast(t('toastApprove'));
-      })
-      .catch(() => {
-        showToast(t('toastError'));
-      })
-      .finally(() => {
-        self.disabled = false;
-        self.innerHTML = originalHtml;
-      });
+      showToast(t('toastApprove'));
     });
   });
 
