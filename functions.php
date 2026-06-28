@@ -1411,7 +1411,7 @@ function yokohama_concierge_send_reservation_emails($post_id, $form_data, $amoun
     $phone = isset($form_data['phone']) ? $form_data['phone'] : '';
     
     // 管理者へのメール
-    $admin_to = get_option('admin_email');
+    $admin_to = 'info@hamanavi-s.jp';
     $admin_subject = '【YOKOHAMA Concierge】予約フォームからのお問い合わせ（決済完了）';
     $admin_message = "予約フォームからお問い合わせがありました（決済完了）。\n\n";
     $admin_message .= "予約ID: #" . $post_id . "\n";
@@ -1467,8 +1467,15 @@ function yokohama_concierge_send_reservation_emails($post_id, $form_data, $amoun
     }
     
     $admin_message .= "\n詳細は管理画面でご確認ください: " . admin_url('post.php?post=' . $post_id . '&action=edit') . "\n";
-    
-    wp_mail($admin_to, $admin_subject, $admin_message);
+
+    $admin_headers = array(
+        'Content-Type: text/plain; charset=UTF-8',
+        'From: YOKOHAMA Concierge <info@hamanavi-s.jp>',
+        'Reply-To: info@hamanavi-s.jp',
+        'Bcc: yukichikun0202@gmail.com',
+    );
+
+    wp_mail($admin_to, $admin_subject, $admin_message, $admin_headers);
     
     // 顧客への自動返信メール（api/send-reservation.php の generateCustomerEmailBody と整合）
     $customer_subject = '【YOKOHAMA Concierge】ご予約受付完了／現在手配中のお知らせ';
@@ -1559,7 +1566,7 @@ function yokohama_concierge_send_reservation_emails($post_id, $form_data, $amoun
         'Content-Type: text/plain; charset=UTF-8',
         'From: YOKOHAMA Concierge <' . get_option('admin_email') . '>',
         'Reply-To: info@hamanavi-s.jp',
-        'Bcc: info@hamanavi-s.jp',
+        'Bcc: info@hamanavi-s.jp, yukichikun0202@gmail.com',
     );
 
     wp_mail($email, $customer_subject, $customer_message, $customer_headers);
