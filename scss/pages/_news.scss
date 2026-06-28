@@ -111,6 +111,7 @@
   margin-bottom: 50px;
   @include mq(sp-large) {
     gap: 40px;
+    white-space: nowrap;
   }
 
   label {
