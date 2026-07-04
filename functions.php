@@ -250,16 +250,16 @@ function yokohama_concierge_add_ogp_tags() {
     $site_name = 'YOKOHAMA Concierge（ハマナビサービス）';
     $og_title = wp_get_document_title();
     $og_type = is_front_page() ? 'website' : 'article';
-    $og_url = get_permalink();
-    $og_description = '';
+    $og_description = yokohama_concierge_get_meta_description();
     $og_image = get_template_directory_uri() . '/images/header_logo-pc.png';
 
-    // ディスクリプションの取得
-    if (is_singular()) {
-        $og_description = get_the_excerpt();
-    }
-    if (empty($og_description)) {
-        $og_description = get_bloginfo('description');
+    // URLの取得（アーカイブ等でget_permalink()がfalseになるのを防ぐ）
+    if (is_front_page()) {
+        $og_url = home_url('/');
+    } elseif (is_home() && get_option('page_for_posts')) {
+        $og_url = get_permalink(get_option('page_for_posts'));
+    } else {
+        $og_url = get_permalink();
     }
 
     // アイキャッチ画像がある場合は優先
@@ -270,7 +270,9 @@ function yokohama_concierge_add_ogp_tags() {
     echo '<meta property="og:site_name" content="' . esc_attr($site_name) . '">' . "\n";
     echo '<meta property="og:title" content="' . esc_attr($og_title) . '">' . "\n";
     echo '<meta property="og:type" content="' . esc_attr($og_type) . '">' . "\n";
-    echo '<meta property="og:url" content="' . esc_url($og_url) . '">' . "\n";
+    if ($og_url) {
+        echo '<meta property="og:url" content="' . esc_url($og_url) . '">' . "\n";
+    }
     echo '<meta property="og:description" content="' . esc_attr($og_description) . '">' . "\n";
     echo '<meta property="og:image" content="' . esc_url($og_image) . '">' . "\n";
 
@@ -281,6 +283,95 @@ function yokohama_concierge_add_ogp_tags() {
     echo '<meta name="twitter:image" content="' . esc_url($og_image) . '">' . "\n";
 }
 add_action('wp_head', 'yokohama_concierge_add_ogp_tags', 1);
+
+// ページに応じたmeta descriptionの文言を返す
+function yokohama_concierge_get_meta_description() {
+    // 固定ページごとの説明文（スラッグ => 説明文）
+    $page_descriptions = array(
+        'service-reserve'    => '横浜のホテル・飲食店・体験アクティビティの予約を代行するサービスです。言葉の心配なく、ご希望の日時・条件に合わせてYOKOHAMA Conciergeのスタッフが手配いたします。',
+        'service-storage'    => '横浜観光を手ぶらで楽しめるトランク（スーツケース・手荷物）お預かりサービスです。チェックイン前・チェックアウト後の観光に便利にご利用いただけます。',
+        'service-tour-guide' => '元町・中華街・みなとみらいなど横浜の名所を、半日コース・1日コースでご案内する観光ガイドサービスです。通訳付きプランもご用意しています。',
+        'yokohama'           => '元町・山手、中華街・山下公園、日本大通り、馬車道、桜木町、関内、みなとみらいなど、横浜の主要エリアの見どころとアクセスをご紹介します。',
+        'contact'            => 'YOKOHAMA Concierge（ハマナビサービス）へのお問い合わせページです。サービス内容やご予約、お見積もりについてお気軽にご相談ください。対応時間10:00〜18:00。',
+        'reservation'        => '予約代行・トランクお預かり・観光ガイドサービスのご予約フォームです。安全なオンライン決済（Stripe）に対応しています。',
+        'news'               => 'YOKOHAMA Concierge（ハマナビサービス）からのお知らせと、横浜のイベント情報をお届けします。',
+        'privacy'            => 'YOKOHAMA Concierge（ハマナビサービス）のプライバシーポリシー（個人情報保護方針）です。',
+        'terms'              => 'YOKOHAMA Concierge（ハマナビサービス）の利用規約です。',
+        'commercial'         => 'YOKOHAMA Concierge（ハマナビサービス）の特定商取引法に基づく表記です。',
+    );
+
+    // トップページ
+    if (is_front_page()) {
+        return '横浜を訪れる外国人旅行者向けコンシェルジュサービス「YOKOHAMA Concierge（ハマナビサービス）」。ホテル・飲食店の予約代行、トランクお預かり、観光ガイドで横浜での特別な体験をサポートします。';
+    }
+
+    // 投稿一覧（お知らせ・イベント）
+    if (is_home()) {
+        return $page_descriptions['news'];
+    }
+
+    // 個別投稿は抜粋を使用
+    if (is_singular('post')) {
+        $excerpt = get_the_excerpt();
+        if ($excerpt) {
+            // 自動抜粋の省略記号（ [&hellip;] ）を除去してから切り詰める
+            $excerpt = wp_strip_all_tags($excerpt);
+            $excerpt = str_replace(array('[&hellip;]', '[…]'), '', $excerpt);
+            return mb_substr(trim($excerpt), 0, 120);
+        }
+    }
+
+    // 固定ページはスラッグから取得
+    if (is_page()) {
+        $slug = get_post_field('post_name', get_queried_object_id());
+        if (isset($page_descriptions[$slug])) {
+            return $page_descriptions[$slug];
+        }
+    }
+
+    return get_bloginfo('description');
+}
+
+// meta descriptionを出力
+function yokohama_concierge_add_meta_description() {
+    // プラグインでSEO設定されている場合はスキップ
+    if (defined('WPSEO_VERSION') || class_exists('All_in_One_SEO_Pack')) {
+        return;
+    }
+
+    // 検索結果・404には出力しない
+    if (is_search() || is_404()) {
+        return;
+    }
+
+    $description = yokohama_concierge_get_meta_description();
+    if ($description) {
+        echo '<meta name="description" content="' . esc_attr($description) . '">' . "\n";
+    }
+}
+add_action('wp_head', 'yokohama_concierge_add_meta_description', 1);
+
+// canonicalを出力（個別投稿・固定ページはWP標準のrel_canonicalが出力するため対象外）
+function yokohama_concierge_add_canonical() {
+    if (is_singular()) {
+        return;
+    }
+
+    $canonical = '';
+    if (is_front_page()) {
+        $canonical = home_url('/');
+    } elseif (is_home() && get_option('page_for_posts')) {
+        $canonical = get_permalink(get_option('page_for_posts'));
+    }
+
+    if ($canonical) {
+        echo '<link rel="canonical" href="' . esc_url($canonical) . '">' . "\n";
+    }
+}
+add_action('wp_head', 'yokohama_concierge_add_canonical', 1);
+
+// 検索結果ページをnoindexにする（重複・低品質ページのインデックス防止）
+add_filter('wp_robots', 'wp_robots_noindex_search');
 
 
 
