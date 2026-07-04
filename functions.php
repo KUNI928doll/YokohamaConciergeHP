@@ -499,23 +499,23 @@ function yokohama_concierge_enqueue_scripts() {
     // jQuery（WordPressに含まれているものを使用）
     wp_enqueue_script('jquery');
     
-    // GSAP（ヘッダーで読み込み）
+    // GSAP（フッターで読み込み・バージョン固定でCDNの勝手な更新による破損を防ぐ）
     wp_enqueue_script(
         'gsap',
-        'https://unpkg.com/gsap@3/dist/gsap.min.js',
+        'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js',
         array(),
-        '3.0.0',
-        false // ヘッダーで読み込み
+        '3.12.5',
+        true // フッターで読み込み
     );
-    
+
     wp_enqueue_script(
         'gsap-scrolltrigger',
-        'https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js',
+        'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js',
         array('gsap'),
-        '3.0.0',
-        false // ヘッダーで読み込み
+        '3.12.5',
+        true // フッターで読み込み
     );
-    
+
     // Slick Carousel（フッターで読み込み）
     wp_enqueue_script(
         'slick-carousel',
@@ -524,16 +524,7 @@ function yokohama_concierge_enqueue_scripts() {
         '1.8.1',
         true // フッターで読み込み
     );
-    
-    // Swiper（フッターで読み込み）
-    wp_enqueue_script(
-        'swiper',
-        'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js',
-        array(),
-        '10.0.0',
-        true
-    );
-    
+
     // カスタムスクリプト（フッターで読み込み）
     wp_enqueue_script(
         'yokohama-header',
