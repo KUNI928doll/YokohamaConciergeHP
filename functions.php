@@ -1432,7 +1432,10 @@ add_action('template_redirect', 'yokohama_concierge_handle_stripe_success');
 
 // Make Webhook送信関数
 function yokohama_concierge_send_to_make_webhook($post_id, $form_data) {
-    $webhook_url = 'https://hook.us2.make.com/q4s664foazn8sn737ccpojfh964enyuu';
+    // wp-config.php で YOKOHAMA_MAKE_WEBHOOK_URL を定義するとそちらを優先（URLをコード外で管理できる）
+    $webhook_url = defined('YOKOHAMA_MAKE_WEBHOOK_URL')
+        ? YOKOHAMA_MAKE_WEBHOOK_URL
+        : 'https://hook.us2.make.com/q4s664foazn8sn737ccpojfh964enyuu';
 
     $fd = $form_data;
 
@@ -1719,25 +1722,24 @@ add_action('admin_menu', 'yokohama_concierge_add_stripe_settings_page');
 
 // Stripe設定ページの内容
 function yokohama_concierge_stripe_settings_page() {
-    // 設定を保存
+    // 設定を保存（入力があった場合のみ更新。空欄なら既存のキーを維持）
     if (isset($_POST['submit']) && isset($_POST['stripe_secret_key'])) {
         check_admin_referer('yokohama_stripe_settings');
         // キーを正規化して保存（不可視文字/改行/スペース等を除去）
         $stripe_key = yokohama_concierge_normalize_stripe_secret_key($_POST['stripe_secret_key']);
-        update_option('stripe_secret_key', $stripe_key);
-        echo '<div class="notice notice-success"><p>設定を保存しました。</p></div>';
+        if ($stripe_key !== '') {
+            update_option('stripe_secret_key', $stripe_key);
+            echo '<div class="notice notice-success"><p>設定を保存しました。</p></div>';
+        }
     }
     
     $current_key = get_option('stripe_secret_key', '');
     $is_configured = !empty($current_key) || defined('STRIPE_SECRET_KEY');
-    
-    // 画面上にキー断片を出さない（漏えい対策）
-    $debug_info = '';
-    if (defined('WP_DEBUG') && WP_DEBUG && !empty($current_key)) {
-        $key_length = strlen($current_key);
-        $debug_info = '<p class="description" style="color: #666; font-size: 12px; margin-top: 5px;">';
-        $debug_info .= '（デバッグ）キーの長さ=' . $key_length . '文字';
-        $debug_info .= '</p>';
+
+    // 画面上にキー全文を出さない（漏えい対策）。設定済みの場合は末尾4桁のみ表示
+    $key_hint = '';
+    if (!empty($current_key)) {
+        $key_hint = '設定済み（末尾: ...' . esc_html(substr($current_key, -4)) . '）。変更する場合のみ新しいキーを入力してください。';
     }
     ?>
     <div class="wrap">
@@ -1755,26 +1757,29 @@ function yokohama_concierge_stripe_settings_page() {
                                 <strong>注意:</strong> APIキーは<code>wp-config.php</code>で設定されています。
                                 ここでの設定は無視されます。
                             </p>
-                            <input type="text" 
-                                   id="stripe_secret_key" 
-                                   name="stripe_secret_key" 
-                                   value="<?php echo esc_attr($current_key); ?>" 
-                                   class="regular-text" 
+                            <input type="password"
+                                   id="stripe_secret_key"
+                                   name="stripe_secret_key"
+                                   value=""
+                                   class="regular-text"
                                    placeholder="sk_test_... または sk_live_..."
                                    disabled>
                         <?php else: ?>
-                            <input type="text" 
-                                   id="stripe_secret_key" 
-                                   name="stripe_secret_key" 
-                                   value="<?php echo esc_attr($current_key); ?>" 
-                                   class="regular-text" 
+                            <input type="password"
+                                   id="stripe_secret_key"
+                                   name="stripe_secret_key"
+                                   value=""
+                                   class="regular-text"
+                                   autocomplete="new-password"
                                    placeholder="sk_test_... または sk_live_...">
+                            <?php if ($key_hint): ?>
+                                <p class="description"><?php echo $key_hint; ?></p>
+                            <?php endif; ?>
                             <p class="description">
                                 テスト環境: <code>sk_test_...</code><br>
                                 本番環境: <code>sk_live_...</code><br>
                                 <a href="https://dashboard.stripe.com/apikeys" target="_blank" rel="noopener noreferrer">Stripeダッシュボード</a>から取得してください。
                             </p>
-                            <?php echo $debug_info; ?>
                         <?php endif; ?>
                     </td>
                 </tr>
