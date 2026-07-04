@@ -1555,7 +1555,7 @@ function yokohama_concierge_send_reservation_emails($post_id, $form_data, $amoun
 
     $admin_headers = array(
         'Content-Type: text/plain; charset=UTF-8',
-        'From: YOKOHAMA Concierge <info@hamanavi-s.jp>',
+        'From: YOKOHAMA Concierge <' . get_option('admin_email') . '>',
         'Reply-To: info@hamanavi-s.jp',
         'Bcc: yukichikun0202@gmail.com',
     );
