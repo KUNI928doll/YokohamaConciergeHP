@@ -13,7 +13,7 @@ get_header();
                 <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/sub-hero__decoration.png" alt="" aria-hidden="true" width="1730" height="92">
             </div>
             <div class="sub-hero__img">
-                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/service-hero.png" alt="横浜の夜景" width="2734" height="746">
+                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/service-hero.webp" alt="横浜の夜景" width="2734" height="746">
             </div>
             <h1 class="sub-hero__title">横浜について</h1>
         </div>
@@ -218,7 +218,7 @@ get_header();
                                 <h3 class="tab-sub-title">見どころスポット</h3>
                                 <p class="tab-text">横浜スタジアム　　プロ野球の試合や大型イベントが開催される、横浜の象徴的な球場です。</p>
                                 <div class="tab-img3">
-                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/kannai-tab02@2x.png" alt="横浜スタジアムの写真" loading="lazy"
+                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/kannai-tab02@2x.webp" alt="横浜スタジアムの写真" loading="lazy"
                                         decoding="async">
                                 </div>
                                 <div class="tab__map-button tab__map-button--position">
@@ -407,9 +407,8 @@ get_header();
                 </div>
                                 <!-- 動画セクション -->
                                 <div class="influencer__video">
-                    <video class="influencer__video-player" controls>
+                    <video class="influencer__video-player" controls preload="none" poster="<?php echo get_template_directory_uri(); ?>/videos/influencer-poster.jpg">
                         <source src="<?php echo get_template_directory_uri(); ?>/videos/influencer-video.mp4" type="video/mp4">
-                        <source src="<?php echo get_template_directory_uri(); ?>/videos/influencer-video.webm" type="video/webm">
                         お使いのブラウザは動画タグをサポートしていません。
                     </video>
                 </div>

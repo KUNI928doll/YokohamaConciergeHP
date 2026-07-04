@@ -13,7 +13,7 @@ get_header();
                 <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/sub-hero__decoration.png" alt="" aria-hidden="true">
             </div>
             <div class="sub-hero__img">
-                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/service-hero.png" alt="横浜の夜景">
+                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/service-hero.webp" alt="横浜の夜景">
             </div>
             <h1 class="sub-hero__title">サービス紹介</h1>
         </div>

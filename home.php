@@ -64,7 +64,7 @@ get_header();
             <img src="<?php echo get_template_directory_uri(); ?>/images/sub-hero__decoration.png" alt="" aria-hidden="true">
         </div>
         <div class="sub-hero__img">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/service-hero.png" alt="横浜の夜景">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/service-hero.webp" alt="横浜の夜景">
         </div>
         <h1 class="sub-hero__title">お知らせ・イベント</h1>
     </div>

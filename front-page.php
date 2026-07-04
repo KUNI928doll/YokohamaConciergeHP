@@ -2,7 +2,7 @@
 <!-- 花火セクション -->
 <main id="main-content">
     <section class="hero">
-        <img src="<?php echo get_template_directory_uri(); ?>/images/fireworks.gif" alt="夜空に咲く花火のアニメーション" class="hero__bg">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/fireworks.webp" alt="夜空に咲く花火" class="hero__bg" width="1366" height="690">
         <div class="hero__fx" aria-hidden="true">
             <img src="<?php echo get_template_directory_uri(); ?>/images/fireworks1.png" class="hero__fx-item hero__fx-item--l1" alt="" width="189" height="258">
             <i class="hero__fx-shine hero__fx-shine--l1" aria-hidden="true"></i>
@@ -781,9 +781,8 @@
 
             <!-- 動画セクション -->
             <div class="influencer__video">
-                <video class="influencer__video-player" controls>
+                <video class="influencer__video-player" controls preload="none" poster="<?php echo get_template_directory_uri(); ?>/videos/influencer-poster.jpg">
                     <source src="<?php echo get_template_directory_uri(); ?>/videos/influencer-video.mp4" type="video/mp4">
-                    <source src="<?php echo get_template_directory_uri(); ?>/videos/influencer-video.webm" type="video/webm">
                     お使いのブラウザは動画タグをサポートしていません。
                 </video>
             </div>
