@@ -639,8 +639,11 @@ document.addEventListener('DOMContentLoaded', function() {
         : 'ja';
       formData.append('lang', _lang);
 
-      // サーバーに送信を試みる
-      fetch('./api/send-reservation.php', {
+      // サーバーに送信を試みる（テーマURIから絶対パスで指定。相対パスだと /reservation/ 配下に解決され404になるため）
+      const apiUrl = (window.yokohamaConciergeThemeUri && window.yokohamaConciergeThemeUri.themeUri)
+        ? window.yokohamaConciergeThemeUri.themeUri + '/api/send-reservation.php'
+        : './api/send-reservation.php';
+      fetch(apiUrl, {
         method: 'POST',
         body: formData
       })

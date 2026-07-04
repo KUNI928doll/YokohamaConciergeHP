@@ -1,13 +1,20 @@
 <?php
+// WordPressを読み込む（このファイルは theme/api/ 配下のため4階層上がサイトルート）
+require_once dirname(__DIR__, 4) . '/wp-load.php';
+
 header('Content-Type: application/json; charset=utf-8');
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST');
-header('Access-Control-Allow-Headers: Content-Type');
 
 // POSTリクエストのみ受け付ける
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
     echo json_encode(['success' => false, 'message' => 'Method Not Allowed']);
+    exit;
+}
+
+// nonceチェック（CSRF対策）
+if (!isset($_POST['reservation_nonce']) || !wp_verify_nonce($_POST['reservation_nonce'], 'reservation_form')) {
+    http_response_code(403);
+    echo json_encode(['success' => false, 'message' => '不正なリクエストです。']);
     exit;
 }
 
