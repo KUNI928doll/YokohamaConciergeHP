@@ -40,7 +40,7 @@
                         </p>
                     </div>
                     <figure class="character -float">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/mascot.png" alt="横浜案内をするマスコットキャラクター" width="250" height="231">
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/mascot.png" alt="横浜案内をするマスコットキャラクター" width="250" height="231">
                     </figure>
                 </div>
             </div>
