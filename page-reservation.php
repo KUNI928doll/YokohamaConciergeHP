@@ -71,6 +71,7 @@ get_header();
       </tbody>
     </table>
     <p class="reservation__price-note">※ 3名1組までの料金です。内容詳細は観光ガイドサービスページをご参照ください。</p>
+    <p class="reservation__price-note">※ 各施設の入場料金がある施設については、各施設で実費精算でお願いします。（ハマナビ料金には含まれておりません）</p>
   </div>
 
   <!-- 予約代行サービス -->
