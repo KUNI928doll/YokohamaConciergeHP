@@ -4,6 +4,8 @@ jQuery(document).ready(function ($) {
     const slickOptions = {
         slidesToShow: 3,
         slidesToScroll: 1,
+        initialSlide: 0, // 最新記事（1枚目）から表示を開始
+        variableWidth: true, // カードは234px固定幅。実寸で位置決めさせ初期位置のズレを防ぐ
         autoplay: true,
         autoplaySpeed: 4000,
         pauseOnHover: true,
