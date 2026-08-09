@@ -36,7 +36,7 @@
                     <div class="speech-bubble-imgwrap speech-bubble-imgwrap--hero">
                         <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/bubble.png" class="speech-bubble-img" aria-hidden="true" alt="" width="376" height="241">
                         <p class="speech-bubble-text speech-bubble-text--hero">
-                            こんにちは！<br>横浜に住んでいるぼくが<br>お手伝いするね！
+                            お知らせ、イベントページ、<br>動画を毎日更新してるから<br>是非、見てね！
                         </p>
                     </div>
                     <figure class="character -float">

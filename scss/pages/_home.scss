@@ -118,11 +118,10 @@
     padding: 0 20px;
     text-align: left;
     left: clamp(16px, 5vw, 64px); //
-    top: 31%;
+    top: 20%; // 見出しを上げて吹き出しとの重なりを回避（長い見出し対策）
     text-shadow: 0 2px 8px rgba(0, 0, 0, .35);
 
     @include mq($until: sp-large) {
-      top: 18%;
       bottom: 63%;
     }
   }
@@ -329,7 +328,8 @@
 
 
   @include mq($until: sp-large) {
-    margin-top: -53px;
+    transform: translateY(-45%); // 引き上げ量を減らして波の上に降ろす
+    margin-top: -120px;
     left: 0;
     z-index: 11;
   }
@@ -399,6 +399,7 @@ img {
   margin-right: clamp(16px, 5vw, 80px);
 
   @include mq($until: sp-large) {
+   
     margin-right: auto;
     margin-inline: auto;
   }
@@ -415,16 +416,16 @@ img {
   top: 46%; // 吹き出しの縦中央
   left: 50%; // 吹き出しの横中央
   transform: translate(-50%, -50%); // 中央基準に補正
-  width: clamp(46%, 52vw, 65%); // 吹き出し内での余白確保
+  width: clamp(58%, 56vw, 74%); // 吹き出し内での余白確保
   text-align: center;
-  font-size: clamp(1.4rem, 2vw, 1.8rem);
-  line-height: 1.6;
+  font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+  line-height: 1.5;
   color: var(--color-main);
   word-break: keep-all; // 日本語の改行崩れ防止
 
   @include mq($until: sp-large) {
-    width: 72%; // スマホは少し広げる
-    font-size: clamp(1.2rem, 3vw, 1.4rem);
+    width: 78%; // スマホは少し広げる
+    font-size: clamp(1rem, 2.6vw, 1.25rem);
   }
 }
 
