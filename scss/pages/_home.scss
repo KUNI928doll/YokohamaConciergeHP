@@ -427,6 +427,21 @@ img {
     width: 78%; // スマホは少し広げる
     font-size: clamp(1rem, 2.6vw, 1.25rem);
   }
+
+  // 多言語（英・中・韓など日本語以外）は文言が長くなり枠からはみ出すため、
+  // 日本語はそのまま・それ以外だけ縮小して吹き出し内に収める。
+  &:not(:lang(ja)) {
+    width: 82%;
+    font-size: clamp(0.95rem, 1.35vw, 1.2rem);
+    line-height: 1.45;
+    word-break: normal; // 英単語などを適切に折り返す
+    overflow-wrap: break-word;
+
+    @include mq($until: sp-large) {
+      width: 86%;
+      font-size: clamp(0.9rem, 2.3vw, 1.15rem);
+    }
+  }
 }
 
 
