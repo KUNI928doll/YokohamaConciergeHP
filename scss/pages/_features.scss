@@ -349,18 +349,18 @@
   }
 }
 
+// モーダル本体（.features-modal__content）の上端を基準に配置する。
+// 画像下部には 11.7647% ぶんの透明余白があるため、その分＋タイトルとの間隔を下げる。
 .features-modal__label-wrapper {
   position: absolute;
-  top:-50px;
+  bottom: 100%;
   left: 50%;
-  transform: translate(-50%, 50%);
+  transform: translate(-50%, calc(11.7647% + 40px));
   z-index: 10001;
   width: clamp(150px, 25vw, 270px);
 
   @include mq($until: sp-large) {
-    top: -30px;
-    left: 50%;
-    transform: translate(-50%, 50%);
+    transform: translate(-50%, calc(11.7647% + 32px));
     width: clamp(150px, 48vw, 200px);
   }
 }

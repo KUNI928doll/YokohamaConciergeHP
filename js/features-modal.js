@@ -6,19 +6,10 @@ document.addEventListener('DOMContentLoaded', function() {
   const modal = document.getElementById('featuresModal');
   const modalContents = modal ? modal.querySelectorAll('.features-modal__content') : [];
   const overlay = modal ? modal.querySelector('.features-modal__overlay') : null;
-  const labelText = modal ? modal.querySelector('.features-modal__label-text') : null;
 
   if (!modal) return;
 
   let currentFeatureId = 1;
-
-  // 各特徴のラベルテキスト
-  const labelTexts = {
-    1: 'ラクラク！',
-    2: 'スピーディー！',
-    3: '安心！',
-    4: 'わかりやすい！'
-  };
 
   // 特徴を表示（HTMLに記述された各コンテンツを切り替え）
   function showFeature(featureId) {
@@ -30,12 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         content.style.display = 'none';
       }
     });
-    
-    // ラベルテキストを更新
-    if (labelText) {
-      labelText.textContent = labelTexts[featureId];
-    }
-    
+
     currentFeatureId = featureId;
   }
 
