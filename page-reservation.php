@@ -133,6 +133,14 @@ get_header();
                 <?php wp_nonce_field('reservation_form', 'reservation_nonce'); ?>
                 <input type="hidden" name="action" value="submit_reservation">
 
+                <!-- スパム対策：ハニーポット（画面に表示されない。人が入力することはない） -->
+                <div class="reservation-form__honeypot" aria-hidden="true">
+                    <label for="reservation-url">ウェブサイト</label>
+                    <input type="text" id="reservation-url" name="reservation_url" tabindex="-1" autocomplete="off">
+                </div>
+                <!-- スパム対策：フォーム表示時刻（JS で現在時刻に更新する） -->
+                <input type="hidden" id="reservation-form-ts" name="form_ts" value="<?php echo esc_attr(time()); ?>">
+
                 <div class="reservation-form__section">
                     <h3 class="reservation-form__legend">基本入力項目（代表者）</h3>
                     <p class="reservation-form__description">代表者さまの基本情報をご入力ください。ご入力内容をもとに、担当者がお電話またはメールでご連絡いたします。

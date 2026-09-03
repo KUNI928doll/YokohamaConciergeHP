@@ -764,7 +764,10 @@ function yokohama_concierge_reservation_meta_box_callback($post) {
     $stay = get_post_meta($post->ID, '_reservation_stay', true);
     $companion = get_post_meta($post->ID, '_reservation_companion', true);
     $status = get_post_meta($post->ID, '_reservation_status', true);
-    
+    $client_ip = get_post_meta($post->ID, '_reservation_ip', true);
+    $client_ua = get_post_meta($post->ID, '_reservation_ua', true);
+    $route = get_post_meta($post->ID, '_reservation_route', true);
+
     // 全フォームデータを取得（JSON形式で保存されている場合）
     $form_data = get_post_meta($post->ID, '_reservation_form_data', true);
     if (is_string($form_data)) {
@@ -833,12 +836,36 @@ function yokohama_concierge_reservation_meta_box_callback($post) {
         </tr>
         <?php endif; ?>
     </table>
-    
+
+    <?php if ($client_ip || $client_ua || $route): ?>
+    <h3>送信元情報</h3>
+    <table class="form-table">
+        <?php if ($client_ip): ?>
+        <tr>
+            <th><label>IPアドレス</label></th>
+            <td><?php echo esc_html($client_ip); ?></td>
+        </tr>
+        <?php endif; ?>
+        <?php if ($client_ua): ?>
+        <tr>
+            <th><label>ユーザーエージェント</label></th>
+            <td><?php echo esc_html($client_ua); ?></td>
+        </tr>
+        <?php endif; ?>
+        <?php if ($route): ?>
+        <tr>
+            <th><label>送信経路</label></th>
+            <td><?php echo esc_html($route); ?></td>
+        </tr>
+        <?php endif; ?>
+    </table>
+    <?php endif; ?>
+
     <?php if ($form_data && is_array($form_data)): ?>
     <h3>その他のフォームデータ</h3>
     <table class="form-table">
         <?php foreach ($form_data as $key => $value): ?>
-            <?php if (!empty($value) && !in_array($key, array('name', 'email', 'phone', 'gender', 'nationality', 'address', 'passport', 'stay', 'companion'))): ?>
+            <?php if (!empty($value) && !in_array($key, array('name', 'email', 'phone', 'gender', 'nationality', 'address', 'passport', 'stay', 'companion', '_client_ip', '_client_ua'))): ?>
             <tr>
                 <th><label><?php echo esc_html(ucfirst(str_replace('_', ' ', $key))); ?></label></th>
                 <td><?php echo is_array($value) ? esc_html(implode(', ', $value)) : nl2br(esc_html($value)); ?></td>
@@ -889,13 +916,243 @@ function yokohama_concierge_reservation_save_meta_box($post_id) {
 }
 add_action('save_post_reservation', 'yokohama_concierge_reservation_save_meta_box');
 
+// ============================================
+// 予約フォームのスパム対策
+// ============================================
+
+/**
+ * 送信元IPアドレスを取得
+ * Cloudflare 経由の場合は CF-Connecting-IP を優先する
+ */
+function yokohama_concierge_get_client_ip() {
+    if (!empty($_SERVER['HTTP_CF_CONNECTING_IP'])) {
+        $ip = $_SERVER['HTTP_CF_CONNECTING_IP'];
+    } elseif (!empty($_SERVER['REMOTE_ADDR'])) {
+        $ip = $_SERVER['REMOTE_ADDR'];
+    } else {
+        return '';
+    }
+
+    $ip = trim(explode(',', $ip)[0]);
+
+    return filter_var($ip, FILTER_VALIDATE_IP) ? $ip : '';
+}
+
+/**
+ * 送信元のユーザーエージェントを取得
+ */
+function yokohama_concierge_get_client_ua() {
+    if (empty($_SERVER['HTTP_USER_AGENT'])) {
+        return '';
+    }
+
+    return substr(sanitize_text_field($_SERVER['HTTP_USER_AGENT']), 0, 255);
+}
+
+/**
+ * セレクト項目で許可する値の一覧
+ * page-reservation.php の <option value="..."> と対応させる
+ */
+function yokohama_concierge_get_reservation_allowed_values() {
+    $areas = array(
+        'motomachi', 'yamashita', 'nihonodori', 'bashamichi',
+        'kannai', 'minatomirai', 'sakuragicho', 'other_yokohama',
+    );
+
+    return array(
+        'gender'      => array('male', 'female', 'other'),
+        'guideCourse' => array('half_audio', 'half_interpreter', 'full_audio', 'full_interpreter'),
+        'guideArea'   => $areas,
+        'area'        => $areas,
+        'hotelArea'   => $areas,
+        'diningArea'  => $areas,
+        'price_rank'  => array('2000', '3000', '6000', '12000', '20000', '30000', '30000plus', '50000plus'),
+        'cuisine'     => array(
+            'washoku', 'sushi', 'tempura', 'soba_udon', 'chinese', 'indian', 'french',
+            'italian', 'spanish', 'grill', 'yakiniku', 'steak', 'vege', 'cafe', 'other',
+        ),
+    );
+}
+
+/**
+ * 予約フォームの送信内容がスパムかどうかを判定する
+ * 問題がなければ空文字、拒否する場合は理由を返す
+ */
+function yokohama_concierge_detect_reservation_spam($data) {
+    // 1. ハニーポット（画面に表示されない入力欄。値が入っていればボット）
+    if (!empty($data['reservation_url'])) {
+        return 'honeypot';
+    }
+
+    // 2. 送信時間トラップ（フォーム表示から数秒も経たない送信を弾く）
+    $form_ts = isset($data['form_ts']) ? intval($data['form_ts']) : 0;
+    if ($form_ts > 0 && (time() - $form_ts) < 3) {
+        return 'too_fast';
+    }
+
+    // 3. セレクトのプレースホルダー文言がそのまま送信されていないか
+    //    正規の送信では value="" のため到達し得ない値。画面の文字列を読むボットの典型
+    $placeholders = array(
+        '選択してください', 'Please select', 'Please choose',
+        '请选择', '請選擇', '선택해 주세요', '선택하세요',
+    );
+    foreach ($data as $value) {
+        if (is_string($value) && in_array(trim($value), $placeholders, true)) {
+            return 'placeholder_value';
+        }
+    }
+
+    // 4. セレクト項目のホワイトリスト検証
+    foreach (yokohama_concierge_get_reservation_allowed_values() as $key => $allowed) {
+        if (empty($data[$key])) {
+            continue;
+        }
+        if (!is_string($data[$key]) || !in_array($data[$key], $allowed, true)) {
+            return 'invalid_select:' . $key;
+        }
+    }
+
+    // 5. 時刻セレクト（30分刻みのみ）
+    foreach (array('diningTime', 'luggageTime') as $key) {
+        if (empty($data[$key])) {
+            continue;
+        }
+        if (!is_string($data[$key]) || !preg_match('/\A([01][0-9]|2[0-3]):(00|30)\z/', $data[$key])) {
+            return 'invalid_time:' . $key;
+        }
+    }
+
+    // 6. 日付（形式と過去日）
+    $today = current_time('Y-m-d');
+    foreach (array('guideDate', 'hotelDate', 'diningDate', 'luggageDate') as $key) {
+        if (empty($data[$key])) {
+            continue;
+        }
+        if (!is_string($data[$key]) || !preg_match('/\A\d{4}-\d{2}-\d{2}\z/', $data[$key])) {
+            return 'invalid_date:' . $key;
+        }
+        if ($data[$key] < $today) {
+            return 'past_date:' . $key;
+        }
+    }
+
+    // 7. 人数・個数（数値かつ常識的な範囲）
+    $number_fields = array(
+        'guideAdults', 'guideChildren',
+        'hotelAdults', 'hotelChildren',
+        'diningAdults', 'diningChildren',
+        'luggageCount',
+    );
+    foreach ($number_fields as $key) {
+        if (!isset($data[$key]) || $data[$key] === '') {
+            continue;
+        }
+        if (!ctype_digit((string) $data[$key]) || intval($data[$key]) > 50) {
+            return 'invalid_number:' . $key;
+        }
+    }
+
+    // 8. サービスが1つも指定されていない送信を弾く
+    $service_fields = array(
+        'guideCourse', 'guideDate', 'guideArea', 'guideSpots', 'guideNotes',
+        'hotelDate', 'hotelRequest', 'hotelProposal1',
+        'diningDate', 'diningRequest', 'diningProposal1',
+        'luggageDate', 'luggageCount', 'luggageNotes',
+        'area', 'price_rank', 'cuisine', 'activityDatetime',
+    );
+    foreach ($service_fields as $key) {
+        if (!empty($data[$key])) {
+            return '';
+        }
+    }
+
+    return 'no_service_selected';
+}
+
+/**
+ * 同一IPからの連続送信・大量送信を制限する
+ * 問題がなければ空文字、制限にかかった場合は理由を返す
+ */
+function yokohama_concierge_check_reservation_rate_limit() {
+    $ip = yokohama_concierge_get_client_ip();
+    if (empty($ip)) {
+        return '';
+    }
+
+    $hash = md5($ip);
+
+    // 送信成功直後の連続送信をブロック
+    if (get_transient('yc_resv_cooldown_' . $hash)) {
+        return 'cooldown';
+    }
+
+    // 1時間あたりの試行回数をブロック
+    $hits = (int) get_transient('yc_resv_hits_' . $hash);
+    if ($hits >= 10) {
+        return 'too_many_attempts';
+    }
+    set_transient('yc_resv_hits_' . $hash, $hits + 1, HOUR_IN_SECONDS);
+
+    return '';
+}
+
+/**
+ * 送信成功時にクールダウンを設定する
+ */
+function yokohama_concierge_set_reservation_cooldown() {
+    $ip = yokohama_concierge_get_client_ip();
+    if (empty($ip)) {
+        return;
+    }
+
+    set_transient('yc_resv_cooldown_' . md5($ip), 1, 30);
+}
+
+/**
+ * 拒否した送信をサーバーログに残す
+ */
+function yokohama_concierge_log_reservation_block($reason, $route, $data) {
+    error_log(sprintf(
+        '[Reservation Blocked] reason=%s route=%s ip=%s ua=%s name=%s email=%s',
+        $reason,
+        $route,
+        yokohama_concierge_get_client_ip(),
+        yokohama_concierge_get_client_ua(),
+        isset($data['name']) ? $data['name'] : '',
+        isset($data['email']) ? $data['email'] : ''
+    ));
+}
+
+/**
+ * 予約フォーム送信のスパムチェック一式
+ * 問題がなければ空文字、拒否する場合は理由を返す
+ */
+function yokohama_concierge_guard_reservation_request($data, $route) {
+    $reason = yokohama_concierge_check_reservation_rate_limit();
+    if ($reason === '') {
+        $reason = yokohama_concierge_detect_reservation_spam($data);
+    }
+
+    if ($reason !== '') {
+        yokohama_concierge_log_reservation_block($reason, $route, $data);
+    }
+
+    return $reason;
+}
+
 // 予約フォーム送信処理
 function yokohama_concierge_handle_reservation_submit() {
     // セキュリティチェック
     if (!isset($_POST['reservation_nonce']) || !wp_verify_nonce($_POST['reservation_nonce'], 'reservation_form')) {
         wp_die('セキュリティチェックに失敗しました。');
     }
-    
+
+    // スパムチェック（ボットによる自動送信を弾く）
+    if (yokohama_concierge_guard_reservation_request($_POST, 'admin-post') !== '') {
+        wp_redirect(add_query_arg('reservation', 'error', home_url('/reservation/')));
+        exit;
+    }
+
     // フォームデータの取得とサニタイズ
     $name = isset($_POST['name']) ? sanitize_text_field($_POST['name']) : '';
     $email = isset($_POST['email']) ? sanitize_email($_POST['email']) : '';
@@ -911,7 +1168,7 @@ function yokohama_concierge_handle_reservation_submit() {
     $form_data = array();
     foreach ($_POST as $key => $value) {
         // セキュリティ関連のフィールドは除外
-        if (in_array($key, array('reservation_nonce', 'action', '_wp_http_referer'))) {
+        if (in_array($key, array('reservation_nonce', 'action', '_wp_http_referer', 'reservation_url', 'form_ts'))) {
             continue;
         }
         
@@ -940,6 +1197,9 @@ function yokohama_concierge_handle_reservation_submit() {
             '_reservation_companion' => isset($_POST['companion']) ? sanitize_textarea_field($_POST['companion']) : '',
             '_reservation_status' => 'pending',
             '_reservation_form_data' => json_encode($form_data, JSON_UNESCAPED_UNICODE),
+            '_reservation_ip' => yokohama_concierge_get_client_ip(),
+            '_reservation_ua' => yokohama_concierge_get_client_ua(),
+            '_reservation_route' => 'admin-post',
         ),
     );
     
@@ -975,7 +1235,10 @@ function yokohama_concierge_handle_reservation_submit() {
     $message .= "詳細は管理画面でご確認ください: " . admin_url('post.php?post=' . $post_id . '&action=edit') . "\n";
     
     wp_mail($to, $subject, $message);
-    
+
+    // 連続送信を防ぐためのクールダウンを設定
+    yokohama_concierge_set_reservation_cooldown();
+
     // リダイレクト
     wp_redirect(add_query_arg('reservation', 'success', home_url('/reservation/')));
     exit;
@@ -1002,7 +1265,13 @@ function yokohama_concierge_create_stripe_session() {
         wp_send_json_error(array('message' => 'セキュリティチェックに失敗しました。'));
         return;
     }
-    
+
+    // スパムチェック（ボットによる自動送信を弾く）
+    if (yokohama_concierge_guard_reservation_request($_POST, 'stripe') !== '') {
+        wp_send_json_error(array('message' => '送信内容を確認できませんでした。入力内容をご確認のうえ、再度お試しください。'));
+        return;
+    }
+
     // Stripe APIキーの設定（環境変数またはオプションから取得）
     $stripe_secret_key = defined('STRIPE_SECRET_KEY') ? STRIPE_SECRET_KEY : get_option('stripe_secret_key', '');
     
@@ -1127,7 +1396,7 @@ function yokohama_concierge_create_stripe_session() {
     $form_data_to_save = array();
     foreach ($_POST as $key => $value) {
         // セキュリティ関連のフィールドは除外
-        if (in_array($key, array('reservation_nonce', 'action', '_wp_http_referer'))) {
+        if (in_array($key, array('reservation_nonce', 'action', '_wp_http_referer', 'reservation_url', 'form_ts'))) {
             continue;
         }
         
@@ -1137,7 +1406,11 @@ function yokohama_concierge_create_stripe_session() {
             $form_data_to_save[$key] = sanitize_text_field($value);
         }
     }
-    
+
+    // 送信元情報を記録（決済完了後に予約データへ引き継ぐ）
+    $form_data_to_save['_client_ip'] = yokohama_concierge_get_client_ip();
+    $form_data_to_save['_client_ua'] = yokohama_concierge_get_client_ua();
+
     $form_data_json = json_encode($form_data_to_save, JSON_UNESCAPED_UNICODE);
     $temp_key = 'stripe_form_' . time() . '_' . wp_generate_password(12, false);
     set_transient($temp_key, $form_data_json, 24 * HOUR_IN_SECONDS);
@@ -1393,6 +1666,9 @@ function yokohama_concierge_handle_stripe_success() {
             '_reservation_stripe_session_id' => $session_id,
             '_reservation_payment_amount' => $amount_total,
             '_reservation_form_data' => $form_data_json,
+            '_reservation_ip' => isset($form_data['_client_ip']) ? $form_data['_client_ip'] : '',
+            '_reservation_ua' => isset($form_data['_client_ua']) ? $form_data['_client_ua'] : '',
+            '_reservation_route' => 'stripe',
         ),
     );
     
@@ -1401,7 +1677,7 @@ function yokohama_concierge_handle_stripe_success() {
     if (!is_wp_error($post_id)) {
         // 個別のメタフィールドとしても保存
         foreach ($form_data as $key => $value) {
-            if (!empty($value) && !in_array($key, array('name', 'email', 'phone', 'gender', 'nationality', 'address', 'passport', 'stay', 'companion', 'reservation_nonce', 'action'))) {
+            if (!empty($value) && !in_array($key, array('name', 'email', 'phone', 'gender', 'nationality', 'address', 'passport', 'stay', 'companion', 'reservation_nonce', 'action', '_client_ip', '_client_ua'))) {
                 if (is_array($value)) {
                     update_post_meta($post_id, '_reservation_' . $key, $value);
                 } else {

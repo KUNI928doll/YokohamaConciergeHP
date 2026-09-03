@@ -38,6 +38,14 @@ if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
+// スパムチェック（functions.php で定義。ボットによる自動送信を弾く）
+if (function_exists('yokohama_concierge_guard_reservation_request')
+    && yokohama_concierge_guard_reservation_request($data, 'api') !== '') {
+    http_response_code(400);
+    echo json_encode(['success' => false, 'message' => '送信内容を確認できませんでした。入力内容をご確認のうえ、再度お試しください。']);
+    exit;
+}
+
 // 送信先メールアドレス
 $to = 'info@hamanavi-s.jp';
 $customer_email = $data['email'];
@@ -80,6 +88,11 @@ $customer_sent = mb_send_mail($customer_email, $customer_subject, $customer_mess
 
 // 結果を返す
 if ($admin_sent && $customer_sent) {
+    // 連続送信を防ぐためのクールダウンを設定
+    if (function_exists('yokohama_concierge_set_reservation_cooldown')) {
+        yokohama_concierge_set_reservation_cooldown();
+    }
+
     http_response_code(200);
     echo json_encode([
         'success' => true,
@@ -159,8 +172,12 @@ function generateEmailBody($data) {
     
     $body .= "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n";
     $body .= "送信日時: " . date('Y年m月d日 H:i:s') . "\n";
+    if (function_exists('yokohama_concierge_get_client_ip')) {
+        $body .= "送信元IP: " . yokohama_concierge_get_client_ip() . "\n";
+        $body .= "ユーザーエージェント: " . yokohama_concierge_get_client_ua() . "\n";
+    }
     $body .= "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n";
-    
+
     return $body;
 }
 

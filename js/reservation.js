@@ -1,5 +1,17 @@
 "use strict";
 
+// スパム対策：フォーム表示時刻を現在時刻に更新する
+// PHP が埋めた初期値はページキャッシュで古くなるため、表示のたびに上書きする
+const initFormTimestamp = () => {
+  const timestampField = document.getElementById('reservation-form-ts');
+
+  if (!timestampField) return;
+
+  timestampField.value = Math.floor(Date.now() / 1000);
+};
+
+document.addEventListener('DOMContentLoaded', initFormTimestamp);
+
 // 予約フォーム送信処理
 document.addEventListener('DOMContentLoaded', function() {
   const form = document.querySelector('.reservation-form');
