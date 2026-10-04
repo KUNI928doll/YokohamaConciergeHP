@@ -504,7 +504,7 @@
     left: 50%;
     transform: translateX(-50%);
     width: 63%;
-    max-width: 1200px;
+    max-width: 945px; // ナビ（900px）と同じ比率で止める
     pointer-events: none;
     z-index: 0;
 
@@ -535,6 +535,7 @@
     position: relative;
     z-index: 1; // ← heroより低く
     width: 60%;
+    max-width: 900px; // 大画面でナビが間延びしないよう上限を設定（1500px以上で効く）
     margin-inline: auto;
 
     @include mq($until: sp-large) {
@@ -571,9 +572,14 @@
     display: none !important;
   }
 
+  // ドロップダウンのボタンも同じ比率で追従させる（既定は inner-nav 側の 14px 固定）
+  .header-pyoko__nav .inner-nav__trigger {
+    font-size: clamp(1.2rem, 1.25vw, 1.4rem);
+  }
+
   .header-pyoko__nav li {
     position: relative;
-    padding: 0 clamp(10px, 2vw, 24px);
+    padding: 0 clamp(6px, 1vw, 24px); // 文字が中央寄せなので広い画面での見た目は変わらない
     flex:0 0 calc(100%/6)
 
   }
@@ -586,7 +592,7 @@
     gap: 6px;
     font-family: var(--font-heading);
     font-weight: 600;
-    font-size: clamp(1.2rem, 2vw, 1.5rem); // 12px-15px (1rem=10px基準)
+    font-size: clamp(1.2rem, 1.25vw, 1.5rem); // 12px-15px（狭い画面でも1行に収まるよう追従）
     color: #0d3d90;
     text-decoration: none;
     transition: 0.3s;

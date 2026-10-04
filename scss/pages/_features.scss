@@ -5,7 +5,9 @@
   position: relative;
   // background-color: #f6fafa;
   // padding: clamp(80px, 8vw, 140px) 0;
-  padding-block: calc((38 / 1387) * 100vw);
+  // 波画像（::before/::after）の高さと完全に一致させるため % を使う。
+  // 100vw はスクロールバー幅を含むぶん padding が大きくなり、継ぎ目に隙間（白い線）が出る
+  padding-block: calc((38 / 1387) * 100%);
   text-align: center;
   overflow: visible;
   width: 100%;
@@ -19,7 +21,7 @@
     background: url("../images/features/features_before.png") repeat-x center top;
     background-size: auto 100%;
     position: absolute;
-    top: 0px;
+    top: 5px;
     left: 0;
     right: 0;
   }

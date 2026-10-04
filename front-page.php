@@ -92,6 +92,39 @@
             </nav>
         </div>
 </div>
+    <!-- Latest Info Bar -->
+    <?php
+    $info_bar_query = new WP_Query([
+        'post_type'           => 'post',
+        'post_status'         => 'publish',
+        'posts_per_page'      => 3,
+        'orderby'             => 'date',
+        'order'               => 'DESC',
+        'ignore_sticky_posts' => true,
+    ]);
+    if ($info_bar_query->have_posts()) :
+    ?>
+        <aside class="info-bar" aria-label="最新情報">
+            <div class="info-bar__inner">
+                <p class="info-bar__heading">最新情報</p>
+                <ul class="info-bar__list">
+                    <?php while ($info_bar_query->have_posts()) : $info_bar_query->the_post(); ?>
+                        <li class="info-bar__item">
+                            <a href="<?php the_permalink(); ?>" class="info-bar__link">
+                                <time class="info-bar__date" datetime="<?php echo esc_attr(get_the_date('Y-m-d')); ?>"><?php echo esc_html(get_the_date('Y.m.d')); ?></time>
+                                <span class="info-bar__title"><?php echo esc_html(get_the_title()); ?></span>
+                            </a>
+                        </li>
+                    <?php endwhile; ?>
+                </ul>
+                <a href="<?php echo esc_url(home_url('/news/')); ?>" class="info-bar__more">一覧<span class="info-bar__more-arrow" aria-hidden="true">→</span></a>
+            </div>
+        </aside>
+    <?php
+    endif;
+    wp_reset_postdata();
+    ?>
+
     <?php get_template_part('template-parts/search-form'); ?>
 
     <section id="about" class="about">

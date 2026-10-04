@@ -1,0 +1,128 @@
+@charset "UTF-8";
+@use "../abstracts" as *;
+
+// ヒーロー直下（ナビパネルのすぐ下）の最新情報バー（1行のみ・高さを取らない）
+.info-bar {
+  position: relative;
+  z-index: 11; // ナビパネルからはみ出すキャラクターより前面に出す
+  background: var(--color-main);
+  color: #fff;
+  margin-top: 40px;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: 1200px;
+    min-height: 44px;
+    padding: 4px 20px;
+    margin-inline: auto;
+
+    @include mq($until: sp-large) {
+      gap: 10px;
+      min-height: 38px;
+      padding: 4px 16px;
+    }
+  }
+
+  &__heading {
+    flex-shrink: 0;
+    font-family: var(--font-sub);
+    font-size: 1.4rem;
+    line-height: 1.4;
+    letter-spacing: 0.04em;
+
+    @include mq($until: sp-large) {
+      font-size: 1.2rem;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex: 1;
+    gap: 24px;
+    min-width: 0;
+
+    @include mq($until: sp-large) {
+      gap: 0;
+    }
+  }
+
+  &__item {
+    flex: 1;
+    min-width: 0;
+
+    // 画面が狭くなるほど表示件数を減らして1行を保つ
+    @include mq($until: mid-pc) {
+      &:nth-child(n + 3) {
+        display: none;
+      }
+    }
+
+    @include mq($until: sp-large) {
+      &:nth-child(n + 2) {
+        display: none;
+      }
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+
+    @include hover {
+      opacity: 1;
+
+      .info-bar__title {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__date {
+    flex-shrink: 0;
+    font-size: 1.2rem;
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  &__title {
+    display: block;
+    overflow: hidden;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    @include mq($until: sp-large) {
+      font-size: 1.3rem;
+    }
+  }
+
+  &__more {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 4px;
+    font-size: 1.2rem;
+    line-height: 1.4;
+
+    @include hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+  }
+
+  &__more-arrow {
+    transition: transform 0.3s;
+
+    @media (hover: hover) {
+      .info-bar__more:hover & {
+        transform: translateX(3px);
+      }
+    }
+  }
+}

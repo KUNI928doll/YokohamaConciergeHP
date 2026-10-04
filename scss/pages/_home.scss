@@ -7,6 +7,19 @@
   height: clamp(420px, calc(265.0704px + 41.3146 * 1vw), 690px);
   z-index: 5;
 
+  // デザイン幅(1366px)を超えたら背景画像(1366x690)の比率で高さも伸ばし、上下が切れないようにする
+  // ※ 1366px ちょうどで height:690px と一致するので段差は出ない
+  @media (min-width: 1366px) {
+    height: auto;
+    aspect-ratio: 1366 / 690;
+  }
+
+  // 1024px以下は画面が狭く、装飾の花火がヒーロー外へはみ出して検索エリアに重なるため内側で止める
+  // （1025px以上は余白が十分あり、下にはみ出す花火は装飾として残す）
+  @include mq($until: tab) {
+    overflow: hidden;
+  }
+
   @include mq($until: sp-large) {
     margin-bottom: 0px;
   }

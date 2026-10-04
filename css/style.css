@@ -624,6 +624,123 @@ a {
     padding-right: 42px;
   }
 }
+.info-bar {
+  position: relative;
+  z-index: 11;
+  background: var(--color-main);
+  color: #fff;
+  margin-top: 40px;
+}
+.info-bar__inner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 1200px;
+  min-height: 44px;
+  padding: 4px 20px;
+  margin-inline: auto;
+}
+@media (max-width: 768px) {
+  .info-bar__inner {
+    gap: 10px;
+    min-height: 38px;
+    padding: 4px 16px;
+  }
+}
+.info-bar__heading {
+  flex-shrink: 0;
+  font-family: var(--font-sub);
+  font-size: 1.4rem;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+}
+@media (max-width: 768px) {
+  .info-bar__heading {
+    font-size: 1.2rem;
+  }
+}
+.info-bar__list {
+  display: flex;
+  flex: 1;
+  gap: 24px;
+  min-width: 0;
+}
+@media (max-width: 768px) {
+  .info-bar__list {
+    gap: 0;
+  }
+}
+.info-bar__item {
+  flex: 1;
+  min-width: 0;
+}
+@media (max-width: 1200px) {
+  .info-bar__item:nth-child(n+3) {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .info-bar__item:nth-child(n+2) {
+    display: none;
+  }
+}
+.info-bar__link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+@media (hover: hover) {
+  .info-bar__link:hover {
+    opacity: 1;
+  }
+  .info-bar__link:hover .info-bar__title {
+    text-decoration: underline;
+  }
+}
+.info-bar__date {
+  flex-shrink: 0;
+  font-size: 1.2rem;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.8);
+}
+.info-bar__title {
+  display: block;
+  overflow: hidden;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+@media (max-width: 768px) {
+  .info-bar__title {
+    font-size: 1.3rem;
+  }
+}
+.info-bar__more {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 4px;
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+@media (hover: hover) {
+  .info-bar__more:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
+}
+.info-bar__more-arrow {
+  transition: transform 0.3s;
+}
+@media (hover: hover) {
+  .info-bar__more:hover .info-bar__more-arrow {
+    transform: translateX(3px);
+  }
+}
+
 .nav-inner-wrapper {
   background-color: #F2F6F6;
   padding: 24px 0;
@@ -1423,7 +1540,7 @@ html[lang=en-GB] .header .tel-orange {
   left: 50%;
   transform: translateX(-50%);
   width: 63%;
-  max-width: 1200px;
+  max-width: 945px;
   pointer-events: none;
   z-index: 0;
 }
@@ -1453,6 +1570,7 @@ html[lang=en-GB] .header .tel-orange {
   position: relative;
   z-index: 1;
   width: 60%;
+  max-width: 900px;
   margin-inline: auto;
 }
 @media (max-width: 768px) {
@@ -1484,9 +1602,12 @@ html[lang=en-GB] .header .tel-orange {
 .header-pyoko .header-pyoko__item--has-sub::after {
   display: none !important;
 }
+.header-pyoko .header-pyoko__nav .inner-nav__trigger {
+  font-size: clamp(1.2rem, 1.25vw, 1.4rem);
+}
 .header-pyoko .header-pyoko__nav li {
   position: relative;
-  padding: 0 clamp(10px, 2vw, 24px);
+  padding: 0 clamp(6px, 1vw, 24px);
   flex: 0 0 16.6666666667%;
 }
 .header-pyoko .header-pyoko__nav a {
@@ -1497,7 +1618,7 @@ html[lang=en-GB] .header .tel-orange {
   gap: 6px;
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-size: clamp(1.2rem, 1.25vw, 1.5rem);
   color: #0d3d90;
   text-decoration: none;
   transition: 0.3s;
@@ -2456,6 +2577,17 @@ body.spmenu-open .header__toggle {
   height: clamp(420px, 265.0704px + 41.3146vw, 690px);
   z-index: 5;
 }
+@media (min-width: 1366px) {
+  .hero {
+    height: auto;
+    aspect-ratio: 1366/690;
+  }
+}
+@media (max-width: 1024px) {
+  .hero {
+    overflow: hidden;
+  }
+}
 @media (max-width: 768px) {
   .hero {
     margin-bottom: 0px;
@@ -3207,7 +3339,7 @@ img {
 
 .features {
   position: relative;
-  padding-block: 2.7397260274vw;
+  padding-block: 2.7397260274%;
   text-align: center;
   overflow: visible;
   width: 100%;
@@ -3220,7 +3352,7 @@ img {
   background: url("../images/features/features_before.png") repeat-x center top;
   background-size: auto 100%;
   position: absolute;
-  top: 0px;
+  top: 5px;
   left: 0;
   right: 0;
 }
