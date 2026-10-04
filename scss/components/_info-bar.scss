@@ -51,19 +51,6 @@
   &__item {
     flex: 1;
     min-width: 0;
-
-    // 画面が狭くなるほど表示件数を減らして1行を保つ
-    @include mq($until: mid-pc) {
-      &:nth-child(n + 3) {
-        display: none;
-      }
-    }
-
-    @include mq($until: sp-large) {
-      &:nth-child(n + 2) {
-        display: none;
-      }
-    }
   }
 
   &__link {

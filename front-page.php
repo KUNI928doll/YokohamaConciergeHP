@@ -97,7 +97,7 @@
     $info_bar_query = new WP_Query([
         'post_type'           => 'post',
         'post_status'         => 'publish',
-        'posts_per_page'      => 3,
+        'posts_per_page'      => 1,
         'orderby'             => 'date',
         'order'               => 'DESC',
         'ignore_sticky_posts' => true,

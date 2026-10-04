@@ -674,16 +674,6 @@ a {
   flex: 1;
   min-width: 0;
 }
-@media (max-width: 1200px) {
-  .info-bar__item:nth-child(n+3) {
-    display: none;
-  }
-}
-@media (max-width: 768px) {
-  .info-bar__item:nth-child(n+2) {
-    display: none;
-  }
-}
 .info-bar__link {
   display: flex;
   align-items: center;
