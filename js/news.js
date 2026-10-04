@@ -13,7 +13,7 @@ jQuery(document).ready(function ($) {
         arrows: true,
         dots: true,
         centerMode: false,
-        infinite: true,
+        infinite: false, // 無限ループなし（記事が少ないときのカード複製も防げる）
         appendArrows: '.news__dots-wrapper',
         appendDots: '.news__dots-wrapper',
         responsive: [
@@ -22,7 +22,7 @@ jQuery(document).ready(function ($) {
                 settings: {
                     slidesToShow: 2,
                     centerMode: false,
-                    infinite: true
+                    infinite: false
                 }
             },
             {
@@ -30,7 +30,7 @@ jQuery(document).ready(function ($) {
                 settings: {
                     slidesToShow: 1,
                     centerMode: false,
-                    infinite: true
+                    infinite: false
                 }
             }
         ]
@@ -78,15 +78,8 @@ jQuery(document).ready(function ($) {
         });
 
         if (displayCount > 0) {
-            const adjustedOptions = {...slickOptions};
-            
-            // カード数が3枚以下の場合はinfiniteをfalseに
-            if (displayCount <= 3) {
-                adjustedOptions.infinite = false;
-            }
-            
-            $slider.slick(adjustedOptions);
-            
+            $slider.slick(slickOptions);
+
             // スライダーとボタンを表示
             $slider.show();
             $('.news__dots-wrapper').show();
