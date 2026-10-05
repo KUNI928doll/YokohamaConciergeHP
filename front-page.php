@@ -351,8 +351,8 @@
         <!-- 装飾 -->
         <div class="faq__decos">
             <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/faq/faq_line-right.png" alt="" class="faq__line js-fade-up" aria-hidden="true" width="466" height="495">
-            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/faq/faq_seagull.png" alt="" class="faq__seagull js-fade-up" aria-hidden="true">
         </div>
+        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/faq/faq_seagull.png" alt="" class="faq__seagull js-fade-up" aria-hidden="true" width="116" height="76">
         <div class="faq__container">
             <div class="section-title section-title--sm section-title--faq js-fade-up">
                 <h2 id="faq-heading" class="section-title__text">よくある質問</h2>

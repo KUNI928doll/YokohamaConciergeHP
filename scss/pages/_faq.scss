@@ -321,19 +321,20 @@
   }
 }
 
+// .faq 基準で配置する（.faq__decos の中だと箱が vw 連動で縮むため、
+// 画面幅によってカモメの大きさと高さが変わってしまう）
 .faq__seagull {
-  width: 16.15598886%;
+  width: 58px; // デザイン幅での実寸に固定
   aspect-ratio: 58/ 38;
   position: absolute;
-  bottom: 0;
-  left: 0;
+  top: 175px; // セクション上端からの距離を固定（タイトルの30px下）
+  left: 55.84%; // 横位置は従来どおり画面幅に追従
   z-index: 20;
   transform-origin: center center;
   animation: seagull-fly 8s ease-in-out infinite alternate;
 
   @include mq($until: sp-large) {
-    top: 60%;
-    right: 10%;
+    top: 7.5vw; // SPは従来の見え方を維持
     width: clamp(40px, 15vw, 60px);
   }
 }

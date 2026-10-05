@@ -373,8 +373,9 @@ a {
   ================================= */
 }
 .btn--lg {
-  font-size: clamp(1.6rem, 1.8vw, 1.8rem);
-  padding: 1em 1em;
+  font-size: clamp(1.8rem, 2vw, 2rem);
+  padding: 0.9em 2.5em;
+  min-width: 280px;
   border-radius: 9999px;
 }
 .btn--md {
@@ -4763,19 +4764,18 @@ img {
 }
 
 .faq__seagull {
-  width: 16.15598886%;
+  width: 58px;
   aspect-ratio: 58/38;
   position: absolute;
-  bottom: 0;
-  left: 0;
+  top: 175px;
+  left: 55.84%;
   z-index: 20;
   transform-origin: center center;
   animation: seagull-fly 8s ease-in-out infinite alternate;
 }
 @media (max-width: 768px) {
   .faq__seagull {
-    top: 60%;
-    right: 10%;
+    top: 7.5vw;
     width: clamp(40px, 15vw, 60px);
   }
 }
