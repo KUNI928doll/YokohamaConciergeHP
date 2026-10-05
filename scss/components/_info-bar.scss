@@ -4,7 +4,9 @@
 // ヒーロー直下（ナビパネルのすぐ下）の最新情報バー（1行のみ・高さを取らない）
 .info-bar {
   position: relative;
-  z-index: 11; // ナビパネルからはみ出すキャラクターより前面に出す
+  // ヒーローの花火（z-index:5）より前面、ナビパネル（z-index:10）より背面。
+  // 11 にするとナビのドロップダウンがバーの裏に隠れてしまう
+  z-index: 6;
   background: var(--color-main);
   color: #fff;
   margin-top: 40px;

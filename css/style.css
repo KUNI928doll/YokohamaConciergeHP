@@ -626,7 +626,7 @@ a {
 }
 .info-bar {
   position: relative;
-  z-index: 11;
+  z-index: 6;
   background: var(--color-main);
   color: #fff;
   margin-top: 40px;
@@ -5022,7 +5022,7 @@ img {
 
 .news__slider {
   margin: 0 auto 48px;
-  max-width: 1200px;
+  max-width: 750px;
   width: 100%;
 }
 .news__slider .slick-slide {
