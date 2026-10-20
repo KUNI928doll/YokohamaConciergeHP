@@ -11,6 +11,13 @@ get_header();
         <p class="privacy-page__intro">YOKOHAMA Concierge（運営：ハマナビサービス/エコプリントコンサルティングサービス内、以下「当社」）は、当社サービスを安心してご利用いただくため、個人情報の保護を重要な責務と認識し、以下のとおりプライバシーポリシー（個人情報保護方針）を定めます。</p>
 
         <section class="privacy-page__section">
+            <h2 class="privacy-page__heading">事業者情報</h2>
+            <p class="privacy-page__text">事業者名：ハマナビサービス（エコプリントコンサルティングサービス内）</p>
+            <p class="privacy-page__text">運営責任者：國崎 守男</p>
+            <p class="privacy-page__text">所在地：神奈川県横浜市中区山下町76-4-1301</p>
+        </section>
+
+        <section class="privacy-page__section">
             <h2 class="privacy-page__heading">第1条（適用範囲）</h2>
             <p class="privacy-page__text">本プライバシーポリシーは、当社が提供する「YOKOHAMA Concierge（宿泊・飲食・体験・観光ガイド・予約代行・トランクお預かりサービス）」において取得するすべての個人情報の取り扱いに適用されます。</p>
         </section>
@@ -67,13 +74,18 @@ get_header();
             <h2 class="privacy-page__heading">第4条（個人情報の管理）</h2>
             <p class="privacy-page__text">当社は、個人情報を適切に管理し、漏えい・紛失・改ざん等を防止するため、次の安全対策を講じます。</p>
             <ul class="privacy-page__list">
-                <li>Google スプレッドシートによる暗号化通信（HTTPS）でのデータ管理</li>
-                <li>Make（Integromat）を利用した安全な自動連携</li>
+                <li>HTTPS通信を利用したクラウドサービス（Google スプレッドシート等）でのデータ管理</li>
+                <li>Make（Integromat）を利用した自動連携</li>
                 <li>管理端末のパスワード管理およびアクセス制限</li>
                 <li>不要となった情報の速やかな削除</li>
                 <li>外部ガイド・委託先に対する秘密保持の徹底</li>
             </ul>
             <p class="privacy-page__text">当社はクレジットカード情報を保持しません（Stripe が管理・暗号化）。</p>
+        </section>
+
+        <section class="privacy-page__section">
+            <h2 class="privacy-page__heading">第4条の2（外国のサービスの利用について）</h2>
+            <p class="privacy-page__text">当社は、Google、Stripe、Make など、外国の事業者が提供するサービスを利用しています。これらのサービスの利用により、利用者の個人情報が、日本国外のサーバーで取り扱われる場合があります。当社は、各サービスの安全管理の状況を確認したうえで、利用しています。</p>
         </section>
 
         <section class="privacy-page__section">
@@ -101,8 +113,8 @@ get_header();
                 <li>利便性向上（入力補助、言語設定 等）</li>
                 <li>アクセス解析（Google Analytics 等）</li>
             </ul>
-            <p class="privacy-page__text">Cookie は利用者のブラウザ設定で拒否することが可能です。</p>
-            <p class="privacy-page__text">Cookie には個人を特定する情報は含みません。</p>
+            <p class="privacy-page__text">Cookie は、利用者のブラウザ設定で拒否することができます。</p>
+            <p class="privacy-page__text">Cookie には、個人を特定する情報は含まれません。</p>
         </section>
 
         <section class="privacy-page__section">
@@ -114,7 +126,7 @@ get_header();
                 <li>利用停止</li>
                 <li>第三者提供の停止</li>
             </ul>
-            <p class="privacy-page__text">請求があった場合、本人確認のうえ速やかに対応いたします。</p>
+            <p class="privacy-page__text">請求があった場合、本人確認のうえ、速やかに対応いたします。</p>
         </section>
 
         <section class="privacy-page__section">
@@ -128,11 +140,13 @@ get_header();
             <p class="privacy-page__text">プライバシーポリシーに関するお問い合わせは、以下の窓口までお願いいたします。</p>
             <div class="privacy-page__contact">
                 <p class="privacy-page__text"><strong>YOKOHAMA Concierge（ハマナビサービス）</strong></p>
-                <p class="privacy-page__text">📩 <a href="mailto:info@hamanavi-s.jp">info@hamanavi-s.jp</a></p>
-                <p class="privacy-page__text">📞 045-681-2737 ／ 070-1526-3845</p>
-                <p class="privacy-page__text">運営：エコプリントコンサルティングサービス内<br>ハマナビサービス（080-7428-0814）</p>
+                <p class="privacy-page__text">メール：<a href="mailto:info@hamanavi-s.jp">info@hamanavi-s.jp</a></p>
+                <p class="privacy-page__text">電話：045-681-2737 ／ 070-1526-3845</p>
+                <p class="privacy-page__text">運営：エコプリントコンサルティングサービス内 ハマナビサービス</p>
             </div>
         </section>
+
+        <p class="privacy-page__updated">制定日：2026年10月20日</p>
     </div>
 </main>
 
