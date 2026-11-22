@@ -9,3 +9,5 @@
 # ログ・キャッシュ
 *.log
 node_modules/
+
+.revision/

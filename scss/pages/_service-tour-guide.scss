@@ -907,6 +907,18 @@
         font-family: var(--font-sub);
     }
 
+    .guide-fee__course-title:has(+ .guide-fee__course-note) {
+        margin-bottom: 4px;
+    }
+
+    .guide-fee__course-note {
+        font-size: 1.4rem;
+        color: var(--color-main);
+        margin-bottom: 14px;
+        text-align: center;
+        font-family: var(--font-sub);
+    }
+
     .guide-fee__options {
         display: flex;
         flex-direction: row;

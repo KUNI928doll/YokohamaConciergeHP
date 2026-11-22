@@ -61,7 +61,7 @@ get_header();
                 <li>動画ガイド（1日）：22,000円</li>
                 <li>通訳ガイド付（1日）：30,000円</li>
             </ul>
-            <p class="privacy-page__text privacy-page__note">ガイド案内は 1組3名まで とし、4名以上の案内は行いません。<br>※交通費・入場料等は別途利用者負担。</p>
+            <p class="privacy-page__text privacy-page__note">ガイド案内は 1組8名まで とし、9名以上の案内は行いません。<br>※交通費・入場料等は別途利用者負担。</p>
 
             <h3 class="privacy-page__subheading">2. 予約代行サービス料金</h3>
             <ul class="privacy-page__list">

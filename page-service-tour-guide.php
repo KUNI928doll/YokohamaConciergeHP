@@ -512,7 +512,7 @@ get_header();
                 <div class="guide-fee__info">
                     <div class="guide-fee__info-item">
                         <h3 class="guide-fee__info-title">予約購入可能人数</h3>
-                        <p class="guide-fee__info-text">1~3人</p>
+                        <p class="guide-fee__info-text">1~8人</p>
                     </div>
                     <div class="guide-fee__info-item">
                         <h3 class="guide-fee__info-title">対応言語</h3>
@@ -524,6 +524,7 @@ get_header();
                     <div class="guide-fee__courses">
                         <div class="guide-fee__course">
                             <h3 class="guide-fee__course-title">半日コース (約3時間)</h3>
+                            <p class="guide-fee__course-note">1組（グループ）の料金</p>
                             <div class="guide-fee__options">
                                 <div class="guide-fee__option">
                                     <span class="guide-fee__option-label">音声ガイドのみ</span>
@@ -538,6 +539,7 @@ get_header();
 
                         <div class="guide-fee__course">
                             <h3 class="guide-fee__course-title">1日コース (約8時間)</h3>
+                            <p class="guide-fee__course-note">1組（グループ）の料金</p>
                             <div class="guide-fee__options">
                                 <div class="guide-fee__option">
                                     <span class="guide-fee__option-label">音声ガイドのみ</span>
