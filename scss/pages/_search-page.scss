@@ -17,7 +17,8 @@
     font-size: 1.6rem;
 }
 .search-results {
-    padding: clamp(40px, 8vw, 80px) 0;
+    // フッターが 200px 上に重なるため、下はそのぶん空けて最後のカードが隠れないようにする
+    padding: clamp(40px, 8vw, 80px) 0 240px;
 }
 
 .search-results__inner {

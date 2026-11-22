@@ -438,7 +438,7 @@ img {
 
   @include mq($until: sp-large) {
     width: 78%; // スマホは少し広げる
-    font-size: clamp(1rem, 2.6vw, 1.25rem);
+    font-size: clamp(1.2rem, 2.6vw, 1.25rem); // 狭い幅でも 12px より小さくしない
   }
 
   // 多言語（英・中・韓など日本語以外）は文言が長くなり枠からはみ出すため、

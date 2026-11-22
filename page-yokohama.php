@@ -118,7 +118,7 @@ get_header();
                                     元町・山手エリア
                                 </h2>
                                 <div class="tab-img">
-                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/motomati-tab01@2x.png" alt="元町・山手エリアの写真" loading="lazy"
+                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/motomati-tab01@2x.png" alt="元町・山手エリアの写真"
                                         decoding="async">
                                 </div>
                             </div>
@@ -128,7 +128,7 @@ get_header();
                             <h3 class="tab-sub-title">見どころスポット</h3>
                             <p class="tab-text">アメリカ山公園　　屋上庭園のような公園。港や街並みを見下ろす美しい景色が楽しめます。</p>
                             <div class="tab-img2">
-                                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/motomati-tab02@2x.png" alt="元町・山手エリアの写真" loading="lazy"
+                                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/motomati-tab02@2x.png" alt="元町・山手エリアの写真"
                                     decoding="async">
                             </div>
                             <div class="tab__map-button">
@@ -150,7 +150,7 @@ get_header();
                                     世界最大級の規模を誇る横浜中華街では、カラフルな牌楼（門）と活気ある屋台が旅行者を出迎えます。本格中華料理や点心の食べ歩きはもちろんのこと、伝統的な寺院や雑貨屋巡りも人気。すぐ近くの山下公園は海風を感じながら散歩でき、氷川丸やベイブリッジを眺めることができる絶景スポットです。
                                 </p>
                                 <div class="tab-img2">
-                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/tyukamati-tab01@2x.png" alt="中華街・山下公園エリアの写真" loading="lazy"
+                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/tyukamati-tab01@2x.png" alt="中華街・山下公園エリアの写真"
                                         decoding="async">
                                 </div>
                             </div>
@@ -158,7 +158,7 @@ get_header();
                                 <h3 class="tab-sub-title">見どころスポット</h3>
                                 <p class="tab-text">横浜大世界　　中国文化をテーマにした複合施設。雑貨、アート、フードが楽しめます。</p>
                                 <div class="tab-img3">
-                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/tyukamati-tab02@2x.png" alt="中華街・山下公園エリアの写真" loading="lazy"
+                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/tyukamati-tab02@2x.png" alt="中華街・山下公園エリアの写真"
                                         decoding="async">
                                 </div>
                                 <div class="tab__map-button tab__map-button--position">
@@ -188,7 +188,7 @@ get_header();
                                     <li>• 大さん橋（メリケン波止場）　クルーズ船発着であり、夜景スポットへも近い、日本で最も古い桟橋です。</li>
                                 </ul>
                                 <div class="tab-img4">
-                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/nihonodori-tab01@2x.png" alt="日本大通りエリアの写真" loading="lazy"
+                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/nihonodori-tab01@2x.png" alt="日本大通りエリアの写真"
                                         decoding="async">
                                 </div>
                             </div>
@@ -208,9 +208,8 @@ get_header();
                             <div class="tab-panel-wrap">
                                 <p class="tab-text">文明開化の時代に外国人居留地として栄えた馬車道は、ガス灯とレンガ造りの建物が並ぶ、レトロな雰囲気漂うエリア。アイスクリームやガス灯発祥の地としても知られ、昔ながらの洋食店やアートスポットが点在しています。レトロとモダンが調和した散策におすすめの場所です。
                                 </p>
-                                </p>
                                 <div class="tab-img2">
-                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/kannai-tab01@2x.png" alt="関内エリアの写真" loading="lazy"
+                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/kannai-tab01@2x.png" alt="関内エリアの写真"
                                         decoding="async">
                                 </div>
                             </div>
@@ -218,7 +217,7 @@ get_header();
                                 <h3 class="tab-sub-title">見どころスポット</h3>
                                 <p class="tab-text">横浜スタジアム　　プロ野球の試合や大型イベントが開催される、横浜の象徴的な球場です。</p>
                                 <div class="tab-img3">
-                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/kannai-tab02@2x.webp" alt="横浜スタジアムの写真" loading="lazy"
+                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/kannai-tab02@2x.webp" alt="横浜スタジアムの写真"
                                         decoding="async">
                                 </div>
                                 <div class="tab__map-button tab__map-button--position">
@@ -232,7 +231,7 @@ get_header();
                         <!-- 馬車道 -->
                         <div class="tab-panel">
                             <div class="tab-img5">
-                                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/kannai-tab01@2x.png" alt="関内エリアの写真" loading="lazy" decoding="async">
+                                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/kannai-tab01@2x.png" alt="関内エリアの写真" decoding="async">
                             </div>
                             <h2 class="guide-spots__panel-title">
                                 <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about-yokohama/icon-bashamichi.png" alt="" aria-hidden="true">馬車道エリア
@@ -263,7 +262,7 @@ get_header();
                         <!-- 桜木町エリア -->
                         <div class="tab-panel">
                             <div class="tab-img5">
-                                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/sakuragimachi-tab01@2x.png" alt="桜木町エリアの写真" loading="lazy"
+                                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/sakuragimachi-tab01@2x.png" alt="桜木町エリアの写真"
                                     decoding="async">
                             </div>
                             <h2 class="guide-spots__panel-title">
@@ -300,7 +299,7 @@ get_header();
                                     横浜のシンボルともいえるみなとみらいは、近未来的な高層ビル群。と海辺の景色が融合する大人気エリア。ショッピングモールやアミューズメント施設、美術観光などが楽しめます。
                                 </p>
                                 <div class="tab-img2">
-                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/minatomirai-tab01@2x.png" alt="みなとみらいエリアの写真" loading="lazy"
+                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/minatomirai-tab01@2x.png" alt="みなとみらいエリアの写真"
                                         decoding="async">
                                 </div>
                             </div>
@@ -312,7 +311,7 @@ get_header();
                                     <li>• 横浜美術館　国内外の近現代美術を鑑賞できる文化スポット</li>
                                 </ul>
                                 <div class="tab-img3">
-                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/minatomitai-tab02@2x.png" alt="みなとみらいエリアの写真" loading="lazy"
+                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/minatomitai-tab02@2x.png" alt="みなとみらいエリアの写真"
                                         decoding="async">
                                 </div>
                                 <div class="tab__map-button tab__map-button--position">

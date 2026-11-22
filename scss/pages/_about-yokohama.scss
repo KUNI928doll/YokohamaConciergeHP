@@ -421,6 +421,7 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   width: 100%;
+  max-width: 672px; // 1440 幅のときの幅。広い画面でボタンの間が開きすぎないよう止める
   box-sizing: border-box;
 
   @include mq($until: sp-large) {

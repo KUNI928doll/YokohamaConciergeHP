@@ -129,6 +129,9 @@
 
 .features__circle {
   aspect-ratio: 1 / 1;
+  width: 100%;
+  border: none;
+  font: inherit;
   background: #fff;
   border-radius: 50%;
   display: flex;
@@ -146,6 +149,11 @@
 
   &:active {
     transform: translateY(-3px);
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 4px;
   }
 }
 

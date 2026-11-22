@@ -39,14 +39,6 @@ text-decoration-skip-ink: auto;
 color: currentColor
 }
 
-display:block,
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
 
 textarea:not([rows]) {
 min-height: 10em

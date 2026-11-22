@@ -196,9 +196,10 @@ function yokohama_concierge_schema_markup() {
             'headline' => get_the_title(),
             'datePublished' => get_the_date('c'),
             'dateModified' => get_the_modified_date('c'),
+            // ログイン名と同じ表示名を出さないよう、書き手はサービス名にする
             'author' => array(
-                '@type' => 'Person',
-                'name' => get_the_author()
+                '@type' => 'Organization',
+                'name' => 'YOKOHAMA Concierge'
             ),
             'publisher' => array(
                 '@type' => 'Organization',
@@ -241,9 +242,18 @@ function yokohama_concierge_schema_markup() {
 add_action('wp_head', 'yokohama_concierge_schema_markup');
 
 // OGP(Open Graph Protocol)タグを出力
+// SEO プラグイン（Yoast・All in One SEO）が head の情報を出しているか
+// All in One SEO は v4 から All_in_One_SEO_Pack クラスが無くなったため、AIOSEO_VERSION と aioseo() でも確かめる
+function yokohama_concierge_has_seo_plugin() {
+    return defined('WPSEO_VERSION')
+        || defined('AIOSEO_VERSION')
+        || function_exists('aioseo')
+        || class_exists('All_in_One_SEO_Pack');
+}
+
 function yokohama_concierge_add_ogp_tags() {
     // プラグインでOGP設定されている場合はスキップ
-    if (defined('WPSEO_VERSION') || class_exists('All_in_One_SEO_Pack')) {
+    if (yokohama_concierge_has_seo_plugin()) {
         return;
     }
 
@@ -335,7 +345,7 @@ function yokohama_concierge_get_meta_description() {
 // meta descriptionを出力
 function yokohama_concierge_add_meta_description() {
     // プラグインでSEO設定されている場合はスキップ
-    if (defined('WPSEO_VERSION') || class_exists('All_in_One_SEO_Pack')) {
+    if (yokohama_concierge_has_seo_plugin()) {
         return;
     }
 
@@ -353,7 +363,7 @@ add_action('wp_head', 'yokohama_concierge_add_meta_description', 1);
 
 // canonicalを出力（個別投稿・固定ページはWP標準のrel_canonicalが出力するため対象外）
 function yokohama_concierge_add_canonical() {
-    if (is_singular()) {
+    if (is_singular() || yokohama_concierge_has_seo_plugin()) {
         return;
     }
 
@@ -458,8 +468,9 @@ add_action('after_switch_theme', 'yokohama_concierge_theme_activation');
 
 // 初回読み込み時にもページを確認・作成
 function yokohama_concierge_check_pages() {
-    // 管理画面でのみ実行（パフォーマンス向上のため）
-    if (!is_admin()) {
+    // 管理画面でのみ実行（パフォーマンス向上のため）。
+    // admin_init はログインしていない人の admin-ajax.php でも動くため、ページを作れる権限も確かめる
+    if (!is_admin() || wp_doing_ajax() || !current_user_can('publish_pages')) {
         return;
     }
     
@@ -530,7 +541,7 @@ function yokohama_concierge_enqueue_scripts() {
         'yokohama-header',
         get_template_directory_uri() . '/js/header.js',
         array('jquery'),
-        '1.0.0',
+        filemtime(get_template_directory() . '/js/header.js'),
         true
     );
     
@@ -570,7 +581,7 @@ function yokohama_concierge_enqueue_scripts() {
         'yokohama-features-modal',
         get_template_directory_uri() . '/js/features-modal.js',
         array('jquery'),
-        '1.0.0',
+        filemtime(get_template_directory() . '/js/features-modal.js'),
         true
     );
     
@@ -626,7 +637,7 @@ function yokohama_concierge_enqueue_scripts() {
             'yokohama-reservation',
             get_template_directory_uri() . '/js/reservation.js',
             array('jquery', 'yokohama-shop-selector'),
-            '1.0.0',
+            filemtime(get_template_directory() . '/js/reservation.js'),
             true
         );
         
@@ -1283,11 +1294,6 @@ function yokohama_concierge_create_stripe_session() {
     // APIキーの正規化（不可視文字/改行/スペース等を除去）
     $stripe_secret_key = yokohama_concierge_normalize_stripe_secret_key($stripe_secret_key);
     
-    // デバッグ（サーバーログのみ）
-    if (defined('WP_DEBUG') && WP_DEBUG) {
-        error_log('Stripe API Key Debug - Length: ' . strlen($stripe_secret_key));
-    }
-    
     // APIキーの形式をチェック
     $key_prefix = substr($stripe_secret_key, 0, 8); // sk_test_ / sk_live_
     if ($key_prefix !== 'sk_test_' && $key_prefix !== 'sk_live_') {
@@ -1531,9 +1537,6 @@ function yokohama_concierge_create_stripe_session() {
             // エラーレスポンスの詳細をログに記録
             error_log('Stripe API Error - HTTP Code: ' . $http_code);
             error_log('Stripe API Error - Response: ' . $response);
-            error_log('Stripe API Error - Key length: ' . strlen($stripe_secret_key));
-            error_log('Stripe API Error - Key prefix: ' . substr($stripe_secret_key, 0, 20) . '...');
-            error_log('Stripe API Error - Key suffix: ...' . substr($stripe_secret_key, -10));
             
             $error_data = json_decode($response, true);
             $error_message = isset($error_data['error']['message']) 
@@ -2015,7 +2018,7 @@ function yokohama_concierge_stripe_settings_page() {
     // 画面上にキー全文を出さない（漏えい対策）。設定済みの場合は末尾4桁のみ表示
     $key_hint = '';
     if (!empty($current_key)) {
-        $key_hint = '設定済み（末尾: ...' . esc_html(substr($current_key, -4)) . '）。変更する場合のみ新しいキーを入力してください。';
+        $key_hint = '設定済み（末尾: ...' . substr($current_key, -4) . '）。変更する場合のみ新しいキーを入力してください。';
     }
     ?>
     <div class="wrap">
@@ -2049,7 +2052,7 @@ function yokohama_concierge_stripe_settings_page() {
                                    autocomplete="new-password"
                                    placeholder="sk_test_... または sk_live_...">
                             <?php if ($key_hint): ?>
-                                <p class="description"><?php echo $key_hint; ?></p>
+                                <p class="description"><?php echo esc_html($key_hint); ?></p>
                             <?php endif; ?>
                             <p class="description">
                                 テスト環境: <code>sk_test_...</code><br>
@@ -2097,3 +2100,57 @@ define('STRIPE_SECRET_KEY', 'sk_live_...'); // 本番環境</code></pre>
     </div>
     <?php
 }
+
+// ===== セキュリティ: ログイン名を外から見えないようにする =====
+// ?author=1 や /author/名前/ の投稿者ページは使っていないので 404 にする
+function yokohama_concierge_block_author_pages() {
+    if (is_admin()) {
+        return;
+    }
+    if (is_author() || isset($_GET['author'])) {
+        global $wp_query;
+        $wp_query->set_404();
+        status_header(404);
+        nocache_headers();
+    }
+}
+add_action('template_redirect', 'yokohama_concierge_block_author_pages', 1);
+
+// ログインしていない人には REST API のユーザー一覧を出さない（ブロックエディタはログイン中なので影響なし）
+function yokohama_concierge_hide_rest_users($endpoints) {
+    if (!is_user_logged_in()) {
+        unset($endpoints['/wp/v2/users'], $endpoints['/wp/v2/users/(?P<id>[\d]+)']);
+    }
+    return $endpoints;
+}
+add_filter('rest_endpoints', 'yokohama_concierge_hide_rest_users');
+
+// 埋め込み用データ（oEmbed）から書き手の名前と URL を外す
+function yokohama_concierge_hide_oembed_author($data) {
+    unset($data['author_name'], $data['author_url']);
+    return $data;
+}
+add_filter('oembed_response_data', 'yokohama_concierge_hide_oembed_author');
+
+// WordPress 標準のサイトマップからユーザーを外す
+function yokohama_concierge_remove_users_sitemap($provider, $name) {
+    return ($name === 'users') ? false : $provider;
+}
+add_filter('wp_sitemaps_add_provider', 'yokohama_concierge_remove_users_sitemap', 10, 2);
+
+// ===== セキュリティ: XML-RPC を止める（使っているプラグイン・アプリが無いため） =====
+add_filter('xmlrpc_enabled', '__return_false');
+add_filter('xmlrpc_methods', '__return_empty_array');
+// 上の2つだけでは system.listMethods などの基本の命令が残るため、xmlrpc.php への接続ごと断る
+function yokohama_concierge_block_xmlrpc() {
+    if (defined('XMLRPC_REQUEST') && XMLRPC_REQUEST) {
+        status_header(403);
+        exit;
+    }
+}
+add_action('init', 'yokohama_concierge_block_xmlrpc', 0);
+function yokohama_concierge_remove_pingback_header($headers) {
+    unset($headers['X-Pingback']);
+    return $headers;
+}
+add_filter('wp_headers', 'yokohama_concierge_remove_pingback_header');

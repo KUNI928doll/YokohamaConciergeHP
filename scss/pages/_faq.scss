@@ -196,9 +196,13 @@
     font-weight: 500;
     cursor: pointer;
     border: none;
-    outline: none;
     transition: all 0.3s ease;
     overflow: visible;
+
+    &:focus-visible {
+      outline: 3px solid var(--color-accent);
+      outline-offset: 2px;
+    }
 
     &::after {
       content: "";

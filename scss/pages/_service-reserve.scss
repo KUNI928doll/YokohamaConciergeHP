@@ -730,7 +730,7 @@
     height:  255px;
     left: -203px;
     top: 326px;
-    background: url(../../images/service-reserve/mascot@2x.png) center center /contain no-repeat;
+    background: url(../images/service-reserve/mascot@2x.png) center center /contain no-repeat;
 
     @include mq($until: tab) {
       display: none;
@@ -824,7 +824,6 @@ button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  outline: none;
   padding: 0;
 }
 
@@ -834,7 +833,7 @@ button {
 
 .play-slider__bubble {
   position: relative;
-  background: url(../../images/service-reserve/bubble@2x.png) center left / cover no-repeat;
+  background: url(../images/service-reserve/bubble@2x.png) center left / cover no-repeat;
   width: 407px;
   min-height: 292px;
   line-height: calc(28px /16px);
@@ -907,7 +906,7 @@ button {
     top: 0;
     right: 0;
     transform: translateY(50%);
-    background: url(../../images/yokohama/link-icon@2x.png) center center /contain no-repeat;
+    background: url(../images/yokohama/link-icon@2x.png) center center /contain no-repeat;
   }
 }
 
@@ -956,7 +955,7 @@ button {
   height:  27px;
   left: 0;
   top: 0;
-  background: url(../../images/service-reserve/nijyuhukidashi-left@2x.png) center center /contain no-repeat;
+  background: url(../images/service-reserve/nijyuhukidashi-left@2x.png) center center /contain no-repeat;
  }
  &::after {
   position: absolute;
@@ -965,7 +964,7 @@ button {
   height:  27px;
   right: 0;
   top: 0;
-  background: url(../../images/service-reserve/nijyuhukidashi-right@2x.png) center center /contain no-repeat;
+  background: url(../images/service-reserve/nijyuhukidashi-right@2x.png) center center /contain no-repeat;
  }
 }
 

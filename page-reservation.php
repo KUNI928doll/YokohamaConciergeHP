@@ -149,7 +149,7 @@ get_header();
                         <div class="reservation-form__field">
                             <label for="reservation-name" class="reservation-form__label">お名前<span
                                     class="reservation-form__required">必須</span></label>
-                            <input type="text" id="reservation-name" name="name" class="reservation-form__input"
+                            <input type="text" id="reservation-name" name="name" class="reservation-form__input" autocomplete="name"
                                 placeholder="例）横浜 太郎" required>
                         </div>
                         <div class="reservation-form__field">
@@ -184,13 +184,13 @@ get_header();
                         <div class="reservation-form__field">
                             <label for="reservation-phone" class="reservation-form__label">電話番号（携帯番号）<span
                                     class="reservation-form__required">必須</span></label>
-                            <input type="tel" id="reservation-phone" name="phone" class="reservation-form__input"
+                            <input type="tel" id="reservation-phone" name="phone" class="reservation-form__input" autocomplete="tel"
                                 placeholder="例）+81-90-1234-5678" required>
                         </div>
                         <div class="reservation-form__field">
                             <label for="reservation-email" class="reservation-form__label">連絡先アドレス（メールアドレス）<span
                                     class="reservation-form__required">必須</span></label>
-                            <input type="email" id="reservation-email" name="email" class="reservation-form__input"
+                            <input type="email" id="reservation-email" name="email" class="reservation-form__input" autocomplete="email"
                                 placeholder="info@example.com" required>
                         </div>
                     </div>
@@ -342,8 +342,8 @@ Please enter any special requests in English if possible."></textarea>
                         <div class="reservation-form__proposal-grid">
                             <div class="reservation-form__proposal-item">
                                 <div class="reservation-form__proposal-label">
-                                    <span>提案</span>
-                                    <button type="button" class="reservation-form__clear-btn" data-target="hotel-proposal-1" title="クリア" aria-label="クリア">
+                                    <label for="hotel-proposal-1">提案</label>
+                                    <button type="button" class="reservation-form__clear-btn" data-target="hotel-proposal-1" title="クリア" aria-label="ホテルの提案をクリア">
                                         <i class="fas fa-times-circle" aria-hidden="true"></i>
                                     </button>
                                 </div>
@@ -474,8 +474,8 @@ Please enter any special requests in English if possible."></textarea>
                         <div class="reservation-form__proposal-grid">
                             <div class="reservation-form__proposal-item">
                                 <div class="reservation-form__proposal-label">
-                                    <span>提案</span>
-                                    <button type="button" class="reservation-form__clear-btn" data-target="dining-proposal-1" title="クリア" aria-label="クリア">
+                                    <label for="dining-proposal-1">提案</label>
+                                    <button type="button" class="reservation-form__clear-btn" data-target="dining-proposal-1" title="クリア" aria-label="飲食店の提案をクリア">
                                         <i class="fas fa-times-circle" aria-hidden="true"></i>
                                     </button>
                                 </div>

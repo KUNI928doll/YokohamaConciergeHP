@@ -16,7 +16,7 @@ get_header();
             <div class="sub-hero__img">
                 <img src="<?php echo get_template_directory_uri(); ?>/images/service-tour-guide/service-hero.webp" alt="横浜の夜景">
             </div>
-            <h2 class="sub-hero__title">お知らせ・イベント</h2>
+            <p class="sub-hero__title">お知らせ・イベント</p>
         </div>
         <nav class="breadcrumb" aria-label="Breadcrumb">
             <ul class="breadcrumb__list">
@@ -52,7 +52,7 @@ get_header();
                         <?php endif; ?>
                         <time class="news-detail__date" datetime="<?php echo get_the_date('Y-m-d'); ?>"><?php echo get_the_date('Y.m.d'); ?></time>
                     </div>
-                    <h2 class="news-detail__title"><?php the_title(); ?></h2>
+                    <h1 class="news-detail__title"><?php the_title(); ?></h1>
                 </header>
 
                 <!-- アイキャッチ画像 -->
@@ -71,17 +71,17 @@ get_header();
                 <div class="news-detail__share">
                     <p class="news-detail__share-title">この記事をシェア</p>
                     <div class="news-detail__share-buttons">
-                        <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode(get_permalink()); ?>&text=<?php echo urlencode(get_the_title()); ?>" 
-                           target="_blank" rel="noopener noreferrer" class="news-detail__share-btn news-detail__share-btn--twitter">
-                            <i class="fab fa-twitter"></i>
+                        <a href="<?php echo esc_url('https://twitter.com/intent/tweet?url=' . rawurlencode(get_permalink()) . '&text=' . rawurlencode(get_the_title())); ?>" 
+                           target="_blank" rel="noopener noreferrer" class="news-detail__share-btn news-detail__share-btn--twitter" aria-label="Xでシェア（新しいタブで開きます）">
+                            <i class="fab fa-x-twitter" aria-hidden="true"></i>
                         </a>
-                        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode(get_permalink()); ?>" 
-                           target="_blank" rel="noopener noreferrer" class="news-detail__share-btn news-detail__share-btn--facebook">
-                            <i class="fab fa-facebook-f"></i>
+                        <a href="<?php echo esc_url('https://www.facebook.com/sharer/sharer.php?u=' . rawurlencode(get_permalink())); ?>" 
+                           target="_blank" rel="noopener noreferrer" class="news-detail__share-btn news-detail__share-btn--facebook" aria-label="Facebookでシェア（新しいタブで開きます）">
+                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
                         </a>
-                        <a href="https://social-plugins.line.me/lineit/share?url=<?php echo urlencode(get_permalink()); ?>" 
-                           target="_blank" rel="noopener noreferrer" class="news-detail__share-btn news-detail__share-btn--line">
-                            <i class="fab fa-line"></i>
+                        <a href="<?php echo esc_url('https://social-plugins.line.me/lineit/share?url=' . rawurlencode(get_permalink())); ?>" 
+                           target="_blank" rel="noopener noreferrer" class="news-detail__share-btn news-detail__share-btn--line" aria-label="LINEでシェア（新しいタブで開きます）">
+                            <i class="fab fa-line" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>

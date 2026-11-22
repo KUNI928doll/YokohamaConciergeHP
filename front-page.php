@@ -187,18 +187,18 @@
 
                 <!-- 4つの特徴 -->
                 <div class="features__circles js-fade-up">
-                    <div class="features__circle" data-feature="1">
+                    <button type="button" class="features__circle" data-feature="1" aria-haspopup="dialog" aria-controls="featuresModal">
                         <span class="features__circle-text">ネットで簡単<br>一括手配</span>
-                    </div>
-                    <div class="features__circle" data-feature="2">
+                    </button>
+                    <button type="button" class="features__circle" data-feature="2" aria-haspopup="dialog" aria-controls="featuresModal">
                         <span class="features__circle-text">当日や緊急時も<br>対応可能</span>
-                    </div>
-                    <div class="features__circle" data-feature="3">
+                    </button>
+                    <button type="button" class="features__circle" data-feature="3" aria-haspopup="dialog" aria-controls="featuresModal">
                         <span class="features__circle-text">文化や食の<br>希望に対応</span>
-                    </div>
-                    <div class="features__circle" data-feature="4">
+                    </button>
+                    <button type="button" class="features__circle" data-feature="4" aria-haspopup="dialog" aria-controls="featuresModal">
                         <span class="features__circle-text">お得でシンプルな<br>料金体系</span>
-                    </div>
+                    </button>
                 </div>
             </div>
         </div>
@@ -253,6 +253,7 @@
                     <li class="service__area-item service__area-item--nowrap">横浜駅エリア（宿泊施設予約のみ）</li>
                 </ul>
             </div>
+        </div>
     </section>
     <section class="service-detail section--service-detail">
         <div class="service-detail__inner inner">
@@ -272,7 +273,7 @@
                         </p>
                     </div>
                     <div class="service-detail__arrow">
-                        <span class="service-detail__arrow-btn" aria-label="詳細を見る"></span>
+                        <span class="service-detail__arrow-btn" aria-hidden="true"></span>
                     </div>
                 </a>
 
@@ -289,7 +290,7 @@
                         </p>
                     </div>
                     <div class="service-detail__arrow">
-                        <span class="service-detail__arrow-btn" aria-label="詳細を見る"></span>
+                        <span class="service-detail__arrow-btn" aria-hidden="true"></span>
                     </div>
                 </a>
 
@@ -306,7 +307,7 @@
                         </p>
                     </div>
                     <div class="service-detail__arrow">
-                        <span class="service-detail__arrow-btn" aria-label="詳細を見る"></span>
+                        <span class="service-detail__arrow-btn" aria-hidden="true"></span>
                     </div>
                 </a>
             </div>
@@ -363,7 +364,7 @@
                 <dl class="faq__list">
                     <div class="faq__item">
                         <dt>
-                            <button class="faq__question" aria-expanded="false" aria-controls="faq-answer-1">
+                            <button type="button" class="faq__question" aria-expanded="false" aria-controls="faq-answer-1">
                                 <span class="faq__icon" aria-hidden="true">Q</span>
                                 <span class="faq__text">予約後のキャンセルはできますか？</span>
                                 <span class="faq__plus" aria-hidden="true"></span>
@@ -385,7 +386,7 @@
 
                     <div class="faq__item">
                         <dt>
-                            <button class="faq__question" aria-expanded="false" aria-controls="faq-answer-2">
+                            <button type="button" class="faq__question" aria-expanded="false" aria-controls="faq-answer-2">
                                 <span class="faq__icon" aria-hidden="true">Q</span>
                                 <span class="faq__text">当日予約も可能ですか？</span>
                                 <span class="faq__plus" aria-hidden="true"></span>
@@ -408,7 +409,7 @@
 
                     <div class="faq__item">
                         <dt>
-                            <button class="faq__question" aria-expanded="false" aria-controls="faq-answer-3">
+                            <button type="button" class="faq__question" aria-expanded="false" aria-controls="faq-answer-3">
                                 <span class="faq__icon" aria-hidden="true">Q</span>
                                 <span class="faq__text">支払いはどのようにするのでしょうか？</span>
                                 <span class="faq__plus" aria-hidden="true"></span>
@@ -433,7 +434,7 @@
 
                     <div class="faq__item">
                         <dt>
-                            <button class="faq__question" aria-expanded="false" aria-controls="faq-answer-4">
+                            <button type="button" class="faq__question" aria-expanded="false" aria-controls="faq-answer-4">
                                 <span class="faq__icon" aria-hidden="true">Q</span>
                                 <span class="faq__text">お困りごとの解決サービスの具体的な内容はどのようなことがありますか？</span>
                                 <span class="faq__plus" aria-hidden="true"></span>
@@ -537,7 +538,6 @@
                 </form>
             </div>
         </div>
-        </div>
         <div class="about-yokohama__section">
             <!-- 左カラム：キャラ -->
             <div class="about-yokohama__column about-yokohama__character">
@@ -598,7 +598,7 @@
                     <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about/about_title-wave.svg" alt="" aria-hidden="true"
                         class="section-title__icon section-title__icon--wave">
                 </div>
-                <div class="news__filter">
+                <div class="news__filter" role="radiogroup" aria-label="お知らせの種類で絞り込む">
                     <label><input type="radio" name="news-filter" value="all" checked> 全て</label>
                     <label><input type="radio" name="news-filter" value="notice"> お知らせ</label>
                     <label><input type="radio" name="news-filter" value="event"> イベント</label>
@@ -673,7 +673,7 @@
         <div class="contact__inner">
             <h2 class="section-title section-title--sm section-title--contact">
                 <span class="section-title__text">お問い合わせ</span>
-                <img loading="lazy" src=<?php echo get_template_directory_uri(); ?>/images/about/about_title-wave.svg" alt="" aria-hidden="true" class="section-title__icon section-title__icon--wave">
+                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/about/about_title-wave.svg" alt="" aria-hidden="true" class="section-title__icon section-title__icon--wave">
             </h2>
 
             <div class="contact__box">
@@ -804,10 +804,11 @@
             <p class="influencer__note">
                 本ホームページ上のイラスト画像はあくまでもイメージ画像で、実際とは多少異なる箇所もございますので、ご了承くださいませ。
             </p>
+        </div>
     </section>
 
     <!-- ポップアップモーダル -->
-    <div class="features-modal" id="featuresModal">
+    <div class="features-modal" id="featuresModal" role="dialog" aria-modal="true" aria-label="ハマナビサービスの特徴">
         <div class="features-modal__overlay"></div>
         <div class="features-modal__content" data-feature="1">
             <div class="features-modal__label-wrapper">
@@ -816,12 +817,12 @@
             </div>
 
             <!-- 前へボタン -->
-            <button class="features-modal__prev" aria-label="前へ">
+            <button type="button" class="features-modal__prev" aria-label="前へ">
                 <span>&lt;</span>
             </button>
 
             <!-- 次へボタン -->
-            <button class="features-modal__next" aria-label="次へ">
+            <button type="button" class="features-modal__next" aria-label="次へ">
                 <span>&gt;</span>
             </button>
 
@@ -832,7 +833,7 @@
                     ネットに出ていない施設や特別プランも代行可能です。</p>
             </div>
 
-            <button class="features-modal__close" aria-label="閉じる">× CLOSE</button>
+            <button type="button" class="features-modal__close" aria-label="閉じる">× CLOSE</button>
         </div>
 
         <div class="features-modal__content" data-feature="2">
@@ -842,12 +843,12 @@
             </div>
 
             <!-- 前へボタン -->
-            <button class="features-modal__prev" aria-label="前へ">
+            <button type="button" class="features-modal__prev" aria-label="前へ">
                 <span>&lt;</span>
             </button>
 
             <!-- 次へボタン -->
-            <button class="features-modal__next" aria-label="次へ">
+            <button type="button" class="features-modal__next" aria-label="次へ">
                 <span>&gt;</span>
             </button>
 
@@ -858,7 +859,7 @@
                     おもてなし精神の横浜ロコが対応させていただきますのでお気軽にご相談ください。</p>
             </div>
 
-            <button class="features-modal__close" aria-label="閉じる">× CLOSE</button>
+            <button type="button" class="features-modal__close" aria-label="閉じる">× CLOSE</button>
         </div>
 
         <div class="features-modal__content" data-feature="3">
@@ -868,12 +869,12 @@
             </div>
 
             <!-- 前へボタン -->
-            <button class="features-modal__prev" aria-label="前へ">
+            <button type="button" class="features-modal__prev" aria-label="前へ">
                 <span>&lt;</span>
             </button>
 
             <!-- 次へボタン -->
-            <button class="features-modal__next" aria-label="次へ">
+            <button type="button" class="features-modal__next" aria-label="次へ">
                 <span>&gt;</span>
             </button>
 
@@ -883,7 +884,7 @@
                 <p class="features-modal__text">食文化の違いや、ハラル、ヴィーガンアレルギーなどのご要望にも柔軟に対応いたします。</p>
             </div>
 
-            <button class="features-modal__close" aria-label="閉じる">× CLOSE</button>
+            <button type="button" class="features-modal__close" aria-label="閉じる">× CLOSE</button>
         </div>
 
         <div class="features-modal__content" data-feature="4">
@@ -893,12 +894,12 @@
             </div>
 
             <!-- 前へボタン -->
-            <button class="features-modal__prev" aria-label="前へ">
+            <button type="button" class="features-modal__prev" aria-label="前へ">
                 <span>&lt;</span>
             </button>
 
             <!-- 次へボタン -->
-            <button class="features-modal__next" aria-label="次へ">
+            <button type="button" class="features-modal__next" aria-label="次へ">
                 <span>&gt;</span>
             </button>
 
@@ -909,7 +910,7 @@
                     各代行手数料はわかりやすい固定価格です。</p>
             </div>
 
-            <button class="features-modal__close" aria-label="閉じる">× CLOSE</button>
+            <button type="button" class="features-modal__close" aria-label="閉じる">× CLOSE</button>
         </div>
     </div>
 

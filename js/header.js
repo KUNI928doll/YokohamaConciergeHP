@@ -12,7 +12,17 @@ document.addEventListener('DOMContentLoaded', () => {
       overlay.classList.toggle('is-active', open);
       document.body.classList.toggle('spmenu-open', open);
       document.body.style.overflow = open ? 'hidden' : '';
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
     };
+
+    // Escキーで閉じ、ハンバーガーにフォーカスを戻す
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && nav.classList.contains('is-open')) {
+        toggleMenu(false);
+        toggle.focus();
+      }
+    });
 
     toggle.addEventListener('click', () => {
       const open = !nav.classList.contains('is-open');

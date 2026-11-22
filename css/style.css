@@ -766,8 +766,9 @@ a {
   border-right: 1px solid #d4d9e1;
   z-index: 1;
   flex-shrink: 0;
-  flex: 0 0 16.6666666667% .inner-nav__item --has-sub;
-  flex-position: relative;
+}
+.inner-nav__item--has-sub {
+  position: relative;
 }
 .inner-nav__item.is-open {
   z-index: 1000;
@@ -1353,7 +1354,7 @@ html[lang=en-GB] .header .tel-orange {
   transform-origin: center;
 }
 .header .header__toggle-text {
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 600;
   color: #0D3D90;
   letter-spacing: 0.05em;
@@ -2953,7 +2954,7 @@ img {
 @media (max-width: 768px) {
   .speech-bubble-text--hero {
     width: 78%;
-    font-size: clamp(1rem, 2.6vw, 1.25rem);
+    font-size: clamp(1.2rem, 2.6vw, 1.25rem);
   }
 }
 .speech-bubble-text--hero:not(:lang(ja)) {
@@ -3456,6 +3457,9 @@ img {
 
 .features__circle {
   aspect-ratio: 1/1;
+  width: 100%;
+  border: none;
+  font: inherit;
   background: #fff;
   border-radius: 50%;
   display: flex;
@@ -3474,6 +3478,10 @@ img {
 }
 .features__circle:active {
   transform: translateY(-3px);
+}
+.features__circle:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 4px;
 }
 
 .features__circle-text {
@@ -4647,9 +4655,12 @@ img {
   font-weight: 500;
   cursor: pointer;
   border: none;
-  outline: none;
   transition: all 0.3s ease;
   overflow: visible;
+}
+.faq .faq__question:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
 }
 .faq .faq__question::after {
   content: "";
@@ -6208,6 +6219,7 @@ img {
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   width: 100%;
+  max-width: 672px;
   box-sizing: border-box;
 }
 @media (max-width: 768px) {
@@ -7593,12 +7605,6 @@ img {
     max-width: 100%;
   }
 }
-@media (max-width: ) {
-  .reservation-confirm__back, .reservation-confirm__submit, .reservation-confirm__stripe {
-    font-size: 1.3rem;
-    padding: 10px 14px;
-  }
-}
 .reservation-confirm__stripe {
   background-color: var(--color-accent, #FF6B35);
   color: #fff;
@@ -8119,7 +8125,7 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--color-bg);
   background: var(--color-accent);
@@ -10874,11 +10880,6 @@ img {
   max-width: 978px;
   height: 1064px;
 }
-@media (max-width: 1024px) {
-  .tab-panel.active {
-    height: atuo;
-  }
-}
 @media (max-width: 768px) {
   .tab-panel.active {
     padding: 30px;
@@ -11224,7 +11225,7 @@ img {
 }
 
 .search-results {
-  padding: clamp(40px, 8vw, 80px) 0;
+  padding: clamp(40px, 8vw, 80px) 0 240px;
 }
 
 .search-results__inner {
@@ -11331,7 +11332,7 @@ img {
 }
 
 .error-page__links {
-  padding: clamp(40px, 8vw, 80px) 0;
+  padding: clamp(40px, 8vw, 80px) 0 240px;
   background: #fff;
 }
 
@@ -12106,7 +12107,7 @@ img {
   height: 255px;
   left: -203px;
   top: 326px;
-  background: url(../../images/service-reserve/mascot@2x.png) center center/contain no-repeat;
+  background: url(../images/service-reserve/mascot@2x.png) center center/contain no-repeat;
 }
 @media (max-width: 1024px) {
   .container::before {
@@ -12203,7 +12204,6 @@ button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  outline: none;
   padding: 0;
 }
 
@@ -12213,7 +12213,7 @@ button {
 
 .play-slider__bubble {
   position: relative;
-  background: url(../../images/service-reserve/bubble@2x.png) center left/cover no-repeat;
+  background: url(../images/service-reserve/bubble@2x.png) center left/cover no-repeat;
   width: 407px;
   min-height: 292px;
   line-height: 1.75;
@@ -12290,7 +12290,7 @@ button {
   top: 0;
   right: 0;
   transform: translateY(50%);
-  background: url(../../images/yokohama/link-icon@2x.png) center center/contain no-repeat;
+  background: url(../images/yokohama/link-icon@2x.png) center center/contain no-repeat;
 }
 
 .play-note {
@@ -12334,7 +12334,7 @@ button {
   height: 27px;
   left: 0;
   top: 0;
-  background: url(../../images/service-reserve/nijyuhukidashi-left@2x.png) center center/contain no-repeat;
+  background: url(../images/service-reserve/nijyuhukidashi-left@2x.png) center center/contain no-repeat;
 }
 .support__catchphrase::after {
   position: absolute;
@@ -12343,7 +12343,7 @@ button {
   height: 27px;
   right: 0;
   top: 0;
-  background: url(../../images/service-reserve/nijyuhukidashi-right@2x.png) center center/contain no-repeat;
+  background: url(../images/service-reserve/nijyuhukidashi-right@2x.png) center center/contain no-repeat;
 }
 
 .price {

@@ -81,7 +81,7 @@ get_header();
     <section class="news-list">
         <div class="news-list__inner inner">
             <!-- フィルター -->
-            <div class="news-list__filter">
+            <div class="news-list__filter" role="radiogroup" aria-label="お知らせの種類で絞り込む">
                 <label class="news-list__filter-item">
                     <input type="radio" name="news-list-filter" value="all" checked>
                     <span>全て</span>
@@ -129,9 +129,9 @@ get_header();
                                 </span>
                             </div>
                             <div class="news-list__card-body">
-                                <p class="news-list__card-date"><?php echo get_the_date('Y.m.d'); ?></p>
-                                <h3 class="news-list__card-title"><?php the_title(); ?></h3>
-                                <p class="news-list__card-text"><?php echo wp_trim_words(get_the_excerpt(), 40, '...'); ?></p>
+                                <p class="news-list__card-date"><?php echo esc_html(get_the_date('Y.m.d')); ?></p>
+                                <h2 class="news-list__card-title"><?php the_title(); ?></h2>
+                                <p class="news-list__card-text"><?php echo esc_html(wp_trim_words(get_the_excerpt(), 40, '...')); ?></p>
                             </div>
                         </a>
                     </article>

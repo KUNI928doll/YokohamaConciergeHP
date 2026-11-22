@@ -130,11 +130,9 @@ document.addEventListener('DOMContentLoaded', function() {
   // 確認ボタンのクリック
   confirmBtn.addEventListener('click', function(e) {
     e.preventDefault();
-    console.log('確認ボタンがクリックされました');
     
     // 必須項目のバリデーション
     const requiredFields = form.querySelectorAll('[required]');
-    console.log('必須項目の数:', requiredFields.length);
     
     let isValid = true;
     let firstInvalidField = null;
@@ -142,7 +140,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     requiredFields.forEach(field => {
       const value = field.value ? field.value.trim() : '';
-      console.log(`フィールド ${field.name || field.id}: "${value}"`);
       
       if (!value) {
         isValid = false;
@@ -157,12 +154,6 @@ document.addEventListener('DOMContentLoaded', function() {
         field.style.borderWidth = '';
       }
     });
-    
-
-    console.log('バリデーション結果:', isValid);
-    if (invalidFields.length > 0) {
-      console.log('未入力の必須項目:', invalidFields);
-    }
 
     if (!isValid) {
       // エラーメッセージを表示
@@ -199,16 +190,13 @@ document.addEventListener('DOMContentLoaded', function() {
       return;
     }
 
-    console.log('バリデーション成功。確認画面を表示します。');
     
     try {
       // 確認画面の内容を生成
       generateConfirmContent();
-      console.log('確認内容を生成しました');
       
       // 確認モーダルを表示
       showConfirmModal();
-      console.log('確認モーダルを表示しました');
     } catch (error) {
       console.error('確認画面の表示中にエラーが発生しました:', error);
       alert('確認画面の表示中にエラーが発生しました。ページを再読み込みしてください。');
@@ -339,7 +327,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     let html = '';
-    console.log('確認内容を生成開始');
 
     Object.keys(sections).forEach(sectionTitle => {
       const fields = sections[sectionTitle];
@@ -449,7 +436,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     confirmContent.innerHTML = html;
-    console.log('確認内容を設定しました。HTMLの長さ:', html.length);
   }
 
   // 確認モーダル表示
@@ -460,9 +446,6 @@ document.addEventListener('DOMContentLoaded', function() {
       return;
     }
     
-    console.log('確認モーダルを表示します');
-    console.log('confirmModal要素:', confirmModal);
-    console.log('現在のdisplay:', confirmModal.style.display);
     
     confirmModal.style.display = 'flex';
     confirmModal.style.visibility = 'visible';
@@ -472,13 +455,6 @@ document.addEventListener('DOMContentLoaded', function() {
     requestAnimationFrame(() => {
       confirmModal.classList.add('is-active');
       confirmModal.style.opacity = '1';
-      console.log('is-activeクラスを追加しました');
-      console.log('モーダルの現在の状態:', {
-        display: confirmModal.style.display,
-        visibility: confirmModal.style.visibility,
-        opacity: confirmModal.style.opacity,
-        hasActiveClass: confirmModal.classList.contains('is-active')
-      });
     });
   }
 
@@ -539,12 +515,6 @@ document.addEventListener('DOMContentLoaded', function() {
       // Stripe決済セッションを作成
       const ajaxurl = window.yokohamaReservation?.ajaxurl || '/wp-admin/admin-ajax.php';
       
-      console.log('リクエストURL:', ajaxurl);
-      console.log('リクエストデータ:', {
-        action: formData.get('action'),
-        estimated_amount: formData.get('estimated_amount'),
-        has_nonce: !!formData.get('reservation_nonce')
-      });
       
       fetch(ajaxurl, {
         method: 'POST',
@@ -555,13 +525,9 @@ document.addEventListener('DOMContentLoaded', function() {
         credentials: 'same-origin'
       })
       .then(response => {
-        console.log('レスポンスステータス:', response.status);
-        console.log('レスポンスURL:', response.url);
-        console.log('最終リクエストURL:', response.url !== ajaxurl ? 'リダイレクトされました: ' + response.url : 'リダイレクトなし');
         
         // レスポンスのContent-Typeを確認
         const contentType = response.headers.get('content-type');
-        console.log('Content-Type:', contentType);
         
         // XMLエラーの場合を特別に処理
         if (contentType && contentType.includes('application/xml') || contentType.includes('text/xml')) {
@@ -596,8 +562,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       })
       .then(data => {
-        console.log('Stripe決済レスポンス:', data);
-        console.log('レスポンス詳細:', JSON.stringify(data, null, 2));
         
         if (data.success && data.data && data.data.url) {
           // Stripe決済ページにリダイレクト
@@ -660,7 +624,6 @@ document.addEventListener('DOMContentLoaded', function() {
         body: formData
       })
       .then(response => {
-        console.log('Response status:', response.status);
         
         // レスポンスがJSONでない場合もハンドリング
         const contentType = response.headers.get('content-type');
@@ -684,7 +647,6 @@ document.addEventListener('DOMContentLoaded', function() {
           // デモモードの場合は警告を表示
           if (data.demo) {
             console.warn('デモモード: 実際のメール送信は行われていません。');
-            console.log('本番環境ではPHPサーバーが必要です。');
           }
           
           // 成功時：完了モーダルを表示
@@ -698,7 +660,6 @@ document.addEventListener('DOMContentLoaded', function() {
       })
       .catch(error => {
         console.error('送信エラー:', error);
-        console.log('エラー詳細:', error.message);
         
         // PHPサーバーが動作していない場合のフォールバック
         // ローカル開発環境では完了画面を表示
@@ -715,8 +676,6 @@ document.addEventListener('DOMContentLoaded', function() {
           // 完了モーダルを表示（デモ）
           setTimeout(() => {
             showCompleteModal();
-            console.log('【デモモード】実際のメール送信は行われていません。');
-            console.log('本番環境ではPHPサーバーで ./api/send-reservation.php が動作します。');
           }, 400);
         } else {
           // 確認モーダルを閉じる

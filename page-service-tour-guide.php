@@ -197,7 +197,6 @@ get_header();
                                     </li>
                                     <li>
                                         <a href="https://marinetower.yokohama/" class="guide-spots__spot-name">横浜マリンタワー (元町・中華街/徒歩3分)</a>
-                                    </a>
                                         
                                     </li>
                                     <li>
@@ -333,7 +332,7 @@ get_header();
                             <div class="guide-spots__panel-body">
                                 <ul class="guide-spots__list">
                                     <li>
-                                        <a href="#" class="guide-spots__spot-name">赤レンガ倉庫（馬車道・日本大通り/徒歩6分）</a>  
+                                        <a href="https://www.yokohama-akarenga.jp/" class="guide-spots__spot-name">赤レンガ倉庫（馬車道・日本大通り/徒歩6分）</a>  
                                     </li>
                                 </ul>
 
@@ -341,7 +340,7 @@ get_header();
                                     <div class="guide-spots__gallery">
                                     </div>
                                     <div class="guide-spots__footer">
-                                        <a href="yokohama.html#map-bashamichi" class="guide-spots__map-link">
+                                        <a href="<?php echo esc_url(home_url('/yokohama/#map-bashamichi')); ?>" class="guide-spots__map-link">
                                             <span>MAPへ</span>
                                         </a>
                                     </div>
@@ -414,7 +413,7 @@ get_header();
                             <div class="guide-spots__panel-body">
                                 <ul class="guide-spots__list">
                                     <li>
-                                        <a href="https://www.yokohama-landmark.jp/skygarden/access/" class="guide-spots__spot-name">横浜ランドマークタワー（みなとみらい/徒歩2分）</a>
+                                        <a href="https://yokohama-landmark.jp/skygarden/" class="guide-spots__spot-name">横浜ランドマークタワー（みなとみらい/徒歩2分）</a>
                                         
                                     </li>
                                     <li>
@@ -572,6 +571,7 @@ get_header();
                         </div>
                     </div>
                 </div>
+            </div>
         </section>
 
         <!-- お困りごとの解決セクション -->
@@ -600,7 +600,7 @@ get_header();
                     <div class="support__body">
                         <ol class="support__list">
                             <li class="support__list-item">
-                                1 　<strong>突然の交通トラブル</strong>による交通機関予約や宿泊先予約、飲食店の予約（横浜近隣施設）</strong>
+                                1 　<strong>突然の交通トラブル</strong>による交通機関予約や宿泊先予約、飲食店の予約（横浜近隣施設）
                             </li>
                             <li class="support__list-item">
                                 2 　<strong>突然の体調不良</strong>による交通機関予約や宿泊先予約、飲食店の予約（横浜近隣施設） <br>
@@ -611,7 +611,7 @@ get_header();
                                 ＊<strong>旅行中の紛失物</strong>の対応方法などのご相談。</li>
                             <li class="support__list-item">
                                 4 　その他旅行中に<strong>ご相談事</strong>がある場合<br>
-                                ＊弊社でご対応できる内容であれば対応いたしますので、ご相談ください。</strong>
+                                ＊弊社でご対応できる内容であれば対応いたしますので、ご相談ください。
                             </li>
                         </ol>
                     </div>

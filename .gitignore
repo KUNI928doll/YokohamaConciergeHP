@@ -11,3 +11,6 @@
 node_modules/
 
 .revision/
+docs/qa/*/screenshots/
+docs/qa/*/data/
+docs/qa/*/report.html

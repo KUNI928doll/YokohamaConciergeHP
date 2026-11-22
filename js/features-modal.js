@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (!modal) return;
 
   let currentFeatureId = 1;
+  let lastTrigger = null;
 
   // 特徴を表示（HTMLに記述された各コンテンツを切り替え）
   function showFeature(featureId) {
@@ -28,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // 特徴をクリックしたらモーダルを開く
   featureCircles.forEach(circle => {
     circle.addEventListener('click', function() {
+      lastTrigger = this;
       const featureId = parseInt(this.getAttribute('data-feature'));
       showFeature(featureId);
       openModal();
@@ -61,6 +63,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     setTimeout(() => {
       modal.classList.add('is-active');
+      // キーボードで開いたときも操作できるよう、表示中の閉じるボタンへフォーカスを移す
+      const current = modal.querySelector(`.features-modal__content[data-feature="${currentFeatureId}"] .features-modal__close`);
+      if (current) current.focus();
     }, 10);
   }
 
@@ -72,6 +77,12 @@ document.addEventListener('DOMContentLoaded', function() {
       modal.style.display = 'none';
       // document.body.style.overflow = ''; // 背景スクロールを許可
     }, 300);
+
+    // 開いた丸にフォーカスを戻す
+    if (lastTrigger) {
+      lastTrigger.focus();
+      lastTrigger = null;
+    }
   }
 
   // 閉じるボタンのイベント設定

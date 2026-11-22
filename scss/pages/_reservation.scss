@@ -1040,11 +1040,6 @@
       min-width: 100%;
       max-width: 100%;
     }
-    
-    @include mq($until: 768px) {
-      font-size: 1.3rem;
-      padding: 10px 14px;
-    }
   }
 
   &__stripe {
