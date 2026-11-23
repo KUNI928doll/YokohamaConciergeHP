@@ -2154,3 +2154,34 @@ function yokohama_concierge_remove_pingback_header($headers) {
     return $headers;
 }
 add_filter('wp_headers', 'yokohama_concierge_remove_pingback_header');
+
+// ===== カテゴリー・タグ・年月日ごとのお知らせ一覧は使っていないので 404 にする =====
+// （一覧用のテンプレートが無く、開くと真っ白になるため。お知らせ一覧は /news/ の home.php を使う）
+function yokohama_concierge_block_archive_pages() {
+    if (is_admin()) {
+        return;
+    }
+    if (is_category() || is_tag() || is_date()) {
+        global $wp_query;
+        $wp_query->set_404();
+        status_header(404);
+        nocache_headers();
+    }
+}
+add_action('template_redirect', 'yokohama_concierge_block_archive_pages', 1);
+
+// ===== Google アナリティクス（GA4） =====
+function yokohama_concierge_google_analytics() {
+    $ga_id = 'G-L9JN91M0TT';
+    ?>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo esc_attr($ga_id); ?>"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '<?php echo esc_js($ga_id); ?>');
+    </script>
+    <?php
+}
+add_action('wp_head', 'yokohama_concierge_google_analytics', 1);
