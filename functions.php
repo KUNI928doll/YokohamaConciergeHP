@@ -980,7 +980,7 @@ function yokohama_concierge_get_reservation_allowed_values() {
         'price_rank'  => array('2000', '3000', '6000', '12000', '20000', '30000', '30000plus', '50000plus'),
         'cuisine'     => array(
             'washoku', 'sushi', 'tempura', 'soba_udon', 'chinese', 'indian', 'french',
-            'italian', 'spanish', 'grill', 'yakiniku', 'steak', 'vege', 'cafe', 'other',
+            'italian', 'spanish', 'grill', 'yakiniku', 'steak', 'vege', 'cafe', 'other', 'attraction',
         ),
     );
 }
@@ -1897,7 +1897,7 @@ function yokohama_concierge_send_reservation_emails($post_id, $form_data, $amoun
         $customer_message .= "\n";
     }
     if (isset($form_data['diningDate'])) {
-        $customer_message .= "【飲食店舗予約代行サービス】\n";
+        $customer_message .= "【飲食店舗・アトラクション予約代行サービス】\n";
         $customer_message .= "予約日：" . $form_data['diningDate'] . "\n";
         if (!empty($form_data['diningTime'])) {
             $customer_message .= "予約時間：" . $form_data['diningTime'] . "\n";

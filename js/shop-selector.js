@@ -239,8 +239,12 @@ document.addEventListener('DOMContentLoaded', function() {
   function filterShops(category) {
     // カテゴリで絞り込み
     let shops = allShops.filter(s => {
-      if (category === 'hotels')      return s.category === 'hotel';
-      if (category === 'restaurants') return s.category === 'restaurant';
+      if (category === 'hotels') return s.category === 'hotel';
+      if (category === 'restaurants') {
+        const cv = document.getElementById('dining-cuisine')?.value || '';
+        if (cv === 'attraction') return s.category === 'attraction';
+        return s.category === 'restaurant';
+      }
       return false;
     });
 

@@ -144,7 +144,7 @@ function generateEmailBody($data) {
     }
     
     if (!empty($data['diningDate'])) {
-        $body .= "【飲食店舗予約代行サービス】\n";
+        $body .= "【飲食店舗・アトラクション予約代行サービス】\n";
         $body .= "予約日: " . ($data['diningDate'] ?? '') . "\n";
         $body .= "大人: " . ($data['diningAdults'] ?? '0') . "名\n";
         $body .= "子供: " . ($data['diningChildren'] ?? '0') . "名\n";
@@ -269,7 +269,7 @@ function getEmailTranslations($lang) {
             'lbl_amount'   => 'お支払い金額',
             'svc_guide'    => '【観光ガイドサービス】',
             'svc_hotel'    => '【ホテル予約代行サービス】',
-            'svc_dining'   => '【飲食店舗予約代行サービス】',
+            'svc_dining'   => '【飲食店舗・アトラクション予約代行サービス】',
             'svc_activity' => '【体験アクティビティ代行サービス】',
             'svc_luggage'  => '【トランクお預かりサービス】',
             'lbl_course'   => 'コース',

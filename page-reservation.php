@@ -363,12 +363,12 @@ Please enter any special requests in English if possible."></textarea>
 
                 <div class="reservation-form__section">
                     <div class="reservation-form__section-head">
-                        <h3 class="reservation-form__legend">飲食店舗予約代行サービス</h3>
+                        <h3 class="reservation-form__legend">飲食店舗・アトラクション予約代行サービス</h3>
                         <button type="button" class="reservation-form__section-clear-btn" data-section="dining" title="このセクションをクリア">
                             <i class="fas fa-eraser" aria-hidden="true"></i> クリア
                         </button>
                     </div>
-                    <p class="reservation-form__description">ご希望の日時・人数・ご予算をお知らせください。条件に合う店舗をご提案します。</p>
+                    <p class="reservation-form__description">ご希望の日時・人数・ご予算をお知らせください。条件に合う店舗・施設をご提案します。</p>
                     <div class="reservation-form__grid">
                         <div class="reservation-form__field">
                             <label for="dining-date" class="reservation-form__label">予約日</label>
@@ -404,7 +404,7 @@ Please enter any special requests in English if possible."></textarea>
                             </select>
                         </div>
                         <div class="reservation-form__field">
-                            <label for="dining-cuisine" class="reservation-form__label">料理ジャンル</label>
+                            <label for="dining-cuisine" class="reservation-form__label">料理・アトラクションジャンル</label>
                             <select id="dining-cuisine" name="cuisine" class="reservation-form__select">
                                 <option value="" disabled selected>選択してください</option>
                                 <option value="washoku">和食</option>
@@ -422,6 +422,7 @@ Please enter any special requests in English if possible."></textarea>
                                 <option value="vege">ベジタリアン</option>
                                 <option value="cafe">カフェ</option>
                                 <option value="other">その他（ご要望欄へ）</option>
+                                <option value="attraction">アトラクション（入場・観覧）</option>
                             </select>
                         </div>
                         <div class="reservation-form__field">
@@ -457,8 +458,8 @@ Please enter any special requests in English if possible."></textarea>
                     <div class="reservation-form__field reservation-form__field--full">
                         <label for="dining-request" class="reservation-form__label">その他ご希望事項</label>
                         <textarea id="dining-request" name="diningRequest" class="reservation-form__textarea"
-                            rows="4" placeholder="アレルギーや記念日利用などございましたらご入力ください
-Please enter any special requests in English if possible."></textarea>
+                            rows="4" placeholder="アレルギーや記念日利用、アトラクションのご希望（施設名・チケットの種類・時間など）がございましたらご入力ください
+Please enter any special requests (allergies, celebrations, or attraction details such as name, ticket type and time) in English if possible."></textarea>
                     </div>
                     <div class="reservation-form__field reservation-form__field--full">
                         <p class="reservation-form__label">ハマナビからの提案</p>
@@ -468,7 +469,7 @@ Please enter any special requests in English if possible."></textarea>
                         </p>
                         <div class="reservation-form__shop-selector">
                             <button type="button" class="btn btn--outline btn--sm" id="selectRestaurantBtn">
-                                <i class="fas fa-utensils" aria-hidden="true"></i> ホテル・飲食店から選ぶ
+                                <i class="fas fa-utensils" aria-hidden="true"></i> 店舗・施設から選ぶ
                             </button>
                         </div>
                         <div class="reservation-form__proposal-grid">
@@ -480,7 +481,7 @@ Please enter any special requests in English if possible."></textarea>
                                     </button>
                                 </div>
                                 <textarea id="dining-proposal-1" name="diningProposal1"
-                                    class="reservation-form__textarea" rows="4" placeholder="レストランを選択するか、直接入力してください" readonly></textarea>
+                                    class="reservation-form__textarea" rows="4" placeholder="レストラン・アトラクションを選択するか、直接入力してください" readonly></textarea>
                                 <input type="hidden" id="dining-proposal-1-id" name="diningProposal1Id">
                                 <input type="hidden" id="dining-shop-address" name="diningShopAddress">
                                 <input type="hidden" id="dining-shop-phone" name="diningShopPhone">

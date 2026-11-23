@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
     '基本入力項目': ['name', 'gender', 'nationality', 'address', 'passport', 'stay', 'phone', 'email', 'card', 'cardType', 'cvv', 'companion'],
     '観光ガイドサービス': ['guideCourse', 'guideDate', 'guideArea', 'guideAdults', 'guideChildren', 'guideSpots', 'guideNotes'],
     'ホテル予約代行サービス': ['hotelDate', 'hotelArea', 'hotelBudget', 'hotelAdults', 'hotelChildren', 'hotelRequest', 'hotelProposal1'],
-    '飲食店舗予約代行サービス': ['diningDate', 'diningTime', 'diningAdults', 'diningChildren', 'diningBudget', 'cuisine', 'diningRequest'],
+    '飲食店舗・アトラクション予約代行サービス': ['diningDate', 'diningTime', 'diningAdults', 'diningChildren', 'diningBudget', 'cuisine', 'diningRequest'],
     '体験アクティビティ代行サービス': ['activityDatetime', 'activityAdults', 'activityChildren', 'activityType', 'activityRequest'],
     'トランクお預かりサービス': ['luggageDate', 'luggageTime', 'luggageCount', 'luggageNotes']
   };
