@@ -732,24 +732,24 @@
 
             <div class="influencer__cards">
                 <div class="influencer-card-wrapper">
-                    <a href="https://www.welcome.city.yokohama.jp/" class="influencer-card" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.welcome.city.yokohama.jp/hottopics/bayside-blue/" class="influencer-card" target="_blank" rel="noopener noreferrer">
                         <p class="influencer-card__desc">有名スポットに1本で移動できる連接バス</p>
                         <h3 class="influencer-card__title">BAYSIDE BLUE</h3>
                     </a>
                     <span class="influencer-card__link">
-                        <a href="https://www.welcome.city.yokohama.jp/" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.welcome.city.yokohama.jp/hottopics/bayside-blue/" target="_blank" rel="noopener noreferrer">
                             横浜観光情報公式サイト
                         </a>
                     </span>
                 </div>
 
                 <div class="influencer-card-wrapper">
-                    <a href="https://www.city.yokohama.lg.jp/kotsu/" class="influencer-card" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.city.yokohama.lg.jp/kotsu/bus/norikata/akaikutsu.html" class="influencer-card" target="_blank" rel="noopener noreferrer">
                         <p class="influencer-card__desc">横浜赤レンガ倉庫や中華街など、人気スポットを巡る</p>
                         <h3 class="influencer-card__title">周遊バス「あかいくつ」</h3>
                     </a>
                     <span class="influencer-card__link">
-                        <a href="https://www.city.yokohama.lg.jp/kotsu/" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.city.yokohama.lg.jp/kotsu/bus/norikata/akaikutsu.html" target="_blank" rel="noopener noreferrer">
                             横浜市交通局公式サイト
                         </a>
                     </span>
@@ -779,12 +779,12 @@
                 </div>
 
                 <div class="influencer-card-wrapper">
-                    <a href="https://goinc.jp/" class="influencer-card" target="_blank" rel="noopener noreferrer">
+                    <a href="https://go.goinc.jp/" class="influencer-card" target="_blank" rel="noopener noreferrer">
                         <p class="influencer-card__desc">インバウンド顧客対応</p>
                         <h3 class="influencer-card__title">タクシーアプリ</h3>
                     </a>
                     <span class="influencer-card__link">
-                        <a href="https://goinc.jp/" target="_blank" rel="noopener noreferrer">
+                        <a href="https://go.goinc.jp/" target="_blank" rel="noopener noreferrer">
                             GO株式会社
                         </a>
                     </span>

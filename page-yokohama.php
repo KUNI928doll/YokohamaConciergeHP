@@ -415,7 +415,7 @@ get_header();
                 <!-- リンクボックス一覧 -->
                 <div class="transport-links__grid">
                     <!-- 1 -->
-                    <a href="#" class="transport-links__item" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.welcome.city.yokohama.jp/hottopics/bayside-blue/" class="transport-links__item" target="_blank" rel="noopener noreferrer">
                         <div class="transport-links__box">
                             <p class="transport-links__desc">有名スポットに1本で移動できる連接バス</p>
                             <p class="transport-links__title">BAYSIDE BLUE</p>
@@ -425,7 +425,7 @@ get_header();
                         </div>
                     </a>
                     <!-- 2 -->
-                    <a href="#" class="transport-links__item" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.city.yokohama.lg.jp/kotsu/bus/norikata/akaikutsu.html" class="transport-links__item" target="_blank" rel="noopener noreferrer">
                         <div class="transport-links__box">
                             <p class="transport-links__desc">横濱ハンマーヘッドや赤レンガ倉庫など、<br>横浜人気観光スポットを巡る</p>
                             <p class="transport-links__title">周遊バス「あかいくつ」</p>
@@ -436,7 +436,7 @@ get_header();
                     </a>
 
                     <!-- 3 -->
-                    <a href="#" class="transport-links__item" target="_blank" rel="noopener noreferrer">
+                    <a href="https://luup.sc/" class="transport-links__item" target="_blank" rel="noopener noreferrer">
                         <div class="transport-links__box">
                             <p class="transport-links__desc">横浜駅周辺及び元町中華街・関内周辺の</p>
                             <p class="transport-links__title">電動キックボード</p>
@@ -447,7 +447,7 @@ get_header();
                     </a>
 
                     <!-- 4 -->
-                    <a href="#" class="transport-links__item" target="_blank" rel="noopener noreferrer">
+                    <a href="https://yokohama-air-cabin.jp/" class="transport-links__item" target="_blank" rel="noopener noreferrer">
                         <div class="transport-links__box">
                             <p class="transport-links__desc">日本初！世界最先端の都市型循環式ロープウェイ</p>
                             <p class="transport-links__title">YOKOHAMA AIR CABIN</p>
@@ -458,7 +458,7 @@ get_header();
                     </a>
 
                     <!-- 5 -->
-                    <a href="#" class="transport-links__item" target="_blank" rel="noopener noreferrer">
+                    <a href="https://go.goinc.jp/" class="transport-links__item" target="_blank" rel="noopener noreferrer">
                         <div class="transport-links__box">
                             <p class="transport-links__desc">インバウンド顧客対応</p>
                             <p class="transport-links__title">タクシーアプリ</p>
@@ -469,7 +469,7 @@ get_header();
                     </a>
 
                     <!-- 6 -->
-                    <a href="#" class="transport-links__item" target="_blank" rel="noopener noreferrer">
+                    <a href="https://docomo-cycle.jp/yokohama/" class="transport-links__item" target="_blank" rel="noopener noreferrer">
                         <div class="transport-links__box">
                             <p class="transport-links__desc">横浜のコミュニティサイクル</p>
                             <p class="transport-links__title">バイクシェアサービス</p>
