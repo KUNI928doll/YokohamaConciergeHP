@@ -206,7 +206,7 @@ get_header();
                                 関内エリア
                             </h2>
                             <div class="tab-panel-wrap">
-                                <p class="tab-text">文明開化の時代に外国人居留地として栄えた馬車道は、ガス灯とレンガ造りの建物が並ぶ、レトロな雰囲気漂うエリア。アイスクリームやガス灯発祥の地としても知られ、昔ながらの洋食店やアートスポットが点在しています。レトロとモダンが調和した散策におすすめの場所です。
+                                <p class="tab-text">関内は、開港のころに外国人居留地を守る関所の内側だったことから名付けられた、横浜の歴史の中心地です。横浜スタジアムのある横浜公園や、イチョウ並木の日本大通り、レトロな近代建築が集まり、街歩きや野球観戦、食事を楽しめます。
                                 </p>
                                 <div class="tab-img2">
                                     <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/images/yokohama/kannai-tab01@2x.png" alt="関内エリアの写真"
