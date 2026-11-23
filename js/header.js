@@ -109,6 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initDropdown('.js-spmenu-dropdown', '.spmenu__item--has-sub');
 
   initDropdown('.js-inner-dropdown', '.inner-nav__item--has-sub');
+  initDropdown('.js-tel-dropdown', '.header__tel-sp');
 
   // SP用の多言語切り替えボタン
   const spLanguageToggle = document.querySelector('.spmenu .spmenu__top .header__language-wrapper.lang-switch') || 

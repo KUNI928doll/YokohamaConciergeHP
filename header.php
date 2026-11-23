@@ -102,6 +102,30 @@
                 </div>
             </div>
 
+            <!-- SP用電話（ハンバーガー外） -->
+            <div class="header__tel-sp">
+                <button type="button" class="header__tel-sp-btn js-tel-dropdown" aria-expanded="false" aria-controls="header-tel-sp-list"
+                    aria-label="電話をかける">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/header_phoneicon.png" alt="" aria-hidden="true"
+                        class="header__tel-sp-icon" width="17" height="20">
+                    <span class="header__tel-sp-text" aria-hidden="true">TEL</span>
+                </button>
+                <ul id="header-tel-sp-list" class="header__tel-sp-list">
+                    <li>
+                        <a href="tel:+81456812737" class="header__tel-sp-link">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/header_phoneicon.png" alt="" aria-hidden="true" width="17" height="20">
+                            045-681-2737
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tel:+817015263845" class="header__tel-sp-link header__tel-sp-link--mobile">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/header_mobileicon.png" alt="" aria-hidden="true" width="14" height="21">
+                            070-1526-3845
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
             <!-- ハンバーガー -->
             <button type="button" class="header__toggle u-visible-sp" aria-controls="global-nav" aria-expanded="false"
                 aria-label="メニューを開く">
