@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
     || '/wp-content/themes/yokohama-concierge';
 
   // オペレーターCSVを読み込む
-  fetch(themeUri + '/data/operator-list.csv')
+  fetch('https://script.google.com/macros/s/AKfycbx-SvAzNu58AhYf4MAlDwYxCHuVmqCh_pI3gpUS0Q0z_O_du4dWkEtxk-YN09RRuk57/exec')
     .then(r => { if (!r.ok) throw new Error('CSV not found'); return r.text(); })
     .then(csvText => {
       allShops = parseOperatorCSV(csvText);
