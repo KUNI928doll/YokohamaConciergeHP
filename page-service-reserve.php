@@ -180,7 +180,7 @@ get_header();
                                             <p class="">日本ならではの伝統的なハンドメイド体験。お土産にもおすすめです。気軽にできる1日体験で思い出を作りましょう！</p>
                                         </div>
                                         <div class="play-slider__links">
-                                            <a href="#">陶芸教室　みなとみらい陶芸教室</a>
+                                            <a href="https://www.mm21tougei.com/" target="_blank" rel="noopener noreferrer">陶芸教室　みなとみらい陶芸教室</a>
                                         </div>
                                     </div>
                                 </div>
@@ -196,7 +196,7 @@ get_header();
                                             <p>日本の伝統衣装「着物」をプロの着付けで気軽に体験できます。街歩きや写真撮影にもぴったりです。</p>
                                         </div>
                                         <div class="play-slider__links">
-                                            <a href="#">横浜着物レンタル バサラホール<span class="br">ディングス　みなとみらい店</span></a>
+                                            <a href="https://vasara-h.co.jp/shop/detail.html?id=25" target="_blank" rel="noopener noreferrer">横浜着物レンタル バサラホール<span class="br">ディングス　みなとみらい店</span></a>
                                         </div>
                                     </div>
                                 </div>
@@ -212,7 +212,7 @@ get_header();
                                             </p>
                                         </div>
                                         <div class="play-slider__links">
-                                            <a href="#">人力車　株式会社横浜おもてなし<span class="br">家</span></a>
+                                            <a href="http://www.yokohama-jinrikisha.com/rickshaw/" target="_blank" rel="noopener noreferrer">人力車　株式会社横浜おもてなし<span class="br">家</span></a>
                                         </div>
                                     </div>
                                 </div>
@@ -227,7 +227,7 @@ get_header();
                                             <p>初心者OK。運河で楽しむ水上アクティビティ。外国人にも人気です。</p>
                                         </div>
                                         <div class="play-slider__links">
-                                            <a href="#">SUP体験　横浜SUP倶楽部</a>
+                                            <a href="https://yokohamasup-club.com/" target="_blank" rel="noopener noreferrer">SUP体験　横浜SUP倶楽部</a>
                                         </div>
                                     </div>
                                 </div>
@@ -244,7 +244,7 @@ get_header();
                                             </p>
                                         </div>
                                         <div class="play-slider__links">
-                                            <a href="#">スカイダック横浜（水陸両用バス）　SKY BUS TOKYO日の丸自動車株式会社　</a>
+                                            <a href="https://www.skybus.jp/course/?id=1499860040-092824" target="_blank" rel="noopener noreferrer">スカイダック横浜（水陸両用バス）　SKY BUS TOKYO日の丸自動車株式会社　</a>
                                         </div>
                                     </div>
                                 </div>
@@ -260,7 +260,7 @@ get_header();
                                             </p>
                                         </div>
                                         <div class="play-slider__links">
-                                            <a href="#">マリーンルージュクルーズ船 Y <span class="br">Cruise株式会社</span></a>
+                                            <a href="https://yokohama-cruising.jp/" target="_blank" rel="noopener noreferrer">マリーンルージュクルーズ船 Y <span class="br">Cruise株式会社</span></a>
                                         </div>
                                     </div>
                                 </div>
@@ -276,7 +276,7 @@ get_header();
                                             </p>
                                         </div>
                                         <div class="play-slider__links">
-                                            <a href="#">屋形船　濱進</a>
+                                            <a href="https://www.hamashin.co.jp/" target="_blank" rel="noopener noreferrer">屋形船　濱進</a>
                                         </div>
                                     </div>
                                 </div>
