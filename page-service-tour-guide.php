@@ -555,7 +555,6 @@ get_header();
                         <h3 class="guide-fee__not-included-title">費用に含まれないもの</h3>
                         <ul class="guide-fee__not-included-list">
                             <li>飲食代・体験料金・交通費など実費でかかる費用</li>
-                            <li>飲食店ではガイドスタッフの飲食代もご負担願います</li>
                         </ul>
                     </div>
 
